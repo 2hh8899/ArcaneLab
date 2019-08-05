@@ -562,6 +562,39 @@
 			"name": "fishSpotMarker",
 			"dir": "SOUTH"
 		}
+	},  {
+		"type": "EventTrigger",
+		"x": 55,
+		"y": 164,
+		"level": 1,
+		"settings": {
+			"name": "fistEffectTrack",
+			"eventType": "INTERRUPTABLE",
+			"startCondition": "tmp.startEffect",
+			"endCondition": "!tmp.startEffect",
+			"triggerType": "REPEAT",
+			"event": [{
+				"entity": {
+					"global": true,
+					"name": "fishSpotMarker"
+				},
+				"duration": 0,
+				"group": "fishBubbles",
+				"align": "BOTTOM",
+				"wait": true,
+				"waitSkip": 0,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "fishing.fishing",
+					"name": "bubble"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}]
+		}
 	}, {
 		"type": "EventTrigger",
 		"x": 51,
@@ -570,8 +603,12 @@
 		"settings": {
 			"name": "fistSpotMove",
 			"eventType": "INTERRUPTABLE",
-			"endCondition": "false",
+			"endCondition": "tmp.catchingFish",
 			"event": [{
+				"type": "WAIT_RANDOM",
+				"minTime": 1,
+				"maxTime": 4
+			},{
 				"entity": {
 					"global": true,
 					"name": "fishSpotMarker"
@@ -654,38 +691,27 @@
 				"stat": "BOTTOM_POS",
 				"type": "SET_VAR_ENTITY_STAT",
 				"varName": "tmp.bubblePos"
+			},{
+				"type": "CHANGE_VAR_BOOL",
+				"varName": "tmp.startEffect",
+				"changeType": "set",
+				"value": true
 			}, {
-				"entity": {
-					"global": true,
-					"name": "fishSpotMarker"
-				},
-				"duration": 10,
-				"align": "BOTTOM",
-				"group": "",
-				"wait": true,
-				"waitSkip": 0,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "fishing.fishing",
-					"name": "bubble"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
+				"type": "WAIT",
+				"time": 10
+			},{
+				"type": "CHANGE_VAR_BOOL",
+				"varName": "tmp.startEffect",
+				"changeType": "set",
+				"value": false
 			}, {
 				"type": "CHANGE_VAR_NUMBER",
 				"varName": "tmp.bubblePos",
 				"changeType": "set",
 				"value": 0
-			}, {
-				"type": "WAIT_RANDOM",
-				"minTime": 1,
-				"maxTime": 4
 			}],
-			"triggerType": "ALWAYS",
-			"startCondition": ""
+			"triggerType": "REPEAT",
+			"startCondition": "!tmp.catchingFish"
 		}
 	}, {
 		"type": "Prop",

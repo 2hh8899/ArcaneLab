@@ -406,6 +406,27 @@
 					"type": "IF",
 					"condition": "entity.attrib.floatInX<16&&entity.attrib.floatInX>-16&&entity.attrib.floatInY<16&&entity.attrib.floatInY>-16",
 					"thenStep": [{
+						"type": "CHANGE_VAR_BOOL",
+						"varName": "tmp.startEffect",
+						"changeType": "set",
+						"value": false
+					}, {
+						"type": "CHANGE_VAR_BOOL",
+						"varName": "tmp.catchingFish",
+						"changeType": "set",
+						"value": true
+					},{
+						"entity": {
+							"player": true
+						},
+						"text": {
+							"en_US": "Should not be showing new fish."
+						},
+						"mode": "NO_LINE",
+						"color": "GREEN",
+						"time": 4,
+						"type": "SHOW_AR_MSG"
+					},{
 						"align": "BOTTOM",
 						"centralAngle": 0.1,
 						"angleVary": 0.1,
@@ -519,6 +540,22 @@
 								"time": 1.5,
 								"type": "WAIT"
 							}]
+						},{
+							"type": "CHANGE_VAR_BOOL",
+							"varName": "tmp.catchingFish",
+							"changeType": "set",
+							"value": false
+						},{
+							"entity": {
+								"player": true
+							},
+							"text": {
+								"en_US": "Should be showing new fish."
+							},
+							"mode": "NO_LINE",
+							"color": "GREEN",
+							"time": 4,
+							"type": "SHOW_AR_MSG"
 						}]
 					}],
 					"elseStep": [{

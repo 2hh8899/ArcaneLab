@@ -1153,11 +1153,11 @@
 						"condition": "tmp.resetOneCost == 1",
 						"thenStep": [{
 							"text": {
-								"en_US": "\\s[0]You can spend one \\c[3]\\v[item.428.name]\\c[0] to reset a circuit. nWhich circuit do you want to reset?",
-								"ja_JP": "\\c[3]\\v[item.428.name]\\c[0]を1つ消費することでサーキットをリセットできます。nどのサーキットをリセットしますか？",
-								"ko_KR": "\\s[0]\\c[3]\\v[item.428.name]\\c[0] 하나를 소비해 회로를 초기화할 수 있습니다. n어떤 회로를 초기화하시겠습니까?",
-								"zh_CN": "\\s[0]你可以通过消耗一个\\c[3]\\v[item.428.name]\\c[0]来重置一个电路。 n你想重置哪个电路？",
-								"de_DE": "\\s[0]Du kannst einen \\c[3]\\v[item.428.name]\\c[0] einwerfen, um ein Circuitbrett zu resetten.nWelches Brett möchtest du resetten?"
+								"en_US": "\\s[0]You can spend one \\c[3]\\v[item.428.name]\\c[0] to reset a circuit. \nWhich circuit do you want to reset?",
+								"ja_JP": "\\c[3]\\v[item.428.name]\\c[0]を1つ消費することでサーキットをリセットできます。\nどのサーキットをリセットしますか？",
+								"ko_KR": "\\s[0]\\c[3]\\v[item.428.name]\\c[0] 하나를 소비해 회로를 초기화할 수 있습니다. \n어떤 회로를 초기화하시겠습니까?",
+								"zh_CN": "\\s[0]你可以通过消耗一个\\c[3]\\v[item.428.name]\\c[0]来重置一个电路。 \n你想重置哪个电路？",
+								"de_DE": "\\s[0]Du kannst einen \\c[3]\\v[item.428.name]\\c[0] einwerfen, um ein Circuitbrett zu resetten.\nWelches Brett möchtest du resetten?"
 							},
 							"center": true,
 							"side": "LEFT",
@@ -1166,10 +1166,10 @@
 						}],
 						"elseStep": [{
 							"text": {
-								"en_US": "\\s[0]You can reset a circuit \\c[2]for free\\c[0]. nWhich circuit do you want to reset?",
-								"de_DE": "\\s[0]Du kannst \\c[2]kostenlos\\c[0] ein Circuitbrett resetten.nWelches Brett möchtest du resetten?",
-								"zh_CN": "\\s[0]你可以\\c[2]免费\\c[0]重置一个电路。 n你想重置哪个电路？",
-								"ja_JP": "\\c[2]無料\\c[0]でサーキットをリセットできます。nどのサーキットをリセットしますか？",
+								"en_US": "\\s[0]You can reset a circuit \\c[2]for free\\c[0]. \nWhich circuit do you want to reset?",
+								"de_DE": "\\s[0]Du kannst \\c[2]kostenlos\\c[0] ein Circuitbrett resetten.\nWelches Brett möchtest du resetten?",
+								"zh_CN": "\\s[0]你可以\\c[2]免费\\c[0]重置一个电路。 \n你想重置哪个电路？",
+								"ja_JP": "\\c[2]無料\\c[0]でサーキットをリセットできます。\nどのサーキットをリセットしますか？",
 								"ko_KR": "\\s[0]회로를 \\c[2]무료\\c[0]로 초기화할 수 있습니다. 어떤 회로를 초기화 하시겠습니까?"
 							},
 							"center": true,
@@ -1347,10 +1347,10 @@
 							"0": " ",
 							"label": {
 								"en_US": "\\c[1]Cancel\\c[0]",
-								"de_DE": "Abbrechen",
-								"zh_CN": "取消<<A",
-								"ja_JP": "キャンセル<<A",
-								"ko_KR": "\\c[1]취소하기\\c[0]<<A"
+								"de_DE": "\\c[1]Abbrechen\\c[0]",
+								"zh_CN": "\\c[1]取消\\c[0]",
+								"ja_JP": "\\c[1]キャンセル\\c[0]",
+								"ko_KR": "\\c[1]취소하기\\c[0]"
 							}
 						}]
 					}],

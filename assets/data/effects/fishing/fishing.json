@@ -1,0 +1,261 @@
+{
+  "DOCTYPE": "EFFECT",
+  "ANIMS": {
+    "namedSheets": {},
+    "SUB": [
+      {
+        "name": "CHARGE_GUI",
+		"pivot": {
+		  "x": 17.5,
+		  "y": 16.5
+		},
+        "sheet": {
+          "src": "media/entity/effects/fishing-charge.png",
+          "offX": 0,
+          "offY": 0,
+          "width": 33,
+          "height": 19
+        },
+        "guiSprites": true,
+        "time": 1,
+        "repeat": true,
+        "frames": [
+          0
+        ]
+      },
+      {
+        "name": "CHARGE_ARROW",
+		"pivot": {
+		  "x": 3.5,
+		  "y": 13.5
+		},
+        "sheet": {
+          "src": "media/entity/effects/fishing-charge.png",
+          "offX": 33,
+          "offY": 2,
+          "width": 7,
+          "height": 17
+        },
+        "guiSprites": true,
+        "time": 1,
+        "repeat": true,
+        "frames": [
+          0
+        ]
+      },
+      {
+        "name": "BUBBLE",
+        "sheet": {
+          "src": "media/entity/effects/ball.png",
+          "offX": 96,
+          "offY": 0,
+          "width": 16,
+          "height": 16
+        },
+		"renderMode": "lighter",
+        "time": 0.5,
+        "repeat": false,
+        "frames": [
+          0
+        ]
+      }
+    ]
+  },
+  "EFFECTS": {
+	"fishingCharge": [
+      {
+        "numParticles": 1,
+        "duration": 0,
+        "centralAngle": 0,
+        "startDist": 0,
+        "particleRotate": false,
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "moveDist": 0,
+        "keySpline": "LINEAR",
+        "moveRotate": 0,
+        "collision": false,
+        "pScale": {
+          "init": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        "moveWithTarget": 1,
+		"particleDuration": -1,
+        "anim": "CHARGE_GUI",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "type": "LOOP_START"
+      },
+      {
+        "numParticles": 1,
+        "duration": 0,
+        "centralAngle": 0,
+        "startAngle": 0.25,
+        "startDist": 0,
+        "particleRotate": true,
+        "offset": {
+          "x": 0,
+          "y": 1,
+          "z": 1
+        },
+        "moveDist": 0,
+        "keySpline": "LINEAR",
+        "moveRotate": 0.5,
+        "rotateWithTime": false,
+        "collision": false,
+        "pScale": {
+          "init": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        "moveWithTarget": 1,
+        "particleDuration": 0.8,
+        "cancelable": true,
+        "anim": "CHARGE_ARROW",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "time": 0.8,
+        "type": "WAIT"
+      },
+      {
+        "numParticles": 1,
+        "duration": 0,
+        "centralAngle": 0,
+        "startAngle": -0.25,
+        "startDist": 0,
+        "particleRotate": true,
+        "offset": {
+          "x": 0,
+          "y": 1,
+          "z": 1
+        },
+        "moveDist": 0,
+        "keySpline": "LINEAR",
+        "moveRotate": -0.5,
+        "rotateWithTime": false,
+        "collision": false,
+        "pScale": {
+          "init": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        "moveWithTarget": 1,
+        "particleDuration": 0.8,
+        "cancelable": true,
+        "anim": "CHARGE_ARROW",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "time": 0.8,
+        "type": "WAIT"
+      },
+      {
+        "type": "LOOP_END"
+      }
+	],
+	"fishingLine":[
+{
+			"patternYCount": 1,
+			"frameTime": 0.05,
+			"guiSprites": true,
+			"renderMode": "lighter",
+			"particleDuration": -1,
+			"pattern": {
+				"src": "media/entity/effects/fishing-charge.png",
+				"offX": 70,
+				"offY": 0,
+				"width": 3,
+				"height": 19
+			},
+			"type": "LASER_SPRITE"
+		},
+		{
+			"type": "LOOP_START"
+		},
+		{
+			"time": 0.1,
+			"type": "WAIT"
+		},
+		{
+			"type": "LOOP_END"
+		}
+	],
+	"bubble":[
+      {
+        "numParticles": 1,
+        "duration": 0.1,
+        "centralAngle": 1,
+        "startDist": 5,
+        "uniformRandom": 1,
+        "moveDist": 0,
+        "collision": false,
+        "pAlpha": {
+          "init": 1,
+          "end": {
+            "value": 0,
+            "time": 0.2,
+            "spline": ""
+          }
+        },
+        "pScale": {
+			"init": {
+				"x": 0,
+				"y": 0
+			},
+			"end": {
+				"value": {
+					"x": 0.7,
+					"y": 0.7
+				},
+				"time": 0.2,
+				"spline": "EASE_OUT"
+			}
+        },
+        "anim": "BUBBLE",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "numParticles": 1,
+        "duration": 0.1,
+        "centralAngle": 1,
+        "startDist": 0,
+        "uniformRandom": 1,
+        "moveDist": 0,
+        "collision": false,
+        "pAlpha": {
+          "init": 0.1,
+          "end": {
+            "value": 0,
+            "time": 0,
+            "spline": ""
+          }
+        },
+        "pScale": {
+			"init": {
+				"x": 0,
+				"y": 0
+			},
+			"end": {
+				"value": {
+					"x": 2,
+					"y": 2
+				},
+				"time": 0.2,
+				"spline": "EASE_OUT"
+			}
+        },
+        "anim": "BUBBLE",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      }
+	]
+  }
+}

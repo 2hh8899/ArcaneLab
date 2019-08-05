@@ -1,0 +1,42 @@
+{
+	"DOCTYPE": "MULTI_DIR_ANIMATION",
+	"namedSheets": {
+		"item": {
+			"src": "media/entity/player/item-hold.png",
+			"xCount": 8,
+			"offX": 0,
+			"offY": 0,
+			"width": 16,
+			"height": 16
+		}
+	},
+	"shapeType": "Y_FLAT",
+	"dirs": "1",
+	"repeat": true,
+	"time": 1,
+	"flipX": [0],
+	"tileOffsets": [0],
+	"SUB": [
+		{
+			"sheet": "item",
+			"SUB":[
+				{
+					"name": "sandvich",
+					"frames": [0]
+				},
+				{
+					"name": "water",
+					"frames": [8]
+				},
+				{
+					"name": "crossworld",
+					"frames": [2]
+				},
+				{
+					"name": "kawaiistarsandvich",
+					"frames": [36]
+				}
+			]
+		}
+	]
+}

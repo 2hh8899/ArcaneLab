@@ -1,0 +1,87 @@
+{
+  "name": {
+    "en_US": "Raclicia",
+    "ko_KR": "레이클리시아"
+  },
+  "animSheet": {
+    "namedSheets": {
+      "move": {
+        "src": "media/entity/npc/raclicia.png",
+        "width": 23,
+        "height": 31
+      }
+    },
+    "shapeType": "Y_FLAT",
+    "offset": {
+      "x": 0,
+      "y": -2,
+      "z": 0
+    },
+    "SUB": [
+      {
+        "sheet": "move",
+        "dirs": 1,
+        "flipX": [
+          0
+        ],
+        "tileOffsets": [
+          0
+        ],
+        "SUB": [
+          {
+            "name": "idle",
+            "time": 1,
+            "repeat": false,
+            "frames": [
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "DOCTYPE": "MULTI_DIR_ANIMATION"
+  },
+  "walkAnimSet": {
+    "normal": {
+      "idle": "idle",
+      "move": "idle"
+    }
+  },
+  "walkAnims": "normal",
+  "configs": {
+    "normal": {
+      "relativeVel": 0.5
+    }
+  },
+  "face": {
+    "width": 105,
+    "height": 146,
+    "centerX": 33,
+    "centerY": 52,
+    "src": "raclicia.png",
+    "parts": [
+      {
+        "normal": {
+          "srcX": 0,
+          "srcY": 0,
+          "width": 105,
+          "height": 146,
+          "destX": 0,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        }
+      }
+    ],
+    "expressions": {
+      "DEFAULT": {
+        "faces": [
+          [
+            "normal"
+          ]
+        ]
+      }
+    }
+  }
+}

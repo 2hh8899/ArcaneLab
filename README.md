@@ -9,3 +9,7 @@
  1. [[이곳]](https://github.com/CCDirectLink/CCLoader)에서 모드로더를 설치해주세요.
  2. 크로스코드가 설치된 폴더의 **assets/mods/** 폴더에 본 모드의 폴더가 들어가도록 설치해주세요.
  3. 게임을 켜고 모드가 잘 적용되었는지 확인해주세요.
+
+
+
+[[후원]](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZP3FUGJJ7TNE2&source=url)

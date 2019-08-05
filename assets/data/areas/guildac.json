@@ -1,9 +1,9 @@
 {
+	"DOCTYPE": "AREAS_MAP",
 	"name": {
 		"en_US": "Arcane Lab",
 		"ko_KR": "아케인 랩"
 	},
-	"DOCTYPE": "AREAS_MAP",
 	"width": 36,
 	"height": 37,
 	"floors": [{
@@ -56,12 +56,12 @@
 			"x": 168,
 			"y": 16,
 			"map": 0
-		},{
+		}, {
 			"icon": "weapons",
 			"x": 172,
 			"y": 238,
 			"map": 0
-		},{
+		}, {
 			"icon": "weapons",
 			"x": 68,
 			"y": 135,
@@ -72,6 +72,17 @@
 			"name": {
 				"en_US": "Arcane Lab",
 				"ko_KR": "아케인 랩"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0
+			},
+			"dungeon": ""
+		}, {
+			"path": "guildac.fish.river",
+			"name": {
+				"en_US": "Autumn Fishing Spot",
+				"ko_KR": "가을의 낚시장"
 			},
 			"offset": {
 				"x": 0,

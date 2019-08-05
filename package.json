@@ -1,4 +1,5 @@
 {
 	"name": "Arcane Lab",
-	"main": "mod.js"
+	"main": "mod.js",
+	"version": "Pre0.0.1a"
 }

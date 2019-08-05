@@ -1,32 +1,27 @@
-[
-  {
-    "type": "ENTER",
-    "index": "entities"
-  },
-  {
-    "type": "ADD_ARRAY_ELEMENT",
-    "content": {
-      "type": "Door",
-      "x": 976,
-      "y": 320,
-      "level": 2,
-      "settings": {
-        "name": "acEntrance",
-        "doorType": "DEFAULT",
-        "dir": "SOUTH",
-        "transitionType": "REGULAR",
-        "map": "autumn.guild.ac-inner-eg",
-        "marker": "acentrance",
-        "hideCondition": "",
-        "variation": ""
-      }
-    }
-  },
-  {
-    "type": "EXIT"
-  },
-  {
-    "type": "IMPORT",
-    "src": "mod:patches/data/maps/autumn/guild/left_import.json"
-  }
-]
+[{
+	"type": "ENTER",
+	"index": "entities"
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": {
+		"type": "Door",
+		"x": 976,
+		"y": 320,
+		"level": 2,
+		"settings": {
+			"name": "acEntrance",
+			"doorType": "DEFAULT",
+			"dir": "SOUTH",
+			"transitionType": "REGULAR",
+			"map": "autumn.guild.ac-inner-eg",
+			"marker": "acentrance",
+			"hideCondition": "",
+			"variation": ""
+		}
+	}
+}, {
+	"type": "EXIT"
+}, {
+	"type": "IMPORT",
+	"src": "mod:patches/data/maps/autumn/guild/left_import.json"
+}]

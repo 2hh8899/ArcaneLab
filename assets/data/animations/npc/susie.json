@@ -1,1089 +1,439 @@
 {
-  "DOCTYPE": "MULTI_DIR_ANIMATION",
-  "namedSheets": {
-    "walk": {
-      "src": "media/entity/npc/susie.png",
-      "xCount": 11,
-      "offX": 0,
-      "offY": 0,
-      "width": 32,
-      "height": 40
-    },
-    "battleWalk": {
-      "src": "media/entity/npc/susie.png",
-      "xCount": 8,
-      "offX": 96,
-      "offY": 200,
-      "width": 32,
-      "height": 40
-    },
-    "battle": {
-      "src": "media/entity/npc/susie.png",
-      "xCount": 8,
-      "offX": 352,
-      "offY": 0,
-      "width": 32,
-      "height": 40
-    },
-    "battle2": {
-      "src": "media/entity/npc/susie.png",
-      "xCount": 9,
-      "offX": 352,
-      "offY": 240,
-      "width": 32,
-      "height": 40
-    },
-    "attack": {
-      "src": "media/entity/npc/susie.png",
-      "xCount": 7,
-      "offX": 352,
-      "offY": 120,
-      "width": 32,
-      "height": 40
-    },
-    "spin": {
-      "src": "media/entity/npc/susie.png",
-      "xCount": 3,
-      "offX": 0,
-      "offY": 320,
-      "width": 32,
-      "height": 40
-    },
-    "poses": {
-      "src": "media/entity/npc/susie.png",
-      "xCount": 3,
-      "offX": 0,
-      "offY": 200,
-      "width": 32,
-      "height": 40
-    },
-    "poses2": {
-      "src": "media/entity/npc/susie.png",
-	  "xCount": 5,
-      "offX": 96,
-      "offY": 400,
-      "width": 32,
-      "height": 40
-    },
-	"poses3": {
-	  "src": "media/entity/npc/susie.png",
-	  "xCount": 4,
-	  "offX": 224,
-	  "offY": 640,
-	  "width": 32,
-	  "height": 40
-	},
-    "eating": {
-      "src": "media/entity/npc/susie.png",
-      "offX": 352,
-      "offY": 360,
-      "width": 32,
-      "height": 40
-    }
-  },
-  "shapeType": "Y_FLAT",
-  "offset": {
-    "x": 0,
-    "y": -4,
-    "z": 0
-  },
-  "SUB": [
-    {
-      "sheet": "walk",
-      "dirs": "8",
-      "flipX": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1
-      ],
-      "tileOffsets": [
-        0,
-        11,
-        22,
-        33,
-        44,
-        132,
-        143,
-        11
-      ],
-      "SUB": [
-        {
-          "name": "idle",
-          "time": 1,
-          "repeat": false,
-          "frames": [
-            1
-          ]
-        },
-        {
-          "name": "preIdle",
-          "time": 0.1,
-          "repeat": false,
-          "frames": [
-            1
-          ]
-        },
-        {
-          "name": "walk",
-          "time": 0.133,
-          "repeat": true,
-          "frames": [
-            0,
-            1,
-            2,
-            1
-          ]
-        },
-        {
-          "name": "runFreeze",
-          "time": 0.05,
-          "repeat": true,
-          "frames": [
-            5,
-            5,
-            5,
-            5,
-            5,
-            5,
-            5,
-            5
-          ],
-          "framesGfxOffset": [
-            1,
-            0,
-            0,
-            0,
-            1,
-            0
-          ]
-        },
-        {
-          "name": "run",
-          "time": 0.0733,
-          "repeat": true,
-          "frames": [
-            3,
-            4,
-            5,
-            6,
-            7,
-            8
-          ]
-        },
-        {
-          "name": "jump",
-          "time": 0.0833,
-          "repeat": true,
-          "frames": [
-            9
-          ]
-        },
-        {
-          "name": "fall",
-          "time": 0.0833,
-          "repeat": true,
-          "frames": [
-            10
-          ]
-        }
-      ]
-    },
-    {
-      "sheet": "battleWalk",
-      "dirs": "8",
-      "flipX": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1
-      ],
-      "tileOffsets": [
-        0,
-        8,
-        16,
-        24,
-        32,
-        64,
-        72,
-        8
-      ],
-      "SUB": [
-        {
-          "name": "battleRun",
-          "time": 0.0833,
-          "repeat": true,
-          "frames": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5
-          ]
-        },
-        {
-          "name": "battleJump",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            6
-          ]
-        },
-        {
-          "name": "battleFall",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            7
-          ]
-        }
-      ]
-    },
-    {
-      "sheet": "battle",
-      "dirs": "6",
-      "flipX": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        1
-      ],
-      "tileOffsets": [
-        0,
-        8,
-        16,
-        96,
-        88,
-        0
-      ],
-      "SUB": [
-        {
-          "name": "battleIdle",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            0,
-            1,
-            2,
-            3
-          ]
-        },
-        {
-          "name": "guard",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            0,
-            1,
-            2,
-            3
-          ]
-        },
-        {
-          "name": "battleMove",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            4,
-            5,
-            6,
-            7
-          ]
-        },
-        {
-          "name": "battleMoveRev",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            7,
-            6,
-            5,
-            4
-          ]
-        },
-        {
-          "name": "startCharge",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            0,
-            1,
-            2,
-            3
-          ]
-        },
-        {
-          "name": "aim",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            0,
-            1,
-            2,
-            3
-          ]
-        },
-        {
-          "name": "aimMove",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            4,
-            5,
-            6,
-            7
-          ]
-        },
-        {
-          "name": "aimMoveRev",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            7,
-            6,
-            5,
-            4
-          ]
-        }
-      ]
-    },
-    {
-      "sheet": "battle2",
-      "dirs": "6",
-      "flipX": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        1
-      ],
-      "tileOffsets": [
-        0,
-        9,
-        18,
-        90,
-        81,
-        0
-      ],
-      "SUB": [
-        {
-          "name": "dash",
-          "time": 0.0833,
-          "repeat": true,
-          "frames": [
-            0
-          ]
-        },
-        {
-          "name": "battleDash",
-          "time": 0.0833,
-          "repeat": true,
-          "frames": [
-            1
-          ]
-        },
-        {
-          "name": "damage",
-          "time": 0.05,
-          "repeat": true,
-          "frames": [
-            2,
-            2
-          ],
-          "framesGfxOffset": [
-            1,
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "name": "battleDamage",
-          "time": 0.05,
-          "repeat": true,
-          "frames": [
-            3,
-            3
-          ],
-          "framesGfxOffset": [
-            1,
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "name": "throwSpecial",
-          "time": 0.07,
-          "repeat": false,
-          "frames": [
-            4,
-			5,
-			6,
-			7,
-			8,
-			8
-          ]
-        },
-        {
-          "name": "throwSpecialEnd",
-          "time": 0.07,
-          "repeat": false,
-          "frames": [
-		    6,
-			7,
-			8,
-			8
-          ]
-        }
-      ]
-    },
-    {
-      "sheet": "spin",
-      "dirs": "6",
-      "flipX": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "SUB": [
-        {
-          "name": "spinRepeat",
-          "time": 0.05,
-          "repeat": true,
-          "dirFrames": [
-            [
-              5,
-              4,
-              3,
-              2,
-              1,
-              0
-            ],
-            [
-              0,
-              5,
-              4,
-              3,
-              2,
-              1
-            ],
-            [
-              1,
-              0,
-              5,
-              4,
-              3,
-              2
-            ],
-            [
-              7,
-              6,
-              11,
-              10,
-              9,
-              8
-            ],
-            [
-              6,
-              11,
-              10,
-              9,
-              8,
-              7
-            ],
-            [
-              11,
-              10,
-              9,
-              8,
-              7,
-              6
-            ]
-          ]
-        },
-        {
-          "name": "spinLong",
-          "time": 0.04,
-          "repeat": false,
-          "dirFrames": [
-            [
-              1,
-              0,
-              5,
-              4,
-              3,
-              2,
-              1,
-              0
-            ],
-            [
-              2,
-              1,
-              0,
-              5,
-              4,
-              3,
-              2,
-              1
-            ],
-            [
-              3,
-              2,
-              1,
-              0,
-              5,
-              4,
-              3,
-              2
-            ],
-            [
-              9,
-              8,
-              7,
-              6,
-              11,
-              10,
-              9,
-              8
-            ],
-            [
-              8,
-              7,
-              6,
-              11,
-              10,
-              9,
-              8,
-              7
-            ],
-            [
-              7,
-              6,
-              11,
-              10,
-              9,
-              8,
-              7,
-              6
-            ]
-          ]
-        },
-        {
-          "name": "spinShort",
-          "time": 0.05,
-          "repeat": false,
-          "dirFrames": [
-            [
-              1,
-              0
-            ],
-            [
-              2,
-              1
-            ],
-            [
-              3,
-              2
-            ],
-            [
-              9,
-              8
-            ],
-            [
-              8,
-              7
-            ],
-            [
-              7,
-              6
-            ]
-          ]
-        },
-		{
-		  "name": "spinRepeatRev",
-		  "time": 0.05,
-		  "repeat": true,
-		  "dirFrames": [
-			[
-			  10,
-			  9,
-			  8,
-			  7,
-			  6,
-			  11
-			],
-			[
-			  9,
-			  8,
-			  7,
-			  6,
-			  11,
-			  10
-			],
-			[
-			  8,
-			  7,
-			  6,
-			  11,
-			  10,
-			  9
-			],
-			[
-			  2,
-			  1,
-			  0,
-			  5,
-			  4,
-			  3
-			],
-			[
-			  3,
-			  2,
-			  1,
-			  0,
-			  5,
-			  4
-			],
-			[
-			  4,
-			  3,
-			  2,
-			  1,
-			  0,
-			  5
-			]
-		  ]
+	"DOCTYPE": "MULTI_DIR_ANIMATION",
+	"namedSheets": {
+		"walk": {
+			"src": "media/entity/npc/susie.png",
+			"xCount": 11,
+			"offX": 0,
+			"offY": 0,
+			"width": 32,
+			"height": 40
 		},
-		{
-		  "name": "spinLongRev",
-		  "time": 0.05,
-		  "repeat": false,
-		  "dirFrames": [
-			[
-			  10,
-			  9,
-			  8,
-			  7,
-			  6,
-			  11
-			],
-			[
-			  9,
-			  8,
-			  7,
-			  6,
-			  11,
-			  10
-			],
-			[
-			  8,
-			  7,
-			  6,
-			  11,
-			  10,
-			  9
-			],
-			[
-			  2,
-			  1,
-			  0,
-			  5,
-			  4,
-			  3
-			],
-			[
-			  3,
-			  2,
-			  1,
-			  0,
-			  5,
-			  4
-			],
-			[
-			  4,
-			  3,
-			  2,
-			  1,
-			  0,
-			  5
-			]
-		  ]
+		"battleWalk": {
+			"src": "media/entity/npc/susie.png",
+			"xCount": 8,
+			"offX": 96,
+			"offY": 200,
+			"width": 32,
+			"height": 40
 		},
-		{
-		  "name": "spinShortRev",
-		  "time": 0.05,
-		  "repeat": false,
-		  "dirFrames": [
-			[
-			  6,
-			  11
-			],
-			[
-			  11,
-			  10
-			],
-			[
-			  10,
-			  9
-			],
-			[
-			  4,
-			  3
-			],
-			[
-			  5,
-			  4
-			],
-			[
-			  0,
-			  5
-			]
-		  ]
+		"battle": {
+			"src": "media/entity/npc/susie.png",
+			"xCount": 8,
+			"offX": 352,
+			"offY": 0,
+			"width": 32,
+			"height": 40
 		},
-        {
-          "name": "dashSpin",
-          "time": 0.03,
-          "repeat": true,
-          "dirFrames": [
-            [
-			  0,
-              5,
-              4,
-              3,
-              2,
-              1
-            ],
-            [
-			  1,
-              0,
-              5,
-              4,
-              3,
-              2
-            ],
-            [
-			  2,
-              1,
-              0,
-              5,
-              4,
-              3
-            ],
-            [
-			  8,
-              7,
-              6,
-              11,
-              10,
-              9
-            ],
-            [
-			  7,
-              6,
-              11,
-              10,
-              9,
-              8
-            ],
-            [
-			  6,
-              11,
-              10,
-              9,
-              8,
-              7
-            ]
-          ]
-        },
-        {
-          "name": "dashSpinRev",
-          "time": 0.03,
-          "repeat": true,
-          "dirFrames": [
-            [
-			  6,
-              11,
-              10,
-              9,
-              8,
-              7
-            ],
-            [
-			  7,
-              6,
-              11,
-              10,
-              9,
-              8
-            ],
-            [
-			  8,
-              7,
-              6,
-              11,
-              10,
-              9
-            ],
-            [
-			  2,
-              1,
-              0,
-              5,
-              4,
-              3
-            ],
-            [
-			  1,
-              0,
-              5,
-              4,
-              3,
-              2
-            ],
-            [
-			  0,
-              5,
-              4,
-              3,
-              2,
-              1
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "sheet": "attack",
-      "dirs": "6",
-      "flipX": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        1
-      ],
-      "tileOffsets": [
-        0,
-        7,
-        14,
-        77,
-        70,
-        0
-      ],
-      "SUB": [
-        {
-          "name": "attack1End",
-          "time": 0.05,
-          "repeat": false,
-          "frames": [
-            0,
-            1,
-            2
-          ]
-        },
-        {
-          "name": "attack2End",
-          "time": 0.05,
-          "repeat": false,
-          "frames": [
-            3,
-            4,
-            5
-          ]
-        }
-      ]
-    },
-    {
-      "sheet": "poses",
-      "dirs": "4",
-      "flipX": [
-        0,
-        0,
-        0,
-        1
-      ],
-      "tileOffsets": [
-        0,
-        3,
-        6,
-        3
-      ],
-      "SUB": [
-        {
-          "name": "sit",
-          "time": 1,
-          "repeat": false,
-          "frames": [
-            0
-          ]
-        },
-        {
-          "name": "sitFaceUpRight",
-          "time": 1,
-          "repeat": false,
-          "frames": [
-            1
-          ]
-        },
-        {
-          "name": "sitFaceDownLeft",
-          "time": 1,
-          "repeat": false,
-          "frames": [
-            2
-          ]
-        }
-      ]
-    },
-    {
-      "sheet": "poses2",
-      "dirs": "1",
-      "flipX": [
-        0
-      ],
-      "tileOffsets": [
-        0
-      ],
-      "SUB": [
-        {
-          "name": "specialHitDown",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            0,
-			1
-          ]
-        },
-        {
-          "name": "specialHitDownSword",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            2,
-			3
-          ]
-        },
-        {
-          "name": "specialHitDownImpactPre",
-          "time": 0.015,
-          "repeat": false,
-          "frames": [
-            4
-          ]
-        },
-        {
-          "name": "specialHitDownImpact",
-          "time": 0.5,
-          "repeat": false,
-          "frames": [
-			5,
-            6,
-            7,
-            8,
-            9
-          ]
-        }
-	  ]
+		"battle2": {
+			"src": "media/entity/npc/susie.png",
+			"xCount": 9,
+			"offX": 352,
+			"offY": 240,
+			"width": 32,
+			"height": 40
+		},
+		"attack": {
+			"src": "media/entity/npc/susie.png",
+			"xCount": 7,
+			"offX": 352,
+			"offY": 120,
+			"width": 32,
+			"height": 40
+		},
+		"spin": {
+			"src": "media/entity/npc/susie.png",
+			"xCount": 3,
+			"offX": 0,
+			"offY": 320,
+			"width": 32,
+			"height": 40
+		},
+		"poses": {
+			"src": "media/entity/npc/susie.png",
+			"xCount": 3,
+			"offX": 0,
+			"offY": 200,
+			"width": 32,
+			"height": 40
+		},
+		"poses2": {
+			"src": "media/entity/npc/susie.png",
+			"xCount": 5,
+			"offX": 96,
+			"offY": 400,
+			"width": 32,
+			"height": 40
+		},
+		"poses3": {
+			"src": "media/entity/npc/susie.png",
+			"xCount": 4,
+			"offX": 224,
+			"offY": 640,
+			"width": 32,
+			"height": 40
+		},
+		"eating": {
+			"src": "media/entity/npc/susie.png",
+			"offX": 352,
+			"offY": 360,
+			"width": 32,
+			"height": 40
+		}
 	},
-	{
-	  "sheet": "poses3",
-	  "dirs": "4",
-	  "flipX": [
-	    0,
-		0,
-		0,
-		0
-	  ],
-	  "tileOffsets": [
-	  0,
-	  4,
-	  8,
-	  12
-	  ],
-	  "SUB": [
-        {
-          "name": "rolling",
-          "time": 0.04,
-          "repeat": true,
-          "frames": [
-            0,
-            1,
-            2,
-            3
-          ]
-        }
-	  ]
-	},
-    {
-      "sheet": "eating",
-      "dirs": "1",
-      "flipX": [
-        0
-      ],
-      "tileOffsets": [
-        0
-      ],
-      "SUB": [
-        {
-          "name": "itemFetch",
-          "time": 0.05,
-          "repeat": false,
-          "frames": [
-            0,
-            1
-          ]
-        },
-        {
-          "name": "itemHold",
-          "time": 0.1,
-          "repeat": false,
-          "frames": [
-            2
-          ]
-        },
-        {
-          "name": "itemEatFast",
-          "time": 0.1,
-          "repeat": false,
-          "frames": [
-            3,
-            4,
-            5,
-            6,
-            5,
-            6,
-            7,
-            7
-          ]
-        },
-        {
-          "name": "itemEffect",
-          "time": 0.05,
-          "repeat": false,
-          "frames": [
-            8,
-            9,
-            10
-          ]
-        }
-      ]
-    }
-  ]
+	"shapeType": "Y_FLAT",
+	"SUB": [{
+		"sheet": "walk",
+		"dirs": "8",
+		"flipX": [0, 0, 0, 0, 0, 0, 0, 1],
+		"tileOffsets": [0, 11, 22, 33, 44, 132, 143, 11],
+		"SUB": [{
+			"name": "idle",
+			"time": 1,
+			"repeat": false,
+			"frames": [1]
+		}, {
+			"name": "preIdle",
+			"time": 0.1,
+			"repeat": false,
+			"frames": [1]
+		}, {
+			"name": "walk",
+			"time": 0.133,
+			"repeat": true,
+			"frames": [0, 1, 2, 1]
+		}, {
+			"name": "runFreeze",
+			"time": 0.05,
+			"repeat": true,
+			"frames": [5, 5, 5, 5, 5, 5, 5, 5],
+			"framesGfxOffset": [1, 0, 0, 0, 1, 0]
+		}, {
+			"name": "run",
+			"time": 0.0733,
+			"repeat": true,
+			"frames": [3, 4, 5, 6, 7, 8]
+		}, {
+			"name": "jump",
+			"time": 0.0833,
+			"repeat": true,
+			"frames": [9]
+		}, {
+			"name": "fall",
+			"time": 0.0833,
+			"repeat": true,
+			"frames": [10]
+		}]
+	}, {
+		"sheet": "battleWalk",
+		"dirs": "8",
+		"flipX": [0, 0, 0, 0, 0, 0, 0, 1],
+		"tileOffsets": [0, 8, 16, 24, 32, 64, 72, 8],
+		"SUB": [{
+			"name": "battleRun",
+			"time": 0.0833,
+			"repeat": true,
+			"frames": [0, 1, 2, 3, 4, 5]
+		}, {
+			"name": "battleJump",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [6]
+		}, {
+			"name": "battleFall",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [7]
+		}]
+	}, {
+		"sheet": "battle",
+		"dirs": "6",
+		"flipX": [0, 0, 0, 0, 0, 1],
+		"tileOffsets": [0, 8, 16, 96, 88, 0],
+		"SUB": [{
+			"name": "battleIdle",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [0, 1, 2, 3]
+		}, {
+			"name": "guard",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [0, 1, 2, 3]
+		}, {
+			"name": "battleMove",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [4, 5, 6, 7]
+		}, {
+			"name": "battleMoveRev",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [7, 6, 5, 4]
+		}, {
+			"name": "startCharge",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [0, 1, 2, 3]
+		}, {
+			"name": "aim",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [0, 1, 2, 3]
+		}, {
+			"name": "aimMove",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [4, 5, 6, 7]
+		}, {
+			"name": "aimMoveRev",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [7, 6, 5, 4]
+		}]
+	}, {
+		"sheet": "battle2",
+		"dirs": "6",
+		"flipX": [0, 0, 0, 0, 0, 1],
+		"tileOffsets": [0, 9, 18, 90, 81, 0],
+		"SUB": [{
+			"name": "dash",
+			"time": 0.0833,
+			"repeat": true,
+			"frames": [0]
+		}, {
+			"name": "battleDash",
+			"time": 0.0833,
+			"repeat": true,
+			"frames": [1]
+		}, {
+			"name": "damage",
+			"time": 0.05,
+			"repeat": true,
+			"frames": [2, 2],
+			"framesGfxOffset": [1, 0, 0, 0]
+		}, {
+			"name": "battleDamage",
+			"time": 0.05,
+			"repeat": true,
+			"frames": [3, 3],
+			"framesGfxOffset": [1, 0, 0, 0]
+		}, {
+			"name": "throwSpecial",
+			"time": 0.07,
+			"repeat": false,
+			"frames": [4, 5, 6, 7, 8, 8]
+		}, {
+			"name": "throwSpecialEnd",
+			"time": 0.07,
+			"repeat": false,
+			"frames": [6, 7, 8, 8]
+		}]
+	}, {
+		"sheet": "spin",
+		"dirs": "6",
+		"flipX": [0, 0, 0, 0, 0, 0],
+		"SUB": [{
+			"name": "spinRepeat",
+			"time": 0.05,
+			"repeat": true,
+			"dirFrames": [
+				[5, 4, 3, 2, 1, 0],
+				[0, 5, 4, 3, 2, 1],
+				[1, 0, 5, 4, 3, 2],
+				[7, 6, 11, 10, 9, 8],
+				[6, 11, 10, 9, 8, 7],
+				[11, 10, 9, 8, 7, 6]
+			]
+		}, {
+			"name": "spinLong",
+			"time": 0.04,
+			"repeat": false,
+			"dirFrames": [
+				[1, 0, 5, 4, 3, 2, 1, 0],
+				[2, 1, 0, 5, 4, 3, 2, 1],
+				[3, 2, 1, 0, 5, 4, 3, 2],
+				[9, 8, 7, 6, 11, 10, 9, 8],
+				[8, 7, 6, 11, 10, 9, 8, 7],
+				[7, 6, 11, 10, 9, 8, 7, 6]
+			]
+		}, {
+			"name": "spinShort",
+			"time": 0.05,
+			"repeat": false,
+			"dirFrames": [
+				[1, 0],
+				[2, 1],
+				[3, 2],
+				[9, 8],
+				[8, 7],
+				[7, 6]
+			]
+		}, {
+			"name": "spinRepeatRev",
+			"time": 0.05,
+			"repeat": true,
+			"dirFrames": [
+				[10, 9, 8, 7, 6, 11],
+				[9, 8, 7, 6, 11, 10],
+				[8, 7, 6, 11, 10, 9],
+				[2, 1, 0, 5, 4, 3],
+				[3, 2, 1, 0, 5, 4],
+				[4, 3, 2, 1, 0, 5]
+			]
+		}, {
+			"name": "spinLongRev",
+			"time": 0.05,
+			"repeat": false,
+			"dirFrames": [
+				[10, 9, 8, 7, 6, 11],
+				[9, 8, 7, 6, 11, 10],
+				[8, 7, 6, 11, 10, 9],
+				[2, 1, 0, 5, 4, 3],
+				[3, 2, 1, 0, 5, 4],
+				[4, 3, 2, 1, 0, 5]
+			]
+		}, {
+			"name": "spinShortRev",
+			"time": 0.05,
+			"repeat": false,
+			"dirFrames": [
+				[6, 11],
+				[11, 10],
+				[10, 9],
+				[4, 3],
+				[5, 4],
+				[0, 5]
+			]
+		}, {
+			"name": "dashSpin",
+			"time": 0.03,
+			"repeat": true,
+			"dirFrames": [
+				[0, 5, 4, 3, 2, 1],
+				[1, 0, 5, 4, 3, 2],
+				[2, 1, 0, 5, 4, 3],
+				[8, 7, 6, 11, 10, 9],
+				[7, 6, 11, 10, 9, 8],
+				[6, 11, 10, 9, 8, 7]
+			]
+		}, {
+			"name": "dashSpinRev",
+			"time": 0.03,
+			"repeat": true,
+			"dirFrames": [
+				[6, 11, 10, 9, 8, 7],
+				[7, 6, 11, 10, 9, 8],
+				[8, 7, 6, 11, 10, 9],
+				[2, 1, 0, 5, 4, 3],
+				[1, 0, 5, 4, 3, 2],
+				[0, 5, 4, 3, 2, 1]
+			]
+		}]
+	}, {
+		"sheet": "attack",
+		"dirs": "6",
+		"flipX": [0, 0, 0, 0, 0, 1],
+		"tileOffsets": [0, 7, 14, 77, 70, 0],
+		"SUB": [{
+			"name": "attack1End",
+			"time": 0.05,
+			"repeat": false,
+			"frames": [0, 1, 2]
+		}, {
+			"name": "attack2End",
+			"time": 0.05,
+			"repeat": false,
+			"frames": [3, 4, 5]
+		}]
+	}, {
+		"sheet": "poses",
+		"dirs": "4",
+		"flipX": [0, 0, 0, 1],
+		"tileOffsets": [0, 3, 6, 3],
+		"SUB": [{
+			"name": "sit",
+			"time": 1,
+			"repeat": false,
+			"frames": [0]
+		}, {
+			"name": "sitFaceUpRight",
+			"time": 1,
+			"repeat": false,
+			"frames": [1]
+		}, {
+			"name": "sitFaceDownLeft",
+			"time": 1,
+			"repeat": false,
+			"frames": [2]
+		}]
+	}, {
+		"sheet": "poses2",
+		"dirs": "1",
+		"flipX": [0],
+		"tileOffsets": [0],
+		"SUB": [{
+			"name": "specialHitDown",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [0, 1]
+		}, {
+			"name": "specialHitDownSword",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [2, 3]
+		}, {
+			"name": "specialHitDownImpactPre",
+			"time": 0.015,
+			"repeat": false,
+			"frames": [4]
+		}, {
+			"name": "specialHitDownImpact",
+			"time": 0.5,
+			"repeat": false,
+			"frames": [5, 6, 7, 8, 9]
+		}]
+	}, {
+		"sheet": "poses3",
+		"dirs": "4",
+		"flipX": [0, 0, 0, 0],
+		"tileOffsets": [0, 4, 8, 12],
+		"SUB": [{
+			"name": "rolling",
+			"time": 0.04,
+			"repeat": true,
+			"frames": [0, 1, 2, 3]
+		}]
+	}, {
+		"sheet": "eating",
+		"dirs": "1",
+		"flipX": [0],
+		"tileOffsets": [0],
+		"SUB": [{
+			"name": "itemFetch",
+			"time": 0.05,
+			"repeat": false,
+			"frames": [0, 1]
+		}, {
+			"name": "itemHold",
+			"time": 0.1,
+			"repeat": false,
+			"frames": [2]
+		}, {
+			"name": "itemEatFast",
+			"time": 0.1,
+			"repeat": false,
+			"frames": [3, 4, 5, 6, 5, 6, 7, 7]
+		}, {
+			"name": "itemEffect",
+			"time": 0.05,
+			"repeat": false,
+			"frames": [8, 9, 10]
+		}]
+	}],
+	"offset": {
+		"x": 0,
+		"y": -4,
+		"z": 0
+	}
 }

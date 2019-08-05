@@ -1,119 +1,105 @@
 {
-  "walkAnims": "normal",
-  "name": {
-    "en_US": "Susie",
-    "de_DE": "Susie",
-    "langUid": 1,
-    "zh_CN": "秀智",
-    "ko_KR": "수지",
-    "ja_JP": "スージー"
-  },
-  "realname": {
-    "en_US": "Sooji Kang",
-    "de_DE": "Sooji Kang",
-    "langUid": 2,
-    "zh_CN": "姜秀智",
-    "ko_KR": "강수지",
-    "ja_JP": "スージー•カン"
-  },
-  "size": {
-    "x": 16,
-    "y": 16,
-    "z": 24
-  },
-  "shadow": 16,
-  "animSheet": "npc.susie",
-  "walkAnimSet": {
-    "normal": {
-      "idle": "idle",
-      "move": "walk",
-      "run": "run"
-    },
-    "sit": {
-      "idle": "sit"
-    }
-  },
-  "configs": {
-    "normal": {
-      "relativeVel": 0.5
-    },
-    "running": {
-      "relativeVel": 1
-    },
-    "sit": {
-      "walkAnims": "sit",
-      "relativeVel": 0.5
-    }
-  },
-  "face": {
-    "src": "susie.png",
-    "width": 105,
-    "height": 144,
-    "centerX": 33,
-    "centerY": 52,
-    "parts": [
-      {
-        "body": {
-          "srcX": 0,
-          "srcY": 88,
-          "width": 105,
-          "height": 56,
-          "destX": 0,
-          "destY": 88
-        }
-      },
-      {
-        "neutral": {
-          "srcX": 7,
-          "srcY": 0,
-          "width": 89,
-          "height": 88,
-          "destX": 7,
-          "destY": 0
-        },
-        "smile": {
-          "srcX": 96,
-          "srcY": 0,
-          "width": 89,
-          "height": 88,
-          "destX": 7,
-          "destY": 0
-        },
-        "smug": {
-          "srcX": 185,
-          "srcY": 0,
-          "width": 89,
-          "height": 88,
-          "destX": 7,
-          "destY": 0
-        }
-      }
-    ],
-    "expressions": {
-      "DEFAULT": {
-        "faces": [
-          [
-            "body",
-            "neutral"
-          ]
-        ]
-      },
-      "SMILE": {
-        "faces": [
-          [
-            "body",
-            "smile"
-          ]
-        ]
-      },
-      "SMUG": {
-        "faces": [
-          [
-            "body",
-            "smug"
-          ]
-        ]
-      }
-    }
-  }
+	"name": {
+		"en_US": "Susie",
+		"ko_KR": "수지",
+		"de_DE": "Susie",
+		"zh_CN": "秀智",
+		"ja_JP": "スージー"
+	},
+	"animSheet": "npc.susie",
+	"walkAnimSet": {
+		"normal": {
+			"idle": "idle",
+			"move": "walk",
+			"run": "run"
+		},
+		"sit": {
+			"idle": "sit"
+		}
+	},
+	"walkAnims": "normal",
+	"configs": {
+		"normal": {
+			"relativeVel": 0.5
+		},
+		"running": {
+			"relativeVel": 1
+		},
+		"sit": {
+			"walkAnims": "sit",
+			"relativeVel": 0.5
+		}
+	},
+	"face": {
+		"width": 105,
+		"height": 144,
+		"centerX": 33,
+		"centerY": 52,
+		"src": "susie.png",
+		"parts": [{
+			"body": {
+				"srcX": 0,
+				"srcY": 88,
+				"width": 105,
+				"height": 56,
+				"destX": 0,
+				"destY": 88
+			}
+		}, {
+			"neutral": {
+				"srcX": 7,
+				"srcY": 0,
+				"width": 89,
+				"height": 88,
+				"destX": 7,
+				"destY": 0
+			},
+			"smile": {
+				"srcX": 96,
+				"srcY": 0,
+				"width": 89,
+				"height": 88,
+				"destX": 7,
+				"destY": 0
+			},
+			"smug": {
+				"srcX": 185,
+				"srcY": 0,
+				"width": 89,
+				"height": 88,
+				"destX": 7,
+				"destY": 0
+			}
+		}],
+		"expressions": {
+			"DEFAULT": {
+				"faces": [
+					["body", "neutral"]
+				]
+			},
+			"SMILE": {
+				"faces": [
+					["body", "smile"]
+				]
+			},
+			"SMUG": {
+				"faces": [
+					["body", "smug"]
+				]
+			}
+		}
+	},
+	"realname": {
+		"en_US": "Sooji Kang",
+		"de_DE": "Sooji Kang",
+		"zh_CN": "姜秀智",
+		"ko_KR": "강수지",
+		"ja_JP": "スージー•カン"
+	},
+	"size": {
+		"x": 16,
+		"y": 16,
+		"z": 24
+	},
+	"shadow": 16
 }

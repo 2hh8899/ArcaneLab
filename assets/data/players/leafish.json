@@ -415,18 +415,7 @@
 						"varName": "tmp.catchingFish",
 						"changeType": "set",
 						"value": true
-					},{
-						"entity": {
-							"player": true
-						},
-						"text": {
-							"en_US": "Should not be showing new fish."
-						},
-						"mode": "NO_LINE",
-						"color": "GREEN",
-						"time": 4,
-						"type": "SHOW_AR_MSG"
-					},{
+					}, {
 						"align": "BOTTOM",
 						"centralAngle": 0.1,
 						"angleVary": 0.1,
@@ -540,22 +529,6 @@
 								"time": 1.5,
 								"type": "WAIT"
 							}]
-						},{
-							"type": "CHANGE_VAR_BOOL",
-							"varName": "tmp.catchingFish",
-							"changeType": "set",
-							"value": false
-						},{
-							"entity": {
-								"player": true
-							},
-							"text": {
-								"en_US": "Should be showing new fish."
-							},
-							"mode": "NO_LINE",
-							"color": "GREEN",
-							"time": 4,
-							"type": "SHOW_AR_MSG"
 						}]
 					}],
 					"elseStep": [{
@@ -605,6 +578,11 @@
 				"changeConnected": "PROXY_OWNER",
 				"type": "SET_ATTRIB_NUMBER",
 				"value": -2
+			}, {
+				"type": "CHANGE_VAR_BOOL",
+				"varName": "tmp.catchingFish",
+				"changeType": "set",
+				"value": false
 			}],
 			"invisible": false,
 			"hp": 0,
@@ -857,15 +835,10 @@
 				"value": true,
 				"type": "SET_FACE_FIX"
 			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishSize == 0",
-				"thenStep": [{
-					"varName": "tmp.fishType",
-					"type": "SET_RANDOM_VAR_NUMBER",
-					"min": 0,
-					"max": 4
-				}]
+				"varName": "tmp.fishType",
+				"type": "SET_RANDOM_VAR_NUMBER",
+				"min": 0,
+				"max": 3
 			}, {
 				"withElse": false,
 				"type": "IF",
@@ -873,8 +846,8 @@
 				"thenStep": [{
 					"varName": "tmp.fishType",
 					"type": "SET_RANDOM_VAR_NUMBER",
-					"min": 5,
-					"max": 9
+					"min": 4,
+					"max": 7
 				}]
 			}, {
 				"withElse": false,
@@ -883,8 +856,8 @@
 				"thenStep": [{
 					"varName": "tmp.fishType",
 					"type": "SET_RANDOM_VAR_NUMBER",
-					"min": 10,
-					"max": 14
+					"min": 8,
+					"max": 11
 				}]
 			}, {
 				"withElse": false,
@@ -893,20 +866,19 @@
 				"thenStep": [{
 					"varName": "tmp.fishType",
 					"type": "SET_RANDOM_VAR_NUMBER",
-					"min": 15,
-					"max": 19
+					"min": 12,
+					"max": 15
 				}]
 			}, {
-				"entity": {
-					"player": true
-				},
-				"text": {
-					"en_US": "\\v[tmp.fishType]"
-				},
-				"mode": "NO_LINE",
-				"color": "GREEN",
-				"time": 4,
-				"type": "SHOW_AR_MSG"
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType > 15",
+				"thenStep": [{
+					"varName": "tmp.fishType",
+					"type": "CHANGE_VAR_NUMBER",
+					"changeType": "set",
+					"value": 1
+				}]
 			}, {
 				"withElse": false,
 				"type": "IF",
@@ -960,12 +932,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 2",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "cheepcheepF"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Cheep Cheep",
+						"ko_KR": "뽀꾸뽀꾸"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -977,12 +956,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 3",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "voodooF"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Guide Voodoo Fish",
+						"ko_KR": "가이드 부두 인형"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -994,12 +980,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 4",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "yoshiF"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Yoshi",
+						"ko_KR": "요시"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -1011,12 +1004,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 5",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "enemies.hedgehog",
+						"name": "damage"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Hedgehag",
+						"ko_KR": "고슴됴치"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -1028,12 +1028,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 6",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "enemies.hedgehog-alt",
+						"name": "damage"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Old Hedgehag",
+						"ko_KR": "늙은 고슴됴치"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -1045,12 +1052,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 7",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "enemies.sandshark",
+						"name": "weak"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Sharkster",
+						"ko_KR": "샤크스터"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -1062,12 +1076,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 8",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "pepeF"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "PePe Jr.",
+						"ko_KR": "주니어 페페"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -1079,12 +1100,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 9",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "kawaiistarsandvich"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Rising Super Star",
+						"ko_KR": "떠오르는 슈퍼스타"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -1096,12 +1124,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 10",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "enemies.jungle-fish",
+						"name": "damage"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Angler",
+						"ko_KR": "앵글러"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -1113,12 +1148,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 11",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "enemies.hedgehog-boss",
+						"name": "damage"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Blue Hedgehag",
+						"ko_KR": "파란색 고슴됴치"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -1130,12 +1172,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 12",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "enemies.jungle-blueray",
+						"name": "damage"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Blue Ray",
+						"ko_KR": "블루 레이"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -1147,12 +1196,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 13",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "crossworld"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Cross Sandwich",
+						"ko_KR": "크로스 샌드위치"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -1164,12 +1220,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 14",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "legendF"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Legend",
+						"ko_KR": "전설"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",
@@ -1181,80 +1244,19 @@
 				"type": "IF",
 				"condition": "tmp.fishType == 15",
 				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "rfgF"
+					}
+				}, {
 					"entity": {
 						"player": true
 					},
 					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 16",
-				"thenStep": [{
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 17",
-				"thenStep": [{
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 18",
-				"thenStep": [{
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 19",
-				"thenStep": [{
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Not ready",
-						"ko_KR": "아직 안만듬"
+						"en_US": "Radical Fish",
+						"ko_KR": "래디컬 피쉬"
 					},
 					"mode": "NO_LINE",
 					"color": "GREEN",

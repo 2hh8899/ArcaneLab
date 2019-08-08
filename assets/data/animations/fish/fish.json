@@ -50,6 +50,14 @@
 			"offY": 0,
 			"width": 46,
 			"height": 48
+		},
+		"stardew": {
+			"src": "media/entity/effects/fish/stardew.png",
+			"xCount": 17,
+			"offX": 0,
+			"offY": 0,
+			"width": 16,
+			"height": 16
 		}
 	},
 	"shapeType": "Y_FLAT",
@@ -72,6 +80,111 @@
 		}, {
 			"name": "kawaiistarsandvich",
 			"frames": [36]
+		}]
+	}, {
+		"sheet": "stardew",
+		"SUB": [{
+			"name": "pufferfish",
+			"frames": [0]
+		}, {
+			"name": "anchovy",
+			"frames": [1]
+		}, {
+			"name": "tuna",
+			"frames": [2]
+		}, {
+			"name": "sardine",
+			"frames": [3]
+		}, {
+			"name": "bream",
+			"frames": [4]
+		}, {
+			"name": "largebass",
+			"frames": [5]
+		}, {
+			"name": "smallbass",
+			"frames": [6]
+		}, {
+			"name": "rainbowtrout",
+			"frames": [7]
+		}, {
+			"name": "salmon",
+			"frames": [8]
+		}, {
+			"name": "walleye",
+			"frames": [9]
+		}, {
+			"name": "perch",
+			"frames": [10]
+		}, {
+			"name": "catfish",
+			"frames": [11]
+		}, {
+			"name": "pike",
+			"frames": [12]
+		}, {
+			"name": "sunfish",
+			"frames": [13]
+		}, {
+			"name": "redmullet",
+			"frames": [14]
+		}, {
+			"name": "herring",
+			"frames": [15]
+		}, {
+			"name": "eel",
+			"frames": [16]
+		}, {
+			"name": "octopus",
+			"frames": [17]
+		}, {
+			"name": "redsnapper",
+			"frames": [18]
+		}, {
+			"name": "squid",
+			"frames": [19]
+		}, {
+			"name": "ghostfish",
+			"frames": [20]
+		}, {
+			"name": "stonefish",
+			"frames": [21]
+		}, {
+			"name": "icepip",
+			"frames": [22]
+		}, {
+			"name": "sturgeon",
+			"frames": [23]
+		}, {
+			"name": "tigertrout",
+			"frames": [24]
+		}, {
+			"name": "bullhead",
+			"frames": [25]
+		}, {
+			"name": "tilapia",
+			"frames": [26]
+		}, {
+			"name": "chub",
+			"frames": [27]
+		}, {
+			"name": "dorado",
+			"frames": [28]
+		}, {
+			"name": "albacore",
+			"frames": [29]
+		}, {
+			"name": "shad",
+			"frames": [30]
+		}, {
+			"name": "lingcod",
+			"frames": [31]
+		}, {
+			"name": "hailbut",
+			"frames": [32]
+		}, {
+			"name": "woodskip",
+			"frames": [33]
 		}]
 	}, {
 		"sheet": "cheepcheep",

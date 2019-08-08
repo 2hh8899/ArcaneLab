@@ -296,7 +296,7 @@
 					"type": "SET_FACE"
 				}, {
 					"conditions": [{
-						"max": 0.4,
+						"max": 0.7,
 						"negated": false,
 						"type": "RANDOM"
 					}],
@@ -838,7 +838,7 @@
 				"varName": "tmp.fishType",
 				"type": "SET_RANDOM_VAR_NUMBER",
 				"min": 0,
-				"max": 3
+				"max": 33
 			}, {
 				"withElse": false,
 				"type": "IF",
@@ -846,8 +846,8 @@
 				"thenStep": [{
 					"varName": "tmp.fishType",
 					"type": "SET_RANDOM_VAR_NUMBER",
-					"min": 4,
-					"max": 7
+					"min": 34,
+					"max": 37
 				}]
 			}, {
 				"withElse": false,
@@ -856,8 +856,8 @@
 				"thenStep": [{
 					"varName": "tmp.fishType",
 					"type": "SET_RANDOM_VAR_NUMBER",
-					"min": 8,
-					"max": 11
+					"min": 38,
+					"max": 45
 				}]
 			}, {
 				"withElse": false,
@@ -866,18 +866,18 @@
 				"thenStep": [{
 					"varName": "tmp.fishType",
 					"type": "SET_RANDOM_VAR_NUMBER",
-					"min": 12,
-					"max": 15
+					"min": 46,
+					"max": 49
 				}]
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType > 15",
+				"condition": "tmp.fishType > 49",
 				"thenStep": [{
 					"varName": "tmp.fishType",
 					"type": "CHANGE_VAR_NUMBER",
 					"changeType": "set",
-					"value": 1
+					"value": 35
 				}]
 			}, {
 				"withElse": false,
@@ -888,8 +888,931 @@
 					"type": "SHOW_EXTERN_ANIM",
 					"anim": {
 						"sheet": "fish.fish",
+						"name": "pufferfish"
+					}
+				}, {
+					"amount": 2000,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Pufferfish",
+						"ko_KR": "복어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 1",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "anchovy"
+					}
+				}, {
+					"amount": 300,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Anchovy",
+						"ko_KR": "멸치"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 2",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "tuna"
+					}
+				}, {
+					"amount": 1000,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Tuna",
+						"ko_KR": "참치"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 3",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "sardine"
+					}
+				}, {
+					"amount": 400,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Sardine",
+						"ko_KR": "정어리"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 4",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "bream"
+					}
+				}, {
+					"amount": 450,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Bream",
+						"ko_KR": "도미"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 5",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "largebass"
+					}
+				}, {
+					"amount": 1000,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Largemouth Bass",
+						"ko_KR": "큰입우럭"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 6",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "smallbass"
+					}
+				}, {
+					"amount": 500,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Smallmouth Bass",
+						"ko_KR": "작은입우럭"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 7",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "rainbowtrout"
+					}
+				}, {
+					"amount": 650,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Rainbow Trout",
+						"ko_KR": "무지개 송어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 8",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "salmon"
+					}
+				}, {
+					"amount": 750,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Salmon",
+						"ko_KR": "연어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 9",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "walleye"
+					}
+				}, {
+					"amount": 1050,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Walleye",
+						"ko_KR": "월아이"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 10",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "perch"
+					}
+				}, {
+					"amount": 550,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Perch",
+						"ko_KR": "농어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 11",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "catfish"
+					}
+				}, {
+					"amount": 2000,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Catfish",
+						"ko_KR": "메기"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 12",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "pike"
+					}
+				}, {
+					"amount": 1000,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Pike",
+						"ko_KR": "강꼬치고기"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 13",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "sunfish"
+					}
+				}, {
+					"amount": 300,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Sunfish",
+						"ko_KR": "선피쉬"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 14",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "redmullet"
+					}
+				}, {
+					"amount": 750,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Red Mullet",
+						"ko_KR": "노랑촉수"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 15",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "herring"
+					}
+				}, {
+					"amount": 300,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Herring",
+						"ko_KR": "청어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 16",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "eel"
+					}
+				}, {
+					"amount": 850,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Eel",
+						"ko_KR": "장어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 17",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "octopus"
+					}
+				}, {
+					"amount": 1050,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Octopus",
+						"ko_KR": "문어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 18",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "redsnapper"
+					}
+				}, {
+					"amount": 500,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Red Snapper",
+						"ko_KR": "붉은 퉁돔"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 19",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "squid"
+					}
+				}, {
+					"amount": 800,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Squid",
+						"ko_KR": "오징어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 20",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "ghostfish"
+					}
+				}, {
+					"amount": 450,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Ghost fish",
+						"ko_KR": "귀신물고기"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 21",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "stonefish"
+					}
+				}, {
+					"amount": 3000,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Stonefish",
+						"ko_KR": "쑥치"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 22",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "icepip"
+					}
+				}, {
+					"amount": 5000,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Ice Pip",
+						"ko_KR": "아이스핍"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 23",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "sturgeon"
+					}
+				}, {
+					"amount": 2500,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Sturgeon",
+						"ko_KR": "철갑상어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 24",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "tigertrout"
+					}
+				}, {
+					"amount": 1500,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Tiger Trout",
+						"ko_KR": "타이거 송어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 25",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "bullhead"
+					}
+				}, {
+					"amount": 750,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Bullhead",
+						"ko_KR": "눈동자개"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 26",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "tilapia"
+					}
+				}, {
+					"amount": 750,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Tilapia",
+						"ko_KR": "틸라피아"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 27",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "chub"
+					}
+				}, {
+					"amount": 500,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Chub",
+						"ko_KR": "피라미"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 28",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "dorado"
+					}
+				}, {
+					"amount": 1000,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Dorado",
+						"ko_KR": "도라도"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 29",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "albacore"
+					}
+				}, {
+					"amount": 750,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Albacore",
+						"ko_KR": "날개다랑어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 30",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "shad"
+					}
+				}, {
+					"amount": 600,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Shad",
+						"ko_KR": "전어"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 31",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "lingcod"
+					}
+				}, {
+					"amount": 1200,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Lingcod",
+						"ko_KR": "범노래미"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 32",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "hailbut"
+					}
+				}, {
+					"amount": 800,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Hailbut",
+						"ko_KR": "넙치"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 33",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
+						"name": "woodskip"
+					}
+				}, {
+					"amount": 750,
+					"type": "GIVE_MONEY"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"text": {
+						"en_US": "Woodskip",
+						"ko_KR": "숲고기"
+					},
+					"mode": "NO_LINE",
+					"color": "GREEN",
+					"time": 3,
+					"type": "SHOW_AR_MSG"
+				}]
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "tmp.fishType == 34",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "fish.fish",
 						"name": "sandvich"
 					}
+				}, {
+					"item": "1",
+					"amount": 1,
+					"skip": false,
+					"type": "GIVE_ITEM"
 				}, {
 					"entity": {
 						"player": true
@@ -906,7 +1829,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 1",
+				"condition": "tmp.fishType == 35",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -914,6 +1837,11 @@
 						"sheet": "fish.fish",
 						"name": "water"
 					}
+				}, {
+					"item": "366",
+					"amount": 1,
+					"skip": false,
+					"type": "GIVE_ITEM"
 				}, {
 					"entity": {
 						"player": true
@@ -930,7 +1858,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 2",
+				"condition": "tmp.fishType == 36",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -938,6 +1866,9 @@
 						"sheet": "fish.fish",
 						"name": "cheepcheepF"
 					}
+				}, {
+					"amount": 5,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true
@@ -954,7 +1885,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 3",
+				"condition": "tmp.fishType == 37",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -962,6 +1893,9 @@
 						"sheet": "fish.fish",
 						"name": "voodooF"
 					}
+				}, {
+					"amount": 10,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true
@@ -978,7 +1912,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 4",
+				"condition": "tmp.fishType == 38",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -986,6 +1920,9 @@
 						"sheet": "fish.fish",
 						"name": "yoshiF"
 					}
+				}, {
+					"amount": 40,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true
@@ -1002,7 +1939,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 5",
+				"condition": "tmp.fishType == 39",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -1010,6 +1947,9 @@
 						"sheet": "enemies.hedgehog",
 						"name": "damage"
 					}
+				}, {
+					"amount": 10,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true
@@ -1026,7 +1966,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 6",
+				"condition": "tmp.fishType == 40",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -1034,6 +1974,9 @@
 						"sheet": "enemies.hedgehog-alt",
 						"name": "damage"
 					}
+				}, {
+					"amount": 30,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true
@@ -1050,7 +1993,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 7",
+				"condition": "tmp.fishType == 41",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -1058,6 +2001,9 @@
 						"sheet": "enemies.sandshark",
 						"name": "weak"
 					}
+				}, {
+					"amount": 130,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true
@@ -1074,7 +2020,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 8",
+				"condition": "tmp.fishType == 42",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -1082,6 +2028,9 @@
 						"sheet": "fish.fish",
 						"name": "pepeF"
 					}
+				}, {
+					"amount": 70,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true
@@ -1098,7 +2047,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 9",
+				"condition": "tmp.fishType == 43",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -1106,6 +2055,11 @@
 						"sheet": "fish.fish",
 						"name": "kawaiistarsandvich"
 					}
+				}, {
+					"item": "382",
+					"amount": 1,
+					"skip": false,
+					"type": "GIVE_ITEM"
 				}, {
 					"entity": {
 						"player": true
@@ -1122,7 +2076,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 10",
+				"condition": "tmp.fishType == 44",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -1130,6 +2084,9 @@
 						"sheet": "enemies.jungle-fish",
 						"name": "damage"
 					}
+				}, {
+					"amount": 350,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true
@@ -1146,7 +2103,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 11",
+				"condition": "tmp.fishType == 45",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -1154,6 +2111,9 @@
 						"sheet": "enemies.hedgehog-boss",
 						"name": "damage"
 					}
+				}, {
+					"amount": 300,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true
@@ -1170,7 +2130,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 12",
+				"condition": "tmp.fishType == 46",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -1178,6 +2138,9 @@
 						"sheet": "enemies.jungle-blueray",
 						"name": "damage"
 					}
+				}, {
+					"amount": 800,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true
@@ -1194,7 +2157,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 13",
+				"condition": "tmp.fishType == 47",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -1202,6 +2165,11 @@
 						"sheet": "fish.fish",
 						"name": "crossworld"
 					}
+				}, {
+					"item": "63",
+					"amount": 1,
+					"skip": false,
+					"type": "GIVE_ITEM"
 				}, {
 					"entity": {
 						"player": true
@@ -1218,7 +2186,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 14",
+				"condition": "tmp.fishType == 48",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -1226,6 +2194,9 @@
 						"sheet": "fish.fish",
 						"name": "legendF"
 					}
+				}, {
+					"amount": 50000,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true
@@ -1242,7 +2213,7 @@
 			}, {
 				"withElse": false,
 				"type": "IF",
-				"condition": "tmp.fishType == 15",
+				"condition": "tmp.fishType == 49",
 				"thenStep": [{
 					"wait": false,
 					"type": "SHOW_EXTERN_ANIM",
@@ -1250,6 +2221,9 @@
 						"sheet": "fish.fish",
 						"name": "rfgF"
 					}
+				}, {
+					"amount": 100000,
+					"type": "GIVE_MONEY"
 				}, {
 					"entity": {
 						"player": true

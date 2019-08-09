@@ -3974,12 +3974,14 @@
 	}, {
 		"type": "EventTrigger",
 		"x": 670,
-		"y": 200,
+		"y": 182,
 		"level": 0,
 		"settings": {
-			"name": "storyInit",
-			"eventType": "PARALLEL",
+			"name": "acCenterFirst",
+			"eventType": "CUTSCENE",
+			"startCondition": "true",
 			"endCondition": "false",
+			"triggerType": "ONCE",
 			"event": [{
 				"changeType": "set",
 				"type": "CHANGE_VAR_NUMBER",
@@ -3995,8 +3997,330 @@
 				"type": "CHANGE_VAR_NUMBER",
 				"varName": "map.storyRei",
 				"value": 0
-			}],
-			"triggerType": "ONCE"
+			}, {
+				"alpha": 1,
+				"time": 0,
+				"lighter": false,
+				"type": "SET_OVERLAY",
+				"color": "black"
+			}, {
+				"pos": {
+					"x": 736,
+					"y": 272
+				},
+				"speed": "IMMEDIATELY",
+				"transition": "EASE_IN_OUT",
+				"wait": true,
+				"waitSkip": 0,
+				"zoom": 2,
+				"type": "SET_CAMERA_POS"
+			}, {
+				"alpha": 1,
+				"type": "SET_SCREEN_BLUR"
+			}, {
+				"alpha": 0,
+				"time": 1,
+				"lighter": false,
+				"type": "SET_OVERLAY",
+				"color": "black"
+			}, {
+				"entity": {
+					"party": "Member2"
+				},
+				"action": [{
+					"value": 0,
+					"type": "SET_Z_VEL"
+				}, {
+					"value": 0,
+					"type": "SET_Z_GRAVITY_FACTOR"
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"entity": {
+					"party": "Member3"
+				},
+				"action": [{
+					"value": 0,
+					"type": "SET_Z_VEL"
+				}, {
+					"value": 0,
+					"type": "SET_Z_GRAVITY_FACTOR"
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"entity": {
+					"player": true
+				},
+				"action": [{
+					"type": "ADD_Z_POS_DELTA",
+					"zDelta": 160
+				}, {
+					"value": -600,
+					"type": "SET_Z_VEL"
+				}, {
+					"type": "WAIT_UNTIL_ON_GROUND"
+				}, {
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "player-poses",
+						"name": "floored"
+					}
+				}],
+				"repeating": false,
+				"wait": true,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"volume": 1,
+				"name": "",
+				"loop": false,
+				"offset": 0,
+				"startTime": 0,
+				"speed": 0.8,
+				"type": "PLAY_SOUND",
+				"sound": "media/sound/battle/thud-light.ogg"
+			}, {
+				"rumbleType": "RANDOM",
+				"name": "",
+				"duration": 0.4,
+				"power": "STRONG",
+				"speed": "FASTER",
+				"fade": true,
+				"type": "RUMBLE_SCREEN"
+			}, {
+				"ignoreSlowDown": false,
+				"type": "WAIT",
+				"time": 1
+			}, {
+				"entity": {
+					"player": true
+				},
+				"action": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "player-poses",
+						"name": "kneeShake"
+					}
+				}, {
+					"time": 1,
+					"type": "WAIT"
+				}, {
+					"wait": true,
+					"viaWalkConfig": false,
+					"type": "SHOW_ANIMATION",
+					"anim": "preIdle"
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": false,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"type": "CLEAR_SCREEN_BLUR"
+			}, {
+				"zoom": 1,
+				"duration": 1,
+				"transition": "EASE_IN_OUT",
+				"type": "SET_CAMERA_ZOOM"
+			}, {
+				"ignoreSlowDown": false,
+				"type": "WAIT",
+				"time": 1
+			}, {
+				"side": "RIGHT",
+				"order": 0,
+				"clearSide": false,
+				"type": "ADD_MSG_PERSON",
+				"person": {
+					"person": "main.sergey",
+					"expression": "SERIOUS"
+				}
+			}, {
+				"message": {
+					"en_US": "",
+					"ko_KR": "...이렇게까지 깊을 줄은 몰랐는데."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "SERIOUS"
+				}
+			}, {
+				"side": "LEFT",
+				"order": 0,
+				"clearSide": false,
+				"type": "ADD_MSG_PERSON",
+				"person": {
+					"person": "main.lea",
+					"expression": "SCARED"
+				}
+			}, {
+				"message": {
+					"en_US": "...?!",
+					"ko_KR": "...?!"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.lea",
+					"expression": "SCARED"
+				}
+			}, {
+				"message": {
+					"en_US": "",
+					"ko_KR": "그래도 내가 아는 곳이 맞나 보네."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "DEFAULT"
+				}
+			}, {
+				"message": {
+					"en_US": "",
+					"ko_KR": "\\c[3]아케인 랩\\c[0]에 온 걸 환영해!"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "SMILE"
+				}
+			}, {
+				"message": {
+					"en_US": "...?",
+					"ko_KR": "...?"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.lea",
+					"expression": "SURPRISED"
+				}
+			}, {
+				"message": {
+					"en_US": "",
+					"ko_KR": "나랑 친한 다른 인스타테인먼트의 직원이 여기서 이곳을 개발 중이거든."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "DEFAULT"
+				}
+			}, {
+				"message": {
+					"en_US": "",
+					"ko_KR": "아무도 모르게 개발하고 있다는게 문제지만. 사실 나도 며칠 전에 알았어..."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "ROLL_EYES"
+				}
+			}, {
+				"message": {
+					"en_US": "...",
+					"ko_KR": "..."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.lea",
+					"expression": "SMILE"
+				}
+			}, {
+				"message": {
+					"en_US": "",
+					"ko_KR": "어쨌든, 그가 우리 계획에 도움을 줄 수도 있을거야. 조력자는 많을 수록 좋지, 안 그래?"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "JOKING"
+				}
+			}, {
+				"message": {
+					"en_US": "...!",
+					"ko_KR": "...!"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.lea",
+					"expression": "EXCITED"
+				}
+			}, {
+				"message": {
+					"en_US": "",
+					"ko_KR": "즐길 것도 많은 곳이니까, 조금 쉬어도 되고!"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "JOKING"
+				}
+			}, {
+				"side": "ALL",
+				"type": "CLEAR_MSG"
+			}, {
+				"entity": {
+					"party": "Member2"
+				},
+				"action": [{
+					"value": 1,
+					"type": "SET_Z_GRAVITY_FACTOR"
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"entity": {
+					"party": "Member3"
+				},
+				"action": [{
+					"value": 1,
+					"type": "SET_Z_GRAVITY_FACTOR"
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "party.has.Emilie",
+				"thenStep": [{
+					"message": {
+						"en_US": "",
+						"ko_KR": "깊기도 해라, 여긴 어디야?"
+					},
+					"type": "SHOW_SIDE_MSG",
+					"person": {
+						"person": "main.emilie",
+						"expression": "SUSPICIOUS"
+					}
+				}]
+			}]
 		}
 	}],
 	"layer": [{

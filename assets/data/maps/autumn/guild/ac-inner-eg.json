@@ -388,7 +388,6 @@
 			"terrain": "METAL",
 			"speed": "SLOW",
 			"staticSpeed": false,
-			"mapId": 10,
 			"states": [{
 				"offset": {
 					"x": 0,
@@ -402,18 +401,8 @@
 					"y": 0,
 					"z": -96
 				},
-				"condition": "tmp.switch"
+				"condition": "map.switch"
 			}]
-		}
-	}, {
-		"type": "Switch",
-		"x": 569,
-		"y": 179,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"mapId": 11,
-			"variable": "tmp.switch"
 		}
 	}, {
 		"type": "Marker",
@@ -422,8 +411,7 @@
 		"level": 1,
 		"settings": {
 			"name": "exit",
-			"dir": "SOUTH",
-			"mapId": 86
+			"dir": "SOUTH"
 		}
 	}, {
 		"type": "EventTrigger",
@@ -452,7 +440,6 @@
 				"marker": "drop"
 			}],
 			"triggerType": "ALWAYS",
-			"mapId": 524,
 			"startCondition": "tmp.goDown"
 		}
 	}, {
@@ -470,9 +457,289 @@
 			"type": "SET_TRUE",
 			"zHeight": 32,
 			"reactToParty": false,
-			"mapId": 526,
 			"variable": "tmp.goDown",
 			"startCondition": ""
+		}
+	}, {
+		"type": "EventTrigger",
+		"x": 542,
+		"y": 366,
+		"level": 1,
+		"settings": {
+			"name": "acEnterFirst",
+			"eventType": "CUTSCENE",
+			"endCondition": "false",
+			"event": [{
+				"alpha": 1,
+				"time": 0,
+				"lighter": false,
+				"color": "black",
+				"type": "SET_OVERLAY"
+			}, {
+				"alpha": 0,
+				"time": 1,
+				"lighter": false,
+				"color": "black",
+				"type": "SET_OVERLAY"
+			}, {
+				"type": "WAIT",
+				"time": 0.5
+			}, {
+				"side": "LEFT",
+				"order": 0,
+				"clearSide": false,
+				"type": "ADD_MSG_PERSON",
+				"person": {
+					"person": "main.lea",
+					"expression": "SURPRISED_TOWARD"
+				}
+			}, {
+				"side": "RIGHT",
+				"order": 0,
+				"clearSide": false,
+				"type": "ADD_MSG_PERSON",
+				"person": {
+					"person": "main.sergey",
+					"expression": "SURPRISED"
+				}
+			}, {
+				"message": {
+					"en_US": "",
+					"ko_KR": "레아, 잠깐만. 여기 뭔가 내가 아는 곳 같은데..."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "SURPRISED"
+				}
+			}, {
+				"pos": {
+					"x": 576,
+					"y": 240
+				},
+				"speed": "NORMAL",
+				"transition": "EASE_IN_OUT",
+				"wait": false,
+				"waitSkip": 0.3,
+				"zoom": 1.3,
+				"type": "SET_CAMERA_POS"
+			}, {
+				"message": {
+					"en_US": "",
+					"ko_KR": "저기 사각형 무늬 부분 위에 잠깐만 서 있어볼래?"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "WHISTLING"
+				}
+			}, {
+				"message": {
+					"en_US": "",
+					"ko_KR": "...?"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.lea",
+					"expression": "SURPRISED"
+				}
+			}, {
+				"side": "ALL",
+				"type": "CLEAR_MSG"
+			}, {
+				"entity": {
+					"player": true
+				},
+				"action": [{
+					"target": {
+						"x": 576,
+						"y": 240,
+						"lvl": "1"
+					},
+					"maxTime": 0,
+					"distance": 0,
+					"precise": false,
+					"planOnly": false,
+					"type": "NAVIGATE_TO_POINT"
+				}, {
+					"face": "SOUTH",
+					"rotate": true,
+					"rotateSpeed": 1,
+					"type": "SET_FACE"
+				}, {
+					"value": 0,
+					"type": "SET_Z_VEL"
+				}, {
+					"value": 0,
+					"type": "SET_Z_GRAVITY_FACTOR"
+				}],
+				"repeating": false,
+				"wait": true,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"type": "WAIT",
+				"time": 1
+			}, {
+				"changeType": "set",
+				"type": "CHANGE_VAR_BOOL",
+				"varName": "map.switch",
+				"value": true
+			}, {
+				"mode": "NORMAL",
+				"type": "PAUSE_BGM"
+			}, {
+				"type": "WAIT",
+				"time": 0.3
+			}, {
+				"zoom": 2,
+				"duration": 1.1,
+				"transition": "EASE_OUT",
+				"type": "SET_CAMERA_ZOOM"
+			}, {
+				"entity": {
+					"player": true
+				},
+				"action": [{
+					"wait": false,
+					"type": "SHOW_EXTERN_ANIM",
+					"anim": {
+						"sheet": "player-poses",
+						"name": "lifted"
+					}
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"entity": {
+					"party": "Member2"
+				},
+				"action": [{
+					"entity": {
+						"player": true
+					},
+					"rotate": true,
+					"rotateSpeed": 3,
+					"type": "SET_FACE_TO_ENTITY"
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"entity": {
+					"party": "Member3"
+				},
+				"action": [{
+					"entity": {
+						"player": true
+					},
+					"rotate": true,
+					"rotateSpeed": 3,
+					"type": "SET_FACE_TO_ENTITY"
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"side": "LEFT",
+				"order": 0,
+				"clearSide": false,
+				"type": "ADD_MSG_PERSON",
+				"person": {
+					"person": "main.lea",
+					"expression": "SHOCKED"
+				}
+			}, {
+				"message": {
+					"en_US": "",
+					"ko_KR": "!!!"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.lea",
+					"expression": "SHOCKED"
+				}
+			}, {
+				"type": "IF",
+				"withElse": false,
+				"condition": "party.has.Emilie",
+				"thenStep": [{
+					"side": "RIGHT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "main.emilie",
+						"expression": "SHOCKED"
+					}
+				}, {
+					"message": {
+						"ko_KR": "레아!!!"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.emilie",
+						"expression": "SHOCKED"
+					}
+				}]
+			}, {
+				"type": "IF",
+				"withElse": false,
+				"condition": "party.has.Glasses",
+				"thenStep": [{
+					"side": "RIGHT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "main.glasses",
+						"expression": "SHOCKED"
+					}
+				}, {
+					"message": {
+						"ko_KR": "무, 무슨 일이지?"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.glasses",
+						"expression": "SHOCKED"
+					}
+				}]
+			}, {
+				"side": "ALL",
+				"type": "CLEAR_MSG"
+			}, {
+				"entity": {
+					"player": true
+				},
+				"action": [{
+					"value": 1,
+					"type": "SET_Z_GRAVITY_FACTOR"
+				}, {
+					"type": "WAIT_UNTIL_TRUE",
+					"condition": "tmp.goDown"
+				}],
+				"repeating": false,
+				"wait": true,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}],
+			"triggerType": "ONCE"
 		}
 	}],
 	"layer": [{

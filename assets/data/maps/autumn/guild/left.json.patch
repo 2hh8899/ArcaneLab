@@ -11,6 +11,7 @@
 		"settings": {
 			"name": "acEntrance",
 			"doorType": "DEFAULT",
+			"condition": "plot.line >= 20800",
 			"dir": "SOUTH",
 			"transitionType": "REGULAR",
 			"map": "autumn.guild.ac-inner-eg",

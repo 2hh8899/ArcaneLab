@@ -15,7 +15,7 @@
 		"cameraInBounds": true,
 		"mapStyle": "",
 		"weather": "AUTUMN",
-		"area": "autumn-area",
+		"area": "guildac",
 		"npcRunners": "REGULAR"
 	},
 	"screen": {
@@ -562,7 +562,7 @@
 			"name": "fishSpotMarker",
 			"dir": "SOUTH"
 		}
-	},  {
+	}, {
 		"type": "EventTrigger",
 		"x": 55,
 		"y": 164,
@@ -608,7 +608,7 @@
 				"type": "WAIT_RANDOM",
 				"minTime": 1,
 				"maxTime": 4
-			},{
+			}, {
 				"entity": {
 					"global": true,
 					"name": "fishSpotMarker"
@@ -691,7 +691,7 @@
 				"stat": "BOTTOM_POS",
 				"type": "SET_VAR_ENTITY_STAT",
 				"varName": "tmp.bubblePos"
-			},{
+			}, {
 				"type": "CHANGE_VAR_BOOL",
 				"varName": "tmp.startEffect",
 				"changeType": "set",
@@ -699,7 +699,7 @@
 			}, {
 				"type": "WAIT",
 				"time": 10
-			},{
+			}, {
 				"type": "CHANGE_VAR_BOOL",
 				"varName": "tmp.startEffect",
 				"changeType": "set",
@@ -771,6 +771,13 @@
 						"core": "CHARGE",
 						"value": false,
 						"type": "SET_PLAYER_CORE"
+					}, {
+						"core": "MENU",
+						"value": false,
+						"type": "SET_PLAYER_CORE"
+					}, {
+						"value": "SAVE",
+						"type": "SET_MOBILITY_BLOCK"
 					}],
 					"1": [{
 						"name": "Lea",
@@ -804,6 +811,13 @@
 						"core": "CHARGE",
 						"value": true,
 						"type": "SET_PLAYER_CORE"
+					}, {
+						"core": "MENU",
+						"value": true,
+						"type": "SET_PLAYER_CORE"
+					}, {
+						"value": "NONE",
+						"type": "SET_MOBILITY_BLOCK"
 					}],
 					"2": [],
 					"type": "SHOW_CHOICE",

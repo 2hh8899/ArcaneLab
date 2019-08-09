@@ -8,7 +8,7 @@
 			"en_US": "It's the secret basement of a developer guild, which is developing new things to enjoy.",
 			"ko_KR": "새로운 즐길거리들을 개발 중인 한 개발자 길드의 비밀스러운 지하기지입니다."
 		},
-		"areaType": "DUNGEON",
+		"areaType": "TOWN",
 		"order": 1000,
 		"track": false,
 		"chests": 0,

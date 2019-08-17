@@ -1,0 +1,176 @@
+{
+	"name": {
+		"en_US": "Shooty",
+		"ko_KR": "슈티"
+	},
+	"size": {
+		"x": 16,
+		"y": 16,
+		"z": 24
+	},
+	"animSheet": "npc.shooty",
+	"walkAnimSet": {
+		"normal": {
+			"idle": "idle",
+			"move": "walk",
+			"run": "run",
+			"jump": "jump",
+			"fall": "fall"
+		},
+		"sit": {
+			"idle": "sit"
+		}
+	},
+	"walkAnims": "normal",
+	"shadow": 16,
+	"configs": {
+		"normal": {
+			"relativeVel": 0.5
+		},
+		"running": {
+			"relativeVel": 1
+		},
+		"sit": {
+			"walkAnims": "sit",
+			"relativeVel": 0.5
+		}
+	},
+	"face": {
+		"width": 114,
+		"height": 145,
+		"centerX": 40,
+		"centerY": 50,
+		"src": "shooty.png",
+		"parts": [{
+			"straight": {
+				"srcX": 333,
+				"srcY": 0,
+				"width": 114,
+				"height": 53,
+				"destX": 0,
+				"destY": 92
+			}
+		}, {
+			"norm": {
+				"srcX": 0,
+				"srcY": 0,
+				"width": 95,
+				"height": 25,
+				"destX": 5,
+				"destY": 0
+			}
+		}, {
+			"normNeutral": {
+				"srcX": 0,
+				"srcY": 25,
+				"width": 103,
+				"height": 67,
+				"destX": 5,
+				"destY": 25,
+				"subX": 0,
+				"subY": 0
+			},
+			"normSad": {
+				"srcX": 0,
+				"srcY": 92,
+				"width": 103,
+				"height": 67,
+				"destX": 5,
+				"destY": 25,
+				"subX": 0,
+				"subY": 0
+			},
+			"normHappy": {
+				"srcX": 0,
+				"srcY": 159,
+				"width": 103,
+				"height": 67,
+				"destX": 5,
+				"destY": 25,
+				"subX": 0,
+				"subY": 0
+			},
+			"normThink": {
+				"srcX": 0,
+				"srcY": 226,
+				"width": 103,
+				"height": 67,
+				"destX": 5,
+				"destY": 25,
+				"subX": 0,
+				"subY": 0
+			}
+		}, {
+			"blinkWhite": {
+				"srcX": 415,
+				"srcY": 479,
+				"width": 8,
+				"height": 9,
+				"destX": 81,
+				"destY": 50
+			},
+			"blinkRed": {
+				"srcX": 423,
+				"srcY": 479,
+				"width": 8,
+				"height": 9,
+				"destX": 81,
+				"destY": 50
+			},
+			"blinkGreen": {
+				"srcX": 431,
+				"srcY": 479,
+				"width": 8,
+				"height": 9,
+				"destX": 81,
+				"destY": 50
+			},
+			"blinkBlue": {
+				"srcX": 439,
+				"srcY": 479,
+				"width": 8,
+				"height": 9,
+				"destX": 81,
+				"destY": 50
+			}
+		}],
+		"expressions": {
+			"DEFAULT": {
+				"anim": [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+				"time": 0.15,
+				"repeat": -1,
+				"faces": [
+					["straight", "norm", "normNeutral"],
+					["straight", "norm", "normNeutral", "blinkWhite"]
+				]
+			},
+			"SMILE": {
+				"anim": [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+				"time": 0.15,
+				"repeat": -1,
+				"faces": [
+					["straight", "norm", "normHappy"],
+					["straight", "norm", "normHappy", "blinkGreen"]
+				]
+			},
+			"SAD": {
+				"anim": [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+				"time": 0.15,
+				"repeat": -1,
+				"faces": [
+					["straight", "norm", "normSad"],
+					["straight", "norm", "normSad", "blinkRed"]
+				]
+			},
+			"THINK": {
+				"anim": [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+				"time": 0.15,
+				"repeat": -1,
+				"faces": [
+					["straight", "norm", "normThink"],
+					["straight", "norm", "normThink", "blinkBlue"]
+				]
+			}
+		}
+	}
+}

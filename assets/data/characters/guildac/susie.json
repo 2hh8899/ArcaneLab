@@ -37,64 +37,79 @@
 		"centerY": 52,
 		"src": "susie.png",
 		"parts": [{
-			"body": {
-				"srcX": 0,
-				"srcY": 88,
+			"straight": {
+				"srcX": 342,
+				"srcY": 0,
 				"width": 105,
 				"height": 56,
 				"destX": 0,
 				"destY": 88
 			}
 		}, {
-			"neutral": {
-				"srcX": 7,
+			"norm": {
+				"srcX": 0,
 				"srcY": 0,
-				"width": 89,
-				"height": 88,
+				"width": 69,
+				"height": 29,
 				"destX": 7,
 				"destY": 0
+			}
+		}, {
+			"neutral": {
+				"srcX": 0,
+				"srcY": 29,
+				"width": 89,
+				"height": 59,
+				"destX": 7,
+				"destY": 29
 			},
 			"smile": {
-				"srcX": 96,
-				"srcY": 0,
+				"srcX": 0,
+				"srcY": 88,
 				"width": 89,
-				"height": 88,
+				"height": 59,
 				"destX": 7,
-				"destY": 0
+				"destY": 29
 			},
 			"smug": {
-				"srcX": 185,
-				"srcY": 0,
+				"srcX": 0,
+				"srcY": 147,
 				"width": 89,
-				"height": 88,
+				"height": 59,
 				"destX": 7,
-				"destY": 0
+				"destY": 29
+			},
+			"sad": {
+				"srcX": 0,
+				"srcY": 206,
+				"width": 89,
+				"height": 59,
+				"destX": 7,
+				"destY": 29
 			}
 		}],
 		"expressions": {
 			"DEFAULT": {
 				"faces": [
-					["body", "neutral"]
+					["straight", "norm", "neutral"]
 				]
 			},
 			"SMILE": {
 				"faces": [
-					["body", "smile"]
+					["straight", "norm", "smile"]
 				]
 			},
 			"SMUG": {
 				"faces": [
-					["body", "smug"]
+					["straight", "norm", "smug"]
+				]
+			},
+			"SAD": {
+				"faces": [
+					["straight", "norm", "sad"]
 				]
 			}
 		}
-	},
-	"realname": {
-		"en_US": "Sooji Kang",
-		"de_DE": "Sooji Kang",
-		"zh_CN": "姜秀智",
-		"ko_KR": "강수지",
-		"ja_JP": "スージー•カン"
 	},
 	"size": {
 		"x": 16,

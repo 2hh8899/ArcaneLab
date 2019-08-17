@@ -1,0 +1,36 @@
+{
+	"DOCTYPE": "PROP_SHEET",
+	"props": [{
+		"name": "landrunner",
+		"size": {
+			"x": 27,
+			"y": 27,
+			"z": 99
+		},
+		"collType": "VIRTUAL",
+		"fix": {
+			"gfx": "entity/effects/hexummoner-heat.png",
+			"x": 54,
+			"y": 0,
+			"w": 31,
+			"h": 38,
+			"flipX": false
+		}
+	}, {
+		"name": "drake-laser-drill",
+		"size": {
+			"x": 240,
+			"y": 72,
+			"z": 100
+		},
+		"collType": "VIRTUAL",
+		"fix": {
+			"gfx": "entity/enemy/boss/drake-laser-drill.png",
+			"x": 0,
+			"y": 0,
+			"w": 240,
+			"h": 142,
+			"flipX": false
+		}
+	}]
+}

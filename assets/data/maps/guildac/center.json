@@ -5046,25 +5046,15 @@
 							}
 						}, {
 							"message": {
-								"en_US": "...",
-								"ko_KR": "..."
+								"en_US": "",
+								"ko_KR": "아, 이 친구가 내가 말했던 직원이야. 닉네임이 \\c[3]슈티\\c[0]였을거야."
 							},
 							"type": "SHOW_SIDE_MSG",
 							"person": {
-								"person": "antagonists.fancyguy",
-								"expression": "PONDERING"
+								"person": "main.sergey",
+								"expression": "DEFAULT"
 							}
 						}]
-					}, {
-						"message": {
-							"en_US": "",
-							"ko_KR": "아, 이 친구가 내가 말했던 직원이야. 닉네임이 \\c[3]슈티\\c[0]였을거야."
-						},
-						"type": "SHOW_SIDE_MSG",
-						"person": {
-							"person": "main.sergey",
-							"expression": "DEFAULT"
-						}
 					}]
 				}, {
 					"entity": {
@@ -5175,7 +5165,7 @@
 				"reactType": "FIXED_POS",
 				"face": "EAST",
 				"hidden": false,
-				"condition": "map.storyEisus == 0",
+				"condition": "map.storyEisus == 0 && map.randomQuestGen1>50 && map.randomQuestGen2<50",
 				"config": "sit",
 				"event": [{
 					"side": "LEFT",
@@ -5241,7 +5231,7 @@
 				"reactType": "FIXED_POS",
 				"face": "EAST",
 				"hidden": false,
-				"condition": "map.storyEisus >= 1 && map.storyEisus <= 2",
+				"condition": "map.storyEisus >= 1 && map.storyEisus <= 2 && map.randomQuestGen1>50 && map.randomQuestGen2<50",
 				"config": "sit",
 				"event": [{
 					"side": "LEFT",
@@ -5497,6 +5487,16 @@
 					"type": "CHANGE_VAR_NUMBER",
 					"varName": "map.storyEisus",
 					"value": 0
+				}]
+			}, {
+				"type": "IF",
+				"withElse": false,
+				"condition": "map.storyEisus==2",
+				"thenStep": [{
+					"changeType": "set",
+					"type": "CHANGE_VAR_NUMBER",
+					"varName": "map.storyEisus",
+					"value": 3
 				}]
 			}],
 			"triggerType": "ONCE_PER_ENTRY",

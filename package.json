@@ -1,5 +1,10 @@
 {
 	"name": "Arcane Lab",
 	"main": "mod.js",
-	"version": "Pre0.0.1a"
+	"prestart": "prestart.js",
+	"version": "Pre0.0.1a",
+  "dependencies": {
+    "ccloader": "^2.14.1",
+    "extendable-severed-heads": "^1.0.0"
+  }
 }

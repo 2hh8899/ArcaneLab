@@ -1,0 +1,75 @@
+{
+	"avatar.susie": {
+		"name": {
+			"en_US": "Susie",
+			"ko_KR": "수지",
+			"de_DE": "Susie",
+			"zh_CN": "秀智",
+			"ja_JP": "スージー"
+		},
+		"track": true,
+		"order": 100000,
+		"area": "guildac",
+		"kills": 1,
+		"anim": "aim",
+		"extra": false,
+		"descriptions": [{
+			"text": {
+				"en_US": "",
+				"ko_KR": "PvP 결투를 하러 온 에보타입니다.\n\\c[3]원성사\\c[0]는 삼검사의 약한 원거리 공격을 원술사의 특성으로 보완한 전투 특화 클래스입니다. \\c[1]과부화에 취약하여 속성을 자주 바꾸는 편\\c[0]이므로, 모든 속성에 대한 대비가 필요합니다."
+			},
+			"condition": ""
+		}],
+		"species": {
+			"en_US": "",
+			"ko_KR": "과묵한 원성사"
+		},
+		"category": "PLAYERS",
+		"level": 63,
+		"boostedLevel": 0,
+		"params": {
+			"hp": 3000,
+			"attack": 460,
+			"defense": 320,
+			"focus": 460,
+			"elemFactor": [0.83, 0.83, 0.83, 0.83]
+		},
+		"credit": 0,
+		"exp": 0,
+		"itemDrops": [],
+		"boss": false
+	},
+	"avatar.susie-hacked": {
+		"name": {
+			"en_US": "Susie",
+			"ko_KR": "수지",
+			"de_DE": "Susie",
+			"zh_CN": "秀智",
+			"ja_JP": "スージー"
+		},
+		"track": false,
+		"order": 0,
+		"area": "secret",
+		"anim": "aim",
+		"extra": false,
+		"descriptions": [],
+		"species": {
+			"en_US": "",
+			"ko_KR": "과묵한 원성사"
+		},
+		"category": "PLAYERS",
+		"level": 63,
+		"boostedLevel": 0,
+		"params": {
+			"hp": 3000,
+			"attack": 460,
+			"defense": 320,
+			"focus": 460,
+			"elemFactor": [0.83, 0.83, 0.83, 0.83]
+		},
+		"credit": 0,
+		"exp": 0,
+		"itemDrops": [],
+		"boss": false
+	}
+}

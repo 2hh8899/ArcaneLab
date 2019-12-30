@@ -1,0 +1,42 @@
+{
+	"arcanelab.susie": {
+		"elite": true,
+		"name": {
+			"en_US": "",
+			"ko_KR": "외로운 에보타"
+		},
+		"person": {
+			"en_US": "Shooty",
+			"ko_KR": "슈티"
+		},
+		"level": 60,
+		"order": 100001,
+		"description": {
+			"en_US": "",
+			"ko_KR": "슈티가 \\c[3]수상한 서버와 에보타\\c[0]를 발견했습니다. 조사가 필요할 것 같군요!"
+		},
+		"briefing": {
+			"en_US": "",
+			"ko_KR": "오랫동안 갇혀 있던 에보타를 구출해냈습니다. 다만 알 수 없는 곳에 대한 조사는 더 필요해보입니다... 하지만 남매와의 감격스러운 재회는 해냈네요!"
+		},
+		"hideRewards": false,
+		"tasks": [{
+			"task": {
+				"en_US": "",
+				"ko_KR": "서버를 조사하세요."
+			},
+			"subtasks": [{
+				"label": "rescue",
+				"type": "CONDITION"
+			}]
+		}],
+		"rewards": {
+			"exp": {
+				"exp": 500,
+				"bonus": 0
+			},
+			"money": 81500
+		},
+		"area": "guildac"
+	}
+}

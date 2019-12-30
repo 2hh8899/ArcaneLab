@@ -19,6 +19,6 @@
  
  [[하드코드-컨픽-인젝터]](https://github.com/CCDirectLink/hardcoded-config-injector), [[확장-NPC-아이콘]](https://github.com/CCDirectLink/extendable-severed-heads) 지원모드가 필요합니다.
 
-
+***
 
 [[후원]](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZP3FUGJJ7TNE2&source=url)

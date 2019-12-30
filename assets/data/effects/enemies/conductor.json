@@ -1,0 +1,1217 @@
+{
+	"DOCTYPE": "EFFECT",
+	"ANIMS": {
+		"SUB": [{
+			"name": "SHOCKWAVE",
+			"sheet": {
+				"src": "media/entity/enemy/boss/conductor-shockwave.png",
+				"offX": 0,
+				"offY": 0,
+				"width": 540,
+				"height": 540
+			},
+			"centerPivot": false,
+			"renderMode": "lighter",
+			"frames": [0]
+		}, {
+			"name": "SPARK",
+			"sheet": {
+				"src": "media/entity/enemy/boss/conductor.png",
+				"offX": 432,
+				"offY": 229,
+				"width": 5,
+				"height": 3
+			},
+			"centerPivot": false,
+			"renderMode": "lighter",
+			"time": 0.025,
+			"repeat": true,
+			"frames": [0, 1, 2]
+		}, {
+			"name": "SPARK_FLOOR",
+			"sheet": {
+				"src": "media/entity/enemy/boss/conductor.png",
+				"offX": 432,
+				"offY": 177,
+				"width": 15,
+				"height": 52
+			},
+			"centerPivot": false,
+			"renderMode": "lighter",
+			"frames": [0]
+		}, {
+			"name": "APPLEBOMB",
+			"sheet": {
+				"src": "media/entity/enemy/boss/conductor-bomb-break.png",
+				"offX": 0,
+				"offY": 0,
+				"width": 140,
+				"height": 120
+			},
+			"centerPivot": false,
+			"frames": [0]
+		}, {
+			"name": "BIGFIRE",
+			"sheet": {
+				"src": "media/entity/effects/heat.png",
+				"width": 48,
+				"height": 48,
+				"offY": 0,
+				"offX": 0,
+				"xCount": 6
+			},
+			"time": 0.05,
+			"frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+			"guiSprites": true
+		}]
+	},
+	"EFFECTS": {
+		"phaseAuar": [{
+			"type": "LOOP_START"
+		}, {
+			"color": "#ff7f00",
+			"alpha": 0,
+			"duration": 0.3,
+			"keepDuration": 0,
+			"noLighter": false,
+			"type": "FLASH_COLOR"
+		}, {
+			"color": "#ffffff",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.3,
+						"y": 1.3
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#ffb469",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.5,
+						"y": 1.5
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#ff7f00",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.8,
+						"y": 1.8
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#ff5a34",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.8,
+						"y": 1.8
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#ff0000",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.8,
+						"y": 1.8
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"type": "LOOP_END"
+		}],
+		"shockwave": [{
+			"useTargetAngle": false,
+			"keepAngleSync": false,
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"pAlpha": {
+				"init": 1,
+				"end": {
+					"value": 0,
+					"time": 0.3,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 0,
+					"y": 0
+				},
+				"start": {
+					"value": {
+						"x": 0.7344,
+						"y": 0.7344
+					},
+					"spline": ""
+				},
+				"end": {
+					"value": {
+						"x": 0.918,
+						"y": 0.918
+					},
+					"time": 0.1,
+					"spline": "EASE_OUT_STRONG"
+				}
+			},
+			"moveWithTarget": 0,
+			"particleDuration": 0.5,
+			"anim": "SHOCKWAVE",
+			"type": "PLAY_ANIM"
+		}],
+		"spark": [{
+			"type": "LOOP_START"
+		}, {
+			"numParticles": 1,
+			"duration": 0,
+			"centralAngle": 0,
+			"startAngle": 0,
+			"startDist": 0,
+			"particleRotate": true,
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"moveDist": 5,
+			"keySpline": "LINEAR",
+			"moveRotate": 0,
+			"rotateWithTime": false,
+			"collision": false,
+			"pAlpha": {
+				"init": 1,
+				"end": {
+					"value": 0,
+					"time": 0.3,
+					"spline": ""
+				}
+			},
+			"moveWithTarget": 0,
+			"flipRightParticles": true,
+			"particleDuration": 0.2,
+			"anim": "SPARK_FLOOR",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"numParticles": 3,
+			"circular": true,
+			"minSpeed": 50,
+			"maxSpeed": 60,
+			"minZSpeed": 100,
+			"maxZSpeed": 300,
+			"debrisSize": {
+				"x": 3,
+				"y": 3,
+				"z": 3
+			},
+			"zBounciness": 0,
+			"pAlpha": {
+				"init": 1,
+				"end": {
+					"value": 0,
+					"time": 1,
+					"spline": ""
+				}
+			},
+			"pRotate": {
+				"init": 0
+			},
+			"particleDuration": 0.5,
+			"particleDurVariance": 0.3,
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"anim": "SPARK",
+			"type": "DEBRIS_OVER_ENTITY"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"type": "LOOP_END"
+		}],
+		"myurderDarkness": [{
+			"fadeIn": 0,
+			"fadeOut": 0,
+			"duration": -1,
+			"intensity": 0.8,
+			"type": "DARKNESS"
+		}, {
+			"type": "LOOP_START"
+		}, {
+			"time": 0.4,
+			"type": "WAIT"
+		}, {
+			"type": "LOOP_END"
+		}],
+		"blueAuar": [{
+			"color": "#007fff",
+			"alpha": 0,
+			"duration": 0.3,
+			"keepDuration": 0,
+			"noLighter": false,
+			"type": "FLASH_COLOR"
+		}, {
+			"color": "#ffffff",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.3,
+						"y": 1.3
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#69b4ff",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.5,
+						"y": 1.5
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#007fff",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.8,
+						"y": 1.8
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#007fff",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.8,
+						"y": 1.8
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#007fff",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.8,
+						"y": 1.8
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}],
+		"explosionFire": [{
+			"size": "XL",
+			"fadeIn": 0.1,
+			"fadeOut": 0.4,
+			"duration": 0.2,
+			"glow": false,
+			"type": "LIGHT"
+		}, {
+			"numParticles": 6,
+			"duration": 0.1,
+			"centralAngle": 1,
+			"startDist": 12,
+			"uniformRandom": 0.3,
+			"flipRightParticles": true,
+			"moveDist": 32,
+			"keySpline": "EASE_IN_OUT",
+			"collision": false,
+			"anim": "BIGFIRE",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"numParticles": 8,
+			"duration": 0.1,
+			"centralAngle": 1,
+			"startDist": 16,
+			"uniformRandom": 0.3,
+			"flipRightParticles": true,
+			"moveDist": 48,
+			"keySpline": "EASE_IN_OUT",
+			"collision": false,
+			"anim": "BIGFIRE",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"numParticles": 12,
+			"duration": 0.1,
+			"centralAngle": 1,
+			"startDist": 24,
+			"uniformRandom": 0.3,
+			"flipRightParticles": true,
+			"moveDist": 64,
+			"keySpline": "EASE_IN_OUT",
+			"collision": false,
+			"anim": "BIGFIRE",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}],
+		"appleFireAuar": [{
+			"type": "LOOP_START"
+		}, {
+			"color": "#ff9a19",
+			"alpha": 0,
+			"duration": 0.3,
+			"keepDuration": 0,
+			"noLighter": false,
+			"type": "FLASH_COLOR"
+		}, {
+			"color": "#ffffff",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#ef5100",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#d62c00",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#ba1e00",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#940000",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"type": "LOOP_END"
+		}],
+		"appleIceAuar": [{
+			"type": "LOOP_START"
+		}, {
+			"color": "#19d9ff",
+			"alpha": 0,
+			"duration": 0.3,
+			"keepDuration": 0,
+			"noLighter": false,
+			"type": "FLASH_COLOR"
+		}, {
+			"color": "#ffffff",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#0094f0",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#0068d7",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#004eba",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#002794",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"type": "LOOP_END"
+		}],
+		"appleShockAuar": [{
+			"type": "LOOP_START"
+		}, {
+			"color": "#cd00e1",
+			"alpha": 0,
+			"duration": 0.3,
+			"keepDuration": 0,
+			"noLighter": false,
+			"type": "FLASH_COLOR"
+		}, {
+			"color": "#ffffff",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#9c00e0",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#4e00b3",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#2b0084",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#00004b",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"type": "LOOP_END"
+		}],
+		"appleWaveAuar": [{
+			"type": "LOOP_START"
+		}, {
+			"color": "#04e300",
+			"alpha": 0,
+			"duration": 0.3,
+			"keepDuration": 0,
+			"noLighter": false,
+			"type": "FLASH_COLOR"
+		}, {
+			"color": "#ffffff",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#00bf00",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#00a500",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#007100",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"color": "#003c00",
+			"noLighter": false,
+			"pAlpha": {
+				"init": 0.5,
+				"start": {
+					"value": 0,
+					"spline": ""
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.05,
+						"y": 1.05
+					},
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.2,
+			"type": "COPY_SPRITE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"type": "LOOP_END"
+		}],
+		"appleBreak": [{
+			"useTargetAngle": false,
+			"keepAngleSync": false,
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"moveWithTarget": 0,
+			"particleDuration": 0.05,
+			"anim": "APPLEBOMB",
+			"type": "PLAY_ANIM"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"size": "XL",
+			"fadeIn": 0.1,
+			"fadeOut": 0.4,
+			"duration": 0.2,
+			"glow": false,
+			"type": "LIGHT"
+		}, {
+			"numParticles": 6,
+			"duration": 0.1,
+			"centralAngle": 1,
+			"startDist": 12,
+			"uniformRandom": 0.3,
+			"flipRightParticles": true,
+			"moveDist": 32,
+			"keySpline": "EASE_IN_OUT",
+			"collision": false,
+			"anim": "BIGFIRE",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"numParticles": 8,
+			"duration": 0.1,
+			"centralAngle": 1,
+			"startDist": 16,
+			"uniformRandom": 0.3,
+			"flipRightParticles": true,
+			"moveDist": 48,
+			"keySpline": "EASE_IN_OUT",
+			"collision": false,
+			"anim": "BIGFIRE",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"numParticles": 12,
+			"duration": 0.1,
+			"centralAngle": 1,
+			"startDist": 24,
+			"uniformRandom": 0.3,
+			"flipRightParticles": true,
+			"moveDist": 64,
+			"keySpline": "EASE_IN_OUT",
+			"collision": false,
+			"anim": "BIGFIRE",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}]
+	}
+}

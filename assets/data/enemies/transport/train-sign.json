@@ -1,0 +1,150 @@
+{
+	"level": 60,
+	"params": {
+		"hp": 80,
+		"attack": 380,
+		"defense": 380,
+		"focus": 380
+	},
+	"credit": 0,
+	"exp": 25,
+	"maxSp": 8,
+	"enduranceScale": 1,
+	"healDropRate": 0,
+	"boss": false,
+	"bossOrder": 0,
+	"padding": {
+		"x": 4,
+		"y": 4
+	},
+	"material": "METAL",
+	"aiGroup": "",
+	"aiLearnType": "REGULAR",
+	"itemDrops": null,
+	"targetDetect": null,
+	"hpBreaks": [],
+	"size": {
+		"x": 15,
+		"y": 15,
+		"z": 56
+	},
+	"anims": "enemies.train-sign",
+	"defaultState": "OFF",
+	"walkConfigs": {
+		"off": {
+			"idle": "off"
+		},
+		"on": {
+			"idle": "on"
+		}
+	},
+	"walkAnims": "off",
+	"accelSpeed": 0.5,
+	"groundConnect": "FIXED",
+	"airFriction": 0.8,
+	"weight": -1,
+	"maxVel": 120,
+	"collType": "FENCE",
+	"shadow": 16,
+	"hitStable": "MEDIUM",
+	"hitIgnore": true,
+	"aggression": "PEACEFUL",
+	"annotate": {
+		"active": "NONE",
+		"passive": "NONE",
+		"weapon": "ANY",
+		"element": "ANY",
+		"extra": []
+	},
+	"DOCTYPE": "ENEMY",
+	"trackers": {
+		"regen": {
+			"target": 3,
+			"initRandom": 0,
+			"resetRandom": 0,
+			"noStateReset": false,
+			"noAssist": false,
+			"type": "TIME"
+		}
+	},
+	"states": {
+		"OFF": {
+			"walkAnims": "off",
+			"choices": [{
+				"req": [{
+					"negated": false,
+					"type": "VAR_CONDITION",
+					"condition": "tmp.trainComing"
+				}],
+				"action": "Alert",
+				"preSwitchState": "ON"
+			}]
+		},
+		"ON": {
+			"walkAnims": "on",
+			"damageFactor": 0,
+			"faceToTarget": false,
+			"choices": [{
+				"req": [{
+					"type": "!VAR_CONDITION",
+					"condition": {
+						"actorAttrib": "tmp.trainComing"
+					}
+				}],
+				"action": "Idle",
+				"postSwitchState": "OFF"
+			}]
+		}
+	},
+	"proxies": {},
+	"actions": {
+		"Idle": [{
+			"type": "WAIT",
+			"time": 0.2
+		}],
+		"Alert": [{
+			"type": "WAIT",
+			"time": 4
+		}, {
+			"zoomType": "LIGHT",
+			"fadeIn": 1,
+			"duration": 0,
+			"fadeOut": 10,
+			"type": "SET_ZOOM_BLUR"
+		}, {
+			"type": "WAIT",
+			"time": 1
+		}, {
+			"rumbleType": "RANDOM",
+			"name": "",
+			"duration": 10,
+			"power": "WEAKEST",
+			"speed": "FASTER",
+			"fade": true,
+			"type": "RUMBLE_SCREEN"
+		}, {
+			"type": "WAIT",
+			"time": 10
+		}, {
+			"changeType": "set",
+			"type": "CHANGE_VAR_BOOL",
+			"varName": "tmp.trainComing",
+			"value": false
+		}]
+	},
+	"reactions": {},
+	"meta": {
+		"species": {
+			"en_US": "",
+			"ko_KR": "기차 표지판"
+		},
+		"category": "MECHA",
+		"descriptions": [{
+			"text": {
+				"en_US": "",
+				"ko_KR": "평범한 기차 표지판입니다. 소리가 나기 시작하면 기차를 조심하세요!"
+			},
+			"condition": ""
+		}]
+	}
+}

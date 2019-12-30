@@ -1,0 +1,163 @@
+{
+	"DOCTYPE": "MULTI_DIR_ANIMATION",
+	"namedSheets": {
+		"peck": {
+			"src": "media/entity/enemy/boss/conductor.png",
+			"xCount": 6,
+			"offX": 0,
+			"offY": 0,
+			"width": 48,
+			"height": 48
+		},
+		"bomb": {
+			"src": "media/entity/enemy/boss/conductor.png",
+			"xCount": 2,
+			"offX": 192,
+			"offY": 240,
+			"width": 140,
+			"height": 120
+		}
+	},
+	"SUB": [{
+		"shapeType": "Y_FLAT",
+		"sheet": "peck",
+		"dirs": "2",
+		"flipX": [0, 1],
+		"tileOffsets": [0, 0],
+		"SUB": [{
+			"name": "idle",
+			"time": 1,
+			"repeat": false,
+			"frames": [0]
+		}, {
+			"name": "battleIdle",
+			"time": 0.15,
+			"repeat": true,
+			"frames": [18, 19, 20]
+		}, {
+			"name": "attackSword",
+			"time": 0.07,
+			"repeat": false,
+			"frames": [28, 29]
+		}, {
+			"name": "attackThrow",
+			"time": 0.07,
+			"repeat": false,
+			"frames": [12, 14]
+		}, {
+			"name": "attackPush",
+			"time": 0.07,
+			"repeat": false,
+			"frames": [13, 14]
+		}, {
+			"name": "hold",
+			"time": 0.07,
+			"repeat": true,
+			"frames": [30, 31, 32]
+		}, {
+			"name": "holdSawPre",
+			"time": 0.07,
+			"repeat": false,
+			"frames": [39]
+		}, {
+			"name": "holdTimePre",
+			"time": 0.07,
+			"repeat": false,
+			"frames": [45]
+		}, {
+			"name": "holdApplePre",
+			"time": 0.07,
+			"repeat": false,
+			"frames": [51]
+		}, {
+			"name": "holdSaw",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [36, 37, 38]
+		}, {
+			"name": "holdTime",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [42, 43, 44]
+		}, {
+			"name": "holdApple",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [48, 49, 50]
+		}, {
+			"name": "whistle",
+			"time": 0.04,
+			"repeat": false,
+			"frames": [1, 2, 3, 3, 3, 3, 3],
+			"framesGfxOffset": [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]
+		}, {
+			"name": "rolling",
+			"time": 0.04,
+			"repeat": true,
+			"frames": [54, 55, 56, 57]
+		}, {
+			"name": "impact",
+			"time": 0.1,
+			"repeat": false,
+			"frames": [15]
+		}, {
+			"name": "fall",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [6, 7, 8, 7]
+		}, {
+			"name": "phase",
+			"time": 0.06,
+			"repeat": true,
+			"frames": [16, 17, 22, 22, 22, 16, 17, 22, 22, 22, 22, 23, 22, 23, 22, 22, 22, 22]
+		}, {
+			"name": "rocketReady",
+			"time": 0.07,
+			"repeat": false,
+			"frames": [24, 25, 26]
+		}, {
+			"name": "rocketFire",
+			"time": 0.1,
+			"repeat": false,
+			"frames": [27]
+		}, {
+			"name": "damage",
+			"time": 0.05,
+			"repeat": true,
+			"frames": [21, 21],
+			"framesGfxOffset": [1, 0, 0, 0]
+		}]
+	}, {
+		"shapeType": "Y_FLAT",
+		"sheet": "bomb",
+		"dirs": "1",
+		"flipX": [0],
+		"tileOffsets": [0],
+		"SUB": [{
+			"name": "appleFire",
+			"time": 1,
+			"repeat": false,
+			"frames": [0]
+		}, {
+			"name": "appleIce",
+			"time": 1,
+			"repeat": false,
+			"frames": [1]
+		}, {
+			"name": "appleShock",
+			"time": 1,
+			"repeat": false,
+			"frames": [2]
+		}, {
+			"name": "appleWave",
+			"time": 1,
+			"repeat": false,
+			"frames": [3]
+		}]
+	}],
+	"offset": {
+		"x": 0,
+		"y": -4,
+		"z": 0
+	}
+}

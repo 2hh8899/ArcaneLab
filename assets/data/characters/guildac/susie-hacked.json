@@ -6,7 +6,7 @@
 		"zh_CN": "秀智",
 		"ja_JP": "スージー"
 	},
-	"animSheet": "npc.susie",
+	"animSheet": "npc.susie-hacked",
 	"walkAnimSet": {
 		"normal": {
 			"idle": "idle",
@@ -35,19 +35,11 @@
 		"height": 144,
 		"centerX": 33,
 		"centerY": 52,
-		"src": "susie.png",
+		"src": "susie-hacked.png",
 		"parts": [{
 			"straight": {
 				"srcX": 342,
 				"srcY": 0,
-				"width": 105,
-				"height": 56,
-				"destX": 0,
-				"destY": 88
-			},
-			"hold": {
-				"srcX": 342,
-				"srcY": 56,
 				"width": 105,
 				"height": 56,
 				"destX": 0,
@@ -58,14 +50,6 @@
 				"srcX": 0,
 				"srcY": 0,
 				"width": 71,
-				"height": 29,
-				"destX": 7,
-				"destY": 0
-			},
-			"down": {
-				"srcX": 97,
-				"srcY": 0,
-				"width": 62,
 				"height": 29,
 				"destX": 7,
 				"destY": 0
@@ -95,34 +79,10 @@
 				"destX": 7,
 				"destY": 29
 			},
-			"surprised": {
+			"sad": {
 				"srcX": 0,
 				"srcY": 206,
 				"width": 89,
-				"height": 59,
-				"destX": 7,
-				"destY": 29
-			},
-			"moving": {
-				"srcX": 0,
-				"srcY": 265,
-				"width": 89,
-				"height": 59,
-				"destX": 7,
-				"destY": 29
-			},
-			"moving2": {
-				"srcX": 0,
-				"srcY": 324,
-				"width": 89,
-				"height": 59,
-				"destX": 7,
-				"destY": 29
-			},
-			"downSad": {
-				"srcX": 89,
-				"srcY": 206,
-				"width": 88,
 				"height": 59,
 				"destX": 7,
 				"destY": 29
@@ -144,24 +104,9 @@
 					["straight", "norm", "smug"]
 				]
 			},
-			"SURPRISED": {
-				"faces": [
-					["straight", "norm", "surprised"]
-				]
-			},
-			"MOVING": {
-				"faces": [
-					["straight", "norm", "moving"]
-				]
-			},
-			"MOVING2": {
-				"faces": [
-					["straight", "norm", "moving2"]
-				]
-			},
 			"SAD": {
 				"faces": [
-					["hold", "down", "downSad"]
+					["straight", "norm", "sad"]
 				]
 			}
 		}

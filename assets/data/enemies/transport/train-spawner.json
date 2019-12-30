@@ -1,0 +1,469 @@
+{
+	"level": 60,
+	"params": {
+		"hp": 80,
+		"attack": 380,
+		"defense": 380,
+		"focus": 380
+	},
+	"credit": 0,
+	"exp": 25,
+	"maxSp": 8,
+	"enduranceScale": 1,
+	"healDropRate": 0,
+	"boss": false,
+	"bossOrder": 0,
+	"padding": {
+		"x": 4,
+		"y": 4
+	},
+	"material": "METAL",
+	"aiGroup": "",
+	"aiLearnType": "REGULAR",
+	"itemDrops": null,
+	"targetDetect": null,
+	"hpBreaks": [],
+	"size": {
+		"x": 16,
+		"y": 16,
+		"z": 32
+	},
+	"anims": "enemies.turret-arid",
+	"defaultState": "ON",
+	"walkConfigs": {
+		"off": {
+			"idle": "off"
+		},
+		"on": {
+			"idle": "on"
+		}
+	},
+	"walkAnims": "off",
+	"accelSpeed": 0.5,
+	"groundConnect": "FIXED",
+	"airFriction": 0.8,
+	"weight": -1,
+	"maxVel": 120,
+	"shadow": 22,
+	"hitStable": "MEDIUM",
+	"hitIgnore": true,
+	"aggression": "PEACEFUL",
+	"annotate": {
+		"active": "NONE",
+		"passive": "NONE",
+		"weapon": "ANY",
+		"element": "ANY",
+		"extra": []
+	},
+	"DOCTYPE": "ENEMY",
+	"trackers": null,
+	"states": {
+		"ON": {
+			"walkAnims": "on",
+			"damageFactor": 0,
+			"faceToTarget": false,
+			"choices": [{
+				"action": "ThomasIsComing"
+			}]
+		}
+	},
+	"proxies": {
+		"trainFront": {
+			"size": {
+				"x": 224,
+				"y": 32,
+				"z": 48
+			},
+			"speed": 600,
+			"maxBounce": 0,
+			"timer": 60,
+			"trail": false,
+			"multiHit": true,
+			"light": "NONE",
+			"noLightGlow": false,
+			"hitSideways": true,
+			"noMoveRotate": true,
+			"type": "BALL",
+			"effect": "ar",
+			"maxBounds": 0,
+			"shadow": 32,
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/transport-train.png",
+					"offX": 0,
+					"offY": 0,
+					"width": 224,
+					"height": 80
+				},
+				"time": 0.05,
+				"repeat": true,
+				"frames": [0]
+			},
+			"attack": {
+				"type": "MASSIVE",
+				"element": "NEUTRAL",
+				"damageFactor": 4,
+				"fly": "MASSIVE+++",
+				"reverse": false,
+				"hints": ["CHARGED"],
+				"guardable": "",
+				"skillBonus": "",
+				"hitInvincible": true,
+				"noIronStance": true,
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"trainCargo1": {
+			"size": {
+				"x": 112,
+				"y": 32,
+				"z": 16
+			},
+			"speed": 600,
+			"maxBounce": 0,
+			"timer": 60,
+			"trail": false,
+			"multiHit": true,
+			"light": "NONE",
+			"noLightGlow": false,
+			"hitSideways": true,
+			"noMoveRotate": true,
+			"type": "BALL",
+			"effect": "ar",
+			"maxBounds": 0,
+			"shadow": 32,
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/transport-train.png",
+					"offX": 0,
+					"offY": 112,
+					"width": 112,
+					"height": 48
+				},
+				"time": 0.05,
+				"repeat": true,
+				"frames": [0]
+			},
+			"attack": {
+				"type": "MASSIVE",
+				"element": "NEUTRAL",
+				"damageFactor": 1,
+				"fly": "MASSIVE+",
+				"reverse": false,
+				"hints": ["CHARGED"],
+				"guardable": "",
+				"skillBonus": "",
+				"hitInvincible": true,
+				"noIronStance": true,
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"trainCargo2": {
+			"size": {
+				"x": 112,
+				"y": 32,
+				"z": 48
+			},
+			"speed": 600,
+			"maxBounce": 0,
+			"timer": 60,
+			"trail": false,
+			"multiHit": true,
+			"light": "NONE",
+			"noLightGlow": false,
+			"hitSideways": true,
+			"noMoveRotate": true,
+			"type": "BALL",
+			"effect": "ar",
+			"maxBounds": 0,
+			"shadow": 32,
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/transport-train.png",
+					"offX": 0,
+					"offY": 160,
+					"width": 112,
+					"height": 80
+				},
+				"time": 0.05,
+				"repeat": true,
+				"frames": [0]
+			},
+			"attack": {
+				"type": "MASSIVE",
+				"element": "NEUTRAL",
+				"damageFactor": 2,
+				"fly": "MASSIVE++",
+				"reverse": false,
+				"hints": ["CHARGED"],
+				"guardable": "",
+				"skillBonus": "",
+				"hitInvincible": true,
+				"noIronStance": true,
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"trainCargo3": {
+			"size": {
+				"x": 112,
+				"y": 32,
+				"z": 48
+			},
+			"speed": 600,
+			"maxBounce": 0,
+			"timer": 60,
+			"trail": false,
+			"multiHit": true,
+			"light": "NONE",
+			"noLightGlow": false,
+			"hitSideways": true,
+			"noMoveRotate": true,
+			"type": "BALL",
+			"effect": "ar",
+			"maxBounds": 0,
+			"shadow": 32,
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/transport-train.png",
+					"offX": 0,
+					"offY": 240,
+					"width": 112,
+					"height": 80
+				},
+				"time": 0.05,
+				"repeat": true,
+				"frames": [0]
+			},
+			"attack": {
+				"type": "MASSIVE",
+				"element": "NEUTRAL",
+				"damageFactor": 2,
+				"fly": "MASSIVE++",
+				"reverse": false,
+				"hints": ["CHARGED"],
+				"guardable": "",
+				"skillBonus": "",
+				"hitInvincible": true,
+				"noIronStance": true,
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"trainCargo4": {
+			"size": {
+				"x": 112,
+				"y": 32,
+				"z": 48
+			},
+			"speed": 600,
+			"maxBounce": 0,
+			"timer": 60,
+			"trail": false,
+			"multiHit": true,
+			"light": "NONE",
+			"noLightGlow": false,
+			"hitSideways": true,
+			"noMoveRotate": true,
+			"type": "BALL",
+			"effect": "ar",
+			"maxBounds": 0,
+			"shadow": 32,
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/transport-train.png",
+					"offX": 0,
+					"offY": 320,
+					"width": 112,
+					"height": 80
+				},
+				"time": 0.05,
+				"repeat": true,
+				"frames": [0]
+			},
+			"attack": {
+				"type": "MASSIVE",
+				"element": "NEUTRAL",
+				"damageFactor": 2,
+				"fly": "MASSIVE++",
+				"reverse": false,
+				"hints": ["CHARGED"],
+				"guardable": "",
+				"skillBonus": "",
+				"hitInvincible": true,
+				"noIronStance": true,
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		}
+	},
+	"actions": {
+		"ThomasIsComing": [{
+			"minWait": 0,
+			"type": "STOP_Z_ZENITH"
+		}, {
+			"type": "WAIT",
+			"time": 55
+		}, {
+			"changeType": "set",
+			"type": "CHANGE_VAR_BOOL",
+			"varName": "tmp.trainComing",
+			"value": true
+		}, {
+			"type": "WAIT",
+			"time": 5
+		}, {
+			"attribName": "trainLength",
+			"changeType": "set",
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 20
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "trainFront",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"type": "ADJUST_ENTITY_POS",
+			"offset": {
+				"x": -168,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"name": "cargoLoop",
+			"type": "LABEL"
+		}, {
+			"conditions": [{
+				"max": 0.5,
+				"negated": false,
+				"type": "RANDOM"
+			}],
+			"withElse": true,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+				"conditions": [{
+					"max": 0.5,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+				"withElse": true,
+				"type": "COMBAT_IF",
+				"thenStep": [{
+					"align": "BOTTOM",
+					"type": "SHOOT_PROXY",
+					"proxy": "trainCargo1",
+					"offset": {
+						"x": 0,
+						"y": 0,
+						"z": 0
+					}
+				}],
+				"elseStep": [{
+					"align": "BOTTOM",
+					"type": "SHOOT_PROXY",
+					"proxy": "trainCargo2",
+					"offset": {
+						"x": 0,
+						"y": 0,
+						"z": 0
+					}
+				}]
+			}],
+			"elseStep": [{
+				"conditions": [{
+					"max": 0.5,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+				"withElse": true,
+				"type": "COMBAT_IF",
+				"thenStep": [{
+					"align": "BOTTOM",
+					"type": "SHOOT_PROXY",
+					"proxy": "trainCargo3",
+					"offset": {
+						"x": 0,
+						"y": 0,
+						"z": 0
+					}
+				}],
+				"elseStep": [{
+					"align": "BOTTOM",
+					"type": "SHOOT_PROXY",
+					"proxy": "trainCargo4",
+					"offset": {
+						"x": 0,
+						"y": 0,
+						"z": 0
+					}
+				}]
+			}]
+		}, {
+			"type": "ADJUST_ENTITY_POS",
+			"offset": {
+				"x": -112,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"withElse": false,
+			"type": "IF",
+			"condition": "entity.attrib.trainLength > 0",
+			"thenStep": [{
+				"attribName": "trainLength",
+				"changeType": "sub",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 1
+			}, {
+				"name": "cargoLoop",
+				"type": "GOTO_LABEL"
+			}]
+		}, {
+			"type": "ADJUST_ENTITY_POS",
+			"offset": {
+				"x": 2520,
+				"y": 0,
+				"z": 0
+			}
+		}]
+	},
+	"reactions": {},
+	"meta": {
+		"species": {
+			"en_US": "Senior Sentry",
+			"de_DE": "Ranghohe Wache<<C<<geprüft: Melsie",
+			"zh_CN": "资深哨卫<<A<<[CHANGED 2018/08/01]",
+			"ja_JP": "シニア・セントリー<<A<<[CHANGED 2018/08/01]",
+			"ko_KR": "선임 파수병<<A<<[CHANGED 2018/08/01]",
+			"langUid": 2
+		},
+		"category": "MECHA",
+		"descriptions": [{
+			"text": {
+				"en_US": "These turrets serve as companions to the \\v[combat.name.arid/element-turret-boss]. They shoot various elemental projectiles to disrupt enemies and create space for its big brother. ",
+				"de_DE": "Diese Geschütze sind die Begleiter des \\v[combat.name.arid/element-turret-boss]. Sie schießen verschiedene kleine Element-Kugeln um Gegner zu stören und Platz für ihren großen Bruder zu machen.<<C<<geprüft: Melsie",
+				"zh_CN": "这些炮台是\\v[combat.name.arid/element-turret-boss]的伙伴。他们会使用各种元素进行射击，并为他们的大哥创造机会。<<A<<[CHANGED 2018/08/01]",
+				"ja_JP": "\\v[combat.name.arid/element-turret-boss]に付随する形で出現するタレット。様々なエレメントの弾丸を射出して敵を妨害し、本体が戦いやすいように場所を作る。<<A<<[CHANGED 2018/08/01]",
+				"ko_KR": "이 포탑은 \\v[combat.name.arid/element-turret-boss]의 동료 역할을 합니다. 이들은 다양한 속성의 발사체를 발사해 적을 방해하고 큰 형을 위한 공간을 만듭니다.<<A<<[CHANGED 2018/08/01]",
+				"langUid": 4
+			},
+			"condition": ""
+		}]
+	}
+}

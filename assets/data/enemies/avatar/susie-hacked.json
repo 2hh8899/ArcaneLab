@@ -51,7 +51,7 @@
 	"healDropRate": 0,
 	"boss": false,
 	"bossOrder": 0,
-	"headIdx": 12,
+	"headIdx": 3,
 	"padding": {
 		"x": 2,
 		"y": 2
@@ -71,7 +71,7 @@
 		"y": 16,
 		"z": 24
 	},
-	"anims": "npc.susie",
+	"anims": "npc.susie-hacked",
 	"defaultState": "DEFAULT",
 	"walkConfigs": {
 		"normal": {
@@ -4539,6 +4539,7 @@
 		}],
 		"_ThrowBalls": [{
 			"value": true,
+			"speed": 0.2,
 			"type": "FACE_TO_TARGET"
 		}, {
 			"withElse": false,
@@ -4629,6 +4630,9 @@
 				"charged": true,
 				"type": "SHOW_THROW_FX"
 			}, {
+				"speed": 550,
+				"type": "ROTATE_TO_TARGET_PREDICT"
+			}, {
 				"elementProxy": "CHARGED",
 				"type": "SHOOT_PROXY_PLAYER"
 			}, {
@@ -4673,6 +4677,9 @@
 			}, {
 				"charged": false,
 				"type": "SHOW_THROW_FX"
+			}, {
+				"speed": 550,
+				"type": "ROTATE_TO_TARGET_PREDICT"
 			}, {
 				"elementProxy": "QUICK",
 				"type": "SHOOT_PROXY_PLAYER"
@@ -5645,6 +5652,9 @@
 			"immediately": true,
 			"type": "FACE_TO_TARGET"
 		}, {
+			"speed": 800,
+			"type": "ROTATE_TO_TARGET_PREDICT"
+		}, {
 			"proxy": "neutralMegaTri",
 			"type": "SHOOT_PROXY_PLAYER"
 		}, {
@@ -5730,6 +5740,9 @@
 		}, {
 			"value": 0.4,
 			"type": "SET_INVINCIBLE"
+		}, {
+			"speed": 450,
+			"type": "ROTATE_TO_TARGET_PREDICT"
 		}, {
 			"time": 0.4,
 			"cancelOnHit": true,
@@ -5909,6 +5922,9 @@
 		}, {
 			"value": 3,
 			"type": "SET_ACCEL_SPEED"
+		}, {
+			"speed": 240,
+			"type": "ROTATE_TO_TARGET_PREDICT"
 		}, {
 			"time": 0.35,
 			"stopBeforeEdge": false,
@@ -7538,6 +7554,9 @@
 				"z": 0
 			}
 		}, {
+			"speed": 500,
+			"type": "ROTATE_TO_TARGET_PREDICT"
+		}, {
 			"time": 0.4,
 			"collideCancel": 0.125,
 			"stopBeforeEdge": false,
@@ -7884,6 +7903,9 @@
 				"z": 0
 			}
 		}, {
+			"speed": 500,
+			"type": "ROTATE_TO_TARGET_PREDICT"
+		}, {
 			"time": 0.15,
 			"stopBeforeEdge": false,
 			"type": "MOVE_FORWARD"
@@ -7924,6 +7946,9 @@
 			"value": false,
 			"immediately": true,
 			"type": "FACE_TO_TARGET"
+		}, {
+			"speed": 600,
+			"type": "ROTATE_TO_TARGET_PREDICT"
 		}, {
 			"proxy": "iceHook",
 			"type": "SHOOT_PROXY_PLAYER"
@@ -7971,6 +7996,9 @@
 			"value": false,
 			"immediately": true,
 			"type": "FACE_TO_TARGET"
+		}, {
+			"speed": 600,
+			"type": "ROTATE_TO_TARGET_PREDICT"
 		}, {
 			"proxy": "iceChainSub",
 			"type": "SHOOT_PROXY_PLAYER"
@@ -8037,6 +8065,9 @@
 			"changeType": "set",
 			"type": "SET_ATTRIB_NUMBER",
 			"value": 0
+		}, {
+			"speed": 900,
+			"type": "ROTATE_TO_TARGET_PREDICT"
 		}, {
 			"proxy": "iceChainLaserSub",
 			"type": "SHOOT_PROXY_PLAYER"
@@ -8704,6 +8735,9 @@
 				"z": 0
 			}
 		}, {
+			"speed": 400,
+			"type": "ROTATE_TO_TARGET_PREDICT"
+		}, {
 			"time": 0.4,
 			"stopBeforeEdge": false,
 			"type": "MOVE_FORWARD"
@@ -9283,46 +9317,8 @@
 			"type": "WAIT"
 		}],
 		"weakStart": [{
-			"withElse": true,
-			"type": "IF",
-			"condition": "!map.hardBrake",
-			"thenStep": [{
-				"duration": -1,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": true,
-				"group": "weak",
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "enemy",
-					"name": "angry2"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"type": "RESET_TRACKER",
-				"tracker": "brakeOver"
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "pvp.playerPoints >=3",
-				"thenStep": [{
-					"forceValue": 0.33,
-					"type": "RESET_TRACKER",
-					"tracker": "brakeOver"
-				}]
-			}],
-			"elseStep": [{
-				"type": "DO_ENEMY_ACTION",
-				"actionName": "Strat_Swap"
-			}]
+			"type": "DO_ENEMY_ACTION",
+			"actionName": "Strat_Swap"
 		}],
 		"weakEnd": [{
 			"group": "weak",

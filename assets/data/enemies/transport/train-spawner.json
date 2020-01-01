@@ -323,7 +323,24 @@
 			"value": true
 		}, {
 			"type": "WAIT",
-			"time": 5
+			"time": 4
+		}, {
+			"zoomType": "LIGHT",
+			"fadeIn": 1,
+			"duration": 0,
+			"fadeOut": 10,
+			"type": "SET_ZOOM_BLUR"
+		}, {
+			"type": "WAIT",
+			"time": 1
+		}, {
+			"rumbleType": "RANDOM",
+			"name": "",
+			"duration": 10,
+			"power": "WEAKEST",
+			"speed": "FASTER",
+			"fade": true,
+			"type": "RUMBLE_SCREEN"
 		}, {
 			"attribName": "trainLength",
 			"changeType": "set",
@@ -441,6 +458,14 @@
 				"y": 0,
 				"z": 0
 			}
+		}, {
+			"type": "WAIT",
+			"time": 10
+		}, {
+			"changeType": "set",
+			"type": "CHANGE_VAR_BOOL",
+			"varName": "tmp.trainComing",
+			"value": false
 		}]
 	},
 	"reactions": {},

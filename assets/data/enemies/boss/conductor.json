@@ -142,8 +142,8 @@
 					"type": "VAR_CONDITION",
 					"condition": "tmp.bigAppleReady"
 				}, {
-					"min": 0,
-					"max": 0,
+					"min": 2,
+					"max": 2,
 					"negated": false,
 					"type": "HP_BREAK"
 				}],
@@ -1703,6 +1703,107 @@
 				"bounciness": 0.0001
 			}
 		},
+		"mafiaSword": {
+			"faceAnims": {
+				"name": "default",
+				"shapeType": "Y_FLAT",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"sheet": {
+					"src": "media/entity/enemy/boss/conductor.png",
+					"offX": 240,
+					"offY": 16,
+					"width": 22,
+					"height": 8
+				},
+				"dirs": "1",
+				"flipX": [0],
+				"tileOffsets": [0],
+				"time": 1,
+				"faceRotate": true,
+				"repeat": true,
+				"frames": [0],
+				"framesAngle": [-90]
+			},
+			"copyOwnerAnims": false,
+			"breakType": "COMBATANT",
+			"action": [{
+				"volume": 0.25,
+				"global": false,
+				"loop": true,
+				"sound": "media/sound/boss/conductor/mafia-spin.ogg",
+				"type": "PLAY_SOUND"
+			}, {
+				"align": "BOTTOM",
+				"radius": 5,
+				"yScale": 0,
+				"zHeight": 0,
+				"centralAngle": 1,
+				"duration": 0.4,
+				"expandRadius": 0,
+				"alwaysFull": true,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"rectangular": false,
+				"repeat": true,
+				"uniformHitDir": false,
+				"fixPos": false,
+				"checkCollision": false,
+				"type": "CIRCLE_ATTACK",
+				"attack": {
+					"type": "MEDIUM",
+					"element": "NEUTRAL",
+					"visualType": "LIGHT",
+					"fly": "LIGHT",
+					"spFactor": 0,
+					"damageFactor": 0.1,
+					"reverse": false,
+					"guardable": "",
+					"skillBonus": "MELEE_DMG",
+					"limiter": ""
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"target": "PROXY_SRC",
+				"distance": 30,
+				"duration": 22,
+				"rotateTime": 1,
+				"ccw": false,
+				"distAdjustSpeed": 50,
+				"zDistance": -3,
+				"waitTargetAlign": false,
+				"type": "STICKY_CIRCLE_AROUND"
+			}, {
+				"time": 0.1,
+				"type": "WAIT"
+			}],
+			"invisible": false,
+			"hp": 2,
+			"killEffect": {
+				"sheet": "enemies.forest",
+				"name": "pandaTurretGone"
+			},
+			"stickToSource": "NONE",
+			"stickFaceAlign": false,
+			"group": "shield",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 10
+			},
+			"config": {
+				"collType": "IGNORE",
+				"shadow": 10
+			},
+			"type": "GENERIC"
+		},
 		"flameWall": {
 			"copyOwnerAnims": false,
 			"breakType": "COMBATANT",
@@ -2416,6 +2517,9 @@
 			}]
 		}],
 		"Phase4": [{
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "MafiaSword"
+		}, {
 			"type": "SELECT_RANDOM",
 			"options": [{
 				"0": " ",
@@ -4207,6 +4311,37 @@
 			"type": "WAIT"
 		}],
 		
+		"MafiaSword": [{
+			"volume": 0.75,
+			"global": true,
+			"loop": false,
+			"sound": "media/sound/boss/conductor/mafia-throw.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"align": "CENTER",
+			"centralAngle": 1,
+			"angleVary": 0,
+			"startDist": 30,
+			"count": 3,
+			"duration": 0,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "mafiaSword",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 0.5,
+			"type": "WAIT"
+		}],
+		
 		"IceKnife": [{
 			"attribName": "repeatCount",
 			"changeType": "set",
@@ -4837,7 +4972,10 @@
 			"type": "WAIT"
 		}],
 		"WeakEnd": [],
-		
+		"BreakBombPre": [{
+			"name": "applebody",
+			"type": "REMOVE_SHIELD"
+		}],
 		
 		
 		"SoundPhase": [{
@@ -4908,7 +5046,8 @@
 	"reactions": {
 		"HATE_ICE": {
 			"hitType": "REGULAR",
-			"pSwitchState": "DEFAULT",
+			"preAction": "BreakBombPre",
+			"preSwitchState": "DEFAULT",
 			"action": "ReturnBomb",
 			"blockFurtherHits": false,
 			"attackType": "MASSIVE",
@@ -4928,6 +5067,7 @@
 		},
 		"HATE_FIRE": {
 			"hitType": "REGULAR",
+			"preAction": "BreakBombPre",
 			"preSwitchState": "DEFAULT",
 			"action": "ReturnBomb",
 			"blockFurtherHits": false,
@@ -4948,6 +5088,7 @@
 		},
 		"HATE_WAVE": {
 			"hitType": "REGULAR",
+			"preAction": "BreakBombPre",
 			"preSwitchState": "DEFAULT",
 			"action": "ReturnBomb",
 			"blockFurtherHits": false,
@@ -4972,6 +5113,7 @@
 		},
 		"HATE_SHOCK": {
 			"hitType": "REGULAR",
+			"preAction": "BreakBombPre",
 			"preSwitchState": "DEFAULT",
 			"action": "ReturnBomb",
 			"blockFurtherHits": false,

@@ -22,4 +22,5 @@
 ***
 
 [[디스코드]](https://discord.gg/RgzSWXa)
+[[트렐로]](https://trello.com/b/SD0CiV0j/%EC%95%84%EC%BC%80%EC%9D%B8-%EB%9E%A9-to-do)
 [[후원]](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZP3FUGJJ7TNE2&source=url)

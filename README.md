@@ -21,4 +21,5 @@
 
 ***
 
+[[디스코드]](https://discord.gg/RgzSWXa)
 [[후원]](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZP3FUGJJ7TNE2&source=url)

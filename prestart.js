@@ -407,3 +407,6 @@ sc.PlayerSkinLibrary.inject({
 		this.itemToSkin[b.item] = a
 	}
 });
+
+sc.PARTY_OPTIONS.push("Susie");
+sc.PARTY_OPTIONS.push("Eisus");

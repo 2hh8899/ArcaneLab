@@ -2,7 +2,8 @@
 	"DOCTYPE": "AREAS_MAP",
 	"name": {
 		"en_US": "Arcane Lab",
-		"ko_KR": "아케인 랩"
+		"ko_KR": "아케인 랩",
+		"langUid": 2589004
 	},
 	"width": 36,
 	"height": 37,
@@ -71,7 +72,8 @@
 			"path": "guildac.center",
 			"name": {
 				"en_US": "Arcane Lab",
-				"ko_KR": "아케인 랩"
+				"ko_KR": "아케인 랩",
+				"langUid": 2589005
 			},
 			"offset": {
 				"x": 0,
@@ -82,7 +84,8 @@
 			"path": "guildac.fish.river",
 			"name": {
 				"en_US": "Autumn Fishing Spot",
-				"ko_KR": "가을의 낚시장"
+				"ko_KR": "가을의 낚시장",
+				"langUid": 2589006
 			},
 			"offset": {
 				"x": 0,

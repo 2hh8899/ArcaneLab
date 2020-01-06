@@ -42,6 +42,10 @@
 				"attribs": {
 					"hidden": false
 				}
+			},
+			"size": {
+				"x": 16,
+				"y": 16
 			}
 		}
 	}, {
@@ -61,6 +65,10 @@
 				"attribs": {
 					"hidden": false
 				}
+			},
+			"size": {
+				"x": 16,
+				"y": 16
 			}
 		}
 	}, {
@@ -536,7 +544,11 @@
 			"gfxType": "AR",
 			"marker": "teleporter",
 			"blockEventCondition": "",
-			"spawnCondition": "!map.fishing"
+			"spawnCondition": "!map.fishing",
+			"size": {
+				"x": 16,
+				"y": 16
+			}
 		}
 	}, {
 		"type": "ScalableProp",
@@ -564,7 +576,7 @@
 		}
 	}, {
 		"type": "NPC",
-		"x": 160,
+		"x": 177,
 		"y": 682,
 		"level": 1,
 		"settings": {
@@ -745,7 +757,7 @@
 		}
 	}, {
 		"type": "NPC",
-		"x": 180,
+		"x": 197,
 		"y": 682,
 		"level": 1,
 		"settings": {
@@ -764,6 +776,100 @@
 				"condition": "true",
 				"config": "normal",
 				"event": []
+			}]
+		}
+	}, {
+		"type": "NPC",
+		"x": 141,
+		"y": 682,
+		"level": 1,
+		"settings": {
+			"name": "ciel",
+			"characterName": "guildac.ciel",
+			"npcStates": [{
+				"reactType": "FIXED_FACE",
+				"face": "SOUTH",
+				"action": [{
+					"face": "SOUTH",
+					"rotate": true,
+					"rotateSpeed": 3,
+					"type": "SET_FACE"
+				}],
+				"hidden": false,
+				"condition": "true",
+				"config": "normal",
+				"event": [{
+					"side": "LEFT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "main.lea",
+						"expression": "EXCITED"
+					}
+				}, {
+					"side": "RIGHT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "guildac.ciel",
+						"expression": "DEFAULT"
+					}
+				}, {
+					"message": {
+						"en_US": "",
+						"ko_KR": "안녕!"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "EXCITED"
+					}
+				}, {
+					"message": {
+						"en_US": "",
+						"ko_KR": "안녕. 처음 보는 친구네."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.ciel",
+						"expression": "SMILE"
+					}
+				}, {
+					"message": {
+						"en_US": "",
+						"ko_KR": "내 이름은 \\c[3]시엘\\c[0]. 아직 미완성이라, 지금 내가 할 수 있는 건 아직 없어."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.ciel",
+						"expression": "DEFAULT"
+					}
+				}, {
+					"type": "SET_MSG_EXPRESSION",
+					"person": {
+						"person": "main.lea",
+						"expression": "SURPRISED_TOWARD"
+					}
+				}, {
+					"message": {
+						"en_US": "",
+						"ko_KR": "언젠간 모든 것이 완성되겠지만, 그게 언제가 되려나..."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.ciel",
+						"expression": "DEFAULT"
+					}
+				}, {
+					"side": "ALL",
+					"type": "CLEAR_MSG"
+				}]
 			}]
 		}
 	}],

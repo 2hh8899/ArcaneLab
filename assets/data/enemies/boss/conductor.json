@@ -736,6 +736,32 @@
 			}, {
 				"type": "WAIT_UNTIL_ON_GROUND"
 			}, {
+				"align": "BASE",
+				"centralAngle": 1,
+				"angleVary": 0.1,
+				"startDist": 20,
+				"startDistAdd": 30,
+				"count": 7,
+				"duration": 0.2,
+				"startDistCollide": "CLOSER",
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": true,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "earthquakeEffect",
+				"offsetArea": {
+					"x": 300,
+					"y": 300
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
 				"duration": 0,
 				"align": "BOTTOM",
 				"rotateFace": 0,
@@ -1037,6 +1063,32 @@
 				}]
 			}, {
 				"type": "WAIT_UNTIL_ON_GROUND"
+			}, {
+				"align": "BASE",
+				"centralAngle": 1,
+				"angleVary": 0.1,
+				"startDist": 20,
+				"startDistAdd": 30,
+				"count": 7,
+				"duration": 0.2,
+				"startDistCollide": "CLOSER",
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": true,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "earthquakeEffect",
+				"offsetArea": {
+					"x": 300,
+					"y": 300
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
 			}, {
 				"duration": 0,
 				"align": "BOTTOM",
@@ -1703,6 +1755,79 @@
 				"bounciness": 0.0001
 			}
 		},
+		"earthquakeEffect": {
+			"animation": {
+				"SUB": [{
+					"name": "default",
+					"offset": {
+						"x": 0,
+						"y": 0,
+						"z": 0
+					},
+					"pivot": {
+						"x": 8,
+						"y": 40
+					},
+					"sheet": {
+						"src": "media/entity/effects/dust.png",
+						"width": 32,
+						"height": 48,
+						"offY": 64
+					},
+					"renderMode": "lighter",
+					"time": 0.07,
+					"repeat": false,
+					"frames": [1, 2, 3, 4, 5, 6, 7, 8]
+				}]
+			},
+			"copyOwnerAnims": false,
+			"breakType": "COMBATANT",
+			"action": [{
+				"value": 2000,
+				"type": "SET_SPEED"
+			}, {
+				"duration": -1,
+				"align": "BOTTOM",
+				"rotateFace": 2,
+				"wait": false,
+				"waitSkip": 0,
+				"flipLeftFace": true,
+				"actionDetached": false,
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.conductor",
+					"name": "earthquakeEffect"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 4,
+				"collideCancel": 1,
+				"type": "MOVE_FORWARD"
+			}],
+			"invisible": true,
+			"hp": 0,
+			"stickToSource": "NONE",
+			"stickFaceAlign": false,
+			"group": "",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 16
+			},
+			"type": "GENERIC",
+			"config": {
+				"collType": "PROJECTILE",
+				"airFriction": 1,
+				"maxVel": 2000,
+				"zGravityFactor": 0,
+				"bounciness": 0.0001
+			}
+		},
 		"mafiaSword": {
 			"faceAnims": {
 				"name": "default",
@@ -1717,7 +1842,7 @@
 					"offX": 240,
 					"offY": 16,
 					"width": 22,
-					"height": 8
+					"height": 16
 				},
 				"dirs": "1",
 				"flipX": [0],
@@ -1731,6 +1856,25 @@
 			"copyOwnerAnims": false,
 			"breakType": "COMBATANT",
 			"action": [{
+				"duration": 0,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.conductor",
+					"name": "blueAuar"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
 				"volume": 0.25,
 				"global": false,
 				"loop": true,
@@ -1759,7 +1903,7 @@
 					"visualType": "LIGHT",
 					"fly": "LIGHT",
 					"spFactor": 0,
-					"damageFactor": 0.1,
+					"damageFactor": 0.3,
 					"reverse": false,
 					"guardable": "",
 					"skillBonus": "MELEE_DMG",
@@ -1773,11 +1917,11 @@
 			}, {
 				"target": "PROXY_SRC",
 				"distance": 30,
-				"duration": 22,
+				"duration": 60,
 				"rotateTime": 1,
 				"ccw": false,
 				"distAdjustSpeed": 50,
-				"zDistance": -3,
+				"zDistance": 3,
 				"waitTargetAlign": false,
 				"type": "STICKY_CIRCLE_AROUND"
 			}, {
@@ -1785,7 +1929,7 @@
 				"type": "WAIT"
 			}],
 			"invisible": false,
-			"hp": 2,
+			"hp": 3,
 			"killEffect": {
 				"sheet": "enemies.forest",
 				"name": "pandaTurretGone"
@@ -2179,7 +2323,7 @@
 				"attack": {
 					"type": "HEAVY",
 					"element": "COLD",
-					"damageFactor": 1.5,
+					"damageFactor": 1.3,
 					"fly": "MASSIVE+",
 					"reverse": false,
 					"status": 1,
@@ -2394,8 +2538,289 @@
 				"shadow": 32
 			},
 			"type": "GENERIC"
+		},
+		"timePiece": {
+			"animation": {
+				"SUB": [{
+					"name": "default",
+					"sheet": {
+						"src": "media/entity/enemy/boss/conductor.png",
+						"offX": 224,
+						"offY": 16,
+						"width": 16,
+						"height": 16
+					},
+					"time": 0.05,
+					"repeat": true,
+					"frames": [0, 0, 0, 0, 0, 0, 0, 0],
+					"framesAngle": [0, 45, 90, 135, 180, 225, 270, 315],
+					"angle": 45
+				}]
+			},
+			"copyOwnerAnims": false,
+			"breakType": "NEVER",
+			"action": [{
+				"attribName": "flash",
+				"changeType": "set",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 0
+			}, {
+				"conditions": [{
+					"max": 0.5,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+				"withElse": true,
+				"type": "COMBAT_IF",
+				"thenStep": [{
+					"value": true,
+					"immediately": true,
+					"type": "FACE_TO_TARGET"
+				}],
+				"elseStep": [{
+					"value": true,
+					"type": "SET_FACE_FIX"
+				}]
+			}, {
+				"conditions": [{
+					"max": 0.7,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+				"withElse": true,
+				"type": "COMBAT_IF",
+				"thenStep": [{
+					"target": {
+						"x": 3672,
+						"y": 856,
+						 "lvl": "0"
+					},
+					"offsetArea": {
+						"x": 460,
+						"y": 140
+					},
+					"forceHeight": 0,
+					"ignoreSounds": false,
+					"type": "JUMP_TO_POINT_OFFSETAREA"
+				}],
+				"elseStep": [{
+					"stopType": "LANDED",
+					"stopBeforeTime": 0,
+					"distance": 0,
+					"offset": {
+						"x": 0,
+						"y": 0
+					},
+					"adjustSpeedMax": 0,
+					"missileMode": 0,
+					"cancelIfBelowFall": true,
+					"type": "JUMP_TARGET_MOVEMENT"
+				}]
+			}, {
+				"type": "CLEAR_EFFECTS"
+			}, {
+				"type": "STOP_XY"
+			}, {
+				"volume": 0.7,
+				"global": false,
+				"loop": false,
+				"speed": 1,
+				"sound": "media/sound/battle/dash-strong-1.ogg",
+				"type": "PLAY_SOUND"
+			}, {
+				"align": "BOTTOM",
+				"centralAngle": 1,
+				"startAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"count": 2,
+				"duration": 0,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "shockLine",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 1,
+				"type": "WAIT"
+			}, {
+				"attribName": "flash",
+				"changeType": "set",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 1
+			}, {
+				"duration": 0,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"group": "",
+				"actionDetached": false,
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "teleport",
+					"name": "hideQuickSilent"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 1.2,
+				"type": "WAIT"
+			}],
+			"invisible": false,
+			"hp": 0,
+			"stickToSource": "NONE",
+			"stickFaceAlign": false,
+			"group": "",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 2
+			},
+			"config": {
+				"collType": "IGNORE",
+				"zGravityFactor": 1,
+				"zBounciness": 0,
+				"shadow": 16
+			},
+			"type": "GENERIC"
+		},
+		"shockLine": {
+			"copyOwnerAnims": false,
+			"breakType": "ACTION",
+			"action": [{
+				"duration": -1,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"target2": "PROXY_SRC",
+				"target2Offset": {
+					"x": 0,
+					"y": 0,
+					"z": 12
+				},
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.jungle",
+					"name": "shockbossTrail"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 12
+				}
+			}, {
+				"value": 3000,
+				"type": "SET_SPEED"
+			}, {
+				"time": 4,
+				"collideCancel": 1,
+				"type": "MOVE_FORWARD"
+			}, {
+				"kind": "PROXY_SRC",
+				"type": "SET_TEMP_TARGET"
+			}, {
+				"type": "WAIT_UNTIL",
+				"condition": "entity.srcAttrib.flash == 1"
+			}, {
+				"type": "CLEAR_EFFECTS"
+			}, {
+				"duration": 0.4,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"target2": "PROXY_SRC",
+				"target2Offset": {
+					"x": 0,
+					"y": 0,
+					"z": 12
+				},
+				"fixPos": true,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "specials.shock",
+					"name": "dashLightning"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 12
+				}
+			}, {
+				"value": 0.0001,
+				"type": "SET_BOUNCINESS"
+			}, {
+				"value": false,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"volume": 0.9,
+				"global": false,
+				"loop": false,
+				"speed": 1,
+				"sound": "media/sound/battle/heavy-thunder-2.ogg",
+				"type": "PLAY_SOUND"
+			}, {
+				"time": 1,
+				"missReactTime": 0,
+				"cancelOnHit": false,
+				"orthoDirFactor": 1,
+				"ignoreLastHit": false,
+				"collideSlip": false,
+				"type": "TACKLE",
+				"attack": {
+					"type": "MASSIVE",
+					"element": "SHOCK",
+					"damageFactor": 0.5,
+					"fly": "MEDIUM",
+					"reverse": false,
+					"status": 1
+				}
+			}, {
+				"type": "STOP_XY"
+			}, {
+				"time": 1,
+				"type": "WAIT"
+			}],
+			"invisible": false,
+			"hp": 0,
+			"stickToSource": "NONE",
+			"stickFaceAlign": false,
+			"group": "",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 32
+			},
+			"config": {
+				"collType": "PROJECTILE",
+				"airFriction": 1,
+				"maxVel": 3000,
+				"zGravityFactor": 0,
+				"bounciness": 0.0001
+			},
+			"type": "GENERIC"
 		}
-
 	},
 	"actions": {
 		"Init": [{
@@ -2519,6 +2944,12 @@
 		"Phase4": [{
 			"type": "DO_ENEMY_ACTION_INLINE",
 			"actionName": "MafiaSword"
+		}, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "JumpAttack"
+		}, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "TimeThrow"
 		}, {
 			"type": "SELECT_RANDOM",
 			"options": [{
@@ -2648,6 +3079,11 @@
 		}],
 		"ReturnBomb": [{
 			"type": "CLEAR_EFFECTS"
+		}, {
+			"type": "STOP_REPEATING_FORCE"
+		}, {
+			"name": "bomb",
+			"type": "RUMBLE_STOP_CONTINUES"
 		}, {
 			"duration": 0,
 			"align": "BOTTOM",
@@ -4088,10 +4524,7 @@
 				"fly": "MASSIVE",
 				"reverse": false,
 				"spFactor": 0,
-				"status": 1.25,
-				"guardable": "",
-				"skillBonus": "MELEE_DMG",
-				"limiter": ""
+				"status": 1.25
 			},
 			"offset": {
 				"x": 0,
@@ -4312,6 +4745,13 @@
 		}],
 		
 		"MafiaSword": [{
+			"sticking": false,
+			"group": "shield",
+			"type": "REMOVE_PROXIES"
+		}, {
+			"time": 0.4,
+			"type": "WAIT"
+		}, {
 			"volume": 0.75,
 			"global": true,
 			"loop": false,
@@ -4338,10 +4778,410 @@
 				"z": 0
 			}
 		}, {
-			"time": 0.5,
+			"time": 0.7,
 			"type": "WAIT"
 		}],
-		
+		"SawThrow": [{
+			"attribName": "repeatCount",
+			"changeType": "set",
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 7
+		}, {
+			"actionDetached": false,
+			"type": "REMOVE_PLAYER_CAMERA_TARGET"
+		}, {
+			"volume": 0.85,
+			"global": true,
+			"loop": false,
+			"sound": "media/sound/boss/conductor/knife.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.conductor",
+				"name": "blueAuar"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"followUp": "holdSaw",
+			"wait": false,
+			"viaWalkConfig": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "holdSawPre"
+		}, {
+			"time": 0.85,
+			"type": "WAIT"
+		}, {
+			"name": "actionLoop",
+			"type": "LABEL"
+		}, {
+			"name": "teleport",
+			"searchType": "RANDOM",
+			"distance": 128,
+			"centralAngle": 1,
+			"throwing": true,
+			"type": "SET_ATTRIB_CLOSE_TARGET_POS"
+		}, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "ATTRIB_POINT",
+			"target2Key": "teleport",
+			"fixPos": true,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "puzzle.wave-teleport",
+				"name": "trail"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "puzzle.wave-teleport",
+				"name": "hide"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 0.1,
+			"type": "WAIT"
+		}, {
+			"attrib": "teleport",
+			"type": "TELEPORT_TO_ATTRIB_POS"
+		}, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": true,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "puzzle.wave-teleport",
+				"name": "show"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 0.17,
+			"type": "WAIT"
+		}, {
+			"withElse": false,
+			"type": "IF",
+			"condition": "entity.attrib.repeatCount > 1",
+			"thenStep": [{
+				"attribName": "repeatCount",
+				"changeType": "sub",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 1
+			}, {
+				"name": "actionLoop",
+				"type": "GOTO_LABEL"
+			}]
+		}, {
+			"name": "teleport",
+			"target": "SELF",
+			"faceDistance": 0,
+			"type": "SET_ATTRIB_POS"
+		}, {
+			"entity": {
+				"player": true
+			},
+			"stat": "BOTTOM_POS",
+			"type": "SET_VAR_ENTITY_STAT",
+			"varName": "tmp.playerPos"
+		}, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "puzzle.wave-teleport",
+				"name": "hide"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "waveTrailReverse",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 0.1,
+			"type": "WAIT"
+		}, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "tmp.playerPos.x<3664",
+			"thenStep": [{
+				"newPos": {
+					"x": 3864,
+					"y": 848,
+					"lvl": "0"
+				},
+				"type": "SET_POS"
+			}],
+			"elseStep": [{
+				"newPos": {
+					"x": 3464,
+					"y": 848,
+					"lvl": "0"
+				},
+				"type": "SET_POS"
+			}]
+		}, {
+			"actionDetached": false,
+			"onlyAfterRemove": true,
+			"type": "ADD_PLAYER_CAMERA_TARGET"
+		}, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": true,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "puzzle.wave-teleport",
+				"name": "show"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 0.65,
+			"type": "WAIT"
+		}, {
+			"wait": false,
+			"viaWalkConfig": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "attackThrow"
+		}, {
+			"align": "BOTTOM",
+			"centralAngle": 0.05,
+			"angleVary": 0,
+			"startDist": 15,
+			"count": 3,
+			"duration": 0,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "sawblade",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 0.6,
+			"type": "WAIT"
+		}, {
+			"wait": false,
+			"viaWalkConfig": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "attackThrow"
+		}, {
+			"align": "BOTTOM",
+			"centralAngle": 0.1,
+			"angleVary": 0,
+			"startDist": 15,
+			"count": 5,
+			"duration": 0,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "sawblade",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 3,
+			"type": "WAIT"
+		}, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "Return"
+		}, {
+			"time": 0.4,
+			"type": "WAIT"
+		}],
+		"TimeThrow": [{
+			"volume": 0.85,
+			"global": true,
+			"loop": false,
+			"sound": "media/sound/battle/sweep-long.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.conductor",
+				"name": "blueAuar"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"followUp": "holdTime",
+			"wait": false,
+			"viaWalkConfig": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "holdTimePre"
+		}, {
+			"time": 0.85,
+			"type": "WAIT"
+		}, {
+			"wait": false,
+			"viaWalkConfig": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "rolling"
+		}, {
+			"duration": -1,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"group": "trail",
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "trail",
+				"name": "whiteQuickest"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"volume": 0.85,
+			"global": true,
+			"loop": false,
+			"sound": "media/sound/boss/conductor/throw.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"align": "BOTTOM",
+			"centralAngle": 0,
+			"angleVary": 0,
+			"startDist": 0,
+			"count": 12,
+			"duration": 1.2,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0.3,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "timePiece",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"target": {
+				"x": 3672,
+				"y": 856,
+				 "lvl": "0"
+			},
+			"offsetArea": {
+				"x": 460,
+				"y": 140
+			},
+			"forceHeight": 200,
+			"ignoreSounds": false,
+			"type": "JUMP_TO_POINT_OFFSETAREA"
+		}, {
+			"group": "trail",
+			"type": "CLEAR_EFFECTS"
+		}, {
+			"wait": false,
+			"viaWalkConfig": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "impact"
+		}, {
+			"time": 3,
+			"type": "WAIT"
+		}, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "Return"
+		}, {
+			"time": 0.4,
+			"type": "WAIT"
+		}],
 		"IceKnife": [{
 			"attribName": "repeatCount",
 			"changeType": "set",
@@ -4596,7 +5436,7 @@
 			"inversAccelerate": false,
 			"type": "ADD_SLOW_MOTION"
 		}, {
-			"value": 850,
+			"value": 650,
 			"type": "SET_SPEED"
 		}, {
 			"value": 2,
@@ -4614,6 +5454,58 @@
 			"value": 0.4,
 			"type": "SET_INVINCIBLE"
 		}, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 8,
+			"flipLeftFace": true,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "specials.cold",
+				"name": "mediumSweepLong"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"align": "BOTTOM",
+			"radius": 72,
+			"yScale": 0,
+			"zHeight": 0,
+			"centralAngle": 3.5,
+			"startAngle": -0.25,
+			"duration": 0.7,
+			"expandRadius": 0,
+			"alwaysFull": false,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"rectangular": false,
+			"repeat": false,
+			"uniformHitDir": false,
+			"fixPos": false,
+			"checkCollision": true,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "HEAVY",
+				"element": "COLD",
+				"fly": "MASSIVE",
+				"damageFactor": 0.9,
+				"status": 1.25,
+				"reverse": false,
+				"spFactor": 0,
+				"guardable": ""
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
 			"type": "MOVE_TO_POINT",
 			"target": {
 				"actorAttrib": "dash"
@@ -4624,7 +5516,7 @@
 			"centralAngle": 0.25,
 			"startAngle": -0.375,
 			"angleVary": 0,
-			"startDist": 0,
+			"startDist": 30,
 			"count": 5,
 			"duration": 0,
 			"clockwise": false,
@@ -4645,7 +5537,7 @@
 			"centralAngle": 0.25,
 			"startAngle": 0.125,
 			"angleVary": 0,
-			"startDist": 0,
+			"startDist": 30,
 			"count": 5,
 			"duration": 0,
 			"clockwise": false,
@@ -4831,6 +5723,160 @@
 			"type": "WAIT_UNTIL_ON_GROUND"
 		}, {
 			"type": "CLEAR_EFFECTS"
+		}, {
+			"align": "BASE",
+			"centralAngle": 1,
+			"angleVary": 0.1,
+			"startDist": 20,
+			"startDistAdd": 30,
+			"count": 7,
+			"duration": 0.2,
+			"startDistCollide": "CLOSER",
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": true,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "earthquakeEffect",
+			"offsetArea": {
+				"x": 300,
+				"y": 300
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"duration": -1,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.conductor",
+				"name": "appleBombSpark"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "SoundTime"
+		}, {
+			"rumbleType": "RANDOM",
+			"name": "",
+			"duration": 1,
+			"power": "STRONGER",
+			"speed": "FASTER",
+			"fade": true,
+			"type": "RUMBLE_SCREEN"
+		}, {
+			"volume": 0.8,
+			"global": true,
+			"loop": false,
+			"sound": "media/sound/boss/conductor/earthquake.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"volume": 0.8,
+			"global": true,
+			"loop": true,
+			"sound": "media/sound/boss/conductor/nuke-charge.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"rumbleType": "RANDOM",
+			"name": "bomb",
+			"duration": 20,
+			"power": "WEAKEST",
+			"speed": "FASTEST",
+			"fade": false,
+			"type": "RUMBLE_SCREEN"
+		}, {
+			"text": {
+				"en_US": "[Time bomb ticking...]",
+				"ko_KR": "[시한폭탄 째깍거리는 중...]"
+			},
+			"mode": "LINE_FILL",
+			"color": "RED",
+			"actionDetached": false,
+			"hideOutsideOfScreen": false,
+			"time": 20,
+			"type": "SHOW_AR_MSG"
+		}],
+		"BigApplePost": [{
+			"type": "STOP_REPEATING_FORCE"
+		}, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"group": "",
+			"actionDetached": false,
+			"fixPos": true,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.conductor",
+				"name": "appleBombExplosion"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 37
+			}
+		}, {
+			"time": 1,
+			"type": "WAIT"
+		}, {
+			"type": "ENABLE_REACTION",
+			"reaction": "HATE_ICE"
+		}, {
+			"type": "ENABLE_REACTION",
+			"reaction": "HATE_FIRE"
+		}, {
+			"type": "ENABLE_REACTION",
+			"reaction": "HATE_WAVE"
+		}, {
+			"type": "ENABLE_REACTION",
+			"reaction": "HATE_SHOCK"
+		}, {
+			"align": "BOTTOM",
+			"radius": 9999,
+			"yScale": 0,
+			"zHeight": 9999,
+			"centralAngle": 1,
+			"duration": 0.1,
+			"expandRadius": 0,
+			"alwaysFull": true,
+			"clockwise": false,
+			"flipLeftFace": false,
+			"rectangular": true,
+			"repeat": true,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "MASSIVE",
+				"fly": "MASSIVE+++",
+				"guardable": "NEVER",
+				"element": "NEUTRAL",
+				"damageFactor": 9999
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 90,
+			"type": "WAIT"
 		}],
 		
 		"BigAppleFire": [{
@@ -4861,8 +5907,11 @@
 				"z": 0
 			}
 		}, {
-			"time": 30,
+			"time": 20,
 			"type": "WAIT"
+		}, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "BigApplePost"
 		}],
 		"BigAppleIce": [{
 			"type": "DO_ENEMY_ACTION_INLINE",
@@ -4892,8 +5941,11 @@
 				"z": 0
 			}
 		}, {
-			"time": 30,
+			"time": 20,
 			"type": "WAIT"
+		}, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "BigApplePost"
 		}],
 		"BigAppleShock": [{
 			"type": "DO_ENEMY_ACTION_INLINE",
@@ -4923,8 +5975,11 @@
 				"z": 0
 			}
 		}, {
-			"time": 30,
+			"time": 20,
 			"type": "WAIT"
+		}, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "BigApplePost"
 		}],
 		"BigAppleWave": [{
 			"type": "DO_ENEMY_ACTION_INLINE",
@@ -4954,8 +6009,11 @@
 				"z": 0
 			}
 		}, {
-			"time": 30,
+			"time": 20,
 			"type": "WAIT"
+		}, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "BigApplePost"
 		}],
 		
 		"StunAction": [{
@@ -5035,6 +6093,40 @@
 				"variance": 0
 			}, {
 				"sound": "media/sound/boss/conductor/va/stomp-5.ogg",
+				"volume": 0.75,
+				"variance": 0
+			}],
+			"type": "PLAY_RANDOM_SOUND"
+		}],
+		"SoundTime": [{
+			"global": true,
+			"loop": false,
+			"sounds": [{
+				"sound": "media/sound/boss/conductor/va/time-bomb-1.ogg",
+				"volume": 0.75,
+				"variance": 0
+			}, {
+				"sound": "media/sound/boss/conductor/va/time-bomb-2.ogg",
+				"volume": 0.75,
+				"variance": 0
+			}, {
+				"sound": "media/sound/boss/conductor/va/time-bomb-3.ogg",
+				"volume": 0.75,
+				"variance": 0
+			}, {
+				"sound": "media/sound/boss/conductor/va/time-bomb-4.ogg",
+				"volume": 0.75,
+				"variance": 0
+			}, {
+				"sound": "media/sound/boss/conductor/va/time-bomb-5.ogg",
+				"volume": 0.75,
+				"variance": 0
+			}, {
+				"sound": "media/sound/boss/conductor/va/time-bomb-6.ogg",
+				"volume": 0.75,
+				"variance": 0
+			}, {
+				"sound": "media/sound/boss/conductor/va/time-bomb-7.ogg",
 				"volume": 0.75,
 				"variance": 0
 			}],

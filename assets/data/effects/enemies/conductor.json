@@ -28,6 +28,37 @@
 			"repeat": true,
 			"frames": [0, 1, 2]
 		}, {
+			"name": "EARTHQUAKE_LINE",
+			"sheet": {
+				"src": "media/entity/effects/circle.png",
+				"width": 16,
+				"height": 128,
+				"offY": 80,
+				"offX": 16
+			},
+			"time": 0.03,
+			"frames": [1, 2, 3, 4, 5, 6],
+			"repeat": false,
+			"pivot": {
+				"x": 8,
+				"y": 128
+			},
+			"guiSprites": false,
+			"renderMode": "lighter"
+		}, {
+			"name": "WOOD_DEBRIS",
+			"sheet": {
+				"src": "media/entity/effects/particles1.png",
+				"offX": 114,
+				"offY": 58,
+				"width": 4,
+				"height": 4
+			},
+			"centerPivot": false,
+			"time": 0.025,
+			"repeat": true,
+			"frames": [0]
+		}, {
 			"name": "SPARK_FLOOR",
 			"sheet": {
 				"src": "media/entity/enemy/boss/conductor.png",
@@ -51,6 +82,18 @@
 			"centerPivot": false,
 			"frames": [0]
 		}, {
+			"name": "FLAME",
+			"sheet": {
+				"src": "media/entity/effects/heat.png",
+				"offX": 0,
+				"offY": 392,
+				"width": 24,
+				"height": 24
+			},
+			"time": 0.06,
+			"repeat": false,
+			"frames": [0, 1, 2, 3, 4, 5, 6, 7]
+		}, {
 			"name": "BIGFIRE",
 			"sheet": {
 				"src": "media/entity/effects/heat.png",
@@ -63,6 +106,40 @@
 			"time": 0.05,
 			"frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
 			"guiSprites": true
+		}, {
+			"name": "PRE_EXPLOSION_LINE",
+			"sheet": {
+				"src": "media/entity/effects/circle.png",
+				"width": 16,
+				"height": 128,
+				"offY": 80,
+				"offX": 0
+			},
+			"time": 0.03,
+			"frames": [0, 0],
+			"framesAlpha": [1, 0],
+			"repeat": true,
+			"pivot": {
+				"x": 8,
+				"y": 128
+			},
+			"renderMode": "lighter"
+		}, {
+			"name": "DUST_UP_BIG_BRIGHT",
+			"pivot": {
+				"x": 8,
+				"y": 40
+			},
+			"sheet": {
+				"src": "media/entity/effects/dust.png",
+				"width": 32,
+				"height": 48,
+				"offY": 64
+			},
+			"renderMode": "lighter",
+			"time": 0.07,
+			"repeat": false,
+			"frames": [1, 2, 3, 4, 5, 6, 7, 8]
 		}]
 	},
 	"EFFECTS": {
@@ -259,6 +336,116 @@
 			"particleDuration": 0.5,
 			"anim": "SHOCKWAVE",
 			"type": "PLAY_ANIM"
+		}],
+		"earthquakeEffect": [{
+			"type": "LOOP_START"
+		}, {
+			"numParticles": 2,
+			"duration": 0.2,
+			"centralAngle": 1,
+			"startAngle": 0,
+			"startDist": 0,
+			"particleRotate": false,
+			"random": true,
+			"moveVariance": 10,
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"minSpeed": 20,
+			"maxSpeed": 120,
+			"moveDist": 5,
+			"keySpline": "LINEAR",
+			"moveRotate": 0,
+			"rotateWithTime": false,
+			"collision": false,
+			"pAlpha": {
+				"init": 1,
+				"start": {
+					"value": 0.5
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1.5,
+						"y": 1.5
+					}
+				}
+			},
+			"moveWithTarget": 0,
+			"flipRightParticles": true,
+			"particleDuration": 0.7,
+			"anim": "DUST_UP_BIG_BRIGHT",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"numParticles": 1,
+			"duration": 0.2,
+			"centralAngle": 1,
+			"startAngle": 0,
+			"startDist": 30,
+			"particleRotate": false,
+			"random": true,
+			"moveVariance": 10,
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"minSpeed": 20,
+			"maxSpeed": 120,
+			"moveDist": 5,
+			"keySpline": "LINEAR",
+			"moveRotate": 0,
+			"rotateWithTime": false,
+			"collision": false,
+			"moveWithTarget": 0,
+			"particleDuration": 0.3,
+			"anim": "EARTHQUAKE_LINE",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"numParticles": 2,
+			"circular": true,
+			"minSpeed": 50,
+			"maxSpeed": 60,
+			"minZSpeed": 100,
+			"maxZSpeed": 300,
+			"debrisSize": {
+				"x": 3,
+				"y": 3,
+				"z": 3
+			},
+			"zBounciness": 0.3,
+			"pAlpha": {
+				"init": 1,
+				"end": {
+					"value": 0,
+					"time": 1,
+					"spline": ""
+				}
+			},
+			"pRotate": {
+				"init": 0
+			},
+			"particleDuration": 0.5,
+			"particleDurVariance": 0.3,
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"anim": "WOOD_DEBRIS",
+			"type": "DEBRIS_OVER_ENTITY"
+		}, {
+			"time": 0.1,
+			"type": "WAIT"
+		}, {
+			"type": "LOOP_END"
 		}],
 		"spark": [{
 			"type": "LOOP_START"
@@ -1148,16 +1335,244 @@
 		}, {
 			"type": "LOOP_END"
 		}],
+		"appleBombSpark": [{
+			"type": "LOOP_START"
+		}, {
+			"numParticles": 3,
+			"duration": 0.1,
+			"centralAngle": 1,
+			"startAngle": 0,
+			"startDist": 3,
+			"random": true,
+			"moveVariance": 10,
+			"particleRotate": false,
+			"offset": {
+				"x": 47,
+				"y": 50,
+				"z": 100
+			},
+			"moveDist": 5,
+			"keySpline": "EASE_OUT",
+			"moveRotate": 0,
+			"inverse": false,
+			"normalMoveDist": 32,
+			"collision": false,
+			"moveWithTarget": 0,
+			"particleDuration": 0.2,
+			"randFlip": true,
+			"anim": "FLAME",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"numParticles": 3,
+			"duration": 0.11,
+			"centralAngle": 1,
+			"startAngle": 0,
+			"startDist": 3,
+			"random": true,
+			"moveVariance": 10,
+			"particleRotate": false,
+			"offset": {
+				"x": -47,
+				"y": 50,
+				"z": 100
+			},
+			"moveDist": 5,
+			"keySpline": "EASE_OUT",
+			"moveRotate": 0,
+			"inverse": false,
+			"normalMoveDist": 32,
+			"collision": false,
+			"moveWithTarget": 0,
+			"particleDuration": 0.2,
+			"randFlip": true,
+			"anim": "FLAME",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"numParticles": 3,
+			"duration": 0.12,
+			"centralAngle": 1,
+			"startAngle": 0,
+			"startDist": 3,
+			"random": true,
+			"moveVariance": 10,
+			"particleRotate": false,
+			"offset": {
+				"x": 60,
+				"y": 40,
+				"z": 100
+			},
+			"moveDist": 5,
+			"keySpline": "EASE_OUT",
+			"moveRotate": 0,
+			"inverse": false,
+			"normalMoveDist": 32,
+			"collision": false,
+			"moveWithTarget": 0,
+			"particleDuration": 0.2,
+			"randFlip": true,
+			"anim": "FLAME",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"numParticles": 3,
+			"duration": 0.13,
+			"centralAngle": 1,
+			"startAngle": 0,
+			"startDist": 3,
+			"random": true,
+			"moveVariance": 10,
+			"particleRotate": false,
+			"offset": {
+				"x": -60,
+				"y": 40,
+				"z": 100
+			},
+			"moveDist": 5,
+			"keySpline": "EASE_OUT",
+			"moveRotate": 0,
+			"inverse": false,
+			"normalMoveDist": 32,
+			"collision": false,
+			"moveWithTarget": 0,
+			"particleDuration": 0.2,
+			"randFlip": true,
+			"anim": "FLAME",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"numParticles": 3,
+			"duration": 0.14,
+			"centralAngle": 1,
+			"startAngle": 0,
+			"startDist": 3,
+			"random": true,
+			"moveVariance": 10,
+			"particleRotate": false,
+			"offset": {
+				"x": 58,
+				"y": 22,
+				"z": 100
+			},
+			"moveDist": 5,
+			"keySpline": "EASE_OUT",
+			"moveRotate": 0,
+			"inverse": false,
+			"normalMoveDist": 32,
+			"collision": false,
+			"moveWithTarget": 0,
+			"particleDuration": 0.2,
+			"randFlip": true,
+			"anim": "FLAME",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"numParticles": 3,
+			"duration": 0.11,
+			"centralAngle": 1,
+			"startAngle": 0,
+			"startDist": 3,
+			"random": true,
+			"moveVariance": 10,
+			"particleRotate": false,
+			"offset": {
+				"x": -58,
+				"y": 22,
+				"z": 100
+			},
+			"moveDist": 5,
+			"keySpline": "EASE_OUT",
+			"moveRotate": 0,
+			"inverse": false,
+			"normalMoveDist": 32,
+			"collision": false,
+			"moveWithTarget": 0,
+			"particleDuration": 0.2,
+			"randFlip": true,
+			"anim": "FLAME",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"numParticles": 3,
+			"duration": 0.12,
+			"centralAngle": 1,
+			"startAngle": 0,
+			"startDist": 3,
+			"random": true,
+			"moveVariance": 10,
+			"particleRotate": false,
+			"offset": {
+				"x": 48,
+				"y": 7,
+				"z": 100
+			},
+			"moveDist": 5,
+			"keySpline": "EASE_OUT",
+			"moveRotate": 0,
+			"inverse": false,
+			"normalMoveDist": 32,
+			"collision": false,
+			"moveWithTarget": 0,
+			"particleDuration": 0.2,
+			"randFlip": true,
+			"anim": "FLAME",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"numParticles": 3,
+			"duration": 0.13,
+			"centralAngle": 1,
+			"startAngle": 0,
+			"startDist": 3,
+			"random": true,
+			"moveVariance": 10,
+			"particleRotate": false,
+			"offset": {
+				"x": -48,
+				"y": 7,
+				"z": 100
+			},
+			"moveDist": 5,
+			"keySpline": "EASE_OUT",
+			"moveRotate": 0,
+			"inverse": false,
+			"normalMoveDist": 32,
+			"collision": false,
+			"moveWithTarget": 0,
+			"particleDuration": 0.2,
+			"randFlip": true,
+			"anim": "FLAME",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"type": "LOOP_END"
+		}],
 		"appleBreak": [{
 			"useTargetAngle": false,
 			"keepAngleSync": false,
+			"pAlpha": {
+				"init": 1,
+				"start": {
+					"value": 0,
+					"spline": "EASE_OUT_STRONG"
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 1,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 0,
+						"y": 1.4
+					},
+					"spline": "EASE_OUT_STRONG"
+				}
+			},
 			"offset": {
 				"x": 0,
 				"y": 0,
 				"z": 0
 			},
 			"moveWithTarget": 0,
-			"particleDuration": 0.05,
+			"particleDuration": 0.5,
 			"anim": "APPLEBOMB",
 			"type": "PLAY_ANIM"
 		}, {
@@ -1171,40 +1586,10 @@
 			"glow": false,
 			"type": "LIGHT"
 		}, {
-			"numParticles": 6,
-			"duration": 0.1,
+			"numParticles": 12,
+			"duration": 0.05,
 			"centralAngle": 1,
 			"startDist": 12,
-			"uniformRandom": 0.3,
-			"flipRightParticles": true,
-			"moveDist": 32,
-			"keySpline": "EASE_IN_OUT",
-			"collision": false,
-			"anim": "BIGFIRE",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"numParticles": 8,
-			"duration": 0.1,
-			"centralAngle": 1,
-			"startDist": 16,
-			"uniformRandom": 0.3,
-			"flipRightParticles": true,
-			"moveDist": 48,
-			"keySpline": "EASE_IN_OUT",
-			"collision": false,
-			"anim": "BIGFIRE",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"numParticles": 12,
-			"duration": 0.1,
-			"centralAngle": 1,
-			"startDist": 24,
 			"uniformRandom": 0.3,
 			"flipRightParticles": true,
 			"moveDist": 64,
@@ -1212,6 +1597,363 @@
 			"collision": false,
 			"anim": "BIGFIRE",
 			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"numParticles": 16,
+			"duration": 0.05,
+			"centralAngle": 1,
+			"startDist": 16,
+			"uniformRandom": 0.3,
+			"flipRightParticles": true,
+			"moveDist": 96,
+			"keySpline": "EASE_IN_OUT",
+			"collision": false,
+			"anim": "BIGFIRE",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}, {
+			"numParticles": 24,
+			"duration": 0.05,
+			"centralAngle": 1,
+			"startDist": 24,
+			"uniformRandom": 0.3,
+			"flipRightParticles": true,
+			"moveDist": 128,
+			"keySpline": "EASE_IN_OUT",
+			"collision": false,
+			"anim": "BIGFIRE",
+			"type": "OFFSET_PARTICLE_CIRCLE"
+		}],
+		"appleBombExplosion": [{
+			"size": "XXXL",
+			"fadeIn": 0.2,
+			"fadeOut": 0.5,
+			"duration": 3.5,
+			"glow": false,
+			"type": "LIGHT"
+		}, {
+			"color": "white",
+			"maxAlpha": 0.5,
+			"minAlpha": 0.5,
+			"blinkDuration": 1,
+			"blinkCount": -1,
+			"noLighter": false,
+			"type": "BLINK_COLOR"
+		}, {
+			"useTargetAngle": false,
+			"keepAngleSync": false,
+			"offset": {
+				"x": 0,
+				"y": 128,
+				"z": 128
+			},
+			"pAlpha": {
+				"init": 0,
+				"start": {
+					"value": 1,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 0,
+					"y": 1
+				},
+				"start": {
+					"value": {
+						"x": 1,
+						"y": 1
+					},
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pRotate": {
+				"init": 0,
+				"start": {
+					"value": 0.11,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"moveWithTarget": 1,
+			"particleDuration": 1.5,
+			"anim": "PRE_EXPLOSION_LINE",
+			"type": "PLAY_ANIM"
+		}, {
+			"useTargetAngle": false,
+			"keepAngleSync": false,
+			"offset": {
+				"x": 0,
+				"y": 128,
+				"z": 128
+			},
+			"pAlpha": {
+				"init": 0,
+				"start": {
+					"value": 1,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 0,
+					"y": 0.4
+				},
+				"start": {
+					"value": {
+						"x": 0.4,
+						"y": 0.4
+					},
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pRotate": {
+				"init": 0.65,
+				"start": {
+					"value": 0.58,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"moveWithTarget": 1,
+			"particleDuration": 1.5,
+			"anim": "PRE_EXPLOSION_LINE",
+			"type": "PLAY_ANIM"
+		}, {
+			"rumbleType": "HORIZONTAL",
+			"power": "WEAKER",
+			"speed": "FASTEST",
+			"duration": 1.5,
+			"fade": false,
+			"type": "RUMBLE"
+		}, {
+			"volume": 1,
+			"global": false,
+			"loop": false,
+			"sound": "media/sound/battle/pre-explosion-1.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"time": 0.2,
+			"type": "WAIT"
+		}, {
+			"useTargetAngle": false,
+			"keepAngleSync": false,
+			"offset": {
+				"x": 0,
+				"y": 128,
+				"z": 128
+			},
+			"pAlpha": {
+				"init": 0,
+				"start": {
+					"value": 1,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 0,
+					"y": 0.7
+				},
+				"start": {
+					"value": {
+						"x": 0.7,
+						"y": 0.7
+					},
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pRotate": {
+				"init": 0.4,
+				"start": {
+					"value": 0.45,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"moveWithTarget": 1,
+			"particleDuration": 1.3,
+			"anim": "PRE_EXPLOSION_LINE",
+			"type": "PLAY_ANIM"
+		}, {
+			"useTargetAngle": false,
+			"keepAngleSync": false,
+			"offset": {
+				"x": 0,
+				"y": 128,
+				"z": 128
+			},
+			"pAlpha": {
+				"init": 0,
+				"start": {
+					"value": 1,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 0,
+					"y": 0.5
+				},
+				"start": {
+					"value": {
+						"x": 0.5,
+						"y": 0.5
+					},
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pRotate": {
+				"init": 0.35,
+				"start": {
+					"value": 0.27,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"moveWithTarget": 1,
+			"particleDuration": 1.3,
+			"anim": "PRE_EXPLOSION_LINE",
+			"type": "PLAY_ANIM"
+		}, {
+			"time": 0.2,
+			"type": "WAIT"
+		}, {
+			"useTargetAngle": false,
+			"keepAngleSync": false,
+			"offset": {
+				"x": 0,
+				"y": 128,
+				"z": 128
+			},
+			"pAlpha": {
+				"init": 0,
+				"start": {
+					"value": 1,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 0,
+					"y": 0.9
+				},
+				"start": {
+					"value": {
+						"x": 0.9,
+						"y": 0.9
+					},
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pRotate": {
+				"init": 0.6,
+				"start": {
+					"value": 0.78,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"moveWithTarget": 1,
+			"particleDuration": 1.1,
+			"anim": "PRE_EXPLOSION_LINE",
+			"type": "PLAY_ANIM"
+		}, {
+			"useTargetAngle": false,
+			"keepAngleSync": false,
+			"offset": {
+				"x": 0,
+				"y": 128,
+				"z": 128
+			},
+			"pAlpha": {
+				"init": 0,
+				"start": {
+					"value": 1,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pScale": {
+				"init": {
+					"x": 0,
+					"y": 0.5
+				},
+				"start": {
+					"value": {
+						"x": 0.5,
+						"y": 1
+					},
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"pRotate": {
+				"init": 1,
+				"start": {
+					"value": 0.93,
+					"time": 0.3,
+					"spline": "EASE_OUT"
+				}
+			},
+			"moveWithTarget": 1,
+			"particleDuration": 1.1,
+			"anim": "PRE_EXPLOSION_LINE",
+			"type": "PLAY_ANIM"
+		}, {
+			"time": 0.5,
+			"type": "WAIT"
+		}, {
+			"rumbleType": "VERTICAL",
+			"power": "STRONGER",
+			"speed": "FASTER",
+			"duration": 0.5,
+			"fade": true,
+			"type": "RUMBLE"
+		}, {
+			"rumbleType": "VERTICAL",
+			"power": "STRONG",
+			"speed": "FASTEST",
+			"duration": 2.5,
+			"fade": true,
+			"type": "RUMBLE"
+		}, {
+			"color": "white",
+			"maxAlpha": 1,
+			"minAlpha": 1,
+			"blinkDuration": 0.1,
+			"blinkCount": -1,
+			"noLighter": false,
+			"type": "BLINK_COLOR"
+		}, {
+			"volume": 0.8,
+			"global": false,
+			"loop": false,
+			"sound": "media/sound/boss/conductor/nuke-explosion.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"color": "#ffffff",
+			"fadeIn": 0.4,
+			"fadeOut": 0,
+			"duration": 1,
+			"type": "SCREEN_FLASH"
+		}, {
+			"time": 10,
+			"type": "WAIT"
 		}]
 	}
 }

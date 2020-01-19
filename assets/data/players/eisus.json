@@ -16432,13 +16432,13 @@
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "idle"
+					"anim": "aim"
 				}, {
-					"followUp": "aimMove",
+					"followUp": "aim",
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "dash"
+					"anim": "dashSpin"
 				}, {
 					"value": false,
 					"type": "SET_JUMPING"
@@ -16497,13 +16497,13 @@
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "idle"
+					"anim": "aim"
 				}, {
-					"followUp": "aimMove",
+					"followUp": "aim",
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "dash"
+					"anim": "dashSpin"
 				}, {
 					"value": false,
 					"type": "SET_JUMPING"

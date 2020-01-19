@@ -504,7 +504,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "Lea, hold on. I know something about this place...",
 					"ko_KR": "레아, 잠깐만. 여기 뭔가 내가 아는 곳 같은데..."
 				},
 				"autoContinue": false,
@@ -526,7 +526,7 @@
 				"type": "SET_CAMERA_POS"
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "Would you mind standing on the square pattern over there?",
 					"ko_KR": "저기 사각형 무늬 부분 위에 잠깐만 서 있어볼래?"
 				},
 				"autoContinue": false,
@@ -537,7 +537,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "...?",
 					"ko_KR": "...?"
 				},
 				"autoContinue": false,
@@ -662,7 +662,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "!!!",
 					"ko_KR": "!!!"
 				},
 				"autoContinue": false,
@@ -686,6 +686,7 @@
 					}
 				}, {
 					"message": {
+						"en_US": "Lea!!!",
 						"ko_KR": "레아!!!"
 					},
 					"autoContinue": false,
@@ -710,6 +711,7 @@
 					}
 				}, {
 					"message": {
+						"en_US": "Wha- what happened?",
 						"ko_KR": "무, 무슨 일이지?"
 					},
 					"autoContinue": false,

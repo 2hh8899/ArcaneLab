@@ -3,6 +3,10 @@
 		"en_US": "Eisus",
 		"ko_KR": "에이서스"
 	},
+	"realname": {
+		"en_US": "",
+		"ko_KR": ""
+	},
 	"size": {
 		"x": 16,
 		"y": 16,

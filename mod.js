@@ -437,63 +437,82 @@ ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("imp
 				PREFER_NON_HIT: 1,
 				ONLY_NON_HIT: 2
 			};
-		ig.ACTION_STEP.SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE = ig.ActionStepBase.extend({
-			_wm: new ig.Config({
-				attributes: {
-					searchType: {
-						_type: "String",
-						_info: "How to search close target",
-						_select: z
-					},
-					distance: {
-						_type: "Number",
-						_info: "If defined: look for entities up to this distance. Otherwise use default",
-						_optional: true
-					},
-					ignoreCurrentTarget: {
-						_type: "Boolean",
-						_info: "If true: ignore current target (will select temp target if available)"
-					},
-					prevHitBehavior: {
-						_type: "String",
-						_info: "How to handle enemies that have been previously hit",
-						_select: D
-					}
+	ig.ACTION_STEP.SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE = ig.ActionStepBase.extend({
+		_wm: new ig.Config({
+			attributes: {
+				searchType: {
+					_type: "String",
+					_info: "How to search close target",
+					_select: z
+				},
+				distance: {
+					_type: "Number",
+					_info: "If defined: look for entities up to this distance. Otherwise use default",
+					_optional: true
+				},
+				ignoreCurrentTarget: {
+					_type: "Boolean",
+					_info: "If true: ignore current target (will select temp target if available)"
+				},
+				prevHitBehavior: {
+					_type: "String",
+					_info: "How to handle enemies that have been previously hit",
+					_select: D
 				}
-			}),
-			init: function(a) {
-				this.searchType = z[a.searchType] || z.IN_VIEW;
-				this.distance = a.distance || 0;
-				this.ignoreCurrentTarget =
-					a.ignoreCurrentTarget || false;
-				this.prevHitBehavior = D[a.prevHitBehavior] || D.NONE
-			},
-			start: function(a) {
-				for(var b = a.getTarget(), c = a.getAlignedPos(ig.ENTITY_ALIGN.BOTTOM, j), d = this.searchType.angle * Math.PI * 2, c = ig.game.getEntitiesInCircle(c, this.distance || this.searchType.radius, 1, 32, a.face, -d / 2, d / 2, a), d = null, e = 0, f = c.length; f--;) {
-					var g = c[f];
-					if(!(this.ignoreCurrentTarget && g == b) && !g.hitIgnore && g.aggression != sc.ENEMY_AGGRESSION.PEACEFUL) {
-						if(g instanceof sc.CombatantAnimPartEntity) g = g.owner;
-						if(g instanceof ig.ENTITY.Combatant && g.party != a.party && (g.party != sc.COMBATANT_PARTY.ENEMY ||
-								g.target)) {
-							var h = ig.CollTools.getDistVec2(a.coll, g.coll, r),
-								i = Vec2.length(h);
-							if(this.searchType.facePriority) {
-								h = Vec2.angle(a.face, h);
-								i = i + h * 1E3
-							}
-							if(a.combo.hitCombatants.indexOf(g) != -1)
-								if(this.prevHitBehavior == D.PREFER_NON_HIT) i = i + 1E4;
-								else if(this.prevHitBehavior == D.ONLY_NON_HIT) continue;
-							if(!d || i < e) {
-								d = g;
-								e = i
-							}
+			}
+		}),
+		init: function(a) {
+			this.searchType = z[a.searchType] || z.IN_VIEW;
+			this.distance = a.distance || 0;
+			this.ignoreCurrentTarget =
+				a.ignoreCurrentTarget || false;
+			this.prevHitBehavior = D[a.prevHitBehavior] || D.NONE
+		},
+		start: function(a) {
+			for(var b = a.getTarget(), c = a.getAlignedPos(ig.ENTITY_ALIGN.BOTTOM, j), d = this.searchType.angle * Math.PI * 2, c = ig.game.getEntitiesInCircle(c, this.distance || this.searchType.radius, 1, 32, a.face, -d / 2, d / 2, a), d = null, e = 0, f = c.length; f--;) {
+				var g = c[f];
+				if(!(this.ignoreCurrentTarget && g == b) && !g.hitIgnore && g.aggression != sc.ENEMY_AGGRESSION.PEACEFUL) {
+					if(g instanceof sc.CombatantAnimPartEntity) g = g.owner;
+					if(g instanceof ig.ENTITY.Combatant && g.party != a.party && (g.party != sc.COMBATANT_PARTY.ENEMY ||
+							g.target)) {
+						var h = ig.CollTools.getDistVec2(a.coll, g.coll, r),
+							i = Vec2.length(h);
+						if(this.searchType.facePriority) {
+							h = Vec2.angle(a.face, h);
+							i = i + h * 1E3
+						}
+						if(a.combo.hitCombatants.indexOf(g) != -1)
+							if(this.prevHitBehavior == D.PREFER_NON_HIT) i = i + 1E4;
+							else if(this.prevHitBehavior == D.ONLY_NON_HIT) continue;
+						if(!d || i < e) {
+							d = g;
+							e = i
 						}
 					}
 				}
-				a.tmpTarget = d
 			}
-		});
+			a.tmpTarget = d
+		}
+	});
+	ig.ACTION_STEP.RUMBLE_STOP_CONTINUES = ig.EventStepBase.extend({
+		name: null,
+		_wm: new ig.Config({
+			attributes: {
+				name: {
+					_type: "String",
+					_info: "Name of the rumble to stop. Must be given!"
+				}
+			}
+		}),
+		init: function(a) {
+			this.name =
+				a.name || null
+		},
+		start: function() {
+			var a = ig.rumble.getRumble(this.name);
+			a && a.stop()
+		}
+	});
 });
 ig.module("game.feature.combat.entities.combat-proxy-minion")
 	.requires("game.feature.npc.entities.sc-actor", "game.feature.combat.model.proxy", "game.feature.combat.entities.combatant")

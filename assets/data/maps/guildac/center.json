@@ -410,7 +410,7 @@
 						}
 					}, {
 						"message": {
-							"en_US": "",
+							"en_US": "Welcome, this is the \\c[3]Arcane Teleporter\\c[0].",
 							"ko_KR": "안녕하세요, 여기는 \\c[3]아케인 텔레포터\\c[0]입니다."
 						},
 						"autoContinue": false,
@@ -432,7 +432,7 @@
 						}
 					}, {
 						"message": {
-							"en_US": "",
+							"en_US": "Not only does it serves as a landmark...",
 							"ko_KR": "이곳은 랜드마크의 역할도 하지만..."
 						},
 						"autoContinue": false,
@@ -443,7 +443,7 @@
 						}
 					}, {
 						"message": {
-							"en_US": "",
+							"en_US": "But you can also try out \\c[3]new areas\\c[0] under development at the Arcane Lab.",
 							"ko_KR": "저를 통해 아케인 랩에서 개발 중인 \\c[3]신규 지역\\c[0]들을 체험해보실 수도 있습니다."
 						},
 						"autoContinue": false,
@@ -465,7 +465,7 @@
 						}
 					}, {
 						"message": {
-							"en_US": "",
+							"en_US": "So, where would you like to go?",
 							"ko_KR": "그럼, 어디로 가시겠습니까?"
 						},
 						"autoContinue": true,
@@ -477,7 +477,7 @@
 					}],
 					"elseStep": [{
 						"message": {
-							"en_US": "",
+							"en_US": "Where would you like to go?",
 							"ko_KR": "어디로 가시겠습니까?"
 						},
 						"autoContinue": true,
@@ -631,37 +631,44 @@
 						"time": 1,
 						"type": "WAIT"
 					}, {
-						"type": "IF",
-						"withElse": false,
-						"condition": "tmp.teleporterMap==1",
-						"thenStep": [{
+						"type": "SELECT_RANDOM",
+						"options": [{
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "tmp.teleporterMap==1"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "tmp.teleporterMap==2"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "tmp.teleporterMap==1000"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "tmp.teleporterMap==2000"
+						}],
+						"0_0": [{
 							"type": "TELEPORT",
 							"map": "guildac.fish.river",
 							"marker": "teleporter"
-						}]
-					}, {
-						"type": "IF",
-						"withElse": false,
-						"condition": "tmp.teleporterMap==2",
-						"thenStep": [{
+						}],
+						"1_0": [{
 							"type": "TELEPORT",
 							"map": "guildac.transport.path-1",
 							"marker": "teleporter"
-						}]
-					}, {
-						"type": "IF",
-						"withElse": false,
-						"condition": "tmp.teleporterMap==1000",
-						"thenStep": [{
+						}],
+						"2_0": [{
 							"type": "TELEPORT",
 							"map": "guildac.quest.susie",
 							"marker": "teleporter"
-						}]
-					}, {
-						"type": "IF",
-						"withElse": false,
-						"condition": "tmp.teleporterMap==2000",
-						"thenStep": [{
+						}],
+						"3_0": [{
 							"type": "TELEPORT",
 							"map": "guildac.quest.deadbird",
 							"marker": "hyper"
@@ -4199,7 +4206,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "...I didn't expect it to be this deep.",
 					"ko_KR": "...이렇게까지 깊을 줄은 몰랐는데."
 				},
 				"autoContinue": false,
@@ -4230,7 +4237,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "Anyway, I think wa came to a place I know.",
 					"ko_KR": "그래도 내가 아는 곳이 맞나 보네."
 				},
 				"autoContinue": false,
@@ -4241,7 +4248,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "Welcome to the \\c[3]Arcane Lab\\c[0]!",
 					"ko_KR": "\\c[3]아케인 랩\\c[0]에 온 걸 환영해!"
 				},
 				"autoContinue": false,
@@ -4263,7 +4270,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "Another staff member I'm close with is developing this place here.",
 					"ko_KR": "나랑 친한 다른 인스타테인먼트의 직원이 여기서 이곳을 개발 중이거든."
 				},
 				"autoContinue": false,
@@ -4274,8 +4281,8 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
-					"ko_KR": "아무도 모르게 개발하고 있다는게 문제지만. 사실 나도 며칠 전에 알았어..."
+					"en_US": "This place is being developed without notifying others. Actually, I knew about it a few days ago...",
+					"ko_KR": "아무도 모르게 개발하고 있는 곳이긴 해. 사실 나도 며칠 전에 알았어..."
 				},
 				"autoContinue": false,
 				"type": "SHOW_MSG",
@@ -4296,7 +4303,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "Anyways, he could help with our plan. The more help, the better. don't you think?",
 					"ko_KR": "어쨌든, 그가 우리 계획에 도움을 줄 수도 있을거야. 조력자는 많을 수록 좋지, 안 그래?"
 				},
 				"autoContinue": false,
@@ -4318,7 +4325,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "There's a lot to enjoy here, so you can take a break too if you want!",
 					"ko_KR": "즐길 것도 많은 곳이니까, 조금 쉬어도 되고!"
 				},
 				"autoContinue": false,
@@ -4362,7 +4369,7 @@
 				"condition": "party.has.Emilie",
 				"thenStep": [{
 					"message": {
-						"en_US": "",
+						"en_US": "It's like a maze around here. Where am I?",
 						"ko_KR": "깊기도 해라, 여긴 어디야?"
 					},
 					"type": "SHOW_SIDE_MSG",
@@ -4373,7 +4380,7 @@
 				}]
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "Find someone with the username \\c[3]Shooty\\c[0]. He'll be waiting for you.",
 					"ko_KR": "\\c[3]슈티\\c[0]라는 닉네임을 가진 사람을 찾아봐. 널 기다리고 있을거야."
 				},
 				"type": "SHOW_SIDE_MSG",
@@ -4965,7 +4972,7 @@
 					"condition": "party.size > 1",
 					"thenStep": [{
 						"message": {
-							"en_US": "",
+							"en_US": "Oh! Hello? Are all of you new around here?",
 							"ko_KR": "오! 안녕? 새로 온 친구들인가 보구나?"
 						},
 						"autoContinue": false,
@@ -4976,7 +4983,7 @@
 						}
 					}, {
 						"message": {
-							"en_US": "",
+							"en_US": "We're developing a lot of things, so enjoy yourself!",
 							"ko_KR": "재미있는 것들을 많이 개발 중이니까, 마음껏 즐기다 가!"
 						},
 						"autoContinue": false,
@@ -4988,7 +4995,7 @@
 					}],
 					"elseStep": [{
 						"message": {
-							"en_US": "",
+							"en_US": "Oh! Hello? You're Lea, right?",
 							"ko_KR": "오! 안녕? 네가 레아구나?"
 						},
 						"autoContinue": false,
@@ -4999,7 +5006,7 @@
 						}
 					}, {
 						"message": {
-							"en_US": "",
+							"en_US": "You're cuter than what I've heard from Sergey.",
 							"ko_KR": "세르게이에게 들어본 것보단 훨씬 귀엽게 생겼네."
 						},
 						"autoContinue": false,
@@ -5021,7 +5028,7 @@
 						}
 					}, {
 						"message": {
-							"en_US": "",
+							"en_US": "I've heard a lot about the situation about Evotars. I'll help out as well!",
 							"ko_KR": "에보타에 대한 이야기는 자세히 들었어. 나도 도와줄게!"
 						},
 						"autoContinue": false,

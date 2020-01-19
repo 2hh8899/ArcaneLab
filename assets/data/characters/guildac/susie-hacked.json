@@ -6,6 +6,13 @@
 		"zh_CN": "秀智",
 		"ja_JP": "スージー"
 	},
+	"realname": {
+		"en_US": "Susie",
+		"ko_KR": "수지",
+		"de_DE": "Susie",
+		"zh_CN": "秀智",
+		"ja_JP": "スージー"
+	},
 	"animSheet": "npc.susie-hacked",
 	"walkAnimSet": {
 		"normal": {

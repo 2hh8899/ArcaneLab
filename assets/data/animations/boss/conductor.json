@@ -119,6 +119,9 @@
 			"name": "rocketFire",
 			"time": 0.1,
 			"repeat": false,
+			"anchorOffsetX": [15, -15],
+			"anchorOffsetY": [-4, -4],
+			"anchorOffsetZ": [25, 25],
 			"frames": [27]
 		}, {
 			"name": "damage",

@@ -41,6 +41,14 @@
 			"width": 32,
 			"height": 40
 		},
+		"throw": {
+			"src": "media/entity/npc/eisus.png",
+			"xCount": 6,
+			"offX": 288,
+			"offY": 320,
+			"width": 32,
+			"height": 40
+		},
 		"eat": {
 			"src": "media/entity/npc/eisus.png",
 			"xCount": 16,
@@ -109,12 +117,14 @@
 			"name": "aimMove",
 			"time": 0.1,
 			"repeat": true,
-			"frames": [4, 5, 6, 7]
+			"frames": [0, 1, 2, 3, 2, 1],
+			"framesGfxOffset": [0, 0, 0, -1, 0, -2, 0, -2, 0, -1, 0, 0]
 		}, {
 			"name": "aimMoveRev",
 			"time": 0.1,
 			"repeat": true,
-			"frames": [7, 6, 5, 4]
+			"frames": [0, 1, 2, 3, 2, 1],
+			"framesGfxOffset": [0, 0, 0, -1, 0, -2, 0, -2, 0, -1, 0, 0]
 		}, {
 			"name": "damage",
 			"time": 0.07,
@@ -126,11 +136,6 @@
 			"time": 0.1,
 			"repeat": false,
 			"frames": [11]
-		}, {
-			"name": "postShoot",
-			"time": 0.1,
-			"repeat": false,
-			"frames": [9, 10]
 		}, {
 			"name": "specialPre",
 			"time": 0.066,
@@ -156,30 +161,6 @@
 		"anchorOffsetY": [-22, -13, -2, -4, -9, -21],
 		"anchorOffsetZ": [12, 12, 12, 12, 12, 12],
 		"SUB": [{
-			"name": "spinFull",
-			"time": 0.033,
-			"repeat": true,
-			"dirFrames": [
-				[5, 4, 3, 2, 1, 0],
-				[0, 5, 4, 3, 2, 1],
-				[1, 0, 5, 4, 3, 2],
-				[2, 1, 0, 5, 4, 3],
-				[3, 2, 1, 0, 5, 4],
-				[4, 3, 2, 1, 0, 5]
-			]
-		}, {
-			"name": "spinShort",
-			"time": 0.066,
-			"repeat": false,
-			"dirFrames": [
-				[1, 0],
-				[2, 1],
-				[3, 2],
-				[4, 3],
-				[5, 4],
-				[0, 5]
-			]
-		}, {
 			"name": "attackEnd",
 			"time": 0.1,
 			"repeat": false,
@@ -332,6 +313,25 @@
 					[0, 5, 4, 3, 2, 1]
 				]
 			}]
+		}]
+	}, {
+		"sheet": "throw",
+		"dirs": "6",
+		"flipX": [0, 0, 0, 1, 1, 1],
+		"tileOffsets": [0, 1, 2, 2, 1, 0],
+		"anchorOffsetX": [10, 15, 10, -9, -14, -12],
+		"anchorOffsetY": [-22, -13, -2, -4, -9, -21],
+		"anchorOffsetZ": [12, 12, 12, 12, 12, 12],
+		"SUB": [{
+			"name": "throwEnd",
+			"time": 0.05,
+			"repeat": false,
+			"frames": [0, 6, 12]
+		}, {
+			"name": "dashEnd",
+			"time": 0.04,
+			"repeat": false,
+			"frames": [3, 9, 9]
 		}]
 	}, {
 		"sheet": "eat",

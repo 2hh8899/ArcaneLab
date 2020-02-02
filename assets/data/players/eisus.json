@@ -34,7 +34,38 @@
 		"minDistance": 0,
 		"foodSprites": ["", "", ""]
 	},
-	"walkAnims": null,
+	"walkAnims": {
+		"aiming": {
+			"idle": "aim",
+			"move": "aim",
+			"moveRev": "aim",
+			"damage": "damage"
+		},
+		"battle": {
+			"idle": "aim",
+			"hover": "aim",
+			"hoverMove": "aim",
+			"move": "aim",
+			"run": "run",
+			"brake": "brake",
+			"preIdle": "aim",
+			"damage": "damage",
+			"fall": "fall",
+			"jump": "jump"
+		},
+		"normal": {
+			"idle": "idle",
+			"hover": "aim",
+			"hoverMove": "aim",
+			"move": "walk",
+			"run": "run",
+			"brake": "brake",
+			"preIdle": "aim",
+			"damage": "damage",
+			"fall": "fall",
+			"jump": "jump"
+		}
+	},
 	"autoequip": [{
 		"level": 3,
 		"HEAD": 23,
@@ -16246,11 +16277,10 @@
 				"stunType": "",
 				"status": false,
 				"steps": [{
-					"followUp": "aim",
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "startAim"
+					"anim": "aim"
 				}, {
 					"time": 0.14,
 					"type": "WAIT"
@@ -16294,7 +16324,7 @@
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "throwShort"
+					"anim": "spinShort"
 				}, {
 					"value": 80,
 					"type": "SET_SPEED"
@@ -16326,11 +16356,11 @@
 					"elementProxy": "QUICK",
 					"type": "SHOOT_PROXY_PLAYER"
 				}, {
-					"followUp": "throwEndRev",
+					"followUp": "throwEnd",
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "throwShortRev"
+					"anim": "spinShort"
 				}, {
 					"value": 80,
 					"type": "SET_SPEED"
@@ -16366,7 +16396,7 @@
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "throw"
+					"anim": "spinShort"
 				}, {
 					"value": 80,
 					"type": "SET_SPEED"
@@ -16398,11 +16428,11 @@
 					"elementProxy": "CHARGED",
 					"type": "SHOOT_PROXY_PLAYER"
 				}, {
-					"followUp": "throwEndRev",
+					"followUp": "throwEnd",
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "throwRev"
+					"anim": "spinShort"
 				}, {
 					"value": 80,
 					"type": "SET_SPEED"
@@ -16429,12 +16459,7 @@
 					"factor": 1,
 					"type": "SET_PLAYER_INVINCIBLE"
 				}, {
-					"wait": false,
-					"viaWalkConfig": false,
-					"type": "SHOW_ANIMATION",
-					"anim": "aim"
-				}, {
-					"followUp": "aim",
+					"followUp": "dashEnd",
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
@@ -16494,12 +16519,7 @@
 			},
 			"DASH_SLOW": {
 				"steps": [{
-					"wait": false,
-					"viaWalkConfig": false,
-					"type": "SHOW_ANIMATION",
-					"anim": "aim"
-				}, {
-					"followUp": "aim",
+					"followUp": "dashEnd",
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
@@ -16527,11 +16547,10 @@
 			},
 			"GUARD": {
 				"steps": [{
-					"followUp": "guard",
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "preIdle"
+					"anim": "aim"
 				}, {
 					"perfectGuard": false,
 					"type": "ADD_PLAYER_SHIELD"
@@ -16545,7 +16564,7 @@
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "guard"
+					"anim": "aim"
 				}, {
 					"duration": 0,
 					"align": "BOTTOM",

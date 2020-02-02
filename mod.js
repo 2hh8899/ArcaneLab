@@ -669,6 +669,8 @@ ig.module("game.feature.combat.entities.combat-proxy-minion")
 			};
 		sc.CombatProxyMinionEntity =
 			sc.CombatProxyEntity.extend({
+				statusGui: null,
+				weakness: 0,
 				init: function(a, b, d, g) {
 					this.parent(a, b, d, g);
 					a = g.data;
@@ -718,12 +720,20 @@ ig.module("game.feature.combat.entities.combat-proxy-minion")
 					this.setAction(a.action);
 					this.killAction = a.killAction;
 					this.maxHp = this.hp = a.hp;
+					this.statusGui = new ig.GUI.MinionStatusBar(this);
+					ig.gui.addGuiElement(this.statusGui);
 					this.effects.onKill = a.killEffect
 				},
 				onEntityKillDetach: function() {
 					this.kill()
 				},
+				hideBar: function() {
+					this.statusGui && this.statusGui.remove() && 
+					ig.gui.removeGuiElement(this.statusGui);
+					this.statusGui = null;
+				},
 				destroy: function(b) {
+					this.hideBar();
 					if(!this.destroyType) {
 						this.destroyType =
 							b || a.ACTION_END_DESTROYED;
@@ -731,6 +741,37 @@ ig.module("game.feature.combat.entities.combat-proxy-minion")
 						this.cancelAction();
 						this.setAction(this.killAction);
 					}else this.kill()
+				},
+				update: function() {
+					this.breakType == sc.PROXY_BREAK_TYPE.COMBATANT && this.combatant.isDefeated() && this.destroy();
+					this.coll.pos.z < ig.game.minLevelZ && (!this.stickToSource &&
+						!this.noFallDestroy) && this.destroy();
+					if(this.stickToSource) {
+						var a = this.stickToSource == sc.PROXY_STICK_TYPE.TARGET ? this.getTarget() : this.sourceEntity;
+						if(a) {
+							var d = ig.CollTools.getCenterXYAlignedPos(b, this.coll, a.coll);
+							this.setPos(d.x, d.y, a.coll.pos.z);
+							this.stickFaceAlign && a.face && Vec2.assign(this.face, a.face)
+						}
+					}
+					this.parent()
+				},
+				ballHit: function(a) {
+					if(this.hp) {
+						if(a.party == this.combatant.party) return false;
+						var b = a.getHitCenter(this);
+						this.wasHit = true;
+						if(this.hp < 0) {
+							sc.combat.showHitEffect(this, b, sc.ATTACK_TYPE.NONE, a.getElement(), false,
+								false);
+							return true
+						}
+						var d = a.attackInfo.damageFactor;
+						sc.combat.showHitEffect(this, b, a.attackInfo.type, a.getElement(), false, false);
+						this.reduceHp(d);
+						return true
+					}
+					return false
 				}
 			});
 		var d = new ig.ActorConfig({
@@ -773,6 +814,231 @@ ig.module("game.feature.combat.entities.combat-proxy-minion")
 			}
 		}
 	});
+ig.module("game.feature.combat.gui.minion-status-bar")
+	.requires("impact.feature.gui.gui", "game.feature.combat.gui.status-bar")
+	.defines(function() {
+		ig.GUI.MinionStatusBar = ig.GUI.StatusBar.extend({
+			_drawHpBar: function(a) {
+				var h = (Math.min(this.target.maxHp, this.target.hp) / this.target.maxHp)
+					.limit(0, 1),
+					i = (Math.max(this.target.maxHp, this.target.hp) / this.target.maxHp)
+					.limit(0, 1),
+					b = Math.ceil(22 * h) + 1,
+					h = Math.ceil(22 * i) + 1,
+					i = 0;
+				this.target.party ==
+					sc.COMBATANT_PARTY.PLAYER ? i = 8 : this.target.target && (i = 4);
+				a.addGfx(this.gfx, 0, 0, 216, 0 + i, b, 4);
+				a.addGfx(this.gfx, b, 0, 216 + b, 12, h - b + 1, 4);
+			}
+		})
+	});
+ig.module("game.feature.combat.model.poison-status").requires(
+	"game.feature.combat.model.combat-status",
+	"game.feature.combat.gui.status-bar",
+	"game.feature.combat.entities.combatant",
+	"game.feature.combat.model.combat-params",
+	"game.feature.player.modifiers",
+	"game.feature.menu.gui.item.item-status-equip",
+	"game.feature.menu.gui.menu-misc",
+	"game.feature.menu.gui.status.status-misc")
+.defines(function() {
+	sc.MODIFIERS.TOXIC_HAZARD = {
+		altSheet: "media/gui/status-gui.png",
+        offX: 96,
+        offY: 0,
+        icon: -1,
+        order: 100
+    };
+	sc.PoisonStatus = sc.COMBAT_STATUS[4] = sc.CombatStatusBase.extend({
+		id: 0,
+		label: "poisoning",
+		statusBarEntry: "POISONED",
+		offenseModifier: "TOXIC_HAZARD",
+		defenseModifier: null,
+		duration: 20,
+		poisonTimer: 0,
+		onUpdate: function(b, a) {
+			this.poisonTimer = this.poisonTimer +
+				ig.system.ingameTick;
+			if((!b.getCombatantRoot()
+					.isPlayer || !sc.model.isCutscene()) && this.poisonTimer > 0.5) {
+				var d = Math.floor(a.getStat("hp") * (0.3 / (this.duration / 0.5)) * this.getEffectiveness(a));
+				b.instantDamage(d, 0.5);
+				this.effects.spawnOnTarget("burnDamage", b);
+				this.poisonTimer = 0
+			}
+		}
+	});
+    sc.STATUS_BAR_ENTRY.POISONED = {
+    	icon: 0,
+    	isPoison: true,
+    	init: null,
+    	barY: 0,
+    	barX: 0,
+    	half: true
+    }
+	ig.GUI.StatusBar.inject({
+		stunGfx: new ig.Image("media/gui/poison-status.png"),
+        drawStatusEntry: function(b, c, e, f) {
+            var g = this.statusEntries[f],
+                f = sc.STATUS_BAR_ENTRY[f],
+                h = 1;
+            g.timer < 0.1 && (h = g.timer / 0.1);
+            h != 1 && b.addTransform()
+				.setPivot(c, e + 2)
+				.setScale(1, h);
+            var i = 24,
+                j = 0;
+            if (f.half) j = i = i / 2;
+            if (f.isPoison) {
+	            if (g.stick) b.addGfx(this.stunGfx, c - 6, e - 2, 24, 0, 8, 8);
+	            else {
+	                if (g.timer > 1.7) var l =
+	                    Math.sin(Math.PI * 8 * (2 - g.timer) / 0.3),
+	                    c = c + l;
+	                g = 1 + Math.floor(g.value * (i - 2));
+	                l = i - 1 - g;
+	                c = c + j;
+	                b.addGfx(this.stunGfx, c, e, f.barX, f.barY, g, 4);
+	                l && b.addGfx(this.gfx, c + g, e, 216 + g, 12, l, 4);
+	                b.addGfx(this.stunGfx, c + (i - 1), e - 2, 25, 0, 7, 8)
+	            }
+            } else {
+	            var k = this.barIconTiles.getTileSrc(a, f.icon);
+	            if (g.stick) b.addGfx(this.gfx, c - 6, e - 2, k.x, k.y, 8, 8);
+	            else {
+	                if (g.timer > 1.7) var l =
+	                    Math.sin(Math.PI * 8 * (2 - g.timer) / 0.3),
+	                    c = c + l;
+	                g = 1 + Math.floor(g.value * (i - 2));
+	                l = i - 1 - g;
+	                c = c + j;
+	                b.addGfx(this.gfx, c, e, 216, f.barY, g, 4);
+	                l && b.addGfx(this.gfx, c + g, e, 216 + g, 12, l, 4);
+	                b.addGfx(this.gfx, c + (i - 1), e - 2, k.x + 1, k.y, 7, 8)
+	            }
+            }
+            h != 1 && b.undoTransform()
+        }
+	});
+    var b = Vec2.create(),
+        a = Vec2.create(),
+        d = Vec3.create(),
+        c = Vec3.create(),
+        e = {},
+        f = {
+            damageResult: void 0,
+            attackType: void 0,
+            flyLevel: void 0,
+            hitStable: void 0,
+            damageFactor: void 0,
+            weakness: false,
+            alignFace: false,
+            ignoreHit: false
+        };
+	var aConst = 0.25,
+        dConst = 1.5,
+        cConst = 3;
+    var funcs = {
+        LINEAR: function(a, b) {
+            return a * 2 - b
+        },
+        PERCENTAGE: function(a, b) {
+            return a > b ? a * (1 + Math.pow(1 - b / a, 0.5) * 0.2) : a * Math.pow(a / b, 1.5)
+        }
+    };
+	sc.CombatParams.inject({
+		init: function(a) {
+            if (a)
+                for (var b in this.baseParams) this.baseParams[b] = a[b] || this.baseParams[b];
+            this.currentHp = this.getStat("hp");
+            for (b = 0; b < 5; ++b) this.statusStates[b] = new sc.COMBAT_STATUS[b]
+        },
+    	getDamage: function(e, g, h, i, j) {
+            var k = e.damageFactor,
+                l = e.noHack || false,
+                o = h.getCombatantRoot(),
+                h = h.combo || o.combo;
+            if (h.damageCeiling) {
+                var m = Math.max(1 - (h.damageCeiling.sum[this.combatant.id] || 0) / h.damageCeiling.max, 0);
+                m < 0.5 && (k = Math.max(k * 2 * m, 0.01))
+            }
+            h = k;
+            if (!ig.perf.skipDmgModifiers) {
+                e.skillBonus && (k = k * (1 + e.attackerParams.getModifier(e.skillBonus)));
+                var n = e.attackerParams.getModifier("BERSERK");
+                n && e.attackerParams.getHpFactor() <= sc.HP_LOW_WARNING && (k = k * (1 + n));
+                (n = e.attackerParams.getModifier("MOMENTUM")) && (o.isPlayer && o.dashAttackCount) && (k = k * (1 + o.dashAttackCount * n));
+                !ig.vars.get("g.newgame.ignoreSergeyHax") &&
+                    (o.isPlayer && !this.combatant.isPlayer && sc.newgame.get("sergey-hax")) && (k = k * 4096)
+            }
+            var g = this.damageFactor * (g === void 0 ? 1 : g),
+                p = 1,
+                r = e.attackerParams.getStat("focus", l) / this.getStat("focus", l),
+                n = (Math.pow(r, 0.35) - 0.9) * e.critFactor,
+                n = Math.random() <= n;
+            if (!ig.perf.skipDmgModifiers) {
+                e.element && (p = this.getStat("elemFactor")[e.element - 1] * this.tmpElemFactor[e.element - 1]);
+                g = g * p;
+                e.ballDamage && (g = g * (this.ballFactor + this.statusStates[3].getValue(this)));
+                (m = e.attackerParams.getModifier("CROSS_COUNTER")) && sc.EnemyAnno.isCrossCounterEffective(this.combatant) &&
+                    (g = g * (1 + m));
+                (m = e.attackerParams.getModifier("BREAK_DMG")) && sc.EnemyAnno.isWeak(this.combatant) && (g = g * (1 + m));
+                n && (k = k * e.attackerParams.criticalDmgFactor)
+            }
+            o = sc.combat.getGlobalDmgFactor(o.party);
+            m = 0;
+			v = (Math.pow(1 + (r >= 1 ? r - 1 : 1 - r) * cConst, aConst) - 1) * dConst;
+			r = r >= 1 ? 1 + v : Math.max(0, 1 - v);
+			var pppm = r * e.attackerParams.getModifier("TOXIC_HAZARD") * p;
+			if (pppm>0) pppm = this.statusStates[4].getInflictValue(pppm, this, e, i);
+			if (e.element && e.statusInflict && g > 0 && !j)	var j = e.element - 1,
+				m = h * e.statusInflict,
+				m = m * r * this.getStat("statusInflict")[j] * this.tmpStatusInflict[j] * p,
+				m = this.statusStates[j].getInflictValue(m, this, e, i);
+            i = e.attackerParams.getStat("attack", l);
+            l = e.defenseFactor *
+                this.getStat("defense", l);
+            l = Math.max(1, funcs.PERCENTAGE(i, l));
+            l = l * g;
+            i = funcs.PERCENTAGE(i, 0) - l;
+            l = l * k * o;
+            i = i * k * o;
+            if (!ig.perf.skipDmgModifiers) {
+                l = l * (0.95 + Math.random() * 0.1);
+                i = i * (0.95 + Math.random() * 0.1)
+            }
+            if (e.limiter.noDmg) i = l = 0;
+            l = Math.round(l);
+            return {
+                damage: l,
+                defReduced: i,
+                offensiveFactor: k,
+                baseOffensiveFactor: h,
+                defensiveFactor: g,
+                critical: n,
+                status: m,
+                status2: pppm
+            }
+        },
+		applyDamage: function(a, b, c) {
+            var d = c.getCombatantRoot(),
+                c = c.combo || d.combo;
+            if (c.damageCeiling) {
+                d = this.combatant.id;
+                c.damageCeiling.sum[d] || (c.damageCeiling.sum[d] =
+                    0);
+                c.damageCeiling.sum[d] = c.damageCeiling.sum[d] + a.baseOffensiveFactor
+            }
+			a.status2 && this.statusStates[4].inflict(a.status2, this, b);
+            this.reduceHp(a.damage);
+            a.status && this.statusStates[b.element - 1].inflict(a.status, this, b);
+            this.reduceHp(a.damage)
+        }
+	});
+});
+
 
 
 document.body.addEventListener('modsLoaded', function () {

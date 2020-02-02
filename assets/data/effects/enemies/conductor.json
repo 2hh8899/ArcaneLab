@@ -46,19 +46,6 @@
 			"guiSprites": false,
 			"renderMode": "lighter"
 		}, {
-			"name": "WOOD_DEBRIS",
-			"sheet": {
-				"src": "media/entity/effects/particles1.png",
-				"offX": 114,
-				"offY": 58,
-				"width": 4,
-				"height": 4
-			},
-			"centerPivot": false,
-			"time": 0.025,
-			"repeat": true,
-			"frames": [0]
-		}, {
 			"name": "SPARK_FLOOR",
 			"sheet": {
 				"src": "media/entity/enemy/boss/conductor.png",
@@ -107,6 +94,19 @@
 			"frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
 			"guiSprites": true
 		}, {
+			"name": "WAVE_EXPLODE",
+			"sheet": {
+				"src": "media/entity/effects/wave.png",
+				"xCount": 6,
+				"offX": 0,
+				"offY": 128,
+				"width": 48,
+				"height": 48
+			},
+			"renderMode": "lighter",
+			"time": 0.033,
+			"frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		}, {
 			"name": "PRE_EXPLOSION_LINE",
 			"sheet": {
 				"src": "media/entity/effects/circle.png",
@@ -140,6 +140,19 @@
 			"time": 0.07,
 			"repeat": false,
 			"frames": [1, 2, 3, 4, 5, 6, 7, 8]
+		}, {
+			"name": "LASER_END",
+			"sheet": {
+				"src": "media/entity/enemy/boss/conductor.png",
+				"offX": 336,
+				"offY": 200,
+				"width": 32,
+				"height": 32
+			},
+			"guiSprites": true,
+			"time": 0.05,
+			"repeat": true,
+			"frames": [0, 1, 2, 1]
 		}]
 	},
 	"EFFECTS": {
@@ -409,39 +422,6 @@
 			"anim": "EARTHQUAKE_LINE",
 			"type": "OFFSET_PARTICLE_CIRCLE"
 		}, {
-			"numParticles": 2,
-			"circular": true,
-			"minSpeed": 50,
-			"maxSpeed": 60,
-			"minZSpeed": 100,
-			"maxZSpeed": 300,
-			"debrisSize": {
-				"x": 3,
-				"y": 3,
-				"z": 3
-			},
-			"zBounciness": 0.3,
-			"pAlpha": {
-				"init": 1,
-				"end": {
-					"value": 0,
-					"time": 1,
-					"spline": ""
-				}
-			},
-			"pRotate": {
-				"init": 0
-			},
-			"particleDuration": 0.5,
-			"particleDurVariance": 0.3,
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"anim": "WOOD_DEBRIS",
-			"type": "DEBRIS_OVER_ENTITY"
-		}, {
 			"time": 0.1,
 			"type": "WAIT"
 		}, {
@@ -676,6 +656,52 @@
 			},
 			"particleDuration": 0.2,
 			"type": "COPY_SPRITE"
+		}],
+		"waveLightning": [{
+			"type": "LOOP_START"
+		}, {
+			"useTargetAngle": false,
+			"keepAngleSync": false,
+			"anim": "WAVE_EXPLODE",
+			"type": "PLAY_ANIM"
+		}, {
+			"patternYCount": 1,
+			"animFrames": [0, 1, 2, 1],
+			"frameTime": 0.033,
+			"shiftSpeed": 300,
+			"guiSprites": true,
+			"renderMode": "lighter",
+			"pScale": {
+				"init": {
+					"x": 1.5,
+					"y": 1
+				},
+				"end": {
+					"value": {
+						"x": 0,
+						"y": 1
+					},
+					"time": 0.3,
+					"spline": ""
+				}
+			},
+			"particleDuration": 0.25,
+			"pattern": {
+				"src": "media/entity/effects/neutral.png",
+				"xCount": 3,
+				"offX": 320,
+				"offY": 96,
+				"width": 32,
+				"height": 48
+			},
+			"type": "LASER_SPRITE"
+		}, {
+			"time": 0.133,
+			"type": "WAIT"
+		}, {
+			"type": "LOOP_END"
+		}, {
+			"type": "STOP_SOUNDS"
 		}],
 		"explosionFire": [{
 			"size": "XL",
@@ -1954,6 +1980,123 @@
 		}, {
 			"time": 10,
 			"type": "WAIT"
+		}],
+		"darkLaser": [{
+			"size": "XL",
+			"fadeIn": 0.1,
+			"fadeOut": 0.4,
+			"duration": -1,
+			"glow": false,
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 48
+			},
+			"type": "LIGHT"
+		}, {
+			"size": "XL",
+			"fadeIn": 0.1,
+			"fadeOut": 0.4,
+			"duration": -1,
+			"glow": false,
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 96
+			},
+			"type": "LIGHT"
+		}, {
+			"size": "XL",
+			"fadeIn": 0.1,
+			"fadeOut": 0.4,
+			"duration": -1,
+			"glow": false,
+			"type": "LIGHT"
+		}, {
+			"rumbleType": "RANDOM",
+			"power": "WEAK",
+			"speed": "FASTEST",
+			"duration": 0.35,
+			"fade": true,
+			"type": "RUMBLE"
+		}, {
+			"size": "XXL",
+			"fadeIn": 0,
+			"fadeOut": 0.5,
+			"duration": -1,
+			"glow": true,
+			"type": "LIGHT"
+		}, {
+			"useTargetAngle": false,
+			"keepAngleSync": false,
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"pScale": {
+				"init": {
+					"x": 2,
+					"y": 2
+				},
+				"end": {
+					"value": {
+						"x": 0,
+						"y": 2
+					},
+					"time": 0.3,
+					"spline": ""
+				}
+			},
+			"moveWithTarget": 1,
+			"particleDuration": -1,
+			"cancelable": true,
+			"anim": "LASER_END",
+			"type": "PLAY_ANIM"
+		}, {
+			"patternYCount": 1,
+			"frameTime": 0.05,
+			"animFrames": [0, 1, 2, 1],
+			"shiftSpeed": 500,
+			"guiSprites": true,
+			"pScale": {
+				"init": {
+					"x": 2,
+					"y": 1
+				},
+				"end": {
+					"value": {
+						"x": 0,
+						"y": 1
+					},
+					"time": 0.3,
+					"spline": ""
+				}
+			},
+			"moveWithTarget": 1,
+			"particleDuration": -1,
+			"cancelable": true,
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 1
+			},
+			"pattern": {
+				"src": "media/entity/enemy/boss/conductor.png",
+				"xCount": 3,
+				"offX": 336,
+				"offY": 152,
+				"width": 32,
+				"height": 48
+			},
+			"type": "LASER_SPRITE"
+		}, {
+			"type": "LOOP_START"
+		}, {
+			"time": 0.2,
+			"type": "WAIT"
+		}, {
+			"type": "LOOP_END"
 		}]
 	}
 }

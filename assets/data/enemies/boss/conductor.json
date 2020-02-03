@@ -911,6 +911,31 @@
 					}]
 				}]
 			}, {
+				"withElse": true,
+				"type": "IF",
+				"condition": "tmp.proxyPos.x>=3904",
+				"thenStep": [{
+					"type": "ADJUST_ENTITY_POS",
+					"offset": {
+						"x": -32,
+						"y": 0,
+						"z": 0
+					}
+				}],
+				"elseStep": [{
+					"withElse": false,
+					"type": "IF",
+					"condition": "tmp.proxyPos.x<=3424",
+					"thenStep": [{
+						"type": "ADJUST_ENTITY_POS",
+						"offset": {
+							"x": 32,
+							"y": 0,
+							"z": 0
+						}
+					}]
+				}]
+			}, {
 				"duration": 0,
 				"align": "BOTTOM",
 				"rotateFace": 0,
@@ -1226,6 +1251,60 @@
 			"copyOwnerAnims": false,
 			"breakType": "NEVER",
 			"action": [{
+				"stat": "BOTTOM_POS",
+				"type": "SET_VAR_ENTITY_STAT",
+				"varName": "tmp.proxyPos"
+			}, {
+				"withElse": true,
+				"type": "IF",
+				"condition": "tmp.proxyPos.y>=944",
+				"thenStep": [{
+					"type": "ADJUST_ENTITY_POS",
+					"offset": {
+						"x": 0,
+						"y": -32,
+						"z": 0
+					}
+				}],
+				"elseStep": [{
+					"withElse": false,
+					"type": "IF",
+					"condition": "tmp.proxyPos.y<=800",
+					"thenStep": [{
+						"type": "ADJUST_ENTITY_POS",
+						"offset": {
+							"x": 0,
+							"y": 32,
+							"z": 0
+						}
+					}]
+				}]
+			}, {
+				"withElse": true,
+				"type": "IF",
+				"condition": "tmp.proxyPos.x>=3904",
+				"thenStep": [{
+					"type": "ADJUST_ENTITY_POS",
+					"offset": {
+						"x": -32,
+						"y": 0,
+						"z": 0
+					}
+				}],
+				"elseStep": [{
+					"withElse": false,
+					"type": "IF",
+					"condition": "tmp.proxyPos.x<=3424",
+					"thenStep": [{
+						"type": "ADJUST_ENTITY_POS",
+						"offset": {
+							"x": 32,
+							"y": 0,
+							"z": 0
+						}
+					}]
+				}]
+			}, {
 				"duration": 0,
 				"align": "BOTTOM",
 				"rotateFace": 0,
@@ -7884,6 +7963,9 @@
 			"type": "WAIT"
 		}],
 		"DiscoBallFall": [{
+			"value": -1,
+			"type": "SET_INVINCIBLE"
+		}, {
 			"wait": false,
 			"viaWalkConfig": false,
 			"type": "SHOW_ANIMATION",
@@ -7973,6 +8055,9 @@
 				"z": 0
 			}
 		}, {
+			"value": 0,
+			"type": "SET_INVINCIBLE"
+		}, {
 			"type": "WAIT_UNTIL_ON_GROUND"
 		}, {
 			"wait": false,
@@ -7990,6 +8075,9 @@
 			"type": "WAIT"
 		}],
 		"DiscoBallHomingFall": [{
+			"value": -1,
+			"type": "SET_INVINCIBLE"
+		}, {
 			"wait": false,
 			"viaWalkConfig": false,
 			"type": "SHOW_ANIMATION",
@@ -8078,6 +8166,9 @@
 				"y": 0,
 				"z": 0
 			}
+		}, {
+			"value": 0,
+			"type": "SET_INVINCIBLE"
 		}, {
 			"type": "WAIT_UNTIL_ON_GROUND"
 		}, {

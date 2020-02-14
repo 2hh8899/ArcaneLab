@@ -2,7 +2,8 @@
 	"guildac": {
 		"name": {
 			"en_US": "Arcane Lab",
-			"ko_KR": "아케인 랩"
+			"ko_KR": "아케인 랩",
+			"langUid": 2589000
 		},
 		"description": {
 			"en_US": "It's the secret basement of a developer guild, which is developing new things to enjoy.",
@@ -16,17 +17,37 @@
 			"x": 249,
 			"y": 163
 		},
-      "landmarks": {
-        "teleporter": {
-          "name": {
-            "en_US": "Arcane Teleporter",
-            "ko_KR": "아케인 텔레포터"
-          },
-          "description": {
-            "en_US": "At the Teleporter where you can move to a special playground under development.",
-            "ko_KR": "개발 중인 특수한 플레이그라운드로 이동할 수 있는 곳입니다."
-          }
-        }
-      }
+		"landmarks": {
+			"teleporter": {
+				"name": {
+					"en_US": "Arcane Teleporter",
+					"ko_KR": "아케인 텔레포터"
+				},
+				"description": {
+					"en_US": "At the Teleporter where you can move to a special playground under development.",
+					"ko_KR": "개발 중인 특수한 플레이그라운드로 이동할 수 있는 곳입니다."
+				}
+			}
+		}
+	},
+	"secret": {
+		"name": {
+			"en_US": "???",
+			"ko_KR": "???",
+			"langUid": 2589001
+		},
+		"description": {
+			"en_US": "???",
+			"ko_KR": "???"
+		},
+		"areaType": "PATH",
+		"order": 0,
+		"track": false,
+		"chests": 0,
+		"condition": "false",
+		"position": {
+			"x": 0,
+			"y": 0
+		}
 	}
 }

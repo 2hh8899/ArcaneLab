@@ -1,0 +1,97 @@
+{
+	"name": {
+		"en_US": "Ciel",
+		"ko_KR": "시엘"
+	},
+	"size": {
+		"x": 16,
+		"y": 16,
+		"z": 24
+	},
+	"animSheet": "npc.ciel",
+	"walkAnimSet": {
+		"normal": {
+			"idle": "idle",
+			"move": "walk",
+			"run": "run",
+			"jump": "jump",
+			"fall": "fall"
+		},
+		"sit": {
+			"idle": "sit"
+		}
+	},
+	"walkAnims": "normal",
+	"shadow": 24,
+	"configs": {
+		"normal": {
+			"relativeVel": 0.5
+		},
+		"running": {
+			"relativeVel": 1
+		},
+		"sit": {
+			"walkAnims": "sit",
+			"relativeVel": 0.5
+		}
+	},
+	"face": {
+		"width": 170,
+		"height": 142,
+		"centerX": 71,
+		"centerY": 50,
+		"src": "ciel.png",
+		"parts": [{
+			"straight": {
+				"srcX": 277,
+				"srcY": 0,
+				"width": 170,
+				"height": 112,
+				"destX": 0,
+				"destY": 30
+			}
+		}, {
+			"norm": {
+				"srcX": 0,
+				"srcY": 0,
+				"width": 68,
+				"height": 30,
+				"destX": 46,
+				"destY": 0
+			}
+		}, {
+			"normNeutral": {
+				"srcX": 0,
+				"srcY": 30,
+				"width": 68,
+				"height": 37,
+				"destX": 46,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normSmile": {
+				"srcX": 0,
+				"srcY": 67,
+				"width": 68,
+				"height": 37,
+				"destX": 46,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			}
+		}],
+		"expressions": {
+			"DEFAULT": {
+				"faces": [
+					["straight", "norm", "normNeutral"]
+				]
+			},
+			"SMILE": {
+				"faces": [
+					["straight", "norm", "normSmile"]
+				]
+			}
+		}
+	}
+}

@@ -71,7 +71,7 @@
 		"y": 16,
 		"z": 24
 	},
-	"anims": "npc.susieE",
+	"anims": "npc.susie",
 	"defaultState": "DEFAULT",
 	"walkConfigs": {
 		"normal": {
@@ -1011,7 +1011,7 @@
 			"effects": "ball",
 			"speed": 100,
 			"maxBounce": 0,
-			"timer": 5,
+			"timer": 2,
 			"trail": true,
 			"multiHit": false,
 			"noLightGlow": false,
@@ -2687,10 +2687,11 @@
 					"type": "MASSIVE",
 					"element": "HEAT",
 					"damageFactor": 3,
+					"fly": "LIGHT",
 					"reverse": false,
 					"spFactor": 0,
 					"stunSteps": [{
-						"type": "BLOCK_XY"
+						"type": "END_LOCK"
 					}, {
 						"value": 0,
 						"type": "Z_VEL"
@@ -2728,10 +2729,11 @@
 					"type": "MASSIVE",
 					"element": "HEAT",
 					"damageFactor": 3,
+					"fly": "LIGHT",
 					"reverse": false,
 					"spFactor": 0,
 					"stunSteps": [{
-						"type": "BLOCK_XY"
+						"type": "END_LOCK"
 					}, {
 						"value": 0,
 						"type": "Z_VEL"
@@ -2769,10 +2771,11 @@
 					"type": "MASSIVE",
 					"element": "HEAT",
 					"damageFactor": 3,
+					"fly": "LIGHT",
 					"reverse": false,
 					"spFactor": 0,
 					"stunSteps": [{
-						"type": "BLOCK_XY"
+						"type": "END_LOCK"
 					}, {
 						"value": 0,
 						"type": "Z_VEL"
@@ -3742,7 +3745,7 @@
 				"wait": false,
 				"viaWalkConfig": false,
 				"type": "SHOW_ANIMATION",
-				"anim": "dash"
+				"anim": "dashSpin"
 			}, {
 				"maxTime": 0.3,
 				"forceTime": false,
@@ -3802,7 +3805,7 @@
 				"wait": false,
 				"viaWalkConfig": false,
 				"type": "SHOW_ANIMATION",
-				"anim": "dash"
+				"anim": "dashSpin"
 			}, {
 				"maxTime": 0.3,
 				"forceTime": false,
@@ -4569,7 +4572,7 @@
 					"wait": false,
 					"viaWalkConfig": false,
 					"type": "SHOW_ANIMATION",
-					"anim": "dash"
+					"anim": "dashSpin"
 				}, {
 					"maxTime": 0.3,
 					"forceTime": false,
@@ -4633,7 +4636,7 @@
 				"type": "SET_RELATIVE_SPEED"
 			}, {
 				"maxTime": 0.18,
-				"forceTime": false,
+				"forceTime": true,
 				"distance": 60,
 				"distVariance": 20,
 				"keepDirection": true,
@@ -4675,7 +4678,7 @@
 				"type": "SHOOT_PROXY_PLAYER"
 			}, {
 				"maxTime": 0.18,
-				"forceTime": false,
+				"forceTime": true,
 				"distance": 60,
 				"distVariance": 20,
 				"keepDirection": true,
@@ -4697,7 +4700,7 @@
 				"type": "SHOOT_PROXY_PLAYER"
 			}, {
 				"maxTime": 0.18,
-				"forceTime": false,
+				"forceTime": true,
 				"distance": 60,
 				"distVariance": 20,
 				"keepDirection": true,
@@ -5951,7 +5954,7 @@
 			"wait": false,
 			"viaWalkConfig": false,
 			"type": "SHOW_ANIMATION",
-			"anim": "dash"
+			"anim": "dashSpin"
 		}, {
 			"duration": -1,
 			"align": "CENTER",
@@ -6054,6 +6057,42 @@
 			"type": "CLEAR_EFFECTS"
 		}, {
 			"type": "STOP_REPEATING_FORCE"
+		}, {
+			"align": "BOTTOM",
+			"radius": 40,
+			"yScale": 0,
+			"zHeight": 24,
+			"centralAngle": 1,
+			"startAngle": -0.25,
+			"duration": 0.145,
+			"expandRadius": 0,
+			"alwaysFull": false,
+			"clockwise": false,
+			"flipLeftFace": 8,
+			"rectangular": false,
+			"repeat": true,
+			"uniformHitDir": false,
+			"fixPos": false,
+			"checkCollision": true,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "HEAVY",
+				"element": "HEAT",
+				"damageFactor": 0.85,
+				"fly": "MEDIUM",
+				"reverse": false,
+				"spFactor": 0,
+				"stunSteps": [{
+					"type": "END_LOCK"
+				}],
+				"guardable": "",
+				"skillBonus": "MELEE_DMG"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
 		}, {
 			"time": 0.4,
 			"type": "WAIT"
@@ -7406,7 +7445,7 @@
 			"wait": false,
 			"viaWalkConfig": false,
 			"type": "SHOW_ANIMATION",
-			"anim": "dash"
+			"anim": "dashSpin"
 		}, {
 			"value": false,
 			"type": "SET_JUMPING"
@@ -8037,7 +8076,7 @@
 				"wait": false,
 				"viaWalkConfig": false,
 				"type": "SHOW_ANIMATION",
-				"anim": "dashRev"
+				"anim": "dashSpinRev"
 			}, {
 				"type": "WAIT_UNTIL",
 				"maxTime": 3,
@@ -8213,6 +8252,9 @@
 					"type": "MASSIVE",
 					"element": "COLD",
 					"damageFactor": 5.5,
+					"stunSteps": [{
+						"type": "END_LOCK"
+					}],
 					"fly": "MASSIVE+++",
 					"reverse": false,
 					"spFactor": 0,
@@ -8878,7 +8920,7 @@
 				"wait": false,
 				"viaWalkConfig": false,
 				"type": "SHOW_ANIMATION",
-				"anim": "dash"
+				"anim": "dashSpin"
 			}, {
 				"time": 0.3,
 				"stopBeforeEdge": false,
@@ -8926,7 +8968,7 @@
 				"wait": false,
 				"viaWalkConfig": false,
 				"type": "SHOW_ANIMATION",
-				"anim": "dash"
+				"anim": "dashSpin"
 			}, {
 				"min": 0,
 				"max": 32,
@@ -9003,7 +9045,7 @@
 			"wait": false,
 			"viaWalkConfig": false,
 			"type": "SHOW_ANIMATION",
-			"anim": "dash"
+			"anim": "dashSpin"
 		}, {
 			"maxTime": 0.4,
 			"forceTime": false,
@@ -9039,7 +9081,7 @@
 				"wait": false,
 				"viaWalkConfig": false,
 				"type": "SHOW_ANIMATION",
-				"anim": "dash"
+				"anim": "dashSpin"
 			}, {
 				"maxTime": 0.3,
 				"distance": 64,
@@ -9081,7 +9123,7 @@
 				"wait": false,
 				"viaWalkConfig": false,
 				"type": "SHOW_ANIMATION",
-				"anim": "dash"
+				"anim": "dashSpin"
 			}, {
 				"conditions": [{
 					"min": 0,
@@ -9145,7 +9187,7 @@
 			"wait": false,
 			"viaWalkConfig": false,
 			"type": "SHOW_ANIMATION",
-			"anim": "dash"
+			"anim": "dashSpin"
 		}, {
 			"maxTime": 0.3,
 			"distance": 64,

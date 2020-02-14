@@ -1,0 +1,364 @@
+{
+	"name": {
+		"en_US": "Nevi",
+		"ko_KR": "네비"
+	},
+	"size": {
+		"x": 16,
+		"y": 16,
+		"z": 24
+	},
+	"animSheet": "npc.nevi",
+	"walkAnimSet": {
+		"normal": {
+			"idle": "idle",
+			"move": "walk",
+			"run": "run",
+			"jump": "jump",
+			"fall": "fall"
+		},
+		"sit": {
+			"idle": "sit"
+		}
+	},
+	"walkAnims": "normal",
+	"shadow": 16,
+	"configs": {
+		"normal": {
+			"relativeVel": 0.5
+		},
+		"running": {
+			"relativeVel": 1
+		},
+		"sit": {
+			"walkAnims": "sit",
+			"relativeVel": 0.5
+		}
+	},
+	"face": {
+		"width": 97,
+		"height": 146,
+		"centerX": 37,
+		"centerY": 52,
+		"src": "nevi.png",
+		"parts": [{
+			"straight": {
+				"srcX": 350,
+				"srcY": 0,
+				"width": 97,
+				"height": 74,
+				"destX": 0,
+				"destY": 72
+			}
+		}, {
+			"norm": {
+				"srcX": 0,
+				"srcY": 0,
+				"width": 84,
+				"height": 30,
+				"destX": 10,
+				"destY": 0
+			},
+			"normDown": {
+				"srcX": 84,
+				"srcY": 0,
+				"width": 87,
+				"height": 30,
+				"destX": 10,
+				"destY": 0
+			}
+		}, {
+			"normNeutral": {
+				"srcX": 0,
+				"srcY": 30,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normSmile": {
+				"srcX": 0,
+				"srcY": 72,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normHappy": {
+				"srcX": 0,
+				"srcY": 114,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normSad": {
+				"srcX": 0,
+				"srcY": 156,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normSulk": {
+				"srcX": 0,
+				"srcY": 198,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normShy": {
+				"srcX": 0,
+				"srcY": 240,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normShock1": {
+				"srcX": 84,
+				"srcY": 30,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normShock2": {
+				"srcX": 84,
+				"srcY": 72,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normShock3": {
+				"srcX": 84,
+				"srcY": 114,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normShock4": {
+				"srcX": 84,
+				"srcY": 156,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normShock5": {
+				"srcX": 84,
+				"srcY": 198,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normShock6": {
+				"srcX": 84,
+				"srcY": 240,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normShock7": {
+				"srcX": 84,
+				"srcY": 282,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normThink1": {
+				"srcX": 168,
+				"srcY": 30,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normThink2": {
+				"srcX": 168,
+				"srcY": 72,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normThink3": {
+				"srcX": 168,
+				"srcY": 114,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normThink4": {
+				"srcX": 168,
+				"srcY": 156,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normThink5": {
+				"srcX": 168,
+				"srcY": 198,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normThink6": {
+				"srcX": 168,
+				"srcY": 240,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normThink7": {
+				"srcX": 168,
+				"srcY": 282,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			},
+			"normThink8": {
+				"srcX": 168,
+				"srcY": 324,
+				"width": 77,
+				"height": 42,
+				"destX": 10,
+				"destY": 30,
+				"subX": 0,
+				"subY": 0
+			}
+		}],
+		"expressions": {
+			"DEFAULT": {
+				"anim": [0],
+				"time": 0.15,
+				"repeat": 0,
+				"faces": [
+					["straight", "norm", "normNeutral"]
+				]
+			},
+			"SMILE": {
+				"anim": [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+				"time": 0.15,
+				"repeat": -1,
+				"faces": [
+					["straight", "norm", "normSmile"],
+					["straight", "normDown", "normSmile"]
+				]
+			},
+			"HAPPY": {
+				"anim": [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+				"time": 0.15,
+				"repeat": -1,
+				"faces": [
+					["straight", "norm", "normHappy"],
+					["straight", "normDown", "normHappy"]
+				]
+			},
+			"SAD": {
+				"anim": [0],
+				"time": 0.15,
+				"repeat": 0,
+				"faces": [
+					["straight", "normDown", "normSad"]
+				]
+			},
+			"SULK": {
+				"anim": [0],
+				"time": 0.15,
+				"repeat": 0,
+				"faces": [
+					["straight", "normDown", "normSulk"]
+				]
+			},
+			"SHY": {
+				"anim": [0],
+				"time": 0.15,
+				"repeat": 0,
+				"faces": [
+					["straight", "norm", "normShy"]
+				]
+			},
+			"SHOCK": {
+				"anim": [0, 1, 2, 3, 4, 5, 6, 7],
+				"time": 0.15,
+				"repeat": 0,
+				"faces": [
+					["straight", "norm", "normShock1"],
+					["straight", "norm", "normShock2"],
+					["straight", "norm", "normShock3"],
+					["straight", "norm", "normShock4"],
+					["straight", "norm", "normShock5"],
+					["straight", "norm", "normShock6"],
+					["straight", "norm", "normShock7"]
+				]
+			},
+			"THINK": {
+				"anim": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+				"time": 0.15,
+				"repeat": -1,
+				"faces": [
+					["straight", "normDown", "normThink1"],
+					["straight", "normDown", "normThink2"],
+					["straight", "normDown", "normThink3"],
+					["straight", "normDown", "normThink4"],
+					["straight", "normDown", "normThink5"],
+					["straight", "normDown", "normThink6"],
+					["straight", "normDown", "normThink7"],
+					["straight", "normDown", "normThink8"]
+				]
+			}
+		}
+	}
+}

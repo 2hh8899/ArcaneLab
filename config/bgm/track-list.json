@@ -1,7 +1,24 @@
 {
+    "pre-killing-two-birds": {
+        "path": "assets/media/bgm/pre-killing-two-birds.ogg",
+        "loopEnd": 57.313,
+        "volume": 0.8
+    },
     "mustache-girl": {
         "path": "assets/media/bgm/mustache-girl.ogg",
         "loopEnd": 147.692,
+        "volume": 0.8
+    },
+    "susie": {
+        "intro": "assets/media/bgm/susie-i.ogg",
+        "path": "assets/media/bgm/susie.ogg",
+        "introEnd": 117.6,
+        "loopEnd": 86.4,
+        "volume": 0.8
+    },
+    "susie-loop": {
+        "path": "assets/media/bgm/susie.ogg",
+        "loopEnd": 86.4,
         "volume": 0.8
     }
 }

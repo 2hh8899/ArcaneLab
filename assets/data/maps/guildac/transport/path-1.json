@@ -623,7 +623,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "Hi!",
 						"ko_KR": "안녕!"
 					},
 					"autoContinue": false,
@@ -634,7 +634,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "Hey, nice to meet you!",
 						"ko_KR": "안녕! 만나서 반가워."
 					},
 					"autoContinue": false,
@@ -645,7 +645,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "I'm \\c[3]Nevi\\c[0]! My friend here is \\c[3]Riko\\c[0]!",
 						"ko_KR": "나는 \\c[3]네비\\c[0]라고 해! 얜 내 친구 \\c[3]리코\\c[0]!"
 					},
 					"autoContinue": false,
@@ -656,7 +656,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "...Hi.",
 						"ko_KR": "...안녕."
 					},
 					"autoContinue": false,
@@ -673,8 +673,8 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
-						"ko_KR": "미안하지만... 여긴 아직 제작 중인 곳이야. 나중에 업데이트하면 그때 즐길 수 있을 거야."
+						"en_US": "I'm sorry. Here is still under development. You can enjoy here if the mod update it later.",
+						"ko_KR": "미안하지만... 여긴 아직 개발 중인 곳이야. 나중에 업데이트하면 그때 즐길 수 있을 거야."
 					},
 					"autoContinue": false,
 					"type": "SHOW_MSG",
@@ -684,7 +684,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "The two of us are still under development too! So for now, We're just acting as a guide here.",
 						"ko_KR": "우리 둘도 아직 제작 중이고! 그래서 일단은 여기서 안내 역할만 하고 있는 거야."
 					},
 					"autoContinue": false,
@@ -695,7 +695,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "Why don't you look over the wall? Sometimes the train passes by. Isn't it cool?",
 						"ko_KR": "벽 너머라도 구경해보는건 어때? 가끔씩 기차가 지나간다고. 멋있지 않아?"
 					},
 					"autoContinue": false,
@@ -706,7 +706,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "...",
 						"ko_KR": "..."
 					},
 					"autoContinue": false,
@@ -723,7 +723,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "Riko, How come you're less talkative than before? I know your speech module doesn't malfunction.",
 						"ko_KR": "너 어째 전보다도 말수가 더 적어진 거 아냐? 대화 모듈도 고장 안났으면서."
 					},
 					"autoContinue": false,
@@ -740,7 +740,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "Anyway, there's nothing you can do here. Come back next time!",
 						"ko_KR": "어쨌든, 지금 여기서 할 수 있는 건 없어. 다음에 다시 와줘!"
 					},
 					"autoContinue": false,
@@ -818,7 +818,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "Hi!",
 						"ko_KR": "안녕!"
 					},
 					"autoContinue": false,
@@ -829,8 +829,8 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
-						"ko_KR": "안녕. 처음 보는 친구네."
+						"en_US": "Hello. glad to meet you.",
+						"ko_KR": "안녕. 만나서 반가워."
 					},
 					"autoContinue": false,
 					"type": "SHOW_MSG",
@@ -840,7 +840,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "My name is \\c[3]Ciel\\c[0]. I'm still in development, so there's nothing I can do right now.",
 						"ko_KR": "내 이름은 \\c[3]시엘\\c[0]. 아직 미완성이라, 지금 내가 할 수 있는 건 아직 없어."
 					},
 					"autoContinue": false,
@@ -857,7 +857,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "One day, everything will be finished. But when will that day be...",
 						"ko_KR": "언젠간 모든 것이 완성되겠지만, 그게 언제가 되려나..."
 					},
 					"autoContinue": false,

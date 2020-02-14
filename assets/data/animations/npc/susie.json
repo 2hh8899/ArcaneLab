@@ -349,23 +349,13 @@
 	}, {
 		"sheet": "poses",
 		"dirs": "4",
-		"flipX": [0, 0, 0, 1],
-		"tileOffsets": [0, 3, 6, 3],
+		"flipX": [0, 0, 0, 0],
+		"tileOffsets": [0, 3, 6, 4],
 		"SUB": [{
 			"name": "sit",
 			"time": 1,
 			"repeat": false,
 			"frames": [0]
-		}, {
-			"name": "sitFaceUpRight",
-			"time": 1,
-			"repeat": false,
-			"frames": [1]
-		}, {
-			"name": "sitFaceDownLeft",
-			"time": 1,
-			"repeat": false,
-			"frames": [2]
 		}]
 	}, {
 		"sheet": "poses2",

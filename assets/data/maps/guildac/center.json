@@ -42,7 +42,12 @@
 			"gfxType": "WAVE_UP",
 			"marker": "exit",
 			"blockEventCondition": "",
-			"spawnCondition": ""
+			"spawnCondition": "",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 0
+			}
 		}
 	}, {
 		"type": "Prop",
@@ -117,7 +122,12 @@
 			"pseudoExit": false,
 			"gfxType": "SOLID",
 			"marker": false,
-			"blockEventCondition": ""
+			"blockEventCondition": "",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 0
+			}
 		}
 	}, {
 		"type": "Marker",
@@ -130,6 +140,11 @@
 			"face": {
 				"x": 0,
 				"y": 1
+			},
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 0
 			}
 		}
 	}, {
@@ -149,7 +164,12 @@
 			"pseudoExit": false,
 			"gfxType": "SOLID",
 			"marker": false,
-			"blockEventCondition": ""
+			"blockEventCondition": "",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 0
+			}
 		}
 	}, {
 		"type": "TeleportField",
@@ -168,7 +188,12 @@
 			"pseudoExit": false,
 			"gfxType": "SOLID",
 			"marker": false,
-			"blockEventCondition": ""
+			"blockEventCondition": "",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 0
+			}
 		}
 	}, {
 		"type": "TeleportField",
@@ -187,7 +212,12 @@
 			"pseudoExit": false,
 			"gfxType": "SOLID",
 			"marker": false,
-			"blockEventCondition": ""
+			"blockEventCondition": "",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 0
+			}
 		}
 	}, {
 		"type": "Prop",
@@ -391,7 +421,7 @@
 				}, {
 					"type": "IF",
 					"withElse": true,
-					"condition": "plot.arcaneLab.story.rei==0",
+					"condition": "plot.arcaneLab.story.rei<=0",
 					"thenStep": [{
 						"changeType": "set",
 						"type": "CHANGE_VAR_NUMBER",
@@ -432,7 +462,7 @@
 						}
 					}, {
 						"message": {
-							"en_US": "Not only does it serves as a landmark...",
+							"en_US": "Not only does it serve as a landmark...",
 							"ko_KR": "이곳은 랜드마크의 역할도 하지만..."
 						},
 						"autoContinue": false,
@@ -529,13 +559,14 @@
 							"en_US": "\\c[3]Suspicious Server\\c[0]",
 							"ko_KR": "\\c[3]수상한 서버\\c[0]"
 						},
-						"showCondition": "plot.arcaneLab.story.susie == 1"
+						"showCondition": "plot.arcaneLab.story.susie == 1 && party.size == 1"
 					}, {
 						"0": " ",
 						"label": {
 							"en_US": "\\c[3]Dead Bird Studio\\c[0]",
 							"ko_KR": "\\c[3]데드 버드 스튜디오\\c[0]"
-						}
+						},
+						"showCondition": "plot.arcaneLab.story.conductor == 1"
 					}, {
 						"0": " ",
 						"label": {
@@ -671,7 +702,7 @@
 						"3_0": [{
 							"type": "TELEPORT",
 							"map": "guildac.quest.deadbird",
-							"marker": "hyper"
+							"marker": "teleporter"
 						}]
 					}]
 				}]
@@ -687,7 +718,12 @@
 		},
 		"settings": {
 			"name": "drop",
-			"dir": "SOUTH"
+			"dir": "SOUTH",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 0
+			}
 		}
 	}, {
 		"type": "Marker",
@@ -696,7 +732,12 @@
 		"level": 0,
 		"settings": {
 			"name": "beatBotPos",
-			"dir": "WEST"
+			"dir": "WEST",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 0
+			}
 		}
 	}, {
 		"type": "EventTrigger",
@@ -4036,26 +4077,6 @@
 			"endCondition": "false",
 			"triggerType": "ONCE",
 			"event": [{
-				"changeType": "set",
-				"type": "CHANGE_VAR_NUMBER",
-				"varName": "plot.arcaneLab.story.shooty",
-				"value": 0
-			}, {
-				"changeType": "set",
-				"type": "CHANGE_VAR_NUMBER",
-				"varName": "plot.arcaneLab.story.susie",
-				"value": 0
-			}, {
-				"changeType": "set",
-				"type": "CHANGE_VAR_NUMBER",
-				"varName": "plot.arcaneLab.story.eisus",
-				"value": 0
-			}, {
-				"changeType": "set",
-				"type": "CHANGE_VAR_NUMBER",
-				"varName": "plot.arcaneLab.story.rei",
-				"value": 0
-			}, {
 				"alpha": 1,
 				"time": 0,
 				"lighter": false,
@@ -4237,7 +4258,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "Anyway, I think wa came to a place I know.",
+					"en_US": "Anyway, I think we came to a place I know.",
 					"ko_KR": "그래도 내가 아는 곳이 맞나 보네."
 				},
 				"autoContinue": false,
@@ -4303,7 +4324,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "Anyways, he could help with our plan. The more help, the better. don't you think?",
+					"en_US": "Anyways, he could help with our plan. The more help, the better. Don't you think?",
 					"ko_KR": "어쨌든, 그가 우리 계획에 도움을 줄 수도 있을거야. 조력자는 많을 수록 좋지, 안 그래?"
 				},
 				"autoContinue": false,
@@ -4636,6 +4657,13 @@
 				"condition": "plot.arcaneLab.story.susie == 2",
 				"config": "normal",
 				"event": []
+			}, {
+				"reactType": "FIXED_POS",
+				"face": "WEST",
+				"hidden": false,
+				"condition": "plot.arcaneLab.story.susie >= 4",
+				"config": "sit",
+				"event": []
 			}]
 		}
 	}, {
@@ -4917,7 +4945,7 @@
 				"reactType": "FIXED_FACE",
 				"face": "NORTH",
 				"hidden": false,
-				"condition": "plot.arcaneLab.story.shooty == 0",
+				"condition": "plot.arcaneLab.story.shooty <= 0",
 				"config": "normal",
 				"event": [{
 					"entity": {
@@ -5039,7 +5067,7 @@
 						}
 					}, {
 						"message": {
-							"en_US": "",
+							"en_US": "Also, you can hang out here if you want.",
 							"ko_KR": "원하면 여기서 얼마든지 놀다 가도 되고."
 						},
 						"autoContinue": false,
@@ -5069,8 +5097,8 @@
 					"condition": "party.has.Apollo",
 					"thenStep": [{
 						"message": {
-							"en_US": "",
-							"ko_KR": "아무래도 여긴 뭔가 불법행위를 꾸미고 있는 곳 같은데, 신고하는게 좋을 것 같군!"
+							"en_US": "Hold it! This place looks awfully suspicious... I'll have to report it!",
+							"ko_KR": "잠깐! 아무래도 여긴 뭔가 불법행위를 꾸미고 있는 곳 같은데...\\. 신고하는게 좋을 것 같군!"
 						},
 						"type": "SHOW_SIDE_MSG",
 						"person": {
@@ -5083,7 +5111,7 @@
 						"condition": "party.has.Joern",
 						"thenStep": [{
 							"message": {
-								"en_US": "",
+								"en_US": "I don't think so. There's even a fishing system you missed.",
 								"ko_KR": "안 그러는게 좋을 것 같은데. 여긴 네가 그리워하던 낚시 시스템도 있다고."
 							},
 							"type": "SHOW_SIDE_MSG",
@@ -5093,7 +5121,7 @@
 							}
 						}, {
 							"message": {
-								"en_US": "",
+								"en_US": "Oh, I'll have to try that out.",
 								"ko_KR": "앗, 그건 다시 해보고 싶은데."
 							},
 							"type": "SHOW_SIDE_MSG",
@@ -5114,7 +5142,7 @@
 							}
 						}, {
 							"message": {
-								"en_US": "",
+								"en_US": "Well. Shooty is in charge of customer support services, and will report about him be accepted?",
 								"ko_KR": "글쎄다. 슈티는 고객 지원 서비스 담당인데, 과연 자기에 관한 신고가 받아들여질까?"
 							},
 							"type": "SHOW_SIDE_MSG",
@@ -5190,7 +5218,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "I have to check on these now... Let's talk later.",
 						"ko_KR": "지금은 이것들을 점검해야 해서... 다음에 이야기하자."
 					},
 					"autoContinue": false,
@@ -5223,7 +5251,7 @@
 				"reactType": "FIXED_FACE",
 				"face": "NORTH",
 				"hidden": false,
-				"condition": "plot.arcaneLab.story.shooty != 0 && plot.arcaneLab.story.eisus == 3 && map.randomQuestGen1 < 75 && map.randomQuestGen2 < 50 && plot.arcaneLab.story.susie == 0",
+				"condition": "plot.arcaneLab.story.shooty > 0 && plot.arcaneLab.story.eisus == 3 && plot.arcaneLab.story.susie <= 0",
 				"config": "normal",
 				"event": {
 					"quest": [{
@@ -5264,7 +5292,7 @@
 						}
 					}, {
 						"message": {
-							"en_US": "",
+							"en_US": "Hi, Lea!",
 							"ko_KR": "안녕, 레아!"
 						},
 						"autoContinue": false,
@@ -5290,7 +5318,7 @@
 						"condition": "party.size > 1",
 						"thenStep": [{
 							"message": {
-								"en_US": "",
+								"en_US": "I have a favor to ask of you, but... can you talk to me when you're \\c[3]alone\\c[0]?",
 								"ko_KR": "지금 부탁할 게 있긴 한데... \\c[3]혼자\\c[0] 와줄 수 있겠니?"
 							},
 							"autoContinue": false,
@@ -5312,7 +5340,7 @@
 							}
 						}, {
 							"message": {
-								"en_US": "",
+								"en_US": "\\c[4]It's about Evotars, so we've got to keep this a secret. alright?\\c[0]",
 								"ko_KR": "\\c[4]...에보타에 관련된 거니까, 비밀스럽게 할 필요가 있어. 알았지?\\c[0]"
 							},
 							"autoContinue": false,
@@ -5324,7 +5352,7 @@
 						}],
 						"elseStep": [{
 							"message": {
-								"en_US": "",
+								"en_US": "Good to see you! I have a favor to ask of you.",
 								"ko_KR": "마침 잘 왔어! 부탁할 게 있거든."
 							},
 							"autoContinue": false,
@@ -5344,7 +5372,7 @@
 							}
 						}, {
 							"message": {
-								"en_US": "",
+								"en_US": "Oh, did you find anything important?",
 								"ko_KR": "오, 뭔가 중요한 정보라도 알아낸 거야?"
 							},
 							"autoContinue": false,
@@ -5355,7 +5383,7 @@
 							}
 						}, {
 							"message": {
-								"en_US": "",
+								"en_US": "Yes. A little while ago, I found a \\c[3]suspicious area\\c[0].",
 								"ko_KR": "네, 조금 전에 뭔가 \\c[3]수상한 곳\\c[0]을 하나 찾았거든요."
 							},
 							"autoContinue": false,
@@ -5377,8 +5405,8 @@
 							}
 						}, {
 							"message": {
-								"en_US": "",
-								"ko_KR": "수상한 곳...이라고?"
+								"en_US": "Suspicious area?",
+								"ko_KR": "수상한 곳이라고?"
 							},
 							"autoContinue": false,
 							"type": "SHOW_MSG",
@@ -5388,7 +5416,7 @@
 							}
 						}, {
 							"message": {
-								"en_US": "",
+								"en_US": "Although it's small, I found \\c[3]another Evotar server\\c[0] besides just the one in the Vermillion Tower.",
 								"ko_KR": "소규모이긴 하지만, 주홍의 탑에 있는 에보타 서버 외의 \\c[3]또다른 서버\\c[0]를 발견했어요."
 							},
 							"autoContinue": false,
@@ -5399,7 +5427,7 @@
 							}
 						}, {
 							"message": {
-								"en_US": "",
+								"en_US": "\\c[1]One server in a remote place, one Evota in it.\\c[0] I don't know any more, but this alone is already very suspicious.",
 								"ko_KR": "\\c[1]외딴 곳에 서버 하나, 그 안에 에보타 하나.\\c[0] 더 이상은 잘 모르겠지만 일단 이것만으로도 무진장 수상하거든요."
 							},
 							"autoContinue": false,
@@ -5410,7 +5438,7 @@
 							}
 						}, {
 							"message": {
-								"en_US": "",
+								"en_US": "I think so too.",
 								"ko_KR": "확실히 그러긴 하네."
 							},
 							"autoContinue": false,
@@ -5424,7 +5452,7 @@
 							"type": "REMOVE_MSG_PERSON"
 						}, {
 							"message": {
-								"en_US": "",
+								"en_US": "So since you have a special key I'd like to ask you to investigate this place, but are you not busy right now?",
 								"ko_KR": "그래서 특수 키를 가지고 있는 너에게 이곳에 대한 조사를 부탁하고 싶은데, 지금 바쁘진 않지?"
 							},
 							"autoContinue": false,
@@ -5470,7 +5498,7 @@
 								}
 							}, {
 								"message": {
-									"en_US": "",
+									"en_US": "Thanks! I'll work on the Arcane Teleporter connection right now.",
 									"ko_KR": "고마워! 지금 바로 아케인 텔레포터 연결 작업을 할게."
 								},
 								"autoContinue": false,
@@ -5481,7 +5509,7 @@
 								}
 							}, {
 								"message": {
-									"en_US": "",
+									"en_US": "Now you can access it through the landmark here.",
 									"ko_KR": "이제 이곳의 랜드마크를 통해서 그곳에 접근할 수 있을 거야."
 								},
 								"autoContinue": false,
@@ -5503,7 +5531,7 @@
 								}
 							}, {
 								"message": {
-									"en_US": "",
+									"en_US": "Investigate the server and the Evotar there, and if possible, rescue the Evotar as well.",
 									"ko_KR": "서버와 에보타에 대해 조사하고, 가능하다면 에보타 구출까지 해줘."
 								},
 								"autoContinue": false,
@@ -5514,7 +5542,7 @@
 								}
 							}, {
 								"message": {
-									"en_US": "",
+									"en_US": "And be careful about what might happen in there!",
 									"ko_KR": "무슨 일이 생길 지 모르니 조심하고!"
 								},
 								"autoContinue": false,
@@ -5563,7 +5591,7 @@
 								}
 							}, {
 								"message": {
-									"en_US": "",
+									"en_US": "Hmm, so you're busy then? Then come back when you have time. It's not urgent.",
 									"ko_KR": "흠, 그래? 그러면 여유 있을 때 다시 와줘. 급한 일은 아니니까."
 								},
 								"autoContinue": false,
@@ -5583,7 +5611,7 @@
 				"reactType": "FIXED_FACE",
 				"face": "NORTH",
 				"hidden": false,
-				"condition": "plot.arcaneLab.story.shooty != 0 && plot.arcaneLab.story.susie == 1",
+				"condition": "plot.arcaneLab.story.shooty > 0 && plot.arcaneLab.story.susie == 1",
 				"config": "normal",
 				"event": [{
 					"entity": {
@@ -5623,7 +5651,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "You can go to the place where the server is located through Arcane Teleporter. Can you help me?",
 						"ko_KR": "아케인 텔레포터를 통해서 수상한 서버가 있는 곳으로 갈 수 있어. 도와줄 수 있지?"
 					},
 					"autoContinue": false,
@@ -5652,6 +5680,13 @@
 					"immediately": false,
 					"type": "DO_ACTION"
 				}]
+			}, {
+				"reactType": "FIXED_FACE",
+				"face": "WEST",
+				"hidden": false,
+				"condition": "plot.arcaneLab.story.susie >= 3",
+				"config": "normal",
+				"event": []
 			}]
 		}
 	}, {
@@ -5672,7 +5707,7 @@
 					"type": "SET_FACE"
 				}],
 				"hidden": false,
-				"condition": "plot.arcaneLab.story.eisus == 0 && map.randomQuestGen1 > 20 && map.randomQuestGen2 < 50",
+				"condition": "plot.arcaneLab.story.eisus <= 0",
 				"config": "sit",
 				"event": [{
 					"side": "LEFT",
@@ -5694,8 +5729,8 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
-						"ko_KR": "...안녕?"
+						"en_US": "Hi?",
+						"ko_KR": "안녕?"
 					},
 					"autoContinue": false,
 					"type": "SHOW_MSG",
@@ -5705,7 +5740,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "...Leave me alone.",
 						"ko_KR": "...날 혼자 있게 해줘."
 					},
 					"autoContinue": false,
@@ -5716,7 +5751,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "...?",
 						"ko_KR": "...?"
 					},
 					"autoContinue": false,
@@ -5744,7 +5779,7 @@
 					"type": "SET_FACE"
 				}],
 				"hidden": false,
-				"condition": "plot.arcaneLab.story.eisus >= 1 && plot.arcaneLab.story.eisus <= 2 && map.randomQuestGen1 > 20 && map.randomQuestGen2 < 50",
+				"condition": "plot.arcaneLab.story.eisus >= 1 && plot.arcaneLab.story.eisus <= 2",
 				"config": "sit",
 				"event": [{
 					"side": "LEFT",
@@ -5785,6 +5820,19 @@
 				"hidden": false,
 				"condition": "plot.arcaneLab.story.susie == 2",
 				"config": "normal",
+				"event": []
+			}, {
+				"reactType": "FIXED_FACE",
+				"face": "EAST",
+				"action": [{
+					"face": "EAST",
+					"rotate": true,
+					"rotateSpeed": 3,
+					"type": "SET_FACE"
+				}],
+				"hidden": false,
+				"condition": "plot.arcaneLab.story.eisus >= 4",
+				"config": "sit",
 				"event": []
 			}]
 		}
@@ -5835,7 +5883,7 @@
 					"name": "eisusFriend"
 				},
 				"text": {
-					"en_US": "",
+					"en_US": "I'm worried about him. It's already been \\c[5]three months\\c[0]...",
 					"ko_KR": "쟤 걱정이네. 벌써 \\c[5]세 달\\c[0] 째야..."
 				},
 				"event": [{
@@ -5858,8 +5906,8 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
-						"ko_KR": "...왜?"
+						"en_US": "Why?",
+						"ko_KR": "왜?"
 					},
 					"autoContinue": false,
 					"type": "SHOW_MSG",
@@ -5869,7 +5917,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "Huh? Why?",
 						"ko_KR": "응? 왜냐니?"
 					},
 					"autoContinue": false,
@@ -5891,7 +5939,7 @@
 					"type": "SET_CAMERA_POS"
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "Oh, are you worried about why my friend is like that right now?",
 						"ko_KR": "아, 저 친구가 왜 저러는지 걱정되는 거니?"
 					},
 					"autoContinue": false,
@@ -5913,7 +5961,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "Well... sometimes he said to himself \\c[3]misses his sister\\c[0], but he wouldn't say anything else so I don't know.",
 						"ko_KR": "글쎄... 가끔씩 \\c[3]누나가 보고싶다\\c[0]고 혼잣말을 하긴 했는데, 그것 말곤 아무 말도 안하고 저러고 있으니 나도 잘 모르겠네."
 					},
 					"autoContinue": false,
@@ -5930,7 +5978,7 @@
 					"type": "RESET_CAMERA"
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "...",
 						"ko_KR": "..."
 					},
 					"autoContinue": false,
@@ -5941,7 +5989,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "I hope it's not a big deal...",
 						"ko_KR": "큰 일이 아니였으면 좋겠는데..."
 					},
 					"autoContinue": false,
@@ -5952,7 +6000,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "",
+						"en_US": "...Bye.",
 						"ko_KR": "...잘 가."
 					},
 					"autoContinue": false,
@@ -5972,7 +6020,12 @@
 				}]
 			}],
 			"spawnCondition": "plot.arcaneLab.story.eisus == 1",
-			"once": true
+			"once": true,
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 0
+			}
 		}
 	}, {
 		"type": "EventTrigger",
@@ -6017,6 +6070,47 @@
 					"type": "CHANGE_VAR_NUMBER",
 					"varName": "plot.arcaneLab.story.eisus",
 					"value": 3
+				}]
+			}, {
+				"type": "IF",
+				"withElse": false,
+				"condition": "plot.arcaneLab.story.susie==3",
+				"thenStep": [{
+					"changeType": "set",
+					"type": "CHANGE_VAR_NUMBER",
+					"varName": "plot.arcaneLab.story.susie",
+					"value": 4
+				}, {
+					"changeType": "set",
+					"type": "CHANGE_VAR_NUMBER",
+					"varName": "plot.arcaneLab.story.eisus",
+					"value": 4
+				}]
+			}, {
+				"type": "IF",
+				"withElse": false,
+				"condition": "plot.arcaneLab.story.conductor==2",
+				"thenStep": [{
+					"changeType": "set",
+					"type": "CHANGE_VAR_NUMBER",
+					"varName": "plot.arcaneLab.story.conductor",
+					"value": 3
+				}, {
+					"mode": "SLOWEST",
+					"delayed": false,
+					"type": "RESUME_DEFAULT_BGM"
+				}, {
+					"type": "SOLVE_QUEST_CONDITION",
+					"quest": {
+						"quest": "arcanelab.conductor",
+						"label": "beat"
+					}
+				}, {
+					"ignoreSlowDown": false,
+					"type": "WAIT",
+					"time": 0.1
+				}, {
+					"type": "RESOLVE_FINISHED_QUESTS"
 				}]
 			}],
 			"triggerType": "ONCE_PER_ENTRY",
@@ -6078,7 +6172,7 @@
 				},
 				"event": [{
 					"text": {
-						"en_US": "",
+						"en_US": "Beyond this, PvP and class changes will be added.",
 						"ko_KR": "이 너머에는 PvP 및 클래스 변경이 추가될 예정입니다."
 					},
 					"center": false,
@@ -6101,10 +6195,15 @@
 		"settings": {
 			"name": "postSusie",
 			"eventType": "CUTSCENE",
-			"endCondition": "plot.arcaneLab.story.susie > 2",
+			"endCondition": "false",
 			"event": [{
 				"mode": "IMMEDIATELY",
 				"type": "PAUSE_BGM"
+			}, {
+				"bgm": "ponder",
+				"volume": 1,
+				"mode": "IMMEDIATELY",
+				"type": "PLAY_BGM"
 			}, {
 				"value": "NONE",
 				"type": "SET_MOBILITY_BLOCK"
@@ -6279,7 +6378,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "You succeeded, Lea! Well done!",
 					"ko_KR": "성공했구나, 레아! 잘 했어."
 				},
 				"autoContinue": false,
@@ -6301,7 +6400,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "Thank you so much... \\.I thought I'd be trapped in there forever.",
 					"ko_KR": "정말 감사합니다...\\. 영원히 갇혀있을 줄만 알았어요."
 				},
 				"autoContinue": false,
@@ -6318,7 +6417,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "You don't have to thank me. It's all thanks to Lea.",
 					"ko_KR": "나에겐 고마워할 필요 없어. 레아 덕분에 할 수 있었던 거니까."
 				},
 				"autoContinue": false,
@@ -6329,8 +6428,190 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "First of all, tired, right? I want to let you rest a little...\\.",
 					"ko_KR": "일단, 많이 힘들었지? 좀 쉬게 해주고 싶긴 한데...\\."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "guildac.shooty",
+					"expression": "DEFAULT"
+				}
+			}, {
+				"entity": {
+					"global": true,
+					"name": "shooty"
+				},
+				"action": [{
+					"entity": {
+						"global": true,
+						"name": "susie"
+					},
+					"rotate": true,
+					"rotateSpeed": 3,
+					"type": "SET_FACE_TO_ENTITY"
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"message": {
+					"en_US": "But before that, I want to ask you a few questions. I have to investigate what happened to you.",
+					"ko_KR": "그 전에 너에게 몇 가지 묻고 싶은 것이 있어. 너에게 있었던 일에 대해서 조사를 해야 해서."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "guildac.shooty",
+					"expression": "DEFAULT"
+				}
+			}, {
+				"entity": {
+					"player": true
+				},
+				"action": [{
+					"entity": {
+						"global": true,
+						"name": "susie"
+					},
+					"rotate": true,
+					"rotateSpeed": 3,
+					"type": "SET_FACE_TO_ENTITY"
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"type": "SET_MSG_EXPRESSION",
+				"person": {
+					"person": "guildac.susie",
+					"expression": "SURPRISED"
+				}
+			}, {
+				"message": {
+					"en_US": "First of all, you're \\c[3]Susie\\c[0] right? You were my guild member. Can you remember?",
+					"ko_KR": "먼저, \\c[3]수지\\c[0] 맞지? 너 내 길드원이었어. 기억해?"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "guildac.shooty",
+					"expression": "DEFAULT"
+				}
+			}, {
+				"message": {
+					"en_US": "Most of my old memories are blurry... At least I remember my name.",
+					"ko_KR": "예전 기억들은 대부분 흐릿해요...\\. 제 이름은 기억하고 있어요."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "guildac.susie",
+					"expression": "SAD"
+				}
+			}, {
+				"type": "SET_MSG_EXPRESSION",
+				"person": {
+					"person": "main.lea",
+					"expression": "THINKING"
+				}
+			}, {
+				"message": {
+					"en_US": "Hmm, really? Then can you answer what you remember about what I'm saying?",
+					"ko_KR": "흠, 그래? 그럼 한번 내가 말하는 것과 관련해서 기억나는 대로 대답해볼래?"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "guildac.shooty",
+					"expression": "THINK"
+				}
+			}, {
+				"message": {
+					"en_US": "Eight-Avatars PvP event...\\.",
+					"ko_KR": "8인 PvP 사건...\\."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "guildac.shooty",
+					"expression": "THINK"
+				}
+			}, {
+				"message": {
+					"en_US": "Being a member of IHSO...\\.",
+					"ko_KR": "IHSO 멤버가 되었던 일...\\."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "guildac.shooty",
+					"expression": "THINK"
+				}
+			}, {
+				"type": "SET_MSG_EXPRESSION",
+				"person": {
+					"person": "main.lea",
+					"expression": "SAD"
+				}
+			}, {
+				"message": {
+					"en_US": "...",
+					"ko_KR": "..."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "guildac.susie",
+					"expression": "SAD"
+				}
+			}, {
+				"message": {
+					"en_US": "...Eisus?",
+					"ko_KR": "...에이서스?"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "guildac.shooty",
+					"expression": "THINK"
+				}
+			}, {
+				"type": "SET_MSG_EXPRESSION",
+				"person": {
+					"person": "main.lea",
+					"expression": "SURPRISED_TOWARD"
+				}
+			}, {
+				"message": {
+					"en_US": "I remember my younger brother...\\. I miss him.",
+					"ko_KR": "동생은 기억나요...\\. 보고 싶어지네요."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "guildac.susie",
+					"expression": "SAD"
+				}
+			}, {
+				"message": {
+					"en_US": "God, I can't figure out any Evotar creation date.",
+					"ko_KR": "맙소사, 에보타 생성 날짜가 전혀 감이 잡히질 않는걸."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "guildac.shooty",
+					"expression": "SAD"
+				}
+			}, {
+				"message": {
+					"en_US": "It will take quite a long time to talk, so let's talk about the rest next time. You need to rest now.",
+					"ko_KR": "꽤 오랜 대화가 필요할 것 같으니, 나머진 다음에 이야기하자. 이젠 쉬어야지."
 				},
 				"autoContinue": false,
 				"type": "SHOW_MSG",
@@ -6341,7 +6622,7 @@
 			}, {
 				"side": "RIGHT",
 				"message": {
-					"en_US": "",
+					"en_US": "Sis!",
 					"ko_KR": "누나!"
 				},
 				"autoContinue": false,
@@ -6349,6 +6630,25 @@
 			}, {
 				"side": "ALL",
 				"type": "CLEAR_MSG"
+			}, {
+				"entity": {
+					"global": true,
+					"name": "shooty"
+				},
+				"action": [{
+					"entity": {
+						"global": true,
+						"name": "eisus"
+					},
+					"rotate": true,
+					"rotateSpeed": 3,
+					"type": "SET_FACE_TO_ENTITY"
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
 			}, {
 				"entity": {
 					"global": true,
@@ -6458,8 +6758,8 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
-					"ko_KR": "널 정말 만나고 싶어 하는 사람이 있는 것 같아서 말이지."
+					"en_US": "And I think there's someone who really wants to meet you.",
+					"ko_KR": "그리고, 널 정말 만나고 싶어 하는 사람이 있는 것 같아서 말이지."
 				},
 				"autoContinue": false,
 				"type": "SHOW_MSG",
@@ -6481,7 +6781,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "Sis... \\.Are you really...",
 					"ko_KR": "누나...\\. 진짜 누나야...?"
 				},
 				"autoContinue": false,
@@ -6492,7 +6792,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "",
+					"en_US": "...",
 					"ko_KR": "..."
 				},
 				"autoContinue": false,
@@ -6620,6 +6920,9 @@
 					"time": 0.1,
 					"stopBeforeEdge": false,
 					"type": "MOVE_BACKWARD"
+				}, {
+					"value": "IGNORE",
+					"type": "SET_COLL_TYPE"
 				}],
 				"repeating": false,
 				"wait": true,
@@ -6631,48 +6934,62 @@
 				"type": "WAIT",
 				"time": 1
 			}, {
-				"side": "LEFT",
-				"order": 0,
-				"clearSide": false,
-				"type": "ADD_MSG_PERSON",
-				"person": {
-					"person": "guildac.shooty",
-					"expression": "DEFAULT"
-				}
-			}, {
-				"side": "LEFT",
-				"order": 5,
-				"clearSide": false,
-				"type": "ADD_MSG_PERSON",
-				"person": {
-					"person": "main.sergey",
-					"expression": "SERIOUS"
-				}
-			}, {
-				"message": {
-					"en_US": "",
-					"ko_KR": "잠깐, 에보타를 저렇게 지인 관계 유저들이랑 아무런 얘기도 안하고 곧바로 만나게 해도 되는 거야?"
+				"entity": {
+					"global": true,
+					"name": "shooty"
 				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "main.sergey",
-					"expression": "SERIOUS"
-				}
+				"action": [{
+					"entity": {
+						"global": true,
+						"name": "sergey"
+					},
+					"rotate": true,
+					"rotateSpeed": 3,
+					"type": "SET_FACE_TO_ENTITY"
+				}],
+				"repeating": false,
+				"wait": false,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"changeType": "set",
+				"type": "CHANGE_VAR_BOOL",
+				"varName": "map.sergeyThere",
+				"value": true
 			}, {
 				"pos": {
 					"x": 330,
 					"y": 400
 				},
-				"speed": "SLOW",
+				"speed": "FAST",
 				"transition": "EASE_IN_OUT",
-				"wait": false,
+				"wait": true,
 				"waitSkip": 0,
 				"zoom": 1.4,
 				"type": "SET_CAMERA_POS"
 			}, {
-				"side": "ALL",
-				"type": "CLEAR_MSG"
+				"entity": {
+					"global": true,
+					"name": "susie"
+				},
+				"position": {
+					"x": 1128,
+					"y": 362,
+					"lvl": "0"
+				},
+				"type": "SET_ENTITY_POS"
+			}, {
+				"entity": {
+					"global": true,
+					"name": "eisus"
+				},
+				"position": {
+					"x": 1103,
+					"y": 366,
+					"lvl": "0"
+				},
+				"type": "SET_ENTITY_POS"
 			}, {
 				"type": "SOLVE_QUEST_CONDITION",
 				"quest": {
@@ -6686,22 +7003,442 @@
 			}, {
 				"type": "RESOLVE_FINISHED_QUESTS"
 			}, {
+				"changeType": "set",
+				"type": "CHANGE_VAR_NUMBER",
+				"varName": "plot.arcaneLab.story.susie",
+				"value": 3
+			}, {
+				"changeType": "set",
+				"type": "CHANGE_VAR_BOOL",
+				"varName": "map.sergeyThere",
+				"value": false
+			}, {
+				"mode": "SLOWEST",
+				"delayed": false,
+				"type": "RESUME_DEFAULT_BGM"
+			}, {
 				"ignoreSlowDown": false,
 				"type": "WAIT",
 				"time": 0.2
-			}, {
-				"mode": "SLOW",
-				"delayed": true,
-				"type": "RESUME_DEFAULT_BGM"
-			}, {
-				"type": "SAVE"
 			}],
 			"triggerType": "ALWAYS",
 			"loadCondition": {
 				"onStart": true
 			},
-			"mapId": 697,
+			"mapId": 2,
 			"startCondition": "plot.arcaneLab.story.susie == 2 "
+		}
+	}, {
+		"type": "ObjectLayerView",
+		"x": 240,
+		"y": 388,
+		"level": 0,
+		"settings": {
+			"name": "",
+			"size": {
+				"x": 32,
+				"y": 28,
+				"z": 2
+			},
+			"layer": "object1",
+			"collType": "BLOCK",
+			"zHeight": 2,
+			"wallY": 0,
+			"terrain": "",
+			"heightShape": "NONE",
+			"blockNavMap": false,
+			"hideCondition": "",
+			"spawnCondition": ""
+		}
+	}, {
+		"type": "NPC",
+		"x": 250,
+		"y": 396,
+		"level": {
+			"level": 0,
+			"offset": 2
+		},
+		"settings": {
+			"name": "sergey",
+			"characterName": "main.sergey",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "EAST",
+				"action": [],
+				"hidden": false,
+				"condition": "map.sergeyThere || plot.arcaneLab.story.susie >= 3",
+				"config": "ar",
+				"event": []
+			}]
+		}
+	}, {
+		"type": "XenoDialog",
+		"x": 272,
+		"y": 391,
+		"level": 0,
+		"settings": {
+			"name": "susie-analysis-1",
+			"dialog": [{
+				"entity": {
+					"global": true,
+					"name": "sergey"
+				},
+				"text": {
+					"en_US": "Let's start with Evota's information. She's \\c[3]Susie\\c[0], right?",
+					"ko_KR": "에보타의 정보부터 알아보자. \\c[3]수지\\c[0]라고 했지?"
+				}
+			}, {
+				"entity": {
+					"global": true,
+					"name": "shooty"
+				},
+				"text": {
+					"en_US": "Yes, she was a member of IHSO who helped me develop Arcane Lab during his life. She was also my guild member.",
+					"ko_KR": "네, 생전에 아케인 랩 개발에 도움을 많이 줬던 IHSO 멤버에요. 제 길드원이었기도 했고요."
+				}
+			}, {
+				"entity": {
+					"global": true,
+					"name": "sergey"
+				},
+				"text": {
+					"en_US": "Wait, did you say \"during his life\"?",
+					"ko_KR": "잠깐, \"생전\"이라고?"
+				}
+			}, {
+				"entity": {
+					"global": true,
+					"name": "shooty"
+				},
+				"text": {
+					"en_US": "About three months ago... She died in a \\c[1]car accident\\c[0].",
+					"ko_KR": "한 3달 전에... \\c[1]교통사고\\c[0]로 세상을 떠났어요."
+				}
+			}, {
+				"entity": {
+					"global": true,
+					"name": "sergey"
+				},
+				"text": {
+					"en_US": "Oh, dear. That's why her brother was so depressed.",
+					"ko_KR": "오, 이런. 동생이 계속 우울했던 이유가 있었구나."
+				}
+			}, {
+				"entity": {
+					"global": true,
+					"name": "shooty"
+				},
+				"text": {
+					"en_US": "But there's something strange about it. Do you remember Susie saying \\c[3]several months\\c[0]?",
+					"ko_KR": "그런데 뭔가 이상한 점이 있어요. \\c[3]몇 달 째\\c[0]라는 수지의 말 기억하시죠?"
+				}
+			}, {
+				"entity": {
+					"global": true,
+					"name": "shooty"
+				},
+				"text": {
+					"en_US": "It's expected to be about a month or two, but this is after Susie's death. It could be the Evotar run date was late, but...\\.",
+					"ko_KR": "한두 달 정도로 예측되는데, 수지의 사망 날짜보다 뒤에요. 에보타 실행 날이 늦었던 걸 수도 있지만...\\."
+				}
+			}, {
+				"entity": {
+					"global": true,
+					"name": "sergey"
+				},
+				"text": {
+					"en_US": "There're many other strange things too. Why is the \\c[5]interEvota high-speed message program\\c[0] installed on her?",
+					"ko_KR": "다른 이상한 점도 많아. \\c[5]에보타 간 고속 통신 프로그램\\c[0]은 어떤 의도로 설치되어 있는 거지?"
+				},
+				"event": [{
+					"side": "LEFT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "guildac.shooty",
+						"expression": "DEFAULT"
+					}
+				}, {
+					"side": "LEFT",
+					"order": 5,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "main.sergey",
+						"expression": "DEFAULT"
+					}
+				}, {
+					"side": "RIGHT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "main.lea",
+						"expression": "SURPRISED"
+					}
+				}, {
+					"message": {
+						"en_US": "Wait!",
+						"ko_KR": "잠깐!"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "SURPRISED"
+					}
+				}, {
+					"message": {
+						"en_US": "Lea? Do you want to know what that means?",
+						"ko_KR": "레아? 무슨 이야기인지 궁금한 거니?"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.shooty",
+						"expression": "DEFAULT"
+					}
+				}, {
+					"message": {
+						"en_US": "Well, didn't you experience it Lea?",
+						"ko_KR": "글쎄, 레아 너는 직접 경험해보지 않았니?"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.sergey",
+						"expression": "SERIOUS"
+					}
+				}, {
+					"person": "guildac.shooty",
+					"type": "REMOVE_MSG_PERSON"
+				}, {
+					"person": "main.sergey",
+					"type": "REMOVE_MSG_PERSON"
+				}, {
+					"side": "LEFT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "guildac.susie",
+						"expression": "SMUG"
+					}
+				}, {
+					"type": "SET_MSG_EXPRESSION",
+					"person": {
+						"person": "main.lea",
+						"expression": "SHOCKED"
+					}
+				}, {
+					"name": "sergeyMode",
+					"factor": 0,
+					"time": 0.1,
+					"type": "ADD_SLOW_MOTION"
+				}, {
+					"name": "sergey",
+					"guiInfo": {
+						"type": "SergeyMode",
+						"settings": {}
+					},
+					"type": "ADD_GUI"
+				}, {
+					"entity": {
+						"player": true
+					},
+					"offsetX": 0,
+					"offsetY": 0,
+					"speed": "FASTER",
+					"transition": "EASE_IN_OUT",
+					"wait": true,
+					"waitSkip": 0,
+					"zoom": 1.5,
+					"type": "SET_CAMERA_TARGET"
+				}, {
+					"message": {
+						"en_US": "I think it's about this function.",
+						"ko_KR": "아무래도 이 기능에 대한 이야기인 것 같은데."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.susie",
+						"expression": "SMUG"
+					}
+				}, {
+					"message": {
+						"en_US": "H-Hi...\\.",
+						"ko_KR": "아, 안녕...\\."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "SCARED"
+					}
+				}, {
+					"message": {
+						"en_US": "I'm sorry. This seems to surprise you a lot.",
+						"ko_KR": "미안해. 이게 널 많이 놀라게 하는 것 같네."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.susie",
+						"expression": "DEFAULT"
+					}
+				}, {
+					"message": {
+						"en_US": "...",
+						"ko_KR": "..."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "EXHAUSTED"
+					}
+				}, {
+					"message": {
+						"en_US": "I don't know why I have it, why I know how to use it. I don't remember much, so...\\.",
+						"ko_KR": "이 기능이 왜 있고, 어떻게 사용법을 알고 있는지는 나도 몰라. 기억하는 게 별로 없다 보니...\\."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.susie",
+						"expression": "SAD"
+					}
+				}, {
+					"side": "ALL",
+					"type": "CLEAR_MSG"
+				}, {
+					"name": "sergey",
+					"type": "REMOVE_GUI"
+				}, {
+					"name": "sergeyMode",
+					"time": 0.1,
+					"type": "CLEAR_SLOW_MOTION"
+				}, {
+					"speed": "NORMAL",
+					"transition": "EASE_IN_OUT",
+					"wait": true,
+					"waitSkip": 0,
+					"type": "RESET_CAMERA"
+				}, {
+					"message": {
+						"en_US": "Yeah, that's it. It's so fast. What kind of talk did you have this time?",
+						"ko_KR": "그래, 바로 그거야. 너무 순식간이라고. 이번엔 어떤 대화를 한 거니?"
+					},
+					"type": "SHOW_SIDE_MSG",
+					"person": {
+						"person": "main.sergey",
+						"expression": "SERIOUS"
+					}
+				}]
+			}, {
+				"entity": {
+					"global": true,
+					"name": "shooty"
+				},
+				"text": {
+					"en_US": "Was there another Evota on the server for testing in the past?",
+					"ko_KR": "예전엔 테스트를 위한 다른 에보타가 서버에 같이 있던 걸까요?"
+				}
+			}, {
+				"entity": {
+					"global": true,
+					"name": "sergey"
+				},
+				"text": {
+					"en_US": "Server records show no sign of other Evotars. What was he going to do?",
+					"ko_KR": "서버 기록에는 다른 에보타가 있던 흔적이 전혀 없어. 어쩔 셈이었던 거지?"
+				}
+			}],
+			"spawnCondition": "plot.arcaneLab.story.susie == 3 || (plot.arcaneLab.story.susie >= 4 && plot.arcaneLab.story.map-clear <= 0)",
+			"once": false,
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 0
+			}
+		}
+	}, {
+		"type": "NPC",
+		"x": 688,
+		"y": 608,
+		"level": 0,
+		"settings": {
+			"name": "hat",
+			"characterName": "guildac.objects.hat",
+			"analyzable": {
+				"text": {
+					"en_US": "Kid's Hat",
+					"ko_KR": "꼬마 모자"
+				},
+				"active": ""
+			},
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hidden": false,
+				"condition": "plot.arcaneLab.story.conductor <= 0",
+				"config": "normal",
+				"event": {
+					"quest": [{
+						"type": "OPEN_QUEST_DIALOG",
+						"quest": "arcanelab.conductor",
+						"accepted": [{
+							"entity": {
+								"self": true
+							},
+							"duration": 0,
+							"align": "BOTTOM",
+							"group": "",
+							"wait": false,
+							"waitSkip": 0,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "teleport",
+								"name": "hideDefault"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"ignoreSlowDown": false,
+							"type": "WAIT",
+							"time": 1.2
+						}, {
+							"changeType": "set",
+							"type": "CHANGE_VAR_NUMBER",
+							"varName": "plot.arcaneLab.story.conductor",
+							"value": 1
+						}, {
+							"entity": {
+								"self": true
+							},
+							"skipEffects": true,
+							"type": "HIDE_ENTITY"
+						}],
+						"declined": []
+					}]
+				}
+			}, {
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hideFx": {
+					"sheet": "teleport",
+					"name": "hideDefault"
+				},
+				"hidden": true,
+				"condition": "plot.arcaneLab.story.conductor > 0",
+				"config": "normal",
+				"event": []
+			}]
 		}
 	}],
 	"layer": [{
@@ -7222,8 +7959,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 90, 91, 91, 91, 92, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 90, 91, 91, 91, 92, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 90, 91, 91, 91, 92, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 122, 123, 123, 123, 124, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 282, 283, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 122, 123, 123, 123, 124, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 314, 315, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 151, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 183, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -7937,7 +8674,7 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 97, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 97, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 97, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 97, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 161, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

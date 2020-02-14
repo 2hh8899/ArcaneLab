@@ -1,8 +1,9 @@
 {
-	"name": "Arcane Lab",
-	"main": "mod.js",
+	"name": "\\c[3]Arcane Lab\\c[0]",
+	"description" : ":)",
 	"prestart": "prestart.js",
-	"version": "Pre0.0.1a",
+	"version": "0.1.0",
+    "module": true,
   "dependencies": {
     "ccloader": "^2.14.1",
     "extendable-severed-heads": "^1.0.0"

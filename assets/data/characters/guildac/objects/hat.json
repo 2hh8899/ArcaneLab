@@ -1,0 +1,40 @@
+{
+	"size": {
+		"x": 15,
+		"y": 5,
+		"z": 13
+	},
+	"animSheet": {
+		"shapeType": "Y_FLAT",
+		"sheet": {
+			"src": "media/entity/enemy/boss/conductor.png",
+			"offX": 282,
+			"offY": 16,
+			"width": 15,
+			"height": 20
+		},
+		"dirs": "1",
+		"flipX": [0],
+		"tileOffsets": [0],
+		"repeat": true,
+		"SUB": [{
+			"name": "default",
+			"time": 0.05,
+			"frames": [0]
+		}],
+		"DOCTYPE": "MULTI_DIR_ANIMATION"
+	},
+	"walkAnimSet": {
+		"normal": {
+			"idle": "default"
+		}
+	},
+	"walkAnims": "normal",
+	"collType": "VIRTUAL",
+	"configs": {
+		"normal": {},
+		"float": {
+			"floatHeight": 48
+		}
+	}
+}

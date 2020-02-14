@@ -1,7 +1,7 @@
 {
 	"level": 65,
 	"params": {
-		"hp": 250000,
+		"hp": 500000,
 		"attack": 350,
 		"defense": 500,
 		"focus": 460,
@@ -24,9 +24,10 @@
 	"aiLearnType": "REGULAR",
 	"itemDrops": [],
 	"targetDetect": {
-		"detectDistance": 120,
-		"loseDistance": 320,
-		"notifyNeighbourRadius": 100
+        "detectDistance": 10000,
+        "loseDistance": 10000,
+        "notifyNeighbourRadius": 100,
+        "onDistance": true
 	},
 	"hpBreaks": [{
 		"hp": 0.875,
@@ -56,7 +57,7 @@
 		"z": 24
 	},
 	"anims": "boss.conductor",
-	"defaultState": "DEFAULT",
+	"defaultState": "HIDE",
 	"walkConfigs": {
 		"normal": {
 			"idle": "battleIdle",
@@ -65,6 +66,10 @@
 			"jump": "rolling",
 			"fall": "fall",
 			"damage": "damage"
+		},
+		"stand": {
+			"idle": "idle",
+			"damage": "idle"
 		},
 		"weak": {
 			"idle": "damage",
@@ -95,6 +100,14 @@
 	"shadow": 20,
 	"hitStable": "MASSIVE",
 	"faceToTarget": true,
+    "enabledReactions": ["KILL_HIT", "HP_BREAK"],
+    "annotate": {
+        "active": "NONE",
+        "passive": "NONE",
+        "weapon": "MELEE",
+        "element": "ANY",
+        "extra": []
+    },
 	"DOCTYPE": "ENEMY",
 	"trackers": {
 		"weakRegen": {
@@ -107,12 +120,23 @@
 		},
 		"shieldBreakHits": {
 			"scaleDmgFactor": true,
-			"hpBreakTargets": [1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25],
+			"hpBreakTargets": [2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75],
 			"noStateReset": false,
 			"type": "HIT"
 		}
 	},
 	"states": {
+        "HIDE": {
+            "aggression": "PEACEFUL",
+			"walkAnims": "stand",
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "ENTERED_STATE"
+                }],
+                "action": "Idle"
+            }]
+        },
 		"IDLE": {
 			"choices": [{
 				"req": [{
@@ -880,7 +904,7 @@
 				}]
 			},
 			"copyOwnerAnims": false,
-			"breakType": "NEVER",
+			"breakType": "COMBATANT",
 			"action": [{
 				"stat": "BOTTOM_POS",
 				"type": "SET_VAR_ENTITY_STAT",
@@ -1249,7 +1273,7 @@
 				}]
 			},
 			"copyOwnerAnims": false,
-			"breakType": "NEVER",
+			"breakType": "COMBATANT",
 			"action": [{
 				"stat": "BOTTOM_POS",
 				"type": "SET_VAR_ENTITY_STAT",
@@ -3429,7 +3453,7 @@
 				}]
 			},
 			"copyOwnerAnims": false,
-			"breakType": "NEVER",
+			"breakType": "COMBATANT",
 			"action": [{
 				"attribName": "flash",
 				"changeType": "set",
@@ -4576,7 +4600,7 @@
 				}]
 			},
 			"copyOwnerAnims": false,
-			"breakType": "NEVER",
+			"breakType": "COMBATANT",
 			"action": [{
 				"duration": 0,
 				"align": "BOTTOM",
@@ -5773,7 +5797,7 @@
 			},
 			"stickToSource": "NONE",
 			"stickFaceAlign": false,
-			"group": "proxy-shield",
+			"group": "proxy-cannon",
 			"size": {
 				"x": 16,
 				"y": 16,
@@ -6634,8 +6658,6 @@
 			"time": 0.2
 		}],
 		
-		
-		
 		"Phase1": [{
 			"type": "DO_ENEMY_ACTION_INLINE",
 			"actionName": "JumpAttack"
@@ -7474,8 +7496,6 @@
 			"type": "WAIT"
 		}],
 
-		
-		
 		"JumpAttack": [{
 			"attribName": "repeatCount",
 			"changeType": "set",
@@ -7607,7 +7627,7 @@
 			"type": "IF",
 			"condition": "entity.attrib.repeatCount == 1",
 			"thenStep": [{
-				"time": 0.8,
+				"time": 1.6,
 				"type": "WAIT"
 			}]
 		}, {
@@ -7887,7 +7907,7 @@
 			"type": "SHOW_ANIMATION",
 			"anim": "impact"
 		}, {
-			"time": 1.5,
+			"time": 3,
 			"type": "WAIT"
 		}, {
 			"type": "DO_ENEMY_ACTION_INLINE",
@@ -8066,7 +8086,7 @@
 			"anim": "impact"
 		}, {
 			"type": "WAIT",
-			"time": 2.2
+			"time": 4
 		}, {
 			"type": "DO_ENEMY_ACTION_INLINE",
 			"actionName": "Return"
@@ -8178,7 +8198,7 @@
 			"anim": "impact"
 		}, {
 			"type": "WAIT",
-			"time": 2.2
+			"time": 4
 		}, {
 			"type": "DO_ENEMY_ACTION_INLINE",
 			"actionName": "Return"
@@ -8523,7 +8543,7 @@
 			"sound": "media/sound/boss/conductor/light_power.ogg",
 			"type": "PLAY_SOUND"
 		}, {
-			"time": 0.8,
+			"time": 1.4,
 			"type": "WAIT"
 		}, {
 			"value": true,
@@ -8826,7 +8846,7 @@
 				"actionName": "SoundSaw"
 			}]
 		}, {
-			"time": 3,
+			"time": 4,
 			"type": "WAIT"
 		}, {
 			"type": "DO_ENEMY_ACTION_INLINE",
@@ -9193,7 +9213,7 @@
 		}, {
 			"type": "STOP_REPEATING_FORCE"
 		}, {
-			"time": 2.3,
+			"time": 3.3,
 			"type": "WAIT"
 		}, {
 			"value": true,
@@ -9584,7 +9604,7 @@
 			"value": "VIRTUAL",
 			"type": "SET_COLL_TYPE"
 		}, {
-			"time": 2.3,
+			"time": 3.3,
 			"type": "WAIT"
 		}, {
 			"type": "SET_FACE_FIX",
@@ -9873,7 +9893,7 @@
 		}],
 		"EggCannon": [{
 			"sticking": false,
-			"group": "proxy-shield",
+			"group": "proxy-cannon",
 			"type": "REMOVE_PROXIES"
 		}, {
 			"time": 0.4,
@@ -10016,7 +10036,7 @@
 			"type": "SHOW_ANIMATION",
 			"anim": "impact"
 		}, {
-			"time": 3,
+			"time": 4,
 			"type": "WAIT"
 		}, {
 			"type": "DO_ENEMY_ACTION_INLINE",
@@ -10803,6 +10823,11 @@
 			"type": "WAIT"
 		}],
 		"WeakEnd": [],
+		"WeakPre": [{
+			"sticking": false,
+			"group": "peck",
+			"type": "REMOVE_PROXIES"
+		}],
 		"KillPre": [{
 			"sticking": false,
 			"group": "time-bomb",
@@ -10817,7 +10842,6 @@
 			"name": "applebody",
 			"type": "REMOVE_SHIELD"
 		}],
-		
 		
 		"SoundPhase": [{
 			"global": true,
@@ -11064,6 +11088,7 @@
 			"blockFurtherHits": true,
 			"damageFactor": 1,
 			"attackType": "MEDIUM",
+			"preAction": "WeakPre",
 			"flyLevel": "MASSIVE",
 			"stunChange": "FORCE_STUN",
 			"alignFace": false,
@@ -11085,6 +11110,7 @@
 			"action": "ReturnBreak",
 			"blockFurtherHits": true,
 			"attackType": "MASSIVE",
+			"preAction": "WeakPre",
 			"flyLevel": "MASSIVE+",
 			"stunChange": "FORCE_STUN",
 			"alignFace": false,
@@ -11112,20 +11138,14 @@
 	},
 	"meta": {
 		"species": {
-			"en_US": "",
-			"de_DE": "",
-			"zh_CN": "",
-			"ja_JP": "",
-			"ko_KR": ""
+			"en_US": "No-good dirty peck neck",
+			"ko_KR": "더러운 짹짹이"
 		},
 		"category": "ANIMALS",
 		"descriptions": [{
 			"text": {
-				"en_US": "",
-				"de_DE": "",
-				"zh_CN": "",
-				"ja_JP": "",
-				"ko_KR": ""
+				"en_US": "It's a yellowish bird that exact species is unknown. For some reason, It tends to like young Hexacast.\n\\c[3](a Hat in Time)\\c[0]",
+				"ko_KR": "정확한 종족을 알 수 없는 노란 조류입니다. 어떤 이유인진 몰라도, 어린 육법사를 좋아하는 경향이 있습니다.\n\\c[3](a Hat in Time)\\c[0]"
 			},
 			"condition": ""
 		}]

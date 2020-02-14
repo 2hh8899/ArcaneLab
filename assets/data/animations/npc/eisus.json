@@ -17,14 +17,6 @@
 			"width": 32,
 			"height": 40
 		},
-		"attack": {
-			"src": "media/entity/npc/eisus.png",
-			"xCount": 6,
-			"offX": 352,
-			"offY": 0,
-			"width": 32,
-			"height": 40
-		},
 		"poses": {
 			"src": "media/entity/npc/eisus.png",
 			"xCount": 16,
@@ -132,70 +124,15 @@
 			"frames": [8, 8],
 			"framesGfxOffset": [0, 0, 1, 0]
 		}, {
-			"name": "charge",
-			"time": 0.1,
-			"repeat": false,
-			"frames": [11]
-		}, {
-			"name": "specialPre",
+			"name": "special",
 			"time": 0.066,
 			"repeat": false,
-			"frames": [11]
-		}, {
-			"name": "specialShoot",
-			"time": 0.066,
-			"repeat": false,
-			"frames": [12]
+			"frames": [4]
 		}, {
 			"name": "specialLoop",
 			"time": 0.066,
 			"repeat": true,
-			"frames": [13, 14, 15]
-		}]
-	}, {
-		"sheet": "attack",
-		"dirs": "6",
-		"flipX": [0, 0, 0, 0, 0, 0],
-		"tileOffsets": [0, 1, 2, 3, 4, 5],
-		"anchorOffsetX": [10, 15, 10, -9, -14, -12],
-		"anchorOffsetY": [-22, -13, -2, -4, -9, -21],
-		"anchorOffsetZ": [12, 12, 12, 12, 12, 12],
-		"SUB": [{
-			"name": "attackEnd",
-			"time": 0.1,
-			"repeat": false,
-			"frames": [6]
-		}, {
-			"name": "attackEndLoop",
-			"time": 0.066,
-			"repeat": true,
-			"frames": [12, 18, 24]
-		}, {
-			"flipX": [1, 1, 1, 1, 1, 1],
-			"tileOffsets": [5, 4, 3, 2, 1, 0],
-			"SUB": [{
-				"name": "spinShortRev",
-				"time": 0.066,
-				"repeat": false,
-				"dirFrames": [
-					[0, 5],
-					[5, 4],
-					[4, 3],
-					[3, 2],
-					[2, 1],
-					[1, 0]
-				]
-			}, {
-				"name": "attackEndRev",
-				"time": 0.1,
-				"repeat": false,
-				"frames": [8]
-			}, {
-				"name": "attackEndLoopRev",
-				"time": 0.066,
-				"repeat": false,
-				"frames": [12, 18, 24]
-			}]
+			"frames": [5, 6, 7]
 		}]
 	}, {
 		"sheet": "poses",
@@ -207,6 +144,22 @@
 			"time": 0.1,
 			"repeat": false,
 			"frames": [0]
+		}]
+	}, {
+		"sheet": "spin",
+		"dirs": "1",
+		"flipX": [0],
+		"tileOffsets": [0],
+		"SUB": [{
+			"name": "preExplosion",
+			"time": 0.04,
+			"repeat": true,
+			"frames": [5, 4, 3, 2, 1, 0]
+		}, {
+			"name": "explosion",
+			"time": 0.04,
+			"repeat": false,
+			"frames": [6, 7, 8, 9, 10, 11]
 		}]
 	}, {
 		"sheet": "spin",
@@ -327,6 +280,11 @@
 			"time": 0.05,
 			"repeat": false,
 			"frames": [0, 6, 12]
+		}, {
+			"name": "charge",
+			"time": 0.1,
+			"repeat": false,
+			"frames": [9]
 		}, {
 			"name": "dashEnd",
 			"time": 0.04,

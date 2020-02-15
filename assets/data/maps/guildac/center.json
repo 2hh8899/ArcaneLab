@@ -5256,7 +5256,7 @@
 							"type": "REMOVE_MSG_PERSON"
 						}, {
 							"message": {
-								"en_US": "So since you have embedded access key, I'd like to ask you to investigate this place, but are you free right now?",
+								"en_US": "So since you have an embedded access key, I'd like to ask you to investigate this place, but are you free right now?",
 								"ko_KR": "그래서 특수 키를 가지고 있는 너에게 이곳에 대한 조사를 부탁하고 싶은데, 지금 바쁘진 않지?"
 							},
 							"autoContinue": false,
@@ -6942,7 +6942,7 @@
 					"name": "shooty"
 				},
 				"text": {
-					"en_US": "It's expected to be about a month or two, but this is after Susie's death. It could be that the Evotar run date was late, but...\\.",
+					"en_US": "I expected for it to be about a month or two after Susie's death. It could be that the Evotar run date was late, but...\\.",
 					"ko_KR": "한두 달 정도로 예측되는데, 수지의 사망 날짜보다 뒤에요. 에보타 실행 날이 늦었던 걸 수도 있지만...\\."
 				}
 			}, {

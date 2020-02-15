@@ -15,13 +15,13 @@
 		"extra": false,
 		"descriptions": [{
 			"text": {
-				"en_US": "An Evotar who came to fight a PvP duel.\n\\c[3]Spheroknight\\c[0] is a combat-specialized class that complements Triblader's weak range-attacks with the characteristics of Spheromancer. \\c[1]It tends to change elements frequently because vulnerable to overload\\c[0], so you always need to be prepared for all elements.",
+				"en_US": "An Evotar who came to fight a PvP duel.\n\\c[3]Spheroknight\\c[0] is a combat-specialized class that complements the Triblader's weak ranged attacks with the characteristics of a Spheromancer. \\c[1]Users tend to change elements frequently because they're vulnerable to overload\\c[0], so you always need to be prepared for all elements.",
 				"ko_KR": "PvP 결투를 하러 온 에보타입니다.\n\\c[3]원성사\\c[0]는 삼검사의 약한 원거리 공격을 원술사의 특성으로 보완한 전투 특화 클래스입니다. \\c[1]과부화에 취약하여 속성을 자주 바꾸는 편\\c[0]이므로, 모든 속성에 대한 대비가 항상 필요합니다."
 			},
 			"condition": ""
 		}],
 		"species": {
-			"en_US": "Quite Spheroknight",
+			"en_US": "Quiet Spheroknight",
 			"ko_KR": "과묵한 원성사"
 		},
 		"category": "PLAYERS",
@@ -54,7 +54,7 @@
 		"extra": false,
 		"descriptions": [],
 		"species": {
-			"en_US": "Quite Spheroknight",
+			"en_US": "Quiet Spheroknight",
 			"ko_KR": "과묵한 원성사"
 		},
 		"category": "PLAYERS",
@@ -84,13 +84,13 @@
 		"extra": "whistle",
 		"descriptions": [{
 			"text": {
-				"en_US": "It's a yellowish bird that exact species is unknown. For some reason, It tends to like young Hexacast.\n\\c[3](a Hat in Time)\\c[0]",
+				"en_US": "It's a yellowish bird whose exact species is unknown. For some reason, it tends to like young Hexacasts.\n\\c[3](A Hat in Time)\\c[0]",
 				"ko_KR": "정확한 종족을 알 수 없는 노란 조류입니다. 어떤 이유인진 몰라도, 어린 육법사를 좋아하는 경향이 있습니다.\n\\c[3](a Hat in Time)\\c[0]"
 			},
 			"condition": ""
 		}],
 		"species": {
-			"en_US": "No-good dirty peck neck",
+			"en_US": "No-Good Dirty Peck Neck",
 			"ko_KR": "더러운 짹짹이"
 		},
 		"category": "ANIMALS",

@@ -1,4 +1,4 @@
-ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm").defines(function() {
+ig.module("impact.feature.bgm.bgm-arcane-lab").requires("impact.feature.bgm.bgm").defines(function() {
   ig.BGM_DEFAULT_TRACKS.autumnsGenesis = {
     field: {
       track: "autumnsGenesis",

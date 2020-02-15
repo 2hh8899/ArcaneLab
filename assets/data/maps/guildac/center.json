@@ -420,7 +420,7 @@
 					}
 				}, {
 					"type": "IF",
-					"withElse": true,
+					"withElse": false,
 					"condition": "plot.arcaneLab.story.rei<=0",
 					"thenStep": [{
 						"changeType": "set",
@@ -498,19 +498,7 @@
 							"en_US": "So, where would you like to go?",
 							"ko_KR": "그럼, 어디로 가시겠습니까?"
 						},
-						"autoContinue": true,
-						"type": "SHOW_MSG",
-						"person": {
-							"person": "guildac.raclicia",
-							"expression": "DEFAULT"
-						}
-					}],
-					"elseStep": [{
-						"message": {
-							"en_US": "Where would you like to go?",
-							"ko_KR": "어디로 가시겠습니까?"
-						},
-						"autoContinue": true,
+						"autoContinue": false,
 						"type": "SHOW_MSG",
 						"person": {
 							"person": "guildac.raclicia",
@@ -518,193 +506,9 @@
 						}
 					}]
 				}, {
-					"changeType": "set",
-					"type": "CHANGE_VAR_NUMBER",
-					"varName": "tmp.teleporterMap",
-					"value": 0
-				}, {
-					"0": [{
-						"changeType": "set",
-						"type": "CHANGE_VAR_NUMBER",
-						"varName": "tmp.teleporterMap",
-						"value": 1000
-					}],
-					"1": [{
-						"changeType": "set",
-						"type": "CHANGE_VAR_NUMBER",
-						"varName": "tmp.teleporterMap",
-						"value": 2000
-					}],
-					"2": [{
-						"changeType": "set",
-						"type": "CHANGE_VAR_NUMBER",
-						"varName": "tmp.teleporterMap",
-						"value": 1
-					}],
-					"3": [{
-						"changeType": "set",
-						"type": "CHANGE_VAR_NUMBER",
-						"varName": "tmp.teleporterMap",
-						"value": 2
-					}],
-					"4": [],
-					"type": "SHOW_CHOICE",
-					"person": {
-						"person": "main.lea",
-						"expression": "DEFAULT"
-					},
-					"options": [{
-						"0": " ",
-						"label": {
-							"en_US": "\\c[3]Suspicious Server\\c[0]",
-							"ko_KR": "\\c[3]수상한 서버\\c[0]"
-						},
-						"showCondition": "plot.arcaneLab.story.susie == 1 && party.size == 1"
-					}, {
-						"0": " ",
-						"label": {
-							"en_US": "\\c[3]Dead Bird Studio\\c[0]",
-							"ko_KR": "\\c[3]데드 버드 스튜디오\\c[0]"
-						},
-						"showCondition": "plot.arcaneLab.story.conductor == 1"
-					}, {
-						"0": " ",
-						"label": {
-							"en_US": "Autumn Fishing Spot",
-							"ko_KR": "가을의 낚시장"
-						}
-					}, {
-						"0": " ",
-						"label": {
-							"en_US": "Bergen Transport",
-							"ko_KR": "베르겐 수송"
-						}
-					}, {
-						"0": " ",
-						"label": {
-							"en_US": "\\c[1]Cancel\\c[0]",
-							"de_DE": "\\c[1]Abbrechen\\c[0]",
-							"zh_CN": "\\c[1]取消\\c[0]",
-							"ja_JP": "\\c[1]キャンセル\\c[0]",
-							"ko_KR": "\\c[1]취소하기\\c[0]"
-						}
-					}]
-				}, {
-					"side": "ALL",
-					"type": "CLEAR_MSG"
-				}, {
-					"type": "IF",
-					"withElse": false,
-					"condition": "tmp.teleporterMap>0",
-					"thenStep": [{
-						"entity": {
-							"player": true
-						},
-						"action": [{
-							"target": {
-								"x": 1056,
-								"y": 712,
-								"lvl": "0"
-							},
-							"maxTime": 0,
-							"distance": 0,
-							"precise": true,
-							"planOnly": false,
-							"teleportOnFail": false,
-							"type": "NAVIGATE_TO_POINT"
-						}],
-						"repeating": false,
-						"wait": true,
-						"keepState": false,
-						"immediately": false,
-						"type": "DO_ACTION"
-					}, {
-						"mapSounds": "",
-						"type": "SET_MAP_SOUNDS"
-					}, {
-						"entity": {
-							"player": true
-						},
-						"duration": 0,
-						"align": "BOTTOM",
-						"group": "",
-						"wait": false,
-						"waitSkip": 0,
-						"effect": {
-							"sheet": "teleport",
-							"name": "hideDefault"
-						},
-						"offset": {
-							"x": 0,
-							"y": 0,
-							"z": 0
-						},
-						"type": "SHOW_EFFECT"
-					}, {
-						"ignoreSlowDown": false,
-						"time": 0.2,
-						"type": "WAIT"
-					}, {
-						"alpha": 1,
-						"time": 1,
-						"lighter": true,
-						"color": "white",
-						"type": "SET_OVERLAY"
-					}, {
-						"zoomType": "LIGHT",
-						"fadeIn": 0.5,
-						"duration": 0.5,
-						"fadeOut": 0.5,
-						"name": null,
-						"type": "SET_ZOOM_BLUR"
-					}, {
-						"ignoreSlowDown": false,
-						"time": 1,
-						"type": "WAIT"
-					}, {
-						"type": "SELECT_RANDOM",
-						"options": [{
-							"0": " ",
-							"count": 1,
-							"weight": 1,
-							"activeCondition": "tmp.teleporterMap==1"
-						}, {
-							"0": " ",
-							"count": 1,
-							"weight": 1,
-							"activeCondition": "tmp.teleporterMap==2"
-						}, {
-							"0": " ",
-							"count": 1,
-							"weight": 1,
-							"activeCondition": "tmp.teleporterMap==1000"
-						}, {
-							"0": " ",
-							"count": 1,
-							"weight": 1,
-							"activeCondition": "tmp.teleporterMap==2000"
-						}],
-						"0_0": [{
-							"type": "TELEPORT",
-							"map": "guildac.fish.river",
-							"marker": "teleporter"
-						}],
-						"1_0": [{
-							"type": "TELEPORT",
-							"map": "guildac.transport.path-1",
-							"marker": "teleporter"
-						}],
-						"2_0": [{
-							"type": "TELEPORT",
-							"map": "guildac.quest.susie",
-							"marker": "teleporter"
-						}],
-						"3_0": [{
-							"type": "TELEPORT",
-							"map": "guildac.quest.deadbird",
-							"marker": "teleporter"
-						}]
-					}]
+					"type": "TELEPORT",
+					"map": "guildac.teleporter-map",
+					"marker": "start"
 				}]
 			}]
 		}
@@ -5142,7 +4946,7 @@
 							}
 						}, {
 							"message": {
-								"en_US": "Well. Shooty is in charge of customer support services, and will report about him be accepted?",
+								"en_US": "Well. Shooty is in charge of customer support services, so will report about him be accepted?",
 								"ko_KR": "글쎄다. 슈티는 고객 지원 서비스 담당인데, 과연 자기에 관한 신고가 받아들여질까?"
 							},
 							"type": "SHOW_SIDE_MSG",
@@ -5340,7 +5144,7 @@
 							}
 						}, {
 							"message": {
-								"en_US": "\\c[4]It's about Evotars, so we've got to keep this a secret. alright?\\c[0]",
+								"en_US": "\\c[4]It's about Evotars, so we've got to keep this a secret. Alright?\\c[0]",
 								"ko_KR": "\\c[4]...에보타에 관련된 거니까, 비밀스럽게 할 필요가 있어. 알았지?\\c[0]"
 							},
 							"autoContinue": false,
@@ -5427,7 +5231,7 @@
 							}
 						}, {
 							"message": {
-								"en_US": "\\c[1]One server in a remote place, one Evota in it.\\c[0] I don't know any more, but this alone is already very suspicious.",
+								"en_US": "\\c[1]The server is in a remote place, and has an Evotar in it.\\c[0] I don't know any more, but this alone is already very suspicious.",
 								"ko_KR": "\\c[1]외딴 곳에 서버 하나, 그 안에 에보타 하나.\\c[0] 더 이상은 잘 모르겠지만 일단 이것만으로도 무진장 수상하거든요."
 							},
 							"autoContinue": false,
@@ -5452,7 +5256,7 @@
 							"type": "REMOVE_MSG_PERSON"
 						}, {
 							"message": {
-								"en_US": "So since you have a special key I'd like to ask you to investigate this place, but are you not busy right now?",
+								"en_US": "So since you have embedded access key, I'd like to ask you to investigate this place, but are you free right now?",
 								"ko_KR": "그래서 특수 키를 가지고 있는 너에게 이곳에 대한 조사를 부탁하고 싶은데, 지금 바쁘진 않지?"
 							},
 							"autoContinue": false,
@@ -5961,7 +5765,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "Well... sometimes he said to himself \\c[3]misses his sister\\c[0], but he wouldn't say anything else so I don't know.",
+						"en_US": "Well... sometimes he said to himself that he \\c[3]misses his sister\\c[0], but he wouldn't say anything else, so I don't know.",
 						"ko_KR": "글쎄... 가끔씩 \\c[3]누나가 보고싶다\\c[0]고 혼잣말을 하긴 했는데, 그것 말곤 아무 말도 안하고 저러고 있으니 나도 잘 모르겠네."
 					},
 					"autoContinue": false,
@@ -6428,7 +6232,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "First of all, tired, right? I want to let you rest a little...\\.",
+					"en_US": "First of all, you're tired, right? I want to let you rest a little...\\.",
 					"ko_KR": "일단, 많이 힘들었지? 좀 쉬게 해주고 싶긴 한데...\\."
 				},
 				"autoContinue": false,
@@ -6521,7 +6325,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "Hmm, really? Then can you answer what you remember about what I'm saying?",
+					"en_US": "Hmm, really? Then can you answer what you remember about what I'm about to say?",
 					"ko_KR": "흠, 그래? 그럼 한번 내가 말하는 것과 관련해서 기억나는 대로 대답해볼래?"
 				},
 				"autoContinue": false,
@@ -6532,8 +6336,8 @@
 				}
 			}, {
 				"message": {
-					"en_US": "Eight-Avatars PvP event...\\.",
-					"ko_KR": "8인 PvP 사건...\\."
+					"en_US": "Like the 8-player PvP event...\\.",
+					"ko_KR": "8인 PvP 사건이라거나...\\."
 				},
 				"autoContinue": false,
 				"type": "SHOW_MSG",
@@ -6543,8 +6347,8 @@
 				}
 			}, {
 				"message": {
-					"en_US": "Being a member of IHSO...\\.",
-					"ko_KR": "IHSO 멤버가 되었던 일...\\."
+					"en_US": "Or, like being a member of IHSO...\\.",
+					"ko_KR": "아니면, IHSO 멤버가 되었던 일이나...\\."
 				},
 				"autoContinue": false,
 				"type": "SHOW_MSG",
@@ -6610,7 +6414,7 @@
 				}
 			}, {
 				"message": {
-					"en_US": "It will take quite a long time to talk, so let's talk about the rest next time. You need to rest now.",
+					"en_US": "It will take quite a long time to fully discuss this, so let's talk about the rest next time. You need to rest now.",
 					"ko_KR": "꽤 오랜 대화가 필요할 것 같으니, 나머진 다음에 이야기하자. 이젠 쉬어야지."
 				},
 				"autoContinue": false,
@@ -7084,7 +6888,7 @@
 					"name": "sergey"
 				},
 				"text": {
-					"en_US": "Let's start with Evota's information. She's \\c[3]Susie\\c[0], right?",
+					"en_US": "Let's start with the Evotar's information. She's \\c[3]Susie\\c[0], right?",
 					"ko_KR": "에보타의 정보부터 알아보자. \\c[3]수지\\c[0]라고 했지?"
 				}
 			}, {
@@ -7093,7 +6897,7 @@
 					"name": "shooty"
 				},
 				"text": {
-					"en_US": "Yes, she was a member of IHSO who helped me develop Arcane Lab during his life. She was also my guild member.",
+					"en_US": "Yes, she was a member of IHSO who helped me develop the Arcane Lab during her life. She was also my guild member.",
 					"ko_KR": "네, 생전에 아케인 랩 개발에 도움을 많이 줬던 IHSO 멤버에요. 제 길드원이었기도 했고요."
 				}
 			}, {
@@ -7102,7 +6906,7 @@
 					"name": "sergey"
 				},
 				"text": {
-					"en_US": "Wait, did you say \"during his life\"?",
+					"en_US": "Wait, did you say \"during her life\"?",
 					"ko_KR": "잠깐, \"생전\"이라고?"
 				}
 			}, {
@@ -7138,7 +6942,7 @@
 					"name": "shooty"
 				},
 				"text": {
-					"en_US": "It's expected to be about a month or two, but this is after Susie's death. It could be the Evotar run date was late, but...\\.",
+					"en_US": "It's expected to be about a month or two, but this is after Susie's death. It could be that the Evotar run date was late, but...\\.",
 					"ko_KR": "한두 달 정도로 예측되는데, 수지의 사망 날짜보다 뒤에요. 에보타 실행 날이 늦었던 걸 수도 있지만...\\."
 				}
 			}, {
@@ -7147,7 +6951,7 @@
 					"name": "sergey"
 				},
 				"text": {
-					"en_US": "There're many other strange things too. Why is the \\c[5]interEvota high-speed message program\\c[0] installed on her?",
+					"en_US": "There're many other strange things too. Why is the \\c[5]inter-Evotar high-speed message program\\c[0] installed on her?",
 					"ko_KR": "다른 이상한 점도 많아. \\c[5]에보타 간 고속 통신 프로그램\\c[0]은 어떤 의도로 설치되어 있는 거지?"
 				},
 				"event": [{
@@ -7301,7 +7105,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "I don't know why I have it, why I know how to use it. I don't remember much, so...\\.",
+						"en_US": "I don't know why I have it, or why I know how to use it. I don't remember much, so...\\.",
 						"ko_KR": "이 기능이 왜 있고, 어떻게 사용법을 알고 있는지는 나도 몰라. 기억하는 게 별로 없다 보니...\\."
 					},
 					"autoContinue": false,
@@ -7343,7 +7147,7 @@
 					"name": "shooty"
 				},
 				"text": {
-					"en_US": "Was there another Evota on the server for testing in the past?",
+					"en_US": "Was there another Evotar on the server for testing in the past?",
 					"ko_KR": "예전엔 테스트를 위한 다른 에보타가 서버에 같이 있던 걸까요?"
 				}
 			}, {
@@ -7352,7 +7156,7 @@
 					"name": "sergey"
 				},
 				"text": {
-					"en_US": "Server records show no sign of other Evotars. What was he going to do?",
+					"en_US": "Server records show no sign of other Evotars. What was she going to do?",
 					"ko_KR": "서버 기록에는 다른 에보타가 있던 흔적이 전혀 없어. 어쩔 셈이었던 거지?"
 				}
 			}],

@@ -11138,13 +11138,13 @@
 	},
 	"meta": {
 		"species": {
-			"en_US": "No-good dirty peck neck",
+			"en_US": "No-good Dirty Peck Neck",
 			"ko_KR": "더러운 짹짹이"
 		},
 		"category": "ANIMALS",
 		"descriptions": [{
 			"text": {
-				"en_US": "It's a yellowish bird that exact species is unknown. For some reason, It tends to like young Hexacast.\n\\c[3](a Hat in Time)\\c[0]",
+				"en_US": "It's a yellowish bird whose exact species is unknown. For some reason, it tends to like young Hexacasts.\n\\c[3](A Hat in Time)\\c[0]",
 				"ko_KR": "정확한 종족을 알 수 없는 노란 조류입니다. 어떤 이유인진 몰라도, 어린 육법사를 좋아하는 경향이 있습니다.\n\\c[3](a Hat in Time)\\c[0]"
 			},
 			"condition": ""

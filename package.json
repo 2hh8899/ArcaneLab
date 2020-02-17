@@ -2,7 +2,7 @@
 	"name": "\\c[3]Arcane Lab\\c[0]",
 	"description" : ":)",
 	"prestart": "prestart.js",
-	"version": "0.1.0",
+	"version": "0.1.1",
     "module": true,
   "dependencies": {
     "ccloader": "^2.14.1",

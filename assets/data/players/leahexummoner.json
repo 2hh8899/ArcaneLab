@@ -23348,16 +23348,10 @@
 			"ATTACK_SPECIAL1_A": {
 				"name": {
 					"en_US": "Summon Snowflake",
-					"de_DE": "Summon Snowflake",
-					"zh_CN": "Summon Snowflake",
-					"ja_JP": "Summon Snowflake",
 					"ko_KR": "눈송이 소환"
 				},
 				"description": {
-					"en_US": "Summon Snowflake that rushing to the enemy.",
-					"de_DE": "Summon Snowflake that rushing to the enemy.",
-					"zh_CN": "Summon Snowflake that rushing to the enemy.",
-					"ja_JP": "Summon Snowflake that rushing to the enemy.",
+					"en_US": "Summon Snowflake that rushes to the enemy.",
 					"ko_KR": "적에게 돌진하는 눈송이를 소환합니다."
 				},
 				"dmgType": "MELEE",
@@ -23531,16 +23525,10 @@
 			"ATTACK_SPECIAL2_A": {
 				"name": {
 					"en_US": "Summon Freezeflake",
-					"de_DE": "Summon Freezeflake",
-					"zh_CN": "Summon Freezeflake",
-					"ja_JP": "Summon Freezeflake",
 					"ko_KR": "얼음송이 소환"
 				},
 				"description": {
-					"en_US": "Summon Freezeflake that rushing to the enemy.",
-					"de_DE": "Summon Freezeflake that rushing to the enemy.",
-					"zh_CN": "Summon Freezeflake that rushing to the enemy.",
-					"ja_JP": "Summon Freezeflake that rushing to the enemy.",
+					"en_US": "Summon Freezeflake that rushes to the enemy.",
 					"ko_KR": "적에게 돌진하는 얼음송이를 소환합니다."
 				},
 				"dmgType": "MELEE",
@@ -23862,16 +23850,10 @@
 			"ATTACK_SPECIAL3_A": {
 				"name": {
 					"en_US": "Summon Cryogen",
-					"de_DE": "Summon Cryogen",
-					"zh_CN": "Summon Cryogen",
-					"ja_JP": "Summon Cryogen",
 					"ko_KR": "크라이오젠 소환"
 				},
 				"description": {
 					"en_US": "Summon Cryogen armed with icicles and snowflakes.",
-					"de_DE": "Summon Cryogen armed with icicles and snowflakes.",
-					"zh_CN": "Summon Cryogen armed with icicles and snowflakes.",
-					"ja_JP": "Summon Cryogen armed with icicles and snowflakes.",
 					"ko_KR": "고드름 연발과 눈송이 소환 공격으로 무장한 크라이오젠을 소환합니다."
 				},
 				"dmgType": "RANGED",

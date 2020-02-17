@@ -673,7 +673,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "I'm sorry. Here is still under development. You can enjoy here if the mod update it later.",
+						"en_US": "I'm sorry. Here it's still under development. You can enjoy this place if the mod updates it later.",
 						"ko_KR": "미안하지만... 여긴 아직 개발 중인 곳이야. 나중에 업데이트하면 그때 즐길 수 있을 거야."
 					},
 					"autoContinue": false,
@@ -684,7 +684,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "The two of us are still under development too! So for now, We're just acting as a guide here.",
+						"en_US": "The two of us are still under development too! So for now, we're just acting as a guide here.",
 						"ko_KR": "우리 둘도 아직 제작 중이고! 그래서 일단은 여기서 안내 역할만 하고 있는 거야."
 					},
 					"autoContinue": false,
@@ -723,7 +723,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "Riko, How come you're less talkative than before? I know your speech module doesn't malfunction.",
+						"en_US": "Riko, how come you're less talkative than before? I know your speech module doesn't malfunction.",
 						"ko_KR": "너 어째 전보다도 말수가 더 적어진 거 아냐? 대화 모듈도 고장 안났으면서."
 					},
 					"autoContinue": false,
@@ -829,7 +829,7 @@
 					}
 				}, {
 					"message": {
-						"en_US": "Hello. glad to meet you.",
+						"en_US": "Hello. Glad to meet you.",
 						"ko_KR": "안녕. 만나서 반가워."
 					},
 					"autoContinue": false,

@@ -1,11 +1,7 @@
 {
-	"name": "\\c[3]Arcane Lab\\c[0]",
-	"description" : ":)",
+	"name": "\\c[1]Arcane \\c[3]Lab\\c[0]",
+	"description" : "Adds new \\c[3]areas, bosses, classes, and more! \\c[0]",
 	"prestart": "prestart.js",
-	"version": "0.1.1",
-    "module": true,
-  "dependencies": {
-    "ccloader": "^2.14.1",
-    "extendable-severed-heads": "^1.0.0"
-  }
+	"version": "0.1.3",
+    "module": true
 }

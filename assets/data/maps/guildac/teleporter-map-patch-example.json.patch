@@ -1,0 +1,47 @@
+[{
+	"type": "ENTER",
+	"index": "entities"
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": {
+		"type": "ArcanePoint",
+		"x": >>>Teleporter point x-position<<<,
+		"y": >>>Teleporter point y-position<<<,
+		"level": 0,
+		"settings": {
+			"name": ">>>Entity name you want (not important)<<<",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 0
+			},
+			"title": {
+				"en_US": ">>>Teleporter point name<<<",
+				"de_DE": ">>>Teleporter point name<<<",
+				"zh_CN": ">>>Teleporter point name<<<",
+				"ja_JP": ">>>Teleporter point name<<<",
+				"ko_KR": ">>>Teleporter point name<<<"
+			},
+			"description": {
+				"en_US": ">>>Teleporter point description<<<",
+				"de_DE": ">>>Teleporter point description<<<",
+				"zh_CN": ">>>Teleporter point description<<<",
+				"ja_JP": ">>>Teleporter point description<<<",
+				"ko_KR": ">>>Teleporter point description<<<"
+			},
+			"icon": ">>>Teleporter point icon image path<<<",
+			"preview": ">>>Teleporter point preview image path<<<",
+			"condition": ">>>Condition for this location to show<<<",
+			"map": ">>>Map to be teleported to<<<",
+			"marker": ">>>Marker on Map to be teleported to<<<"
+		}
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": {
+		"type": "ArcanePoint",
+		">>>copy": "as many as you want in this way<<<"
+	}
+}, {
+	"type": "EXIT"
+}]

@@ -2,7 +2,7 @@
 	"DOCTYPE": "PLAYER",
 	"character": "guildac.susie",
 	"sheet": "npc.susie",
-	"class": "TRIBLADER",
+	"class": "SPHEROKNIGHT",
 	"stats": {
 		"hp": {
 			"base": 200,

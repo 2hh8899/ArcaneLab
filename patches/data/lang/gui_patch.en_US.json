@@ -1,0 +1,21 @@
+{
+	"labels": {
+		"combat": {
+			"daze": "Daze",
+			"poison": "Poisoned"
+		},
+		"menu": {
+			"social": {
+				"classes": {
+					"SPHEROKNIGHT": "Spheroknight",
+					"TRIARCHERY": "Triarchery",
+					"QUADROTECT": "Quadrotect",
+					"PENTATHIEF": "Pentathief",
+					"PENTAGUNNER": "Pentagunner",
+					"HEXUMMONER": "Hexummoner",
+					"HEXABLESS": "Hexabless"
+				}
+			}
+		}
+	}
+}

@@ -1,7 +1,7 @@
 {
 	"character": "guildac.eisus",
 	"sheet": "npc.eisus",
-	"class": "HEXACAST",
+	"class": "HEXUMMONER",
 	"stats": {
 		"hp": {
 			"base": 170,

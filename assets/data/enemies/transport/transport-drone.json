@@ -1,0 +1,920 @@
+{
+	"level": 70,
+	"boostedLevel": 85,
+	"params": {
+		"hp": 55000,
+		"attack": 350,
+		"defense": 550,
+		"focus": 500,
+		"elemFactor": [1.2, 0.3, 0.7, 0.7],
+		"statusInflict": [1, 1, 1.25, 1.25],
+		"statusEffect": [1.5, 1, 1.25, 1.25]
+	},
+	"credit": 1000,
+	"exp": 85,
+	"maxSp": 0,
+	"enduranceScale": 2.5,
+	"healDropRate": 0,
+	"boss": false,
+	"bossOrder": 0,
+	"padding": {
+		"x": 4,
+		"y": 4
+	},
+	"material": "METAL",
+	"aiGroup": "seahorse",
+	"aiLearnType": "REGULAR",
+	"itemDrops": [{
+		"item": "trade-arcanelab-broken-motor",
+		"prob": 0.2,
+		"min": 1,
+		"max": 1,
+		"rank": ""
+	}, {
+		"item": "trade-arcanelab-lumium",
+		"prob": 0.1,
+		"min": 1,
+		"max": 1,
+		"rank": "C",
+		"boosted": true,
+		"condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
+	}],
+	"targetDetect": {
+		"detectDistance": 120,
+		"loseDistance": 320,
+		"notifyNeighbourRadius": 100
+	},
+	"hpBreaks": [],
+	"size": {
+		"x": 48,
+		"y": 28,
+		"z": 24
+	},
+	"anims": "enemies.transport-drone",
+	"defaultState": "IDLE",
+	"walkConfigs": {
+		"normal": {
+			"idle": "idle"
+		},
+		"off": {
+			"idle": "off"
+		}
+	},
+	"_wm": null,
+	"walkAnims": "normal",
+	"weight": 50,
+	"maxVel": 240,
+	"jumpingEnabled": true,
+	"shadow": 48,
+	"floatVariance": 4,
+	"floatMaxSpeed": 500,
+	"floatAccel": 3,
+	"flyHeight": 10,
+	"ballFactor": 1,
+	"hitStable": "LIGHT",
+	"faceToTarget": true,
+	"annotate": {
+		"active": "NONE",
+		"passive": "NONE",
+		"weapon": "RANGED",
+		"element": "ANY",
+		"extra": []
+	},
+	"DOCTYPE": "ENEMY",
+	"trackers": {
+		"MOVE": {
+			"target": 3,
+			"initRandom": 1,
+			"resetRandom": 0.3,
+			"noStateReset": false,
+			"type": "TIME"
+		},
+		"weakRegen": {
+			"target": 3,
+			"initRandom": 0,
+			"resetRandom": 0,
+			"noStateReset": false,
+			"noAssist": false,
+			"type": "TIME"
+		},
+		"meleeHits": {
+			"target": 3,
+			"scaleDmgFactor": false,
+			"scaleEnemyFactor": false,
+			"noStateReset": false,
+			"type": "HIT"
+		}
+	},
+	"states": {
+		"IDLE": {
+			"walkAnims": "off",
+			"choices": [{
+				"req": [{
+					"negated": false,
+					"type": "HAS_TARGET"
+				}],
+				"postSwitchState": "DEFAULT",
+				"ignoreStun": true
+			}, {
+				"req": [{
+					"type": "!SPAWN_POINT_DISTANCE",
+					"max": 64
+				}],
+				"action": "MoveToSpawnPoint"
+			}, {
+				"req": [{
+					"type": "RANDOM",
+					"max": 0.3
+				}],
+				"action": "MoveRandom"
+			}, {
+				"action": "Idle"
+			}]
+		},
+		"DEFAULT": {
+			"enabledReactions": ["MAGNET_TRAIN"],
+			"choices": [{
+				"req": [{
+					"type": "!HAS_TARGET"
+				}],
+				"postSwitchState": "IDLE"
+			}, {
+				"req": [{
+					"distance": 250,
+					"throwing": true,
+					"type": "!TARGET_REACHABLE"
+				}],
+				"action": "Adjust"
+			}, {
+				"req": [{
+					"min": 0,
+					"max": 80,
+					"negated": false,
+					"type": "TARGET_DISTANCE"
+				}],
+				"action": "Escape",
+				"ignoreStun": true
+			}, {
+				"action": "Missile",
+				"frequency": "RARE"
+			}, {
+				"action": "Machinegun",
+				"frequency": "NORMAL"
+			}, {
+				"req": [{
+					"negated": false,
+					"type": "TRACKER_READY",
+					"name": "MOVE"
+				}],
+				"sub": [{
+					"action": "Circle"
+				}]
+			}, {
+				"action": "Idle"
+			}]
+		},
+		"WEAK": {
+			"walkAnims": "off",
+			"flyHeight": 0,
+			"damageFactor": 1.25,
+			"annotate": {
+				"active": "NONE",
+				"passive": "WEAK",
+				"weapon": "MELEE",
+				"element": "ANY",
+				"extra": []
+			},
+			"choices": [{
+				"req": [{
+					"negated": false,
+					"type": "TRACKER_READY",
+					"name": "weakRegen"
+				}],
+				"preSwitchState": "DEFAULT"
+			}]
+		},
+		"PASSIVE_INVIS": {
+			"weight": -1,
+			"hitIgnore": true,
+			"aggression": "PEACEFUL",
+			"walkAnims": "off",
+			"annotate": {
+				"active": "NONE",
+				"passive": "IMMUNE",
+				"weapon": "ANY",
+				"element": "ANY",
+				"extra": []
+			},
+			"choices": []
+		}
+	},
+	"proxies": {
+		"bubble": {
+			"effects": "turret",
+			"speed": 200,
+			"maxBounce": 0,
+			"timer": 3,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"effect": "ar",
+			"maxBounds": 0,
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/crab-effects.png",
+					"width": 16,
+					"height": 16,
+					"offY": 144
+				},
+				"time": 0.05,
+				"repeat": true,
+				"frames": [0]
+			},
+			"attack": {
+				"type": "MEDIUM",
+				"element": "NEUTRAL",
+				"damageFactor": 0.25,
+				"reverse": false,
+				"guardable": "",
+				"skillBonus": "",
+				"limiter": ""
+			},
+			"behaviors": [{
+				"type": "FOLLOW_TARGET",
+				"steerDegree": 1,
+				"adjustTime": 1
+			}, {
+				"type": "WIRL_SIDEWAYS",
+				"relWirl": 0.1,
+				"wirlTime": 0.3,
+				"delay": 0.3
+			}, {
+				"type": "SLOW_DOWN",
+				"speedFactor": 0.2,
+				"fadeOut": 0.3,
+				"fadeOutVary": 0.3,
+				"pause": 0.2,
+				"fadeIn": 0.2
+			}],
+			"timeBoni": null
+		},
+		"waveBullet": {
+			"size": {
+				"x": 10,
+				"y": 10,
+				"z": 10
+			},
+			"effects": "ball-wave",
+			"speed": 550,
+			"maxBounce": 0,
+			"timer": 1.5,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"SUB": [{
+					"name": "default",
+					"shapeType": "Y_FLAT",
+					"offset": {
+						"x": 0,
+						"y": 0,
+						"z": 0
+					},
+					"sheet": {
+						"src": "media/entity/enemy/boss/drake-bullets.png",
+						"offX": 0,
+						"offY": 0,
+						"width": 7,
+						"height": 20
+					},
+					"time": 0.1,
+					"repeat": false,
+					"frames": [0]
+				}]
+			},
+			"attack": {
+				"type": "MEDIUM",
+				"element": "WAVE",
+				"fly": "LIGHT",
+				"reverse": false,
+				"damageFactor": 0.2,
+				"spFactor": 0,
+				"status": 3,
+				"hints": [],
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"missile": {
+			"size": {
+				"x": 10,
+				"y": 10,
+				"z": 10
+			},
+			"effects": "ball-heat",
+			"speed": 700,
+			"maxBounce": 0,
+			"timer": 1,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"destroyProxy": "explosion",
+			"animation": {
+				"name": "default",
+				"shapeType": "Y_FLAT",
+				"sheet": {
+					"src": "media/entity/enemy/boss/drake-bullets.png",
+					"xCount": 2,
+					"offX": 7,
+					"offY": 0,
+					"width": 10,
+					"height": 19
+				},
+				"dirs": "1",
+				"flipX": [0, 0],
+				"tileOffsets": [0, 0],
+				"time": 0.15,
+				"faceRotate": true,
+				"repeat": true,
+				"frames": [0, 1]
+			},
+			"attack": {
+				"type": "MEDIUM",
+				"element": "HEAT",
+				"fly": "LIGHT",
+				"reverse": false,
+				"damageFactor": 0.2,
+				"spFactor": 0,
+				"status": 3,
+				"hints": [],
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"explosion": {
+			"animation": {},
+			"copyOwnerAnims": false,
+			"breakType": "NEVER",
+			"action": [{
+				"align": "BOTTOM",
+				"radius": 16,
+				"yScale": 0,
+				"zHeight": 0,
+				"centralAngle": 1,
+				"duration": 0.2,
+				"expandRadius": 16,
+				"alwaysFull": true,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"rectangular": false,
+				"repeat": false,
+				"uniformHitDir": false,
+				"fixPos": false,
+				"checkCollision": false,
+				"type": "CIRCLE_ATTACK",
+				"attack": {
+					"type": "HEAVY",
+					"element": "HEAT",
+					"damageFactor": 0.5,
+					"reverse": false,
+					"status": 5,
+					"guardable": "",
+					"skillBonus": "",
+					"limiter": ""
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"duration": 0,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "puzzle.bomb",
+					"name": "explosion"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.2,
+				"type": "WAIT"
+			}],
+			"invisible": false,
+			"hp": 0,
+			"stickToSource": "NONE",
+			"stickFaceAlign": false,
+			"group": "",
+			"size": {
+				"x": 8,
+				"y": 8,
+				"z": 8
+			},
+			"config": {
+				"collType": "NONE"
+			},
+			"type": "GENERIC"
+		},
+		"shockAura": {
+			"copyOwnerAnims": false,
+			"breakType": "COMBATANT",
+			"action": [{
+				"face": "SOUTH",
+				"rotate": false,
+				"rotateSpeed": 3,
+				"type": "SET_FACE"
+			}, {
+				"value": true,
+				"type": "SET_FACE_FIX"
+			}, {
+				"kind": "PROXY_OWNER",
+				"type": "SET_TEMP_TARGET"
+			}, {
+				"duration": -1,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": true,
+				"target2": "TARGET",
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.transport",
+					"name": "magnetBeam"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"strength": "DASH_ESCAPE",
+				"pull": true,
+				"radius": 500,
+				"fadeRadius": 24,
+				"minRadius": 0,
+				"zHeight": 256,
+				"duration": -1,
+				"effect": {
+					"sheet": "enemies.jungle",
+					"name": "catPull"
+				},
+				"align": "BOTTOM",
+				"type": "PUSH_PULL_FORCE"
+			}, {
+				"name": "loop",
+				"type": "LABEL"
+			}, {
+				"align": "BOTTOM",
+				"radius": 32,
+				"yScale": 0,
+				"zHeight": 16,
+				"centralAngle": 1,
+				"duration": 0.2,
+				"expandRadius": 0,
+				"alwaysFull": true,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"rectangular": false,
+				"repeat": false,
+				"uniformHitDir": false,
+				"fixPos": false,
+				"checkCollision": false,
+				"type": "CIRCLE_ATTACK",
+				"attack": {
+					"type": "NONE",
+					"visualType": "MASSIVE",
+					"element": "SHOCK",
+					"damageFactor": 0.1,
+					"reverse": false,
+					"spFactor": 0,
+					"status": 3,
+					"hints": ["ENEMY"],
+					"guardable": "FROM_ABOVE",
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.2,
+				"type": "WAIT"
+			}, {
+				"name": "loop",
+				"type": "GOTO_LABEL"
+			}],
+			"invisible": false,
+			"hp": 0,
+			"stickToSource": "NONE",
+			"stickFaceAlign": false,
+			"group": "magnet",
+			"type": "GENERIC",
+			"size": {
+				"x": 24,
+				"y": 24,
+				"z": 32
+			},
+			"config": {
+				"collType": "NONE"
+			}
+		}
+	},
+	"actions": {
+		"Idle": [{
+			"value": true,
+			"type": "FACE_TO_TARGET"
+		}, {
+			"minTime": 0.1,
+			"maxTime": 0.3,
+			"type": "WAIT_RANDOM"
+		}],
+		"Adjust": [{
+			"value": 0.7,
+			"type": "SET_RELATIVE_SPEED"
+		}, {
+			"maxTime": 1,
+			"distance": 200,
+			"throwing": true,
+			"planOnly": false,
+			"type": "NAVIGATE_ESCAPE_TARGET"
+		}],
+		"Circle": [{
+			"value": 0.5,
+			"type": "SET_RELATIVE_SPEED"
+		}, {
+			"maxTime": 1,
+			"distance": 150,
+			"distVariance": 80,
+			"throwing": true,
+			"planOnly": false,
+			"type": "NAVIGATE_SIDEWAYS_TARGET"
+		}],
+		"Escape": [{
+			"value": 24,
+			"type": "SET_FLY_HEIGHT"
+		}, {
+			"value": 1,
+			"type": "SET_RELATIVE_SPEED"
+		}, {
+			"value": "MEDIUM",
+			"type": "SET_HIT_STABLE"
+		}, {
+			"value": "IGNORE",
+			"type": "SET_COLL_TYPE"
+		}, {
+			"maxTime": 1,
+			"distance": 200,
+			"throwing": true,
+			"planOnly": false,
+			"targetType": "ENEMY",
+			"type": "NAVIGATE_ESCAPE_TARGET"
+		}],
+		"Machinegun": [{
+			"active": "PRE_ATTACK",
+			"type": "CHANGE_ENEMY_ANNOTATION"
+		}, {
+			"value": "HEAVY",
+			"type": "SET_HIT_STABLE"
+		}, {
+			"maxTime": 2,
+			"forceTime": false,
+			"distance": 120,
+			"throwing": true,
+			"planOnly": false,
+			"targetType": "ENEMY",
+			"type": "NAVIGATE_ESCAPE_TARGET"
+		}, {
+			"duration": -1,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "charge",
+				"name": "light"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"accel": 4,
+			"type": "SET_FLOAT_PARAMS"
+		}, {
+			"value": 8,
+			"type": "SET_FLY_HEIGHT"
+		}, {
+			"volume": 1,
+			"global": false,
+			"loop": false,
+			"type": "PLAY_SOUND",
+			"sound": "media/sound/battle/enemies/parrot/parrot-gun-windup.ogg"
+		}, {
+			"time": 1.2,
+			"type": "WAIT"
+		}, {
+			"type": "CLEAR_EFFECTS"
+		}, {
+			"value": 1.2,
+			"type": "SET_DAMAGE_FACTOR"
+		}, {
+			"duration": 0.5,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.transport",
+				"name": "machinegunShoot"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"active": "ATTACK",
+			"type": "CHANGE_ENEMY_ANNOTATION"
+		}, {
+			"align": "BOTTOM",
+			"centralAngle": 0.3,
+			"angleVary": 0,
+			"startDist": 24,
+			"startDistCollide": false,
+			"random": true,
+			"count": 8,
+			"duration": 0.5,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 1,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "waveBullet",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"value": 0.2,
+			"type": "FACE_TO_TARGET_SPEED"
+		}, {
+			"value": true,
+			"type": "FACE_TO_TARGET"
+		}, {
+			"value": true,
+			"type": "SET_FACE_FIX"
+		}, {
+			"value": 2,
+			"type": "SET_RELATIVE_SPEED"
+		}, {
+			"time": 0.05,
+			"stopBeforeEdge": false,
+			"type": "MOVE_BACKWARD"
+		}, {
+			"time": 0.5,
+			"type": "WAIT"
+		}],
+		"Missile": [{
+			"active": "PRE_ATTACK",
+			"type": "CHANGE_ENEMY_ANNOTATION"
+		}, {
+			"value": "HEAVY",
+			"type": "SET_HIT_STABLE"
+		}, {
+			"duration": -1,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.transport",
+				"name": "missileCharge"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 1,
+			"type": "WAIT"
+		}, {
+			"type": "CLEAR_EFFECTS"
+		}, {
+			"speed": 700,
+			"type": "ROTATE_TO_TARGET_PREDICT"
+		}, {
+			"active": "ATTACK",
+			"type": "CHANGE_ENEMY_ANNOTATION"
+		}, {
+			"align": "BOTTOM",
+			"centralAngle": 0,
+			"angleVary": 0,
+			"startDistCollide": "NONE",
+			"random": false,
+			"count": 1,
+			"duration": 0.2,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "missile",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"volume": 0.5,
+			"variance": 0.1,
+			"global": false,
+			"loop": false,
+			"speed": 2,
+			"sound": "media/sound/battle/missile-fly.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"time": 0.1,
+			"type": "WAIT"
+		}, {
+			"type": "ENABLE_REACTION",
+			"reaction": "MELEE_WEAK"
+		}, {
+			"duration": 3.5,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "charge",
+				"name": "light"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 3.5,
+			"type": "WAIT"
+		}],
+		"MagnetTrain": [{
+			"type": "CLEAR_EFFECTS"
+		}, {
+			"duration": -1,
+			"align": "CENTER",
+			"rotateFace": -1,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"group": "trail",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.jungle",
+				"name": "ghostBall"
+			}
+		}, {
+			"time": 0.7,
+			"type": "WAIT"
+		}, {
+			"sticking": false,
+			"group": "magnet",
+			"type": "REMOVE_PROXIES"
+		}, {
+			"value": 64,
+			"type": "SET_FLY_HEIGHT"
+		}, {
+			"varName": "tmp.trainPos",
+			"moveType": "Y",
+			"maxTime": 1.4,
+			"precise": true,
+			"forceTime": false,
+			"type": "MOVE_TO_VAR_POINT"
+		}, {
+			"align": "CENTER",
+			"type": "SHOOT_PROXY",
+			"proxy": "shockAura",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 7.5,
+			"type": "WAIT"
+		}, {
+			"group": "trail",
+			"type": "CLEAR_EFFECTS"
+		}, {
+			"sticking": false,
+			"group": "magnet",
+			"type": "REMOVE_PROXIES"
+		}, {
+			"time": 0.1,
+			"type": "WAIT"
+		}],
+		"MoveToSpawnPoint": [{
+			"value": 0.5,
+			"type": "SET_RELATIVE_SPEED"
+		}, {
+			"maxTime": 3,
+			"maxDistance": 16,
+			"precise": false,
+			"type": "NAVIGATE_TO_SPAWN_POINT"
+		}],
+		"MoveRandom": [{
+			"value": 0.3,
+			"type": "SET_RELATIVE_SPEED"
+		}, {
+			"value": false,
+			"type": "SET_JUMPING"
+		}, {
+			"minTime": 0.3,
+			"maxTime": 0.5,
+			"dirChanges": 0,
+			"type": "MOVE_RANDOM",
+			"stopBeforeEdge": true
+		}, {
+			"minTime": 0.5,
+			"maxTime": 0.6,
+			"type": "WAIT_RANDOM"
+		}]
+	},
+	"reactions": {
+		"MAGNET_TRAIN": {
+			"action": "MagnetTrain",
+			"checkDistanceBefore": 300,
+			"checkDistanceAfter": 2500,
+			"checkDistanceY": 256,
+			"condition": "tmp.trainComing",
+			"type": "TRAIN_COMING"
+		},
+		"MELEE_WEAK": {
+			"preSwitchState": "WEAK",
+			"blockFurtherHits": false,
+			"attackType": "MASSIVE",
+			"flyLevel": "MASSIVE+",
+			"stunChange": "FORCE_STUN",
+			"alignFace": false,
+			"dramaticEffect": "BREAK",
+			"conditions": [{
+				"type": "!IS_BALL"
+			}, {
+				"negated": false,
+				"type": "TRACKER_READY",
+				"name": "meleeHits"
+			}],
+			"type": "HIT_REACTION"
+		}
+	},
+	"meta": {}
+}

@@ -209,6 +209,126 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
 				}
 			} else ig.log("SET_VAR_ENTITY_STAT: Variable Name is not a String!")
 		}
+	});
+	ig.ACTION_STEP.SET_ATTRIB_ENTITY_STAT = ig.EventStepBase.extend({
+		varName: null,
+		stat: null,
+		entity: null,
+		_wm: new ig.Config({
+			attributes: {
+				attribName: {
+					_type: "String",
+					_info: "Name of Var"
+				},
+				entity: {
+					_type: "Entity",
+					_info: "Entity of which to fetch stat",
+					_optional: true
+				},
+				stat: {
+					_type: "String",
+					_info: "Type of Stat",
+					_select: b
+				},
+				changeConnected: {
+					_type: "String",
+					_info: "Change attribute to an entity connected to this one",
+					_select: ig.ACTOR_ATTRIB_CONNECTION,
+					_optional: true
+				}
+			}
+		}),
+		init: function(a) {
+			this.attribName = a.attribName;
+			this.entity = a.entity || a;
+			this.stat = b[a.stat] || b.RELATIVE_HP;
+			if(a.changeConnected) this.changeConnected = ig.ACTOR_ATTRIB_CONNECTION[a.changeConnected]
+		},
+		start: function(a, d) {
+			var a =
+				this.changeConnected && this.changeConnected(a) || a,
+				c = a.getAttribute(this.attribName);
+			if(c) {
+				var e = ig.Event.getEntity(this.entity, d)
+				if(e) {
+					var f;
+					this.stat == b.BOTTOM_POS ? f = e.getAlignedPos(ig.ENTITY_ALIGN.BOTTOM) : this.stat == b.JUMPING ? f = e.jumping || false : this.stat == b.SIZE ? f = ig.copy(e.coll.size) : this.stat == b.VELOCITY && (f = ig.copy(e.coll.vel));
+					a.setAttribute(this.attribName, f)
+				}
+			} else ig.log("SET_VAR_ENTITY_STAT: Variable Name is not a String!")
+		}
+	});
+	var d = Vec2.create();
+	ig.ACTION_STEP.MOVE_TO_VAR_POINT = ig.ActionStepBase.extend({
+		target: Vec3.create(),
+		precise: false,
+		_wm: new ig.Config({
+			attributes: {
+				varName: {
+					_type: "VarName",
+					_info: "Variable to move",
+					_withActor: true
+				},
+				moveType: {
+					_type: "String",
+					_info: "Type of move",
+					_select: {
+						X: 1,
+						Y: 1,
+						XY: 1
+					}
+				},
+				precise: {
+					_type: "Boolean",
+					_info: "Reach the target precisely, slowing down accordingly"
+				},
+				maxTime: {
+					_type: "Number",
+					_info: "If defined: move at most this amount of seconds towards point",
+					_optional: true
+				},
+				forceTime: {
+					_type: "Boolean",
+					_info: "If true: wait at point until maxTime has been reached"
+				}
+			}
+		}),
+		init: function(a) {
+			this.varName = a.varName;
+			this.moveType = a.moveType;
+			this.precise = a.precise || false;
+			this.maxTime = a.maxTime || 0;
+			this.forceTime = a.forceTime || false
+		},
+		start: function(a) {
+			this.atp = ig.vars.get(ig.Action.getVarName(this.varName, a));
+			switch(this.moveType){
+				case "X":
+					Vec3.assignC(this.atp, this.atp.x, a.coll.pos.y, this.atp.z);
+					break;
+				case "Y":
+					Vec3.assignC(this.atp, a.coll.pos.x, this.atp.y, this.atp.z);
+					break;
+			}
+			if(this.precise) a.stepData.startRelativeVel =
+				a.coll.relativeVel;
+			a.stepTimer = a.stepTimer + this.maxTime
+		},
+		run: function(a) {
+			var b = ig.Action.getVec3(this.atp, a, d);
+			if(b) {
+				b = Vec2.sub(b, a.getCenter());
+				Vec2.assign(a.coll.accelDir, b);
+				b = Vec2.length(b);
+				if(this.precise && a.coll.maxVel * a.coll.relativeVel > b * 10) a.coll.relativeVel = b / a.coll.maxVel * 10;
+				var c = false;
+				if(b < (this.precise ? 2 : 8)) this.forceTime && this.maxTime ? Vec2.assignC(a.coll.accelDir, 0, 0) : c = true;
+				this.maxTime && a.stepTimer <= 0 && (c = true);
+				if(c && this.precise) a.coll.relativeVel = a.stepData.startRelativeVel;
+				return c
+			}
+			return true
+		}
 	})
 });
 ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("impact.feature.base.action-steps").defines(function() {

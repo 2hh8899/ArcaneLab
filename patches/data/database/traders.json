@@ -1,0 +1,76 @@
+{
+	"arcaneMaterial": {
+		"name": {
+			"en_US": "Arcane Material",
+			"ko_KR": "아케인 머티리얼"
+		},
+		"order": 25890,
+		"options": [{
+			"get": [{
+				"id": "trade-arcanelab-lumium",
+				"amount": 1
+			}],
+			"require": [{
+				"id": "191",
+				"amount": 5
+			}, {
+				"id": "192",
+				"amount": 3
+			}, {
+				"id": "499",
+				"amount": 2
+			}],
+			"scale": 1,
+			"cost": 10000
+		}, {
+			"get": [{
+				"id": "trade-arcanelab-tesseract",
+				"amount": 1
+			}],
+			"require": [{
+				"id": "trade-arcanelab-lumium",
+				"amount": 2
+			}, {
+				"id": "192",
+				"amount": 1
+			}],
+			"scale": 1,
+			"cost": 10000
+		}, {
+			"get": [{
+				"id": "428",
+				"amount": 1
+			}],
+			"require": [{
+				"id": "trade-arcanelab-lumium",
+				"amount": 3
+			}],
+			"scale": 1,
+			"cost": 15000
+		}],
+		"area": "guildac"
+	},
+	"arcanePets": {
+		"name": {
+			"en_US": "Arcane Pets",
+			"ko_KR": "아케인 펫"
+		},
+		"order": 25891,
+		"options": [{
+			"get": [{
+				"id": "toggle-arcanelab-sera",
+				"amount": 1
+			}],
+			"require": [{
+				"id": "trade-arcanelab-lumium",
+				"amount": 5
+			}, {
+				"id": "trade-arcanelab-ice-needles",
+				"amount": 20
+			}],
+			"scale": 1,
+			"cost": 10000
+		}],
+		"area": "guildac"
+	}
+}

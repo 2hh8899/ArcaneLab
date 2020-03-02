@@ -2,9 +2,10 @@
 	"name": "\\c[1]Arcane \\c[3]Lab\\c[0]",
 	"description" : "Adds new \\c[3]areas, bosses, classes, and more! \\c[0]",
 	"prestart": "prestart.js",
-	"version": "0.1.3",
+	"version": "0.1.4",
     "module": true,
 	"ccmodDependencies": {
+		"item-api": "^0.*",
 		"extendable-severed-heads": "^1.0.0",
 		"hardcoded-config-injector": "^0.1.0"
 	}

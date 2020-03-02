@@ -30,4 +30,50 @@
 	"src": "mod:patches/data/database/commonEvents.json"
 }, {
 	"type": "EXIT"
+}, {
+	"type": "ENTER",
+	"index": "shops"
+}, {
+	"type": "IMPORT",
+	"src": "mod:patches/data/database/shops.json"
+}, {
+	"type": "EXIT"
+}, {
+	"type": "ENTER",
+	"index": "traders"
+}, {
+	"type": "IMPORT",
+	"src": "mod:patches/data/database/traders.json"
+}, {
+	"type": "EXIT"
+}, {
+	"type": "ENTER",
+	"index": ["toggle-sets", "booster", "items"]
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": "toggle-arcanelab-booster"
+}, {
+	"type": "EXIT",
+	"count": 2
+}, {
+	"type": "ENTER",
+	"index": ["pet", "items"]
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": "toggle-arcanelab-sera"
+}, {
+	"type": "EXIT",
+	"count": 3
+}, {
+	"type": "INIT_KEY",
+	"index": "playerSkins",
+	"content": {}
+}, {
+	"type": "ENTER",
+	"index": "playerSkins"
+}, {
+	"type": "IMPORT",
+	"src": "mod:patches/data/database/playerSkins.json"
+}, {
+	"type": "EXIT"
 }]

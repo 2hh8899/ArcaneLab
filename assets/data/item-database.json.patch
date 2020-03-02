@@ -1,0 +1,201 @@
+[{
+	"type": "ENTER",
+	"index": "items"
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589000,
+		"customItem": "trade-arcanelab-lumium",
+		"name": {
+			"en_US": "Lumium",
+			"ko_KR": "루미늄",
+			"langUid": 1
+		},
+		"description": {
+			"en_US": "A rare luminous metal only found when fighting strong adversaries.",
+			"ko_KR": "강력한 적을 상대했을 때만 얻을 수 있는 희귀한 빛나는 금속입니다.",
+			"langUid": 1
+		},
+		"type": "TRADE",
+		"rarity": 3,
+		"cost": 1500,
+		"level": 1,
+		"icon": "item-trade",
+		"effect": {
+			"sheet": "",
+			"name": null
+		},
+		"noTrack": false,
+		"sources": [{
+			"type": "OTHER",
+			"value": {
+				"icon": "ENEMY",
+				"text": {
+					"en_US": "Boosted Enemies in \\c[3]\\v[area.guildac.name]\\c[0]",
+					"ko_KR": "\\c[3]\\v[area.guildac.name]\\c[0]에 있는 강화된 적",
+					"langUid": 1
+				},
+				"type": "ENEMY",
+				"value": "hedgehog"
+			}
+		}]
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589001,
+		"customItem": "trade-arcanelab-tesseract",
+		"name": {
+			"en_US": "Tesseract",
+			"ko_KR": "테서랙트",
+			"langUid": 1
+		},
+		"description": {
+			"en_US": "Ultimate hypercube. The method of making is unknown.",
+			"ko_KR": "궁극의 초입방체입니다. 제작법이 알려져 있지 않습니다.",
+			"langUid": 1
+		},
+		"type": "TRADE",
+		"rarity": 3,
+		"cost": 10000,
+		"level": 1,
+		"icon": "item-trade",
+		"effect": {
+			"sheet": "",
+			"name": null
+		},
+		"noTrack": false,
+		"sources": [{
+			"type": "OTHER",
+			"value": {
+				"icon": "TRADER",
+				"text": {
+					"en_US": "\\c[3]Traders\\c[0] in \\v[area.guildac.name]",
+					"ko_KR": "\\v[area.guildac.name]의 \\c[3]상인\\c[0]",
+					"langUid": 1
+				},
+				"type": "TRADER",
+				"value": "rookieSets"
+			}
+		}]
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589002,
+		"customItem": "trade-arcanelab-ice-needles",
+		"name": {
+			"en_US": "Ice Needles",
+			"ko_KR": "얼음 바늘",
+			"langUid": 1
+		},
+		"description": {
+			"en_US": "Unique blue ice that grows like a needle. It's sharp enough to penetrate the iron plate.",
+			"ko_KR": "바늘처럼 자라나는 특별한 푸른 얼음입니다. 철판도 관통할 만큼 충분히 뾰족합니다.",
+			"langUid": 1
+		},
+		"type": "TRADE",
+		"rarity": 1,
+		"cost": 100,
+		"level": 1,
+		"icon": "item-trade",
+		"effect": {
+			"sheet": "",
+			"name": null
+		},
+		"noTrack": false,
+		"sources": [{
+			"type": "ENEMY",
+			"value": "transport.frosthog"
+		}, {
+			"type": "ENEMY",
+			"value": "transport.glacehog"
+		}]
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589003,
+		"customItem": "trade-arcanelab-broken-motor",
+		"name": {
+			"en_US": "Broken Motor",
+			"ko_KR": "부서진 모터",
+			"langUid": 1
+		},
+		"description": {
+			"en_US": "Mechanical device that was used to spin rotary wings or a turret.",
+			"ko_KR": "회전익이나 포탑 따위를 돌리는 데 사용되던 기계장치입니다.",
+			"langUid": 1
+		},
+		"type": "TRADE",
+		"rarity": 1,
+		"cost": 150,
+		"level": 1,
+		"icon": "item-trade",
+		"effect": {
+			"sheet": "",
+			"name": null
+		},
+		"noTrack": false,
+		"sources": [{
+			"type": "ENEMY",
+			"value": "transport.transport-drone"
+		}]
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589100,
+		"customItem": "toggle-arcanelab-booster",
+		"name": {
+			"en_US": "Arcane Booster",
+			"ko_KR": "아케인 부스터"
+		},
+		"description": {
+			"en_US": "Increases the levels of enemies in \\c[3]\\v[area.guildac.name]\\c[0] and unlocks new loot drops.",
+			"ko_KR": "\\c[3]\\v[area.guildac.name]\\c[0]에 있는 적의 레벨을 올리고 새로운 전리품 아이템을 해제합니다."
+		},
+		"type": "TOGGLE",
+		"rarity": 0,
+		"cost": 1000,
+		"level": 1,
+		"icon": "item-toggle",
+		"noTrack": false,
+		"effect": {
+			"sheet": "",
+			"name": null
+		}
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589200,
+		"customItem": "toggle-arcanelab-sera",
+		"name": {
+			"en_US": "Sera",
+			"ko_KR": "세라"
+		},
+		"description": {
+			"en_US": "Blue fox! It's as cute as a regular fox.",
+			"ko_KR": "파란 여우입니다! 일반 여우만큼 귀엽습니다."
+		},
+		"type": "TOGGLE",
+		"rarity": 0,
+		"cost": 1000,
+		"level": 1,
+		"icon": "item-toggle",
+		"noTrack": false,
+		"effect": {
+			"sheet": "drops",
+			"name": "circle"
+		}
+	}
+}, {
+	"type": "EXIT"
+}]

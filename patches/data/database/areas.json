@@ -11,11 +11,12 @@
 		},
 		"areaType": "TOWN",
 		"order": 1000,
-		"track": false,
+		"track": true,
 		"chests": 0,
+		"boosterItem": "toggle-arcanelab-booster",
 		"position": {
-			"x": 249,
-			"y": 163
+			"x": 254,
+			"y": 168
 		},
 		"landmarks": {
 			"teleporter": {

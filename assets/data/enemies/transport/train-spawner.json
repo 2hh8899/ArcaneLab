@@ -1,5 +1,5 @@
 {
-	"level": 60,
+	"level": 99,
 	"params": {
 		"hp": 80,
 		"attack": 380,
@@ -59,7 +59,6 @@
 	"trackers": null,
 	"states": {
 		"ON": {
-			"walkAnims": "on",
 			"damageFactor": 0,
 			"faceToTarget": false,
 			"choices": [{
@@ -68,6 +67,44 @@
 		}
 	},
 	"proxies": {
+		"trainVar": {
+			"animation": {},
+			"copyOwnerAnims": false,
+			"breakType": "COMBATANT",
+			"action": [{
+				"name": "actionLoop",
+				"type": "LABEL"
+			}, {
+				"time": 0.02,
+				"stopBeforeEdge": false,
+				"type": "MOVE_FORWARD"
+			}, {
+				"stat": "BOTTOM_POS",
+				"type": "SET_VAR_ENTITY_STAT",
+				"varName": "tmp.trainPos"
+			}, {
+				"name": "actionLoop",
+				"type": "GOTO_LABEL"
+			}],
+			"invisible": false,
+			"hp": 0,
+			"stickToSource": "NONE",
+			"stickFaceAlign": false,
+			"group": "VAR",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 16
+			},
+			"type": "GENERIC",
+			"config": {
+				"collType": "PROJECTILE",
+				"airFriction": 1,
+				"maxVel": 600,
+				"zGravityFactor": 0,
+				"bounciness": 0.0001
+			}
+		},
 		"trainFront": {
 			"size": {
 				"x": 224,
@@ -103,11 +140,13 @@
 			"attack": {
 				"type": "MASSIVE",
 				"element": "NEUTRAL",
-				"damageFactor": 4,
+				"damageFactor": 80,
+				"defenseFactor": -100,
+				"critFactor": 0,
 				"fly": "MASSIVE+++",
 				"reverse": false,
 				"hints": ["CHARGED"],
-				"guardable": "",
+				"guardable": "NEVER",
 				"skillBonus": "",
 				"hitInvincible": true,
 				"noIronStance": true,
@@ -155,7 +194,7 @@
 				"fly": "MASSIVE+",
 				"reverse": false,
 				"hints": ["CHARGED"],
-				"guardable": "",
+				"guardable": "NEVER",
 				"skillBonus": "",
 				"hitInvincible": true,
 				"noIronStance": true,
@@ -200,10 +239,11 @@
 				"type": "MASSIVE",
 				"element": "NEUTRAL",
 				"damageFactor": 2,
+				"defenseFactor": -2,
 				"fly": "MASSIVE++",
 				"reverse": false,
 				"hints": ["CHARGED"],
-				"guardable": "",
+				"guardable": "NEVER",
 				"skillBonus": "",
 				"hitInvincible": true,
 				"noIronStance": true,
@@ -248,10 +288,11 @@
 				"type": "MASSIVE",
 				"element": "NEUTRAL",
 				"damageFactor": 2,
+				"defenseFactor": -2,
 				"fly": "MASSIVE++",
 				"reverse": false,
 				"hints": ["CHARGED"],
-				"guardable": "",
+				"guardable": "NEVER",
 				"skillBonus": "",
 				"hitInvincible": true,
 				"noIronStance": true,
@@ -296,10 +337,11 @@
 				"type": "MASSIVE",
 				"element": "NEUTRAL",
 				"damageFactor": 2,
+				"defenseFactor": -2,
 				"fly": "MASSIVE++",
 				"reverse": false,
 				"hints": ["CHARGED"],
-				"guardable": "",
+				"guardable": "NEVER",
 				"skillBonus": "",
 				"hitInvincible": true,
 				"noIronStance": true,
@@ -311,6 +353,10 @@
 	},
 	"actions": {
 		"ThomasIsComing": [{
+			"stat": "BOTTOM_POS",
+			"type": "SET_VAR_ENTITY_STAT",
+			"varName": "tmp.trainSpawnerPos"
+		}, {
 			"minWait": 0,
 			"type": "STOP_Z_ZENITH"
 		}, {
@@ -323,7 +369,23 @@
 			"value": true
 		}, {
 			"type": "WAIT",
-			"time": 4
+			"time": 2
+		}, {
+			"sticking": false,
+			"group": "VAR",
+			"type": "REMOVE_PROXIES"
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "trainVar",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"type": "WAIT",
+			"time": 2
 		}, {
 			"zoomType": "LIGHT",
 			"fadeIn": 1,
@@ -346,6 +408,13 @@
 			"changeType": "set",
 			"type": "SET_ATTRIB_NUMBER",
 			"value": 20
+		}, {
+			"type": "ADJUST_ENTITY_POS",
+			"offset": {
+				"x": -320,
+				"y": 0,
+				"z": 0
+			}
 		}, {
 			"align": "BOTTOM",
 			"type": "SHOOT_PROXY",
@@ -454,7 +523,7 @@
 		}, {
 			"type": "ADJUST_ENTITY_POS",
 			"offset": {
-				"x": 2520,
+				"x": 2840,
 				"y": 0,
 				"z": 0
 			}

@@ -1,47 +1,47 @@
 {
-	"DOCTYPE": "MULTI_DIR_ANIMATION",
-	"namedSheets": {
-		"fishing": {
-			"src": "media/entity/player/fishing.png",
-			"offX": 0,
-			"offY": 0,
-			"width": 32,
-			"height": 44
-		}
-	},
-	"shapeType": "Y_FLAT",
-	"dirs": 1,
-	"tileOffsets": [0],
-	"SUB": [{
-		"name": "idle",
-		"time": 1,
-		"repeat": true,
-		"anchorOffsetX": [0],
-		"anchorOffsetY": [12],
-		"anchorOffsetZ": [12],
-		"frames": [0]
-	}, {
-		"name": "struggle",
-		"time": 0.03,
-		"repeat": true,
-		"anchorOffsetX": [-6],
-		"anchorOffsetY": [1],
-		"anchorOffsetZ": [30],
-		"frames": [1, 1],
-		"framesGfxOffset": [1, 0, 0, 0]
-	}, {
-		"name": "pull",
-		"time": 1,
-		"repeat": true,
-		"anchorOffsetX": [-15],
-		"anchorOffsetY": [-9],
-		"anchorOffsetZ": [30],
-		"frames": [2]
-	}],
-	"offset": {
-		"x": 0,
-		"y": 2,
-		"z": 0
-	},
-	"sheet": "fishing"
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "fishing": {
+            "src": "media/entity/player/fishing.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 32,
+            "height": 44
+        }
+    },
+    "shapeType": "Y_FLAT",
+    "dirs": 1,
+    "tileOffsets": [0],
+    "SUB": [{
+        "name": "idle",
+        "time": 1,
+        "repeat": true,
+        "anchorOffsetX": [0],
+        "anchorOffsetY": [12],
+        "anchorOffsetZ": [12],
+        "frames": [0]
+    }, {
+        "name": "struggle",
+        "time": 0.03,
+        "repeat": true,
+        "anchorOffsetX": [-6],
+        "anchorOffsetY": [1],
+        "anchorOffsetZ": [30],
+        "frames": [1, 1],
+        "framesGfxOffset": [1, 0, 0, 0]
+    }, {
+        "name": "pull",
+        "time": 1,
+        "repeat": true,
+        "anchorOffsetX": [-15],
+        "anchorOffsetY": [-9],
+        "anchorOffsetZ": [30],
+        "frames": [2]
+    }],
+    "offset": {
+        "x": 0,
+        "y": 2,
+        "z": 0
+    },
+    "sheet": "fishing"
 }

@@ -1,1 +1,1157 @@
-{"name":"guildac/fish/river","levels":[{"height":-16},{"height":0}],"mapWidth":36,"mapHeight":30,"masterLevel":1,"attributes":{"saveMode":"ENABLED","map-sounds":"LIGHT_WIND","bgm":"autumn","cameraInBounds":true,"mapStyle":"","weather":"AUTUMN","area":"guildac","npcRunners":"REGULAR"},"screen":{"x":547,"y":-33},"entities":[{"type":"Prop","x":548,"y":113,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"stone1"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":51,"y":-10,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree1"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":4,"y":72,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree3"},"propAnim":"","spawnCondition":"","condAnims":[]}},{"type":"Prop","x":555,"y":89,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree2"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":494,"y":28,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant1"},"propAnim":"","spawnCondition":"","condAnims":[]}},{"type":"Prop","x":506,"y":16,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant4"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":510,"y":36,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant2"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":8,"y":50,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"stone1"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":535,"y":126,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree1"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":439,"y":-8,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree3"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":487,"y":-8,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree4"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":17,"y":26,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree5"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":256,"y":-10,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree5"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":371,"y":-10,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree1"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":47,"y":21,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant1"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":59,"y":33,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant2"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":75,"y":37,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant2"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":451,"y":101,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant4"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":467,"y":85,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant1"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":471,"y":105,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant1"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":479,"y":97,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant3"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":479,"y":121,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant2"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":495,"y":101,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant2"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":16,"y":141,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree2"},"propAnim":"","spawnCondition":null,"condAnims":[]}},{"type":"Prop","x":173,"y":-11,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree2"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":163,"y":118,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant1"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":155,"y":126,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant3"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":540,"y":41,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"tree4"},"propAnim":"","spawnCondition":"","condAnims":[]}},{"type":"Prop","x":68,"y":112,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant1"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":84,"y":100,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant3"},"propAnim":null,"spawnCondition":null}},{"type":"Prop","x":80,"y":124,"level":1,"settings":{"name":"","propType":{"sheet":"autumn","name":"plant2"},"propAnim":null,"spawnCondition":null}},{"type":"TeleportField","x":288,"y":96,"level":1,"settings":{"name":"teleporter","central":{"global":true,"name":""},"dir":"SOUTH","map":"guildac.center","teleportLabel":{"en_US":"Arcane Lab","ko_KR":"아케인 랩"},"longTelCond":"false","gfxType":"AR","marker":"teleporter","blockEventCondition":"","spawnCondition":"!map.fishing","size":{"x":16,"y":16}}},{"type":"Prop","x":334,"y":142,"level":1,"settings":{"propType":{"sheet":"autumn","name":"plant2"},"propAnim":"","spawnCondition":"","condAnims":[]}},{"type":"Prop","x":346,"y":130,"level":1,"settings":{"propType":{"sheet":"autumn","name":"plant1"},"propAnim":"","condAnims":[],"spawnCondition":""}},{"type":"Prop","x":358,"y":142,"level":1,"settings":{"propType":{"sheet":"autumn","name":"plant2"},"propAnim":"","condAnims":[],"spawnCondition":""}},{"type":"Prop","x":370,"y":122,"level":1,"settings":{"propType":{"sheet":"autumn","name":"plant2"},"propAnim":"","spawnCondition":"","condAnims":[]}},{"type":"Prop","x":390,"y":134,"level":1,"settings":{"propType":{"sheet":"autumn","name":"plant3"},"propAnim":"","condAnims":[],"spawnCondition":""}},{"type":"Marker","x":48,"y":176,"level":0,"settings":{"name":"fishSpotMarker","dir":"SOUTH","size":{"x":16,"y":16}}},{"type":"EventTrigger","x":55,"y":164,"level":1,"settings":{"name":"fistEffectTrack","eventType":"INTERRUPTABLE","startCondition":"tmp.startEffect","endCondition":"!tmp.startEffect","triggerType":"REPEAT","event":[{"entity":{"global":true,"name":"fishSpotMarker"},"duration":0,"group":"fishBubbles","align":"BOTTOM","wait":true,"waitSkip":0,"type":"SHOW_EFFECT","effect":{"sheet":"fishing.fishing","name":"bubble"},"offset":{"x":0,"y":0,"z":0}}]}},{"type":"EventTrigger","x":51,"y":164,"level":1,"settings":{"name":"fistSpotMove","eventType":"INTERRUPTABLE","endCondition":"tmp.catchingFish","event":[{"type":"WAIT_RANDOM","minTime":1,"maxTime":4},{"entity":{"global":true,"name":"fishSpotMarker"},"position":{"x":48,"y":176,"lvl":"0"},"type":"SET_ENTITY_POS"},{"varName":"tmp.randomPosMove","min":0,"max":60,"type":"SET_RANDOM_VAR_NUMBER"},{"name":"actionLoopX","type":"LABEL"},{"withElse":true,"type":"IF","condition":"tmp.randomPosMove > 0","thenStep":[{"entity":{"global":true,"name":"fishSpotMarker"},"offset":{"x":8,"y":0,"z":0},"type":"ADJUST_ENTITY_POS"},{"varName":"tmp.randomPosMove","changeType":"sub","value":1,"type":"CHANGE_VAR_NUMBER"},{"name":"actionLoopX","type":"GOTO_LABEL"}]},{"varName":"tmp.randomPosMove","min":0,"max":14,"type":"SET_RANDOM_VAR_NUMBER"},{"name":"actionLoopY","type":"LABEL"},{"withElse":true,"type":"IF","condition":"tmp.randomPosMove > 0","thenStep":[{"entity":{"global":true,"name":"fishSpotMarker"},"offset":{"x":0,"y":8,"z":0},"type":"ADJUST_ENTITY_POS"},{"varName":"tmp.randomPosMove","changeType":"sub","value":1,"type":"CHANGE_VAR_NUMBER"},{"name":"actionLoopY","type":"GOTO_LABEL"}]},{"entity":{"global":true,"name":"fishSpotMarker"},"stat":"BOTTOM_POS","type":"SET_VAR_ENTITY_STAT","varName":"tmp.bubblePos"},{"type":"CHANGE_VAR_BOOL","varName":"tmp.startEffect","changeType":"set","value":true},{"type":"WAIT","time":10},{"type":"CHANGE_VAR_BOOL","varName":"tmp.startEffect","changeType":"set","value":false},{"type":"CHANGE_VAR_NUMBER","varName":"tmp.bubblePos","changeType":"set","value":0}],"triggerType":"REPEAT","startCondition":"!tmp.catchingFish"}},{"type":"Prop","x":288,"y":80,"level":{"level":1,"offset":8},"settings":{"name":"fishConsole","interact":{"icon":"INFO","hoverText":{"en_US":"Fishing gear rental service","ko_KR":"낚시도구 대여 서비스"},"event":[{"side":"RIGHT","order":0,"clearSide":false,"type":"ADD_MSG_PERSON","person":{"person":"main.lea","expression":"DEFAULT"}},{"0":[{"name":"LeaFish","type":"SWITCH_PLAYER_CONFIG"},{"type":"CHANGE_VAR_BOOL","varName":"map.fishing","changeType":"set","value":true},{"core":"CLOSE_COMBAT","value":false,"type":"SET_PLAYER_CORE"},{"core":"GUARD","value":false,"type":"SET_PLAYER_CORE"},{"core":"DASH","value":false,"type":"SET_PLAYER_CORE"},{"core":"QUICK_MENU","value":false,"type":"SET_PLAYER_CORE"},{"core":"MODIFIER","value":false,"type":"SET_PLAYER_CORE"},{"core":"CHARGE","value":false,"type":"SET_PLAYER_CORE"},{"core":"MENU","value":false,"type":"SET_PLAYER_CORE"},{"value":"SAVE","type":"SET_MOBILITY_BLOCK"}],"1":[{"name":"Lea","type":"SWITCH_PLAYER_CONFIG"},{"type":"CHANGE_VAR_BOOL","varName":"map.fishing","changeType":"set","value":false},{"core":"CLOSE_COMBAT","value":true,"type":"SET_PLAYER_CORE"},{"core":"GUARD","value":true,"type":"SET_PLAYER_CORE"},{"core":"DASH","value":true,"type":"SET_PLAYER_CORE"},{"core":"QUICK_MENU","value":true,"type":"SET_PLAYER_CORE"},{"core":"MODIFIER","value":true,"type":"SET_PLAYER_CORE"},{"core":"CHARGE","value":true,"type":"SET_PLAYER_CORE"},{"core":"MENU","value":true,"type":"SET_PLAYER_CORE"},{"value":"NONE","type":"SET_MOBILITY_BLOCK"}],"2":[],"type":"SHOW_CHOICE","person":{"person":"main.lea","expression":"DEFAULT"},"options":[{"0":" ","label":{"en_US":"Borrow a fishing rod","ko_KR":"낚싯대 받기"}},{"0":" ","label":{"en_US":"Return it","ko_KR":"반납하기"}},{"0":" ","label":{"en_US":"Cancel","ko_KR":"취소"}}]}]},"mapId":105,"propType":{"sheet":"trading-autumn","name":"signHuge"},"propAnim":"enemy","condAnims":[],"spawnCondition":"!map.fishingNow","hideCondition":""}}],"layer":[{"id":1,"type":"Background","name":"Water","level":0,"width":36,"height":30,"visible":1,"tilesetName":"media/map/autumn-outside.png","repeat":false,"distance":1,"tilesize":16,"moveSpeed":{"x":0,"y":0},"data":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[394,394,394,426,426,426,426,426,426,426,426,426,426,394,394,394,394,394,394,394,394,394,426,426,394,424,394,428,426,426,427,394,394,394,394,394],[362,361,361,361,362,361,361,361,362,361,362,361,362,361,362,361,361,362,362,361,362,361,362,362,361,362,362,361,362,361,361,361,361,362,361,361],[394,393,393,393,394,393,393,393,394,393,394,393,394,393,394,393,393,394,394,393,394,393,394,394,393,394,394,393,394,393,393,393,393,394,393,393],[394,394,394,427,426,426,426,394,394,394,426,426,426,426,394,394,394,394,394,394,394,394,426,426,394,394,394,394,426,426,426,394,394,394,424,394],[394,394,394,394,427,426,426,427,394,394,426,425,426,426,394,394,424,394,394,394,394,394,394,426,427,394,394,428,426,426,426,394,394,394,394,394],[394,394,394,394,394,394,426,426,394,428,426,426,426,426,394,394,394,394,394,394,394,394,394,426,425,426,426,426,426,425,426,427,394,394,394,394],[394,394,394,394,394,394,426,426,394,426,426,426,426,394,394,394,394,394,394,394,394,394,394,427,426,426,426,426,426,426,426,426,394,394,394,394],[394,394,394,394,394,394,426,426,426,426,426,426,426,394,394,394,394,394,394,394,394,394,394,394,426,425,426,426,426,426,426,426,394,394,394,394],[394,424,394,394,394,394,426,426,426,426,426,426,394,394,394,394,428,427,394,394,394,394,394,394,426,426,426,394,426,426,425,426,427,394,394,394],[394,394,394,394,394,428,426,426,426,426,426,394,394,394,394,428,426,426,394,394,394,394,394,424,426,426,426,424,427,426,426,426,426,394,394,394],[394,394,394,394,428,425,426,426,426,426,394,394,424,394,394,426,425,426,394,394,394,394,394,394,426,426,428,394,394,394,427,426,426,394,394,394],[394,394,394,428,426,426,426,426,426,426,394,394,394,394,394,427,426,426,394,394,394,394,394,394,426,426,394,394,394,394,394,427,426,394,394,394],[394,394,394,426,426,426,426,426,426,426,427,394,394,394,394,394,394,428,394,394,394,424,394,394,426,426,427,394,394,394,394,394,426,427,394,394],[394,394,394,427,426,426,426,426,394,427,426,427,394,394,394,394,394,394,394,394,394,394,394,394,427,426,426,394,394,394,394,394,427,426,394,394],[394,394,394,394,427,426,426,426,394,394,426,426,394,394,394,394,394,394,394,394,394,394,394,394,394,426,426,427,394,394,394,394,394,426,427,394],[394,394,394,394,394,427,426,426,426,426,426,426,394,394,427,394,394,394,394,428,427,394,394,394,394,426,426,426,394,394,394,394,426,426,426,394],[394,394,394,394,428,426,426,426,426,426,426,426,426,426,426,394,394,394,428,426,426,426,427,394,394,427,425,426,426,394,394,394,426,425,426,394],[394,394,394,426,426,426,426,426,425,426,426,426,426,426,426,426,394,428,426,426,394,426,426,427,394,394,425,425,426,427,394,394,426,426,426,394],[394,394,428,426,426,426,426,426,426,426,426,426,426,425,426,426,426,426,426,426,426,426,426,426,426,426,426,426,426,428,394,394,394,394,426,394],[394,428,426,428,394,394,394,394,427,426,426,426,426,426,426,426,426,426,425,426,426,426,426,426,426,426,394,427,428,394,394,424,394,394,394,394],[428,426,428,394,394,394,394,394,394,427,426,426,426,426,426,426,426,426,426,426,426,394,394,394,394,428,394,424,394,394,394,394,394,394,394,428]]},{"id":5,"type":"Collision","name":"WaterColl","level":0,"width":36,"height":30,"visible":1,"tilesetName":"media/map/collisiontiles-16x16.png","repeat":false,"distance":1,"tilesize":16,"moveSpeed":{"x":0,"y":0},"data":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"id":0,"type":"Background","name":"Ground","level":1,"width":36,"height":30,"visible":1,"tilesetName":"media/map/autumn-outside.png","repeat":false,"distance":1,"tilesize":16,"moveSpeed":{"x":0,"y":0},"data":[[1,1,75,66,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,70,43,36,76,1,1],[1,1,1,75,77,66,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,35,36,72,1,1,1],[1,1,1,1,1,75,73,77,66,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,67,77,72,1,1,1,1],[1,1,1,1,1,1,1,1,75,66,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,67,73,77,72,1,1,1,1,1,1],[1,1,1,1,5,1,1,1,43,36,73,77,66,33,67,66,33,33,33,67,77,73,66,33,33,67,76,1,1,1,1,1,1,1,1,1],[1,1,1,1,5,7,1,1,75,72,1,1,71,73,72,75,77,77,73,72,1,1,71,77,73,72,1,1,1,1,1,1,4,9,1,1],[1,4,3,3,4,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,9],[4,4,8,4,1,1,1,1,1,9,1,1,1,1,1,1,1,65,3,3,1,1,1,1,1,1,1,1,1,1,1,1,5,3,3,3],[4,8,1,1,1,1,9,9,5,2,4,1,1,1,1,1,1,1,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,8,6,3],[259,259,260,260,259,259,260,259,259,259,259,260,259,260,259,260,259,259,259,260,259,260,259,260,259,259,260,259,260,260,259,260,260,259,259,260],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"id":6,"type":"Background","name":"GroundTop","level":1,"width":36,"height":30,"visible":1,"tilesetName":"media/map/autumn-outside.png","repeat":false,"distance":1,"tilesize":16,"moveSpeed":{"x":0,"y":0},"data":[[0,0,236,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,235,0,0],[0,0,169,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,167,0,0],[0,0,169,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,167,0,0],[242,0,169,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,167,0,0],[274,14,169,0,211,212,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,167,0,0],[0,12,169,13,243,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,178,167,0,0],[0,0,169,12,14,177,0,0,0,0,0,0,0,0,0,0,0,0,179,180,0,0,0,0,0,0,0,0,0,0,0,0,179,167,0,0],[0,0,169,0,0,0,0,0,180,0,0,0,0,0,0,0,0,0,211,212,0,0,0,0,0,0,0,0,0,0,0,0,18,167,0,180],[0,0,169,0,0,0,0,209,0,0,0,0,0,0,0,0,0,0,177,0,0,0,0,0,0,0,0,0,0,0,0,0,0,167,14,180],[0,0,169,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,167,15,0],[0,0,176,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,208,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"id":2,"type":"Collision","name":"Coll","level":1,"width":36,"height":30,"visible":1,"tilesetName":"media/map/collisiontiles-16x16.png","repeat":false,"distance":1,"tilesize":16,"moveSpeed":{"x":0,"y":0},"data":[[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],[2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2],[2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2],[2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2],[2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2],[2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2],[2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2],[2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2],[2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2],[2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]]},{"id":12,"type":"Navigation","name":"Nav","level":1,"width":36,"height":30,"visible":1,"tilesetName":"media/map/pathmap-tiles.png","repeat":false,"distance":1,"tilesize":16,"moveSpeed":{"x":0,"y":0},"data":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]}]}
+{
+    "name": "guildac/fish/river",
+    "levels": [{
+        "height": -16
+    }, {
+        "height": 0
+    }],
+    "mapWidth": 36,
+    "mapHeight": 30,
+    "masterLevel": 1,
+    "attributes": {
+        "saveMode": "ENABLED",
+        "map-sounds": "LIGHT_WIND",
+        "bgm": "autumn",
+        "cameraInBounds": true,
+        "mapStyle": "",
+        "weather": "AUTUMN",
+        "area": "guildac",
+        "npcRunners": "REGULAR"
+    },
+    "screen": {
+        "x": 547,
+        "y": -33
+    },
+    "entities": [{
+        "type": "Prop",
+        "x": 548,
+        "y": 113,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "stone1"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 51,
+        "y": -10,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree1"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 4,
+        "y": 72,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree3"
+            },
+            "propAnim": "",
+            "spawnCondition": "",
+            "condAnims": []
+        }
+    }, {
+        "type": "Prop",
+        "x": 555,
+        "y": 89,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree2"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 494,
+        "y": 28,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant1"
+            },
+            "propAnim": "",
+            "spawnCondition": "",
+            "condAnims": []
+        }
+    }, {
+        "type": "Prop",
+        "x": 506,
+        "y": 16,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant4"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 510,
+        "y": 36,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant2"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 8,
+        "y": 50,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "stone1"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 535,
+        "y": 126,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree1"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 439,
+        "y": -8,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree3"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 487,
+        "y": -8,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree4"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 17,
+        "y": 26,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree5"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 256,
+        "y": -10,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree5"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 371,
+        "y": -10,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree1"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 47,
+        "y": 21,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant1"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 59,
+        "y": 33,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant2"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 75,
+        "y": 37,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant2"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 451,
+        "y": 101,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant4"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 467,
+        "y": 85,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant1"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 471,
+        "y": 105,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant1"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 479,
+        "y": 97,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant3"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 479,
+        "y": 121,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant2"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 495,
+        "y": 101,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant2"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 16,
+        "y": 141,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree2"
+            },
+            "propAnim": "",
+            "spawnCondition": null,
+            "condAnims": []
+        }
+    }, {
+        "type": "Prop",
+        "x": 173,
+        "y": -11,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree2"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 163,
+        "y": 118,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant1"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 155,
+        "y": 126,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant3"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 540,
+        "y": 41,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "tree4"
+            },
+            "propAnim": "",
+            "spawnCondition": "",
+            "condAnims": []
+        }
+    }, {
+        "type": "Prop",
+        "x": 68,
+        "y": 112,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant1"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 84,
+        "y": 100,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant3"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "Prop",
+        "x": 80,
+        "y": 124,
+        "level": 1,
+        "settings": {
+            "name": "",
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant2"
+            },
+            "propAnim": null,
+            "spawnCondition": null
+        }
+    }, {
+        "type": "TeleportField",
+        "x": 288,
+        "y": 96,
+        "level": 1,
+        "settings": {
+            "name": "teleporter",
+            "central": {
+                "global": true,
+                "name": ""
+            },
+            "dir": "SOUTH",
+            "map": "guildac.center",
+            "teleportLabel": {
+                "en_US": "Arcane Lab",
+                "ko_KR": "아케인 랩"
+            },
+            "longTelCond": "false",
+            "gfxType": "AR",
+            "marker": "teleporter",
+            "blockEventCondition": "",
+            "spawnCondition": "!map.fishing",
+            "size": {
+                "x": 16,
+                "y": 16
+            }
+        }
+    }, {
+        "type": "Prop",
+        "x": 334,
+        "y": 142,
+        "level": 1,
+        "settings": {
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant2"
+            },
+            "propAnim": "",
+            "spawnCondition": "",
+            "condAnims": []
+        }
+    }, {
+        "type": "Prop",
+        "x": 346,
+        "y": 130,
+        "level": 1,
+        "settings": {
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant1"
+            },
+            "propAnim": "",
+            "condAnims": [],
+            "spawnCondition": ""
+        }
+    }, {
+        "type": "Prop",
+        "x": 358,
+        "y": 142,
+        "level": 1,
+        "settings": {
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant2"
+            },
+            "propAnim": "",
+            "condAnims": [],
+            "spawnCondition": ""
+        }
+    }, {
+        "type": "Prop",
+        "x": 370,
+        "y": 122,
+        "level": 1,
+        "settings": {
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant2"
+            },
+            "propAnim": "",
+            "spawnCondition": "",
+            "condAnims": []
+        }
+    }, {
+        "type": "Prop",
+        "x": 390,
+        "y": 134,
+        "level": 1,
+        "settings": {
+            "propType": {
+                "sheet": "autumn",
+                "name": "plant3"
+            },
+            "propAnim": "",
+            "condAnims": [],
+            "spawnCondition": ""
+        }
+    }, {
+        "type": "Marker",
+        "x": 48,
+        "y": 176,
+        "level": 0,
+        "settings": {
+            "name": "fishSpotMarker",
+            "dir": "SOUTH",
+            "size": {
+                "x": 16,
+                "y": 16
+            }
+        }
+    }, {
+        "type": "EventTrigger",
+        "x": 55,
+        "y": 164,
+        "level": 1,
+        "settings": {
+            "name": "fistEffectTrack",
+            "eventType": "INTERRUPTABLE",
+            "startCondition": "tmp.startEffect",
+            "endCondition": "!tmp.startEffect",
+            "triggerType": "REPEAT",
+            "event": [{
+                "entity": {
+                    "global": true,
+                    "name": "fishSpotMarker"
+                },
+                "duration": 0,
+                "group": "fishBubbles",
+                "align": "BOTTOM",
+                "wait": true,
+                "waitSkip": 0,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "fishing.fishing",
+                    "name": "bubble"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
+        }
+    }, {
+        "type": "EventTrigger",
+        "x": 51,
+        "y": 164,
+        "level": 1,
+        "settings": {
+            "name": "fistSpotMove",
+            "eventType": "INTERRUPTABLE",
+            "endCondition": "tmp.catchingFish",
+            "event": [{
+                "type": "WAIT_RANDOM",
+                "minTime": 1,
+                "maxTime": 4
+            }, {
+                "entity": {
+                    "global": true,
+                    "name": "fishSpotMarker"
+                },
+                "position": {
+                    "x": 48,
+                    "y": 176,
+                    "lvl": "0"
+                },
+                "type": "SET_ENTITY_POS"
+            }, {
+                "varName": "tmp.randomPosMove",
+                "min": 0,
+                "max": 60,
+                "type": "SET_RANDOM_VAR_NUMBER"
+            }, {
+                "name": "actionLoopX",
+                "type": "LABEL"
+            }, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "tmp.randomPosMove > 0",
+                "thenStep": [{
+                    "entity": {
+                        "global": true,
+                        "name": "fishSpotMarker"
+                    },
+                    "offset": {
+                        "x": 8,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "type": "ADJUST_ENTITY_POS"
+                }, {
+                    "varName": "tmp.randomPosMove",
+                    "changeType": "sub",
+                    "value": 1,
+                    "type": "CHANGE_VAR_NUMBER"
+                }, {
+                    "name": "actionLoopX",
+                    "type": "GOTO_LABEL"
+                }]
+            }, {
+                "varName": "tmp.randomPosMove",
+                "min": 0,
+                "max": 14,
+                "type": "SET_RANDOM_VAR_NUMBER"
+            }, {
+                "name": "actionLoopY",
+                "type": "LABEL"
+            }, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "tmp.randomPosMove > 0",
+                "thenStep": [{
+                    "entity": {
+                        "global": true,
+                        "name": "fishSpotMarker"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 8,
+                        "z": 0
+                    },
+                    "type": "ADJUST_ENTITY_POS"
+                }, {
+                    "varName": "tmp.randomPosMove",
+                    "changeType": "sub",
+                    "value": 1,
+                    "type": "CHANGE_VAR_NUMBER"
+                }, {
+                    "name": "actionLoopY",
+                    "type": "GOTO_LABEL"
+                }]
+            }, {
+                "entity": {
+                    "global": true,
+                    "name": "fishSpotMarker"
+                },
+                "stat": "BOTTOM_POS",
+                "type": "SET_VAR_ENTITY_STAT",
+                "varName": "tmp.bubblePos"
+            }, {
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "tmp.startEffect",
+                "changeType": "set",
+                "value": true
+            }, {
+                "type": "WAIT",
+                "time": 10
+            }, {
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "tmp.startEffect",
+                "changeType": "set",
+                "value": false
+            }, {
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.bubblePos",
+                "changeType": "set",
+                "value": 0
+            }],
+            "triggerType": "REPEAT",
+            "startCondition": "!tmp.catchingFish"
+        }
+    }, {
+        "type": "Prop",
+        "x": 288,
+        "y": 80,
+        "level": {
+            "level": 1,
+            "offset": 8
+        },
+        "settings": {
+            "name": "fishConsole",
+            "interact": {
+                "icon": "INFO",
+                "hoverText": {
+                    "en_US": "Fishing gear rental service",
+                    "ko_KR": "낚시도구 대여 서비스"
+                },
+                "event": [{
+                    "side": "RIGHT",
+                    "order": 0,
+                    "clearSide": false,
+                    "type": "ADD_MSG_PERSON",
+                    "person": {
+                        "person": "main.lea",
+                        "expression": "DEFAULT"
+                    }
+                }, {
+                    "0": [{
+                        "name": "LeaFish",
+                        "type": "SWITCH_PLAYER_CONFIG"
+                    }, {
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "map.fishing",
+                        "changeType": "set",
+                        "value": true
+                    }, {
+                        "core": "CLOSE_COMBAT",
+                        "value": false,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "GUARD",
+                        "value": false,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "DASH",
+                        "value": false,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "QUICK_MENU",
+                        "value": false,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "MODIFIER",
+                        "value": false,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "CHARGE",
+                        "value": false,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "MENU",
+                        "value": false,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "value": "SAVE",
+                        "type": "SET_MOBILITY_BLOCK"
+                    }],
+                    "1": [{
+                        "name": "Lea",
+                        "type": "SWITCH_PLAYER_CONFIG"
+                    }, {
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "map.fishing",
+                        "changeType": "set",
+                        "value": false
+                    }, {
+                        "core": "CLOSE_COMBAT",
+                        "value": true,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "GUARD",
+                        "value": true,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "DASH",
+                        "value": true,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "QUICK_MENU",
+                        "value": true,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "MODIFIER",
+                        "value": true,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "CHARGE",
+                        "value": true,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "core": "MENU",
+                        "value": true,
+                        "type": "SET_PLAYER_CORE"
+                    }, {
+                        "value": "NONE",
+                        "type": "SET_MOBILITY_BLOCK"
+                    }],
+                    "2": [],
+                    "type": "SHOW_CHOICE",
+                    "person": {
+                        "person": "main.lea",
+                        "expression": "DEFAULT"
+                    },
+                    "options": [{
+                        "0": " ",
+                        "label": {
+                            "en_US": "Borrow a fishing rod",
+                            "ko_KR": "낚싯대 받기"
+                        }
+                    }, {
+                        "0": " ",
+                        "label": {
+                            "en_US": "Return it",
+                            "ko_KR": "반납하기"
+                        }
+                    }, {
+                        "0": " ",
+                        "label": {
+                            "en_US": "Cancel",
+                            "ko_KR": "취소"
+                        }
+                    }]
+                }]
+            },
+            "mapId": 105,
+            "propType": {
+                "sheet": "trading-autumn",
+                "name": "signHuge"
+            },
+            "propAnim": "enemy",
+            "condAnims": [],
+            "spawnCondition": "!map.fishingNow",
+            "hideCondition": ""
+        }
+    }],
+    "layer": [{
+        "id": 1,
+        "type": "Background",
+        "name": "Water",
+        "level": 0,
+        "width": 36,
+        "height": 30,
+        "visible": 1,
+        "tilesetName": "media/map/autumn-outside.png",
+        "repeat": false,
+        "distance": 1,
+        "tilesize": 16,
+        "moveSpeed": {
+            "x": 0,
+            "y": 0
+        },
+        "data": [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [394, 394, 394, 426, 426, 426, 426, 426, 426, 426, 426, 426, 426, 394, 394, 394, 394, 394, 394, 394, 394, 394, 426, 426, 394, 424, 394, 428, 426, 426, 427, 394, 394, 394, 394, 394],
+            [362, 361, 361, 361, 362, 361, 361, 361, 362, 361, 362, 361, 362, 361, 362, 361, 361, 362, 362, 361, 362, 361, 362, 362, 361, 362, 362, 361, 362, 361, 361, 361, 361, 362, 361, 361],
+            [394, 393, 393, 393, 394, 393, 393, 393, 394, 393, 394, 393, 394, 393, 394, 393, 393, 394, 394, 393, 394, 393, 394, 394, 393, 394, 394, 393, 394, 393, 393, 393, 393, 394, 393, 393],
+            [394, 394, 394, 427, 426, 426, 426, 394, 394, 394, 426, 426, 426, 426, 394, 394, 394, 394, 394, 394, 394, 394, 426, 426, 394, 394, 394, 394, 426, 426, 426, 394, 394, 394, 424, 394],
+            [394, 394, 394, 394, 427, 426, 426, 427, 394, 394, 426, 425, 426, 426, 394, 394, 424, 394, 394, 394, 394, 394, 394, 426, 427, 394, 394, 428, 426, 426, 426, 394, 394, 394, 394, 394],
+            [394, 394, 394, 394, 394, 394, 426, 426, 394, 428, 426, 426, 426, 426, 394, 394, 394, 394, 394, 394, 394, 394, 394, 426, 425, 426, 426, 426, 426, 425, 426, 427, 394, 394, 394, 394],
+            [394, 394, 394, 394, 394, 394, 426, 426, 394, 426, 426, 426, 426, 394, 394, 394, 394, 394, 394, 394, 394, 394, 394, 427, 426, 426, 426, 426, 426, 426, 426, 426, 394, 394, 394, 394],
+            [394, 394, 394, 394, 394, 394, 426, 426, 426, 426, 426, 426, 426, 394, 394, 394, 394, 394, 394, 394, 394, 394, 394, 394, 426, 425, 426, 426, 426, 426, 426, 426, 394, 394, 394, 394],
+            [394, 424, 394, 394, 394, 394, 426, 426, 426, 426, 426, 426, 394, 394, 394, 394, 428, 427, 394, 394, 394, 394, 394, 394, 426, 426, 426, 394, 426, 426, 425, 426, 427, 394, 394, 394],
+            [394, 394, 394, 394, 394, 428, 426, 426, 426, 426, 426, 394, 394, 394, 394, 428, 426, 426, 394, 394, 394, 394, 394, 424, 426, 426, 426, 424, 427, 426, 426, 426, 426, 394, 394, 394],
+            [394, 394, 394, 394, 428, 425, 426, 426, 426, 426, 394, 394, 424, 394, 394, 426, 425, 426, 394, 394, 394, 394, 394, 394, 426, 426, 428, 394, 394, 394, 427, 426, 426, 394, 394, 394],
+            [394, 394, 394, 428, 426, 426, 426, 426, 426, 426, 394, 394, 394, 394, 394, 427, 426, 426, 394, 394, 394, 394, 394, 394, 426, 426, 394, 394, 394, 394, 394, 427, 426, 394, 394, 394],
+            [394, 394, 394, 426, 426, 426, 426, 426, 426, 426, 427, 394, 394, 394, 394, 394, 394, 428, 394, 394, 394, 424, 394, 394, 426, 426, 427, 394, 394, 394, 394, 394, 426, 427, 394, 394],
+            [394, 394, 394, 427, 426, 426, 426, 426, 394, 427, 426, 427, 394, 394, 394, 394, 394, 394, 394, 394, 394, 394, 394, 394, 427, 426, 426, 394, 394, 394, 394, 394, 427, 426, 394, 394],
+            [394, 394, 394, 394, 427, 426, 426, 426, 394, 394, 426, 426, 394, 394, 394, 394, 394, 394, 394, 394, 394, 394, 394, 394, 394, 426, 426, 427, 394, 394, 394, 394, 394, 426, 427, 394],
+            [394, 394, 394, 394, 394, 427, 426, 426, 426, 426, 426, 426, 394, 394, 427, 394, 394, 394, 394, 428, 427, 394, 394, 394, 394, 426, 426, 426, 394, 394, 394, 394, 426, 426, 426, 394],
+            [394, 394, 394, 394, 428, 426, 426, 426, 426, 426, 426, 426, 426, 426, 426, 394, 394, 394, 428, 426, 426, 426, 427, 394, 394, 427, 425, 426, 426, 394, 394, 394, 426, 425, 426, 394],
+            [394, 394, 394, 426, 426, 426, 426, 426, 425, 426, 426, 426, 426, 426, 426, 426, 394, 428, 426, 426, 394, 426, 426, 427, 394, 394, 425, 425, 426, 427, 394, 394, 426, 426, 426, 394],
+            [394, 394, 428, 426, 426, 426, 426, 426, 426, 426, 426, 426, 426, 425, 426, 426, 426, 426, 426, 426, 426, 426, 426, 426, 426, 426, 426, 426, 426, 428, 394, 394, 394, 394, 426, 394],
+            [394, 428, 426, 428, 394, 394, 394, 394, 427, 426, 426, 426, 426, 426, 426, 426, 426, 426, 425, 426, 426, 426, 426, 426, 426, 426, 394, 427, 428, 394, 394, 424, 394, 394, 394, 394],
+            [428, 426, 428, 394, 394, 394, 394, 394, 394, 427, 426, 426, 426, 426, 426, 426, 426, 426, 426, 426, 426, 394, 394, 394, 394, 428, 394, 424, 394, 394, 394, 394, 394, 394, 394, 428]
+        ]
+    }, {
+        "id": 5,
+        "type": "Collision",
+        "name": "WaterColl",
+        "level": 0,
+        "width": 36,
+        "height": 30,
+        "visible": 1,
+        "tilesetName": "media/map/collisiontiles-16x16.png",
+        "repeat": false,
+        "distance": 1,
+        "tilesize": 16,
+        "moveSpeed": {
+            "x": 0,
+            "y": 0
+        },
+        "data": [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+    }, {
+        "id": 0,
+        "type": "Background",
+        "name": "Ground",
+        "level": 1,
+        "width": 36,
+        "height": 30,
+        "visible": 1,
+        "tilesetName": "media/map/autumn-outside.png",
+        "repeat": false,
+        "distance": 1,
+        "tilesize": 16,
+        "moveSpeed": {
+            "x": 0,
+            "y": 0
+        },
+        "data": [
+            [1, 1, 75, 66, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 70, 43, 36, 76, 1, 1],
+            [1, 1, 1, 75, 77, 66, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 35, 36, 72, 1, 1, 1],
+            [1, 1, 1, 1, 1, 75, 73, 77, 66, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 67, 77, 72, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 75, 66, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 67, 73, 77, 72, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 5, 1, 1, 1, 43, 36, 73, 77, 66, 33, 67, 66, 33, 33, 33, 67, 77, 73, 66, 33, 33, 67, 76, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 5, 7, 1, 1, 75, 72, 1, 1, 71, 73, 72, 75, 77, 77, 73, 72, 1, 1, 71, 77, 73, 72, 1, 1, 1, 1, 1, 1, 4, 9, 1, 1],
+            [1, 4, 3, 3, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 9],
+            [4, 4, 8, 4, 1, 1, 1, 1, 1, 9, 1, 1, 1, 1, 1, 1, 1, 65, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 3, 3, 3],
+            [4, 8, 1, 1, 1, 1, 9, 9, 5, 2, 4, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 8, 6, 3],
+            [259, 259, 260, 260, 259, 259, 260, 259, 259, 259, 259, 260, 259, 260, 259, 260, 259, 259, 259, 260, 259, 260, 259, 260, 259, 259, 260, 259, 260, 260, 259, 260, 260, 259, 259, 260],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+    }, {
+        "id": 6,
+        "type": "Background",
+        "name": "GroundTop",
+        "level": 1,
+        "width": 36,
+        "height": 30,
+        "visible": 1,
+        "tilesetName": "media/map/autumn-outside.png",
+        "repeat": false,
+        "distance": 1,
+        "tilesize": 16,
+        "moveSpeed": {
+            "x": 0,
+            "y": 0
+        },
+        "data": [
+            [0, 0, 236, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 235, 0, 0],
+            [0, 0, 169, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 167, 0, 0],
+            [0, 0, 169, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 167, 0, 0],
+            [242, 0, 169, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 167, 0, 0],
+            [274, 14, 169, 0, 211, 212, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 167, 0, 0],
+            [0, 12, 169, 13, 243, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 178, 167, 0, 0],
+            [0, 0, 169, 12, 14, 177, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 179, 180, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 179, 167, 0, 0],
+            [0, 0, 169, 0, 0, 0, 0, 0, 180, 0, 0, 0, 0, 0, 0, 0, 0, 0, 211, 212, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 167, 0, 180],
+            [0, 0, 169, 0, 0, 0, 0, 209, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 177, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 167, 14, 180],
+            [0, 0, 169, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 167, 15, 0],
+            [0, 0, 176, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 208, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+    }, {
+        "id": 2,
+        "type": "Collision",
+        "name": "Coll",
+        "level": 1,
+        "width": 36,
+        "height": 30,
+        "visible": 1,
+        "tilesetName": "media/map/collisiontiles-16x16.png",
+        "repeat": false,
+        "distance": 1,
+        "tilesize": 16,
+        "moveSpeed": {
+            "x": 0,
+            "y": 0
+        },
+        "data": [
+            [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            [2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2],
+            [2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2],
+            [2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2],
+            [2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2],
+            [2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2],
+            [2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2],
+            [2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2],
+            [2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2],
+            [2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+            [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
+    }, {
+        "id": 12,
+        "type": "Navigation",
+        "name": "Nav",
+        "level": 1,
+        "width": 36,
+        "height": 30,
+        "visible": 1,
+        "tilesetName": "media/map/pathmap-tiles.png",
+        "repeat": false,
+        "distance": 1,
+        "tilesize": 16,
+        "moveSpeed": {
+            "x": 0,
+            "y": 0
+        },
+        "data": [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+            [0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+    }]
+}

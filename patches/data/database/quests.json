@@ -1,82 +1,82 @@
 {
-	"arcanelab.susie": {
-		"elite": true,
-		"name": {
-			"en_US": "Lonely Evotar",
-			"ko_KR": "외로운 에보타"
-		},
-		"person": {
-			"en_US": "Shooty",
-			"ko_KR": "슈티"
-		},
-		"level": 60,
-		"order": 100001,
-		"description": {
-			"en_US": "Shooty found a \\c[3]suspicious server and an Evotar\\c[0]. I think we need to investigate!",
-			"ko_KR": "슈티가 \\c[3]수상한 서버와 에보타\\c[0]를 발견했습니다. 조사가 필요할 것 같군요!"
-		},
-		"briefing": {
-			"en_US": "You rescued the Evotar, who had been locked away for a long time. The unknown area still needs more investigation... But she had an emotional reunion with her brother!",
-			"ko_KR": "오랫동안 갇혀 있던 에보타를 구출해냈습니다. 알 수 없는 곳은 조사가 더 필요해보입니다... 하지만 남매와의 감격스러운 재회는 해냈네요!"
-		},
-		"hideRewards": false,
-		"tasks": [{
-			"task": {
-				"en_US": "Investigate the server.",
-				"ko_KR": "서버를 조사하세요."
-			},
-			"subtasks": [{
-				"label": "rescue",
-				"type": "CONDITION"
-			}]
-		}],
-		"rewards": {
-			"exp": {
-				"exp": 500,
-				"bonus": 0
-			},
-			"money": 81500
-		},
-		"area": "guildac"
-	},
-	"arcanelab.conductor": {
-		"elite": false,
-		"name": {
-			"en_US": "A missing hat",
-			"ko_KR": "잃어버린 모자"
-		},
-		"person": {
-			"en_US": "???",
-			"ko_KR": "???"
-		},
-		"level": 65,
-		"order": 110001,
-		"description": {
-			"en_US": "Lea found a purple hat that is believed to belong to some Hexacast. Can you find the owner and give it back?",
-			"ko_KR": "육법사의 것으로 추정되는 보라색 모자를 발견했습니다. 주인을 찾아서 돌려줄 수 있을까요?"
-		},
-		"briefing": {
-			"en_US": "The identity of the hat was the key to meeting a hidden boss. It wasn't lost!",
-			"ko_KR": "모자의 정체는 숨겨진 보스를 만나게 해주는 열쇠였습니다. 분실물은 아니였군요!"
-		},
-		"hideRewards": false,
-		"tasks": [{
-			"task": {
-				"en_US": "Find the owner of the hat.",
-				"ko_KR": "모자의 주인을 찾으세요."
-			},
-			"subtasks": [{
-				"label": "beat",
-				"type": "CONDITION"
-			}]
-		}],
-		"rewards": {
-			"exp": {
-				"exp": 300,
-				"bonus": 0
-			},
-			"money": 1000
-		},
-		"area": "guildac"
-	}
+    "arcanelab.susie": {
+        "elite": true,
+        "name": {
+            "en_US": "Lonely Evotar",
+            "ko_KR": "외로운 에보타"
+        },
+        "person": {
+            "en_US": "Shooty",
+            "ko_KR": "슈티"
+        },
+        "level": 60,
+        "order": 100001,
+        "description": {
+            "en_US": "Shooty found a \\c[3]suspicious server and an Evotar\\c[0]. I think we need to investigate!",
+            "ko_KR": "슈티가 \\c[3]수상한 서버와 에보타\\c[0]를 발견했습니다. 조사가 필요할 것 같군요!"
+        },
+        "briefing": {
+            "en_US": "You rescued the Evotar, who had been locked away for a long time. The unknown area still needs more investigation... But she had an emotional reunion with her brother!",
+            "ko_KR": "오랫동안 갇혀 있던 에보타를 구출해냈습니다. 알 수 없는 곳은 조사가 더 필요해보입니다... 하지만 남매와의 감격스러운 재회는 해냈네요!"
+        },
+        "hideRewards": false,
+        "tasks": [{
+            "task": {
+                "en_US": "Investigate the server.",
+                "ko_KR": "서버를 조사하세요."
+            },
+            "subtasks": [{
+                "label": "rescue",
+                "type": "CONDITION"
+            }]
+        }],
+        "rewards": {
+            "exp": {
+                "exp": 500,
+                "bonus": 0
+            },
+            "money": 81500
+        },
+        "area": "guildac"
+    },
+    "arcanelab.conductor": {
+        "elite": false,
+        "name": {
+            "en_US": "A missing hat",
+            "ko_KR": "잃어버린 모자"
+        },
+        "person": {
+            "en_US": "???",
+            "ko_KR": "???"
+        },
+        "level": 65,
+        "order": 110001,
+        "description": {
+            "en_US": "Lea found a purple hat that is believed to belong to some Hexacast. Can you find the owner and give it back?",
+            "ko_KR": "육법사의 것으로 추정되는 보라색 모자를 발견했습니다. 주인을 찾아서 돌려줄 수 있을까요?"
+        },
+        "briefing": {
+            "en_US": "The identity of the hat was the key to meeting a hidden boss. It wasn't lost!",
+            "ko_KR": "모자의 정체는 숨겨진 보스를 만나게 해주는 열쇠였습니다. 분실물은 아니였군요!"
+        },
+        "hideRewards": false,
+        "tasks": [{
+            "task": {
+                "en_US": "Find the owner of the hat.",
+                "ko_KR": "모자의 주인을 찾으세요."
+            },
+            "subtasks": [{
+                "label": "beat",
+                "type": "CONDITION"
+            }]
+        }],
+        "rewards": {
+            "exp": {
+                "exp": 300,
+                "bonus": 0
+            },
+            "money": 1000
+        },
+        "area": "guildac"
+    }
 }

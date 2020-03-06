@@ -1,261 +1,261 @@
 {
-	"avatar.susie": {
-		"name": {
-			"en_US": "Susie",
-			"ko_KR": "수지",
-			"de_DE": "Susie",
-			"zh_CN": "秀智",
-			"ja_JP": "スージー"
-		},
-		"track": true,
-		"order": 100000,
-		"area": "guildac",
-		"kills": 1,
-		"anim": "aim",
-		"extra": false,
-		"descriptions": [{
-			"text": {
-				"en_US": "An Evotar who came to fight a PvP duel.\n\\c[3]Spheroknight\\c[0] is a combat-specialized class that complements the Triblader's weak ranged attacks with the characteristics of a Spheromancer. \\c[1]Users tend to change elements frequently because they're vulnerable to overload\\c[0], so you always need to be prepared for all elements.",
-				"ko_KR": "PvP 결투를 하러 온 에보타입니다.\n\\c[3]원성사\\c[0]는 삼검사의 약한 원거리 공격을 원술사의 특성으로 보완한 전투 특화 클래스입니다. \\c[1]과부화에 취약하여 속성을 자주 바꾸는 편\\c[0]이므로, 모든 속성에 대한 대비가 항상 필요합니다."
-			},
-			"condition": ""
-		}],
-		"species": {
-			"en_US": "Quiet Spheroknight",
-			"ko_KR": "과묵한 원성사"
-		},
-		"category": "PLAYERS",
-		"level": 63,
-		"boostedLevel": 0,
-		"params": {
-			"hp": 3000,
-			"attack": 460,
-			"defense": 320,
-			"focus": 460,
-			"elemFactor": [0.83, 0.83, 0.83, 0.83]
-		},
-		"credit": 0,
-		"exp": 0,
-		"itemDrops": [],
-		"boss": false
-	},
-	"avatar.susie-hacked": {
-		"name": {
-			"en_US": "Susie",
-			"ko_KR": "수지",
-			"de_DE": "Susie",
-			"zh_CN": "秀智",
-			"ja_JP": "スージー"
-		},
-		"track": false,
-		"order": 0,
-		"area": "secret",
-		"anim": "aim",
-		"extra": false,
-		"descriptions": [],
-		"species": {
-			"en_US": "Quiet Spheroknight",
-			"ko_KR": "과묵한 원성사"
-		},
-		"category": "PLAYERS",
-		"level": 63,
-		"boostedLevel": 0,
-		"params": {
-			"hp": 3000,
-			"attack": 460,
-			"defense": 320,
-			"focus": 460,
-			"elemFactor": [0.83, 0.83, 0.83, 0.83]
-		},
-		"credit": 0,
-		"exp": 0,
-		"itemDrops": [],
-		"boss": false
-	},
-	"boss.conductor": {
-		"name": {
-			"en_US": "Conductor",
-			"ko_KR": "컨덕터"
-		},
-		"track": true,
-		"order": 111000,
-		"area": "secret",
-		"anim": "battleIdle",
-		"extra": "whistle",
-		"descriptions": [{
-			"text": {
-				"en_US": "It's a yellowish bird whose exact species is unknown. For some reason, it tends to like young Hexacasts.\n\\c[3](A Hat in Time)\\c[0]",
-				"ko_KR": "정확한 종족을 알 수 없는 노란 조류입니다. 어떤 이유인진 몰라도, 어린 육법사를 좋아하는 경향이 있습니다.\n\\c[3](a Hat in Time)\\c[0]"
-			},
-			"condition": ""
-		}],
-		"species": {
-			"en_US": "No-Good Dirty Peck Neck",
-			"ko_KR": "더러운 짹짹이"
-		},
-		"category": "ANIMALS",
-		"level": 65,
-		"boostedLevel": 0,
-		"params": {
-			"hp": 250000,
-			"attack": 350,
-			"defense": 500,
-			"focus": 460,
-			"elemFactor": [0.8, 0.8, 0.8, 0.8],
-			"statusEffect": [0.05, 0.1, 0, 0.1]
-		},
-		"credit": 1000,
-		"exp": 600,
-		"itemDrops": [],
-		"boss": true
-	},
-	"transport.frosthog": {
-		"name": {
-			"en_US": "Frosthag",
-			"ko_KR": "서리됴치"
-		},
-		"track": true,
-		"order": 101000,
-		"area": "guildac",
-		"anim": "idle",
-		"descriptions": [{
-			"text": {
-				"en_US": "",
-				"ko_KR": "베르겐 산길에서 적응한 변종 얼음 고슴됴치입니다. 먹을 것을 얻기 위해 화물철도를 자주 습격해 약탈하면서, 그들은 상당히 강력해졌으며 똑똑해지기도 했습니다.\n 연속 대시 공격과 점프를 잘 섞어 사용하며, 기차의 위험이 느껴지면 땅 속으로 숨어버리기도 합니다."
-			},
-			"condition": ""
-		}],
-		"species": {
-			"en_US": "",
-			"ko_KR": "얼어붙은 포유류"
-		},
-		"category": "ANIMALS",
-		"level": 70,
-		"boostedLevel": 85,
-		"params": {
-			"hp": 38500,
-			"attack": 380,
-			"defense": 470,
-			"focus": 400,
-			"elemFactor": [1.4, 0.6, 1, 1]
-		},
-		"credit": 700,
-		"exp": 70,
-		"itemDrops": [{
-			"item": "trade-arcanelab-ice-needles",
-			"prob": 0.12,
-			"min": 1,
-			"max": 1,
-			"rank": ""
-		}, {
-			"item": "trade-arcanelab-lumium",
-			"prob": 0.04,
-			"min": 1,
-			"max": 1,
-			"rank": "C",
-			"boosted": true,
-			"condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
-		}],
-		"boss": false
-	},
- 	"transport.glacehog": {
-		"name": {
-			"en_US": "Glacehag",
-			"ko_KR": "빙하됴치"
-		},
-		"track": true,
-		"order": 101001,
-		"area": "guildac",
-		"anim": "idle",
-		"descriptions": [{
-			"text": {
-				"en_US": "",
-				"ko_KR": "모든 바늘이 완전히 얼음처럼 얼어붙은 서리됴치의 아종입니다. 가까이 다가가기만 해도 차가운 기운이 전해지네요.\n척박하고 추운 지형에서 매우 잔혹해진 그들은 점프 빈도는 줄어든 대신 대시 공격을 \\c[3]빗나갈 때까지 연속으로 사용\\c[0]하여 사냥감을 갈기갈기 찢어버립니다."
-			},
-			"condition": ""
-		}],
-		"species": {
-			"en_US": "",
-			"ko_KR": "얼음 그 자체"
-		},
-		"category": "ANIMALS",
-		"level": 70,
-		"boostedLevel": 85,
-		"params": {
-			"hp": 40000,
-			"attack": 400,
-			"defense": 500,
-			"focus": 420,
-			"elemFactor": [1.5, 0.5, 1, 1]
-		},
-		"credit": 750,
-		"exp": 75,
-		"itemDrops": [{
-			"item": "trade-arcanelab-ice-needles",
-			"prob": 0.15,
-			"min": 1,
-			"max": 1,
-			"rank": ""
-		}, {
-			"item": "trade-arcanelab-lumium",
-			"prob": 0.06,
-			"min": 1,
-			"max": 1,
-			"rank": "C",
-			"boosted": true,
-			"condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
-		}],
-		"boss": false
-	},
- 	"transport.transport-drone": {
-		"name": {
-			"en_US": "Carrignet",
-			"ko_KR": "카리그넷"
-		},
-		"track": true,
-		"order": 101002,
-		"area": "guildac",
-		"anim": "idle",
-		"descriptions": [{
-			"text": {
-				"en_US": "It was originally a drone carrying Bergen's cargo container, but now it's just a dangerous robot infected by the \\v[combat.name.mine-coldbug]. It usually use defensive wave machineguns, but be extra careful with missiles! \\c[3]Predict\\c[0] your movements and aim for that direction. Close the distance and fight back while reloading the next missile.\nWhen the train passing, it may do something strong attack with a powerful magnet that can lift the weight of the container...",
-				"ko_KR": "원래 베르겐의 화물 컨테이너를 옮기는 일을 하는 드론이었지만, 이제는 \\v[combat.name.mine-coldbug]에 감염된 위험한 로봇일 뿐입니다. 방어용 파동 머신건을 주로 사용하지만, 미사일을 특히 주의하세요! 당신의 이동을 \\c[3]예측\\c[0]하여 그 방향을 노립니다. 다음 미사일을 재장전하는 동안 거리를 좁혀 반격하세요.\n기차가 지나갈 때는 컨테이너도 들어올리는 강력한 자석으로 무언가 강력한 공격을 할 지도 모릅니다..."
-			},
-			"condition": ""
-		}],
-		"species": {
-			"en_US": "Transport Drone",
-			"ko_KR": "수송 드론"
-		},
-		"category": "MECHA",
-		"level": 70,
-		"boostedLevel": 85,
-		"params": {
-			"hp": 55000,
-			"attack": 350,
-			"defense": 550,
-			"focus": 500,
-			"elemFactor": [1.2, 0.3, 0.7, 0.7],
-			"statusInflict": [1, 1, 1.25, 1.25],
-			"statusEffect": [1.5, 1, 1.25, 1.25]
-		},
-		"credit": 1000,
-		"exp": 85,
-		"itemDrops": [{
-			"item": "trade-arcanelab-broken-motor",
-			"prob": 0.2,
-			"min": 1,
-			"max": 1,
-			"rank": ""
-		}, {
-			"item": "trade-arcanelab-lumium",
-			"prob": 0.1,
-			"min": 1,
-			"max": 1,
-			"rank": "C",
-			"boosted": true,
-			"condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
-		}],
-		"boss": false
-	}
+    "avatar.susie": {
+        "name": {
+            "en_US": "Susie",
+            "ko_KR": "수지",
+            "de_DE": "Susie",
+            "zh_CN": "秀智",
+            "ja_JP": "スージー"
+        },
+        "track": true,
+        "order": 100000,
+        "area": "guildac",
+        "kills": 1,
+        "anim": "aim",
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "An Evotar who came to fight a PvP duel.\n\\c[3]Spheroknight\\c[0] is a combat-specialized class that complements the Triblader's weak ranged attacks with the characteristics of a Spheromancer. \\c[1]Users tend to change elements frequently because they're vulnerable to overload\\c[0], so you always need to be prepared for all elements.",
+                "ko_KR": "PvP 결투를 하러 온 에보타입니다.\n\\c[3]원성사\\c[0]는 삼검사의 약한 원거리 공격을 원술사의 특성으로 보완한 전투 특화 클래스입니다. \\c[1]과부화에 취약하여 속성을 자주 바꾸는 편\\c[0]이므로, 모든 속성에 대한 대비가 항상 필요합니다."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Quiet Spheroknight",
+            "ko_KR": "과묵한 원성사"
+        },
+        "category": "PLAYERS",
+        "level": 63,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 3000,
+            "attack": 460,
+            "defense": 320,
+            "focus": 460,
+            "elemFactor": [0.83, 0.83, 0.83, 0.83]
+        },
+        "credit": 0,
+        "exp": 0,
+        "itemDrops": [],
+        "boss": false
+    },
+    "avatar.susie-hacked": {
+        "name": {
+            "en_US": "Susie",
+            "ko_KR": "수지",
+            "de_DE": "Susie",
+            "zh_CN": "秀智",
+            "ja_JP": "スージー"
+        },
+        "track": false,
+        "order": 0,
+        "area": "secret",
+        "anim": "aim",
+        "extra": false,
+        "descriptions": [],
+        "species": {
+            "en_US": "Quiet Spheroknight",
+            "ko_KR": "과묵한 원성사"
+        },
+        "category": "PLAYERS",
+        "level": 63,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 3000,
+            "attack": 460,
+            "defense": 320,
+            "focus": 460,
+            "elemFactor": [0.83, 0.83, 0.83, 0.83]
+        },
+        "credit": 0,
+        "exp": 0,
+        "itemDrops": [],
+        "boss": false
+    },
+    "boss.conductor": {
+        "name": {
+            "en_US": "Conductor",
+            "ko_KR": "컨덕터"
+        },
+        "track": true,
+        "order": 111000,
+        "area": "secret",
+        "anim": "battleIdle",
+        "extra": "whistle",
+        "descriptions": [{
+            "text": {
+                "en_US": "It's a yellowish bird whose exact species is unknown. For some reason, it tends to like young Hexacasts.\n\\c[3](A Hat in Time)\\c[0]",
+                "ko_KR": "정확한 종족을 알 수 없는 노란 조류입니다. 어떤 이유인진 몰라도, 어린 육법사를 좋아하는 경향이 있습니다.\n\\c[3](a Hat in Time)\\c[0]"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "No-Good Dirty Peck Neck",
+            "ko_KR": "더러운 짹짹이"
+        },
+        "category": "ANIMALS",
+        "level": 65,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 250000,
+            "attack": 350,
+            "defense": 500,
+            "focus": 460,
+            "elemFactor": [0.8, 0.8, 0.8, 0.8],
+            "statusEffect": [0.05, 0.1, 0, 0.1]
+        },
+        "credit": 1000,
+        "exp": 600,
+        "itemDrops": [],
+        "boss": true
+    },
+    "transport.frosthog": {
+        "name": {
+            "en_US": "Frosthag",
+            "ko_KR": "서리됴치"
+        },
+        "track": true,
+        "order": 101000,
+        "area": "guildac",
+        "anim": "idle",
+        "descriptions": [{
+            "text": {
+                "en_US": "",
+                "ko_KR": "베르겐 산길에서 적응한 변종 얼음 고슴됴치입니다. 먹을 것을 얻기 위해 화물철도를 자주 습격해 약탈하면서, 그들은 상당히 강력해졌으며 똑똑해지기도 했습니다.\n 연속 대시 공격과 점프를 잘 섞어 사용하며, 기차의 위험이 느껴지면 땅 속으로 숨어버리기도 합니다."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "",
+            "ko_KR": "얼어붙은 포유류"
+        },
+        "category": "ANIMALS",
+        "level": 70,
+        "boostedLevel": 85,
+        "params": {
+            "hp": 38500,
+            "attack": 380,
+            "defense": 470,
+            "focus": 400,
+            "elemFactor": [1.4, 0.6, 1, 1]
+        },
+        "credit": 700,
+        "exp": 70,
+        "itemDrops": [{
+            "item": "trade-arcanelab-ice-needles",
+            "prob": 0.12,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "trade-arcanelab-lumium",
+            "prob": 0.04,
+            "min": 1,
+            "max": 1,
+            "rank": "C",
+            "boosted": true,
+            "condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
+        }],
+        "boss": false
+    },
+    "transport.glacehog": {
+        "name": {
+            "en_US": "Glacehag",
+            "ko_KR": "빙하됴치"
+        },
+        "track": true,
+        "order": 101001,
+        "area": "guildac",
+        "anim": "idle",
+        "descriptions": [{
+            "text": {
+                "en_US": "",
+                "ko_KR": "모든 바늘이 완전히 얼음처럼 얼어붙은 서리됴치의 아종입니다. 가까이 다가가기만 해도 차가운 기운이 전해지네요.\n척박하고 추운 지형에서 매우 잔혹해진 그들은 점프 빈도는 줄어든 대신 대시 공격을 \\c[3]빗나갈 때까지 연속으로 사용\\c[0]하여 사냥감을 갈기갈기 찢어버립니다."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "",
+            "ko_KR": "얼음 그 자체"
+        },
+        "category": "ANIMALS",
+        "level": 70,
+        "boostedLevel": 85,
+        "params": {
+            "hp": 40000,
+            "attack": 400,
+            "defense": 500,
+            "focus": 420,
+            "elemFactor": [1.5, 0.5, 1, 1]
+        },
+        "credit": 750,
+        "exp": 75,
+        "itemDrops": [{
+            "item": "trade-arcanelab-ice-needles",
+            "prob": 0.15,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "trade-arcanelab-lumium",
+            "prob": 0.06,
+            "min": 1,
+            "max": 1,
+            "rank": "C",
+            "boosted": true,
+            "condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
+        }],
+        "boss": false
+    },
+    "transport.transport-drone": {
+        "name": {
+            "en_US": "Carrignet",
+            "ko_KR": "카리그넷"
+        },
+        "track": true,
+        "order": 101002,
+        "area": "guildac",
+        "anim": "idle",
+        "descriptions": [{
+            "text": {
+                "en_US": "It was originally a drone carrying Bergen's cargo container, but now it's just a dangerous robot infected by the \\v[combat.name.mine-coldbug]. It usually use defensive wave machineguns, but be extra careful with missiles! \\c[3]Predict\\c[0] your movements and aim for that direction. Close the distance and fight back while reloading the next missile.\nWhen the train passing, it may do something strong attack with a powerful magnet that can lift the weight of the container...",
+                "ko_KR": "원래 베르겐의 화물 컨테이너를 옮기는 일을 하는 드론이었지만, 이제는 \\v[combat.name.mine-coldbug]에 감염된 위험한 로봇일 뿐입니다. 방어용 파동 머신건을 주로 사용하지만, 미사일을 특히 주의하세요! 당신의 이동을 \\c[3]예측\\c[0]하여 그 방향을 노립니다. 다음 미사일을 재장전하는 동안 거리를 좁혀 반격하세요.\n기차가 지나갈 때는 컨테이너도 들어올리는 강력한 자석으로 무언가 강력한 공격을 할 지도 모릅니다..."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Transport Drone",
+            "ko_KR": "수송 드론"
+        },
+        "category": "MECHA",
+        "level": 70,
+        "boostedLevel": 85,
+        "params": {
+            "hp": 55000,
+            "attack": 350,
+            "defense": 550,
+            "focus": 500,
+            "elemFactor": [1.2, 0.3, 0.7, 0.7],
+            "statusInflict": [1, 1, 1.25, 1.25],
+            "statusEffect": [1.5, 1, 1.25, 1.25]
+        },
+        "credit": 1000,
+        "exp": 85,
+        "itemDrops": [{
+            "item": "trade-arcanelab-broken-motor",
+            "prob": 0.2,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "trade-arcanelab-lumium",
+            "prob": 0.1,
+            "min": 1,
+            "max": 1,
+            "rank": "C",
+            "boosted": true,
+            "condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
+        }],
+        "boss": false
+    }
 }

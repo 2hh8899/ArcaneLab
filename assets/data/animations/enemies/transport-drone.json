@@ -1,177 +1,177 @@
 {
-	"DOCTYPE": "MULTI_DIR_ANIMATION",
-	"namedSheets": {
-		"center": {
-			"src": "media/entity/enemy/transport-drone.png",
-			"offX": 0,
-			"offY": 0,
-			"width": 48,
-			"height": 32
-		},
-		"head": {
-			"src": "media/entity/enemy/transport-drone.png",
-			"xCount": 3,
-			"offX": 48,
-			"offY": 0,
-			"width": 12,
-			"height": 28
-		},
-		"fan": {
-			"src": "media/entity/enemy/transport-drone.png",
-			"xCount": 4,
-			"offX": 84,
-			"offY": 0,
-			"width": 23,
-			"height": 16
-		},
-		"light": {
-			"src": "media/entity/enemy/transport-drone.png",
-			"xCount": 2,
-			"offX": 0,
-			"offY": 32,
-			"width": 48,
-			"height": 22
-		}
-	},
-	"SUB": [{
-		"offset": {
-			"x": 0,
-			"y": 0,
-			"z": 1
-		},
-		"shapeType": "Z_FLAT",
-		"sheet": "center",
-		"dirs": "4",
-		"aboveZ": -1,
-		"flipX": [0, 0, 0, 0],
-		"tileOffsets": [0, 0, 0, 0],
-		"time": 0.1,
-		"repeat": true,
-		"frames": [0, 0, 0, 0],
-		"SUB": [{
-			"name": "idle"
-		}, {
-			"name": "off"
-		}]
-	}, {
-		"offset": {
-			"x": 0,
-			"y": -9,
-			"z": 0
-		},
-		"shapeType": "Z_FLAT",
-		"pivot": {
-			"x": 6,
-			"y": 25
-		},
-		"sheet": "head",
-		"dirs": "4",
-		"faceRotate": true,
-		"time": 0.1,
-		"repeat": true,
-		"flipX": [0, 0, 0, 1],
-		"tileOffsets": [0, 1, 2, 1],
-		"frames": [0],
-		"SUB": [{
-			"name": "idle"
-		}, {
-			"name": "off"
-		}]
-	}, {
-		"offset": {
-			"x": 0,
-			"y": -6,
-			"z": 8
-		},
-		"shapeType": "Y_FLAT",
-		"sheet": "light",
-		"dirs": "4",
-		"flipX": [0, 0, 0, 0],
-		"tileOffsets": [0, 0, 0, 0],
-		"time": 0.05,
-		"repeat": true,
-		"SUB": [{
-			"name": "idle",
-			"frames": [0, 1, 2, 3, 4]
-		}, {
-			"name": "off",
-			"frames": [-10]
-		}]
-	}, {
-		"offset": {
-			"x": 20,
-			"y": -18,
-			"z": 4
-		},
-		"shapeType": "Z_FLAT",
-		"sheet": "fan",
-		"dirs": "4",
-		"flipX": [0, 0, 0, 0],
-		"tileOffsets": [0, 0, 0, 0],
-		"time": 0.05,
-		"repeat": true,
-		"frames": [0, 1, 2, 3],
-		"SUB": [{
-			"name": "idle"
-		}, {
-			"name": "off"
-		}]
-	}, {
-		"offset": {
-			"x": -20,
-			"y": -18,
-			"z": 4
-		},
-		"shapeType": "Z_FLAT",
-		"sheet": "fan",
-		"dirs": "4",
-		"flipX": [0, 0, 0, 0],
-		"tileOffsets": [0, 0, 0, 0],
-		"time": 0.052,
-		"repeat": true,
-		"frames": [0, 1, 2, 3],
-		"SUB": [{
-			"name": "idle"
-		}, {
-			"name": "off"
-		}]
-	}, {
-		"offset": {
-			"x": 21,
-			"y": 5,
-			"z": 4
-		},
-		"shapeType": "Z_FLAT",
-		"sheet": "fan",
-		"dirs": "4",
-		"flipX": [0, 0, 0, 0],
-		"tileOffsets": [0, 0, 0, 0],
-		"time": 0.057,
-		"repeat": true,
-		"frames": [0, 1, 2, 3],
-		"SUB": [{
-			"name": "idle"
-		}, {
-			"name": "off"
-		}]
-	}, {
-		"offset": {
-			"x": -21,
-			"y": 5,
-			"z": 4
-		},
-		"shapeType": "Z_FLAT",
-		"sheet": "fan",
-		"dirs": "4",
-		"flipX": [0, 0, 0, 0],
-		"tileOffsets": [0, 0, 0, 0],
-		"time": 0.061,
-		"repeat": true,
-		"frames": [0, 1, 2, 3],
-		"SUB": [{
-			"name": "idle"
-		}, {
-			"name": "off"
-		}]
-	}]
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "center": {
+            "src": "media/entity/enemy/transport-drone.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 48,
+            "height": 32
+        },
+        "head": {
+            "src": "media/entity/enemy/transport-drone.png",
+            "xCount": 3,
+            "offX": 48,
+            "offY": 0,
+            "width": 12,
+            "height": 28
+        },
+        "fan": {
+            "src": "media/entity/enemy/transport-drone.png",
+            "xCount": 4,
+            "offX": 84,
+            "offY": 0,
+            "width": 23,
+            "height": 16
+        },
+        "light": {
+            "src": "media/entity/enemy/transport-drone.png",
+            "xCount": 2,
+            "offX": 0,
+            "offY": 32,
+            "width": 48,
+            "height": 22
+        }
+    },
+    "SUB": [{
+        "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 1
+        },
+        "shapeType": "Z_FLAT",
+        "sheet": "center",
+        "dirs": "4",
+        "aboveZ": -1,
+        "flipX": [0, 0, 0, 0],
+        "tileOffsets": [0, 0, 0, 0],
+        "time": 0.1,
+        "repeat": true,
+        "frames": [0, 0, 0, 0],
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "off"
+        }]
+    }, {
+        "offset": {
+            "x": 0,
+            "y": -9,
+            "z": 0
+        },
+        "shapeType": "Z_FLAT",
+        "pivot": {
+            "x": 6,
+            "y": 25
+        },
+        "sheet": "head",
+        "dirs": "4",
+        "faceRotate": true,
+        "time": 0.1,
+        "repeat": true,
+        "flipX": [0, 0, 0, 1],
+        "tileOffsets": [0, 1, 2, 1],
+        "frames": [0],
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "off"
+        }]
+    }, {
+        "offset": {
+            "x": 0,
+            "y": -6,
+            "z": 8
+        },
+        "shapeType": "Y_FLAT",
+        "sheet": "light",
+        "dirs": "4",
+        "flipX": [0, 0, 0, 0],
+        "tileOffsets": [0, 0, 0, 0],
+        "time": 0.05,
+        "repeat": true,
+        "SUB": [{
+            "name": "idle",
+            "frames": [0, 1, 2, 3, 4]
+        }, {
+            "name": "off",
+            "frames": [-10]
+        }]
+    }, {
+        "offset": {
+            "x": 20,
+            "y": -18,
+            "z": 4
+        },
+        "shapeType": "Z_FLAT",
+        "sheet": "fan",
+        "dirs": "4",
+        "flipX": [0, 0, 0, 0],
+        "tileOffsets": [0, 0, 0, 0],
+        "time": 0.05,
+        "repeat": true,
+        "frames": [0, 1, 2, 3],
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "off"
+        }]
+    }, {
+        "offset": {
+            "x": -20,
+            "y": -18,
+            "z": 4
+        },
+        "shapeType": "Z_FLAT",
+        "sheet": "fan",
+        "dirs": "4",
+        "flipX": [0, 0, 0, 0],
+        "tileOffsets": [0, 0, 0, 0],
+        "time": 0.052,
+        "repeat": true,
+        "frames": [0, 1, 2, 3],
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "off"
+        }]
+    }, {
+        "offset": {
+            "x": 21,
+            "y": 5,
+            "z": 4
+        },
+        "shapeType": "Z_FLAT",
+        "sheet": "fan",
+        "dirs": "4",
+        "flipX": [0, 0, 0, 0],
+        "tileOffsets": [0, 0, 0, 0],
+        "time": 0.057,
+        "repeat": true,
+        "frames": [0, 1, 2, 3],
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "off"
+        }]
+    }, {
+        "offset": {
+            "x": -21,
+            "y": 5,
+            "z": 4
+        },
+        "shapeType": "Z_FLAT",
+        "sheet": "fan",
+        "dirs": "4",
+        "flipX": [0, 0, 0, 0],
+        "tileOffsets": [0, 0, 0, 0],
+        "time": 0.061,
+        "repeat": true,
+        "frames": [0, 1, 2, 3],
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "off"
+        }]
+    }]
 }

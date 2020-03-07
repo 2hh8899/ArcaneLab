@@ -1,2659 +1,2659 @@
 {
-	"DOCTYPE": "PLAYER",
-	"sheet": "player",
-	"character": "main.lea",
-	"headIdx": 0,
-	"class": "SPHEROMANCER",
-	"stats": {
-		"hp": {
-			"base": 200,
-			"increase": 2000,
-			"variance": 0.1
-		},
-		"attack": {
-			"base": 20,
-			"increase": 200,
-			"variance": 0.9
-		},
-		"defense": {
-			"base": 20,
-			"increase": 200,
-			"variance": 0.5
-		},
-		"focus": {
-			"base": 20,
-			"increase": 200,
-			"variance": 0.3
-		}
-	},
-	"combatStyle": {
-		"comboCount": 4,
-		"throwCount": 1,
-		"throwProb": 0,
-		"sidewaySpeed": 0,
-		"normDistance": 0,
-		"meleeDistance": 0,
-		"minDistance": 0,
-		"foodSprites": ["", "", ""]
-	},
-	"walkAnims": null,
-	"autoequip": [{
-		"level": 3,
-		"HEAD": 23,
-		"LEFT_ARM": 24,
-		"RIGHT_ARM": 24,
-		"TORSO": 26,
-		"FEET": 25
-	}, {
-		"level": 6,
-		"HEAD": 31,
-		"LEFT_ARM": 29,
-		"RIGHT_ARM": 29,
-		"TORSO": 30,
-		"FEET": 32
-	}, {
-		"level": 10,
-		"HEAD": 116,
-		"LEFT_ARM": 56,
-		"RIGHT_ARM": 37,
-		"TORSO": 41,
-		"FEET": 44
-	}, {
-		"level": 13,
-		"HEAD": 116,
-		"LEFT_ARM": 57,
-		"RIGHT_ARM": 111,
-		"TORSO": 47,
-		"FEET": 44
-	}, {
-		"level": 16,
-		"HEAD": 118,
-		"LEFT_ARM": 113,
-		"RIGHT_ARM": 113,
-		"TORSO": 122,
-		"FEET": 121
-	}, {
-		"level": 20,
-		"HEAD": 119,
-		"LEFT_ARM": 114,
-		"RIGHT_ARM": 8,
-		"TORSO": 123,
-		"FEET": 120
-	}, {
-		"level": 23,
-		"HEAD": 208,
-		"LEFT_ARM": 209,
-		"RIGHT_ARM": 8,
-		"TORSO": 210,
-		"FEET": 211
-	}, {
-		"level": 27,
-		"HEAD": 204,
-		"LEFT_ARM": 205,
-		"RIGHT_ARM": 205,
-		"TORSO": 206,
-		"FEET": 207
-	}, {
-		"level": 30,
-		"HEAD": 213,
-		"LEFT_ARM": 222,
-		"RIGHT_ARM": 223,
-		"TORSO": 215,
-		"FEET": 220
-	}, {
-		"level": 34,
-		"HEAD": 264,
-		"LEFT_ARM": 266,
-		"RIGHT_ARM": 266,
-		"TORSO": 268,
-		"FEET": 270
-	}, {
-		"level": 38,
-		"HEAD": 293,
-		"LEFT_ARM": 302,
-		"RIGHT_ARM": 266,
-		"TORSO": 307,
-		"FEET": 309
-	}, {
-		"level": 42,
-		"HEAD": 265,
-		"LEFT_ARM": 267,
-		"RIGHT_ARM": 267,
-		"TORSO": 269,
-		"FEET": 271
-	}, {
-		"level": 46,
-		"HEAD": 296,
-		"LEFT_ARM": 300,
-		"RIGHT_ARM": 303,
-		"TORSO": 305,
-		"FEET": 310
-	}, {
-		"level": 50,
-		"HEAD": 393,
-		"LEFT_ARM": 394,
-		"RIGHT_ARM": 394,
-		"TORSO": 395,
-		"FEET": 396
-	}, {
-		"level": 56,
-		"HEAD": 365,
-		"LEFT_ARM": 412,
-		"RIGHT_ARM": 413,
-		"TORSO": 416,
-		"FEET": 418
-	}, {
-		"level": 59,
-		"HEAD": 397,
-		"LEFT_ARM": 398,
-		"RIGHT_ARM": 398,
-		"TORSO": 399,
-		"FEET": 400
-	}, {
-		"level": 63,
-		"HEAD": 473,
-		"LEFT_ARM": 476,
-		"RIGHT_ARM": 351,
-		"TORSO": 477,
-		"FEET": 481
-	}],
-	"proxies": {
-		"fishingFloat": {
-			"faceAnims": {
-				"shapeType": "Y_FLAT",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				},
-				"dirs": "1",
-				"flipX": [0],
-				"tileOffsets": [0],
-				"time": 1,
-				"repeat": true,
-				"frames": [0],
-				"SUB": [{
-					"name": "default",
-					"sheet": {
-						"src": "media/entity/effects/fishing-charge.png",
-						"offX": 40,
-						"offY": 0,
-						"width": 14,
-						"height": 19
-					},
-					"faceRotate": true
-				}, {
-					"name": "in",
-					"sheet": {
-						"src": "media/entity/effects/fishing-charge.png",
-						"offX": 54,
-						"offY": 0,
-						"width": 16,
-						"height": 19
-					},
-					"faceRotate": false,
-					"SUB": [{
-						"name": "hide",
-						"framesAlpha": [0]
-					}]
-				}]
-			},
-			"copyOwnerAnims": false,
-			"breakType": "NEVER",
-			"action": [{
-				"value": 1,
-				"type": "SET_SPEED"
-			}, {
-				"value": {
-					"varName": "entity.srcAttrib.floatPower"
-				},
-				"type": "SET_SPEED"
-			}, {
-				"type": "SET_Z_VEL",
-				"value": 100
-			}, {
-				"offsetX": 0,
-				"offsetY": -100,
-				"speed": "FASTER",
-				"transition": "EASE_OUT",
-				"wait": false,
-				"waitSkip": 0,
-				"zoom": 1,
-				"focusType": "SELF",
-				"keepPlayerOffset": 0.5,
-				"type": "FOCUS_CAMERA"
-			}, {
-				"duration": -1,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"target2": "PROXY_OWNER",
-				"target2Align": "FACE",
-				"target2Offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				},
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "fishing.fishing",
-					"name": "fishingLine"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 10
-				}
-			}, {
-				"time": 0.3,
-				"cancelOnHit": true,
-				"collideCancel": 1,
-				"orthoDirFactor": 0,
-				"ignoreLastHit": false,
-				"type": "TACKLE",
-				"attack": {
-					"type": "NONE",
-					"element": "NEUTRAL",
-					"damageFactor": 0,
-					"reverse": false,
-					"guardable": "",
-					"skillBonus": "RANGED_DMG"
-				}
-			}, {
-				"type": "SET_AIR_FRICTION",
-				"value": 0.1
-			}, {
-				"type": "WAIT_UNTIL_ON_GROUND"
-			}, {
-				"type": "STOP_XY"
-			}, {
-				"name": "floatPos",
-				"target": "SELF",
-				"align": "BOTTOM",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				},
-				"faceDistance": 0,
-				"type": "SET_ATTRIB_POS"
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "entity.attrib.floatPos.y >= 176",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_ANIMATION",
-					"anim": "in"
-				}, {
-					"face": "NORTH",
-					"rotate": false,
-					"rotateSpeed": 3,
-					"type": "SET_FACE"
-				}, {
-					"conditions": [{
-						"max": 0.7,
-						"negated": false,
-						"type": "RANDOM"
-					}],
-					"withElse": true,
-					"type": "COMBAT_IF",
-					"thenStep": [{
-						"type": "CHANGE_VAR_NUMBER",
-						"changeType": "set",
-						"value": 0,
-						"varName": "tmp.fishSize"
-					}],
-					"elseStep": [{
-						"conditions": [{
-							"max": 0.5,
-							"negated": false,
-							"type": "RANDOM"
-						}],
-						"withElse": true,
-						"type": "COMBAT_IF",
-						"thenStep": [{
-							"type": "CHANGE_VAR_NUMBER",
-							"changeType": "set",
-							"value": 1,
-							"varName": "tmp.fishSize"
-						}],
-						"elseStep": [{
-							"conditions": [{
-								"max": 0.7,
-								"negated": false,
-								"type": "RANDOM"
-							}],
-							"withElse": true,
-							"type": "COMBAT_IF",
-							"thenStep": [{
-								"type": "CHANGE_VAR_NUMBER",
-								"changeType": "set",
-								"value": 2,
-								"varName": "tmp.fishSize"
-							}],
-							"elseStep": [{
-								"type": "CHANGE_VAR_NUMBER",
-								"changeType": "set",
-								"value": 3,
-								"varName": "tmp.fishSize"
-							}]
-						}]
-					}]
-				}, {
-					"type": "CHANGE_VAR_NUMBER",
-					"changeType": "set",
-					"value": 0,
-					"varName": "tmp.fishEatIt"
-				}, {
-					"duration": 0,
-					"align": "BOTTOM",
-					"rotateFace": 0,
-					"flipLeftFace": false,
-					"wait": false,
-					"waitSkip": 0,
-					"actionDetached": false,
-					"fixPos": false,
-					"type": "SHOW_EFFECT",
-					"effect": {
-						"sheet": "combatant",
-						"name": "waterSplash"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"attribName": "floatInX",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": {
-						"varName": "entity.attrib.floatPos.x"
-					}
-				}, {
-					"attribName": "floatInY",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": {
-						"varName": "entity.attrib.floatPos.y"
-					}
-				}, {
-					"attribName": "floatInX",
-					"changeType": "sub",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": {
-						"varName": "tmp.bubblePos.x"
-					}
-				}, {
-					"attribName": "floatInY",
-					"changeType": "sub",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": {
-						"varName": "tmp.bubblePos.y"
-					}
-				}, {
-					"type": "CHANGE_VAR_NUMBER",
-					"changeType": "set",
-					"value": 0,
-					"varName": "tmp.detectMousePress"
-				}, {
-					"withElse": true,
-					"type": "IF",
-					"condition": "entity.attrib.floatInX<16&&entity.attrib.floatInX>-16&&entity.attrib.floatInY<16&&entity.attrib.floatInY>-16",
-					"thenStep": [{
-						"type": "CHANGE_VAR_BOOL",
-						"varName": "tmp.startEffect",
-						"changeType": "set",
-						"value": false
-					}, {
-						"type": "CHANGE_VAR_BOOL",
-						"varName": "tmp.catchingFish",
-						"changeType": "set",
-						"value": true
-					}, {
-						"align": "BOTTOM",
-						"centralAngle": 0.1,
-						"angleVary": 0.1,
-						"startDist": 0,
-						"startDistCollide": "NONE",
-						"random": false,
-						"count": 1,
-						"duration": 0,
-						"clockwise": false,
-						"flipLeftFace": 0,
-						"circularArea": false,
-						"uniformDir": 0,
-						"delay": 0,
-						"repeat": false,
-						"type": "SHOOT_PROXY_RANGE",
-						"proxy": "fishingFish",
-						"offset": {
-							"x": 0,
-							"y": 0,
-							"z": 0
-						}
-					}, {
-						"condition": "tmp.detectMousePress != 0 || tmp.fishEatIt == 1",
-						"type": "WAIT_UNTIL"
-					}, {
-						"withElse": true,
-						"type": "IF",
-						"condition": "tmp.detectMousePress!=1",
-						"thenStep": [{
-							"wait": false,
-							"type": "SHOW_ANIMATION",
-							"anim": "hide"
-						}, {
-							"duration": 0,
-							"align": "BOTTOM",
-							"rotateFace": 0,
-							"flipLeftFace": false,
-							"wait": false,
-							"waitSkip": 0,
-							"actionDetached": false,
-							"fixPos": false,
-							"type": "SHOW_EFFECT",
-							"effect": {
-								"sheet": "combatant",
-								"name": "waterSplash"
-							},
-							"offset": {
-								"x": 0,
-								"y": 0,
-								"z": 0
-							}
-						}, {
-							"condition": "tmp.detectMousePress != 0",
-							"maxTime": 0.35,
-							"type": "WAIT_UNTIL"
-						}, {
-							"withElse": true,
-							"type": "IF",
-							"condition": "tmp.detectMousePress==1",
-							"thenStep": [{
-								"type": "CHANGE_VAR_NUMBER",
-								"changeType": "set",
-								"value": 2,
-								"varName": "tmp.fishEatIt"
-							}, {
-								"volume": 0.9,
-								"global": false,
-								"loop": false,
-								"type": "PLAY_SOUND",
-								"sound": "media/sound/battle/hit-counter-echo.ogg"
-							}, {
-								"zoomType": "LIGHT",
-								"fadeIn": 0.1,
-								"duration": 0.1,
-								"fadeOut": 0.3,
-								"type": "SET_ZOOM_BLUR"
-							}, {
-								"rumbleType": "RANDOM",
-								"name": "struggleRumble",
-								"duration": 0.2,
-								"power": "WEAKEST",
-								"speed": "FASTER",
-								"fade": true,
-								"type": "RUMBLE_SCREEN"
-							}, {
-								"attribName": "catchFish",
-								"changeType": "set",
-								"changeConnected": "PROXY_OWNER",
-								"type": "SET_ATTRIB_NUMBER",
-								"value": 1
-							}, {
-								"duration": 1.5,
-								"align": "BOTTOM",
-								"rotateFace": 0,
-								"flipLeftFace": false,
-								"wait": false,
-								"waitSkip": 0.2,
-								"actionDetached": false,
-								"fixPos": false,
-								"type": "SHOW_EFFECT",
-								"effect": {
-									"sheet": "combatant",
-									"name": "waterSplash"
-								},
-								"offset": {
-									"x": 0,
-									"y": 0,
-									"z": 0
-								}
-							}, {
-								"time": 1.5,
-								"type": "WAIT"
-							}]
-						}]
-					}],
-					"elseStep": [{
-						"condition": "tmp.detectMousePress != 0",
-						"maxTime": 0.8,
-						"type": "WAIT_UNTIL"
-					}]
-				}, {
-					"attribName": "catchFish",
-					"changeType": "set",
-					"changeConnected": "PROXY_OWNER",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": -1
-				}, {
-					"wait": false,
-					"type": "SHOW_ANIMATION",
-					"anim": "default"
-				}, {
-					"kind": "PROXY_OWNER",
-					"type": "SET_TEMP_TARGET"
-				}, {
-					"type": "CHANGE_VAR_NUMBER",
-					"changeType": "set",
-					"value": -1,
-					"varName": "tmp.fishEatIt"
-				}, {
-					"value": 1.5,
-					"type": "SET_Z_GRAVITY_FACTOR"
-				}, {
-					"value": {
-						"varName": "entity.srcAttrib.floatPower"
-					},
-					"type": "SET_SPEED"
-				}, {
-					"value": 2,
-					"type": "SET_RELATIVE_SPEED"
-				}, {
-					"jumpSpeed": 500,
-					"adjustAbove": 13,
-					"type": "JUMP_TO_TARGET"
-				}, {
-					"type": "WAIT_UNTIL_ON_GROUND"
-				}]
-			}, {
-				"attribName": "catchFish",
-				"changeType": "set",
-				"changeConnected": "PROXY_OWNER",
-				"type": "SET_ATTRIB_NUMBER",
-				"value": -2
-			}, {
-				"type": "CHANGE_VAR_BOOL",
-				"varName": "tmp.catchingFish",
-				"changeType": "set",
-				"value": false
-			}],
-			"invisible": false,
-			"hp": 0,
-			"stickToSource": "NONE",
-			"stickFaceAlign": false,
-			"group": "",
-			"size": {
-				"x": 16,
-				"y": 16,
-				"z": 16
-			},
-			"type": "GENERIC",
-			"config": {
-				"collType": "PROJECTILE",
-				"airFriction": 1,
-				"zGravityFactor": 0.4,
-				"bounciness": -1,
-				"shadow": 16
-			}
-		},
-		"fishingFish": {
-			"faceAnims": {
-				"shapeType": "Y_FLAT",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				},
-				"dirs": "1",
-				"flipX": [0],
-				"tileOffsets": [0],
-				"repeat": true,
-				"frames": [0, 1, 2, 3, 4, 5],
-				"name": "default",
-				"sheet": {
-					"src": "media/entity/effects/fishing-charge.png",
-					"offX": 0,
-					"offY": 19,
-					"width": 10,
-					"height": 21
-				},
-				"faceRotate": true,
-				"time": 0.15,
-				"SUB": [{
-					"name": "hide",
-					"framesAlpha": [0, 0, 0, 0, 0, 0]
-				}, {
-					"name": "fast",
-					"time": 0.07
-				}]
-			},
-			"copyOwnerAnims": false,
-			"breakType": "ACTION",
-			"action": [{
-				"wait": false,
-				"type": "SHOW_ANIMATION",
-				"anim": "hide"
-			}, {
-				"name": "floatPos",
-				"target": "SELF",
-				"align": "BOTTOM",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				},
-				"faceDistance": -10,
-				"type": "SET_ATTRIB_POS"
-			}, {
-				"value": 500,
-				"type": "SET_SPEED"
-			}, {
-				"type": "MOVE_BACKWARD",
-				"time": 0.2,
-				"stopBeforeEdge": false
-			}, {
-				"type": "STOP_XY"
-			}, {
-				"value": 0.1,
-				"type": "SET_ACCEL_SPEED"
-			}, {
-				"value": 40,
-				"type": "SET_SPEED"
-			}, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "teleport",
-					"name": "showAlpha"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"wait": false,
-				"type": "SHOW_ANIMATION",
-				"anim": "default"
-			}, {
-				"varName": "tmp.catchCount",
-				"type": "SET_RANDOM_VAR_NUMBER",
-				"min": 1,
-				"max": 3
-			}, {
-				"name": "fishLoopStart",
-				"type": "GOTO_LABEL"
-			}, {
-				"name": "fishLoop",
-				"type": "LABEL"
-			}, {
-				"type": "MOVE_BACKWARD",
-				"time": 1,
-				"stopBeforeEdge": false
-			}, {
-				"type": "WAIT_RANDOM",
-				"minTime": 0.5,
-				"maxTime": 1.8
-			}, {
-				"name": "fishLoopStart",
-				"type": "LABEL"
-			}, {
-				"type": "CHANGE_VAR_NUMBER",
-				"changeType": "sub",
-				"value": 1,
-				"varName": "tmp.catchCount"
-			}, {
-				"type": "NAVIGATE_TO_POINT",
-				"target": {
-					"varName": "entity.attrib.floatPos"
-				},
-				"precise": true
-			}, {
-				"type": "STOP_XY"
-			}, {
-				"type": "WAIT_RANDOM",
-				"minTime": 0,
-				"maxTime": 0.2
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.catchCount > 0 && tmp.fishEatIt >= 0",
-				"thenStep": [{
-					"name": "fishLoop",
-					"type": "GOTO_LABEL"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishEatIt != -1",
-				"thenStep": [{
-					"type": "CHANGE_VAR_NUMBER",
-					"changeType": "set",
-					"value": 1,
-					"varName": "tmp.fishEatIt"
-				}]
-			}, {
-				"condition": "tmp.fishEatIt == 2 || tmp.fishEatIt == -1",
-				"maxTime": 0.4,
-				"type": "WAIT_UNTIL"
-			}, {
-				"withElse": true,
-				"type": "IF",
-				"condition": "tmp.fishEatIt == 2",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_ANIMATION",
-					"anim": "fast"
-				}, {
-					"target": "PROXY_SRC",
-					"distance": 10,
-					"duration": 1.5,
-					"rotateTime": 0.3,
-					"ccw": false,
-					"distAdjustSpeed": 50,
-					"zDistance": 0,
-					"waitTargetAlign": false,
-					"type": "STICKY_CIRCLE_AROUND"
-				}, {
-					"align": "BOTTOM",
-					"type": "SHOOT_PROXY",
-					"proxy": "fishCatched",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}],
-				"elseStep": [{
-					"duration": 0,
-					"align": "BOTTOM",
-					"rotateFace": 0,
-					"flipLeftFace": false,
-					"wait": false,
-					"waitSkip": 0,
-					"actionDetached": false,
-					"fixPos": false,
-					"type": "SHOW_EFFECT",
-					"effect": {
-						"sheet": "teleport",
-						"name": "hideAlpha"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"value": 200,
-					"type": "SET_SPEED"
-				}, {
-					"minTime": 2,
-					"maxTime": 2,
-					"dirChanges": 1,
-					"type": "MOVE_RANDOM"
-				}]
-			}],
-			"invisible": false,
-			"hp": 0,
-			"stickToSource": "NONE",
-			"stickFaceAlign": false,
-			"noFallDestroy": true,
-			"group": "fish",
-			"size": {
-				"x": 16,
-				"y": 16,
-				"z": 16
-			},
-			"config": {
-				"collType": "NONE"
-			},
-			"type": "GENERIC"
-		},
-		"fishCatched": {
-			"copyOwnerAnims": false,
-			"breakType": "NEVER",
-			"action": [{
-				"face": "SOUTH",
-				"rotate": false,
-				"rotateSpeed": 3,
-				"type": "SET_FACE"
-			}, {
-				"value": true,
-				"type": "SET_FACE_FIX"
-			}, {
-				"varName": "tmp.fishType",
-				"type": "SET_RANDOM_VAR_NUMBER",
-				"min": 0,
-				"max": 33
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishSize == 1",
-				"thenStep": [{
-					"varName": "tmp.fishType",
-					"type": "SET_RANDOM_VAR_NUMBER",
-					"min": 34,
-					"max": 37
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishSize == 2",
-				"thenStep": [{
-					"varName": "tmp.fishType",
-					"type": "SET_RANDOM_VAR_NUMBER",
-					"min": 38,
-					"max": 45
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishSize == 3",
-				"thenStep": [{
-					"varName": "tmp.fishType",
-					"type": "SET_RANDOM_VAR_NUMBER",
-					"min": 46,
-					"max": 49
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType > 49",
-				"thenStep": [{
-					"varName": "tmp.fishType",
-					"type": "CHANGE_VAR_NUMBER",
-					"changeType": "set",
-					"value": 35
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 0",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "pufferfish"
-					}
-				}, {
-					"amount": 2000,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Pufferfish",
-						"ko_KR": "복어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 1",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "anchovy"
-					}
-				}, {
-					"amount": 300,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Anchovy",
-						"ko_KR": "멸치"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 2",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "tuna"
-					}
-				}, {
-					"amount": 1000,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Tuna",
-						"ko_KR": "참치"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 3",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "sardine"
-					}
-				}, {
-					"amount": 400,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Sardine",
-						"ko_KR": "정어리"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 4",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "bream"
-					}
-				}, {
-					"amount": 450,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Bream",
-						"ko_KR": "도미"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 5",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "largebass"
-					}
-				}, {
-					"amount": 1000,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Largemouth Bass",
-						"ko_KR": "큰입우럭"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 6",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "smallbass"
-					}
-				}, {
-					"amount": 500,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Smallmouth Bass",
-						"ko_KR": "작은입우럭"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 7",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "rainbowtrout"
-					}
-				}, {
-					"amount": 650,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Rainbow Trout",
-						"ko_KR": "무지개 송어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 8",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "salmon"
-					}
-				}, {
-					"amount": 750,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Salmon",
-						"ko_KR": "연어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 9",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "walleye"
-					}
-				}, {
-					"amount": 1050,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Walleye",
-						"ko_KR": "월아이"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 10",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "perch"
-					}
-				}, {
-					"amount": 550,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Perch",
-						"ko_KR": "농어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 11",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "catfish"
-					}
-				}, {
-					"amount": 2000,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Catfish",
-						"ko_KR": "메기"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 12",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "pike"
-					}
-				}, {
-					"amount": 1000,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Pike",
-						"ko_KR": "강꼬치고기"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 13",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "sunfish"
-					}
-				}, {
-					"amount": 300,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Sunfish",
-						"ko_KR": "선피쉬"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 14",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "redmullet"
-					}
-				}, {
-					"amount": 750,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Red Mullet",
-						"ko_KR": "노랑촉수"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 15",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "herring"
-					}
-				}, {
-					"amount": 300,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Herring",
-						"ko_KR": "청어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 16",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "eel"
-					}
-				}, {
-					"amount": 850,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Eel",
-						"ko_KR": "장어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 17",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "octopus"
-					}
-				}, {
-					"amount": 1050,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Octopus",
-						"ko_KR": "문어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 18",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "redsnapper"
-					}
-				}, {
-					"amount": 500,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Red Snapper",
-						"ko_KR": "붉은 퉁돔"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 19",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "squid"
-					}
-				}, {
-					"amount": 800,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Squid",
-						"ko_KR": "오징어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 20",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "ghostfish"
-					}
-				}, {
-					"amount": 450,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Ghost fish",
-						"ko_KR": "귀신물고기"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 21",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "stonefish"
-					}
-				}, {
-					"amount": 3000,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Stonefish",
-						"ko_KR": "쑥치"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 22",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "icepip"
-					}
-				}, {
-					"amount": 5000,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Ice Pip",
-						"ko_KR": "아이스핍"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 23",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "sturgeon"
-					}
-				}, {
-					"amount": 2500,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Sturgeon",
-						"ko_KR": "철갑상어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 24",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "tigertrout"
-					}
-				}, {
-					"amount": 1500,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Tiger Trout",
-						"ko_KR": "타이거 송어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 25",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "bullhead"
-					}
-				}, {
-					"amount": 750,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Bullhead",
-						"ko_KR": "눈동자개"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 26",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "tilapia"
-					}
-				}, {
-					"amount": 750,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Tilapia",
-						"ko_KR": "틸라피아"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 27",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "chub"
-					}
-				}, {
-					"amount": 500,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Chub",
-						"ko_KR": "피라미"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 28",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "dorado"
-					}
-				}, {
-					"amount": 1000,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Dorado",
-						"ko_KR": "도라도"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 29",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "albacore"
-					}
-				}, {
-					"amount": 750,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Albacore",
-						"ko_KR": "날개다랑어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 30",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "shad"
-					}
-				}, {
-					"amount": 600,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Shad",
-						"ko_KR": "전어"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 31",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "lingcod"
-					}
-				}, {
-					"amount": 1200,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Lingcod",
-						"ko_KR": "범노래미"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 32",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "hailbut"
-					}
-				}, {
-					"amount": 800,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Hailbut",
-						"ko_KR": "넙치"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 33",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "woodskip"
-					}
-				}, {
-					"amount": 750,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Woodskip",
-						"ko_KR": "숲고기"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 34",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "sandvich"
-					}
-				}, {
-					"item": "1",
-					"amount": 1,
-					"skip": false,
-					"type": "GIVE_ITEM"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Sandwich",
-						"ko_KR": "샌드위치"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 35",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "water"
-					}
-				}, {
-					"item": "366",
-					"amount": 1,
-					"skip": false,
-					"type": "GIVE_ITEM"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Water",
-						"ko_KR": "물"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 36",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "cheepcheepF"
-					}
-				}, {
-					"amount": 5,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Cheep Cheep",
-						"ko_KR": "뽀꾸뽀꾸"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 37",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "voodooF"
-					}
-				}, {
-					"amount": 10,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Guide Voodoo Fish",
-						"ko_KR": "가이드 부두 인형"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 38",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "yoshiF"
-					}
-				}, {
-					"amount": 40,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Yoshi",
-						"ko_KR": "요시"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 39",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "enemies.hedgehog",
-						"name": "damage"
-					}
-				}, {
-					"amount": 10,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Hedgehag",
-						"ko_KR": "고슴됴치"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 40",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "enemies.hedgehog-alt",
-						"name": "damage"
-					}
-				}, {
-					"amount": 30,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Old Hedgehag",
-						"ko_KR": "늙은 고슴됴치"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 41",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "enemies.sandshark",
-						"name": "weak"
-					}
-				}, {
-					"amount": 130,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Sharkster",
-						"ko_KR": "샤크스터"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 42",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "pepeF"
-					}
-				}, {
-					"amount": 70,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "PePe Jr.",
-						"ko_KR": "주니어 페페"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 43",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "kawaiistarsandvich"
-					}
-				}, {
-					"item": "382",
-					"amount": 1,
-					"skip": false,
-					"type": "GIVE_ITEM"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Rising Super Star",
-						"ko_KR": "떠오르는 슈퍼스타"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 44",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "enemies.jungle-fish",
-						"name": "damage"
-					}
-				}, {
-					"amount": 350,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Angler",
-						"ko_KR": "앵글러"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 45",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "enemies.hedgehog-boss",
-						"name": "damage"
-					}
-				}, {
-					"amount": 300,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Blue Hedgehag",
-						"ko_KR": "파란색 고슴됴치"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 46",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "enemies.jungle-blueray",
-						"name": "damage"
-					}
-				}, {
-					"amount": 800,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Blue Ray",
-						"ko_KR": "블루 레이"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 47",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "crossworld"
-					}
-				}, {
-					"item": "63",
-					"amount": 1,
-					"skip": false,
-					"type": "GIVE_ITEM"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Cross Sandwich",
-						"ko_KR": "크로스 샌드위치"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 48",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "legendF"
-					}
-				}, {
-					"amount": 50000,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Legend",
-						"ko_KR": "전설"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "tmp.fishType == 49",
-				"thenStep": [{
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.fish",
-						"name": "rfgF"
-					}
-				}, {
-					"amount": 100000,
-					"type": "GIVE_MONEY"
-				}, {
-					"entity": {
-						"player": true
-					},
-					"text": {
-						"en_US": "Radical Fish",
-						"ko_KR": "래디컬 피쉬"
-					},
-					"mode": "NO_LINE",
-					"color": "GREEN",
-					"time": 3,
-					"type": "SHOW_AR_MSG"
-				}]
-			}, {
-				"kind": "PROXY_OWNER",
-				"type": "SET_TEMP_TARGET"
-			}, {
-				"value": 1.3,
-				"type": "SET_Z_GRAVITY_FACTOR"
-			}, {
-				"value": 300,
-				"type": "SET_SPEED"
-			}, {
-				"jumpSpeed": 500,
-				"adjustAbove": 13,
-				"type": "JUMP_TO_TARGET"
-			}, {
-				"type": "SET_FLOAT_HEIGHT",
-				"value": 16
-			}, {
-				"time": 3,
-				"type": "WAIT"
-			}, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": true,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "teleport",
-					"name": "hideAlpha"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}],
-			"invisible": false,
-			"hp": 0,
-			"stickToSource": "NONE",
-			"stickFaceAlign": false,
-			"group": "",
-			"size": {
-				"x": 16,
-				"y": 16,
-				"z": 16
-			},
-			"type": "GENERIC",
-			"config": {
-				"collType": "PROJECTILE",
-				"airFriction": 1,
-				"zGravityFactor": 0.4,
-				"bounciness": -1,
-				"shadow": 16
-			}
-		}
-	},
-	"actions": {
-		"BASE": {
-			"AIM_START": {
-				"dmgType": "",
-				"stunType": "",
-				"status": false,
-				"steps": [{
-					"followUp": "aim",
-					"wait": false,
-					"viaWalkConfig": false,
-					"type": "SHOW_ANIMATION",
-					"anim": "startAim"
-				}, {
-					"attribName": "floatPower",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 0
-				}, {
-					"attribName": "floatCharge",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 1
-				}, {
-					"attribName": "floatPowerMode",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 1
-				}, {
-					"duration": -1,
-					"align": "BOTTOM",
-					"rotateFace": 0,
-					"flipLeftFace": false,
-					"wait": false,
-					"waitSkip": 0,
-					"actionDetached": false,
-					"fixPos": false,
-					"type": "SHOW_EFFECT",
-					"effect": {
-						"sheet": "fishing.fishing",
-						"name": "fishingCharge"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 32
-					}
-				}, {
-					"time": 0.025,
-					"type": "WAIT"
-				}, {
-					"name": "loop",
-					"type": "LABEL"
-				}, {
-					"time": 0.05,
-					"type": "WAIT"
-				}, {
-					"withElse": true,
-					"type": "IF",
-					"condition": "entity.attrib.floatPowerMode > 0",
-					"thenStep": [{
-						"attribName": "floatCharge",
-						"changeType": "add",
-						"type": "SET_ATTRIB_NUMBER",
-						"value": 1
-					}],
-					"elseStep": [{
-						"attribName": "floatCharge",
-						"changeType": "sub",
-						"type": "SET_ATTRIB_NUMBER",
-						"value": 1
-					}]
-				}, {
-					"withElse": false,
-					"type": "IF",
-					"condition": "entity.attrib.floatCharge == 16 || entity.attrib.floatCharge == 0",
-					"thenStep": [{
-						"attribName": "floatPowerMode",
-						"changeType": "mul",
-						"type": "SET_ATTRIB_NUMBER",
-						"value": -1
-					}]
-				}, {
-					"name": "loop",
-					"type": "GOTO_LABEL"
-				}]
-			},
-			"THROW_NORMAL": {
-				"steps": [{
-					"type": "SET_PLAYER_ACTION_BLOCK",
-					"blockData": {
-						"dash": -1,
-						"action": -1,
-						"move": -1,
-						"reaim": -1
-					}
-				}, {
-					"type": "CHANGE_VAR_BOOL",
-					"varName": "map.fishingNow",
-					"changeType": "set",
-					"value": true
-				}, {
-					"charged": true,
-					"type": "SHOW_THROW_FX"
-				}, {
-					"attribName": "catchFish",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 0
-				}, {
-					"withElse": false,
-					"type": "IF",
-					"condition": "entity.attrib.floatCharge == 16",
-					"thenStep": [{
-						"entity": {
-							"player": true
-						},
-						"text": {
-							"en_US": "MAX",
-							"ko_KR": "최대"
-						},
-						"mode": "NO_LINE",
-						"color": "GREEN",
-						"time": 2,
-						"type": "SHOW_AR_MSG"
-					}]
-				}, {
-					"attribName": "floatPower",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": {
-						"varName": "entity.attrib.floatCharge"
-					}
-				}, {
-					"attribName": "floatPower",
-					"changeType": "mul",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 10
-				}, {
-					"attribName": "floatPower",
-					"changeType": "add",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 50
-				}, {
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "fishingFloat",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 1
-					}
-				}, {
-					"followUp": "throwEnd",
-					"wait": false,
-					"viaWalkConfig": false,
-					"type": "SHOW_ANIMATION",
-					"anim": "throw"
-				}, {
-					"value": 80,
-					"type": "SET_SPEED"
-				}, {
-					"dir": {
-						"actorAttrib": "dashDir"
-					},
-					"time": 0.1,
-					"stopBeforeEdge": false,
-					"type": "MOVE_TO_DIR"
-				}, {
-					"time": 0.8,
-					"type": "WAIT"
-				}, {
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.player-fishing",
-						"name": "idle"
-					}
-				}, {
-					"condition": "entity.attrib.catchFish != 0",
-					"type": "WAIT_UNTIL"
-				}, {
-					"withElse": false,
-					"type": "IF",
-					"condition": "entity.attrib.catchFish > -1",
-					"thenStep": [{
-						"wait": false,
-						"type": "SHOW_EXTERN_ANIM",
-						"anim": {
-							"sheet": "fish.player-fishing",
-							"name": "struggle"
-						}
-					}, {
-						"condition": "entity.attrib.catchFish == -1",
-						"type": "WAIT_UNTIL"
-					}]
-				}, {
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.player-fishing",
-						"name": "pull"
-					}
-				}, {
-					"condition": "entity.attrib.catchFish == -2",
-					"type": "WAIT_UNTIL"
-				}, {
-					"sticking": false,
-					"group": "fish",
-					"type": "REMOVE_PROXIES"
-				}, {
-					"type": "CHANGE_VAR_BOOL",
-					"varName": "map.fishingNow",
-					"changeType": "set",
-					"value": false
-				}, {
-					"time": 0.1,
-					"type": "WAIT"
-				}]
-			},
-			"THROW_NORMAL_REV": {
-				"steps": [{
-					"type": "SET_PLAYER_ACTION_BLOCK",
-					"blockData": {
-						"dash": -1,
-						"action": -1,
-						"move": -1,
-						"reaim": -1
-					}
-				}, {
-					"type": "CHANGE_VAR_BOOL",
-					"varName": "map.fishingNow",
-					"changeType": "set",
-					"value": true
-				}, {
-					"charged": true,
-					"type": "SHOW_THROW_FX"
-				}, {
-					"attribName": "catchFish",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 0
-				}, {
-					"withElse": false,
-					"type": "IF",
-					"condition": "entity.attrib.floatCharge == 16",
-					"thenStep": [{
-						"entity": {
-							"player": true
-						},
-						"text": {
-							"en_US": "MAX",
-							"ko_KR": "최대"
-						},
-						"mode": "NO_LINE",
-						"color": "GREEN",
-						"time": 2,
-						"type": "SHOW_AR_MSG"
-					}]
-				}, {
-					"attribName": "floatPower",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": {
-						"varName": "entity.attrib.floatCharge"
-					}
-				}, {
-					"attribName": "floatPower",
-					"changeType": "mul",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 10
-				}, {
-					"attribName": "floatPower",
-					"changeType": "add",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 50
-				}, {
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "fishingFloat",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 1
-					}
-				}, {
-					"followUp": "throwEnd",
-					"wait": false,
-					"viaWalkConfig": false,
-					"type": "SHOW_ANIMATION",
-					"anim": "throw"
-				}, {
-					"value": 80,
-					"type": "SET_SPEED"
-				}, {
-					"dir": {
-						"actorAttrib": "dashDir"
-					},
-					"time": 0.1,
-					"stopBeforeEdge": false,
-					"type": "MOVE_TO_DIR"
-				}, {
-					"time": 0.8,
-					"type": "WAIT"
-				}, {
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.player-fishing",
-						"name": "idle"
-					}
-				}, {
-					"condition": "entity.attrib.catchFish != 0",
-					"type": "WAIT_UNTIL"
-				}, {
-					"withElse": false,
-					"type": "IF",
-					"condition": "entity.attrib.catchFish > -1",
-					"thenStep": [{
-						"wait": false,
-						"type": "SHOW_EXTERN_ANIM",
-						"anim": {
-							"sheet": "fish.player-fishing",
-							"name": "struggle"
-						}
-					}, {
-						"condition": "entity.attrib.catchFish == -1",
-						"type": "WAIT_UNTIL"
-					}]
-				}, {
-					"wait": false,
-					"type": "SHOW_EXTERN_ANIM",
-					"anim": {
-						"sheet": "fish.player-fishing",
-						"name": "pull"
-					}
-				}, {
-					"condition": "entity.attrib.catchFish == -2",
-					"type": "WAIT_UNTIL"
-				}, {
-					"sticking": false,
-					"group": "fish",
-					"type": "REMOVE_PROXIES"
-				}, {
-					"type": "CHANGE_VAR_BOOL",
-					"varName": "map.fishingNow",
-					"changeType": "set",
-					"value": false
-				}, {
-					"time": 0.1,
-					"type": "WAIT"
-				}]
-			}
-		},
-		"NEUTRAL": {},
-		"HEAT": {},
-		"COLD": {},
-		"SHOCK": {},
-		"WAVE": {}
-	},
-	"skillRanking": []
+    "DOCTYPE": "PLAYER",
+    "sheet": "player",
+    "character": "main.lea",
+    "headIdx": 0,
+    "class": "SPHEROMANCER",
+    "stats": {
+        "hp": {
+            "base": 200,
+            "increase": 2000,
+            "variance": 0.1
+        },
+        "attack": {
+            "base": 20,
+            "increase": 200,
+            "variance": 0.9
+        },
+        "defense": {
+            "base": 20,
+            "increase": 200,
+            "variance": 0.5
+        },
+        "focus": {
+            "base": 20,
+            "increase": 200,
+            "variance": 0.3
+        }
+    },
+    "combatStyle": {
+        "comboCount": 4,
+        "throwCount": 1,
+        "throwProb": 0,
+        "sidewaySpeed": 0,
+        "normDistance": 0,
+        "meleeDistance": 0,
+        "minDistance": 0,
+        "foodSprites": ["", "", ""]
+    },
+    "walkAnims": null,
+    "autoequip": [{
+        "level": 3,
+        "HEAD": 23,
+        "LEFT_ARM": 24,
+        "RIGHT_ARM": 24,
+        "TORSO": 26,
+        "FEET": 25
+    }, {
+        "level": 6,
+        "HEAD": 31,
+        "LEFT_ARM": 29,
+        "RIGHT_ARM": 29,
+        "TORSO": 30,
+        "FEET": 32
+    }, {
+        "level": 10,
+        "HEAD": 116,
+        "LEFT_ARM": 56,
+        "RIGHT_ARM": 37,
+        "TORSO": 41,
+        "FEET": 44
+    }, {
+        "level": 13,
+        "HEAD": 116,
+        "LEFT_ARM": 57,
+        "RIGHT_ARM": 111,
+        "TORSO": 47,
+        "FEET": 44
+    }, {
+        "level": 16,
+        "HEAD": 118,
+        "LEFT_ARM": 113,
+        "RIGHT_ARM": 113,
+        "TORSO": 122,
+        "FEET": 121
+    }, {
+        "level": 20,
+        "HEAD": 119,
+        "LEFT_ARM": 114,
+        "RIGHT_ARM": 8,
+        "TORSO": 123,
+        "FEET": 120
+    }, {
+        "level": 23,
+        "HEAD": 208,
+        "LEFT_ARM": 209,
+        "RIGHT_ARM": 8,
+        "TORSO": 210,
+        "FEET": 211
+    }, {
+        "level": 27,
+        "HEAD": 204,
+        "LEFT_ARM": 205,
+        "RIGHT_ARM": 205,
+        "TORSO": 206,
+        "FEET": 207
+    }, {
+        "level": 30,
+        "HEAD": 213,
+        "LEFT_ARM": 222,
+        "RIGHT_ARM": 223,
+        "TORSO": 215,
+        "FEET": 220
+    }, {
+        "level": 34,
+        "HEAD": 264,
+        "LEFT_ARM": 266,
+        "RIGHT_ARM": 266,
+        "TORSO": 268,
+        "FEET": 270
+    }, {
+        "level": 38,
+        "HEAD": 293,
+        "LEFT_ARM": 302,
+        "RIGHT_ARM": 266,
+        "TORSO": 307,
+        "FEET": 309
+    }, {
+        "level": 42,
+        "HEAD": 265,
+        "LEFT_ARM": 267,
+        "RIGHT_ARM": 267,
+        "TORSO": 269,
+        "FEET": 271
+    }, {
+        "level": 46,
+        "HEAD": 296,
+        "LEFT_ARM": 300,
+        "RIGHT_ARM": 303,
+        "TORSO": 305,
+        "FEET": 310
+    }, {
+        "level": 50,
+        "HEAD": 393,
+        "LEFT_ARM": 394,
+        "RIGHT_ARM": 394,
+        "TORSO": 395,
+        "FEET": 396
+    }, {
+        "level": 56,
+        "HEAD": 365,
+        "LEFT_ARM": 412,
+        "RIGHT_ARM": 413,
+        "TORSO": 416,
+        "FEET": 418
+    }, {
+        "level": 59,
+        "HEAD": 397,
+        "LEFT_ARM": 398,
+        "RIGHT_ARM": 398,
+        "TORSO": 399,
+        "FEET": 400
+    }, {
+        "level": 63,
+        "HEAD": 473,
+        "LEFT_ARM": 476,
+        "RIGHT_ARM": 351,
+        "TORSO": 477,
+        "FEET": 481
+    }],
+    "proxies": {
+        "fishingFloat": {
+            "faceAnims": {
+                "shapeType": "Y_FLAT",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "dirs": "1",
+                "flipX": [0],
+                "tileOffsets": [0],
+                "time": 1,
+                "repeat": true,
+                "frames": [0],
+                "SUB": [{
+                    "name": "default",
+                    "sheet": {
+                        "src": "media/entity/effects/fishing-charge.png",
+                        "offX": 40,
+                        "offY": 0,
+                        "width": 14,
+                        "height": 19
+                    },
+                    "faceRotate": true
+                }, {
+                    "name": "in",
+                    "sheet": {
+                        "src": "media/entity/effects/fishing-charge.png",
+                        "offX": 54,
+                        "offY": 0,
+                        "width": 16,
+                        "height": 19
+                    },
+                    "faceRotate": false,
+                    "SUB": [{
+                        "name": "hide",
+                        "framesAlpha": [0]
+                    }]
+                }]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "value": 1,
+                "type": "SET_SPEED"
+            }, {
+                "value": {
+                    "varName": "entity.srcAttrib.floatPower"
+                },
+                "type": "SET_SPEED"
+            }, {
+                "type": "SET_Z_VEL",
+                "value": 100
+            }, {
+                "offsetX": 0,
+                "offsetY": -100,
+                "speed": "FASTER",
+                "transition": "EASE_OUT",
+                "wait": false,
+                "waitSkip": 0,
+                "zoom": 1,
+                "focusType": "SELF",
+                "keepPlayerOffset": 0.5,
+                "type": "FOCUS_CAMERA"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "FACE",
+                "target2Offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "fishing.fishing",
+                    "name": "fishingLine"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 10
+                }
+            }, {
+                "time": 0.3,
+                "cancelOnHit": true,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+                    "type": "NONE",
+                    "element": "NEUTRAL",
+                    "damageFactor": 0,
+                    "reverse": false,
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG"
+                }
+            }, {
+                "type": "SET_AIR_FRICTION",
+                "value": 0.1
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "type": "STOP_XY"
+            }, {
+                "name": "floatPos",
+                "target": "SELF",
+                "align": "BOTTOM",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "faceDistance": 0,
+                "type": "SET_ATTRIB_POS"
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.attrib.floatPos.y >= 176",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "in"
+                }, {
+                    "face": "NORTH",
+                    "rotate": false,
+                    "rotateSpeed": 3,
+                    "type": "SET_FACE"
+                }, {
+                    "conditions": [{
+                        "max": 0.7,
+                        "negated": false,
+                        "type": "RANDOM"
+                    }],
+                    "withElse": true,
+                    "type": "COMBAT_IF",
+                    "thenStep": [{
+                        "type": "CHANGE_VAR_NUMBER",
+                        "changeType": "set",
+                        "value": 0,
+                        "varName": "tmp.fishSize"
+                    }],
+                    "elseStep": [{
+                        "conditions": [{
+                            "max": 0.5,
+                            "negated": false,
+                            "type": "RANDOM"
+                        }],
+                        "withElse": true,
+                        "type": "COMBAT_IF",
+                        "thenStep": [{
+                            "type": "CHANGE_VAR_NUMBER",
+                            "changeType": "set",
+                            "value": 1,
+                            "varName": "tmp.fishSize"
+                        }],
+                        "elseStep": [{
+                            "conditions": [{
+                                "max": 0.7,
+                                "negated": false,
+                                "type": "RANDOM"
+                            }],
+                            "withElse": true,
+                            "type": "COMBAT_IF",
+                            "thenStep": [{
+                                "type": "CHANGE_VAR_NUMBER",
+                                "changeType": "set",
+                                "value": 2,
+                                "varName": "tmp.fishSize"
+                            }],
+                            "elseStep": [{
+                                "type": "CHANGE_VAR_NUMBER",
+                                "changeType": "set",
+                                "value": 3,
+                                "varName": "tmp.fishSize"
+                            }]
+                        }]
+                    }]
+                }, {
+                    "type": "CHANGE_VAR_NUMBER",
+                    "changeType": "set",
+                    "value": 0,
+                    "varName": "tmp.fishEatIt"
+                }, {
+                    "duration": 0,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "combatant",
+                        "name": "waterSplash"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "attribName": "floatInX",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": {
+                        "varName": "entity.attrib.floatPos.x"
+                    }
+                }, {
+                    "attribName": "floatInY",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": {
+                        "varName": "entity.attrib.floatPos.y"
+                    }
+                }, {
+                    "attribName": "floatInX",
+                    "changeType": "sub",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": {
+                        "varName": "tmp.bubblePos.x"
+                    }
+                }, {
+                    "attribName": "floatInY",
+                    "changeType": "sub",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": {
+                        "varName": "tmp.bubblePos.y"
+                    }
+                }, {
+                    "type": "CHANGE_VAR_NUMBER",
+                    "changeType": "set",
+                    "value": 0,
+                    "varName": "tmp.detectMousePress"
+                }, {
+                    "withElse": true,
+                    "type": "IF",
+                    "condition": "entity.attrib.floatInX<16&&entity.attrib.floatInX>-16&&entity.attrib.floatInY<16&&entity.attrib.floatInY>-16",
+                    "thenStep": [{
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.startEffect",
+                        "changeType": "set",
+                        "value": false
+                    }, {
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.catchingFish",
+                        "changeType": "set",
+                        "value": true
+                    }, {
+                        "align": "BOTTOM",
+                        "centralAngle": 0.1,
+                        "angleVary": 0.1,
+                        "startDist": 0,
+                        "startDistCollide": "NONE",
+                        "random": false,
+                        "count": 1,
+                        "duration": 0,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "circularArea": false,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": false,
+                        "type": "SHOOT_PROXY_RANGE",
+                        "proxy": "fishingFish",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }, {
+                        "condition": "tmp.detectMousePress != 0 || tmp.fishEatIt == 1",
+                        "type": "WAIT_UNTIL"
+                    }, {
+                        "withElse": true,
+                        "type": "IF",
+                        "condition": "tmp.detectMousePress!=1",
+                        "thenStep": [{
+                            "wait": false,
+                            "type": "SHOW_ANIMATION",
+                            "anim": "hide"
+                        }, {
+                            "duration": 0,
+                            "align": "BOTTOM",
+                            "rotateFace": 0,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "combatant",
+                                "name": "waterSplash"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        }, {
+                            "condition": "tmp.detectMousePress != 0",
+                            "maxTime": 0.35,
+                            "type": "WAIT_UNTIL"
+                        }, {
+                            "withElse": true,
+                            "type": "IF",
+                            "condition": "tmp.detectMousePress==1",
+                            "thenStep": [{
+                                "type": "CHANGE_VAR_NUMBER",
+                                "changeType": "set",
+                                "value": 2,
+                                "varName": "tmp.fishEatIt"
+                            }, {
+                                "volume": 0.9,
+                                "global": false,
+                                "loop": false,
+                                "type": "PLAY_SOUND",
+                                "sound": "media/sound/battle/hit-counter-echo.ogg"
+                            }, {
+                                "zoomType": "LIGHT",
+                                "fadeIn": 0.1,
+                                "duration": 0.1,
+                                "fadeOut": 0.3,
+                                "type": "SET_ZOOM_BLUR"
+                            }, {
+                                "rumbleType": "RANDOM",
+                                "name": "struggleRumble",
+                                "duration": 0.2,
+                                "power": "WEAKEST",
+                                "speed": "FASTER",
+                                "fade": true,
+                                "type": "RUMBLE_SCREEN"
+                            }, {
+                                "attribName": "catchFish",
+                                "changeType": "set",
+                                "changeConnected": "PROXY_OWNER",
+                                "type": "SET_ATTRIB_NUMBER",
+                                "value": 1
+                            }, {
+                                "duration": 1.5,
+                                "align": "BOTTOM",
+                                "rotateFace": 0,
+                                "flipLeftFace": false,
+                                "wait": false,
+                                "waitSkip": 0.2,
+                                "actionDetached": false,
+                                "fixPos": false,
+                                "type": "SHOW_EFFECT",
+                                "effect": {
+                                    "sheet": "combatant",
+                                    "name": "waterSplash"
+                                },
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            }, {
+                                "time": 1.5,
+                                "type": "WAIT"
+                            }]
+                        }]
+                    }],
+                    "elseStep": [{
+                        "condition": "tmp.detectMousePress != 0",
+                        "maxTime": 0.8,
+                        "type": "WAIT_UNTIL"
+                    }]
+                }, {
+                    "attribName": "catchFish",
+                    "changeType": "set",
+                    "changeConnected": "PROXY_OWNER",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": -1
+                }, {
+                    "wait": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "default"
+                }, {
+                    "kind": "PROXY_OWNER",
+                    "type": "SET_TEMP_TARGET"
+                }, {
+                    "type": "CHANGE_VAR_NUMBER",
+                    "changeType": "set",
+                    "value": -1,
+                    "varName": "tmp.fishEatIt"
+                }, {
+                    "value": 1.5,
+                    "type": "SET_Z_GRAVITY_FACTOR"
+                }, {
+                    "value": {
+                        "varName": "entity.srcAttrib.floatPower"
+                    },
+                    "type": "SET_SPEED"
+                }, {
+                    "value": 2,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+                    "jumpSpeed": 500,
+                    "adjustAbove": 13,
+                    "type": "JUMP_TO_TARGET"
+                }, {
+                    "type": "WAIT_UNTIL_ON_GROUND"
+                }]
+            }, {
+                "attribName": "catchFish",
+                "changeType": "set",
+                "changeConnected": "PROXY_OWNER",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": -2
+            }, {
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "tmp.catchingFish",
+                "changeType": "set",
+                "value": false
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "PROJECTILE",
+                "airFriction": 1,
+                "zGravityFactor": 0.4,
+                "bounciness": -1,
+                "shadow": 16
+            }
+        },
+        "fishingFish": {
+            "faceAnims": {
+                "shapeType": "Y_FLAT",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "dirs": "1",
+                "flipX": [0],
+                "tileOffsets": [0],
+                "repeat": true,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/effects/fishing-charge.png",
+                    "offX": 0,
+                    "offY": 19,
+                    "width": 10,
+                    "height": 21
+                },
+                "faceRotate": true,
+                "time": 0.15,
+                "SUB": [{
+                    "name": "hide",
+                    "framesAlpha": [0, 0, 0, 0, 0, 0]
+                }, {
+                    "name": "fast",
+                    "time": 0.07
+                }]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+                "wait": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "hide"
+            }, {
+                "name": "floatPos",
+                "target": "SELF",
+                "align": "BOTTOM",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "faceDistance": -10,
+                "type": "SET_ATTRIB_POS"
+            }, {
+                "value": 500,
+                "type": "SET_SPEED"
+            }, {
+                "type": "MOVE_BACKWARD",
+                "time": 0.2,
+                "stopBeforeEdge": false
+            }, {
+                "type": "STOP_XY"
+            }, {
+                "value": 0.1,
+                "type": "SET_ACCEL_SPEED"
+            }, {
+                "value": 40,
+                "type": "SET_SPEED"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "teleport",
+                    "name": "showAlpha"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "wait": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "default"
+            }, {
+                "varName": "tmp.catchCount",
+                "type": "SET_RANDOM_VAR_NUMBER",
+                "min": 1,
+                "max": 3
+            }, {
+                "name": "fishLoopStart",
+                "type": "GOTO_LABEL"
+            }, {
+                "name": "fishLoop",
+                "type": "LABEL"
+            }, {
+                "type": "MOVE_BACKWARD",
+                "time": 1,
+                "stopBeforeEdge": false
+            }, {
+                "type": "WAIT_RANDOM",
+                "minTime": 0.5,
+                "maxTime": 1.8
+            }, {
+                "name": "fishLoopStart",
+                "type": "LABEL"
+            }, {
+                "type": "CHANGE_VAR_NUMBER",
+                "changeType": "sub",
+                "value": 1,
+                "varName": "tmp.catchCount"
+            }, {
+                "type": "NAVIGATE_TO_POINT",
+                "target": {
+                    "varName": "entity.attrib.floatPos"
+                },
+                "precise": true
+            }, {
+                "type": "STOP_XY"
+            }, {
+                "type": "WAIT_RANDOM",
+                "minTime": 0,
+                "maxTime": 0.2
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.catchCount > 0 && tmp.fishEatIt >= 0",
+                "thenStep": [{
+                    "name": "fishLoop",
+                    "type": "GOTO_LABEL"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishEatIt != -1",
+                "thenStep": [{
+                    "type": "CHANGE_VAR_NUMBER",
+                    "changeType": "set",
+                    "value": 1,
+                    "varName": "tmp.fishEatIt"
+                }]
+            }, {
+                "condition": "tmp.fishEatIt == 2 || tmp.fishEatIt == -1",
+                "maxTime": 0.4,
+                "type": "WAIT_UNTIL"
+            }, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "tmp.fishEatIt == 2",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "fast"
+                }, {
+                    "target": "PROXY_SRC",
+                    "distance": 10,
+                    "duration": 1.5,
+                    "rotateTime": 0.3,
+                    "ccw": false,
+                    "distAdjustSpeed": 50,
+                    "zDistance": 0,
+                    "waitTargetAlign": false,
+                    "type": "STICKY_CIRCLE_AROUND"
+                }, {
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "fishCatched",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }],
+                "elseStep": [{
+                    "duration": 0,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "teleport",
+                        "name": "hideAlpha"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "value": 200,
+                    "type": "SET_SPEED"
+                }, {
+                    "minTime": 2,
+                    "maxTime": 2,
+                    "dirChanges": 1,
+                    "type": "MOVE_RANDOM"
+                }]
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "noFallDestroy": true,
+            "group": "fish",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+        "fishCatched": {
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 3,
+                "type": "SET_FACE"
+            }, {
+                "value": true,
+                "type": "SET_FACE_FIX"
+            }, {
+                "varName": "tmp.fishType",
+                "type": "SET_RANDOM_VAR_NUMBER",
+                "min": 0,
+                "max": 33
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishSize == 1",
+                "thenStep": [{
+                    "varName": "tmp.fishType",
+                    "type": "SET_RANDOM_VAR_NUMBER",
+                    "min": 34,
+                    "max": 37
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishSize == 2",
+                "thenStep": [{
+                    "varName": "tmp.fishType",
+                    "type": "SET_RANDOM_VAR_NUMBER",
+                    "min": 38,
+                    "max": 45
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishSize == 3",
+                "thenStep": [{
+                    "varName": "tmp.fishType",
+                    "type": "SET_RANDOM_VAR_NUMBER",
+                    "min": 46,
+                    "max": 49
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType > 49",
+                "thenStep": [{
+                    "varName": "tmp.fishType",
+                    "type": "CHANGE_VAR_NUMBER",
+                    "changeType": "set",
+                    "value": 35
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 0",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "pufferfish"
+                    }
+                }, {
+                    "amount": 2000,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Pufferfish",
+                        "ko_KR": "복어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 1",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "anchovy"
+                    }
+                }, {
+                    "amount": 300,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Anchovy",
+                        "ko_KR": "멸치"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 2",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "tuna"
+                    }
+                }, {
+                    "amount": 1000,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Tuna",
+                        "ko_KR": "참치"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 3",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "sardine"
+                    }
+                }, {
+                    "amount": 400,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Sardine",
+                        "ko_KR": "정어리"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 4",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "bream"
+                    }
+                }, {
+                    "amount": 450,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Bream",
+                        "ko_KR": "도미"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 5",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "largebass"
+                    }
+                }, {
+                    "amount": 1000,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Largemouth Bass",
+                        "ko_KR": "큰입우럭"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 6",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "smallbass"
+                    }
+                }, {
+                    "amount": 500,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Smallmouth Bass",
+                        "ko_KR": "작은입우럭"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 7",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "rainbowtrout"
+                    }
+                }, {
+                    "amount": 650,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Rainbow Trout",
+                        "ko_KR": "무지개 송어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 8",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "salmon"
+                    }
+                }, {
+                    "amount": 750,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Salmon",
+                        "ko_KR": "연어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 9",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "walleye"
+                    }
+                }, {
+                    "amount": 1050,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Walleye",
+                        "ko_KR": "월아이"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 10",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "perch"
+                    }
+                }, {
+                    "amount": 550,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Perch",
+                        "ko_KR": "농어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 11",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "catfish"
+                    }
+                }, {
+                    "amount": 2000,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Catfish",
+                        "ko_KR": "메기"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 12",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "pike"
+                    }
+                }, {
+                    "amount": 1000,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Pike",
+                        "ko_KR": "강꼬치고기"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 13",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "sunfish"
+                    }
+                }, {
+                    "amount": 300,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Sunfish",
+                        "ko_KR": "선피쉬"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 14",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "redmullet"
+                    }
+                }, {
+                    "amount": 750,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Red Mullet",
+                        "ko_KR": "노랑촉수"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 15",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "herring"
+                    }
+                }, {
+                    "amount": 300,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Herring",
+                        "ko_KR": "청어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 16",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "eel"
+                    }
+                }, {
+                    "amount": 850,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Eel",
+                        "ko_KR": "장어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 17",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "octopus"
+                    }
+                }, {
+                    "amount": 1050,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Octopus",
+                        "ko_KR": "문어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 18",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "redsnapper"
+                    }
+                }, {
+                    "amount": 500,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Red Snapper",
+                        "ko_KR": "붉은 퉁돔"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 19",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "squid"
+                    }
+                }, {
+                    "amount": 800,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Squid",
+                        "ko_KR": "오징어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 20",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "ghostfish"
+                    }
+                }, {
+                    "amount": 450,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Ghost fish",
+                        "ko_KR": "귀신물고기"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 21",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "stonefish"
+                    }
+                }, {
+                    "amount": 3000,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Stonefish",
+                        "ko_KR": "쑥치"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 22",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "icepip"
+                    }
+                }, {
+                    "amount": 5000,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Ice Pip",
+                        "ko_KR": "아이스핍"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 23",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "sturgeon"
+                    }
+                }, {
+                    "amount": 2500,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Sturgeon",
+                        "ko_KR": "철갑상어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 24",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "tigertrout"
+                    }
+                }, {
+                    "amount": 1500,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Tiger Trout",
+                        "ko_KR": "타이거 송어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 25",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "bullhead"
+                    }
+                }, {
+                    "amount": 750,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Bullhead",
+                        "ko_KR": "눈동자개"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 26",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "tilapia"
+                    }
+                }, {
+                    "amount": 750,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Tilapia",
+                        "ko_KR": "틸라피아"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 27",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "chub"
+                    }
+                }, {
+                    "amount": 500,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Chub",
+                        "ko_KR": "피라미"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 28",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "dorado"
+                    }
+                }, {
+                    "amount": 1000,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Dorado",
+                        "ko_KR": "도라도"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 29",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "albacore"
+                    }
+                }, {
+                    "amount": 750,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Albacore",
+                        "ko_KR": "날개다랑어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 30",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "shad"
+                    }
+                }, {
+                    "amount": 600,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Shad",
+                        "ko_KR": "전어"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 31",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "lingcod"
+                    }
+                }, {
+                    "amount": 1200,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Lingcod",
+                        "ko_KR": "범노래미"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 32",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "hailbut"
+                    }
+                }, {
+                    "amount": 800,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Hailbut",
+                        "ko_KR": "넙치"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 33",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "woodskip"
+                    }
+                }, {
+                    "amount": 750,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Woodskip",
+                        "ko_KR": "숲고기"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 34",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "sandvich"
+                    }
+                }, {
+                    "item": "1",
+                    "amount": 1,
+                    "skip": false,
+                    "type": "GIVE_ITEM"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Sandwich",
+                        "ko_KR": "샌드위치"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 35",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "water"
+                    }
+                }, {
+                    "item": "366",
+                    "amount": 1,
+                    "skip": false,
+                    "type": "GIVE_ITEM"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Water",
+                        "ko_KR": "물"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 36",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "cheepcheepF"
+                    }
+                }, {
+                    "amount": 5,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Cheep Cheep",
+                        "ko_KR": "뽀꾸뽀꾸"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 37",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "voodooF"
+                    }
+                }, {
+                    "amount": 10,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Guide Voodoo Fish",
+                        "ko_KR": "가이드 부두 인형"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 38",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "yoshiF"
+                    }
+                }, {
+                    "amount": 40,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Yoshi",
+                        "ko_KR": "요시"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 39",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "enemies.hedgehog",
+                        "name": "damage"
+                    }
+                }, {
+                    "amount": 10,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Hedgehag",
+                        "ko_KR": "고슴됴치"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 40",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "enemies.hedgehog-alt",
+                        "name": "damage"
+                    }
+                }, {
+                    "amount": 30,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Old Hedgehag",
+                        "ko_KR": "늙은 고슴됴치"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 41",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "enemies.sandshark",
+                        "name": "weak"
+                    }
+                }, {
+                    "amount": 130,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Sharkster",
+                        "ko_KR": "샤크스터"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 42",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "pepeF"
+                    }
+                }, {
+                    "amount": 70,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "PePe Jr.",
+                        "ko_KR": "주니어 페페"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 43",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "kawaiistarsandvich"
+                    }
+                }, {
+                    "item": "382",
+                    "amount": 1,
+                    "skip": false,
+                    "type": "GIVE_ITEM"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Rising Super Star",
+                        "ko_KR": "떠오르는 슈퍼스타"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 44",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "enemies.jungle-fish",
+                        "name": "damage"
+                    }
+                }, {
+                    "amount": 350,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Angler",
+                        "ko_KR": "앵글러"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 45",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "enemies.hedgehog-boss",
+                        "name": "damage"
+                    }
+                }, {
+                    "amount": 300,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Blue Hedgehag",
+                        "ko_KR": "파란색 고슴됴치"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 46",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "enemies.jungle-blueray",
+                        "name": "damage"
+                    }
+                }, {
+                    "amount": 800,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Blue Ray",
+                        "ko_KR": "블루 레이"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 47",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "crossworld"
+                    }
+                }, {
+                    "item": "63",
+                    "amount": 1,
+                    "skip": false,
+                    "type": "GIVE_ITEM"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Cross Sandwich",
+                        "ko_KR": "크로스 샌드위치"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 48",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "legendF"
+                    }
+                }, {
+                    "amount": 50000,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Legend",
+                        "ko_KR": "전설"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 49",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "rfgF"
+                    }
+                }, {
+                    "amount": 100000,
+                    "type": "GIVE_MONEY"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Radical Fish",
+                        "ko_KR": "래디컬 피쉬"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "kind": "PROXY_OWNER",
+                "type": "SET_TEMP_TARGET"
+            }, {
+                "value": 1.3,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            }, {
+                "value": 300,
+                "type": "SET_SPEED"
+            }, {
+                "jumpSpeed": 500,
+                "adjustAbove": 13,
+                "type": "JUMP_TO_TARGET"
+            }, {
+                "type": "SET_FLOAT_HEIGHT",
+                "value": 16
+            }, {
+                "time": 3,
+                "type": "WAIT"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "teleport",
+                    "name": "hideAlpha"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "PROJECTILE",
+                "airFriction": 1,
+                "zGravityFactor": 0.4,
+                "bounciness": -1,
+                "shadow": 16
+            }
+        }
+    },
+    "actions": {
+        "BASE": {
+            "AIM_START": {
+                "dmgType": "",
+                "stunType": "",
+                "status": false,
+                "steps": [{
+                    "followUp": "aim",
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "startAim"
+                }, {
+                    "attribName": "floatPower",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 0
+                }, {
+                    "attribName": "floatCharge",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 1
+                }, {
+                    "attribName": "floatPowerMode",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 1
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "fishing.fishing",
+                        "name": "fishingCharge"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 32
+                    }
+                }, {
+                    "time": 0.025,
+                    "type": "WAIT"
+                }, {
+                    "name": "loop",
+                    "type": "LABEL"
+                }, {
+                    "time": 0.05,
+                    "type": "WAIT"
+                }, {
+                    "withElse": true,
+                    "type": "IF",
+                    "condition": "entity.attrib.floatPowerMode > 0",
+                    "thenStep": [{
+                        "attribName": "floatCharge",
+                        "changeType": "add",
+                        "type": "SET_ATTRIB_NUMBER",
+                        "value": 1
+                    }],
+                    "elseStep": [{
+                        "attribName": "floatCharge",
+                        "changeType": "sub",
+                        "type": "SET_ATTRIB_NUMBER",
+                        "value": 1
+                    }]
+                }, {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.attrib.floatCharge == 16 || entity.attrib.floatCharge == 0",
+                    "thenStep": [{
+                        "attribName": "floatPowerMode",
+                        "changeType": "mul",
+                        "type": "SET_ATTRIB_NUMBER",
+                        "value": -1
+                    }]
+                }, {
+                    "name": "loop",
+                    "type": "GOTO_LABEL"
+                }]
+            },
+            "THROW_NORMAL": {
+                "steps": [{
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": -1,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
+                    }
+                }, {
+                    "type": "CHANGE_VAR_BOOL",
+                    "varName": "map.fishingNow",
+                    "changeType": "set",
+                    "value": true
+                }, {
+                    "charged": true,
+                    "type": "SHOW_THROW_FX"
+                }, {
+                    "attribName": "catchFish",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 0
+                }, {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.attrib.floatCharge == 16",
+                    "thenStep": [{
+                        "entity": {
+                            "player": true
+                        },
+                        "text": {
+                            "en_US": "MAX",
+                            "ko_KR": "최대"
+                        },
+                        "mode": "NO_LINE",
+                        "color": "GREEN",
+                        "time": 2,
+                        "type": "SHOW_AR_MSG"
+                    }]
+                }, {
+                    "attribName": "floatPower",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": {
+                        "varName": "entity.attrib.floatCharge"
+                    }
+                }, {
+                    "attribName": "floatPower",
+                    "changeType": "mul",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 10
+                }, {
+                    "attribName": "floatPower",
+                    "changeType": "add",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 50
+                }, {
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "fishingFloat",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 1
+                    }
+                }, {
+                    "followUp": "throwEnd",
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "throw"
+                }, {
+                    "value": 80,
+                    "type": "SET_SPEED"
+                }, {
+                    "dir": {
+                        "actorAttrib": "dashDir"
+                    },
+                    "time": 0.1,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DIR"
+                }, {
+                    "time": 0.8,
+                    "type": "WAIT"
+                }, {
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.player-fishing",
+                        "name": "idle"
+                    }
+                }, {
+                    "condition": "entity.attrib.catchFish != 0",
+                    "type": "WAIT_UNTIL"
+                }, {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.attrib.catchFish > -1",
+                    "thenStep": [{
+                        "wait": false,
+                        "type": "SHOW_EXTERN_ANIM",
+                        "anim": {
+                            "sheet": "fish.player-fishing",
+                            "name": "struggle"
+                        }
+                    }, {
+                        "condition": "entity.attrib.catchFish == -1",
+                        "type": "WAIT_UNTIL"
+                    }]
+                }, {
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.player-fishing",
+                        "name": "pull"
+                    }
+                }, {
+                    "condition": "entity.attrib.catchFish == -2",
+                    "type": "WAIT_UNTIL"
+                }, {
+                    "sticking": false,
+                    "group": "fish",
+                    "type": "REMOVE_PROXIES"
+                }, {
+                    "type": "CHANGE_VAR_BOOL",
+                    "varName": "map.fishingNow",
+                    "changeType": "set",
+                    "value": false
+                }, {
+                    "time": 0.1,
+                    "type": "WAIT"
+                }]
+            },
+            "THROW_NORMAL_REV": {
+                "steps": [{
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": -1,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
+                    }
+                }, {
+                    "type": "CHANGE_VAR_BOOL",
+                    "varName": "map.fishingNow",
+                    "changeType": "set",
+                    "value": true
+                }, {
+                    "charged": true,
+                    "type": "SHOW_THROW_FX"
+                }, {
+                    "attribName": "catchFish",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 0
+                }, {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.attrib.floatCharge == 16",
+                    "thenStep": [{
+                        "entity": {
+                            "player": true
+                        },
+                        "text": {
+                            "en_US": "MAX",
+                            "ko_KR": "최대"
+                        },
+                        "mode": "NO_LINE",
+                        "color": "GREEN",
+                        "time": 2,
+                        "type": "SHOW_AR_MSG"
+                    }]
+                }, {
+                    "attribName": "floatPower",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": {
+                        "varName": "entity.attrib.floatCharge"
+                    }
+                }, {
+                    "attribName": "floatPower",
+                    "changeType": "mul",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 10
+                }, {
+                    "attribName": "floatPower",
+                    "changeType": "add",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 50
+                }, {
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "fishingFloat",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 1
+                    }
+                }, {
+                    "followUp": "throwEnd",
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "throw"
+                }, {
+                    "value": 80,
+                    "type": "SET_SPEED"
+                }, {
+                    "dir": {
+                        "actorAttrib": "dashDir"
+                    },
+                    "time": 0.1,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DIR"
+                }, {
+                    "time": 0.8,
+                    "type": "WAIT"
+                }, {
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.player-fishing",
+                        "name": "idle"
+                    }
+                }, {
+                    "condition": "entity.attrib.catchFish != 0",
+                    "type": "WAIT_UNTIL"
+                }, {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.attrib.catchFish > -1",
+                    "thenStep": [{
+                        "wait": false,
+                        "type": "SHOW_EXTERN_ANIM",
+                        "anim": {
+                            "sheet": "fish.player-fishing",
+                            "name": "struggle"
+                        }
+                    }, {
+                        "condition": "entity.attrib.catchFish == -1",
+                        "type": "WAIT_UNTIL"
+                    }]
+                }, {
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.player-fishing",
+                        "name": "pull"
+                    }
+                }, {
+                    "condition": "entity.attrib.catchFish == -2",
+                    "type": "WAIT_UNTIL"
+                }, {
+                    "sticking": false,
+                    "group": "fish",
+                    "type": "REMOVE_PROXIES"
+                }, {
+                    "type": "CHANGE_VAR_BOOL",
+                    "varName": "map.fishingNow",
+                    "changeType": "set",
+                    "value": false
+                }, {
+                    "time": 0.1,
+                    "type": "WAIT"
+                }]
+            }
+        },
+        "NEUTRAL": {},
+        "HEAT": {},
+        "COLD": {},
+        "SHOCK": {},
+        "WAVE": {}
+    },
+    "skillRanking": []
 }

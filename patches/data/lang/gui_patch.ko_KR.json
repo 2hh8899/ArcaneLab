@@ -1,21 +1,21 @@
 {
-	"labels": {
-		"combat": {
-			"daze": "혼란",
-			"poison": "중독"
-		},
-		"menu": {
-			"social": {
-				"classes": {
-					"SPHEROKNIGHT": "원성사",
-					"TRIARCHERY": "삼궁사",
-					"QUADROTECT": "사갑사",
-					"PENTATHIEF": "오적사",
-					"PENTAGUNNER": "오탄사",
-					"HEXUMMONER": "육환사",
-					"HEXABLESS": "육제사"
-				}
-			}
-		}
-	}
+    "labels": {
+        "combat": {
+            "daze": "혼란",
+            "poison": "중독"
+        },
+        "menu": {
+            "social": {
+                "classes": {
+                    "SPHEROKNIGHT": "원성사",
+                    "TRIARCHERY": "삼궁사",
+                    "QUADROTECT": "사갑사",
+                    "PENTATHIEF": "오적사",
+                    "PENTAGUNNER": "오탄사",
+                    "HEXUMMONER": "육환사",
+                    "HEXABLESS": "육제사"
+                }
+            }
+        }
+    }
 }

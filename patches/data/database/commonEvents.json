@@ -1,426 +1,426 @@
 {
-	"susie-dies": {
-		"frequency": "REGULAR",
-		"repeat": "REPEAT",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [{
-			"type": "SELECT_RANDOM",
-			"options": [{
-				"0": " ",
-				"count": 3,
-				"weight": 1,
-				"activeCondition": "combat.active"
-			}, {
-				"0": " ",
-				"count": 2,
-				"weight": 1,
-				"activeCondition": "!combat.active"
-			}],
-			"0_0": [{
-				"message": {
-					"en_US": "...Urgh, I couldn't handle this!",
-					"de_DE": "...Argh, das war zu viel!",
-					"fr_FR": "fr_FR",
-					"langUid": 3344,
-					"zh_CN": "…啊，我搞不定了！",
-					"ja_JP": "…うわあ、私じゃ太刀打ちできない！",
-					"ko_KR": "...윽, 더 못 버티겠어!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "EXHAUSTED"
-				}
-			}],
-			"0_1": [{
-				"message": {
-					"en_US": "Sacrebleu! I'm out, Lea!",
-					"de_DE": "Sacrebleu! Ich bin raus, Lea!",
-					"fr_FR": "fr_FR",
-					"langUid": 3345,
-					"zh_CN": "该死的！我要挂了，莉亚！",
-					"ja_JP": "あちゃあ！やられちゃった、レア！",
-					"ko_KR": "젠장! 난 끝이야, 레아!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "SHOCKED"
-				}
-			}],
-			"0_2": [{
-				"message": {
-					"en_US": "I'll be back.",
-					"de_DE": "Ich komme wieder.",
-					"fr_FR": "fr_FR",
-					"langUid": 3346,
-					"zh_CN": "我会回来的。",
-					"ja_JP": "すぐ戻るからね。",
-					"ko_KR": "금방 돌아올게."
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "SUSPICIOUS"
-				}
-			}],
-			"1_0": [{
-				"message": {
-					"en_US": "Wha...What just happened?",
-					"de_DE": "Wa.. Was ist gerade passiert?",
-					"fr_FR": "fr_FR",
-					"langUid": 3987,
-					"zh_CN": "刚，刚发生了什么事？",
-					"ja_JP": "な…なにが起きたの？",
-					"ko_KR": "방금... 무슨 일이 일어난 거야?"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "SUSPICIOUS"
-				}
-			}],
-			"1_1": [{
-				"message": {
-					"en_US": "Mon Dieu! What is going on?!",
-					"de_DE": "Mon Dieu! Was passiert hier?!",
-					"fr_FR": "fr_FR",
-					"langUid": 3988,
-					"zh_CN": "我的天啊！怎么回事？！<<A<<[CHANGED 2018/09/19]",
-					"ja_JP": "モンデュー！いったいどうなってるの？！<<A<<[CHANGED 2018/09/19]",
-					"ko_KR": "세상에! 무슨 일이야?!<<A<<[CHANGED 2018/09/19]"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "SHOCKED"
-				}
-			}]
-		}],
-		"loopCount": 1,
-		"type": {
-			"member": "NOT_YET",
-			"eventType": "DIES",
-			"type": "PARTY_MEMBER_EVENT"
-		}
-	},
-	"susie-revived": {
-		"frequency": "REGULAR",
-		"repeat": "REPEAT",
-		"eventType": "PARALLEL",
-		"event": [{
-			"type": "SELECT_RANDOM",
-			"options": [{
-				"0": " ",
-				"count": 2,
-				"weight": 1,
-				"activeCondition": "combat.active"
-			}, {
-				"0": " ",
-				"count": 2,
-				"weight": 1,
-				"activeCondition": "!combat.active"
-			}],
-			"0_0": [{
-				"message": {
-					"en_US": "I'm back to kick some derrière!",
-					"de_DE": "Melde mich zum Derrièretrittdienst zurück!",
-					"fr_FR": "fr_FR",
-					"langUid": 3347,
-					"zh_CN": "我爱米粒又回来啦！<<A<<[CHANGED 2017/12/12]",
-					"ja_JP": "ケツを蹴りとばしに戻ってきたよ！<<A<<[CHANGED 2017/12/11]",
-					"ko_KR": "엉덩이를 걷어차려고 다시 왔어!<<A<<TODO 0.9.8"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "DETERMINED"
-				}
-			}],
-			"0_1": [{
-				"message": {
-					"en_US": "I see there are still enemies left for me!",
-					"de_DE": "Aha! Da sind ja noch einige für mich übrig!",
-					"fr_FR": "fr_FR",
-					"langUid": 3348,
-					"zh_CN": "给我留点敌人啊！",
-					"ja_JP": "私のぶんの敵はまだ残ってるみたいだね！",
-					"ko_KR": "아직 적이 남아있네!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "WATCH_OUT_BADASS"
-				}
-			}],
-			"1_0": [{
-				"message": {
-					"en_US": "...Pardon. That was just too much for me to handle.",
-					"de_DE": "...Pardon. Das war eben einfach zu viel für mich.",
-					"fr_FR": "fr_FR",
-					"langUid": 3349,
-					"zh_CN": "抱歉。刚才那种情况我也不太好对付。",
-					"ja_JP": "…ごめんね。私の手には負えなかったみたい。",
-					"ko_KR": "...미안. 아까 그건 못 본 거로 해줘."
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "EXHAUSTED"
-				}
-			}],
-			"1_1": [{
-				"message": {
-					"en_US": "Hmpf... I gotta practice more.",
-					"de_DE": "Hmpf... Ich muss mehr üben.",
-					"fr_FR": "fr_FR",
-					"langUid": 3350,
-					"zh_CN": "嗯…我得多加练习了。",
-					"ja_JP": "ふう…もっと訓練しなきゃね。",
-					"ko_KR": "흠... 연습을 좀 더 해야겠어."
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "MOPING"
-				}
-			}]
-		}],
-		"loopCount": 1,
-		"type": {
-			"member": "NOT_YET",
-			"eventType": "REVIVED",
-			"type": "PARTY_MEMBER_EVENT"
-		}
-	},
-	"susie-equip-update": {
-		"frequency": "REGULAR",
-		"repeat": "REPEAT",
-		"eventType": "PARALLEL",
-		"event": [{
-			"type": "SELECT_RANDOM",
-			"options": [{
-				"0": " ",
-				"count": 4,
-				"weight": 1
-			}],
-			"0_0": [{
-				"message": {
-					"en_US": "Excellent! Got new gear to punch enemies even harder!",
-					"de_DE": "Ausgezeichnet! Ich habe neue Ausrüstung. Damit kann ich die Gegner nun deutlich härter schlagen!",
-					"fr_FR": "fr_FR",
-					"langUid": 3351,
-					"zh_CN": "太好了！有了这新装备，可以更加猛烈地揍敌人了！",
-					"ja_JP": "超イイ感じ！敵をもっと強くパンチするための、新しい装備を手に入れたよ！",
-					"ko_KR": "좋아! 적을 더 세게 때릴 수 있는 장비를 얻었어!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "DETERMINED"
-				}
-			}],
-			"0_1": [{
-				"message": {
-					"en_US": "Lea, look at the new stuff I just bought!",
-					"de_DE": "Lea, schau dir all das neue Zeug an, das ich gekauft habe!",
-					"fr_FR": "fr_FR",
-					"langUid": 3352,
-					"zh_CN": "莉亚，看看我刚买的新东西！",
-					"ja_JP": "レア、私が買った新アイテムを見てよ！",
-					"ko_KR": "레아, 내가 방금 산 것 좀 봐봐!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "SMILE"
-				}
-			}],
-			"0_2": [{
-				"message": {
-					"en_US": "Getting closer to the ultimate punching machine, one step at a time!",
-					"de_DE": "Ich werde langsam zur ultimativen Nahkampfwaffe, einen Schritt nach dem anderen!",
-					"fr_FR": "fr_FR",
-					"langUid": 3353,
-					"zh_CN": "一步一个脚印，成为终极近战魔！",
-					"ja_JP": "これでまた一歩、究極のパンチングマシーンに近づいたよ！",
-					"ko_KR": "점점 궁극의 펀치 기계가 되어가는군. 한 발짝씩 말이야!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "DETERMINED"
-				}
-			}],
-			"0_3": [{
-				"message": {
-					"en_US": "I got new gear! Too bad your appearance doesn't change, non?",
-					"de_DE": "Ich habe neue Ausrüstung! Schade, dass sich das nicht auf das Aussehen auswirkt, non?",
-					"fr_FR": "fr_FR",
-					"langUid": 3354,
-					"zh_CN": "我获得了新装备！可惜这游戏的装备不会改变玩家模型呢。",
-					"ja_JP": "私は新しい装備を買ったよ！武器を変えてもあなたの見た目が変わらないのは残念だね。",
-					"ko_KR": "새로운 장비를 얻었어! 겉모습이 바뀌지 않는다니 참 아쉽네."
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "EMBARRASSED"
-				}
-			}]
-		}],
-		"loopCount": 1,
-		"type": {
-			"member": "NOT_YET",
-			"eventType": "EQUIP_UPDATE",
-			"actionType": "PARTY_JOIN",
-			"type": "PARTY_MEMBER_EVENT"
-		}
-	},
-	"susie-contact": {
-		"frequency": "ALWAYS",
-		"repeat": "REPEAT",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [{
-			"name": "sergey",
-			"guiInfo": {
-				"type": "SergeyMode",
-				"settings": {}
-			},
-			"type": "ADD_GUI"
-		}, {
-			"side": "LEFT",
-			"order": 0,
-			"clearSide": false,
-			"type": "ADD_MSG_PERSON",
-			"person": {
-				"person": "guildac.susie",
-				"expression": "DEFAULT"
-			}
-		}, {
-			"side": "RIGHT",
-			"order": 0,
-			"clearSide": false,
-			"type": "ADD_MSG_PERSON",
-			"person": {
-				"person": "main.lea",
-				"expression": "DEFAULT"
-			}
-		}, {
-			"withElse": false,
-			"type": "IF",
-			"condition": "party.has.Susie && !location.isMapDungeon",
-			"thenStep": [{
-				"message": {
-					"en_US": "Hi!",
-					"ko_KR": "안녕!"
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "main.lea",
-					"expression": "EXCITED"
-				}
-			}, {
-				"message": {
-					"en_US": "Hi, what's going on? I'm in your party.",
-					"ko_KR": "안녕, 무슨 일이야? 난 너와 같은 파티잖아."
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "guildac.susie",
-					"expression": "DEFAULT"
-				}
-			}, {
+    "susie-dies": {
+        "frequency": "REGULAR",
+        "repeat": "REPEAT",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [{
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 3,
+                "weight": 1,
+                "activeCondition": "combat.active"
+            }, {
+                "0": " ",
+                "count": 2,
+                "weight": 1,
+                "activeCondition": "!combat.active"
+            }],
+            "0_0": [{
+                "message": {
+                    "en_US": "...Urgh, I couldn't handle this!",
+                    "de_DE": "...Argh, das war zu viel!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3344,
+                    "zh_CN": "…啊，我搞不定了！",
+                    "ja_JP": "…うわあ、私じゃ太刀打ちできない！",
+                    "ko_KR": "...윽, 더 못 버티겠어!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "EXHAUSTED"
+                }
+            }],
+            "0_1": [{
+                "message": {
+                    "en_US": "Sacrebleu! I'm out, Lea!",
+                    "de_DE": "Sacrebleu! Ich bin raus, Lea!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3345,
+                    "zh_CN": "该死的！我要挂了，莉亚！",
+                    "ja_JP": "あちゃあ！やられちゃった、レア！",
+                    "ko_KR": "젠장! 난 끝이야, 레아!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "SHOCKED"
+                }
+            }],
+            "0_2": [{
+                "message": {
+                    "en_US": "I'll be back.",
+                    "de_DE": "Ich komme wieder.",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3346,
+                    "zh_CN": "我会回来的。",
+                    "ja_JP": "すぐ戻るからね。",
+                    "ko_KR": "금방 돌아올게."
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "SUSPICIOUS"
+                }
+            }],
+            "1_0": [{
+                "message": {
+                    "en_US": "Wha...What just happened?",
+                    "de_DE": "Wa.. Was ist gerade passiert?",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3987,
+                    "zh_CN": "刚，刚发生了什么事？",
+                    "ja_JP": "な…なにが起きたの？",
+                    "ko_KR": "방금... 무슨 일이 일어난 거야?"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "SUSPICIOUS"
+                }
+            }],
+            "1_1": [{
+                "message": {
+                    "en_US": "Mon Dieu! What is going on?!",
+                    "de_DE": "Mon Dieu! Was passiert hier?!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3988,
+                    "zh_CN": "我的天啊！怎么回事？！<<A<<[CHANGED 2018/09/19]",
+                    "ja_JP": "モンデュー！いったいどうなってるの？！<<A<<[CHANGED 2018/09/19]",
+                    "ko_KR": "세상에! 무슨 일이야?!<<A<<[CHANGED 2018/09/19]"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "SHOCKED"
+                }
+            }]
+        }],
+        "loopCount": 1,
+        "type": {
+            "member": "NOT_YET",
+            "eventType": "DIES",
+            "type": "PARTY_MEMBER_EVENT"
+        }
+    },
+    "susie-revived": {
+        "frequency": "REGULAR",
+        "repeat": "REPEAT",
+        "eventType": "PARALLEL",
+        "event": [{
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 2,
+                "weight": 1,
+                "activeCondition": "combat.active"
+            }, {
+                "0": " ",
+                "count": 2,
+                "weight": 1,
+                "activeCondition": "!combat.active"
+            }],
+            "0_0": [{
+                "message": {
+                    "en_US": "I'm back to kick some derrière!",
+                    "de_DE": "Melde mich zum Derrièretrittdienst zurück!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3347,
+                    "zh_CN": "我爱米粒又回来啦！<<A<<[CHANGED 2017/12/12]",
+                    "ja_JP": "ケツを蹴りとばしに戻ってきたよ！<<A<<[CHANGED 2017/12/11]",
+                    "ko_KR": "엉덩이를 걷어차려고 다시 왔어!<<A<<TODO 0.9.8"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "DETERMINED"
+                }
+            }],
+            "0_1": [{
+                "message": {
+                    "en_US": "I see there are still enemies left for me!",
+                    "de_DE": "Aha! Da sind ja noch einige für mich übrig!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3348,
+                    "zh_CN": "给我留点敌人啊！",
+                    "ja_JP": "私のぶんの敵はまだ残ってるみたいだね！",
+                    "ko_KR": "아직 적이 남아있네!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "WATCH_OUT_BADASS"
+                }
+            }],
+            "1_0": [{
+                "message": {
+                    "en_US": "...Pardon. That was just too much for me to handle.",
+                    "de_DE": "...Pardon. Das war eben einfach zu viel für mich.",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3349,
+                    "zh_CN": "抱歉。刚才那种情况我也不太好对付。",
+                    "ja_JP": "…ごめんね。私の手には負えなかったみたい。",
+                    "ko_KR": "...미안. 아까 그건 못 본 거로 해줘."
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "EXHAUSTED"
+                }
+            }],
+            "1_1": [{
+                "message": {
+                    "en_US": "Hmpf... I gotta practice more.",
+                    "de_DE": "Hmpf... Ich muss mehr üben.",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3350,
+                    "zh_CN": "嗯…我得多加练习了。",
+                    "ja_JP": "ふう…もっと訓練しなきゃね。",
+                    "ko_KR": "흠... 연습을 좀 더 해야겠어."
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "MOPING"
+                }
+            }]
+        }],
+        "loopCount": 1,
+        "type": {
+            "member": "NOT_YET",
+            "eventType": "REVIVED",
+            "type": "PARTY_MEMBER_EVENT"
+        }
+    },
+    "susie-equip-update": {
+        "frequency": "REGULAR",
+        "repeat": "REPEAT",
+        "eventType": "PARALLEL",
+        "event": [{
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 4,
+                "weight": 1
+            }],
+            "0_0": [{
+                "message": {
+                    "en_US": "Excellent! Got new gear to punch enemies even harder!",
+                    "de_DE": "Ausgezeichnet! Ich habe neue Ausrüstung. Damit kann ich die Gegner nun deutlich härter schlagen!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3351,
+                    "zh_CN": "太好了！有了这新装备，可以更加猛烈地揍敌人了！",
+                    "ja_JP": "超イイ感じ！敵をもっと強くパンチするための、新しい装備を手に入れたよ！",
+                    "ko_KR": "좋아! 적을 더 세게 때릴 수 있는 장비를 얻었어!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "DETERMINED"
+                }
+            }],
+            "0_1": [{
+                "message": {
+                    "en_US": "Lea, look at the new stuff I just bought!",
+                    "de_DE": "Lea, schau dir all das neue Zeug an, das ich gekauft habe!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3352,
+                    "zh_CN": "莉亚，看看我刚买的新东西！",
+                    "ja_JP": "レア、私が買った新アイテムを見てよ！",
+                    "ko_KR": "레아, 내가 방금 산 것 좀 봐봐!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "SMILE"
+                }
+            }],
+            "0_2": [{
+                "message": {
+                    "en_US": "Getting closer to the ultimate punching machine, one step at a time!",
+                    "de_DE": "Ich werde langsam zur ultimativen Nahkampfwaffe, einen Schritt nach dem anderen!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3353,
+                    "zh_CN": "一步一个脚印，成为终极近战魔！",
+                    "ja_JP": "これでまた一歩、究極のパンチングマシーンに近づいたよ！",
+                    "ko_KR": "점점 궁극의 펀치 기계가 되어가는군. 한 발짝씩 말이야!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "DETERMINED"
+                }
+            }],
+            "0_3": [{
+                "message": {
+                    "en_US": "I got new gear! Too bad your appearance doesn't change, non?",
+                    "de_DE": "Ich habe neue Ausrüstung! Schade, dass sich das nicht auf das Aussehen auswirkt, non?",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3354,
+                    "zh_CN": "我获得了新装备！可惜这游戏的装备不会改变玩家模型呢。",
+                    "ja_JP": "私は新しい装備を買ったよ！武器を変えてもあなたの見た目が変わらないのは残念だね。",
+                    "ko_KR": "새로운 장비를 얻었어! 겉모습이 바뀌지 않는다니 참 아쉽네."
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "EMBARRASSED"
+                }
+            }]
+        }],
+        "loopCount": 1,
+        "type": {
+            "member": "NOT_YET",
+            "eventType": "EQUIP_UPDATE",
+            "actionType": "PARTY_JOIN",
+            "type": "PARTY_MEMBER_EVENT"
+        }
+    },
+    "susie-contact": {
+        "frequency": "ALWAYS",
+        "repeat": "REPEAT",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [{
+            "name": "sergey",
+            "guiInfo": {
+                "type": "SergeyMode",
+                "settings": {}
+            },
+            "type": "ADD_GUI"
+        }, {
+            "side": "LEFT",
+            "order": 0,
+            "clearSide": false,
+            "type": "ADD_MSG_PERSON",
+            "person": {
+                "person": "guildac.susie",
+                "expression": "DEFAULT"
+            }
+        }, {
+            "side": "RIGHT",
+            "order": 0,
+            "clearSide": false,
+            "type": "ADD_MSG_PERSON",
+            "person": {
+                "person": "main.lea",
+                "expression": "DEFAULT"
+            }
+        }, {
+            "withElse": false,
+            "type": "IF",
+            "condition": "party.has.Susie && !location.isMapDungeon",
+            "thenStep": [{
+                "message": {
+                    "en_US": "Hi!",
+                    "ko_KR": "안녕!"
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "main.lea",
+                    "expression": "EXCITED"
+                }
+            }, {
+                "message": {
+                    "en_US": "Hi, what's going on? I'm in your party.",
+                    "ko_KR": "안녕, 무슨 일이야? 난 너와 같은 파티잖아."
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "guildac.susie",
+                    "expression": "DEFAULT"
+                }
+            }, {
                 "type": "SET_MSG_EXPRESSION",
                 "person": {
                     "person": "main.lea",
                     "expression": "MOPING"
                 }
             }, {
-				"message": {
-					"en_US": "Did you want to try my message program? Why don't you ask Sergey for that?",
-					"ko_KR": "혹시 내 통신 기능을 너도 써보고 싶었던 거니? 그런 건 세르게이에게 부탁해보는 건 어때?"
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "guildac.susie",
-					"expression": "SMILE"
-				}
-			}, {
-				"message": {
-					"en_US": "...",
-					"ko_KR": "..."
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "main.lea",
-					"expression": "MOPING"
-				}
-			}, {
-				"name": "end",
-				"type": "GOTO_LABEL"
-			}]
-		}, {
-			"withElse": false,
-			"type": "IF",
-			"condition": "plot.arcaneLab.story.susie == 3 || (plot.arcaneLab.story.susie >= 4 && plot.arcaneLab.story.map-clear <= 0)",
-			"thenStep": [{
+                "message": {
+                    "en_US": "Did you want to try my message program? Why don't you ask Sergey for that?",
+                    "ko_KR": "혹시 내 통신 기능을 너도 써보고 싶었던 거니? 그런 건 세르게이에게 부탁해보는 건 어때?"
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "guildac.susie",
+                    "expression": "SMILE"
+                }
+            }, {
+                "message": {
+                    "en_US": "...",
+                    "ko_KR": "..."
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "main.lea",
+                    "expression": "MOPING"
+                }
+            }, {
+                "name": "end",
+                "type": "GOTO_LABEL"
+            }]
+        }, {
+            "withElse": false,
+            "type": "IF",
+            "condition": "plot.arcaneLab.story.susie == 3 || (plot.arcaneLab.story.susie >= 4 && plot.arcaneLab.story.map-clear <= 0)",
+            "thenStep": [{
                 "type": "SET_MSG_EXPRESSION",
                 "person": {
                     "person": "main.lea",
                     "expression": "SHOCKED"
                 }
             }, {
-				"message": {
-					"en_US": "Hi.",
-					"ko_KR": "안녕."
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "guildac.susie",
-					"expression": "SMILE"
-				}
-			}, {
-				"message": {
-					"en_US": "H-How?",
-					"ko_KR": "어, 어떻게?"
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "main.lea",
-					"expression": "SCARED"
-				}
-			}, {
-				"message": {
-					"en_US": "Huh? Do you wanna know how I called you first?",
-					"ko_KR": "응? 어떻게 먼저 알고 연락했는지 궁금한 거야?"
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "guildac.susie",
-					"expression": "DEFAULT"
-				}
-			}, {
-				"message": {
-					"en_US": "Um...\\. I can feel the kind of... signal you want to talk to me.",
-					"ko_KR": "음...\\. 네가 나와 대화하고 싶어한다는 신호... 같은 걸 느낄 수 있달까."
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "guildac.susie",
-					"expression": "DEFAULT"
-				}
-			}, {
+                "message": {
+                    "en_US": "Hi.",
+                    "ko_KR": "안녕."
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "guildac.susie",
+                    "expression": "SMILE"
+                }
+            }, {
+                "message": {
+                    "en_US": "H-How?",
+                    "ko_KR": "어, 어떻게?"
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "main.lea",
+                    "expression": "SCARED"
+                }
+            }, {
+                "message": {
+                    "en_US": "Huh? Do you wanna know how I called you first?",
+                    "ko_KR": "응? 어떻게 먼저 알고 연락했는지 궁금한 거야?"
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "guildac.susie",
+                    "expression": "DEFAULT"
+                }
+            }, {
+                "message": {
+                    "en_US": "Um...\\. I can feel the kind of... signal you want to talk to me.",
+                    "ko_KR": "음...\\. 네가 나와 대화하고 싶어한다는 신호... 같은 걸 느낄 수 있달까."
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "guildac.susie",
+                    "expression": "DEFAULT"
+                }
+            }, {
                 "message": {
                     "en_US": "...",
                     "ko_KR": "..."
@@ -432,619 +432,619 @@
                     "expression": "THINKING"
                 }
             }, {
-				"message": {
-					"en_US": "If you need any help or wanna play with me, send me a party request.",
-					"ko_KR": "도움이 필요하거나 같이 놀고 싶으면, 파티 요청을 보내줘."
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "guildac.susie",
-					"expression": "SMILE"
-				}
-			}, {
-				"name": "end",
-				"type": "GOTO_LABEL"
-			}]
-		}, {
-			"name": "end",
-			"type": "LABEL"
-		}, {
-			"name": "sergey",
-			"type": "REMOVE_GUI"
-		}],
-		"loopCount": 1,
-		"type": {
-			"member": "Susie",
-			"actionType": "CONTACT",
-			"type": "SOCIAL_ACTION"
-		}
-	},
-	"susie-join": {
-		"frequency": "ALWAYS",
-		"repeat": "REPEAT",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [{
-			"name": "sergey",
-			"guiInfo": {
-				"type": "SergeyMode",
-				"settings": {}
-			},
-			"type": "ADD_GUI"
-		}, {
-			"side": "LEFT",
-			"order": 0,
-			"clearSide": false,
-			"type": "ADD_MSG_PERSON",
-			"person": {
-				"person": "guildac.susie",
-				"expression": "DEFAULT"
-			}
-		}, {
-			"side": "RIGHT",
-			"order": 0,
-			"clearSide": false,
-			"type": "ADD_MSG_PERSON",
-			"person": {
-				"person": "main.lea",
-				"expression": "DEFAULT"
-			}
-		}, {
-			"type": "SELECT_RANDOM",
-			"options": [{
-				"0": " ",
-				"count": 2,
-				"weight": 1
-			}],
-			"0_0": [{
-				"message": {
-					"en_US": "Do you wanna play with me?",
-					"ko_KR": "같이 놀고 싶은 거야?"
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "guildac.susie",
-					"expression": "SMILE"
-				}
-			}],
-			"0_1": [{
-				"message": {
-					"en_US": "I think you need my help, right?",
-					"ko_KR": "내 도움이 필요한 일이 있나 본데, 그렇지?"
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "guildac.susie",
-					"expression": "SMUG"
-				}
-			}]
-		}, {
-			"member": "Susie",
-			"skipEffect": false,
-			"temporary": false,
-			"type": "ADD_PARTY_MEMBER"
-		}, {
-			"name": "sergey",
-			"type": "REMOVE_GUI"
-		}],
-		"loopCount": 1,
-		"type": {
-			"member": "Susie",
-			"actionType": "PARTY_JOIN",
-			"type": "SOCIAL_ACTION"
-		}
-	},
-	"susie-remove": {
-		"frequency": "ALWAYS",
-		"repeat": "REPEAT",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [{
-			"name": "sergey",
-			"guiInfo": {
-				"type": "SergeyMode",
-				"settings": {}
-			},
-			"type": "ADD_GUI"
-		}, {
-			"side": "LEFT",
-			"order": 0,
-			"clearSide": false,
-			"type": "ADD_MSG_PERSON",
-			"person": {
-				"person": "guildac.susie",
-				"expression": "DEFAULT"
-			}
-		}, {
-			"side": "RIGHT",
-			"order": 0,
-			"clearSide": false,
-			"type": "ADD_MSG_PERSON",
-			"person": {
-				"person": "main.lea",
-				"expression": "DEFAULT"
-			}
-		}, {
-			"type": "SELECT_RANDOM",
-			"options": [{
-				"0": " ",
-				"count": 3,
-				"weight": 1
-			}],
-			"0_0": [{
-				"message": {
-					"en_US": "All right, well, let's hang out again next time.",
-					"ko_KR": "좋아, 그럼 다음에 또 놀아보자고."
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "guildac.susie",
-					"expression": "DEFAULT"
-				}
-			}],
-			"0_1": [{
-				"message": {
-					"en_US": "Well, see you next time.",
-					"ko_KR": "그럼, 다음에 또 만나자."
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "guildac.susie",
-					"expression": "DEFAULT"
-				}
-			}],
-			"0_2": [{
-				"message": {
-					"en_US": "It was fun. See you later.",
-					"ko_KR": "재미있었네. 다음에 또 보자."
-				},
-				"autoContinue": false,
-				"type": "SHOW_MSG",
-				"person": {
-					"person": "guildac.susie",
-					"expression": "DEFAULT"
-				}
-			}]
-		}, {
-			"member": "Susie",
-			"skipEffect": false,
-			"type": "REMOVE_PARTY_MEMBER"
-		}, {
-			"name": "sergey",
-			"type": "REMOVE_GUI"
-		}],
-		"loopCount": 1,
-		"type": {
-			"member": "Susie",
-			"actionType": "PARTY_LEAVE",
-			"type": "SOCIAL_ACTION"
-		}
-	},
-	"susie-battle-over-S": {
-		"frequency": "REGULAR",
-		"repeat": "REPEAT",
-		"condition": "party.alive.Emilie",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [{
-			"type": "SELECT_RANDOM",
-			"options": [{
-				"0": " ",
-				"count": 3,
-				"weight": 1
-			}],
-			"0_0": [{
-				"message": {
-					"en_US": "Phew. What a rampage.",
-					"de_DE": "Puh. Was eine Metzelei.",
-					"fr_FR": "fr_FR",
-					"langUid": 1165,
-					"zh_CN": "呼，真是大屠杀。",
-					"ja_JP": "ふう。すごい暴れっぷり。",
-					"ko_KR": "휴, 격렬한 싸움이었어."
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "EXHAUSTED"
-				}
-			}],
-			"0_1": [{
-				"message": {
-					"en_US": "Would you be the type to run marathons in your spare time, Lea?",
-					"de_DE": "Du läufst in deiner Freizeit wohl Marathon, was, Lea?",
-					"fr_FR": "fr_FR",
-					"langUid": 5812,
-					"zh_CN": "你肯定是那种在空闲时候会去跑马拉松的人，没错吧，莉亚？<<A<<[CHANGED 2018/09/19]",
-					"ja_JP": "あなたって趣味でマラソンでもするタイプなの、レア？<<A<<[CHANGED 2018/09/19]",
-					"ko_KR": "시간 남을 때 마라톤 뛰나 봐, 레아?<<A<<[CHANGED 2018/09/19]"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "EMBARRASSED"
-				}
-			}, {
-				"message": {
-					"en_US": "Just wondering...",
-					"de_DE": "Ich frag mich grad...",
-					"fr_FR": "fr_FR",
-					"langUid": 5813,
-					"zh_CN": "我瞎猜的…",
-					"ja_JP": "ちょっと思いついただけだけど…",
-					"ko_KR": "그냥 궁금해서..."
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "EXHAUSTED"
-				}
-			}],
-			"0_2": [{
-				"message": {
-					"en_US": "Phew... Small break? Maybe?",
-					"de_DE": "Puh... Kleine Pause vielleicht?",
-					"fr_FR": "fr_FR",
-					"langUid": 5814,
-					"zh_CN": "呼…要不要稍微休息下？",
-					"ja_JP": "ふう…ちょっと休まない？",
-					"ko_KR": "휴... 잠깐 쉴까?"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "EMBARRASSED"
-				}
-			}]
-		}],
-		"loopCount": 3,
-		"type": {
-			"killCount": 0,
-			"rank": "S",
-			"type": "BATTLE_OVER"
-		}
-	},
-	"susie-overpowered-active": {
-		"frequency": "REGULAR",
-		"repeat": "REPEAT",
-		"condition": "party.alive.NOT_YET",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [{
-			"type": "SELECT_RANDOM",
-			"options": [{
-				"0": " ",
-				"count": 3,
-				"weight": 1
-			}],
-			"0_0": [{
-				"message": {
-					"en_US": "This enemy seems strong, better be careful!",
-					"de_DE": "Dieser Gegner sieht gefährlich aus, sei lieber vorsichtig, Lea!",
-					"fr_FR": "fr_FR",
-					"langUid": 5775,
-					"zh_CN": "这个敌人似乎很强，最好小心点！",
-					"ja_JP": "この敵は手強そうだよ、気をつけて！",
-					"ko_KR": "적은 강해 보여. 그러니 조심하도록 해!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "CURIOUS"
-				}
-			}],
-			"0_1": [{
-				"message": {
-					"en_US": "You do like a challenge, don't you Lea?",
-					"de_DE": "Du liebst die Herausforderung, nicht wahr, Lea?",
-					"fr_FR": "fr_FR",
-					"langUid": 5777,
-					"zh_CN": "你喜欢挑战难题是吧，莉亚？",
-					"ja_JP": "レア、あなた、チャレンジするのが好きなんでしょ？",
-					"ko_KR": "넌 도전하는 걸 좋아하니까. 그렇지, 레아?"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "WATCH_OUT_BADASS"
-				}
-			}],
-			"0_2": [{
-				"message": {
-					"en_US": "We may want to level up a bit before taking this one on.",
-					"de_DE": "Wir sollten vielleicht vorher etwas aufleveln, bevor wir uns mit denen anlegen, non?",
-					"fr_FR": "fr_FR",
-					"langUid": 5778,
-					"zh_CN": "我们可能需要再升几级才能打得过这家伙。",
-					"ja_JP": "こいつと戦うにはもうちょっとレベルを上げてからのほうがいいかもね。",
-					"ko_KR": "다음으로 넘어가기 전까지 레벨을 좀 더 올리는 게 좋을 것 같아."
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "CURIOUS"
-				}
-			}]
-		}],
-		"loopCount": 1,
-		"type": {
-			"levelGapAbove": 7,
-			"playerStarted": true,
-			"battleStarted": true,
-			"levelGap": 7,
-			"type": "ENEMY_ATTACKS"
-		}
-	},
-	"susie-overpowered-passive": {
-		"frequency": "REGULAR",
-		"repeat": "REPEAT",
-		"condition": "party.alive.NOT_YET",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [{
-			"type": "SELECT_RANDOM",
-			"options": [{
-				"0": " ",
-				"count": 2,
-				"weight": 1
-			}],
-			"0_0": [{
-				"message": {
-					"en_US": "Mon dieu, it's strong and aggressive! I hate those!",
-					"de_DE": "Mon Dieu, sind die stark und aggressiv! Ich hasse diese Dinger!",
-					"fr_FR": "fr_FR",
-					"langUid": 5780,
-					"zh_CN": "我的天啊，这家伙好强！我讨厌它们！",
-					"ja_JP": "モンデュー、強いうえに攻撃的だなんて！こいつら嫌い！",
-					"ko_KR": "정말, 강하고 공격적이잖아! 난 저것들이 참 싫어!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "SHOCKED"
-				}
-			}],
-			"0_1": [{
-				"message": {
-					"en_US": "Lea, maybe we should, you know... \\c[3]run\\c[0]?!",
-					"de_DE": "Lea, vielleicht sollten wir besser... \\c[3]die Kurve kratzen\\c[0]?!",
-					"fr_FR": "fr_FR",
-					"langUid": 5781,
-					"zh_CN": "莉亚，或许我们应该，你知道的…\\c[3]逃跑\\c[0]？！",
-					"ja_JP": "レア、私たち…\\c[3]逃げた\\c[0]ほうがいいんじゃない？！",
-					"ko_KR": "레아, 있잖아 우리... \\c[3]도망\\c[0]치는 게 좋지 않을까?!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "SWEATY_SMILE"
-				}
-			}]
-		}],
-		"loopCount": 1,
-		"type": {
-			"levelGapAbove": 7,
-			"playerStarted": false,
-			"battleStarted": true,
-			"levelGap": 7,
-			"type": "ENEMY_ATTACKS"
-		}
-	},
-	"susie-passive": {
-		"frequency": "SOMETIMES",
-		"repeat": "REPEAT",
-		"condition": "party.alive.NOT_YET && !tmp.common.passiveAttack",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [{
-			"changeType": "set",
-			"type": "CHANGE_VAR_BOOL",
-			"varName": "tmp.common.passiveAttack",
-			"value": true
-		}, {
-			"type": "SELECT_RANDOM",
-			"options": [{
-				"0": " ",
-				"count": 3,
-				"weight": 1
-			}],
-			"0_0": [{
-				"message": {
-					"en_US": "Ugh...",
-					"de_DE": "Puh...",
-					"fr_FR": "fr_FR",
-					"langUid": 5782,
-					"zh_CN": "啊…",
-					"ja_JP": "うぅ…",
-					"ko_KR": "윽..."
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "EXHAUSTED"
-				}
-			}],
-			"0_1": [{
-				"message": {
-					"en_US": "We didn't ask for this battle, or did we?",
-					"de_DE": "Wir haben nicht um diesen Kampf gebeten, oder?",
-					"fr_FR": "fr_FR",
-					"langUid": 5783,
-					"zh_CN": "这可是自找上门的对吧？",
-					"ja_JP": "私たちから戦いは挑んでないよね？それとも挑んだっけ？",
-					"ko_KR": "이런 싸움은 필요 없었는데."
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "SUSPICIOUS"
-				}
-			}],
-			"0_2": [{
-				"message": {
-					"en_US": "I guess someone needs a lesson here!",
-					"de_DE": "Ich glaube, ich muss hier mal jemandem eine Lektion erteilen!",
-					"fr_FR": "fr_FR",
-					"langUid": 5784,
-					"zh_CN": "我想这里有人需要被教训一下了！",
-					"ja_JP": "だれかさんにはおしおきが必要みたいだね！",
-					"ko_KR": "이 녀석 손 좀 봐줘야겠군!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "SUSPICIOUS"
-				}
-			}]
-		}],
-		"loopCount": 1,
-		"type": {
-			"levelGapBelow": 6,
-			"playerStarted": false,
-			"battleStarted": true,
-			"type": "ENEMY_ATTACKS"
-		}
-	},
-	"susie-hedgehag": {
-		"frequency": "ALWAYS",
-		"repeat": "ONCE",
-		"condition": "party.alive.NOT_YET && !newgame.sergey-hax",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [{
-			"changeType": "set",
-			"type": "CHANGE_VAR_BOOL",
-			"varName": "tmp.babble.emilie.hedgehag",
-			"value": true
-		}, {
-			"message": {
-				"en_US": "Let's see how those \\v[combat.name.hedgehog]s will fare!",
-				"de_DE": "Mal sehen, wie sich diese \\v[combat.name.hedgehog] im Kampf schlagen!",
-				"fr_FR": "fr_FR",
-				"langUid": 5785,
-				"zh_CN": "我们就来看看这些\\v[combat.name.hedgehog]有什么能耐吧！",
-				"ja_JP": "この\\v[combat.name.hedgehog]たちがどうなるか、見てなさい！",
-				"ko_KR": "저 \\v[combat.name.hedgehog]들이 얼마나 잘하는지 볼까!"
-			},
-			"type": "SHOW_SIDE_MSG",
-			"person": {
-				"person": "main.emilie",
-				"expression": "DETERMINED"
-			}
-		}],
-		"loopCount": 1,
-		"type": {
-			"enemies": ["hedgehog"],
-			"playerStarted": true,
-			"type": "ENEMY_ATTACKS"
-		}
-	},
-	"susie-hedgehog-end": {
-		"frequency": "ALWAYS",
-		"repeat": "ONCE",
-		"condition": "party.alive.NOT_YET && !newgame.sergey-hax",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": true,
-		"event": [{
-			"withElse": true,
-			"type": "IF",
-			"condition": " tmp.babble.emilie.hedgehag",
-			"thenStep": [{
-				"message": {
-					"en_US": "Voilà! Simple enough!",
-					"de_DE": "Voilà! Ist doch einfach!",
-					"fr_FR": "fr_FR",
-					"langUid": 3287,
-					"zh_CN": "瞧！轻松！",
-					"ja_JP": "そーれ！楽勝楽勝！",
-					"ko_KR": "짜잔! 누워서 떡 먹기네!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "UP"
-				}
-			}],
-			"elseStep": [{
-				"message": {
-					"en_US": "And that was our first hedgehag. Simple enough!",
-					"de_DE": "Und das war unser erster Igöll! Einfach, non?",
-					"fr_FR": "fr_FR",
-					"langUid": 5815,
-					"zh_CN": "这就是我们打的第一只刺畏。简单！",
-					"ja_JP": "私たちで倒した最初のヘッジハッグだね。楽勝だった！",
-					"ko_KR": "우리의 첫 고슴됴치 사냥. 아주 쉽네!"
-				},
-				"type": "SHOW_SIDE_MSG",
-				"person": {
-					"person": "main.emilie",
-					"expression": "UP"
-				}
-			}]
-		}],
-		"loopCount": 1,
-		"type": {
-			"enemies": ["hedgehog"],
-			"killCount": 0,
-			"enemy": "hedgehog",
-			"type": "COOLDOWN_START"
-		}
-	},
-	"cooldown-OC-S": {
-		"frequency": "ALWAYS",
-		"repeat": "REPEAT",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [],
-		"loopCount": 1,
-		"type": {
-			"killCount": 0,
-			"rankReached": "S",
-			"type": "COOLDOWN_START"
-		}
-	},
-	"cooldown-OC-A": {
-		"frequency": "ALWAYS",
-		"repeat": "REPEAT",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [],
-		"loopCount": 1,
-		"type": {
-			"killCount": 0,
-			"rankReached": "A",
-			"type": "COOLDOWN_START"
-		}
-	},
-	"cooldown-OC-B": {
-		"frequency": "ALWAYS",
-		"repeat": "REPEAT",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [],
-		"loopCount": 1,
-		"type": {
-			"killCount": 0,
-			"rankReached": "B",
-			"type": "COOLDOWN_START"
-		}
-	},
-	"nobody-contact": {
-		"frequency": "ALWAYS",
-		"repeat": "REPEAT",
-		"eventType": "PARALLEL",
-		"overrideSideMessage": false,
-		"event": [],
-		"loopCount": 1,
-		"type": {
-			"member": "JUST_DONT_DO_IT",
-			"actionType": "CONTACT",
-			"type": "SOCIAL_ACTION"
-		}
-	}
+                "message": {
+                    "en_US": "If you need any help or wanna play with me, send me a party request.",
+                    "ko_KR": "도움이 필요하거나 같이 놀고 싶으면, 파티 요청을 보내줘."
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "guildac.susie",
+                    "expression": "SMILE"
+                }
+            }, {
+                "name": "end",
+                "type": "GOTO_LABEL"
+            }]
+        }, {
+            "name": "end",
+            "type": "LABEL"
+        }, {
+            "name": "sergey",
+            "type": "REMOVE_GUI"
+        }],
+        "loopCount": 1,
+        "type": {
+            "member": "Susie",
+            "actionType": "CONTACT",
+            "type": "SOCIAL_ACTION"
+        }
+    },
+    "susie-join": {
+        "frequency": "ALWAYS",
+        "repeat": "REPEAT",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [{
+            "name": "sergey",
+            "guiInfo": {
+                "type": "SergeyMode",
+                "settings": {}
+            },
+            "type": "ADD_GUI"
+        }, {
+            "side": "LEFT",
+            "order": 0,
+            "clearSide": false,
+            "type": "ADD_MSG_PERSON",
+            "person": {
+                "person": "guildac.susie",
+                "expression": "DEFAULT"
+            }
+        }, {
+            "side": "RIGHT",
+            "order": 0,
+            "clearSide": false,
+            "type": "ADD_MSG_PERSON",
+            "person": {
+                "person": "main.lea",
+                "expression": "DEFAULT"
+            }
+        }, {
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 2,
+                "weight": 1
+            }],
+            "0_0": [{
+                "message": {
+                    "en_US": "Do you wanna play with me?",
+                    "ko_KR": "같이 놀고 싶은 거야?"
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "guildac.susie",
+                    "expression": "SMILE"
+                }
+            }],
+            "0_1": [{
+                "message": {
+                    "en_US": "I think you need my help, right?",
+                    "ko_KR": "내 도움이 필요한 일이 있나 본데, 그렇지?"
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "guildac.susie",
+                    "expression": "SMUG"
+                }
+            }]
+        }, {
+            "member": "Susie",
+            "skipEffect": false,
+            "temporary": false,
+            "type": "ADD_PARTY_MEMBER"
+        }, {
+            "name": "sergey",
+            "type": "REMOVE_GUI"
+        }],
+        "loopCount": 1,
+        "type": {
+            "member": "Susie",
+            "actionType": "PARTY_JOIN",
+            "type": "SOCIAL_ACTION"
+        }
+    },
+    "susie-remove": {
+        "frequency": "ALWAYS",
+        "repeat": "REPEAT",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [{
+            "name": "sergey",
+            "guiInfo": {
+                "type": "SergeyMode",
+                "settings": {}
+            },
+            "type": "ADD_GUI"
+        }, {
+            "side": "LEFT",
+            "order": 0,
+            "clearSide": false,
+            "type": "ADD_MSG_PERSON",
+            "person": {
+                "person": "guildac.susie",
+                "expression": "DEFAULT"
+            }
+        }, {
+            "side": "RIGHT",
+            "order": 0,
+            "clearSide": false,
+            "type": "ADD_MSG_PERSON",
+            "person": {
+                "person": "main.lea",
+                "expression": "DEFAULT"
+            }
+        }, {
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 3,
+                "weight": 1
+            }],
+            "0_0": [{
+                "message": {
+                    "en_US": "All right, well, let's hang out again next time.",
+                    "ko_KR": "좋아, 그럼 다음에 또 놀아보자고."
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "guildac.susie",
+                    "expression": "DEFAULT"
+                }
+            }],
+            "0_1": [{
+                "message": {
+                    "en_US": "Well, see you next time.",
+                    "ko_KR": "그럼, 다음에 또 만나자."
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "guildac.susie",
+                    "expression": "DEFAULT"
+                }
+            }],
+            "0_2": [{
+                "message": {
+                    "en_US": "It was fun. See you later.",
+                    "ko_KR": "재미있었네. 다음에 또 보자."
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                    "person": "guildac.susie",
+                    "expression": "DEFAULT"
+                }
+            }]
+        }, {
+            "member": "Susie",
+            "skipEffect": false,
+            "type": "REMOVE_PARTY_MEMBER"
+        }, {
+            "name": "sergey",
+            "type": "REMOVE_GUI"
+        }],
+        "loopCount": 1,
+        "type": {
+            "member": "Susie",
+            "actionType": "PARTY_LEAVE",
+            "type": "SOCIAL_ACTION"
+        }
+    },
+    "susie-battle-over-S": {
+        "frequency": "REGULAR",
+        "repeat": "REPEAT",
+        "condition": "party.alive.Emilie",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [{
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 3,
+                "weight": 1
+            }],
+            "0_0": [{
+                "message": {
+                    "en_US": "Phew. What a rampage.",
+                    "de_DE": "Puh. Was eine Metzelei.",
+                    "fr_FR": "fr_FR",
+                    "langUid": 1165,
+                    "zh_CN": "呼，真是大屠杀。",
+                    "ja_JP": "ふう。すごい暴れっぷり。",
+                    "ko_KR": "휴, 격렬한 싸움이었어."
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "EXHAUSTED"
+                }
+            }],
+            "0_1": [{
+                "message": {
+                    "en_US": "Would you be the type to run marathons in your spare time, Lea?",
+                    "de_DE": "Du läufst in deiner Freizeit wohl Marathon, was, Lea?",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5812,
+                    "zh_CN": "你肯定是那种在空闲时候会去跑马拉松的人，没错吧，莉亚？<<A<<[CHANGED 2018/09/19]",
+                    "ja_JP": "あなたって趣味でマラソンでもするタイプなの、レア？<<A<<[CHANGED 2018/09/19]",
+                    "ko_KR": "시간 남을 때 마라톤 뛰나 봐, 레아?<<A<<[CHANGED 2018/09/19]"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "EMBARRASSED"
+                }
+            }, {
+                "message": {
+                    "en_US": "Just wondering...",
+                    "de_DE": "Ich frag mich grad...",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5813,
+                    "zh_CN": "我瞎猜的…",
+                    "ja_JP": "ちょっと思いついただけだけど…",
+                    "ko_KR": "그냥 궁금해서..."
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "EXHAUSTED"
+                }
+            }],
+            "0_2": [{
+                "message": {
+                    "en_US": "Phew... Small break? Maybe?",
+                    "de_DE": "Puh... Kleine Pause vielleicht?",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5814,
+                    "zh_CN": "呼…要不要稍微休息下？",
+                    "ja_JP": "ふう…ちょっと休まない？",
+                    "ko_KR": "휴... 잠깐 쉴까?"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "EMBARRASSED"
+                }
+            }]
+        }],
+        "loopCount": 3,
+        "type": {
+            "killCount": 0,
+            "rank": "S",
+            "type": "BATTLE_OVER"
+        }
+    },
+    "susie-overpowered-active": {
+        "frequency": "REGULAR",
+        "repeat": "REPEAT",
+        "condition": "party.alive.NOT_YET",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [{
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 3,
+                "weight": 1
+            }],
+            "0_0": [{
+                "message": {
+                    "en_US": "This enemy seems strong, better be careful!",
+                    "de_DE": "Dieser Gegner sieht gefährlich aus, sei lieber vorsichtig, Lea!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5775,
+                    "zh_CN": "这个敌人似乎很强，最好小心点！",
+                    "ja_JP": "この敵は手強そうだよ、気をつけて！",
+                    "ko_KR": "적은 강해 보여. 그러니 조심하도록 해!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "CURIOUS"
+                }
+            }],
+            "0_1": [{
+                "message": {
+                    "en_US": "You do like a challenge, don't you Lea?",
+                    "de_DE": "Du liebst die Herausforderung, nicht wahr, Lea?",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5777,
+                    "zh_CN": "你喜欢挑战难题是吧，莉亚？",
+                    "ja_JP": "レア、あなた、チャレンジするのが好きなんでしょ？",
+                    "ko_KR": "넌 도전하는 걸 좋아하니까. 그렇지, 레아?"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "WATCH_OUT_BADASS"
+                }
+            }],
+            "0_2": [{
+                "message": {
+                    "en_US": "We may want to level up a bit before taking this one on.",
+                    "de_DE": "Wir sollten vielleicht vorher etwas aufleveln, bevor wir uns mit denen anlegen, non?",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5778,
+                    "zh_CN": "我们可能需要再升几级才能打得过这家伙。",
+                    "ja_JP": "こいつと戦うにはもうちょっとレベルを上げてからのほうがいいかもね。",
+                    "ko_KR": "다음으로 넘어가기 전까지 레벨을 좀 더 올리는 게 좋을 것 같아."
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "CURIOUS"
+                }
+            }]
+        }],
+        "loopCount": 1,
+        "type": {
+            "levelGapAbove": 7,
+            "playerStarted": true,
+            "battleStarted": true,
+            "levelGap": 7,
+            "type": "ENEMY_ATTACKS"
+        }
+    },
+    "susie-overpowered-passive": {
+        "frequency": "REGULAR",
+        "repeat": "REPEAT",
+        "condition": "party.alive.NOT_YET",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [{
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 2,
+                "weight": 1
+            }],
+            "0_0": [{
+                "message": {
+                    "en_US": "Mon dieu, it's strong and aggressive! I hate those!",
+                    "de_DE": "Mon Dieu, sind die stark und aggressiv! Ich hasse diese Dinger!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5780,
+                    "zh_CN": "我的天啊，这家伙好强！我讨厌它们！",
+                    "ja_JP": "モンデュー、強いうえに攻撃的だなんて！こいつら嫌い！",
+                    "ko_KR": "정말, 강하고 공격적이잖아! 난 저것들이 참 싫어!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "SHOCKED"
+                }
+            }],
+            "0_1": [{
+                "message": {
+                    "en_US": "Lea, maybe we should, you know... \\c[3]run\\c[0]?!",
+                    "de_DE": "Lea, vielleicht sollten wir besser... \\c[3]die Kurve kratzen\\c[0]?!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5781,
+                    "zh_CN": "莉亚，或许我们应该，你知道的…\\c[3]逃跑\\c[0]？！",
+                    "ja_JP": "レア、私たち…\\c[3]逃げた\\c[0]ほうがいいんじゃない？！",
+                    "ko_KR": "레아, 있잖아 우리... \\c[3]도망\\c[0]치는 게 좋지 않을까?!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "SWEATY_SMILE"
+                }
+            }]
+        }],
+        "loopCount": 1,
+        "type": {
+            "levelGapAbove": 7,
+            "playerStarted": false,
+            "battleStarted": true,
+            "levelGap": 7,
+            "type": "ENEMY_ATTACKS"
+        }
+    },
+    "susie-passive": {
+        "frequency": "SOMETIMES",
+        "repeat": "REPEAT",
+        "condition": "party.alive.NOT_YET && !tmp.common.passiveAttack",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [{
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.common.passiveAttack",
+            "value": true
+        }, {
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 3,
+                "weight": 1
+            }],
+            "0_0": [{
+                "message": {
+                    "en_US": "Ugh...",
+                    "de_DE": "Puh...",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5782,
+                    "zh_CN": "啊…",
+                    "ja_JP": "うぅ…",
+                    "ko_KR": "윽..."
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "EXHAUSTED"
+                }
+            }],
+            "0_1": [{
+                "message": {
+                    "en_US": "We didn't ask for this battle, or did we?",
+                    "de_DE": "Wir haben nicht um diesen Kampf gebeten, oder?",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5783,
+                    "zh_CN": "这可是自找上门的对吧？",
+                    "ja_JP": "私たちから戦いは挑んでないよね？それとも挑んだっけ？",
+                    "ko_KR": "이런 싸움은 필요 없었는데."
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "SUSPICIOUS"
+                }
+            }],
+            "0_2": [{
+                "message": {
+                    "en_US": "I guess someone needs a lesson here!",
+                    "de_DE": "Ich glaube, ich muss hier mal jemandem eine Lektion erteilen!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5784,
+                    "zh_CN": "我想这里有人需要被教训一下了！",
+                    "ja_JP": "だれかさんにはおしおきが必要みたいだね！",
+                    "ko_KR": "이 녀석 손 좀 봐줘야겠군!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "SUSPICIOUS"
+                }
+            }]
+        }],
+        "loopCount": 1,
+        "type": {
+            "levelGapBelow": 6,
+            "playerStarted": false,
+            "battleStarted": true,
+            "type": "ENEMY_ATTACKS"
+        }
+    },
+    "susie-hedgehag": {
+        "frequency": "ALWAYS",
+        "repeat": "ONCE",
+        "condition": "party.alive.NOT_YET && !newgame.sergey-hax",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [{
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.babble.emilie.hedgehag",
+            "value": true
+        }, {
+            "message": {
+                "en_US": "Let's see how those \\v[combat.name.hedgehog]s will fare!",
+                "de_DE": "Mal sehen, wie sich diese \\v[combat.name.hedgehog] im Kampf schlagen!",
+                "fr_FR": "fr_FR",
+                "langUid": 5785,
+                "zh_CN": "我们就来看看这些\\v[combat.name.hedgehog]有什么能耐吧！",
+                "ja_JP": "この\\v[combat.name.hedgehog]たちがどうなるか、見てなさい！",
+                "ko_KR": "저 \\v[combat.name.hedgehog]들이 얼마나 잘하는지 볼까!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+                "person": "main.emilie",
+                "expression": "DETERMINED"
+            }
+        }],
+        "loopCount": 1,
+        "type": {
+            "enemies": ["hedgehog"],
+            "playerStarted": true,
+            "type": "ENEMY_ATTACKS"
+        }
+    },
+    "susie-hedgehog-end": {
+        "frequency": "ALWAYS",
+        "repeat": "ONCE",
+        "condition": "party.alive.NOT_YET && !newgame.sergey-hax",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": true,
+        "event": [{
+            "withElse": true,
+            "type": "IF",
+            "condition": " tmp.babble.emilie.hedgehag",
+            "thenStep": [{
+                "message": {
+                    "en_US": "Voilà! Simple enough!",
+                    "de_DE": "Voilà! Ist doch einfach!",
+                    "fr_FR": "fr_FR",
+                    "langUid": 3287,
+                    "zh_CN": "瞧！轻松！",
+                    "ja_JP": "そーれ！楽勝楽勝！",
+                    "ko_KR": "짜잔! 누워서 떡 먹기네!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "UP"
+                }
+            }],
+            "elseStep": [{
+                "message": {
+                    "en_US": "And that was our first hedgehag. Simple enough!",
+                    "de_DE": "Und das war unser erster Igöll! Einfach, non?",
+                    "fr_FR": "fr_FR",
+                    "langUid": 5815,
+                    "zh_CN": "这就是我们打的第一只刺畏。简单！",
+                    "ja_JP": "私たちで倒した最初のヘッジハッグだね。楽勝だった！",
+                    "ko_KR": "우리의 첫 고슴됴치 사냥. 아주 쉽네!"
+                },
+                "type": "SHOW_SIDE_MSG",
+                "person": {
+                    "person": "main.emilie",
+                    "expression": "UP"
+                }
+            }]
+        }],
+        "loopCount": 1,
+        "type": {
+            "enemies": ["hedgehog"],
+            "killCount": 0,
+            "enemy": "hedgehog",
+            "type": "COOLDOWN_START"
+        }
+    },
+    "cooldown-OC-S": {
+        "frequency": "ALWAYS",
+        "repeat": "REPEAT",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [],
+        "loopCount": 1,
+        "type": {
+            "killCount": 0,
+            "rankReached": "S",
+            "type": "COOLDOWN_START"
+        }
+    },
+    "cooldown-OC-A": {
+        "frequency": "ALWAYS",
+        "repeat": "REPEAT",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [],
+        "loopCount": 1,
+        "type": {
+            "killCount": 0,
+            "rankReached": "A",
+            "type": "COOLDOWN_START"
+        }
+    },
+    "cooldown-OC-B": {
+        "frequency": "ALWAYS",
+        "repeat": "REPEAT",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [],
+        "loopCount": 1,
+        "type": {
+            "killCount": 0,
+            "rankReached": "B",
+            "type": "COOLDOWN_START"
+        }
+    },
+    "nobody-contact": {
+        "frequency": "ALWAYS",
+        "repeat": "REPEAT",
+        "eventType": "PARALLEL",
+        "overrideSideMessage": false,
+        "event": [],
+        "loopCount": 1,
+        "type": {
+            "member": "JUST_DONT_DO_IT",
+            "actionType": "CONTACT",
+            "type": "SOCIAL_ACTION"
+        }
+    }
 }

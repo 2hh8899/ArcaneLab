@@ -1,131 +1,131 @@
 {
-	"name": {
-		"en_US": "Eisus",
-		"ko_KR": "에이서스"
-	},
-	"realname": {
-		"en_US": "",
-		"ko_KR": ""
-	},
-	"size": {
-		"x": 16,
-		"y": 16,
-		"z": 24
-	},
-	"animSheet": "npc.eisus",
-	"walkAnimSet": {
-		"normal": {
-			"idle": "idle",
-			"move": "walk",
-			"run": "run",
-			"jump": "jump",
-			"fall": "fall"
-		},
-		"sit": {
-			"idle": "sit"
-		}
-	},
-	"walkAnims": "normal",
-	"shadow": 16,
-	"configs": {
-		"normal": {
-			"relativeVel": 0.5
-		},
-		"running": {
-			"relativeVel": 1
-		},
-		"sit": {
-			"walkAnims": "sit",
-			"relativeVel": 0.5
-		}
-	},
-	"face": {
-		"width": 115,
-		"height": 138,
-		"centerX": 40,
-		"centerY": 50,
-		"src": "eisus.png",
-		"parts": [{
-			"straight": {
-				"srcX": 332,
-				"srcY": 0,
-				"width": 115,
-				"height": 55,
-				"destX": 0,
-				"destY": 83
-			}
-		}, {
-			"norm": {
-				"srcX": 0,
-				"srcY": 0,
-				"width": 72,
-				"height": 28,
-				"destX": 17,
-				"destY": 0
-			}
-		}, {
-			"normNeutral": {
-				"srcX": 0,
-				"srcY": 28,
-				"width": 85,
-				"height": 55,
-				"destX": 15,
-				"destY": 28,
-				"subX": 0,
-				"subY": 0
-			},
-			"normSmug": {
-				"srcX": 0,
-				"srcY": 83,
-				"width": 85,
-				"height": 55,
-				"destX": 15,
-				"destY": 28,
-				"subX": 0,
-				"subY": 0
-			},
-			"normSurprised": {
-				"srcX": 0,
-				"srcY": 138,
-				"width": 85,
-				"height": 55,
-				"destX": 15,
-				"destY": 28,
-				"subX": 0,
-				"subY": 0
-			},
-			"normSad": {
-				"srcX": 0,
-				"srcY": 193,
-				"width": 85,
-				"height": 55,
-				"destX": 15,
-				"destY": 28,
-				"subX": 0,
-				"subY": 0
-			}
-		}],
-		"expressions": {
-			"DEFAULT": {
-				"faces": [
-					["straight", "norm", "normNeutral"]
-				]
-			},
-			"SMUG": {
-				"faces": [
-					["straight", "norm", "normSmug"]
-				]
-			},
-			"SURPRISED": {
-				"faces": [
-					["straight", "norm", "normSurprised"]
-				]
-			},
-			"SAD": {
-				"faces": [
-					["straight", "norm", "normSad"]
-				]
-			}
-		}
-	}
+    "name": {
+        "en_US": "Eisus",
+        "ko_KR": "에이서스"
+    },
+    "realname": {
+        "en_US": "",
+        "ko_KR": ""
+    },
+    "size": {
+        "x": 16,
+        "y": 16,
+        "z": 24
+    },
+    "animSheet": "npc.eisus",
+    "walkAnimSet": {
+        "normal": {
+            "idle": "idle",
+            "move": "walk",
+            "run": "run",
+            "jump": "jump",
+            "fall": "fall"
+        },
+        "sit": {
+            "idle": "sit"
+        }
+    },
+    "walkAnims": "normal",
+    "shadow": 16,
+    "configs": {
+        "normal": {
+            "relativeVel": 0.5
+        },
+        "running": {
+            "relativeVel": 1
+        },
+        "sit": {
+            "walkAnims": "sit",
+            "relativeVel": 0.5
+        }
+    },
+    "face": {
+        "width": 115,
+        "height": 138,
+        "centerX": 40,
+        "centerY": 50,
+        "src": "eisus.png",
+        "parts": [{
+            "straight": {
+                "srcX": 332,
+                "srcY": 0,
+                "width": 115,
+                "height": 55,
+                "destX": 0,
+                "destY": 83
+            }
+        }, {
+            "norm": {
+                "srcX": 0,
+                "srcY": 0,
+                "width": 72,
+                "height": 28,
+                "destX": 17,
+                "destY": 0
+            }
+        }, {
+            "normNeutral": {
+                "srcX": 0,
+                "srcY": 28,
+                "width": 85,
+                "height": 55,
+                "destX": 15,
+                "destY": 28,
+                "subX": 0,
+                "subY": 0
+            },
+            "normSmug": {
+                "srcX": 0,
+                "srcY": 83,
+                "width": 85,
+                "height": 55,
+                "destX": 15,
+                "destY": 28,
+                "subX": 0,
+                "subY": 0
+            },
+            "normSurprised": {
+                "srcX": 0,
+                "srcY": 138,
+                "width": 85,
+                "height": 55,
+                "destX": 15,
+                "destY": 28,
+                "subX": 0,
+                "subY": 0
+            },
+            "normSad": {
+                "srcX": 0,
+                "srcY": 193,
+                "width": 85,
+                "height": 55,
+                "destX": 15,
+                "destY": 28,
+                "subX": 0,
+                "subY": 0
+            }
+        }],
+        "expressions": {
+            "DEFAULT": {
+                "faces": [
+                    ["straight", "norm", "normNeutral"]
+                ]
+            },
+            "SMUG": {
+                "faces": [
+                    ["straight", "norm", "normSmug"]
+                ]
+            },
+            "SURPRISED": {
+                "faces": [
+                    ["straight", "norm", "normSurprised"]
+                ]
+            },
+            "SAD": {
+                "faces": [
+                    ["straight", "norm", "normSad"]
+                ]
+            }
+        }
+    }
 }

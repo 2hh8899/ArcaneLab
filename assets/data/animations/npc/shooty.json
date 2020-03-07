@@ -1,41 +1,41 @@
 {
-	"DOCTYPE": "MULTI_DIR_ANIMATION",
-	"namedSheets": {
-		"walk": {
-			"src": "media/entity/npc/shooty.png",
-			"xCount": 3,
-			"offX": 0,
-			"offY": 0,
-			"width": 32,
-			"height": 40
-		}
-	},
-	"shapeType": "Y_FLAT",
-	"offset": {
-		"x": 0,
-		"y": -4,
-		"z": 0
-	},
-	"SUB": [{
-		"sheet": "walk",
-		"dirs": "8",
-		"flipX": [0, 0, 0, 0, 0, 1, 1, 1],
-		"tileOffsets": [0, 3, 6, 9, 12, 9, 6, 3],
-		"SUB": [{
-			"name": "idle",
-			"time": 1,
-			"repeat": false,
-			"frames": [1]
-		}, {
-			"name": "preIdle",
-			"time": 0.1,
-			"repeat": false,
-			"frames": [1]
-		}, {
-			"name": "walk",
-			"time": 0.133,
-			"repeat": true,
-			"frames": [0, 1, 2, 1]
-		}]
-	}]
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "walk": {
+            "src": "media/entity/npc/shooty.png",
+            "xCount": 3,
+            "offX": 0,
+            "offY": 0,
+            "width": 32,
+            "height": 40
+        }
+    },
+    "shapeType": "Y_FLAT",
+    "offset": {
+        "x": 0,
+        "y": -4,
+        "z": 0
+    },
+    "SUB": [{
+        "sheet": "walk",
+        "dirs": "8",
+        "flipX": [0, 0, 0, 0, 0, 1, 1, 1],
+        "tileOffsets": [0, 3, 6, 9, 12, 9, 6, 3],
+        "SUB": [{
+            "name": "idle",
+            "time": 1,
+            "repeat": false,
+            "frames": [1]
+        }, {
+            "name": "preIdle",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [1]
+        }, {
+            "name": "walk",
+            "time": 0.133,
+            "repeat": true,
+            "frames": [0, 1, 2, 1]
+        }]
+    }]
 }

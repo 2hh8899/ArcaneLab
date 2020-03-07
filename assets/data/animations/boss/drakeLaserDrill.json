@@ -1,71 +1,71 @@
 {
-	"DOCTYPE": "MULTI_DIR_ANIMATION",
-	"namedSheets": {
-		"body": {
-			"src": "media/entity/enemy/boss/drake-laser-drill.png",
-			"xCount": 1,
-			"offX": 0,
-			"offY": 0,
-			"width": 240,
-			"height": 142
-		},
-		"light": {
-			"src": "media/entity/enemy/boss/drake-laser-drill-light.png",
-			"xCount": 2,
-			"offX": 0,
-			"offY": 0,
-			"width": 240,
-			"height": 142
-		}
-	},
-	"offset": {
-		"x": 0,
-		"y": 0,
-		"z": 0
-	},
-	"shapeType": "Y_FLAT",
-	"SUB": [{
-		"sheet": "body",
-		"dirs": "1",
-		"flipX": [0],
-		"tileOffsets": [0],
-		"frames": [0],
-		"SUB": [{
-			"name": "idle"
-		}, {
-			"name": "off"
-		}, {
-			"name": "blink"
-		}, {
-			"name": "damage"
-		}, {
-			"name": "recovery"
-		}]
-	}, {
-		"sheet": "light",
-		"renderMode": "lighter",
-		"guiSprites": true,
-		"dirs": "1",
-		"flipX": [0],
-		"tileOffsets": [0],
-		"frames": [0],
-		"SUB": [{
-			"name": "idle"
-		}, {
-			"name": "blink",
-			"time": 0.03,
-			"frames": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			"framesAlpha": [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0]
-		}, {
-			"name": "damage",
-			"time": 0.03,
-			"frames": [1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-			"framesAlpha": [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0]
-		}, {
-			"name": "recovery",
-			"time": 0.2,
-			"frames": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
-			"framesAlpha": [1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0]
-		}]
-	}]
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "body": {
+            "src": "media/entity/enemy/boss/drake-laser-drill.png",
+            "xCount": 1,
+            "offX": 0,
+            "offY": 0,
+            "width": 240,
+            "height": 142
+        },
+        "light": {
+            "src": "media/entity/enemy/boss/drake-laser-drill-light.png",
+            "xCount": 2,
+            "offX": 0,
+            "offY": 0,
+            "width": 240,
+            "height": 142
+        }
+    },
+    "offset": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "shapeType": "Y_FLAT",
+    "SUB": [{
+        "sheet": "body",
+        "dirs": "1",
+        "flipX": [0],
+        "tileOffsets": [0],
+        "frames": [0],
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "off"
+        }, {
+            "name": "blink"
+        }, {
+            "name": "damage"
+        }, {
+            "name": "recovery"
+        }]
+    }, {
+        "sheet": "light",
+        "renderMode": "lighter",
+        "guiSprites": true,
+        "dirs": "1",
+        "flipX": [0],
+        "tileOffsets": [0],
+        "frames": [0],
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "blink",
+            "time": 0.03,
+            "frames": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "framesAlpha": [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0]
+        }, {
+            "name": "damage",
+            "time": 0.03,
+            "frames": [1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            "framesAlpha": [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0]
+        }, {
+            "name": "recovery",
+            "time": 0.2,
+            "frames": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
+            "framesAlpha": [1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0]
+        }]
+    }]
 }

@@ -1,6 +1,6 @@
 {
     "name": "arcane-labs",
-    "cchumanName": "\\c[1]Arcane \\c[3]Lab\\c[0]",
+    "displayName": "\\c[1]Arcane \\c[3]Lab\\c[0]",
     "description": "Adds new \\c[3]areas, bosses, classes, and more! \\c[0]",
     "prestart": "prestart.js",
     "version": "0.1.4",

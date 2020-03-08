@@ -5846,12 +5846,12 @@
                 "varName": "tmp.practiceElement",
                 "value": 0
             }, {
-                "varName": "map.randomQuestGen1",
+                "varName": "map.randomGen1",
                 "min": 0,
                 "max": 100,
                 "type": "SET_RANDOM_VAR_NUMBER"
             }, {
-                "varName": "map.randomQuestGen2",
+                "varName": "map.randomGen2",
                 "min": 0,
                 "max": 100,
                 "type": "SET_RANDOM_VAR_NUMBER"

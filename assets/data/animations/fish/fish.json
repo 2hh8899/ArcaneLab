@@ -51,6 +51,21 @@
             "width": 46,
             "height": 48
         },
+        "lumium": {
+            "src": "media/entity/effects/fish/lumium.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 16,
+            "height": 16
+        },
+        "tesseract": {
+            "src": "media/entity/effects/fish/tesseract.png",
+            "xCount": 5,
+            "offX": 0,
+            "offY": 0,
+            "width": 16,
+            "height": 16
+        },
         "stardew": {
             "src": "media/entity/effects/fish/stardew.png",
             "xCount": 17,
@@ -210,5 +225,13 @@
         "sheet": "rfg",
         "name": "rfgF",
         "frames": [0]
+    }, {
+        "sheet": "lumium",
+        "name": "lumiumF",
+        "frames": [0]
+    }, {
+        "sheet": "tesseract",
+        "name": "tesseractF",
+        "frames": [0, 1, 2, 3, 4]
     }]
 }

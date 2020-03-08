@@ -295,56 +295,53 @@
                     "rotateSpeed": 3,
                     "type": "SET_FACE"
                 }, {
-                    "conditions": [{
-                        "max": 0.7,
-                        "negated": false,
-                        "type": "RANDOM"
-                    }],
-                    "withElse": true,
-                    "type": "COMBAT_IF",
-                    "thenStep": [{
+					"type": "SELECT_RANDOM",
+					"options": [{
+						"0": " ",
+						"count": 1,
+						"weight": 0.65,
+						"activeCondition": "true"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 0.2,
+						"activeCondition": "true"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 0.1,
+						"activeCondition": "true"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 0.05,
+						"activeCondition": "true"
+					}],
+					"0_0": [{
                         "type": "CHANGE_VAR_NUMBER",
                         "changeType": "set",
                         "value": 0,
                         "varName": "tmp.fishSize"
                     }],
-                    "elseStep": [{
-                        "conditions": [{
-                            "max": 0.5,
-                            "negated": false,
-                            "type": "RANDOM"
-                        }],
-                        "withElse": true,
-                        "type": "COMBAT_IF",
-                        "thenStep": [{
-                            "type": "CHANGE_VAR_NUMBER",
-                            "changeType": "set",
-                            "value": 1,
-                            "varName": "tmp.fishSize"
-                        }],
-                        "elseStep": [{
-                            "conditions": [{
-                                "max": 0.7,
-                                "negated": false,
-                                "type": "RANDOM"
-                            }],
-                            "withElse": true,
-                            "type": "COMBAT_IF",
-                            "thenStep": [{
-                                "type": "CHANGE_VAR_NUMBER",
-                                "changeType": "set",
-                                "value": 2,
-                                "varName": "tmp.fishSize"
-                            }],
-                            "elseStep": [{
-                                "type": "CHANGE_VAR_NUMBER",
-                                "changeType": "set",
-                                "value": 3,
-                                "varName": "tmp.fishSize"
-                            }]
-                        }]
+					"1_0": [{
+                        "type": "CHANGE_VAR_NUMBER",
+                        "changeType": "set",
+                        "value": 1,
+                        "varName": "tmp.fishSize"
+                    }],
+					"2_0": [{
+                        "type": "CHANGE_VAR_NUMBER",
+                        "changeType": "set",
+                        "value": 2,
+                        "varName": "tmp.fishSize"
+                    }],
+					"3_0": [{
+                        "type": "CHANGE_VAR_NUMBER",
+                        "changeType": "set",
+                        "value": 3,
+                        "varName": "tmp.fishSize"
                     }]
-                }, {
+				}, {
                     "type": "CHANGE_VAR_NUMBER",
                     "changeType": "set",
                     "value": 0,
@@ -835,44 +832,67 @@
                 "value": true,
                 "type": "SET_FACE_FIX"
             }, {
-                "varName": "tmp.fishType",
-                "type": "SET_RANDOM_VAR_NUMBER",
-                "min": 0,
-                "max": 33
-            }, {
-                "withElse": false,
+                "withElse": true,
                 "type": "IF",
-                "condition": "tmp.fishSize == 1",
-                "thenStep": [{
-                    "varName": "tmp.fishType",
-                    "type": "SET_RANDOM_VAR_NUMBER",
-                    "min": 34,
-                    "max": 37
-                }]
-            }, {
-                "withElse": false,
-                "type": "IF",
-                "condition": "tmp.fishSize == 2",
-                "thenStep": [{
-                    "varName": "tmp.fishType",
-                    "type": "SET_RANDOM_VAR_NUMBER",
-                    "min": 38,
-                    "max": 45
-                }]
-            }, {
-                "withElse": false,
-                "type": "IF",
-                "condition": "tmp.fishSize == 3",
+                "condition": "tmp.fishMax",
                 "thenStep": [{
                     "varName": "tmp.fishType",
                     "type": "SET_RANDOM_VAR_NUMBER",
                     "min": 46,
-                    "max": 49
-                }]
+                    "max": 6
+                }],
+				"elseStep": [{
+					"type": "SELECT_RANDOM",
+					"options": [{
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "tmp.fishSize == 0"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "tmp.fishSize == 1"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "tmp.fishSize == 2"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "tmp.fishSize == 3"
+					}],
+					"0_0": [{
+						"varName": "tmp.fishType",
+						"type": "SET_RANDOM_VAR_NUMBER",
+						"min": 0,
+						"max": 34
+					}],
+					"0_1": [{
+						"varName": "tmp.fishType",
+						"type": "SET_RANDOM_VAR_NUMBER",
+						"min": 34,
+						"max": 4
+					}],
+					"0_2": [{
+						"varName": "tmp.fishType",
+						"type": "SET_RANDOM_VAR_NUMBER",
+						"min": 38,
+						"max": 8
+					}],
+					"0_3": [{
+						"varName": "tmp.fishType",
+						"type": "SET_RANDOM_VAR_NUMBER",
+						"min": 46,
+						"max": 4
+					}]
+				}]
             }, {
                 "withElse": false,
                 "type": "IF",
-                "condition": "tmp.fishType > 49",
+                "condition": "tmp.fishType > 51",
                 "thenStep": [{
                     "varName": "tmp.fishType",
                     "type": "CHANGE_VAR_NUMBER",
@@ -2238,6 +2258,64 @@
                     "type": "SHOW_AR_MSG"
                 }]
             }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 50",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "lumiumF"
+                    }
+                }, {
+                    "item": "trade-arcanelab-lumium",
+                    "amount": 1,
+                    "skip": false,
+                    "type": "GIVE_ITEM"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Lumium",
+                        "ko_KR": "루미늄"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.fishType == 51",
+                "thenStep": [{
+                    "wait": false,
+                    "type": "SHOW_EXTERN_ANIM",
+                    "anim": {
+                        "sheet": "fish.fish",
+                        "name": "tesseractF"
+                    }
+                }, {
+                    "item": "trade-arcanelab-tesseract",
+                    "amount": 1,
+                    "skip": false,
+                    "type": "GIVE_ITEM"
+                }, {
+                    "entity": {
+                        "player": true
+                    },
+                    "text": {
+                        "en_US": "Tesseract",
+                        "ko_KR": "테서랙트"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "time": 3,
+                    "type": "SHOW_AR_MSG"
+                }]
+            }, {
                 "kind": "PROXY_OWNER",
                 "type": "SET_TEMP_TARGET"
             }, {
@@ -2405,7 +2483,7 @@
                     "type": "SET_ATTRIB_NUMBER",
                     "value": 0
                 }, {
-                    "withElse": false,
+                    "withElse": true,
                     "type": "IF",
                     "condition": "entity.attrib.floatCharge == 16",
                     "thenStep": [{
@@ -2420,7 +2498,18 @@
                         "color": "GREEN",
                         "time": 2,
                         "type": "SHOW_AR_MSG"
-                    }]
+                    }, {
+						"type": "CHANGE_VAR_BOOL",
+						"varName": "tmp.fishMax",
+						"changeType": "set",
+						"value": true
+					}],
+					"elseStep": [{
+						"type": "CHANGE_VAR_BOOL",
+						"varName": "tmp.fishMax",
+						"changeType": "set",
+						"value": false
+					}]
                 }, {
                     "attribName": "floatPower",
                     "changeType": "set",

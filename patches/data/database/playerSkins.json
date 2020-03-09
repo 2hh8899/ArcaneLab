@@ -17,5 +17,24 @@
                 "volume": 0.7
             }
         }
+    },
+	"chiko-pet": {
+        "item": "toggle-arcanelab-chiko",
+        "autoAdd": false,
+        "type": "Pet",
+        "settings": {
+            "animSheet": "pets.chiko",
+            "walkAnims": {
+                "idle": "idle",
+                "move": "move",
+                "run": "run",
+                "jump": "jump",
+                "fall": "fall"
+            },
+            "petSound": {
+                "path": "media/sound/misc/pet-chiko.ogg",
+                "volume": 0.5
+            }
+        }
     }
 }

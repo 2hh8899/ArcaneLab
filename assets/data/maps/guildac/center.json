@@ -7361,7 +7361,7 @@
                         }
                     }, {
                         "message": {
-                            "en_US": "",
+                            "en_US": "Check out the items provided by the Arcane Lab.",
                             "ko_KR": "아케인 랩에서 제공하는 아이템들을 확인해보세요."
                         },
                         "autoContinue": false,

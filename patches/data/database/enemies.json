@@ -120,13 +120,13 @@
         "anim": "idle",
         "descriptions": [{
             "text": {
-                "en_US": "",
-                "ko_KR": "베르겐 산길에서 적응한 변종 얼음 고슴됴치입니다. 먹을 것을 얻기 위해 화물철도를 자주 습격해 약탈하면서, 그들은 상당히 강력해졌으며 똑똑해지기도 했습니다.\n 연속 대시 공격과 점프를 잘 섞어 사용하며, 기차의 위험이 느껴지면 땅 속으로 숨어버리기도 합니다."
+                "en_US": "This is an ice hedgehog sub-species adapted from the Bergen Trails. By frequently raiding and looting cargo railways for food, they became quite powerful and intelligent.\nThey mix continuous dash attacks and jumps well, and hides into the ground when they feel the danger of a train.",
+                "ko_KR": "베르겐 산길에서 적응한 변종 얼음 고슴됴치입니다. 먹을 것을 얻기 위해 화물철도를 자주 습격해 약탈하면서, 그들은 상당히 강력해졌으며 똑똑해지기도 했습니다.\n연속 대시 공격과 점프를 잘 섞어 사용하며, 기차의 위험이 느껴지면 땅 속으로 숨어버리기도 합니다."
             },
             "condition": ""
         }],
         "species": {
-            "en_US": "",
+            "en_US": "Frozen Mammal",
             "ko_KR": "얼어붙은 포유류"
         },
         "category": "ANIMALS",
@@ -169,13 +169,13 @@
         "anim": "idle",
         "descriptions": [{
             "text": {
-                "en_US": "",
+                "en_US": "This is a sub-species of the hedgehag that every needle is completely frozen like ice. Just by getting close, You can feel the coldness.\nThey became very cruel in the harsh and cold terrain. Instead of reducing their jump frequency, they use a dash attack \\c[3]continuously until they miss it\\c[0] to tear the prey apart.",
                 "ko_KR": "모든 바늘이 완전히 얼음처럼 얼어붙은 서리됴치의 아종입니다. 가까이 다가가기만 해도 차가운 기운이 전해지네요.\n척박하고 추운 지형에서 매우 잔혹해진 그들은 점프 빈도는 줄어든 대신 대시 공격을 \\c[3]빗나갈 때까지 연속으로 사용\\c[0]하여 사냥감을 갈기갈기 찢어버립니다."
             },
             "condition": ""
         }],
         "species": {
-            "en_US": "",
+            "en_US": "The Ice Itself",
             "ko_KR": "얼음 그 자체"
         },
         "category": "ANIMALS",
@@ -218,7 +218,7 @@
         "anim": "idle",
         "descriptions": [{
             "text": {
-                "en_US": "It was originally a drone carrying Bergen's cargo container, but now it's just a dangerous robot infected by the \\v[combat.name.mine-coldbug]. It usually use defensive wave machineguns, but be extra careful with missiles! \\c[3]Predict\\c[0] your movements and aim for that direction. Close the distance and fight back while reloading the next missile.\nWhen the train passing, it may do something strong attack with a powerful magnet that can lift the weight of the container...",
+                "en_US": "This was originally a drone carrying Bergen's cargo container, but now it's just a dangerous robot infected by the \\v[combat.name.mine-coldbug]. It usually use defensive wave machineguns, but be extra careful with missiles! \\c[3]Predict\\c[0] your movements and aim for that direction. Close the distance and fight back while reloading the next missile.\nWhen the train passing, it may do something strong attack with a powerful magnet that can lift the weight of the container...",
                 "ko_KR": "원래 베르겐의 화물 컨테이너를 옮기는 일을 하는 드론이었지만, 이제는 \\v[combat.name.mine-coldbug]에 감염된 위험한 로봇일 뿐입니다. 방어용 파동 머신건을 주로 사용하지만, 미사일을 특히 주의하세요! 당신의 이동을 \\c[3]예측\\c[0]하여 그 방향을 노립니다. 다음 미사일을 재장전하는 동안 거리를 좁혀 반격하세요.\n기차가 지나갈 때는 컨테이너도 들어올리는 강력한 자석으로 무언가 강력한 공격을 할 지도 모릅니다..."
             },
             "condition": ""

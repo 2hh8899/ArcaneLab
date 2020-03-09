@@ -197,5 +197,30 @@
 		}
 	}
 }, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589201,
+		"customItem": "toggle-arcanelab-chiko",
+		"name": {
+			"en_US": "Chikorita",
+			"ko_KR": "치코리타"
+		},
+		"description": {
+			"en_US": "Live-moving cute chicory.",
+			"ko_KR": "살아 움직이는 귀여운 치커리입니다."
+		},
+		"type": "TOGGLE",
+		"rarity": 0,
+		"cost": 1000,
+		"level": 1,
+		"icon": "item-toggle",
+		"noTrack": false,
+		"effect": {
+			"sheet": "drops",
+			"name": "circle"
+		}
+	}
+}, {
 	"type": "EXIT"
 }]

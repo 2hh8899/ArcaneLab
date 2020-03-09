@@ -62,6 +62,9 @@
 	"type": "ADD_ARRAY_ELEMENT",
 	"content": "toggle-arcanelab-sera"
 }, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": "toggle-arcanelab-chiko"
+}, {
 	"type": "EXIT",
 	"count": 3
 }, {

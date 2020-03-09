@@ -11638,18 +11638,12 @@
     "meta": {
         "species": {
             "en_US": "",
-            "de_DE": "",
-            "zh_CN": "",
-            "ja_JP": "",
             "ko_KR": ""
         },
         "category": "PLAYERS",
         "descriptions": [{
             "text": {
                 "en_US": "",
-                "de_DE": "",
-                "zh_CN": "",
-                "ja_JP": "",
                 "ko_KR": ""
             },
             "condition": ""

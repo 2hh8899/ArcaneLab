@@ -309,7 +309,7 @@
             },
             "type": "GENERIC"
         }
-	},
+    },
     "actions": {
         "Idle": [{
             "value": true,

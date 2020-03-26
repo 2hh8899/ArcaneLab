@@ -296,7 +296,6 @@ ig.module("game.feature.combat.model.custom-status").requires(
                     c.damageCeiling.sum[d] = c.damageCeiling.sum[d] + a.baseOffensiveFactor
                 }
                 a.status2 && this.statusStates[5].inflict(a.status2, this, b);
-                this.reduceHp(a.damage);
                 a.status && this.statusStates[!!b.element ? b.element - 1 : 4].inflict(a.status, this, b);
                 this.reduceHp(a.damage)
             }

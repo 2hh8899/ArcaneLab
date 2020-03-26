@@ -240,7 +240,7 @@
                 "ko_KR": "광산에서 채굴한 값비싼 광물과 보석들을 운반하는 교통의 요충지입니다."
             },
             "icon": "media/gui/teleporter-map/icon-train.png",
-            "preview": "media/gui/teleporter-map/unknown.png",
+            "preview": "media/gui/teleporter-map/train.png",
             "map": "guildac.transport.path-1",
             "condition": "true",
             "marker": "teleporter"

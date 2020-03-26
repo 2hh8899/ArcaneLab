@@ -1,8 +1,8 @@
 {
     "level": 65,
     "params": {
-        "hp": 500000,
-        "attack": 350,
+        "hp": 250000,
+        "attack": 700,
         "defense": 500,
         "focus": 460,
         "elemFactor": [0.8, 0.8, 0.8, 0.8],

@@ -57,6 +57,7 @@
         },
         "order": 25891,
         "options": [{
+            "maxOwn": 1,
             "get": [{
                 "id": "toggle-arcanelab-sera",
                 "amount": 1
@@ -71,6 +72,7 @@
             "scale": 1,
             "cost": 10000
         }, {
+            "maxOwn": 1,
             "get": [{
                 "id": "toggle-arcanelab-chiko",
                 "amount": 1

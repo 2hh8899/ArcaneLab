@@ -6891,7 +6891,7 @@
                     "name": "shooty"
                 },
                 "text": {
-                    "en_US": "About three months ago... She died in a \\c[1]car accident\\c[0].",
+                    "en_US": "About three months ago... She passed away in a \\c[1]car accident\\c[0].",
                     "ko_KR": "한 3달 전에... \\c[1]교통사고\\c[0]로 세상을 떠났어요."
                 }
             }, {
@@ -6927,7 +6927,7 @@
                     "name": "sergey"
                 },
                 "text": {
-                    "en_US": "There're many other strange things too. Why is the \\c[5]inter-Evotar high-speed message program\\c[0] installed on her?",
+                    "en_US": "There're many other strange things too. Why is the \\c[5]Inter-Evotar High-Speed Message program\\c[0] installed on her?",
                     "ko_KR": "다른 이상한 점도 많아. \\c[5]에보타 간 고속 통신 프로그램\\c[0]은 어떤 의도로 설치되어 있는 거지?"
                 },
                 "event": [{

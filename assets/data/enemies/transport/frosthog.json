@@ -2,8 +2,8 @@
     "level": 70,
     "boostedLevel": 85,
     "params": {
-        "hp": 38500,
-        "attack": 380,
+        "hp": 20000,
+        "attack": 650,
         "defense": 470,
         "focus": 400,
         "elemFactor": [1.4, 0.6, 1, 1]

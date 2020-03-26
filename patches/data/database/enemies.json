@@ -98,7 +98,7 @@
         "boostedLevel": 0,
         "params": {
             "hp": 250000,
-            "attack": 350,
+            "attack": 700,
             "defense": 500,
             "focus": 460,
             "elemFactor": [0.8, 0.8, 0.8, 0.8],
@@ -133,8 +133,8 @@
         "level": 70,
         "boostedLevel": 85,
         "params": {
-            "hp": 38500,
-            "attack": 380,
+            "hp": 20000,
+            "attack": 650,
             "defense": 470,
             "focus": 400,
             "elemFactor": [1.4, 0.6, 1, 1]
@@ -182,8 +182,8 @@
         "level": 70,
         "boostedLevel": 85,
         "params": {
-            "hp": 40000,
-            "attack": 400,
+            "hp": 23000,
+            "attack": 700,
             "defense": 500,
             "focus": 420,
             "elemFactor": [1.5, 0.5, 1, 1]
@@ -231,8 +231,8 @@
         "level": 70,
         "boostedLevel": 85,
         "params": {
-            "hp": 55000,
-            "attack": 350,
+            "hp": 45000,
+            "attack": 650,
             "defense": 550,
             "focus": 500,
             "elemFactor": [1.2, 0.3, 0.7, 0.7],
@@ -250,6 +250,57 @@
         }, {
             "item": "trade-arcanelab-lumium",
             "prob": 0.1,
+            "min": 1,
+            "max": 1,
+            "rank": "C",
+            "boosted": true,
+            "condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
+        }],
+        "boss": false
+    },
+    "transport.frostbbit": {
+        "name": {
+            "en_US": "Frostbbit",
+            "ko_KR": "프로스트빗"
+        },
+        "track": true,
+        "order": 101003,
+        "area": "guildac",
+        "anim": "hobble",
+        "descriptions": [{
+            "text": {
+                "en_US": "This mutated frobbit, covered with hard ice fur, originally only lives in deep caves, but sometimes comes down to the Bergen trail for food. Because they perfectly adapted to the cold,  cold attacks have no effect. Watch out for back-to-back kicks and icicle attacks!",
+                "ko_KR": "단단한 얼음 털로 뒤덮힌 이 변종 프로빗은 원래 깊은 동굴 속에서만 살지만, 가끔씩 먹이를 구하러 베르겐 산길까지 내려오기도 합니다. 추위에 완벽하게 적응한 탓에, 냉기 공격은 효과가 없습니다. 연속 발차기와 고드름 공격을 주의하세요!"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Frozen Mammal",
+            "ko_KR": "얼어붙은 포유류"
+        },
+        "category": "ANIMALS",
+        "level": 63,
+        "boostedLevel": 82,
+        "params": {
+            "hp": 18000,
+            "attack": 600,
+            "defense": 500,
+            "focus": 460,
+            "elemFactor": [2, 0, 1, 1],
+            "statusInflict": [1.25, 1, 1, 1],
+            "statusEffect": [2, 1, 1.5, 1]
+        },
+        "credit": 400,
+        "exp": 55,
+        "itemDrops": [{
+            "item": "trade-arcanelab-ice-needles",
+            "prob": 0.05,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "trade-arcanelab-lumium",
+           "prob": 0.02,
             "min": 1,
             "max": 1,
             "rank": "C",

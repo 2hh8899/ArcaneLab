@@ -12,5 +12,3 @@ import "./js/map/teleporter-map.js";
 import "./js/player/dash-fix.js";
 import "./js/player/input-variables.js";
 import "./js/player/party.js";
-
-import "./js/test.js";

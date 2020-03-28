@@ -57,6 +57,10 @@ ig.module("game.feature.combat.model.custom-status").requires(
             var applyDamageCallback = () => {
                 pppm && params.statusStates[poisonIdx].inflict(pppm, params, attackInfo);
             };
-            return { attackInfo, damageFactor, applyDamageCallback }
+            return {
+                attackInfo,
+                damageFactor,
+                applyDamageCallback
+            }
         };
     });

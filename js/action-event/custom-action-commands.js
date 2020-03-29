@@ -1,60 +1,23 @@
 ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("impact.feature.base.action-steps").defines(function() {
-    ig.ACTION_STEP.GIVE_ITEM = ig.ActionStepBase.extend({
-        item: 0,
-        amount: 0,
-        skip: false,
-        _wm: new ig.Config({
-            attributes: {
-                item: {
-                    _type: "Item",
-                    _info: "The item to spawn."
-                },
-                amount: {
-                    _type: "NumberExpression",
-                    _info: "Amount of the given item. 0 = 1.",
-                    _default: 1
-                },
-                skip: {
-                    _type: "Boolean",
-                    _info: "True if the side gui should hide the obtained item",
-                    _default: false
-                }
-            },
-            label: function() {
-                return "<b>GIVE ITEM: </b> <em>" + wmPrint("Item", this.item) + "</em> x" + this.amount + (this.skip ? "  <i>+ Skip Display</i>" : "")
-            }
-        }),
-        init: function(a) {
-            this.item = a.item || 0;
-            this.amount = a.amount || 1;
-            this.skip = a.skip || false
-        },
-        start: function() {
-            var a = ig.Event.getExpressionValue(this.amount);
-            sc.model.player.addItem(this.item, a, this.skip)
+    ig.ACTION_STEP.GIVE_ITEM = ig.EVENT_STEP.GIVE_ITEM.extend({
+        run: function(entity) {
+			if (entity.isPlayer) {
+				var amount = ig.Event.getExpressionValue(this.amount);
+				entity.model.player.addItem(this.item, amount, this.skip);
+			}
+			return false;
         }
-    });
-    ig.ACTION_STEP.GIVE_MONEY = ig.ActionStepBase.extend({
-        amount: 0,
-        _wm: new ig.Config({
-            attributes: {
-                amount: {
-                    _type: "Number",
-                    _info: "Amount to add",
-                    _default: 0
-                }
-            },
-            label: function() {
-                return "<b>ADD MONEY: </b> <em>" + this.amount + "</em>"
-            }
-        }),
-        init: function(a) {
-            this.amount = a.amount || 0
-        },
-        start: function() {
-            this.amount > 0 && sc.model.player.addCredit(this.amount)
+	});
+	
+    ig.ACTION_STEP.GIVE_MONEY = ig.EVENT_STEP.GIVE_MONEY.extend({
+		run: function(entity) {
+			if (entity.isPlayer && this.amount > 0) {
+				entity.model.player.addCredit(this.amount)
+			}
+			return false;
         }
-    });
+	});
+	
     ig.ACTION_STEP.ADJUST_ENTITY_POS = ig.EventStepBase.extend({
         entity: null,
         offset: null,
@@ -67,14 +30,16 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
                 }
             }
         }),
-        init: function(a) {
-            this.offset = a.offset
+        init: function(settings) {
+			assertContent(a, "offset");
+            this.offset = settings.offset;
         },
-        start: function(a) {
-            a.setPos(a.coll.pos.x + this.offset.x, a.coll.pos.y + this.offset.y, a.coll.pos.z + this.offset.z)
+        start: function(entity) {
+			const pos = Vec3.add{entity.coll.pos, this.offset, {});
+            entity.setPos(pos.x, pos.y, pos.z);
         }
     });
-    var faceDir = Vec2.create(),
+    const faceDir = Vec2.create(),
         calcDir = Vec2.create();
     ig.ACTION_STEP.PLAYER_MOVE_AND_AIM = ig.ActionStepBase.extend({
         _wm: new ig.Config({
@@ -95,47 +60,58 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
                 }
             }
         }),
-        init: function(a) {
-            this.time = a.time || 0;
-            this.rotateSpeed = a.rotateSpeed || 0;
-            this.stopBeforeEdge = a.stopBeforeEdge;
+        init: function(settings) {
+            this.time = settings.time || 0;
+            this.rotateSpeed = settings.rotateSpeed || 0;
+            this.stopBeforeEdge = settings.stopBeforeEdge;
         },
-        start: function(a) {
-            a.stepTimer = a.stepTimer + this.time;
-            Vec2.assign(faceDir, a.face);
+        start: function(entity) {
+            entity.stepTimer = entity.stepTimer + this.time;
+            Vec2.assign(faceDir, entity.face);
         },
-        run: function(a) {
-            var b = false;
-            var c = a.getCombatantRoot();
-            if (a.isPlayer) {
-                sc.control.moveDir(calcDir, 1);
-                Vec2.isZero(calcDir) ?
-                    b = true : this.rotateSpeed ? Vec2.rotateToward(faceDir, calcDir, this.rotateSpeed * Math.PI * 2 * ig.system.tick) : Vec2.assign(faceDir, calcDir)
-            }
-            b ? Vec2.assignC(a.coll.accelDir, 0, 0) : Vec2.assign(a.coll.accelDir, faceDir);
+        run: function(entity) {
+            let isZeroDir = false;
+            if (entity.isPlayer) {
+				sc.control.moveDir(calcDir, 1);
+				if (Vec2.isZero(calcDir)) {
+					isZeroDir = true;
+				} else if (this.rotateSpeed) {
+					Vec2.rotateToward(faceDir, calcDir, this.rotateSpeed * Math.PI * 2 * ig.system.tick);
+				} else {
+					Vec2.assign(faceDir, calcDir);
+				}
+			}
+			if (isZeroDir) {
+				Vec2.assignC(entity.coll.accelDir, 0, 0)
+			} else {
+				Vec2.assign(entity.coll.accelDir, faceDir);
+			}
 
-            if (this.stopBeforeEdge && ig.CollTools.isPostMoveOverHole(a.coll, true)) {
-                Vec2.assignC(a.coll.accelDir, 0, 0);
-                Vec2.assignC(a.coll.vel, 0, 0);
-            }
-            c.isPlayer && c.gui.crosshair.active
-            c.gui.crosshair.getDir(a.face);
-            return a.stepTimer <= 0
+            if (this.stopBeforeEdge && ig.CollTools.isPostMoveOverHole(entity.coll, true)) {
+                Vec2.assignC(entity.coll.accelDir, 0, 0);
+                Vec2.assignC(entity.coll.vel, 0, 0);
+			}
+			const combatantRoot = entity.getCombatantRoot();
+
+
+			if (combatantRoot.isPlayer && .active) {
+				const crosshair = combatantRoot.gui.crosshair;
+				if (crosshair.active) {
+					crosshair.getDir(entity.face);
+				}
+			}
+            return entity.stepTimer <= 0;
         }
     });
     ig.ACTION_STEP.SET_FACE_TO_TEMP_TARGET_ACCEL = ig.ActionStepBase.extend({
-        _wm: new ig.Config({
-            attributes: {}
-        }),
-        init: function() {},
-        start: function(a) {},
-        run: function(a) {
-            var b = a.tmpTarget.coll.accelDir;
-            if (!Vec2.isZero(b)) {
-                Vec2.assign(a.face, b);
+        run: function(entity) {
+            const accelDir = entity.tmpTarget.coll.accelDir;
+            if (!Vec2.isZero(accelDir)) {
+                Vec2.assign(entity.face, accelDir);
             }
         }
-    });
+	});
+	
     ig.ACTION_STEP.ROTATE_TO_TARGET_PREDICT = ig.ActionStepBase.extend({
         speed: 0,
         _wm: new ig.Config({
@@ -147,17 +123,22 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
                 }
             }
         }),
-        init: function(a) {
-            this.speed = a.speed / 200;
-        },
-        run: function(a) {
-            var b = a.getTarget();
-            var c = Vec2.create();
-            if (b) {
-                c = Vec2.mulC(Vec2.mulC(b.coll.accelDir, b.coll.accelSpeed), a.distanceTo(b) / this.speed);
-                b = Vec2.sub(b.getCenter(), a.getCenter());
-                b = Vec2.add(b, c);
-                Vec2.assign(a.face, b)
+        init: function(settings) {
+            this.speed = settings.speed / 200;
+		},
+		// TODO: Figure out the logic
+        run: function(entity) {
+            let target = entity.getTarget();
+            if (target) {
+				const targetAccDir = target.coll.accelDir;
+				const targetAccSpeed = target.cool.accelSpeed;
+				// time = (distance / speed)
+				// accelerationDistance = accelerationDirection * accelerationSpeed
+				// Vf/Vi =accelerationDistance * time
+                const finalVelocity = Vec2.mulC(Vec2.mulC(targetAccDir, targetAccSpeed), entity.distanceTo(target) / this.speed);
+                let centerDistances = Vec2.sub(target.getCenter(), entity.getCenter());
+                const hmm = Vec2.add(centerDistances, finalVelocity);
+                Vec2.assign(entity.face, hmm);
             }
             return true
         }
@@ -167,44 +148,23 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
         JUMPING: 2,
         SIZE: 3,
         VELOCITY: 4
-    };
-    ig.ACTION_STEP.SET_VAR_ENTITY_STAT = ig.EventStepBase.extend({
-        varName: null,
-        stat: null,
-        entity: null,
-        _wm: new ig.Config({
-            attributes: {
-                varName: {
-                    _type: "VarName",
-                    _info: "Variable to store stat"
-                },
-                entity: {
-                    _type: "Entity",
-                    _info: "Entity of which to fetch stat",
-                    _optional: true
-                },
-                stat: {
-                    _type: "String",
-                    _info: "Type of Stat",
-                    _select: b
-                }
-            }
-        }),
-        init: function(a) {
-            this.varName = a.varName;
-            this.entity = a.entity || null;
-            this.stat = b[a.stat] || b.RELATIVE_HP
-        },
-        start: function(a, d) {
-            var c = ig.Event.getVarName(this.varName);
-            if (c) {
+	};
+	
+    ig.ACTION_STEP.SET_VAR_ENTITY_STAT = ig.EVENT_STEP.SET_VAR_ENTITY_STAT.extend({
+        start: function(entity, d) {
+            var varValue = ig.Event.getVarName(this.varName);
+            if (varValue) {
+				let foundEntity = entity;
+
                 if (this.entity) {
-                    var e = ig.Event.getEntity(this.entity, d);
-                } else {
-                    var e = ig.Event.getEntity(a, d);
-                }
-                if (e) {
-                    var f;
+                    foundEntity = ig.Event.getEntity(this.entity, d);
+				}
+				
+                if (foundEntity) {
+					var f;
+					if () {
+						
+					}
                     this.stat == b.BOTTOM_POS ? f = e.getAlignedPos(ig.ENTITY_ALIGN.BOTTOM) : this.stat == b.JUMPING ? f = e.jumping || false : this.stat == b.SIZE ? f = ig.copy(e.coll.size) : this.stat == b.VELOCITY && (f = ig.copy(e.coll.vel));
                     ig.vars.set(c, f)
                 }

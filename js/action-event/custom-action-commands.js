@@ -1,23 +1,23 @@
 ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("impact.feature.base.action-steps").defines(function() {
     ig.ACTION_STEP.GIVE_ITEM = ig.EVENT_STEP.GIVE_ITEM.extend({
         run: function(entity) {
-			if (entity.isPlayer) {
-				var amount = ig.Event.getExpressionValue(this.amount);
-				entity.model.player.addItem(this.item, amount, this.skip);
-			}
-			return false;
+            if (entity.isPlayer) {
+                var amount = ig.Event.getExpressionValue(this.amount);
+                entity.model.player.addItem(this.item, amount, this.skip);
+            }
+            return false;
         }
-	});
-	
+    });
+
     ig.ACTION_STEP.GIVE_MONEY = ig.EVENT_STEP.GIVE_MONEY.extend({
-		run: function(entity) {
-			if (entity.isPlayer && this.amount > 0) {
-				entity.model.player.addCredit(this.amount)
-			}
-			return false;
+        run: function(entity) {
+            if (entity.isPlayer && this.amount > 0) {
+                entity.model.player.addCredit(this.amount)
+            }
+            return false;
         }
-	});
-	
+    });
+
     ig.ACTION_STEP.ADJUST_ENTITY_POS = ig.EventStepBase.extend({
         entity: null,
         offset: null,
@@ -31,11 +31,12 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
             }
         }),
         init: function(settings) {
-			assertContent(a, "offset");
+            assertContent(a, "offset");
             this.offset = settings.offset;
         },
         start: function(entity) {
-			const pos = Vec3.add{entity.coll.pos, this.offset, {});
+            const pos = Vec3.add {
+                entity.coll.pos, this.offset, {});
             entity.setPos(pos.x, pos.y, pos.z);
         }
     });
@@ -72,34 +73,34 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
         run: function(entity) {
             let isZeroDir = false;
             if (entity.isPlayer) {
-				sc.control.moveDir(calcDir, 1);
-				if (Vec2.isZero(calcDir)) {
-					isZeroDir = true;
-				} else if (this.rotateSpeed) {
-					Vec2.rotateToward(faceDir, calcDir, this.rotateSpeed * Math.PI * 2 * ig.system.tick);
-				} else {
-					Vec2.assign(faceDir, calcDir);
-				}
-			}
-			if (isZeroDir) {
-				Vec2.assignC(entity.coll.accelDir, 0, 0)
-			} else {
-				Vec2.assign(entity.coll.accelDir, faceDir);
-			}
+                sc.control.moveDir(calcDir, 1);
+                if (Vec2.isZero(calcDir)) {
+                    isZeroDir = true;
+                } else if (this.rotateSpeed) {
+                    Vec2.rotateToward(faceDir, calcDir, this.rotateSpeed * Math.PI * 2 * ig.system.tick);
+                } else {
+                    Vec2.assign(faceDir, calcDir);
+                }
+            }
+            if (isZeroDir) {
+                Vec2.assignC(entity.coll.accelDir, 0, 0)
+            } else {
+                Vec2.assign(entity.coll.accelDir, faceDir);
+            }
 
             if (this.stopBeforeEdge && ig.CollTools.isPostMoveOverHole(entity.coll, true)) {
                 Vec2.assignC(entity.coll.accelDir, 0, 0);
                 Vec2.assignC(entity.coll.vel, 0, 0);
-			}
-			const combatantRoot = entity.getCombatantRoot();
+            }
+            const combatantRoot = entity.getCombatantRoot();
 
 
-			if (combatantRoot.isPlayer && .active) {
-				const crosshair = combatantRoot.gui.crosshair;
-				if (crosshair.active) {
-					crosshair.getDir(entity.face);
-				}
-			}
+            if (combatantRoot.isPlayer && .active) {
+                const crosshair = combatantRoot.gui.crosshair;
+                if (crosshair.active) {
+                    crosshair.getDir(entity.face);
+                }
+            }
             return entity.stepTimer <= 0;
         }
     });
@@ -110,8 +111,8 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
                 Vec2.assign(entity.face, accelDir);
             }
         }
-	});
-	
+    });
+
     ig.ACTION_STEP.ROTATE_TO_TARGET_PREDICT = ig.ActionStepBase.extend({
         speed: 0,
         _wm: new ig.Config({
@@ -125,16 +126,16 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
         }),
         init: function(settings) {
             this.speed = settings.speed / 200;
-		},
-		// TODO: Figure out the logic
+        },
+        // TODO: Figure out the logic
         run: function(entity) {
             let target = entity.getTarget();
             if (target) {
-				const targetAccDir = target.coll.accelDir;
-				const targetAccSpeed = target.cool.accelSpeed;
-				// time = (distance / speed)
-				// accelerationDistance = accelerationDirection * accelerationSpeed
-				// Vf/Vi =accelerationDistance * time
+                const targetAccDir = target.coll.accelDir;
+                const targetAccSpeed = target.cool.accelSpeed;
+                // time = (distance / speed)
+                // accelerationDistance = accelerationDirection * accelerationSpeed
+                // Vf/Vi =accelerationDistance * time
                 const finalVelocity = Vec2.mulC(Vec2.mulC(targetAccDir, targetAccSpeed), entity.distanceTo(target) / this.speed);
                 let centerDistances = Vec2.sub(target.getCenter(), entity.getCenter());
                 const hmm = Vec2.add(centerDistances, finalVelocity);
@@ -148,23 +149,23 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
         JUMPING: 2,
         SIZE: 3,
         VELOCITY: 4
-	};
-	
+    };
+
     ig.ACTION_STEP.SET_VAR_ENTITY_STAT = ig.EVENT_STEP.SET_VAR_ENTITY_STAT.extend({
         start: function(entity, d) {
             var varValue = ig.Event.getVarName(this.varName);
             if (varValue) {
-				let foundEntity = entity;
+                let foundEntity = entity;
 
                 if (this.entity) {
                     foundEntity = ig.Event.getEntity(this.entity, d);
-				}
-				
+                }
+
                 if (foundEntity) {
-					var f;
-					if () {
-						
-					}
+                    var f;
+                    if () {
+
+                    }
                     this.stat == b.BOTTOM_POS ? f = e.getAlignedPos(ig.ENTITY_ALIGN.BOTTOM) : this.stat == b.JUMPING ? f = e.jumping || false : this.stat == b.SIZE ? f = ig.copy(e.coll.size) : this.stat == b.VELOCITY && (f = ig.copy(e.coll.vel));
                     ig.vars.set(c, f)
                 }

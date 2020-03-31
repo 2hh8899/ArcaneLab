@@ -1,7 +1,8 @@
 ig.module("game.feature.combat.model.custom-status").requires(
         "game.feature.combat.model.combat-status",
         "game.feature.player.modifiers",
-        "game.feature.combat.gui.custom-status-bar",
+        "game.feature.combat.gui.status-bar",
+        "game.feature.combat.entities.combatant",
         "game.feature.combat.model.modifier-apply")
     .defines(function() {
         sc.MODIFIERS.TOXIC_HAZARD = {
@@ -12,8 +13,8 @@ ig.module("game.feature.combat.model.custom-status").requires(
             order: 100
         };
         sc.PoisonStatus = sc.CombatStatusBase.extend({
-            id: 0,
-            label: "poison",
+            id: 5,
+            label: "poisoning",
             statusBarEntry: "POISONED",
             offenseModifier: "TOXIC_HAZARD",
             defenseModifier: null,
@@ -24,7 +25,7 @@ ig.module("game.feature.combat.model.custom-status").requires(
                     ig.system.ingameTick;
                 if ((!b.getCombatantRoot()
                         .isPlayer || !sc.model.isCutscene()) && this.poisonTimer > 0.5) {
-                    var d = Math.floor(a.getStat("hp") * (0.3 / (this.duration / 0.5)) * this.getEffectiveness(a));
+                    var d = Math.floor(a.getStat("hp") * (0.3 / (this.duration / 0.5)));
                     b.instantDamage(d, 0.5);
                     this.effects.spawnOnTarget("burnDamage", b);
                     this.poisonTimer = 0

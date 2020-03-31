@@ -1,5 +1,5 @@
 # 아케인 랩
-### Pre0.1.1
+### Pre0.1.2
 
 아케인 랩은 새로운 구역, 보스, 클래스 등을 제공하는 크로스코드의 대형 모드 프로젝트입니다.
 
@@ -17,7 +17,7 @@
  2. 크로스코드가 설치된 폴더의 **assets/mods/** 폴더에 본 모드의 폴더와 추가 요구 모드가 들어가도록 설치해주세요.
  3. 게임을 켜고 모드가 잘 적용되었는지 확인해주세요.
  
- [[하드코드-컨픽-인젝터]](https://github.com/CCDirectLink/hardcoded-config-injector), [[확장-NPC-아이콘]](https://github.com/CCDirectLink/extendable-severed-heads) 지원모드가 필요합니다.
+ [[하드코드-컨픽-인젝터]](https://github.com/CCDirectLink/hardcoded-config-injector), [[모디파이어API]](https://github.com/Hsifnus/modifier-api), [[확장-NPC-아이콘]](https://github.com/CCDirectLink/extendable-severed-heads) 지원모드가 필요합니다.
 
 ***
 

@@ -18,7 +18,7 @@
             }
         }
     },
-    "chiko-pet": {
+	"chiko-pet": {
         "item": "toggle-arcanelab-chiko",
         "autoAdd": false,
         "type": "Pet",

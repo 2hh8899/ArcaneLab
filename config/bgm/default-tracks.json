@@ -8,5 +8,15 @@
             "track": "mustache-girl",
             "volume": 1
         }
-    }
+    },
+	"breached-beach": {
+        "field": {
+            "track": "breached-beach",
+            "volume": 1
+        },
+        "battle": {
+            "track": "breached-beach",
+            "volume": 1
+        }
+	}
 }

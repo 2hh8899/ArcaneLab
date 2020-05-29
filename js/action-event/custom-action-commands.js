@@ -457,5 +457,25 @@ ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("imp
             a.tmpTarget = d
         }
     });
-    ig.ACTION_STEP.RUMBLE_STOP_CONTINUES = ig.EVENT_STEP.RUMBLE_STOP_CONTINUES
+    ig.ACTION_STEP.RUMBLE_STOP_CONTINUES = ig.EVENT_STEP.RUMBLE_STOP_CONTINUES;
+	ig.ACTION_STEP.MINIONS_EXPLODE = ig.ActionStepBase.extend({
+	_wm: new ig.Config({
+		attributes: {
+			group: {
+				_type: "String",
+				_info: "Only remove proxies with matching group string"
+			}
+		}
+	}),
+	init: function(a) {
+		this.group = a.group || null
+	},
+	start: function(c) {
+		for(var a =
+				ig.game.entities, b = a.length; b--;) {
+			var d = a[b];
+			d && (d instanceof sc.CombatProxyMinionEntity && d.group == this.group && d.combatant == c.getCombatantRoot()) && d.explosion()
+		}
+	}
+})
 });

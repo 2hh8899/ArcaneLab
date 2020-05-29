@@ -9,6 +9,11 @@
         "loopEnd": 147.692,
         "volume": 0.8
     },
+	"preliminary-opener": {
+        "path": "assets/media/bgm/preliminary-opener.ogg",
+        "loopEnd": 135.005,
+        "volume": 0.8
+	},
     "susie": {
         "intro": "assets/media/bgm/susie-i.ogg",
         "path": "assets/media/bgm/susie.ogg",
@@ -19,6 +24,16 @@
     "susie-loop": {
         "path": "assets/media/bgm/susie.ogg",
         "loopEnd": 86.4,
+        "volume": 0.8
+    },
+    "eisus": {
+        "path": "assets/media/bgm/eisus.ogg",
+        "loopEnd": 96,
+        "volume": 0.8
+    },
+    "breached-beach": {
+        "path": "assets/media/bgm/breached-beach.ogg",
+        "loopEnd": 177,
         "volume": 0.8
     }
 }

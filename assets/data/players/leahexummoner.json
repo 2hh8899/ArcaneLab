@@ -16234,9 +16234,8 @@
                     "time": 0.3,
                     "type": "WAIT"
                 }, {
-                    "sticking": false,
                     "group": "minion",
-                    "type": "REMOVE_PROXIES"
+                    "type": "MINIONS_EXPLODE"
                 }, {
                     "wait": false,
                     "viaWalkConfig": false,

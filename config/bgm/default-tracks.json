@@ -9,7 +9,7 @@
             "volume": 1
         }
     },
-	"breached-beach": {
+    "breached-beach": {
         "field": {
             "track": "breached-beach",
             "volume": 1
@@ -18,5 +18,5 @@
             "track": "breached-beach",
             "volume": 1
         }
-	}
+    }
 }

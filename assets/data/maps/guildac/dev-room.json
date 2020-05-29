@@ -417,34 +417,34 @@
                     }
                 }, {
                     "0": [{
-						"mode": "IMMEDIATELY",
-						"delayed": false,
-						"type": "RESUME_DEFAULT_BGM"
-					}],
+                        "mode": "IMMEDIATELY",
+                        "delayed": false,
+                        "type": "RESUME_DEFAULT_BGM"
+                    }],
                     "1": [{
-						"bgm": "preliminary-opener",
-						"volume": 1,
-						"mode": "IMMEDIATELY",
-						"type": "PLAY_BGM"
-					}],
+                        "bgm": "preliminary-opener",
+                        "volume": 1,
+                        "mode": "IMMEDIATELY",
+                        "type": "PLAY_BGM"
+                    }],
                     "2": [{
-						"bgm": "susie",
-						"volume": 1,
-						"mode": "IMMEDIATELY",
-						"type": "PLAY_BGM"
-					}],
+                        "bgm": "susie",
+                        "volume": 1,
+                        "mode": "IMMEDIATELY",
+                        "type": "PLAY_BGM"
+                    }],
                     "3": [{
-						"bgm": "eisus",
-						"volume": 1,
-						"mode": "IMMEDIATELY",
-						"type": "PLAY_BGM"
-					}],
+                        "bgm": "eisus",
+                        "volume": 1,
+                        "mode": "IMMEDIATELY",
+                        "type": "PLAY_BGM"
+                    }],
                     "4": [{
-						"bgm": "breached-beach",
-						"volume": 1,
-						"mode": "IMMEDIATELY",
-						"type": "PLAY_BGM"
-					}],
+                        "bgm": "breached-beach",
+                        "volume": 1,
+                        "mode": "IMMEDIATELY",
+                        "type": "PLAY_BGM"
+                    }],
                     "type": "SHOW_CHOICE",
                     "person": {
                         "person": "main.lea",

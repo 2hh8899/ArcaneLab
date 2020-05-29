@@ -9,11 +9,11 @@
         "loopEnd": 147.692,
         "volume": 0.8
     },
-	"preliminary-opener": {
+    "preliminary-opener": {
         "path": "assets/media/bgm/preliminary-opener.ogg",
         "loopEnd": 135.005,
         "volume": 0.8
-	},
+    },
     "susie": {
         "intro": "assets/media/bgm/susie-i.ogg",
         "path": "assets/media/bgm/susie.ogg",

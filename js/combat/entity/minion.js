@@ -217,27 +217,27 @@ ig.module("game.feature.combat.entities.combat-proxy-minion")
                     this.statusGui = null;
                 },
                 destroy: function(b) {
-					if(!this.destroyType) {
-						this.destroyType =
-							b || a.ACTION_END_DESTROYED;
-						this.detach();
-						if(this.effects.onKill) {
-							this.cancelAction();
-							Vec2.assignC(this.coll.accelDir, 0, 0);
-							if(!this.effects.handle) {
-								this.effects.handle = this.effects.onKill.spawnOnTarget(this, {
-									align: "CENTER",
-									callback: this
-								});
-								this.coll.setType(ig.COLLTYPE.NONE)
-							}
-						} else this.kill()
-					}
+                    if (!this.destroyType) {
+                        this.destroyType =
+                            b || a.ACTION_END_DESTROYED;
+                        this.detach();
+                        if (this.effects.onKill) {
+                            this.cancelAction();
+                            Vec2.assignC(this.coll.accelDir, 0, 0);
+                            if (!this.effects.handle) {
+                                this.effects.handle = this.effects.onKill.spawnOnTarget(this, {
+                                    align: "CENTER",
+                                    callback: this
+                                });
+                                this.coll.setType(ig.COLLTYPE.NONE)
+                            }
+                        } else this.kill()
+                    }
                 },
-				explosion: function() {
-					this.cancelAction();
-					this.setAction(this.killAction);
-				},
+                explosion: function() {
+                    this.cancelAction();
+                    this.setAction(this.killAction);
+                },
                 update: function() {
                     this.breakType == sc.PROXY_BREAK_TYPE.COMBATANT && this.combatant.isDefeated() && this.destroy();
                     this.coll.pos.z < ig.game.minLevelZ && (!this.stickToSource &&

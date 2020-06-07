@@ -1,5 +1,7 @@
 import "./js/action-event/custom-action-commands.js";
 
+import "./js/bgm/custom-bgm.js";
+
 import "./js/combat/entity/minion.js";
 import "./js/combat/model/custom-status.js";
 

@@ -9,7 +9,7 @@
         },
         "collType": "VIRTUAL",
         "fix": {
-            "gfx": "entity/effects/hexummoner-heat.png",
+            "gfx": "media/entity/effects/hexummoner-heat.png",
             "x": 54,
             "y": 0,
             "w": 31,
@@ -25,7 +25,7 @@
         },
         "collType": "VIRTUAL",
         "fix": {
-            "gfx": "entity/enemy/boss/drake-laser-drill.png",
+            "gfx": "media/entity/enemy/boss/drake-laser-drill.png",
             "x": 0,
             "y": 0,
             "w": 240,

@@ -1,0 +1,222 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "wing-back": {
+            "src": "media/entity/enemy/boss/vector/enemy/wing-back.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 131,
+            "height": 70
+        },
+        "cannon-back": {
+            "src": "media/entity/enemy/boss/vector/cannon.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 279,
+            "height": 51
+        },
+        "jet-back": {
+            "src": "media/entity/enemy/boss/vector/enemy/jet.png",
+            "xCount": 5,
+            "offX": 0,
+            "offY": 0,
+            "width": 373,
+            "height": 171
+        },
+        "body": {
+            "src": "media/entity/enemy/boss/vector/enemy/body.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 223,
+            "height": 95
+        },
+        "jet-front": {
+            "src": "media/entity/enemy/boss/vector/enemy/jet.png",
+            "xCount": 5,
+            "offX": 0,
+            "offY": 0,
+            "width": 373,
+            "height": 171
+        },
+        "cannon-front": {
+            "src": "media/entity/enemy/boss/vector/cannon.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 279,
+            "height": 51
+        },
+        "wing-front": {
+            "src": "media/entity/enemy/boss/vector/enemy/wing-front.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 131,
+            "height": 107
+        }
+    },
+	"dirs": 1,
+	"flipX": [0],
+	"tileOffsets": [0],
+    "SUB": [{
+        "offset": {
+            "x": -74,
+            "y": -82,
+            "z": 70
+        },
+        "shapeType": "Y_FLAT",
+        "sheet": "wing-back",
+        "time": 0.1,
+        "repeat": true,
+        "frames": [0],
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "cannon"
+        }, {
+            "name": "cannonRev"
+        }, {
+            "name": "laser"
+        }]
+    }, {
+        "offset": {
+            "x": 7,
+            "y": -56,
+            "z": 70
+        },
+        "shapeType": "Y_FLAT",
+        "sheet": "cannon-back",
+        "time": 0.05,
+        "repeat": false,
+        "frames": [0],
+        "SUB": [{
+            "name": "idle",
+			"frames": [0]
+        }, {
+            "name": "cannon",
+			"frames": [0]
+        }, {
+            "name": "cannonRev",
+			"frames": [1, 2, 3, 4, 5, 6, 7, 0]
+        }, {
+            "name": "laser",
+			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
+        }]
+    }, {
+        "offset": {
+            "x": -63,
+            "y": -1,
+            "z": 0
+        },
+        "shapeType": "Y_FLAT",
+        "sheet": "jet-back",
+        "size": {
+            "x": 373,
+            "y": 0,
+            "z": 171
+        },
+        "time": 0.05,
+        "repeat": true,
+        "frames": [1, 2, 3, 4],
+		"framesGfxOffset": [0, 0, -1, 0, 0, 1, -1, 1],
+		"globalTiming": true,
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "cannon"
+        }, {
+            "name": "cannonRev"
+        }, {
+            "name": "laser"
+        }]
+    }, {
+        "offset": {
+            "x": 0,
+            "y": 45,
+            "z": 70
+        },
+        "shapeType": "Y_FLAT",
+        "sheet": "body",
+        "time": 0.073,
+        "repeat": true,
+        "frames": [0, 1, 2, 3],
+		"globalTiming": true,
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "cannon"
+        }, {
+            "name": "cannonRev"
+        }, {
+            "name": "laser"
+        }]
+    }, {
+        "offset": {
+            "x": -63,
+            "y": 84,
+            "z": 0
+        },
+        "shapeType": "Y_FLAT",
+        "sheet": "jet-front",
+        "size": {
+            "x": 373,
+            "y": 0,
+            "z": 171
+        },
+        "time": 0.05,
+        "repeat": true,
+        "frames": [1, 2, 3, 4],
+		"framesGfxOffset": [0, 1, -1, 1, 0, 0, -1, 0],
+		"globalTiming": true,
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "cannon"
+        }, {
+            "name": "cannonRev"
+        }, {
+            "name": "laser"
+        }]
+    }, {
+        "offset": {
+            "x": 7,
+            "y": 86,
+            "z": 70
+        },
+        "shapeType": "Y_FLAT",
+        "sheet": "cannon-front",
+        "time": 0.05,
+        "repeat": false,
+        "SUB": [{
+            "name": "idle",
+			"frames": [0]
+        }, {
+            "name": "cannon",
+			"frames": [1, 2, 3, 4, 5, 6, 7, 0]
+        }, {
+            "name": "cannonRev",
+			"frames": [0]
+        }, {
+            "name": "laser",
+			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
+        }]
+    }, {
+        "offset": {
+            "x": -74,
+            "y": 183,
+            "z": 70
+        },
+        "shapeType": "Y_FLAT",
+        "sheet": "wing-front",
+        "time": 0.05,
+        "repeat": true,
+            "frames": [0],
+        "SUB": [{
+            "name": "idle"
+        }, {
+            "name": "cannon"
+        }, {
+            "name": "cannonRev"
+        }, {
+            "name": "laser"
+        }]
+    }]
+}

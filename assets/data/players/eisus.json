@@ -16109,6 +16109,181 @@
                 "pause": 0.3,
                 "fadeIn": 0.2
             }]
+        },
+		
+        "icicleTest": {
+            "animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "icicleTest2",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 0,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }, {
+                "time": 10,
+                "cancelOnHit": true,
+                "orthoDirFactor": 0,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+                    "type": "MEDIUM",
+                    "element": "COLD",
+                    "damageFactor": 0.75,
+                    "reverse": false,
+                    "spFactor": 0,
+                    "status": 1,
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG"
+                }
+            }],
+            "invisible": true,
+            "hp": 0.5,
+            "killEffect": {
+                "sheet": "specials.icicles",
+                "name": "icicleExplodeSmall"
+            },
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "minion",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 18
+            },
+            "config": {
+                "collType": "BLOCK"
+            },
+            "type": "GENERIC"
+        },
+		"icicleTest2": {
+            "animation": {
+                "shapeType": "Y_FLAT",
+                "wallY": 1,
+                "frames": [0],
+                "SUB": [{
+                    "name": "default",
+                    "pivot": {
+                        "x": 20,
+                        "y": 40
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": -4,
+                        "z": 0
+                    },
+                    "gfxOffset": {
+                        "x": 0,
+                        "y": 8
+                    },
+                    "sheet": {
+                        "src": "media/entity/effects/icicles.png  ",
+                        "offX": 88,
+                        "offY": 0,
+                        "width": 40,
+                        "height": 56
+                    }
+                }, {
+                    "name": "alt",
+                    "pivot": {
+                        "x": 20,
+                        "y": 40
+                    },
+                    "sheet": {
+                        "src": "media/entity/effects/icicles.png  ",
+                        "offX": 88,
+                        "offY": 56,
+                        "width": 48,
+                        "height": 40
+                    }
+                }]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "type": "SHOW_RANDOM_ANIMATION",
+                "randAnims": ["default", "alt"]
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.icicles",
+                    "name": "smallAppear"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 0,
+                "type": "SET_SPEED"
+            }, {
+                "target": "PROXY_SRC",
+                "align": "BOTTOM",
+                "duration": 0,
+                "waitUntil": "entity.src.destroyed",
+                "type": "STICK_TO_TARGET",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 600,
+                "type": "SET_SPEED"
+            }, {
+                "time": 10,
+                "cancelOnHit": true,
+                "orthoDirFactor": 0,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+                    "type": "MEDIUM",
+                    "element": "COLD",
+                    "damageFactor": 0.75,
+                    "reverse": false,
+                    "spFactor": 0,
+                    "status": 1,
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG"
+                }
+            }],
+            "invisible": true,
+            "hp": 0.5,
+            "killEffect": {
+                "sheet": "specials.icicles",
+                "name": "icicleExplodeSmall"
+            },
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "wall",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 18
+            },
+            "config": {
+                "collType": "BLOCK"
+            },
+            "type": "GENERIC"
         }
     },
     "actions": {
@@ -19823,6 +19998,72 @@
             }
         },
         "COLD": {
+            "THROW_SPECIAL1_A": {
+                "name": {
+                    "en_US": "Test",
+                    "ko_KR": "테스트"
+                },
+                "description": {
+                    "en_US": "",
+                    "ko_KR": ""
+                },
+                "dmgType": "MELEE",
+                "stunType": "",
+                "status": false,
+                "steps": [{
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": 0.2,
+                        "action": 0.5,
+                        "move": 0.5,
+                        "reaim": 0.5
+                    }
+                }, {
+                    "time": 0,
+                    "type": "PLAYER_ADJUST_FACE"
+                }, {
+                    "align": "BOTTOM",
+                    "centralAngle": 0,
+                    "angleVary": 0,
+                    "startDist": 30,
+                    "startDistCollide": "CLOSER",
+                    "random": false,
+                    "count": 1,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "icicleTest",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "followUp": "throwEnd",
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "spinShort"
+                }, {
+                    "value": 80,
+                    "type": "SET_SPEED"
+                }, {
+                    "dir": {
+                        "actorAttrib": "dashDir"
+                    },
+                    "time": 0.1,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DIR"
+                }, {
+                    "time": 0.52,
+                    "type": "WAIT"
+                }]
+            },
             "ATTACK_SPECIAL1_A": {
                 "name": {
                     "en_US": "Summon Snowflake",

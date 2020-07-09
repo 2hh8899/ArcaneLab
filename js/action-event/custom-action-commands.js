@@ -457,25 +457,155 @@ ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("imp
             a.tmpTarget = d
         }
     });
-    ig.ACTION_STEP.RUMBLE_STOP_CONTINUES = ig.EVENT_STEP.RUMBLE_STOP_CONTINUES;
-    ig.ACTION_STEP.MINIONS_EXPLODE = ig.ActionStepBase.extend({
-        _wm: new ig.Config({
-            attributes: {
-                group: {
-                    _type: "String",
-                    _info: "Only remove proxies with matching group string"
-                }
-            }
-        }),
-        init: function(a) {
-            this.group = a.group || null
-        },
-        start: function(c) {
-            for (var a =
-                    ig.game.entities, b = a.length; b--;) {
-                var d = a[b];
-                d && (d instanceof sc.CombatProxyMinionEntity && d.group == this.group && d.combatant == c.getCombatantRoot()) && d.explosion()
-            }
-        }
-    })
+	ig.ACTION_STEP.RUMBLE_STOP_CONTINUES = ig.EVENT_STEP.RUMBLE_STOP_CONTINUES;
+	ig.ACTION_STEP.MINIONS_EXPLODE = ig.ActionStepBase.extend({
+	_wm: new ig.Config({
+		attributes: {
+			group: {
+				_type: "String",
+				_info: "Only remove proxies with matching group string"
+			}
+		}
+	}),
+	init: function(a) {
+		this.group = a.group || null
+	},
+	start: function(c) {
+		for(var a =
+				ig.game.entities, b = a.length; b--;) {
+			var d = a[b];
+			d && (d instanceof sc.CombatProxyMinionEntity && d.group == this.group && d.combatant == c.getCombatantRoot()) && d.explosion()
+		}
+	}
+});
+	ig.ACTION_STEP.MINIONS_COMMAND = ig.ACTION_STEP.MINIONS_EXPLODE.extend({
+		start: function(c) {
+			for(var a =
+					ig.game.entities, b = a.length; b--;) {
+				var d = a[b];
+				d && (d instanceof sc.CombatProxyMinionEntity && d.group == this.group && d.combatant == c.getCombatantRoot() && !d.commanded && !d.dying) && d.obeyCommand()
+			}
+		}
+	});
+	ig.ACTION_STEP.CLEAR_DARKNESS_CHARGE = ig.ActionStepBase.extend({
+		_wm: new ig.Config({
+			attributes: {}
+		}),
+		init: function() {},
+		start: function(a) {
+			if(ig.game.playerEntity.charging.fx.darkness) {
+				ig.game.playerEntity.charging.fx.darkness.stop()
+			}
+		}
+	});
+		var f = Vec2.create(),
+			g = Vec2.create();
+	ig.ACTION_STEP.MOVE_TO_ENTITY_DISTANCE_LOCK_XY =
+		ig.ActionStepBase.extend({
+			entity: 0,
+			min: 0,
+			max: 0,
+			maxTime: 0,
+			subRadius: false,
+			_wm: new ig.Config({
+				attributes: {
+					entity: {
+						_type: "Entity",
+						_info: "Entity to move to"
+					},
+					min: {
+						_type: "Number",
+						_info: "Minimum distance"
+					},
+					max: {
+						_type: "Number",
+						_info: "Maximum distance"
+					},
+					maxTime: {
+						_type: "Number",
+						_info: "Maximum time to move"
+					},
+					subRadius: {
+						_type: "Boolean",
+						_info: "If true, substract radius of entity bounds from distance to be evaluated."
+					},
+					lockX: {
+						_type: "Boolean",
+						_info: "Lock X Pos"
+					},
+					lockY: {
+						_type: "Boolean",
+						_info: "Lock Y Pos"
+					}
+				}
+			}),
+			init: function(a) {
+				this.entity = a.entity;
+				this.min = a.min;
+				this.max = a.max;
+				this.maxTime = a.maxTime;
+				this.subRadius = a.subRadius;
+				this.lockX = a.lockX || false;
+				this.lockY = a.lockY || false
+			},
+			start: function(a) {
+				a.stepTimer = a.stepTimer + this.maxTime
+			},
+			run: function(a) {
+				var b = ig.Event.getEntity(this.entity);
+				if(!b) return true;
+				var c = Vec2.sub(b.getCenter(f), a.getCenter(g)),
+					d = Vec2.length(c);
+				this.subRadius && (d = d - (a.coll.size.x / 2 + b.coll.size.x / 2));
+				d < this.min && Vec2.mulC(c, -1);
+				Vec2.assign(a.coll.accelDir, c);
+				if(this.lockX) a.coll.accelDir.x = 0;
+				if(this.lockY) a.coll.accelDir.y = 0;
+				(b = this.min <= d && d <= this.max) && Vec2.assignC(a.coll.accelDir, 0, 0);
+				return a.stepTimer <= 0 || b
+			}
+		})
+});
+
+
+ig.module("impact.feature.base.event-steps.mod-event-commands1").requires("impact.feature.base.event-steps").defines(function() {
+		ig.EVENT_STEP.VECTOR_INIT = ig.EventStepBase.extend({
+			entity: null,
+			position: null,
+			_wm: new ig.Config({
+				attributes: {
+					hpStat: {
+						_type: "Number",
+						_info: "New stat"
+					},
+					attackStat: {
+						_type: "Number",
+						_info: "New stat"
+					},
+					defenseStat: {
+						_type: "Number",
+						_info: "New stat"
+					},
+					focusStat: {
+						_type: "Number",
+						_info: "New stat"
+					}
+				}
+			}),
+			init: function(a) {
+				this.hpStat = a.hpStat;
+				this.attackStat = a.attackStat;
+				this.defenseStat = a.defenseStat;
+				this.focusStat = a.focusStat
+			},
+			start: function(a, b) {
+				ig.game.playerEntity.walkAnims.move = ig.game.playerEntity.walkAnims.run = ig.game.playerEntity.walkAnims.brake = ig.game.playerEntity.walkAnims.preIdle = ig.game.playerEntity.walkAnims.damage= ig.game.playerEntity.walkAnims.fall = ig.game.playerEntity.walkAnims.jump="idle";
+				ig.game.playerEntity.params.currentHp = ig.game.playerEntity.params.baseParams.hp = this.hpStat;
+				ig.game.playerEntity.params.baseParams.attack = this.attackStat;
+				ig.game.playerEntity.params.baseParams.defense = this.defenseStat;
+				ig.game.playerEntity.params.baseParams.focus = this.focusStat;
+				sc.Model.notifyObserver(ig.game.playerEntity.params, sc.COMBAT_PARAM_MSG.HP_CHANGED);
+				sc.Model.notifyObserver(ig.game.playerEntity.params, sc.COMBAT_PARAM_MSG.STATS_CHANGED)
+			}
+		});
 });

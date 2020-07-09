@@ -1,0 +1,255 @@
+{
+    "DOCTYPE": "SCALABLE_PROP_SHEET",
+    "entries": {
+        "waterfallTop": {
+            "baseSize": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "renderHeight": 16,
+            "scalableX": true,
+            "scalableY": false,
+            "scalableStep": 16,
+            "collType": "NONE",
+            "gfx": "media/map/arcane-lab-all.png",
+            "gfxBaseX": 64,
+            "gfxBaseY": 288,
+            "patterns": {
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 32,
+                "xCount": 4,
+                "yCount": 1
+            },
+            "animFrames": [0, 1, 2, 3],
+            "animTime": 0.08
+        },
+        "waterfallMiddle": {
+            "baseSize": {
+                "x": 16,
+                "y": 16,
+                "z": 0
+            },
+            "renderHeight": 0,
+            "scalableX": true,
+            "scalableY": true,
+            "scalableStep": 16,
+            "collType": "NONE",
+            "gfx": "media/map/arcane-lab-all.png",
+            "gfxBaseX": 64,
+            "gfxBaseY": 288,
+            "patterns": {
+                "x": 0,
+                "y": 32,
+                "w": 16,
+                "h": 16,
+                "xCount": 4,
+                "yCount": 1
+            },
+            "animFrames": [0, 1, 2, 3],
+            "animTime": 0.08
+        },
+        "waterfallBottom": {
+            "baseSize": {
+                "x": 16,
+                "y": 16,
+                "z": 0
+            },
+            "renderHeight": 0,
+            "scalableX": true,
+            "scalableY": false,
+            "scalableStep": 16,
+            "collType": "NONE",
+            "gfx": "media/map/arcane-lab-all.png",
+            "gfxBaseX": 64,
+            "gfxBaseY": 288,
+            "patterns": {
+                "x": 0,
+                "y": 48,
+                "w": 16,
+                "h": 16,
+                "xCount": 4,
+                "yCount": 1
+            },
+            "animFrames": [0, 1, 2, 3],
+            "animTime": 0.08
+        },
+        "waterfallTopRight": {
+            "baseSize": {
+                "x": 16,
+                "y": 32,
+                "z": 0
+            },
+            "renderHeight": 0,
+            "scalableX": true,
+            "scalableY": false,
+            "scalableStep": 16,
+            "collType": "NONE",
+            "gfx": "media/map/arcane-lab-all.png",
+            "gfxBaseX": 64,
+            "gfxBaseY": 272,
+            "patterns": {
+                "x": 64,
+                "y": 0,
+                "w": 16,
+                "h": 32,
+                "xCount": 4,
+                "yCount": 1
+            },
+            "animFrames": [0, 1, 2, 3],
+            "animTime": 0.08
+        },
+        "waterfallMiddleRight": {
+            "baseSize": {
+                "x": 16,
+                "y": 16,
+                "z": 0
+            },
+            "renderHeight": 0,
+            "scalableX": true,
+            "scalableY": true,
+            "scalableStep": 16,
+            "collType": "NONE",
+            "gfx": "media/map/arcane-lab-all.png",
+            "gfxBaseX": 64,
+            "gfxBaseY": 272,
+            "patterns": {
+                "x": 64,
+                "y": 32,
+                "w": 16,
+                "h": 16,
+                "xCount": 4,
+                "yCount": 1
+            },
+            "animFrames": [0, 1, 2, 3],
+            "animTime": 0.08
+        },
+        "waterfallBottomRight": {
+            "baseSize": {
+                "x": 16,
+                "y": 32,
+                "z": 0
+            },
+            "renderHeight": 0,
+            "scalableX": true,
+            "scalableY": false,
+            "scalableStep": 16,
+            "collType": "NONE",
+            "gfx": "media/map/arcane-lab-all.png",
+            "gfxBaseX": 64,
+            "gfxBaseY": 272,
+            "patterns": {
+                "x": 64,
+                "y": 48,
+                "w": 16,
+                "h": 32,
+                "xCount": 4,
+                "yCount": 1
+            },
+            "animFrames": [0, 1, 2, 3],
+            "animTime": 0.08
+        },
+        "waterfallBottomRightShort": {
+            "baseSize": {
+                "x": 16,
+                "y": 27,
+                "z": 0
+            },
+            "renderHeight": 0,
+            "scalableX": true,
+            "scalableY": false,
+            "scalableStep": 16,
+            "collType": "NONE",
+            "gfx": "media/map/arcane-lab-all.png",
+            "gfxBaseX": 64,
+            "gfxBaseY": 272,
+            "patterns": {
+                "x": 64,
+                "y": 48,
+                "w": 16,
+                "h": 27,
+                "xCount": 4,
+                "yCount": 1
+            },
+            "animFrames": [0, 1, 2, 3],
+            "animTime": 0.08
+        },
+        "waterfallTopLeft": {
+            "baseSize": {
+                "x": 16,
+                "y": 32,
+                "z": 0
+            },
+            "renderHeight": 0,
+            "scalableX": true,
+            "scalableY": false,
+            "scalableStep": 16,
+            "collType": "NONE",
+            "gfx": "media/map/arcane-lab-all.png",
+            "gfxBaseX": 64,
+            "gfxBaseY": 272,
+            "patterns": {
+                "x": 128,
+                "y": 0,
+                "w": 16,
+                "h": 32,
+                "xCount": 4,
+                "yCount": 1
+            },
+            "animFrames": [0, 1, 2, 3],
+            "animTime": 0.08
+        },
+        "waterfallMiddleLeft": {
+            "baseSize": {
+                "x": 16,
+                "y": 16,
+                "z": 0
+            },
+            "renderHeight": 0,
+            "scalableX": true,
+            "scalableY": true,
+            "scalableStep": 16,
+            "collType": "NONE",
+            "gfx": "media/map/arcane-lab-all.png",
+            "gfxBaseX": 64,
+            "gfxBaseY": 272,
+            "patterns": {
+                "x": 128,
+                "y": 32,
+                "w": 16,
+                "h": 16,
+                "xCount": 4,
+                "yCount": 1
+            },
+            "animFrames": [0, 1, 2, 3],
+            "animTime": 0.08
+        },
+        "waterfallBottomLeft": {
+            "baseSize": {
+                "x": 16,
+                "y": 32,
+                "z": 0
+            },
+            "renderHeight": 0,
+            "scalableX": true,
+            "scalableY": false,
+            "scalableStep": 16,
+            "collType": "NONE",
+            "gfx": "media/map/arcane-lab-all.png",
+            "gfxBaseX": 64,
+            "gfxBaseY": 272,
+            "patterns": {
+                "x": 128,
+                "y": 48,
+                "w": 16,
+                "h": 32,
+                "xCount": 4,
+                "yCount": 1
+            },
+            "animFrames": [0, 1, 2, 3],
+            "animTime": 0.08
+        }
+    }
+}

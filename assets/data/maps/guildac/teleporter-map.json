@@ -267,7 +267,7 @@
             },
             "icon": "media/gui/teleporter-map/icon-beach.png",
             "preview": "media/gui/teleporter-map/unknown.png",
-            "map": "guildac.teleporter-map",
+            "map": "guildac.beach.path-1",
             "condition": "true",
             "marker": "start"
         }

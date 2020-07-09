@@ -1,7 +1,7 @@
 {
     "level": 65,
     "params": {
-        "hp": 250000,
+        "hp": 260000,
         "attack": 700,
         "defense": 500,
         "focus": 460,
@@ -120,7 +120,7 @@
         },
         "shieldBreakHits": {
             "scaleDmgFactor": true,
-            "hpBreakTargets": [2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75],
+            "hpBreakTargets": [3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75],
             "noStateReset": false,
             "type": "HIT"
         }
@@ -7624,7 +7624,7 @@
             "type": "IF",
             "condition": "entity.attrib.repeatCount == 1",
             "thenStep": [{
-                "time": 1.6,
+                "time": 3.2,
                 "type": "WAIT"
             }]
         }, {
@@ -7789,7 +7789,7 @@
             "type": "SHOW_ANIMATION",
             "anim": "impact"
         }, {
-            "time": 2.1,
+            "time": 4.2,
             "type": "WAIT"
         }, {
             "type": "DO_ENEMY_ACTION_INLINE",
@@ -7904,7 +7904,7 @@
             "type": "SHOW_ANIMATION",
             "anim": "impact"
         }, {
-            "time": 3,
+            "time": 6,
             "type": "WAIT"
         }, {
             "type": "DO_ENEMY_ACTION_INLINE",
@@ -8083,7 +8083,7 @@
             "anim": "impact"
         }, {
             "type": "WAIT",
-            "time": 4
+            "time": 6
         }, {
             "type": "DO_ENEMY_ACTION_INLINE",
             "actionName": "Return"
@@ -8195,7 +8195,7 @@
             "anim": "impact"
         }, {
             "type": "WAIT",
-            "time": 4
+            "time": 6
         }, {
             "type": "DO_ENEMY_ACTION_INLINE",
             "actionName": "Return"
@@ -8540,7 +8540,7 @@
             "sound": "media/sound/boss/conductor/light_power.ogg",
             "type": "PLAY_SOUND"
         }, {
-            "time": 1.4,
+            "time": 2.8,
             "type": "WAIT"
         }, {
             "value": true,
@@ -8843,7 +8843,7 @@
                 "actionName": "SoundSaw"
             }]
         }, {
-            "time": 4,
+            "time": 6,
             "type": "WAIT"
         }, {
             "type": "DO_ENEMY_ACTION_INLINE",
@@ -9210,7 +9210,7 @@
         }, {
             "type": "STOP_REPEATING_FORCE"
         }, {
-            "time": 3.3,
+            "time": 6.6,
             "type": "WAIT"
         }, {
             "value": true,
@@ -9601,7 +9601,7 @@
             "value": "VIRTUAL",
             "type": "SET_COLL_TYPE"
         }, {
-            "time": 3.3,
+            "time": 6.6,
             "type": "WAIT"
         }, {
             "type": "SET_FACE_FIX",
@@ -10033,7 +10033,7 @@
             "type": "SHOW_ANIMATION",
             "anim": "impact"
         }, {
-            "time": 4,
+            "time": 6,
             "type": "WAIT"
         }, {
             "type": "DO_ENEMY_ACTION_INLINE",

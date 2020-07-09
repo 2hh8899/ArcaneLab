@@ -45,10 +45,28 @@ ig.module("game.feature.combat.entities.combat-proxy-minion")
                         _info: "Action performed with proxy",
                         _popup: true
                     },
+                    preAction: {
+                        _type: "Action",
+                        _info: "Action performed before perform normal Action",
+                        _popup: true
+                    },
                     killAction: {
                         _type: "Action",
                         _info: "Action performed when killed with proxy",
                         _popup: true
+                    },
+                    commandAction: {
+                        _type: "Action",
+                        _info: "Action performed when command",
+                        _popup: true
+                    },
+					hideHP: {
+                        _type: "Boolean",
+                        _info: ""
+                    },
+					destroyAfterCommand: {
+                        _type: "Boolean",
+                        _info: ""
                     },
                     invisible: {
                         _type: "Boolean",
@@ -112,14 +130,18 @@ ig.module("game.feature.combat.entities.combat-proxy-minion")
                 }
                 this.data.config = sc.CombatProxyMinionEntity.createActorConfig(a.config);
                 this.data.action = new ig.Action("[PROXY]", a.action, false, false);
-                this.data.killAction = new ig.Action("[PROXY]", a.killAction, false, false);
+                this.data.preAction = new ig.Action("[PROXY]", a.preAction, false, false);
+				this.data.killAction = new ig.Action("[PROXY]", a.killAction, false, false);
+                this.data.commandAction = new ig.Action("[PROXY]", a.commandAction, false, false);
                 this.data.breakType = sc.PROXY_BREAK_TYPE[a.breakType];
                 this.data.stickToSource = sc.PROXY_STICK_TYPE[a.stickToSource] || sc.PROXY_STICK_TYPE.NONE;
                 this.data.killEffect && (this.data.killEffect = new ig.EffectHandle(a.killEffect))
             },
             clearCached: function() {
                 this.data.action.clearCached();
+				this.data.preAction.clearCached();
                 this.data.killAction.clearCached();
+                this.data.commandAction.clearCached();
                 this.data.animation &&
                     this.data.animation.clearCached();
                 this.data.faceAnims && this.data.faceAnims.clearCached();
@@ -201,12 +223,19 @@ ig.module("game.feature.combat.entities.combat-proxy-minion")
                             this.animationFixed = true
                         }
                     }
-                    this.setAction(a.action);
+                    this.normAction = a.action;
+                    this.preAction = a.preAction;
                     this.killAction = a.killAction;
+                    this.commandAction = a.commandAction;
+                    this.setAction(this.preAction);
                     this.maxHp = this.hp = a.hp;
                     this.statusGui = new ig.GUI.MinionStatusBar(this);
                     ig.gui.addGuiElement(this.statusGui);
-                    this.effects.onKill = a.killEffect
+					if(a.hideHP) this.hideBar();
+                    this.effects.onKill = a.killEffect;
+					this.destroyAfterCommand = a.destroyAfterCommand || false;
+					this.commanded = true;
+					this.dying = false
                 },
                 onEntityKillDetach: function() {
                     this.kill()
@@ -216,28 +245,57 @@ ig.module("game.feature.combat.entities.combat-proxy-minion")
                         ig.gui.removeGuiElement(this.statusGui);
                     this.statusGui = null;
                 },
+				postActionUpdate: function() {
+					if(!this.currentAction){
+						if(this.commanded){
+							this.commanded = false;
+							this.setAction(this.normAction);
+						}else{
+							this.destroy()
+						}
+					}
+				},
                 destroy: function(b) {
-                    if (!this.destroyType) {
-                        this.destroyType =
-                            b || a.ACTION_END_DESTROYED;
-                        this.detach();
-                        if (this.effects.onKill) {
-                            this.cancelAction();
-                            Vec2.assignC(this.coll.accelDir, 0, 0);
-                            if (!this.effects.handle) {
-                                this.effects.handle = this.effects.onKill.spawnOnTarget(this, {
-                                    align: "CENTER",
-                                    callback: this
-                                });
-                                this.coll.setType(ig.COLLTYPE.NONE)
-                            }
-                        } else this.kill()
-                    }
+					if(!this.destroyType) {
+						this.destroyType =
+							b || a.ACTION_END_DESTROYED;
+						this.hp = 0;
+						this.detach();
+						this.hideBar();
+						this.commanded = false;
+						this.dying = true;
+						if(this.effects.onKill) {
+							this.cancelAction();
+							Vec2.assignC(this.coll.accelDir, 0, 0);
+							if(!this.effects.handle) {
+								this.effects.handle = this.effects.onKill.spawnOnTarget(this, {
+									align: "CENTER",
+									callback: this
+								});
+								this.coll.setType(ig.COLLTYPE.NONE)
+							}
+						} else this.kill()
+					}
                 },
-                explosion: function() {
-                    this.cancelAction();
-                    this.setAction(this.killAction);
-                },
+				explosion: function() {
+					this.cancelAction();
+					this.commanded = false;
+					this.dying = true;
+					this.hp = 0;
+					this.hideBar();
+					this.setAction(this.killAction)
+				},
+				obeyCommand: function() {
+					this.cancelAction();
+					this.commanded = true;
+					if(this.destroyAfterCommand){
+					this.commanded = false;
+					this.dying = true;
+					this.hp = 0;
+					this.hideBar();
+					}
+					this.setAction(this.commandAction)
+				},
                 update: function() {
                     this.breakType == sc.PROXY_BREAK_TYPE.COMBATANT && this.combatant.isDefeated() && this.destroy();
                     this.coll.pos.z < ig.game.minLevelZ && (!this.stickToSource &&

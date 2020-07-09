@@ -32,5 +32,125 @@
             "h": 142,
             "flipX": false
         }
+    }, {
+        "name": "coral1",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-all.png",
+            "x": 112,
+            "y": 374,
+            "w": 23,
+            "h": 26,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 12,
+            "pivotY": 26
+        },
+        "nudging": true
+    }, {
+        "name": "coral2",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-all.png",
+            "x": 112,
+            "y": 357,
+            "w": 24,
+            "h": 17,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 12,
+            "pivotY": 17
+        },
+        "nudging": true
+    }, {
+        "name": "coral3",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-all.png",
+            "x": 136,
+            "y": 360,
+            "w": 14,
+            "h": 17,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 8,
+            "pivotY": 17
+        },
+        "nudging": true
+    }, {
+        "name": "coral4",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-all.png",
+            "x": 156,
+            "y": 358,
+            "w": 13,
+            "h": 12,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 5,
+            "pivotY": 12
+        },
+        "nudging": true
+    }, {
+        "name": "coral5",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-all.png",
+            "x": 156,
+            "y": 384,
+            "w": 16,
+            "h": 16,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 9,
+            "pivotY": 16
+        },
+        "nudging": true
+    }, {
+        "name": "coral6",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-all.png",
+            "x": 172,
+            "y": 386,
+            "w": 14,
+            "h": 14,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 6,
+            "pivotY": 14
+        },
+        "nudging": true
     }]
 }

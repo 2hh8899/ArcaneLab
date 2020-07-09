@@ -97,7 +97,7 @@
         "level": 65,
         "boostedLevel": 0,
         "params": {
-            "hp": 250000,
+            "hp": 260000,
             "attack": 700,
             "defense": 500,
             "focus": 460,
@@ -300,7 +300,7 @@
             "rank": ""
         }, {
             "item": "trade-arcanelab-lumium",
-            "prob": 0.02,
+           "prob": 0.02,
             "min": 1,
             "max": 1,
             "rank": "C",

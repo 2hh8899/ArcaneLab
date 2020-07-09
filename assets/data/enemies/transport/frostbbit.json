@@ -87,16 +87,7 @@
         "extra": []
     },
     "DOCTYPE": "ENEMY",
-    "trackers": {
-        "move": {
-            "target": 3,
-            "initRandom": 0.33,
-            "resetRandom": 0.33,
-            "noStateReset": false,
-            "noAssist": false,
-            "type": "TIME"
-        }
-    },
+    "trackers": {},
     "states": {
         "IDLE": {
             "choices": [{
@@ -141,29 +132,11 @@
                 }],
                 "action": "Adjust"
             }, {
-                "action": "UberKick",
+                "action": "UberAtk",
                 "frequency": "RARE"
             }, {
-                "action": "JumpKick",
+                "action": "DodgeJump",
                 "frequency": "NORMAL"
-            }, {
-                "req": [{
-                    "negated": false,
-                    "type": "TRACKER_READY",
-                    "name": "move"
-                }],
-                "sub": [{
-                    "req": [{
-                        "min": 0,
-                        "max": 80,
-                        "negated": false,
-                        "type": "TARGET_DISTANCE"
-                    }],
-                    "action": "DodgeJump",
-                    "ignoreStun": true
-                }, {
-                    "action": "Circle"
-                }]
             }, {
                 "req": [{
                     "distance": 120,
@@ -208,6 +181,66 @@
         }
     },
     "proxies": {
+        "icicleSubLine": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "time": 0.05,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 8,
+                "duration": 0.65,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "offsetArea": {
+                    "x": 16,
+                    "y": 16
+                },
+                "circularArea": true,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "ballCount": 20,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "icicleSmall",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "value": 0.5,
+                "type": "FACE_TO_TARGET_SPEED"
+            }, {
+                "time": 0.65,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "IGNORE",
+                "maxVel": 300
+            },
+            "type": "GENERIC"
+        },
         "icicleSmall": {
             "animation": {
                 "shapeType": "Z_EXPAND",
@@ -281,7 +314,7 @@
                 "type": "TACKLE",
                 "attack": {
                     "type": "MEDIUM",
-                    "element": "NEUTRAL",
+                    "element": "COLD",
                     "damageFactor": 0.3,
                     "reverse": false,
                     "status": 5,
@@ -309,7 +342,7 @@
             },
             "type": "GENERIC"
         }
-    },
+	},
     "actions": {
         "Idle": [{
             "value": true,
@@ -357,183 +390,7 @@
             "targetType": "ENEMY",
             "type": "NAVIGATE_TO_TARGET"
         }],
-        "JumpKick": [{
-            "active": "PRE_ATTACK",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        }, {
-            "duration": -1,
-            "align": "BOTTOM",
-            "rotateFace": 0,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "fixPos": false,
-            "effect": {
-                "sheet": "enemy",
-                "name": "angry2"
-            },
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            },
-            "type": "SHOW_EFFECT"
-        }, {
-            "jumpHeight": "M",
-            "wait": true,
-            "ignoreSounds": false,
-            "type": "JUMP"
-        }, {
-            "jumpHeight": "M",
-            "wait": true,
-            "ignoreSounds": false,
-            "type": "JUMP"
-        }, {
-            "value": "IGNORE",
-            "type": "SET_COLL_TYPE"
-        }, {
-            "value": 1,
-            "type": "SET_RELATIVE_SPEED"
-        }, {
-            "maxTime": 1,
-            "forceTime": false,
-            "distance": 50,
-            "planOnly": false,
-            "targetType": "ENEMY",
-            "precise": false,
-            "stayBehind": false,
-            "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "wait": false,
-            "viaWalkConfig": false,
-            "anim": "preKick",
-            "type": "SHOW_ANIMATION"
-        }, {
-            "value": true,
-            "immediately": true,
-            "type": "FACE_TO_TARGET"
-        }, {
-            "jumpHeight": "L",
-            "wait": false,
-            "ignoreSounds": false,
-            "type": "JUMP"
-        }, {
-            "active": "ATTACK",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        }, {
-            "time": 0.4,
-            "cancelOnHit": true,
-            "orthoDirFactor": 0,
-            "ignoreLastHit": false,
-            "collideSlip": false,
-            "attack": {
-                "type": "HEAVY",
-                "element": "COLD",
-                "damageFactor": 1,
-                "defenseFactor": 1
-            },
-            "maxTime": 0,
-            "type": "TACKLE"
-        }, {
-            "value": true,
-            "type": "SET_FACE_FIX"
-        }, {
-            "jumpHeight": "M",
-            "wait": false,
-            "ignoreSounds": false,
-            "type": "JUMP"
-        }, {
-            "wait": false,
-            "viaWalkConfig": false,
-            "anim": "kick",
-            "type": "SHOW_ANIMATION"
-        }, {
-            "value": 10,
-            "type": "SET_ACCEL_SPEED"
-        }, {
-            "value": 0.5,
-            "type": "SET_RELATIVE_SPEED"
-        }, {
-            "time": 0.3,
-            "stopBeforeEdge": false,
-            "type": "MOVE_BACKWARD"
-        }, {
-            "type": "WAIT_UNTIL_ON_GROUND"
-        }, {
-            "type": "CLEAR_ANIMATION"
-        }, {
-            "value": 1,
-            "type": "SET_RELATIVE_SPEED"
-        }, {
-            "maxTime": 1,
-            "forceTime": false,
-            "distance": 50,
-            "planOnly": false,
-            "targetType": "ENEMY",
-            "precise": false,
-            "stayBehind": false,
-            "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "wait": false,
-            "viaWalkConfig": false,
-            "anim": "preKick",
-            "type": "SHOW_ANIMATION"
-        }, {
-            "value": true,
-            "immediately": true,
-            "type": "FACE_TO_TARGET"
-        }, {
-            "jumpHeight": "L",
-            "wait": false,
-            "ignoreSounds": false,
-            "type": "JUMP"
-        }, {
-            "active": "ATTACK",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        }, {
-            "time": 0.4,
-            "cancelOnHit": true,
-            "orthoDirFactor": 0,
-            "ignoreLastHit": false,
-            "collideSlip": false,
-            "attack": {
-                "type": "HEAVY",
-                "element": "COLD",
-                "damageFactor": 1,
-                "defenseFactor": 1
-            },
-            "maxTime": 0,
-            "type": "TACKLE"
-        }, {
-            "type": "CLEAR_EFFECTS"
-        }, {
-            "value": true,
-            "type": "SET_FACE_FIX"
-        }, {
-            "jumpHeight": "M",
-            "wait": false,
-            "ignoreSounds": false,
-            "type": "JUMP"
-        }, {
-            "wait": false,
-            "viaWalkConfig": false,
-            "anim": "kick",
-            "type": "SHOW_ANIMATION"
-        }, {
-            "value": 10,
-            "type": "SET_ACCEL_SPEED"
-        }, {
-            "value": 0.5,
-            "type": "SET_RELATIVE_SPEED"
-        }, {
-            "time": 0.3,
-            "stopBeforeEdge": false,
-            "type": "MOVE_BACKWARD"
-        }, {
-            "type": "WAIT_UNTIL_ON_GROUND"
-        }],
-        "UberKick": [{
+        "UberAtk": [{
             "active": "PRE_ATTACK",
             "type": "CHANGE_ENEMY_ANNOTATION"
         }, {
@@ -683,10 +540,10 @@
             "align": "BOTTOM",
             "centralAngle": 1,
             "angleVary": 0,
-            "startDist": 16,
+            "startDist": 32,
             "startDistCollide": "CLOSER",
             "random": false,
-            "count": 3,
+            "count": 5,
             "duration": 0,
             "clockwise": false,
             "flipLeftFace": 0,
@@ -709,7 +566,7 @@
             "time": 0.05,
             "type": "WAIT"
         }, {
-            "value": 300,
+            "value": 400,
             "type": "SET_SPEED"
         }, {
             "wait": false,
@@ -903,6 +760,76 @@
         }, {
             "time": 0.5,
             "type": "MOVE_FORWARD"
+        }, {
+            "type": "WAIT_UNTIL_ON_GROUND"
+        }, {
+            "value": true,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "duration": 0.3,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": true,
+            "type": "SHOW_EFFECT",
+            "effect": {
+				"sheet": "specials.cold",
+				"name": "starExplosion"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 6
+            }
+        }, {
+            "align": "BOTTOM",
+            "radius": 48,
+            "yScale": 0,
+            "zHeight": 32,
+            "centralAngle": 0,
+            "duration": 0.2,
+            "expandRadius": 0,
+            "alwaysFull": true,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "rectangular": false,
+            "repeat": false,
+            "uniformHitDir": false,
+            "fixPos": false,
+            "checkCollision": false,
+            "type": "CIRCLE_ATTACK",
+            "attack": {
+                "type": "MASSIVE",
+                "element": "COLD",
+                "damageFactor": 1,
+                "fly": "MASSIVE+",
+                "reverse": false,
+                "status": 5,
+                "guardable": "FROM_ABOVE",
+                "skillBonus": "",
+                "limiter": ""
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "icicleSubLine",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "time": 1,
+            "type": "WAIT"
         }],
         "appear": [{
             "duration": 0,

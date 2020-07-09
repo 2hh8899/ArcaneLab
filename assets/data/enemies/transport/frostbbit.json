@@ -342,7 +342,7 @@
             },
             "type": "GENERIC"
         }
-	},
+    },
     "actions": {
         "Idle": [{
             "value": true,
@@ -777,8 +777,8 @@
             "fixPos": true,
             "type": "SHOW_EFFECT",
             "effect": {
-				"sheet": "specials.cold",
-				"name": "starExplosion"
+                "sheet": "specials.cold",
+                "name": "starExplosion"
             },
             "offset": {
                 "x": 0,
@@ -819,15 +819,15 @@
                 "z": 0
             }
         }, {
-			"align": "BOTTOM",
-			"type": "SHOOT_PROXY",
-			"proxy": "icicleSubLine",
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 0
-			}
-		}, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "icicleSubLine",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
             "time": 1,
             "type": "WAIT"
         }],

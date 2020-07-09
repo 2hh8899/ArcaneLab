@@ -41,7 +41,7 @@
         "z": 100
     },
     "anims": "boss.drakeLaserDrill",
-	"defaultState": "IDLE",
+    "defaultState": "IDLE",
     "walkConfigs": {
         "normal": {
             "idle": "idle",
@@ -60,7 +60,7 @@
     "maxVel": 180,
     "collType": "BLOCK",
     "jumpingEnabled": false,
-	"zGravityFactor": 0,
+    "zGravityFactor": 0,
     "shadow": 80,
     "hitStable": "MASSIVE",
     "ballFactor": 0.3,
@@ -615,91 +615,91 @@
                     "z": 60
                 }
             }, {
-				"entity": {
-					"player": true
-				},
-				"stat": "BOTTOM_POS",
-				"type": "SET_VAR_ENTITY_STAT",
-				"varName": "tmp.playerPos"
-			}, {
-				"withElse": true,
-				"type": "IF",
-				"condition": "tmp.playerPos.y<260",
-				"thenStep": [{
-					"align": "BOTTOM",
-					"centralAngle": 0,
-					"angleVary": 0,
-					"startDist": 0,
-					"startDistCollide": "NONE",
-					"random": false,
-					"count": 1,
-					"duration": 0,
-					"clockwise": false,
-					"flipLeftFace": 0,
-					"circularArea": false,
-					"uniformDir": 0,
-					"delay": 0,
-					"repeat": false,
-					"type": "SHOOT_PROXY_RANGE",
-					"proxy": "freezeLaser",
-					"offset": {
-						"x": 0,
-						"y": 64,
-						"z": 16
-					}
-				}],
-				"elseStep": [{
-					"withElse": true,
-					"type": "IF",
-					"condition": "tmp.playerPos.y<340",
-					"thenStep": [{
-						"align": "BOTTOM",
-						"centralAngle": 0,
-						"angleVary": 0,
-						"startDist": 0,
-						"startDistCollide": "NONE",
-						"random": false,
-						"count": 1,
-						"duration": 0,
-						"clockwise": false,
-						"flipLeftFace": 0,
-						"circularArea": false,
-						"uniformDir": 0,
-						"delay": 0,
-						"repeat": false,
-						"type": "SHOOT_PROXY_RANGE",
-						"proxy": "freezeLaser",
-						"offset": {
-							"x": 0,
-							"y": 128,
-							"z": 16
-						}
-					}],
-					"elseStep": [{
-						"align": "BOTTOM",
-						"centralAngle": 0,
-						"angleVary": 0,
-						"startDist": 0,
-						"startDistCollide": "NONE",
-						"random": false,
-						"count": 1,
-						"duration": 0,
-						"clockwise": false,
-						"flipLeftFace": 0,
-						"circularArea": false,
-						"uniformDir": 0,
-						"delay": 0,
-						"repeat": false,
-						"type": "SHOOT_PROXY_RANGE",
-						"proxy": "freezeLaser",
-						"offset": {
-							"x": 0,
-							"y": 192,
-							"z": 16
-						}
-					}]
-				}]
-			}, {
+                "entity": {
+                    "player": true
+                },
+                "stat": "BOTTOM_POS",
+                "type": "SET_VAR_ENTITY_STAT",
+                "varName": "tmp.playerPos"
+            }, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "tmp.playerPos.y<260",
+                "thenStep": [{
+                    "align": "BOTTOM",
+                    "centralAngle": 0,
+                    "angleVary": 0,
+                    "startDist": 0,
+                    "startDistCollide": "NONE",
+                    "random": false,
+                    "count": 1,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "freezeLaser",
+                    "offset": {
+                        "x": 0,
+                        "y": 64,
+                        "z": 16
+                    }
+                }],
+                "elseStep": [{
+                    "withElse": true,
+                    "type": "IF",
+                    "condition": "tmp.playerPos.y<340",
+                    "thenStep": [{
+                        "align": "BOTTOM",
+                        "centralAngle": 0,
+                        "angleVary": 0,
+                        "startDist": 0,
+                        "startDistCollide": "NONE",
+                        "random": false,
+                        "count": 1,
+                        "duration": 0,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "circularArea": false,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": false,
+                        "type": "SHOOT_PROXY_RANGE",
+                        "proxy": "freezeLaser",
+                        "offset": {
+                            "x": 0,
+                            "y": 128,
+                            "z": 16
+                        }
+                    }],
+                    "elseStep": [{
+                        "align": "BOTTOM",
+                        "centralAngle": 0,
+                        "angleVary": 0,
+                        "startDist": 0,
+                        "startDistCollide": "NONE",
+                        "random": false,
+                        "count": 1,
+                        "duration": 0,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "circularArea": false,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": false,
+                        "type": "SHOOT_PROXY_RANGE",
+                        "proxy": "freezeLaser",
+                        "offset": {
+                            "x": 0,
+                            "y": 192,
+                            "z": 16
+                        }
+                    }]
+                }]
+            }, {
                 "assistSlow": false,
                 "time": 1,
                 "type": "WAIT"
@@ -1372,27 +1372,27 @@
                 "value": 150,
                 "type": "SET_SPEED"
             }, {
-				"entity": {
-					"player": true
-				},
+                "entity": {
+                    "player": true
+                },
                 "maxTime": 0.2,
-				"min": 0,
-				"max": 0,
-				"subRadius": false,
-				"lockY": true,
+                "min": 0,
+                "max": 0,
+                "subRadius": false,
+                "lockY": true,
                 "type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
             }, {
                 "value": 400,
                 "type": "SET_SPEED"
             }, {
-				"entity": {
-					"player": true
-				},
+                "entity": {
+                    "player": true
+                },
                 "maxTime": 0.8,
-				"min": 0,
-				"max": 0,
-				"subRadius": false,
-				"lockY": true,
+                "min": 0,
+                "max": 0,
+                "subRadius": false,
+                "lockY": true,
                 "type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
             }, {
                 "type": "CLEAR_EFFECTS"
@@ -1602,17 +1602,17 @@
                 "sound": "media/sound/battle/missile-fall.ogg",
                 "type": "PLAY_SOUND"
             }, {
-				"zHeight": 4,
+                "zHeight": 4,
                 "type": "WAIT_UNTIL_Z_HEIGHT"
             }, {
                 "type": "CLEAR_EFFECTS"
             }, {
-				"value": 0,
-				"type": "SET_Z_VEL"
-			}, {
-				"value": 0,
-				"type": "SET_Z_GRAVITY_FACTOR"
-			}, {
+                "value": 0,
+                "type": "SET_Z_VEL"
+            }, {
+                "value": 0,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            }, {
                 "align": "BOTTOM",
                 "radius": 16,
                 "yScale": 0,
@@ -2049,17 +2049,16 @@
             "time": 0.1,
             "type": "WAIT"
         }],
-
         "BulletAndCannon": [{
             "value": 1.1,
             "type": "SET_RELATIVE_SPEED"
         }, {
-			"value": 0.1,
-			"type": "SET_ACCEL_SPEED"
-		}, {
-			"value": 0.1,
-			"type": "SET_FRICTION"
-		}, {
+            "value": 0.1,
+            "type": "SET_ACCEL_SPEED"
+        }, {
+            "value": 0.1,
+            "type": "SET_FRICTION"
+        }, {
             "value": 1,
             "type": "SET_AIR_FRICTION"
         }, {
@@ -2088,16 +2087,16 @@
                 "z": 0
             }
         }, {
-			"entity": {
-				"player": true
-			},
-			"maxTime": 1,
-			"min": 0,
-			"max": 0,
-			"subRadius": false,
-			"lockY": true,
-			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
-		}, {
+            "entity": {
+                "player": true
+            },
+            "maxTime": 1,
+            "min": 0,
+            "max": 0,
+            "subRadius": false,
+            "lockY": true,
+            "type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+        }, {
             "align": "BOTTOM",
             "centralAngle": 0,
             "angleVary": 0,
@@ -2120,37 +2119,30 @@
                 "z": 0
             }
         }, {
-			"entity": {
-				"player": true
-			},
-			"maxTime": 4,
-			"min": 0,
-			"max": 0,
-			"subRadius": false,
-			"lockY": true,
-			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
-		}, {
-			"assistSlow": false,
-			"time": 1,
-			"type": "WAIT"
-		}],
-
-
-
-
-
-
-
+            "entity": {
+                "player": true
+            },
+            "maxTime": 4,
+            "min": 0,
+            "max": 0,
+            "subRadius": false,
+            "lockY": true,
+            "type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+        }, {
+            "assistSlow": false,
+            "time": 1,
+            "type": "WAIT"
+        }],
         "Move": [{
             "value": 1.1,
             "type": "SET_RELATIVE_SPEED"
         }, {
-			"value": 0.1,
-			"type": "SET_ACCEL_SPEED"
-		}, {
-			"value": 0.1,
-			"type": "SET_FRICTION"
-		}, {
+            "value": 0.1,
+            "type": "SET_ACCEL_SPEED"
+        }, {
+            "value": 0.1,
+            "type": "SET_FRICTION"
+        }, {
             "value": 1,
             "type": "SET_AIR_FRICTION"
         }, {
@@ -2260,9 +2252,9 @@
             "value": 1.1,
             "type": "SET_RELATIVE_SPEED"
         }, {
-			"value": 0.1,
-			"type": "SET_ACCEL_SPEED"
-		}, {
+            "value": 0.1,
+            "type": "SET_ACCEL_SPEED"
+        }, {
             "value": 2.3,
             "type": "SET_RELATIVE_SPEED"
         }, {

@@ -53,9 +53,9 @@
             "height": 107
         }
     },
-	"dirs": 1,
-	"flipX": [0],
-	"tileOffsets": [0],
+    "dirs": 1,
+    "flipX": [0],
+    "tileOffsets": [0],
     "SUB": [{
         "offset": {
             "x": -74,
@@ -89,16 +89,16 @@
         "frames": [0],
         "SUB": [{
             "name": "idle",
-			"frames": [0]
+            "frames": [0]
         }, {
             "name": "cannon",
-			"frames": [0]
+            "frames": [0]
         }, {
             "name": "cannonRev",
-			"frames": [1, 2, 3, 4, 5, 6, 7, 0]
+            "frames": [1, 2, 3, 4, 5, 6, 7, 0]
         }, {
             "name": "laser",
-			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
+            "frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
         }]
     }, {
         "offset": {
@@ -116,8 +116,8 @@
         "time": 0.05,
         "repeat": true,
         "frames": [1, 2, 3, 4],
-		"framesGfxOffset": [0, 0, -1, 0, 0, 1, -1, 1],
-		"globalTiming": true,
+        "framesGfxOffset": [0, 0, -1, 0, 0, 1, -1, 1],
+        "globalTiming": true,
         "SUB": [{
             "name": "idle"
         }, {
@@ -138,7 +138,7 @@
         "time": 0.073,
         "repeat": true,
         "frames": [0, 1, 2, 3],
-		"globalTiming": true,
+        "globalTiming": true,
         "SUB": [{
             "name": "idle"
         }, {
@@ -164,8 +164,8 @@
         "time": 0.05,
         "repeat": true,
         "frames": [1, 2, 3, 4],
-		"framesGfxOffset": [0, 1, -1, 1, 0, 0, -1, 0],
-		"globalTiming": true,
+        "framesGfxOffset": [0, 1, -1, 1, 0, 0, -1, 0],
+        "globalTiming": true,
         "SUB": [{
             "name": "idle"
         }, {
@@ -187,16 +187,16 @@
         "repeat": false,
         "SUB": [{
             "name": "idle",
-			"frames": [0]
+            "frames": [0]
         }, {
             "name": "cannon",
-			"frames": [1, 2, 3, 4, 5, 6, 7, 0]
+            "frames": [1, 2, 3, 4, 5, 6, 7, 0]
         }, {
             "name": "cannonRev",
-			"frames": [0]
+            "frames": [0]
         }, {
             "name": "laser",
-			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
+            "frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
         }]
     }, {
         "offset": {
@@ -208,7 +208,7 @@
         "sheet": "wing-front",
         "time": 0.05,
         "repeat": true,
-            "frames": [0],
+        "frames": [0],
         "SUB": [{
             "name": "idle"
         }, {

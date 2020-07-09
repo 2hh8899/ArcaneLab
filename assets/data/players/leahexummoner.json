@@ -11111,7 +11111,7 @@
             },
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
-			"preAction": [{
+            "preAction": [{
                 "duration": 0,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -11237,15 +11237,15 @@
                 "name": "actionEnd",
                 "type": "LABEL"
             }, {
-				"align": "CENTER",
-				"type": "SHOOT_PROXY",
-				"proxy": "minionLandrunnerExplosion",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
+                "align": "CENTER",
+                "type": "SHOOT_PROXY",
+                "proxy": "minionLandrunnerExplosion",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
                 "assistSlow": false,
                 "time": 0.01,
                 "type": "WAIT"
@@ -11253,244 +11253,244 @@
             "killAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"searchType": "CLOSE_RANGE",
-				"distance": 512,
-				"ignoreCurrentTarget": false,
-				"prevHitBehavior": "NONE",
-				"type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
-			}, {
-				"value": true,
-				"immediately": true,
-				"type": "FACE_TO_TARGET"
-			}, {
-				"withElse": true,
-				"type": "IF",
-				"condition": "!entity.hasTmpTarget",
-				"thenStep": [{
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosion",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}],
-				"elseStep": [{
-					"value": 600,
-					"type": "SET_SPEED"
-				}, {
-					"value": 1,
-					"type": "SET_RELATIVE_SPEED"
-				}, {
-					"duration": -1,
-					"align": "BOTTOM",
-					"rotateFace": 0,
-					"flipLeftFace": false,
-					"wait": false,
-					"waitSkip": 0,
-					"actionDetached": false,
-					"fixPos": false,
-					"type": "SHOW_EFFECT",
-					"effect": {
-						"sheet": "puzzle.bomb",
-						"name": "bombHeatTrail"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 1.5,
-					"cancelOnHit": true,
-					"collideCancel": 1,
-					"orthoDirFactor": 0,
-					"ignoreLastHit": false,
-					"type": "TACKLE",
-					"attack": {
-						"type": "NONE",
-						"element": "NEUTRAL",
-						"damageFactor": 0,
-						"reverse": false,
-						"guardable": "",
-						"skillBonus": "MELEE_DMG"
-					}
-				}, {
-					"type": "CLEAR_EFFECTS"
-				}, {
-					"align": "BOTTOM",
-					"radius": 20,
-					"yScale": 0,
-					"zHeight": 20,
-					"centralAngle": 0,
-					"duration": 0.1,
-					"expandRadius": 32,
-					"alwaysFull": true,
-					"clockwise": false,
-					"flipLeftFace": 0,
-					"rectangular": false,
-					"repeat": false,
-					"uniformHitDir": false,
-					"fixPos": false,
-					"checkCollision": false,
-					"type": "CIRCLE_ATTACK",
-					"attack": {
-						"type": "MASSIVE",
-						"element": "HEAT",
-						"damageFactor": 2,
-						"reverse": false,
-						"status": 1,
-						"hints": ["CHARGED"],
-						"guardable": "",
-						"skillBonus": "MELEE_DMG"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosion",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 0.1,
-					"type": "WAIT"
-				}]
-			}, {
+                "searchType": "CLOSE_RANGE",
+                "distance": 512,
+                "ignoreCurrentTarget": false,
+                "prevHitBehavior": "NONE",
+                "type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
+            }, {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "!entity.hasTmpTarget",
+                "thenStep": [{
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosion",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }],
+                "elseStep": [{
+                    "value": 600,
+                    "type": "SET_SPEED"
+                }, {
+                    "value": 1,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "puzzle.bomb",
+                        "name": "bombHeatTrail"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 1.5,
+                    "cancelOnHit": true,
+                    "collideCancel": 1,
+                    "orthoDirFactor": 0,
+                    "ignoreLastHit": false,
+                    "type": "TACKLE",
+                    "attack": {
+                        "type": "NONE",
+                        "element": "NEUTRAL",
+                        "damageFactor": 0,
+                        "reverse": false,
+                        "guardable": "",
+                        "skillBonus": "MELEE_DMG"
+                    }
+                }, {
+                    "type": "CLEAR_EFFECTS"
+                }, {
+                    "align": "BOTTOM",
+                    "radius": 20,
+                    "yScale": 0,
+                    "zHeight": 20,
+                    "centralAngle": 0,
+                    "duration": 0.1,
+                    "expandRadius": 32,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": false,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": false,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "MASSIVE",
+                        "element": "HEAT",
+                        "damageFactor": 2,
+                        "reverse": false,
+                        "status": 1,
+                        "hints": ["CHARGED"],
+                        "guardable": "",
+                        "skillBonus": "MELEE_DMG"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosion",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.1,
+                    "type": "WAIT"
+                }]
+            }, {
                 "time": 0.01,
                 "type": "WAIT"
             }],
             "commandAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"searchType": "CLOSE_RANGE",
-				"distance": 512,
-				"ignoreCurrentTarget": false,
-				"prevHitBehavior": "NONE",
-				"type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
-			}, {
-				"value": true,
-				"immediately": true,
-				"type": "FACE_TO_TARGET"
-			}, {
-				"withElse": true,
-				"type": "IF",
-				"condition": "!entity.hasTmpTarget",
-				"thenStep": [{
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosion",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}],
-				"elseStep": [{
-					"value": 600,
-					"type": "SET_SPEED"
-				}, {
-					"value": 1,
-					"type": "SET_RELATIVE_SPEED"
-				}, {
-					"duration": -1,
-					"align": "BOTTOM",
-					"rotateFace": 0,
-					"flipLeftFace": false,
-					"wait": false,
-					"waitSkip": 0,
-					"actionDetached": false,
-					"fixPos": false,
-					"type": "SHOW_EFFECT",
-					"effect": {
-						"sheet": "puzzle.bomb",
-						"name": "bombHeatTrail"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 1.5,
-					"cancelOnHit": true,
-					"collideCancel": 1,
-					"orthoDirFactor": 0,
-					"ignoreLastHit": false,
-					"type": "TACKLE",
-					"attack": {
-						"type": "NONE",
-						"element": "NEUTRAL",
-						"damageFactor": 0,
-						"reverse": false,
-						"guardable": "",
-						"skillBonus": "MELEE_DMG"
-					}
-				}, {
-					"type": "CLEAR_EFFECTS"
-				}, {
-					"align": "BOTTOM",
-					"radius": 20,
-					"yScale": 0,
-					"zHeight": 20,
-					"centralAngle": 0,
-					"duration": 0.1,
-					"expandRadius": 32,
-					"alwaysFull": true,
-					"clockwise": false,
-					"flipLeftFace": 0,
-					"rectangular": false,
-					"repeat": false,
-					"uniformHitDir": false,
-					"fixPos": false,
-					"checkCollision": false,
-					"type": "CIRCLE_ATTACK",
-					"attack": {
-						"type": "MASSIVE",
-						"element": "HEAT",
-						"damageFactor": 2,
-						"reverse": false,
-						"status": 1,
-						"hints": ["CHARGED"],
-						"guardable": "",
-						"skillBonus": "MELEE_DMG"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosion",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 0.1,
-					"type": "WAIT"
-				}]
-			}, {
+                "searchType": "CLOSE_RANGE",
+                "distance": 512,
+                "ignoreCurrentTarget": false,
+                "prevHitBehavior": "NONE",
+                "type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
+            }, {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "!entity.hasTmpTarget",
+                "thenStep": [{
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosion",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }],
+                "elseStep": [{
+                    "value": 600,
+                    "type": "SET_SPEED"
+                }, {
+                    "value": 1,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "puzzle.bomb",
+                        "name": "bombHeatTrail"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 1.5,
+                    "cancelOnHit": true,
+                    "collideCancel": 1,
+                    "orthoDirFactor": 0,
+                    "ignoreLastHit": false,
+                    "type": "TACKLE",
+                    "attack": {
+                        "type": "NONE",
+                        "element": "NEUTRAL",
+                        "damageFactor": 0,
+                        "reverse": false,
+                        "guardable": "",
+                        "skillBonus": "MELEE_DMG"
+                    }
+                }, {
+                    "type": "CLEAR_EFFECTS"
+                }, {
+                    "align": "BOTTOM",
+                    "radius": 20,
+                    "yScale": 0,
+                    "zHeight": 20,
+                    "centralAngle": 0,
+                    "duration": 0.1,
+                    "expandRadius": 32,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": false,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": false,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "MASSIVE",
+                        "element": "HEAT",
+                        "damageFactor": 2,
+                        "reverse": false,
+                        "status": 1,
+                        "hints": ["CHARGED"],
+                        "guardable": "",
+                        "skillBonus": "MELEE_DMG"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosion",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.1,
+                    "type": "WAIT"
+                }]
+            }, {
                 "time": 0.01,
                 "type": "WAIT"
             }],
             "killEffect": {
-				"sheet": "enemies.forest",
-				"name": "pandaTurretGone"
+                "sheet": "enemies.forest",
+                "name": "pandaTurretGone"
             },
-			"invisible": false,
+            "invisible": false,
             "hp": 2,
-			"destroyAfterCommand": true,
+            "destroyAfterCommand": true,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
             "group": "minion",
@@ -11538,7 +11538,7 @@
             },
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
-			"preAction": [{
+            "preAction": [{
                 "duration": 0,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -11715,15 +11715,15 @@
                 "name": "actionEnd",
                 "type": "LABEL"
             }, {
-				"align": "CENTER",
-				"type": "SHOOT_PROXY",
-				"proxy": "minionLandrunnerExplosion",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
+                "align": "CENTER",
+                "type": "SHOOT_PROXY",
+                "proxy": "minionLandrunnerExplosion",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
                 "assistSlow": false,
                 "time": 0.01,
                 "type": "WAIT"
@@ -11731,244 +11731,244 @@
             "killAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"searchType": "CLOSE_RANGE",
-				"distance": 512,
-				"ignoreCurrentTarget": false,
-				"prevHitBehavior": "NONE",
-				"type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
-			}, {
-				"value": true,
-				"immediately": true,
-				"type": "FACE_TO_TARGET"
-			}, {
-				"withElse": true,
-				"type": "IF",
-				"condition": "!entity.hasTmpTarget",
-				"thenStep": [{
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosion",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}],
-				"elseStep": [{
-					"value": 600,
-					"type": "SET_SPEED"
-				}, {
-					"value": 1,
-					"type": "SET_RELATIVE_SPEED"
-				}, {
-					"duration": -1,
-					"align": "BOTTOM",
-					"rotateFace": 0,
-					"flipLeftFace": false,
-					"wait": false,
-					"waitSkip": 0,
-					"actionDetached": false,
-					"fixPos": false,
-					"type": "SHOW_EFFECT",
-					"effect": {
-						"sheet": "puzzle.bomb",
-						"name": "bombHeatTrail"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 1.5,
-					"cancelOnHit": true,
-					"collideCancel": 1,
-					"orthoDirFactor": 0,
-					"ignoreLastHit": false,
-					"type": "TACKLE",
-					"attack": {
-						"type": "NONE",
-						"element": "NEUTRAL",
-						"damageFactor": 0,
-						"reverse": false,
-						"guardable": "",
-						"skillBonus": "MELEE_DMG"
-					}
-				}, {
-					"type": "CLEAR_EFFECTS"
-				}, {
-					"align": "BOTTOM",
-					"radius": 20,
-					"yScale": 0,
-					"zHeight": 20,
-					"centralAngle": 0,
-					"duration": 0.1,
-					"expandRadius": 32,
-					"alwaysFull": true,
-					"clockwise": false,
-					"flipLeftFace": 0,
-					"rectangular": false,
-					"repeat": false,
-					"uniformHitDir": false,
-					"fixPos": false,
-					"checkCollision": false,
-					"type": "CIRCLE_ATTACK",
-					"attack": {
-						"type": "MASSIVE",
-						"element": "HEAT",
-						"damageFactor": 2,
-						"reverse": false,
-						"status": 1,
-						"hints": ["CHARGED"],
-						"guardable": "",
-						"skillBonus": "MELEE_DMG"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosion",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 0.1,
-					"type": "WAIT"
-				}]
-			}, {
+                "searchType": "CLOSE_RANGE",
+                "distance": 512,
+                "ignoreCurrentTarget": false,
+                "prevHitBehavior": "NONE",
+                "type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
+            }, {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "!entity.hasTmpTarget",
+                "thenStep": [{
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosion",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }],
+                "elseStep": [{
+                    "value": 600,
+                    "type": "SET_SPEED"
+                }, {
+                    "value": 1,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "puzzle.bomb",
+                        "name": "bombHeatTrail"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 1.5,
+                    "cancelOnHit": true,
+                    "collideCancel": 1,
+                    "orthoDirFactor": 0,
+                    "ignoreLastHit": false,
+                    "type": "TACKLE",
+                    "attack": {
+                        "type": "NONE",
+                        "element": "NEUTRAL",
+                        "damageFactor": 0,
+                        "reverse": false,
+                        "guardable": "",
+                        "skillBonus": "MELEE_DMG"
+                    }
+                }, {
+                    "type": "CLEAR_EFFECTS"
+                }, {
+                    "align": "BOTTOM",
+                    "radius": 20,
+                    "yScale": 0,
+                    "zHeight": 20,
+                    "centralAngle": 0,
+                    "duration": 0.1,
+                    "expandRadius": 32,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": false,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": false,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "MASSIVE",
+                        "element": "HEAT",
+                        "damageFactor": 2,
+                        "reverse": false,
+                        "status": 1,
+                        "hints": ["CHARGED"],
+                        "guardable": "",
+                        "skillBonus": "MELEE_DMG"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosion",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.1,
+                    "type": "WAIT"
+                }]
+            }, {
                 "time": 0.01,
                 "type": "WAIT"
             }],
             "commandAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"searchType": "CLOSE_RANGE",
-				"distance": 512,
-				"ignoreCurrentTarget": false,
-				"prevHitBehavior": "NONE",
-				"type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
-			}, {
-				"value": true,
-				"immediately": true,
-				"type": "FACE_TO_TARGET"
-			}, {
-				"withElse": true,
-				"type": "IF",
-				"condition": "!entity.hasTmpTarget",
-				"thenStep": [{
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosion",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}],
-				"elseStep": [{
-					"value": 600,
-					"type": "SET_SPEED"
-				}, {
-					"value": 1,
-					"type": "SET_RELATIVE_SPEED"
-				}, {
-					"duration": -1,
-					"align": "BOTTOM",
-					"rotateFace": 0,
-					"flipLeftFace": false,
-					"wait": false,
-					"waitSkip": 0,
-					"actionDetached": false,
-					"fixPos": false,
-					"type": "SHOW_EFFECT",
-					"effect": {
-						"sheet": "puzzle.bomb",
-						"name": "bombHeatTrail"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 1.5,
-					"cancelOnHit": true,
-					"collideCancel": 1,
-					"orthoDirFactor": 0,
-					"ignoreLastHit": false,
-					"type": "TACKLE",
-					"attack": {
-						"type": "NONE",
-						"element": "NEUTRAL",
-						"damageFactor": 0,
-						"reverse": false,
-						"guardable": "",
-						"skillBonus": "MELEE_DMG"
-					}
-				}, {
-					"type": "CLEAR_EFFECTS"
-				}, {
-					"align": "BOTTOM",
-					"radius": 20,
-					"yScale": 0,
-					"zHeight": 20,
-					"centralAngle": 0,
-					"duration": 0.1,
-					"expandRadius": 32,
-					"alwaysFull": true,
-					"clockwise": false,
-					"flipLeftFace": 0,
-					"rectangular": false,
-					"repeat": false,
-					"uniformHitDir": false,
-					"fixPos": false,
-					"checkCollision": false,
-					"type": "CIRCLE_ATTACK",
-					"attack": {
-						"type": "MASSIVE",
-						"element": "HEAT",
-						"damageFactor": 2,
-						"reverse": false,
-						"status": 1,
-						"hints": ["CHARGED"],
-						"guardable": "",
-						"skillBonus": "MELEE_DMG"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosion",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 0.1,
-					"type": "WAIT"
-				}]
-			}, {
+                "searchType": "CLOSE_RANGE",
+                "distance": 512,
+                "ignoreCurrentTarget": false,
+                "prevHitBehavior": "NONE",
+                "type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
+            }, {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "!entity.hasTmpTarget",
+                "thenStep": [{
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosion",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }],
+                "elseStep": [{
+                    "value": 600,
+                    "type": "SET_SPEED"
+                }, {
+                    "value": 1,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "puzzle.bomb",
+                        "name": "bombHeatTrail"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 1.5,
+                    "cancelOnHit": true,
+                    "collideCancel": 1,
+                    "orthoDirFactor": 0,
+                    "ignoreLastHit": false,
+                    "type": "TACKLE",
+                    "attack": {
+                        "type": "NONE",
+                        "element": "NEUTRAL",
+                        "damageFactor": 0,
+                        "reverse": false,
+                        "guardable": "",
+                        "skillBonus": "MELEE_DMG"
+                    }
+                }, {
+                    "type": "CLEAR_EFFECTS"
+                }, {
+                    "align": "BOTTOM",
+                    "radius": 20,
+                    "yScale": 0,
+                    "zHeight": 20,
+                    "centralAngle": 0,
+                    "duration": 0.1,
+                    "expandRadius": 32,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": false,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": false,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "MASSIVE",
+                        "element": "HEAT",
+                        "damageFactor": 2,
+                        "reverse": false,
+                        "status": 1,
+                        "hints": ["CHARGED"],
+                        "guardable": "",
+                        "skillBonus": "MELEE_DMG"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosion",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.1,
+                    "type": "WAIT"
+                }]
+            }, {
                 "time": 0.01,
                 "type": "WAIT"
             }],
             "killEffect": {
-				"sheet": "enemies.forest",
-				"name": "pandaTurretGone"
+                "sheet": "enemies.forest",
+                "name": "pandaTurretGone"
             },
-			"invisible": false,
+            "invisible": false,
             "hp": 3,
-			"destroyAfterCommand": true,
+            "destroyAfterCommand": true,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
             "group": "minion",
@@ -12038,7 +12038,7 @@
             },
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
-			"preAction": [],
+            "preAction": [],
             "action": [{
                 "duration": 0,
                 "align": "BOTTOM",
@@ -12141,15 +12141,15 @@
                 "maxTime": 1.1,
                 "type": "WAIT_RANDOM"
             }, {
-				"align": "CENTER",
-				"type": "SHOOT_PROXY",
-				"proxy": "minionLandrunnerExplosionMarch",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
+                "align": "CENTER",
+                "type": "SHOOT_PROXY",
+                "proxy": "minionLandrunnerExplosionMarch",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
                 "assistSlow": false,
                 "time": 0.01,
                 "type": "WAIT"
@@ -12157,142 +12157,142 @@
             "killAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"searchType": "CLOSE_RANGE",
-				"distance": 512,
-				"ignoreCurrentTarget": false,
-				"prevHitBehavior": "NONE",
-				"type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
-			}, {
-				"value": true,
-				"immediately": true,
-				"type": "FACE_TO_TARGET"
-			}, {
-				"withElse": true,
-				"type": "IF",
-				"condition": "!entity.hasTmpTarget",
-				"thenStep": [{
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosionMarch",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}],
-				"elseStep": [{
-					"value": 600,
-					"type": "SET_SPEED"
-				}, {
-					"value": 1,
-					"type": "SET_RELATIVE_SPEED"
-				}, {
-					"time": 1.5,
-					"cancelOnHit": true,
-					"collideCancel": 1,
-					"orthoDirFactor": 0,
-					"ignoreLastHit": false,
-					"type": "TACKLE",
-					"attack": {
-						"type": "NONE",
-						"element": "NEUTRAL",
-						"damageFactor": 0,
-						"reverse": false,
-						"guardable": "",
-						"skillBonus": "MELEE_DMG"
-					}
-				}, {
-					"type": "CLEAR_EFFECTS"
-				}, {
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosionMarch",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 0.1,
-					"type": "WAIT"
-				}]
-			}, {
+                "searchType": "CLOSE_RANGE",
+                "distance": 512,
+                "ignoreCurrentTarget": false,
+                "prevHitBehavior": "NONE",
+                "type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
+            }, {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "!entity.hasTmpTarget",
+                "thenStep": [{
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosionMarch",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }],
+                "elseStep": [{
+                    "value": 600,
+                    "type": "SET_SPEED"
+                }, {
+                    "value": 1,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+                    "time": 1.5,
+                    "cancelOnHit": true,
+                    "collideCancel": 1,
+                    "orthoDirFactor": 0,
+                    "ignoreLastHit": false,
+                    "type": "TACKLE",
+                    "attack": {
+                        "type": "NONE",
+                        "element": "NEUTRAL",
+                        "damageFactor": 0,
+                        "reverse": false,
+                        "guardable": "",
+                        "skillBonus": "MELEE_DMG"
+                    }
+                }, {
+                    "type": "CLEAR_EFFECTS"
+                }, {
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosionMarch",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.1,
+                    "type": "WAIT"
+                }]
+            }, {
                 "time": 0.1,
                 "type": "WAIT"
             }],
             "commandAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"searchType": "CLOSE_RANGE",
-				"distance": 512,
-				"ignoreCurrentTarget": false,
-				"prevHitBehavior": "NONE",
-				"type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
-			}, {
-				"value": true,
-				"immediately": true,
-				"type": "FACE_TO_TARGET"
-			}, {
-				"withElse": true,
-				"type": "IF",
-				"condition": "!entity.hasTmpTarget",
-				"thenStep": [{
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosionMarch",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}],
-				"elseStep": [{
-					"value": 600,
-					"type": "SET_SPEED"
-				}, {
-					"value": 1,
-					"type": "SET_RELATIVE_SPEED"
-				}, {
-					"time": 1.5,
-					"cancelOnHit": true,
-					"collideCancel": 1,
-					"orthoDirFactor": 0,
-					"ignoreLastHit": false,
-					"type": "TACKLE",
-					"attack": {
-						"type": "NONE",
-						"element": "NEUTRAL",
-						"damageFactor": 0,
-						"reverse": false,
-						"guardable": "",
-						"skillBonus": "MELEE_DMG"
-					}
-				}, {
-					"type": "CLEAR_EFFECTS"
-				}, {
-					"align": "CENTER",
-					"type": "SHOOT_PROXY",
-					"proxy": "minionLandrunnerExplosionMarch",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 0.1,
-					"type": "WAIT"
-				}]
-			}, {
+                "searchType": "CLOSE_RANGE",
+                "distance": 512,
+                "ignoreCurrentTarget": false,
+                "prevHitBehavior": "NONE",
+                "type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
+            }, {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "!entity.hasTmpTarget",
+                "thenStep": [{
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosionMarch",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }],
+                "elseStep": [{
+                    "value": 600,
+                    "type": "SET_SPEED"
+                }, {
+                    "value": 1,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+                    "time": 1.5,
+                    "cancelOnHit": true,
+                    "collideCancel": 1,
+                    "orthoDirFactor": 0,
+                    "ignoreLastHit": false,
+                    "type": "TACKLE",
+                    "attack": {
+                        "type": "NONE",
+                        "element": "NEUTRAL",
+                        "damageFactor": 0,
+                        "reverse": false,
+                        "guardable": "",
+                        "skillBonus": "MELEE_DMG"
+                    }
+                }, {
+                    "type": "CLEAR_EFFECTS"
+                }, {
+                    "align": "CENTER",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "minionLandrunnerExplosionMarch",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.1,
+                    "type": "WAIT"
+                }]
+            }, {
                 "time": 0.1,
                 "type": "WAIT"
             }],
             "killEffect": {
-				"sheet": "enemies.forest",
-				"name": "pandaTurretGone"
+                "sheet": "enemies.forest",
+                "name": "pandaTurretGone"
             },
-			"invisible": false,
+            "invisible": false,
             "hp": 3,
-			"destroyAfterCommand": true,
+            "destroyAfterCommand": true,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
             "group": "minion",
@@ -12900,7 +12900,7 @@
             },
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
-			"preAction": [{
+            "preAction": [{
                 "duration": 0,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -13079,117 +13079,117 @@
             "killAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "combat.hexummoner",
-					"name": "minionExplode"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 0.01,
-				"type": "WAIT"
-			}, {
-				"minTime": 0,
-				"maxTime": 0.2,
-				"type": "WAIT_RANDOM"
-			}, {
-				"align": "BOTTOM",
-				"radius": 32,
-				"yScale": 0,
-				"zHeight": 0,
-				"centralAngle": 0,
-				"duration": 0.1,
-				"expandRadius": 0,
-				"alwaysFull": true,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"rectangular": false,
-				"repeat": false,
-				"uniformHitDir": false,
-				"fixPos": false,
-				"checkCollision": false,
-				"type": "CIRCLE_ATTACK",
-				"attack": {
-					"type": "HEAVY",
-					"element": "COLD",
-					"damageFactor": 4,
-					"reverse": false,
-					"status": 1,
-					"hints": ["CHARGED"],
-					"guardable": "",
-					"skillBonus": "MELEE_DMG"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"align": "BOTTOM",
-				"centralAngle": 0,
-				"angleVary": 0,
-				"startDistCollide": false,
-				"random": false,
-				"count": 1,
-				"duration": 0,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"circularArea": false,
-				"uniformDir": 0,
-				"delay": 0,
-				"repeat": false,
-				"type": "SHOOT_PROXY_RANGE",
-				"proxy": "icicleSmall",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 0.1,
-				"type": "WAIT"
-			}],
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "combat.hexummoner",
+                    "name": "minionExplode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.01,
+                "type": "WAIT"
+            }, {
+                "minTime": 0,
+                "maxTime": 0.2,
+                "type": "WAIT_RANDOM"
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "COLD",
+                    "damageFactor": 4,
+                    "reverse": false,
+                    "status": 1,
+                    "hints": ["CHARGED"],
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": false,
+                "random": false,
+                "count": 1,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "icicleSmall",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }],
             "commandAction": [{
-				"align": "CENTER",
-				"centralAngle": 1,
-				"angleVary": 0,
-				"startDist": 34,
-				"count": 2,
-				"duration": 0,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"circularArea": false,
-				"uniformDir": 0,
-				"delay": 0,
-				"repeat": false,
-				"type": "SHOOT_PROXY_RANGE",
-				"proxy": "minionCryogenShield",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
+                "align": "CENTER",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "startDist": 34,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "minionCryogenShield",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
                 "time": 0.01,
                 "type": "WAIT"
             }],
             "killEffect": {
-				"sheet": "enemies.forest",
-				"name": "pandaTurretGone"
+                "sheet": "enemies.forest",
+                "name": "pandaTurretGone"
             },
-			"invisible": false,
+            "invisible": false,
             "hp": 1,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
@@ -13234,7 +13234,7 @@
             },
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
-			"preAction": [{
+            "preAction": [{
                 "duration": 0,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -13421,117 +13421,117 @@
             "killAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "combat.hexummoner",
-					"name": "minionExplode"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 0.01,
-				"type": "WAIT"
-			}, {
-				"minTime": 0,
-				"maxTime": 0.2,
-				"type": "WAIT_RANDOM"
-			}, {
-				"align": "BOTTOM",
-				"radius": 32,
-				"yScale": 0,
-				"zHeight": 0,
-				"centralAngle": 0,
-				"duration": 0.1,
-				"expandRadius": 0,
-				"alwaysFull": true,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"rectangular": false,
-				"repeat": false,
-				"uniformHitDir": false,
-				"fixPos": false,
-				"checkCollision": false,
-				"type": "CIRCLE_ATTACK",
-				"attack": {
-					"type": "HEAVY",
-					"element": "COLD",
-					"damageFactor": 6,
-					"reverse": false,
-					"status": 1,
-					"hints": ["CHARGED"],
-					"guardable": "",
-					"skillBonus": "MELEE_DMG"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"align": "BOTTOM",
-				"centralAngle": 0,
-				"angleVary": 0,
-				"startDistCollide": false,
-				"random": false,
-				"count": 1,
-				"duration": 0,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"circularArea": false,
-				"uniformDir": 0,
-				"delay": 0,
-				"repeat": false,
-				"type": "SHOOT_PROXY_RANGE",
-				"proxy": "icicleBig",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 0.1,
-				"type": "WAIT"
-			}],
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "combat.hexummoner",
+                    "name": "minionExplode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.01,
+                "type": "WAIT"
+            }, {
+                "minTime": 0,
+                "maxTime": 0.2,
+                "type": "WAIT_RANDOM"
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "COLD",
+                    "damageFactor": 6,
+                    "reverse": false,
+                    "status": 1,
+                    "hints": ["CHARGED"],
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": false,
+                "random": false,
+                "count": 1,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "icicleBig",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }],
             "commandAction": [{
-				"align": "CENTER",
-				"centralAngle": 1,
-				"angleVary": 0,
-				"startDist": 34,
-				"count": 4,
-				"duration": 0,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"circularArea": false,
-				"uniformDir": 0,
-				"delay": 0,
-				"repeat": false,
-				"type": "SHOOT_PROXY_RANGE",
-				"proxy": "minionCryogenShield",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
+                "align": "CENTER",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "startDist": 34,
+                "count": 4,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "minionCryogenShield",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
                 "time": 0.01,
                 "type": "WAIT"
             }],
             "killEffect": {
-				"sheet": "enemies.forest",
-				"name": "pandaTurretGone"
+                "sheet": "enemies.forest",
+                "name": "pandaTurretGone"
             },
-			"invisible": false,
+            "invisible": false,
             "hp": 2,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
@@ -13574,7 +13574,7 @@
             },
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
-			"preAction": [{
+            "preAction": [{
                 "duration": 0,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -13616,26 +13616,26 @@
                 "type": "FACE_TO_TARGET"
             }],
             "action": [{
-				"align": "CENTER",
-				"centralAngle": 1,
-				"angleVary": 0,
-				"startDist": 34,
-				"count": 12,
-				"duration": 0,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"circularArea": false,
-				"uniformDir": 0,
-				"delay": 0,
-				"repeat": false,
-				"type": "SHOOT_PROXY_RANGE",
-				"proxy": "minionCryogenShield",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
+                "align": "CENTER",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "startDist": 34,
+                "count": 12,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "minionCryogenShield",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
                 "value": true,
                 "type": "FACE_TO_TARGET"
             }, {
@@ -13694,89 +13694,89 @@
                         "z": 0
                     }
                 }, {
-					"withElse": true,
-					"type": "IF",
-					"condition": "entity.attrib.attackType == 12",
-					"thenStep": [{
-						"align": "BOTTOM",
-						"centralAngle": 0,
-						"angleVary": 0,
-						"random": false,
-						"count": 1,
-						"duration": 0,
-						"clockwise": false,
-						"flipLeftFace": 0,
-						"circularArea": false,
-						"uniformDir": 0,
-						"delay": 0,
-						"repeat": false,
-						"type": "SHOOT_PROXY_RANGE",
-						"proxy": "minionSnowflake",
-						"offset": {
-							"x": 0,
-							"y": 0,
-							"z": 0
-						}
-					}],
-					"elseStep": [{
-						"variance": 0.1,
-						"global": false,
-						"loop": false,
-						"speed": 1.5,
-						"sound": "media/sound/battle/airon/cold/throw-ball-cold-charged.ogg",
-						"type": "PLAY_SOUND"
-					}, {
-						"conditions": [{
-							"max": 0.5,
-							"negated": false,
-							"type": "RANDOM"
-						}],
-						"withElse": true,
-						"type": "COMBAT_IF",
-						"thenStep": [{
-							"align": "BOTTOM",
-							"centralAngle": 0.3,
-							"angleVary": 0,
-							"startDist": 0,
-							"count": 3,
-							"duration": 0,
-							"clockwise": false,
-							"flipLeftFace": 0,
-							"circularArea": false,
-							"uniformDir": 0,
-							"delay": 0,
-							"repeat": false,
-							"type": "SHOOT_PROXY_RANGE",
-							"proxy": "iceSpecialSmall",
-							"offset": {
-								"x": 0,
-								"y": 0,
-								"z": 0
-							}
-						}],
-						"elseStep": [{
-							"align": "BOTTOM",
-							"centralAngle": 0.4,
-							"angleVary": 0,
-							"startDist": 0,
-							"count": 4,
-							"duration": 0,
-							"clockwise": false,
-							"flipLeftFace": 0,
-							"circularArea": false,
-							"uniformDir": 0,
-							"delay": 0,
-							"repeat": false,
-							"type": "SHOOT_PROXY_RANGE",
-							"proxy": "iceSpecialSmall",
-							"offset": {
-								"x": 0,
-								"y": 0,
-								"z": 0
-							}
-						}]
-					}]
-				}, {
+                    "withElse": true,
+                    "type": "IF",
+                    "condition": "entity.attrib.attackType == 12",
+                    "thenStep": [{
+                        "align": "BOTTOM",
+                        "centralAngle": 0,
+                        "angleVary": 0,
+                        "random": false,
+                        "count": 1,
+                        "duration": 0,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "circularArea": false,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": false,
+                        "type": "SHOOT_PROXY_RANGE",
+                        "proxy": "minionSnowflake",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }],
+                    "elseStep": [{
+                        "variance": 0.1,
+                        "global": false,
+                        "loop": false,
+                        "speed": 1.5,
+                        "sound": "media/sound/battle/airon/cold/throw-ball-cold-charged.ogg",
+                        "type": "PLAY_SOUND"
+                    }, {
+                        "conditions": [{
+                            "max": 0.5,
+                            "negated": false,
+                            "type": "RANDOM"
+                        }],
+                        "withElse": true,
+                        "type": "COMBAT_IF",
+                        "thenStep": [{
+                            "align": "BOTTOM",
+                            "centralAngle": 0.3,
+                            "angleVary": 0,
+                            "startDist": 0,
+                            "count": 3,
+                            "duration": 0,
+                            "clockwise": false,
+                            "flipLeftFace": 0,
+                            "circularArea": false,
+                            "uniformDir": 0,
+                            "delay": 0,
+                            "repeat": false,
+                            "type": "SHOOT_PROXY_RANGE",
+                            "proxy": "iceSpecialSmall",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        }],
+                        "elseStep": [{
+                            "align": "BOTTOM",
+                            "centralAngle": 0.4,
+                            "angleVary": 0,
+                            "startDist": 0,
+                            "count": 4,
+                            "duration": 0,
+                            "clockwise": false,
+                            "flipLeftFace": 0,
+                            "circularArea": false,
+                            "uniformDir": 0,
+                            "delay": 0,
+                            "repeat": false,
+                            "type": "SHOOT_PROXY_RANGE",
+                            "proxy": "iceSpecialSmall",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        }]
+                    }]
+                }, {
                     "attribName": "attackType",
                     "changeType": "add",
                     "type": "SET_ATTRIB_NUMBER",
@@ -13849,191 +13849,191 @@
             "killAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "combat.hexummoner",
-					"name": "minionExplode"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 0.01,
-				"type": "WAIT"
-			}, {
-				"minTime": 0,
-				"maxTime": 0.2,
-				"type": "WAIT_RANDOM"
-			}, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "specials.cold",
-					"name": "coldGuard3Activate"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"zoomType": "LIGHT",
-				"fadeIn": 0,
-				"duration": 0.2,
-				"fadeOut": 0.2,
-				"type": "SET_ZOOM_BLUR"
-			}, {
-				"align": "BOTTOM",
-				"centralAngle": 1,
-				"angleVary": 0.05,
-				"startDist": 32,
-				"startDistCollide": "DROP",
-				"random": false,
-				"count": 6,
-				"duration": 0.2,
-				"clockwise": true,
-				"flipLeftFace": 0,
-				"circularArea": true,
-				"uniformDir": 0,
-				"delay": 0,
-				"repeat": false,
-				"maxGroundDistance": 16,
-				"type": "SHOOT_PROXY_RANGE",
-				"proxy": "icicleBigDmg",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 0.4,
-				"type": "WAIT"
-			}, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "specials.cold",
-					"name": "coldGuard3Sub"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"zoomType": "LIGHT",
-				"fadeIn": 0,
-				"duration": 0.2,
-				"fadeOut": 0.2,
-				"type": "SET_ZOOM_BLUR"
-			}, {
-				"align": "BOTTOM",
-				"centralAngle": 1,
-				"angleVary": 0.05,
-				"startDist": 64,
-				"startDistCollide": "DROP",
-				"random": false,
-				"count": 8,
-				"duration": 0.2,
-				"clockwise": true,
-				"flipLeftFace": 0,
-				"circularArea": true,
-				"uniformDir": 0,
-				"delay": 0,
-				"repeat": false,
-				"maxGroundDistance": 16,
-				"type": "SHOOT_PROXY_RANGE",
-				"proxy": "icicleBigDmg",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 0.4,
-				"type": "WAIT"
-			}, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "specials.cold",
-					"name": "coldGuard3Sub"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"zoomType": "LIGHT",
-				"fadeIn": 0,
-				"duration": 0.2,
-				"fadeOut": 0.2,
-				"type": "SET_ZOOM_BLUR"
-			}, {
-				"align": "BOTTOM",
-				"centralAngle": 1,
-				"angleVary": 0.05,
-				"startDist": 96,
-				"startDistCollide": "DROP",
-				"random": false,
-				"count": 12,
-				"duration": 0.2,
-				"clockwise": true,
-				"flipLeftFace": 0,
-				"circularArea": true,
-				"uniformDir": 0,
-				"delay": 0,
-				"repeat": false,
-				"maxGroundDistance": 16,
-				"type": "SHOOT_PROXY_RANGE",
-				"proxy": "icicleBigDmg",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 0.1,
-				"type": "WAIT"
-			}],
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "combat.hexummoner",
+                    "name": "minionExplode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.01,
+                "type": "WAIT"
+            }, {
+                "minTime": 0,
+                "maxTime": 0.2,
+                "type": "WAIT_RANDOM"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.cold",
+                    "name": "coldGuard3Activate"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.2,
+                "fadeOut": 0.2,
+                "type": "SET_ZOOM_BLUR"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0.05,
+                "startDist": 32,
+                "startDistCollide": "DROP",
+                "random": false,
+                "count": 6,
+                "duration": 0.2,
+                "clockwise": true,
+                "flipLeftFace": 0,
+                "circularArea": true,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "maxGroundDistance": 16,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "icicleBigDmg",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.4,
+                "type": "WAIT"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.cold",
+                    "name": "coldGuard3Sub"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.2,
+                "fadeOut": 0.2,
+                "type": "SET_ZOOM_BLUR"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0.05,
+                "startDist": 64,
+                "startDistCollide": "DROP",
+                "random": false,
+                "count": 8,
+                "duration": 0.2,
+                "clockwise": true,
+                "flipLeftFace": 0,
+                "circularArea": true,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "maxGroundDistance": 16,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "icicleBigDmg",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.4,
+                "type": "WAIT"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.cold",
+                    "name": "coldGuard3Sub"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.2,
+                "fadeOut": 0.2,
+                "type": "SET_ZOOM_BLUR"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0.05,
+                "startDist": 96,
+                "startDistCollide": "DROP",
+                "random": false,
+                "count": 12,
+                "duration": 0.2,
+                "clockwise": true,
+                "flipLeftFace": 0,
+                "circularArea": true,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "maxGroundDistance": 16,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "icicleBigDmg",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }],
             "commandAction": [],
             "killEffect": {
-				"sheet": "enemies.forest",
-				"name": "pandaTurretGone"
+                "sheet": "enemies.forest",
+                "name": "pandaTurretGone"
             },
-			"invisible": false,
+            "invisible": false,
             "hp": 4,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
@@ -14141,7 +14141,7 @@
                 "target": "PROXY_SRC",
                 "distance": 34.5,
                 "duration": 0,
-				"waitUntil": "entity.src.destroyed",
+                "waitUntil": "entity.src.destroyed",
                 "rotateTime": 1,
                 "ccw": false,
                 "distAdjustSpeed": 50,
@@ -14214,7 +14214,7 @@
             },
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
-			"preAction": [{
+            "preAction": [{
                 "duration": 0,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -14360,89 +14360,89 @@
             "killAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "combat.hexummoner",
-					"name": "minionExplode"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 0.01,
-				"type": "WAIT"
-			}, {
-				"minTime": 0,
-				"maxTime": 0.2,
-				"type": "WAIT_RANDOM"
-			}, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"target2": "SELF",
-				"target2Offset": {
-					"x": 0,
-					"y": 0,
-					"z": 480
-				},
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "specials.shock",
-					"name": "boldSmall"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"align": "BOTTOM",
-				"radius": 32,
-				"yScale": 0,
-				"zHeight": 0,
-				"centralAngle": 0,
-				"duration": 0.1,
-				"expandRadius": 0,
-				"alwaysFull": true,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"rectangular": false,
-				"repeat": false,
-				"uniformHitDir": false,
-				"fixPos": false,
-				"checkCollision": false,
-				"type": "CIRCLE_ATTACK",
-				"attack": {
-					"type": "HEAVY",
-					"element": "SHOCK",
-					"damageFactor": 4,
-					"reverse": false,
-					"status": 1,
-					"hints": ["CHARGED"],
-					"guardable": "",
-					"skillBonus": "RANGED_DMG"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "combat.hexummoner",
+                    "name": "minionExplode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.01,
+                "type": "WAIT"
+            }, {
+                "minTime": 0,
+                "maxTime": 0.2,
+                "type": "WAIT_RANDOM"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "SELF",
+                "target2Offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 480
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "boldSmall"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "damageFactor": 4,
+                    "reverse": false,
+                    "status": 1,
+                    "hints": ["CHARGED"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
                 "time": 0.01,
                 "type": "WAIT"
             }],
@@ -14461,50 +14461,50 @@
                 "type": "IF",
                 "condition": "entity.hasTmpTarget",
                 "thenStep": [{
-					"value": true,
-					"immediately": true,
-					"type": "FACE_TO_TARGET"
-				}, {
-					"attribName": "shootAttack",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 6
-				}, {
-					"name": "shootLoop",
-					"type": "LABEL"
-				}, {
-					"align": "BOTTOM",
-					"type": "SHOOT_PROXY",
-					"proxy": "shockGun",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 0.05,
-					"type": "MOVE_BACKWARD"
-				}, {
-					"time": 0.025,
-					"type": "MOVE_FORWARD"
-				}, {
-					"withElse": false,
-					"type": "IF",
-					"condition": "entity.attrib.shootAttack > 0",
-					"thenStep": [{
-						"attribName": "shootAttack",
-						"changeType": "sub",
-						"type": "SET_ATTRIB_NUMBER",
-						"value": 1
-					}, {
-						"name": "shootLoop",
-						"type": "GOTO_LABEL"
-					}]
-				}]
+                    "value": true,
+                    "immediately": true,
+                    "type": "FACE_TO_TARGET"
+                }, {
+                    "attribName": "shootAttack",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 6
+                }, {
+                    "name": "shootLoop",
+                    "type": "LABEL"
+                }, {
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "shockGun",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.05,
+                    "type": "MOVE_BACKWARD"
+                }, {
+                    "time": 0.025,
+                    "type": "MOVE_FORWARD"
+                }, {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.attrib.shootAttack > 0",
+                    "thenStep": [{
+                        "attribName": "shootAttack",
+                        "changeType": "sub",
+                        "type": "SET_ATTRIB_NUMBER",
+                        "value": 1
+                    }, {
+                        "name": "shootLoop",
+                        "type": "GOTO_LABEL"
+                    }]
+                }]
             }],
             "killEffect": {
-				"sheet": "enemies.forest",
-				"name": "pandaTurretGone"
+                "sheet": "enemies.forest",
+                "name": "pandaTurretGone"
             },
             "invisible": false,
             "hp": 1,
@@ -14550,7 +14550,7 @@
             },
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
-			"preAction": [{
+            "preAction": [{
                 "duration": 0,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -14578,7 +14578,7 @@
                 "waitSkip": 0,
                 "actionDetached": true,
                 "fixPos": false,
-				"group": "body",
+                "group": "body",
                 "type": "SHOW_EFFECT",
                 "effect": {
                     "sheet": "combat.hexummoner",
@@ -14966,162 +14966,162 @@
             "killAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"group": "body",
+                "group": "body",
                 "type": "CLEAR_EFFECTS"
             }, {
-				"searchType": "CLOSE_RANGE",
-				"distance": 512,
-				"ignoreCurrentTarget": false,
-				"prevHitBehavior": "NONE",
-				"type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
-			}, {
-				"assistSlow": false,
-				"time": 0.01,
-				"type": "WAIT"
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "entity.hasTmpTarget",
-				"thenStep": [{
-					"value": true,
-					"type": "FACE_TO_TARGET"
-				}, {
-					"value": 3,
-					"type": "SET_RELATIVE_SPEED"
-				}, {
-					"duration": -1,
-					"align": "BOTTOM",
-					"rotateFace": -1,
-					"flipLeftFace": false,
-					"wait": false,
-					"waitSkip": 0,
-					"actionDetached": false,
-					"fixPos": false,
-					"type": "SHOW_EFFECT",
-					"effect": {
-						"sheet": "enemies.jungle",
-						"name": "ghostBall"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"maxTime": 0.3,
-					"forceTime": true,
-					"distance": 0,
-					"planOnly": false,
-					"targetType": "ENEMY",
-					"precise": true,
-					"type": "NAVIGATE_TO_TARGET"
-				}]
-			}, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "combat.hexummoner",
-					"name": "minionExplode"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 0.01,
-				"type": "WAIT"
-			}, {
-				"minTime": 0,
-				"maxTime": 0.2,
-				"type": "WAIT_RANDOM"
-			}, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"target2": "SELF",
-				"target2Offset": {
-					"x": 0,
-					"y": 0,
-					"z": 480
-				},
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "specials.shock",
-					"name": "boldSmall"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"align": "BOTTOM",
-				"centralAngle": 1,
-				"angleVary": 0,
-				"count": 16,
-				"duration": 0,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"circularArea": false,
-				"uniformDir": 0,
-				"delay": 0,
-				"repeat": false,
-				"type": "SHOOT_PROXY_RANGE",
-				"proxy": "shockDebris",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"align": "BOTTOM",
-				"radius": 32,
-				"yScale": 0,
-				"zHeight": 0,
-				"centralAngle": 0,
-				"duration": 0.1,
-				"expandRadius": 0,
-				"alwaysFull": true,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"rectangular": false,
-				"repeat": false,
-				"uniformHitDir": false,
-				"fixPos": false,
-				"checkCollision": false,
-				"type": "CIRCLE_ATTACK",
-				"attack": {
-					"type": "HEAVY",
-					"element": "SHOCK",
-					"damageFactor": 6,
-					"reverse": false,
-					"status": 1,
-					"hints": ["CHARGED"],
-					"guardable": "",
-					"skillBonus": "RANGED_DMG"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 0.1,
-				"type": "WAIT"
-			}],
+                "searchType": "CLOSE_RANGE",
+                "distance": 512,
+                "ignoreCurrentTarget": false,
+                "prevHitBehavior": "NONE",
+                "type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
+            }, {
+                "assistSlow": false,
+                "time": 0.01,
+                "type": "WAIT"
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hasTmpTarget",
+                "thenStep": [{
+                    "value": true,
+                    "type": "FACE_TO_TARGET"
+                }, {
+                    "value": 3,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": -1,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "enemies.jungle",
+                        "name": "ghostBall"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "maxTime": 0.3,
+                    "forceTime": true,
+                    "distance": 0,
+                    "planOnly": false,
+                    "targetType": "ENEMY",
+                    "precise": true,
+                    "type": "NAVIGATE_TO_TARGET"
+                }]
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "combat.hexummoner",
+                    "name": "minionExplode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.01,
+                "type": "WAIT"
+            }, {
+                "minTime": 0,
+                "maxTime": 0.2,
+                "type": "WAIT_RANDOM"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "SELF",
+                "target2Offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 480
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "boldSmall"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "count": 16,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "shockDebris",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "damageFactor": 6,
+                    "reverse": false,
+                    "status": 1,
+                    "hints": ["CHARGED"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }],
             "commandAction": [{
                 "searchType": "CLOSE_RANGE",
                 "distance": 2048,
@@ -15137,52 +15137,52 @@
                 "type": "IF",
                 "condition": "entity.hasTmpTarget",
                 "thenStep": [{
-					"value": true,
-					"immediately": true,
-					"type": "FACE_TO_TARGET"
-				}, {
-					"attribName": "shootAttack",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 10
-				}, {
-					"name": "shootLoop",
-					"type": "LABEL"
-				}, {
-					"align": "BOTTOM",
-					"type": "SHOOT_PROXY",
-					"proxy": "shockGun",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 0.05,
-					"type": "MOVE_BACKWARD"
-				}, {
-					"time": 0.025,
-					"type": "MOVE_FORWARD"
-				}, {
-					"withElse": false,
-					"type": "IF",
-					"condition": "entity.attrib.shootAttack > 0",
-					"thenStep": [{
-						"attribName": "shootAttack",
-						"changeType": "sub",
-						"type": "SET_ATTRIB_NUMBER",
-						"value": 1
-					}, {
-						"name": "shootLoop",
-						"type": "GOTO_LABEL"
-					}]
-				}]
+                    "value": true,
+                    "immediately": true,
+                    "type": "FACE_TO_TARGET"
+                }, {
+                    "attribName": "shootAttack",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 10
+                }, {
+                    "name": "shootLoop",
+                    "type": "LABEL"
+                }, {
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "shockGun",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.05,
+                    "type": "MOVE_BACKWARD"
+                }, {
+                    "time": 0.025,
+                    "type": "MOVE_FORWARD"
+                }, {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.attrib.shootAttack > 0",
+                    "thenStep": [{
+                        "attribName": "shootAttack",
+                        "changeType": "sub",
+                        "type": "SET_ATTRIB_NUMBER",
+                        "value": 1
+                    }, {
+                        "name": "shootLoop",
+                        "type": "GOTO_LABEL"
+                    }]
+                }]
             }],
             "killEffect": {
-				"sheet": "enemies.forest",
-				"name": "pandaTurretGone"
+                "sheet": "enemies.forest",
+                "name": "pandaTurretGone"
             },
-			"invisible": false,
+            "invisible": false,
             "hp": 2,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
@@ -15226,7 +15226,7 @@
             },
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
-			"preAction": [{
+            "preAction": [{
                 "duration": 0,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -15254,7 +15254,7 @@
                 "waitSkip": 0,
                 "actionDetached": true,
                 "fixPos": false,
-				"group": "body",
+                "group": "body",
                 "type": "SHOW_EFFECT",
                 "effect": {
                     "sheet": "combat.hexummoner",
@@ -15274,7 +15274,7 @@
                 "waitSkip": 0,
                 "actionDetached": true,
                 "fixPos": false,
-				"group": "body",
+                "group": "body",
                 "type": "SHOW_EFFECT",
                 "effect": {
                     "sheet": "combat.hexummoner",
@@ -15572,235 +15572,235 @@
             "killAction": [{
                 "type": "CLEAR_EFFECTS"
             }, {
-				"group": "body",
+                "group": "body",
                 "type": "CLEAR_EFFECTS"
             }, {
-				"searchType": "CLOSE_RANGE",
-				"distance": 512,
-				"ignoreCurrentTarget": false,
-				"prevHitBehavior": "NONE",
-				"type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
-			}, {
-				"assistSlow": false,
-				"time": 0.01,
-				"type": "WAIT"
-			}, {
-				"withElse": false,
-				"type": "IF",
-				"condition": "entity.hasTmpTarget",
-				"thenStep": [{
-					"value": true,
-					"type": "FACE_TO_TARGET"
-				}, {
-					"value": 1,
-					"type": "SET_RELATIVE_SPEED"
-				}, {
-					"duration": -1,
-					"align": "BOTTOM",
-					"rotateFace": -1,
-					"flipLeftFace": false,
-					"wait": false,
-					"waitSkip": 0,
-					"actionDetached": false,
-					"fixPos": false,
-					"type": "SHOW_EFFECT",
-					"effect": {
-						"sheet": "enemies.jungle",
-						"name": "ghostBall"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"maxTime": 1.2,
-					"forceTime": true,
-					"distance": 0,
-					"planOnly": false,
-					"targetType": "ENEMY",
-					"precise": true,
-					"type": "NAVIGATE_TO_TARGET"
-				}]
-			}, {
-				"duration": 1,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": true,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "specials.shock",
-					"name": "mjolnirPre"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 1,
-				"type": "WAIT"
-			}, {
-				"minTime": 0,
-				"maxTime": 0.2,
-				"type": "WAIT_RANDOM"
-			}, {
-				"duration": -1,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": false,
-				"waitSkip": 0,
-				"actionDetached": true,
-				"target2": "SELF",
-				"target2Offset": {
-					"x": 0,
-					"y": 0,
-					"z": 480
-				},
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "specials.shock",
-					"name": "mjolnir"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"align": "BOTTOM",
-				"radius": 48,
-				"yScale": 0,
-				"zHeight": 2000,
-				"centralAngle": 1,
-				"duration": 0.066,
-				"expandRadius": 0,
-				"alwaysFull": true,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"rectangular": false,
-				"repeat": true,
-				"uniformHitDir": false,
-				"fixPos": false,
-				"checkCollision": false,
-				"type": "CIRCLE_ATTACK",
-				"attack": {
-					"type": "MEDIUM",
-					"visualType": "LIGHT",
-					"element": "SHOCK",
-					"damageFactor": 1,
-					"reverse": false,
-					"stunSteps": [{
-						"type": "BLOCK_XY"
-					}, {
-						"value": 50,
-						"type": "Z_VEL"
-					}],
-					"status": 0.5,
-					"guardable": "",
-					"skillBonus": "",
-					"limiter": ""
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"time": 1,
-				"type": "WAIT"
-			}, {
-				"type": "STOP_REPEATING_FORCE"
-			}, {
-				"align": "BOTTOM",
-				"centralAngle": 1,
-				"angleVary": 0,
-				"count": 24,
-				"duration": 0,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"circularArea": false,
-				"uniformDir": 0,
-				"delay": 0,
-				"repeat": false,
-				"type": "SHOOT_PROXY_RANGE",
-				"proxy": "shockDebris",
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"align": "BOTTOM",
-				"radius": 48,
-				"yScale": 0,
-				"zHeight": 2000,
-				"centralAngle": 1,
-				"duration": 0,
-				"expandRadius": 0,
-				"alwaysFull": true,
-				"clockwise": false,
-				"flipLeftFace": 0,
-				"rectangular": false,
-				"repeat": false,
-				"uniformHitDir": false,
-				"fixPos": false,
-				"checkCollision": false,
-				"type": "CIRCLE_ATTACK",
-				"attack": {
-					"type": "MEDIUM",
-					"visualType": "LIGHT",
-					"element": "SHOCK",
-					"fly": "MASSIVE++",
-					"damageFactor": 1,
-					"reverse": false,
-					"stunSteps": [{
-						"type": "END_LOCK"
-					}, {
-						"value": 200,
-						"type": "Z_VEL"
-					}],
-					"status": 0.5,
-					"guardable": "",
-					"skillBonus": "",
-					"limiter": ""
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}, {
-				"type": "CLEAR_EFFECTS"
-			}, {
-				"time": 0.1,
-				"type": "WAIT"
-			}, {
-				"duration": 0,
-				"align": "BOTTOM",
-				"rotateFace": 0,
-				"flipLeftFace": false,
-				"wait": true,
-				"waitSkip": 0,
-				"actionDetached": false,
-				"fixPos": false,
-				"type": "SHOW_EFFECT",
-				"effect": {
-					"sheet": "combat.hexummoner",
-					"name": "minionExplode"
-				},
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 0
-				}
-			}],
+                "searchType": "CLOSE_RANGE",
+                "distance": 512,
+                "ignoreCurrentTarget": false,
+                "prevHitBehavior": "NONE",
+                "type": "SET_CLOSE_TEMP_TARGET_NO_INVINSIBLE"
+            }, {
+                "assistSlow": false,
+                "time": 0.01,
+                "type": "WAIT"
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hasTmpTarget",
+                "thenStep": [{
+                    "value": true,
+                    "type": "FACE_TO_TARGET"
+                }, {
+                    "value": 1,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": -1,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "enemies.jungle",
+                        "name": "ghostBall"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "maxTime": 1.2,
+                    "forceTime": true,
+                    "distance": 0,
+                    "planOnly": false,
+                    "targetType": "ENEMY",
+                    "precise": true,
+                    "type": "NAVIGATE_TO_TARGET"
+                }]
+            }, {
+                "duration": 1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": true,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "mjolnirPre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 1,
+                "type": "WAIT"
+            }, {
+                "minTime": 0,
+                "maxTime": 0.2,
+                "type": "WAIT_RANDOM"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": true,
+                "target2": "SELF",
+                "target2Offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 480
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "mjolnir"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 48,
+                "yScale": 0,
+                "zHeight": 2000,
+                "centralAngle": 1,
+                "duration": 0.066,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MEDIUM",
+                    "visualType": "LIGHT",
+                    "element": "SHOCK",
+                    "damageFactor": 1,
+                    "reverse": false,
+                    "stunSteps": [{
+                        "type": "BLOCK_XY"
+                    }, {
+                        "value": 50,
+                        "type": "Z_VEL"
+                    }],
+                    "status": 0.5,
+                    "guardable": "",
+                    "skillBonus": "",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 1,
+                "type": "WAIT"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "count": 24,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "shockDebris",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 48,
+                "yScale": 0,
+                "zHeight": 2000,
+                "centralAngle": 1,
+                "duration": 0,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MEDIUM",
+                    "visualType": "LIGHT",
+                    "element": "SHOCK",
+                    "fly": "MASSIVE++",
+                    "damageFactor": 1,
+                    "reverse": false,
+                    "stunSteps": [{
+                        "type": "END_LOCK"
+                    }, {
+                        "value": 200,
+                        "type": "Z_VEL"
+                    }],
+                    "status": 0.5,
+                    "guardable": "",
+                    "skillBonus": "",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "combat.hexummoner",
+                    "name": "minionExplode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
             "commandAction": [{
                 "searchType": "CLOSE_RANGE",
                 "distance": 2048,
@@ -15816,90 +15816,90 @@
                 "type": "IF",
                 "condition": "entity.hasTmpTarget",
                 "thenStep": [{
-					"value": true,
-					"immediately": true,
-					"type": "FACE_TO_TARGET"
-				}, {
-					"duration": 1,
-					"align": "BOTTOM",
-					"rotateFace": 0,
-					"flipLeftFace": false,
-					"wait": true,
-					"waitSkip": 0,
-					"actionDetached": true,
-					"fixPos": false,
-					"type": "SHOW_EFFECT",
-					"effect": {
-						"sheet": "specials.shock",
-						"name": "mjolnirPre"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"duration": 1.125,
-					"align": "BOTTOM",
-					"rotateFace": 0,
-					"flipLeftFace": false,
-					"wait": false,
-					"waitSkip": 0,
-					"actionDetached": false,
-					"fixPos": false,
-					"type": "SHOW_EFFECT",
-					"effect": {
-						"sheet": "specials.shock",
-						"name": "waldoThrow"
-					},
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"attribName": "shootAttack",
-					"changeType": "set",
-					"type": "SET_ATTRIB_NUMBER",
-					"value": 30
-				}, {
-					"name": "shootLoop",
-					"type": "LABEL"
-				}, {
-					"align": "BOTTOM",
-					"type": "SHOOT_PROXY",
-					"proxy": "shockGun",
-					"offset": {
-						"x": 0,
-						"y": 0,
-						"z": 0
-					}
-				}, {
-					"time": 0.019,
-					"type": "MOVE_BACKWARD"
-				}, {
-					"time": 0.0185,
-					"type": "MOVE_FORWARD"
-				}, {
-					"withElse": false,
-					"type": "IF",
-					"condition": "entity.attrib.shootAttack > 0",
-					"thenStep": [{
-						"attribName": "shootAttack",
-						"changeType": "sub",
-						"type": "SET_ATTRIB_NUMBER",
-						"value": 1
-					}, {
-						"name": "shootLoop",
-						"type": "GOTO_LABEL"
-					}]
-				}]
+                    "value": true,
+                    "immediately": true,
+                    "type": "FACE_TO_TARGET"
+                }, {
+                    "duration": 1,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": true,
+                    "waitSkip": 0,
+                    "actionDetached": true,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "specials.shock",
+                        "name": "mjolnirPre"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "duration": 1.125,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "specials.shock",
+                        "name": "waldoThrow"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "attribName": "shootAttack",
+                    "changeType": "set",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 30
+                }, {
+                    "name": "shootLoop",
+                    "type": "LABEL"
+                }, {
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "shockGun",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.019,
+                    "type": "MOVE_BACKWARD"
+                }, {
+                    "time": 0.0185,
+                    "type": "MOVE_FORWARD"
+                }, {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.attrib.shootAttack > 0",
+                    "thenStep": [{
+                        "attribName": "shootAttack",
+                        "changeType": "sub",
+                        "type": "SET_ATTRIB_NUMBER",
+                        "value": 1
+                    }, {
+                        "name": "shootLoop",
+                        "type": "GOTO_LABEL"
+                    }]
+                }]
             }],
             "killEffect": {
-				"sheet": "enemies.forest",
-				"name": "pandaTurretGone"
+                "sheet": "enemies.forest",
+                "name": "pandaTurretGone"
             },
-			"invisible": false,
+            "invisible": false,
             "hp": 3,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
@@ -19123,10 +19123,10 @@
                     "time": 0.3,
                     "type": "WAIT"
                 }, {
-					"group": "minion2",
-					"sticking": false,
-					"type": "REMOVE_PROXIES"
-				}, {
+                    "group": "minion2",
+                    "sticking": false,
+                    "type": "REMOVE_PROXIES"
+                }, {
                     "group": "minion",
                     "type": "MINIONS_COMMAND"
                 }, {

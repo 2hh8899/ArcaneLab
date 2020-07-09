@@ -16110,7 +16110,6 @@
                 "fadeIn": 0.2
             }]
         },
-		
         "icicleTest": {
             "animation": {},
             "copyOwnerAnims": false,
@@ -16166,7 +16165,7 @@
             },
             "type": "GENERIC"
         },
-		"icicleTest2": {
+        "icicleTest2": {
             "animation": {
                 "shapeType": "Y_FLAT",
                 "wallY": 1,

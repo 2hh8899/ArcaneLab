@@ -1,0 +1,54 @@
+{
+    "DOCTYPE": "EFFECT",
+    "ANIMS": {},
+    "EFFECTS": {
+        "redLine": [{
+            "patternYCount": 1,
+            "animFrames": [0],
+            "frameTime": 0.05,
+            "shiftSpeed": 500,
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 1,
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "pattern": {
+                "src": "media/entity/effects/warning.png",
+                "xCount": 1,
+                "offX": 48,
+                "offY": 16,
+                "width": 16,
+                "height": 16
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }]}
+}

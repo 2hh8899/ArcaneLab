@@ -1,0 +1,63 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "body": {
+            "src": "media/entity/enemy/boss/big-bomb.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 72,
+            "height": 72
+        }
+    },
+    "offset": {
+        "x": 0,
+        "y": -9,
+        "z": 0
+    },
+    "shapeType": "Y_FLAT",
+    "SUB": [{
+        "sheet": "body",
+        "dirs": "1",
+        "flipX": [0],
+        "tileOffsets": [0],
+        "SUB": [{
+			"name": "off",
+			"time": 1,
+			"frames": [0],
+			"repeat": false
+		}, {
+			"name": "ticking",
+			"time": 0.1,
+			"frames": [2, 1, 0, 1],
+			"repeat": true
+		}, {
+			"name": "ticking",
+			"time": 1,
+			"frames": [3],
+			"repeat": false
+		}, {
+			"name": "ticking",
+			"time": 1,
+			"frames": [4],
+			"repeat": false
+		}, {
+			"name": "tickingEnd",
+			"time": 0.03,
+			"frames": [0, 0, 2, 2],
+			"repeat": true
+		},
+		{
+			"name": "tickingEnd",
+			"time": 0.03,
+			"frames": [3, 3, 3, 3],
+			"framesAlpha": [0, 0, 1, 1],
+			"repeat": true
+		}, {
+			"name": "tickingEnd",
+			"time": 0.03,
+			"frames": [4, 4, 4, 4],
+			"framesAlpha": [0, 0, 1, 1],
+			"repeat": true
+		}]
+    }]
+}

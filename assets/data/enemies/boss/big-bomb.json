@@ -1,0 +1,343 @@
+{
+    "level": 75,
+    "params": {
+        "hp": 5000000,
+        "attack": 1000,
+        "defense": 1000,
+        "focus": 1000
+    },
+    "credit": 0,
+    "exp": 0,
+    "maxSp": 8,
+    "enduranceScale": 1,
+    "healDropRate": 0,
+    "boss": false,
+    "bossOrder": 0,
+    "padding": {
+        "x": 8,
+        "y": 8
+    },
+    "material": "METAL",
+    "aiGroup": "",
+    "aiLearnType": "REGULAR",
+    "itemDrops": [],
+    "targetDetect": {
+        "detectDistance": 120,
+        "loseDistance": 320,
+        "notifyNeighbourRadius": 100
+    },
+    "hpBreaks": [],
+    "size": {
+        "x": 50,
+        "y": 50,
+        "z": 50
+    },
+    "anims": "boss.big-bomb",
+    "defaultState": "START",
+    "walkConfigs": {
+        "normal": {
+            "idle": "off"
+        }
+    },
+    "_wm": null,
+    "walkAnims": "normal",
+    "groundConnect": "IN_EARTH",
+    "weight": -1,
+    "maxVel": 180,
+    "collType": "BLOCK",
+    "jumpingEnabled": false,
+    "shadow": 20,
+    "hitStable": "MASSIVE",
+    "hitIgnore": false,
+    "DOCTYPE": "ENEMY",
+    "trackers": {
+        "HEAT_HITS": {
+            "target": 5,
+            "scaleDmgFactor": false,
+            "scaleEnemyFactor": false,
+            "noStateReset": false,
+            "type": "HIT"
+        },
+        "COLD_HITS": {
+            "target": 50,
+            "scaleDmgFactor": false,
+            "scaleEnemyFactor": false,
+            "noStateReset": false,
+            "type": "HIT"
+        }
+    },
+    "states": {
+        "START": {
+            "appearAction": "appear",
+            "enabledReactions": ["BOOM", "BREAK"],
+            "choices": [{
+                "action": "idle"
+            }]
+        }
+    },
+    "proxies": {},
+    "actions": {
+        "appear": [{
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.bombHere",
+            "value": 1
+        }, {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": true,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "puzzle.bomb",
+                "name": "appear"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }],
+        "idle": [{
+            "text": {
+                "en_US": "DANGER"
+            },
+            "mode": "LINE_FILL",
+            "color": "RED",
+            "actionDetached": false,
+            "hideOutsideOfScreen": false,
+            "type": "SHOW_AR_MSG",
+            "time": 12
+        }, {
+            "type": "WAIT",
+            "time": 0.5
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "ticking"
+        }, {
+            "duration": 12,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "puzzle.bomb",
+                "name": "active"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "type": "WAIT",
+            "time": 12
+        }, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "boom"
+        }],
+        "preDestroy": [{
+            "value": false,
+            "type": "SET_HIT_IGNORE"
+        }],
+        "destroy": [{
+            "type": "CLEAR_AR_MSG"
+        }, {
+            "value": -1,
+            "type": "SET_INVINCIBLE"
+        }, {
+            "type": "DISABLE_REACTION",
+            "reaction": "BOOM"
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.bombHere",
+            "value": 0
+        }, {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": true,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+				"sheet": "enemies.forest",
+				"name": "pandaTurretGone"
+            },
+            "offset": {
+                "x": 0,
+                "y": -8,
+                "z": -4
+            }
+        }, {
+            "noReward": true,
+            "type": "SELF_DESTRUCT"
+        }],
+        "boom": [{
+            "type": "DISABLE_REACTION",
+            "reaction": "BREAK"
+        }, {
+            "value": -1,
+            "type": "SET_INVINCIBLE"
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.bombHere",
+            "value": 0
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "tickingEnd"
+        }, {
+            "duration": 1.2,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": true,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "puzzle.bomb",
+                "name": "almost"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": true,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.drake-laser-drill",
+				"name": "explosionBomb"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "type": "WAIT",
+            "time": 0.3
+        }, {
+			"align": "BOTTOM",
+			"radius": 256,
+			"yScale": 0,
+			"zHeight": 0,
+			"centralAngle": 1,
+			"duration": 1,
+			"expandRadius": 256,
+			"alwaysFull": true,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"rectangular": false,
+			"repeat": false,
+			"uniformHitDir": false,
+			"fixPos": false,
+			"checkCollision": false,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "MASSIVE",
+				"element": "HEAT",
+				"damageFactor": 100,
+				"reverse": false,
+				"status": 25,
+				"guardable": "NEVER",
+				"skillBonus": "",
+				"limiter": ""
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "type": "WAIT",
+            "time": 1.5
+        }, {
+            "noReward": true,
+            "type": "SELF_DESTRUCT"
+        }]
+    },
+    "reactions": {
+        "BOOM": {
+            "hitType": "REGULAR",
+            "action": "boom",
+            "blockFurtherHits": false,
+            "attackType": "MASSIVE",
+            "flyLevel": "",
+            "stunChange": "FORCE_STABLE",
+            "alignFace": false,
+            "dramaticEffect": "BREAK_BIG",
+            "conditions": [{
+                "element": "HEAT",
+                "negated": false,
+                "type": "ELEMENT_HIT"
+            }, {
+                "negated": false,
+                "type": "TRACKER_READY",
+                "name": "HEAT_HITS"
+            }],
+            "ignoreFailed": false,
+            "minDistance": 0,
+            "maxDistance": 0,
+            "type": "HIT_REACTION"
+        },
+        "BREAK": {
+            "hitType": "REGULAR",
+            "preAction": "preDestroy",
+            "action": "destroy",
+            "blockFurtherHits": false,
+            "attackType": "MASSIVE",
+            "flyLevel": "",
+            "stunChange": "FORCE_STABLE",
+            "alignFace": false,
+            "dramaticEffect": "BREAK_BIG",
+            "conditions": [{
+                "element": "COLD",
+                "negated": false,
+                "type": "ELEMENT_HIT"
+            }, {
+                "negated": false,
+                "type": "TRACKER_READY",
+                "name": "COLD_HITS"
+            }],
+            "ignoreFailed": false,
+            "minDistance": 0,
+            "maxDistance": 0,
+            "type": "HIT_REACTION"
+        }
+    },
+    "meta": {
+        "species": {
+            "en_US": "Huge Bomb",
+            "ko_KR": "대형 폭탄"
+        },
+        "category": "ABSTRACT",
+        "descriptions": []
+    }
+}

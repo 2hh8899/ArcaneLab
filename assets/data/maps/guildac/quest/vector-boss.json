@@ -49,11 +49,11 @@
             "offset": -512
         },
         "settings": {
-            "sprite": "media/parallax/planet/stars.png",
-            "xSize": 568,
-            "ySize": 360,
-            "xMove": 30,
-            "yMove": 0,
+			"sprite": "media/parallax/planet/stars.png",
+			"xSize": 568,
+			"ySize": 360,
+			"xMove": 30,
+			"yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
@@ -69,11 +69,11 @@
             "offset": -512
         },
         "settings": {
-            "sprite": "media/parallax/planet/stars.png",
-            "xSize": 568,
-            "ySize": 360,
-            "xMove": 30,
-            "yMove": 0,
+			"sprite": "media/parallax/planet/stars.png",
+			"xSize": 568,
+			"ySize": 360,
+			"xMove": 30,
+			"yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
@@ -89,11 +89,11 @@
             "offset": -512
         },
         "settings": {
-            "sprite": "media/parallax/planet/stars.png",
-            "xSize": 568,
-            "ySize": 360,
-            "xMove": 30,
-            "yMove": 0,
+			"sprite": "media/parallax/planet/stars.png",
+			"xSize": 568,
+			"ySize": 360,
+			"xMove": 30,
+			"yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
@@ -109,11 +109,11 @@
             "offset": -512
         },
         "settings": {
-            "sprite": "media/parallax/planet/stars.png",
-            "xSize": 568,
-            "ySize": 360,
-            "xMove": 30,
-            "yMove": 0,
+			"sprite": "media/parallax/planet/stars.png",
+			"xSize": 568,
+			"ySize": 360,
+			"xMove": 30,
+			"yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
@@ -129,11 +129,11 @@
             "offset": -512
         },
         "settings": {
-            "sprite": "media/parallax/planet/stars.png",
-            "xSize": 568,
-            "ySize": 360,
-            "xMove": 30,
-            "yMove": 0,
+			"sprite": "media/parallax/planet/stars.png",
+			"xSize": 568,
+			"ySize": 360,
+			"xMove": 30,
+			"yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
@@ -149,11 +149,11 @@
             "offset": -512
         },
         "settings": {
-            "sprite": "media/parallax/planet/stars.png",
-            "xSize": 568,
-            "ySize": 360,
-            "xMove": 30,
-            "yMove": 0,
+			"sprite": "media/parallax/planet/stars.png",
+			"xSize": 568,
+			"ySize": 360,
+			"xMove": 30,
+			"yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
@@ -255,12 +255,17 @@
                 "offset": {
                     "x": 0,
                     "y": 0,
-                    "z": 7
+                    "z": 0
                 },
                 "align": "CENTER",
                 "group": "",
                 "wait": false,
                 "waitSkip": 0,
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 7
+				},
                 "type": "SHOW_EFFECT"
             }, {
                 "enemy": {

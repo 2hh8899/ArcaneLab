@@ -90,7 +90,7 @@
                 "width": 32,
                 "height": 32
             },
-            "guiSprites": true,
+			"guiSprites": true,
             "time": 0.045,
             "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
         }, {
@@ -106,13 +106,13 @@
             "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
         }, {
             "name": "SWAM_TRAIL",
-            "sheet": {
-                "src": "media/entity/enemy/boss/vector/proxies.png",
-                "offX": 0,
-                "offY": 140,
-                "width": 10,
-                "height": 10
-            },
+			"sheet": {
+				"src": "media/entity/enemy/boss/vector/proxies.png",
+				"offX": 0,
+				"offY": 140,
+				"width": 10,
+				"height": 10
+			},
             "guiSprites": false,
             "renderMode": "lighter",
             "time": 0.05,
@@ -145,40 +145,40 @@
             "repeat": true,
             "frames": [0, 1, 2, 1]
         }, {
-            "name": "ENEMY_MISSILE",
-            "sheet": {
-                "src": "media/entity/enemy/boss/vector/proxies.png",
-                "offX": 0,
-                "offY": 0,
-                "width": 19,
-                "height": 70
-            },
-            "dirs": "1",
-            "flipX": [0],
-            "tileOffsets": [0],
-            "time": 0.1,
-            "faceRotate": true,
-            "guiSprites": true,
-            "repeat": true,
+			"name": "ENEMY_MISSILE",
+			"sheet": {
+				"src": "media/entity/enemy/boss/vector/proxies.png",
+				"offX": 0,
+				"offY": 0,
+				"width": 19,
+				"height": 70
+			},
+			"dirs": "1",
+			"flipX": [0],
+			"tileOffsets": [0],
+			"time": 0.1,
+			"faceRotate": true,
+			"guiSprites": true,
+			"repeat": true,
             "frames": [0]
-        }, {
-            "name": "ENEMY_MISSILE_MOVE",
-            "sheet": {
-                "src": "media/entity/enemy/boss/vector/proxies.png",
-                "offX": 0,
-                "offY": 0,
-                "width": 19,
-                "height": 70
-            },
-            "dirs": "1",
-            "flipX": [0],
-            "tileOffsets": [0],
-            "time": 0.1,
-            "faceRotate": true,
-            "guiSprites": true,
-            "repeat": true,
+		}, {
+			"name": "ENEMY_MISSILE_MOVE",
+			"sheet": {
+				"src": "media/entity/enemy/boss/vector/proxies.png",
+				"offX": 0,
+				"offY": 0,
+				"width": 19,
+				"height": 70
+			},
+			"dirs": "1",
+			"flipX": [0],
+			"tileOffsets": [0],
+			"time": 0.1,
+			"faceRotate": true,
+			"guiSprites": true,
+			"repeat": true,
             "frames": [1, 2, 3, 4]
-        }, {
+		}, {
             "name": "HITBOX",
             "sheet": {
                 "src": "media/entity/effects/particles1.png",
@@ -755,7 +755,7 @@
             "centralAngle": 1,
             "startDist": 12,
             "uniformRandom": 0.5,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -775,7 +775,7 @@
             "centralAngle": 1,
             "startDist": 24,
             "uniformRandom": 0.5,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -795,7 +795,7 @@
             "centralAngle": 1,
             "startDist": 28,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -817,7 +817,7 @@
             "startAngle": 0.125,
             "startDist": 38,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -838,7 +838,7 @@
             "startAngle": 0.25,
             "startDist": 48,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -867,7 +867,7 @@
             "centralAngle": 1,
             "startDist": 12,
             "uniformRandom": 0.5,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -887,7 +887,7 @@
             "centralAngle": 1,
             "startDist": 24,
             "uniformRandom": 0.5,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -907,7 +907,7 @@
             "centralAngle": 1,
             "startDist": 28,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -929,7 +929,7 @@
             "startAngle": 0.125,
             "startDist": 38,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -950,7 +950,7 @@
             "startAngle": 0.25,
             "startDist": 48,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -979,7 +979,7 @@
             "centralAngle": 1,
             "startDist": 12,
             "uniformRandom": 0.5,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -999,7 +999,7 @@
             "centralAngle": 1,
             "startDist": 24,
             "uniformRandom": 0.5,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -1019,7 +1019,7 @@
             "centralAngle": 1,
             "startDist": 28,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -1041,7 +1041,7 @@
             "startAngle": 0.125,
             "startDist": 38,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -1062,7 +1062,7 @@
             "startAngle": 0.25,
             "startDist": 48,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -1088,7 +1088,7 @@
             "startDist": 3,
             "random": true,
             "uniformRandom": 0.5,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -1109,7 +1109,7 @@
             "startDist": 27,
             "random": true,
             "uniformRandom": 0.5,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -1130,7 +1130,7 @@
             "startDist": 50,
             "random": true,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -1152,7 +1152,7 @@
             "startDist": 38,
             "random": true,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -1173,7 +1173,7 @@
             "startDist": 48,
             "random": true,
             "uniformRandom": 0.6,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -1185,7 +1185,7 @@
             "anim": "BOMB_EXPLO",
             "type": "OFFSET_PARTICLE_CIRCLE"
         }],
-        "cannonTrail": [{
+		"cannonTrail": [{
             "type": "LOOP_START"
         }, {
             "numParticles": 2,
@@ -1194,7 +1194,7 @@
             "startDist": 12,
             "random": true,
             "uniformRandom": 1,
-            "particleRotate": true,
+			"particleRotate": true,
             "offset": {
                 "x": 0,
                 "y": 32,
@@ -1505,7 +1505,7 @@
         }, {
             "type": "LOOP_END"
         }],
-        "missileGui": [{
+		"missileGui": [{
             "useTargetAngle": true,
             "keepAngleSync": true,
             "offset": {
@@ -1526,7 +1526,7 @@
         }, {
             "type": "LOOP_END"
         }],
-        "missileMoveGui": [{
+		"missileMoveGui": [{
             "useTargetAngle": true,
             "keepAngleSync": true,
             "offset": {
@@ -1547,7 +1547,7 @@
         }, {
             "type": "LOOP_END"
         }],
-        "hitbox": [{
+		"hitbox": [{
             "useTargetAngle": false,
             "keepAngleSync": false,
             "offset": {

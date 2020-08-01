@@ -1,0 +1,36 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "body": {
+            "src": "media/entity/enemy/sightseer.png",
+            "width": 16,
+            "height": 30,
+            "xCount": 7
+        }
+    },
+    "shapeType": "Y_FLAT",
+	"sheet": "body",
+	"dirs": 1,
+	"tileOffsets": [0],
+	"flipX": [0],
+	"repeat": true,
+	"time": 0.25,
+    "SUB": [{
+		"name": "idle",
+		"frames": [14, 15, 16, 17]
+	}, {
+		"name": "hidden",
+		"frames": [0]
+	}, {
+		"name": "appear",
+		"time": 0.07,
+		"repeat": false,
+		"frames": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+	}, {
+		"name": "damage",
+		"time": 0.05,
+		"repeat": true,
+		"frames": [12, 12],
+		"framesGfxOffset": [0, 0, 1, 0]
+	}]
+}

@@ -311,7 +311,7 @@
                         "type": "SWITCH_PLAYER_CONFIG"
                     }],
                     "5": [{
-                        "name": "joern",
+                        "name": "Eisus",
                         "type": "SWITCH_PLAYER_CONFIG"
                     }],
                     "type": "SHOW_CHOICE",
@@ -570,7 +570,15 @@
                         "map": "guildac.arena.transport",
                         "marker": "teleporter"
                     }],
-                    "3": [],
+                    "3": [{
+                        "value": "SAVE",
+                        "type": "SET_MOBILITY_BLOCK"
+                    }, {
+                        "type": "TELEPORT",
+                        "map": "guildac.arena.abyss",
+                        "marker": "teleporter"
+                    }],
+                    "4": [],
                     "type": "SHOW_CHOICE",
                     "person": {
                         "person": "main.lea",
@@ -593,6 +601,12 @@
                         "label": {
                             "en_US": "Drake Test",
                             "ko_KR": "드레이크 테스트"
+                        }
+                    }, {
+                        "0": " ",
+                        "label": {
+                            "en_US": "Abyss Test",
+                            "ko_KR": "어비스 테스트"
                         }
                     }, {
                         "0": " ",

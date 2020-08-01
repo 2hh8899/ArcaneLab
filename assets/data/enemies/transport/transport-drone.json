@@ -742,8 +742,8 @@
         }, {
             "type": "CLEAR_EFFECTS"
         }, {
-            "speed": 700,
-            "type": "ROTATE_TO_TARGET_PREDICT"
+            "projectileSpeed": 700,
+            "type": "SET_FACE_TARGET_PREDICT"
         }, {
             "active": "ATTACK",
             "type": "CHANGE_ENEMY_ANNOTATION"

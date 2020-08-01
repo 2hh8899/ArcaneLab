@@ -4630,8 +4630,8 @@
                 "charged": true,
                 "type": "SHOW_THROW_FX"
             }, {
-                "speed": 550,
-                "type": "ROTATE_TO_TARGET_PREDICT"
+                "projectileSpeed": 550,
+                "type": "SET_FACE_TARGET_PREDICT"
             }, {
                 "elementProxy": "CHARGED",
                 "type": "SHOOT_PROXY_PLAYER"
@@ -4678,8 +4678,8 @@
                 "charged": false,
                 "type": "SHOW_THROW_FX"
             }, {
-                "speed": 550,
-                "type": "ROTATE_TO_TARGET_PREDICT"
+                "projectileSpeed": 550,
+                "type": "SET_FACE_TARGET_PREDICT"
             }, {
                 "elementProxy": "QUICK",
                 "type": "SHOOT_PROXY_PLAYER"
@@ -5652,8 +5652,8 @@
             "immediately": true,
             "type": "FACE_TO_TARGET"
         }, {
-            "speed": 800,
-            "type": "ROTATE_TO_TARGET_PREDICT"
+            "projectileSpeed": 800,
+            "type": "SET_FACE_TARGET_PREDICT"
         }, {
             "proxy": "neutralMegaTri",
             "type": "SHOOT_PROXY_PLAYER"
@@ -5741,8 +5741,8 @@
             "value": 0.4,
             "type": "SET_INVINCIBLE"
         }, {
-            "speed": 450,
-            "type": "ROTATE_TO_TARGET_PREDICT"
+            "projectileSpeed": 450,
+            "type": "SET_FACE_TARGET_PREDICT"
         }, {
             "time": 0.4,
             "cancelOnHit": true,
@@ -5923,8 +5923,8 @@
             "value": 3,
             "type": "SET_ACCEL_SPEED"
         }, {
-            "speed": 240,
-            "type": "ROTATE_TO_TARGET_PREDICT"
+            "projectileSpeed": 240,
+            "type": "SET_FACE_TARGET_PREDICT"
         }, {
             "time": 0.35,
             "stopBeforeEdge": false,
@@ -7554,8 +7554,8 @@
                 "z": 0
             }
         }, {
-            "speed": 500,
-            "type": "ROTATE_TO_TARGET_PREDICT"
+            "projectileSpeed": 500,
+            "type": "SET_FACE_TARGET_PREDICT"
         }, {
             "time": 0.4,
             "collideCancel": 0.125,
@@ -7903,8 +7903,8 @@
                 "z": 0
             }
         }, {
-            "speed": 500,
-            "type": "ROTATE_TO_TARGET_PREDICT"
+            "projectileSpeed": 500,
+            "type": "SET_FACE_TARGET_PREDICT"
         }, {
             "time": 0.15,
             "stopBeforeEdge": false,
@@ -7947,8 +7947,8 @@
             "immediately": true,
             "type": "FACE_TO_TARGET"
         }, {
-            "speed": 600,
-            "type": "ROTATE_TO_TARGET_PREDICT"
+            "projectileSpeed": 600,
+            "type": "SET_FACE_TARGET_PREDICT"
         }, {
             "proxy": "iceHook",
             "type": "SHOOT_PROXY_PLAYER"
@@ -7997,8 +7997,8 @@
             "immediately": true,
             "type": "FACE_TO_TARGET"
         }, {
-            "speed": 600,
-            "type": "ROTATE_TO_TARGET_PREDICT"
+            "projectileSpeed": 600,
+            "type": "SET_FACE_TARGET_PREDICT"
         }, {
             "proxy": "iceChainSub",
             "type": "SHOOT_PROXY_PLAYER"
@@ -8066,8 +8066,8 @@
             "type": "SET_ATTRIB_NUMBER",
             "value": 0
         }, {
-            "speed": 900,
-            "type": "ROTATE_TO_TARGET_PREDICT"
+            "projectileSpeed": 900,
+            "type": "SET_FACE_TARGET_PREDICT"
         }, {
             "proxy": "iceChainLaserSub",
             "type": "SHOOT_PROXY_PLAYER"
@@ -8735,8 +8735,8 @@
                 "z": 0
             }
         }, {
-            "speed": 400,
-            "type": "ROTATE_TO_TARGET_PREDICT"
+            "projectileSpeed": 400,
+            "type": "SET_FACE_TARGET_PREDICT"
         }, {
             "time": 0.4,
             "stopBeforeEdge": false,

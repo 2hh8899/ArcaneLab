@@ -1,0 +1,142 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "body": {
+            "src": "media/entity/enemy/boss/ghizkluth.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 156,
+            "height": 160
+        },
+        "eyeball": {
+            "src": "media/entity/enemy/boss/ghizkluth.png",
+            "offX": 156,
+            "offY": 0,
+            "width": 54,
+            "height": 54
+        },
+        "iris": {
+            "src": "media/entity/enemy/boss/ghizkluth.png",
+            "offX": 156,
+            "offY": 54,
+            "width": 33,
+            "height": 33
+        },
+        "gloss": {
+            "src": "media/entity/enemy/boss/ghizkluth.png",
+            "offX": 189,
+            "offY": 54,
+            "width": 14,
+            "height": 12
+        }
+    },
+    "shapeType": "Z_FLAT",
+	"dirs": "1",
+	"flipX": [0],
+	"tileOffsets": [0],
+	"time": 0.04,
+	"frames": [0],
+	"repeat": false,
+    "SUB": [{
+		"offset": {
+			"x": 0,
+			"y": 36,
+			"z": 0
+		},
+        "sheet": "body",
+        "SUB": [{
+			"name": "appear"
+		}, {
+			"repeat": true,
+			"name": "idle"
+		}, {
+			"repeat": true,
+			"name": "aim"
+		}, {
+			"name": "break"
+		}]
+    }, {
+		"offset": {
+			"x": 0,
+			"y": -14,
+			"z": 0.2
+		},
+        "sheet": "eyeball",
+        "SUB": [{
+			"repeat": true,
+			"name": "idle"
+		}, {
+			"name": "appear",
+            "frames": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "framesGfxOffset": [4, 0, -4, 0, 3, 0, -3, 0, 2, 0, -2, 0, 1, 0, -1, 0, 1, 0, -1, 0, 0, 0]
+		}, {
+			"repeat": true,
+			"faceRotate": true,
+			"framesAngle": [45],
+			"name": "aim"
+		}, {
+			"name": "break",
+            "frames": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "framesGfxOffset": [4, 0, -4, 0, 3, 0, -3, 0, 2, 0, -2, 0, 1, 0, -1, 0, 1, 0, -1, 0, 0, 0]
+		}]
+    }, {
+		"sheet": "iris",
+        "SUB": [{
+			"offset": {
+				"x": 0,
+				"y": -24.9,
+				"z": 0.3
+			},
+			"name": "appear"
+		}, {
+			"repeat": true,
+			"offset": {
+				"x": 0,
+				"y": -24.9,
+				"z": 0.3
+			},
+			"name": "idle"
+		}, {
+			"repeat": true,
+			"offset": {
+				"x": 0,
+				"y": -32.9,
+				"z": 0.3
+			},
+			"pivot": {
+				"x": 15,
+				"y": 25
+			},
+			"faceRotate": true,
+			"name": "aim"
+		}, {
+			"offset": {
+				"x": 0,
+				"y": -24.9,
+				"z": 0.3
+			},
+			"name": "break",
+			"time": 0.07,
+            "frames": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "framesGfxOffset": [-4, 0, 4, 0, -3, 0, 3, 0, -2, 0, 2, 0, -1, 0, 1, 0, -1, 0, 1, 0, 0, 0]
+		}]
+    }, {
+        "offset": {
+            "x": -17,
+            "y": -46.6,
+            "z": 0.4
+        },
+        "sheet": "gloss",
+        "SUB": [{
+			"name": "appear"
+		}, {
+			"repeat": true,
+			"name": "idle"
+		}, {
+			"repeat": true,
+			"name": "aim"
+		}, {
+			"name": "break"
+		}]
+    }]
+}

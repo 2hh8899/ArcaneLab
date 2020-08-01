@@ -433,6 +433,13 @@ ig.module("game.feature.puzzle.entities.laser-turret")
 				3: "Shock",
 				4: "Wave"
 			},
+			LEC = {
+				0: "NEUTRAL",
+				1: "HEAT",
+				2: "COLD",
+				3: "SHOCK",
+				4: "WAVE"
+			},
 			EL = {
 				"Neutral": 0,
 				"Heat": 1,
@@ -590,6 +597,7 @@ ig.module("game.feature.puzzle.entities.laser-turret")
 				this.coll.bounciness = 1
 			},
 			destroy: function() {
+				this.trailEntities.push(this.trailCurrent);
 				for(var delT = this.trailEntities, delA = delT.length; delA--;){
 					delT[delA].destroy();
 				}
@@ -673,6 +681,7 @@ ig.module("game.feature.puzzle.entities.laser-turret")
 							}
 							if(a.blockElement!=0){
 								this.element = LE[a.blockElement];
+								this.attackInfo.element = a.blockElement;
 							}
 						}
 						if(fff && fff.collided && !this.phaseMode && this.isAlignCenter(a)) {
@@ -747,7 +756,19 @@ ig.module("game.feature.puzzle.entities.laser-turret")
 			shoot: function(a) {
 				this.coll.vel.x = a.x;
 				this.coll.vel.y = a.y;
-				Vec2.length(this.coll.vel, 1500)
+				Vec2.length(this.coll.vel, 1500);
+				this.attackInfo = new sc.AttackInfo(this.combatant, {
+					type: "MASSIVE",
+					damageFactor: 1,
+					fly: "MASSIVE+",
+					element: "NEUTRAL",
+					status: 0,
+					guardable: "NEVER",
+					hitInvincible: true,
+					party: "OTHER",
+					spFactor: 0,
+					hints: ["LASER"]
+				})
 			},
 			setLaserTrail: function() {
 				this.trailCurrent.setPos(this.coll.pos.x, this.coll.pos.y, this.coll.pos.z);
@@ -801,30 +822,22 @@ ig.module("game.feature.puzzle.entities.laser-turret")
 			},
 			update: function() {
 				if(this.targetEnt){
-					var g = this.coll.pos, 
-					h = this.targetEnt.coll.pos;
-					if(g.z == h.z){
-						for(var a = ig.game.entities, c = a.length; c--;) {
-							var dr = this.distanceLineToPoint(g, h, a[c].coll.pos);
-							if(a[c] instanceof ig.ENTITY.Combatant && Vec2.distance(a[c].coll.pos, dr) < 8 && Math.abs(a[c].coll.pos.z-g.z) < 16){
-								sc.combat.showHitEffect(a[c], a[c].getAlignedPos(ig.ENTITY_ALIGN.CENTER), sc.ATTACK_TYPE.HEAVY, EL[this.element], false, false, true);
-								a[c].cancelAction();
-								var tpos = Vec2.create(a[c].coll.pos),
-									knd = Vec2.normalize(Vec2.sub(tpos, dr)),
-									e = a[c].hasStun() ? "LIGHT" : "MEDIUM",
-									e = a[c].doDamageMovement(knd, e, false, false);
-								a[c].coll.vel.z = 100;
-								a[c].damageTimer = Math.max(a[c].damageTimer, e)
-							}
+					var g = Arcane.getCenter(this), 
+					h = Arcane.getCenter(this.targetEnt);
+					for(var a = ig.game.entities, c = a.length; c--;) {
+						var dr = Arcane.posLineToPoint(g, h, Arcane.getCenter(a[c]));
+						if(a[c] instanceof ig.ENTITY.Combatant && Arcane.getEntityInPos(a[c], dr, 4)){
+							sc.combat.showHitEffect(a[c], a[c].getAlignedPos(ig.ENTITY_ALIGN.CENTER), sc.ATTACK_TYPE.HEAVY, EL[this.element], false, false, true);
+							a[c].cancelAction();
+							var tpos = Vec3.create(Arcane.getCenter(a[c])),
+								knd = Vec3.normalize(Vec3.sub(tpos, dr)),
+								e = a[c].hasStun() ? "LIGHT" : "MEDIUM",
+								e = a[c].doDamageMovement(knd, e, false, false);
+							a[c].coll.vel.z = 100;
+							a[c].damageTimer = Math.max(a[c].damageTimer, e)
 						}
 					}
 				}
-			},
-			distanceLineToPoint: function(a, b, c){
-				var	f = (((c.x - a.x) * (b.x - a.x) + (c.y - a.y) * (b.y - a.y)) / Vec2.squareDistance(a, b)).limit(0, 1);
-				i.x = a.x + f * (b.x - a.x);
-				i.y = a.y + f * (b.y - a.y);
-				return Vec2.createC(i.x, i.y);
 			},
 			destroy: function() {
 				this.kill()

@@ -68,7 +68,7 @@
             "initRandom": 0,
             "resetRandom": 0.1,
             "noStateReset": false,
-            "hpBreakFactor": [0.4, 1, 1],
+            "hpBreakFactor": [0.4, 1],
             "noAssist": true,
             "type": "TIME"
         },

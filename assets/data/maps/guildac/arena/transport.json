@@ -221,10 +221,6 @@
                 "varName": "tmp.barrierUp",
                 "value": true
             }, {
-                "ignoreSlowDown": false,
-                "type": "WAIT",
-                "time": 0.5
-            }, {
                 "changeType": "set",
                 "type": "CHANGE_VAR_BOOL",
                 "varName": "tmp.bossAppears",

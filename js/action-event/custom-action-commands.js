@@ -1,3 +1,34 @@
+(function() {
+	var l = {};
+	window.Arcane = l;
+	l.getCenter = function(a) {
+		var sz = Vec3.create(a.coll.size),
+			ps = Vec3.create(a.coll.pos);
+		Vec3.mulC(sz,0.5);
+		return Vec3.add(sz, ps)
+	},
+	l.getEntityInPos = function(p, e, s) {
+		var pd = p.coll.padding,
+			sz = p.coll.size,
+			ps = p.coll.pos;
+		if(ps.x-pd.x-s <= e.x && ps.x+pd.x+sz.x+s >= e.x && ps.y-pd.y-s <= e.y && ps.y+pd.y+sz.y+s >= e.y && ps.z-s <= e.z && ps.z+sz.z+s >= e.z) {
+			return true
+		}else{
+			return false
+		}
+	},
+	l.posLineToPoint = function(a, b, c){
+		var	f = (((c.x - a.x) * (b.x - a.x) + (c.y - a.y) * (b.y - a.y) + (c.z - a.z) * (b.z - a.z)) / l.squareDistance(a, b)).limit(0, 1);
+		return Vec3.createC(a.x + f * (b.x - a.x), a.y + f * (b.y - a.y), a.z + f * (b.z - a.z));
+	},
+	l.squareDistance = function(a, b) {
+		var c = a.x - b.x || 0,
+			d = a.y - b.y || 0,
+			e = a.z - b.z || 0;
+		return c * c + d * d + e * e
+	};
+})();
+
 ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("impact.feature.base.action-steps").defines(function() {
     ig.ACTION_STEP.GIVE_ITEM = ig.EVENT_STEP.GIVE_ITEM;
     ig.ACTION_STEP.GIVE_MONEY = ig.EVENT_STEP.ADD_MONEY;
@@ -82,11 +113,11 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
             }
         }
     });
-    ig.ACTION_STEP.ROTATE_TO_TARGET_PREDICT = ig.ActionStepBase.extend({
-        speed: 0,
+    ig.ACTION_STEP.TELEPORT_TO_TARGET_PREDICT = ig.ActionStepBase.extend({
+        projectileSpeed: 0,
         _wm: new ig.Config({
             attributes: {
-                speed: {
+                projectileSpeed: {
                     _type: "Number",
                     _info: "Test.",
                     _default: 0
@@ -94,16 +125,35 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
             }
         }),
         init: function(a) {
-            this.speed = a.speed / 200;
+            this.projectileSpeed = a.projectileSpeed;
+        },
+        run: function(a) {
+            var b = a.getTarget();
+            if (b) {
+				var c = b.getCenter(),
+					d = a.getCenter(),
+					e = Vec2.distance(c, d) / this.projectileSpeed;
+				Vec2.addMulF(c, b.coll.vel, e);
+				a.setPos(c.x, c.y, b.coll.z)
+            }
+            return true
+        }
+    });
+    ig.ACTION_STEP.TELEPORT_TO_TARGET = ig.ActionStepBase.extend({
+        _wm: new ig.Config({
+            attributes: {
+            }
+        }),
+        init: function(a) {
         },
         run: function(a) {
             var b = a.getTarget();
             var c = Vec2.create();
             if (b) {
-                c = Vec2.mulC(Vec2.mulC(b.coll.accelDir, b.coll.accelSpeed), a.distanceTo(b) / this.speed);
-                b = Vec2.sub(b.getCenter(), a.getCenter());
-                b = Vec2.add(b, c);
-                Vec2.assign(a.face, b)
+                c = Vec2.add(b.getCenter(),  c);
+				c.x = c.x - b.coll.size.x / 2;
+				c.y = c.y - b.coll.size.y / 2;
+				a.setPos(c.x, c.y, b.coll.z)
             }
             return true
         }
@@ -202,7 +252,26 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
             }
             return true
         }
-    })
+    });
+	ig.ACTION_STEP.SET_PROXY_PARTY_PLAYER = ig.ActionStepBase.extend({
+		_wm: new ig.Config({
+			attributes: {}
+		}),
+		run: function(a) {
+			a.party = 1;
+			a.combatant = ig.game.playerEntity;
+			return true
+		}
+	});
+	ig.ACTION_STEP.SET_TEMP_TARGET_PROXY_SRC_SRC = ig.ActionStepBase.extend({
+		_wm: new ig.Config({
+			attributes: {}
+		}),
+		init: function(a) {},
+		start: function(a) {
+			if(a instanceof sc.BasicCombatant) a.tmpTarget = a.sourceEntity.sourceEntity
+		}
+	});
 });
 ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("impact.feature.base.action-steps").defines(function() {
     var a = Vec2.create(),
@@ -499,7 +568,9 @@ ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("imp
 		}
 	});
 		var f = Vec2.create(),
-			g = Vec2.create();
+			g = Vec2.create(),
+			resp = Vec2.create(),
+			tc = {};
 	ig.ACTION_STEP.MOVE_TO_ENTITY_DISTANCE_LOCK_XY =
 		ig.ActionStepBase.extend({
 			entity: 0,
@@ -563,6 +634,53 @@ ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("imp
 				if(this.lockY) a.coll.accelDir.y = 0;
 				(b = this.min <= d && d <= this.max) && Vec2.assignC(a.coll.accelDir, 0, 0);
 				return a.stepTimer <= 0 || b
+			}
+		});
+	ig.ACTION_STEP.TELEPORT_TO_PROXY_OWNER_FACE_TRACE =
+		ig.ActionStepBase.extend({
+			distance: 0,
+			maxTime: 0,
+			_wm: new ig.Config({
+				attributes: {
+					distance: {
+						_type: "Number",
+						_info: "Trace distance"
+					},
+					maxTime: {
+						_type: "Number",
+						_info: "Maximum time to move"
+					},
+                    collType: {
+                        _type: "String",
+                        _info: "Trace Collision Types of Wall. BLOCK - Blocks all, PBLOCK - Blocks only projectiles, NPBLOCK - Blocks only non projectiles",
+                        _select: sc.WALL_COLL_TYPES
+                    }
+				}
+			}),
+			init: function(a) {
+				this.distance = a.distance || 2048;
+                this.traceCollType = ig.COLLTYPE[a.collType || "IGNORE"];
+				this.maxTime = a.maxTime
+			},
+			start: function(a) {
+				a.stepTimer = a.stepTimer + this.maxTime
+			},
+			run: function(a) {
+				var b = a.getCombatantRoot();
+				if(!b) return true;
+				var c = Vec2.create(),
+				z = [],
+				tgp = Vec2.create(),
+				tr = ig.game.physics.initTraceResult(tc);
+				Vec2.assign(c, b.face);
+                Vec2.length(c, this.distance);
+				ig.game.trace(tr, b.coll.pos.x + b.coll.size.x / 2, b.coll.pos.y + b.coll.size.y / 2, b.coll.pos.z, c.x, c.y, 0, 0, b.coll.size.z, this.traceCollType, null, z);
+                tgp = Vec2.add(tgp, b.getCenter());
+				Vec2.mulF(c, tr.dist);
+                Vec2.add(tgp,  c);
+				Vec2.assign(resp, tgp);
+				a.setPos(resp.x, resp.y, a.coll.z)
+				return a.stepTimer <= 0
 			}
 		})
 });

@@ -108,6 +108,7 @@
     "states": {
         "IDLE": {
             "enabledReactions": [],
+            "hitIgnore": true,
             "aggression": "PEACEFUL",
             "walkAnims": "hidden",
             "choices": [{

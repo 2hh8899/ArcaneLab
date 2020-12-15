@@ -225,7 +225,7 @@
                 "width": 19,
                 "height": 19
             },
-            "guiSprites": true,
+            "guiSprites": false,
             "renderMode": "lighter",
             "time": 0.02,
             "flipY": false,
@@ -241,7 +241,7 @@
                 "width": 19,
                 "height": 19
             },
-            "guiSprites": true,
+            "guiSprites": false,
             "renderMode": "lighter",
             "time": 0.02,
             "flipY": false,
@@ -257,7 +257,7 @@
                 "width": 19,
                 "height": 19
             },
-            "guiSprites": true,
+            "guiSprites": false,
             "renderMode": "lighter",
             "time": 0.02,
             "flipY": false,
@@ -273,7 +273,7 @@
                 "width": 19,
                 "height": 19
             },
-            "guiSprites": true,
+            "guiSprites": false,
             "renderMode": "lighter",
             "time": 0.02,
             "flipY": false,
@@ -289,7 +289,7 @@
                 "width": 19,
                 "height": 19
             },
-            "guiSprites": true,
+            "guiSprites": false,
             "renderMode": "lighter",
             "time": 0.02,
             "flipY": false,
@@ -1069,11 +1069,11 @@
             "anim": "LASEREND_NEUTRAL",
             "type": "PLAY_ANIM"
         }, {
-            "patternYCount": 1,
+            "patternYCount": 5,
             "frameTime": 0,
             "animFrames": [0],
             "shiftSpeed": 500,
-            "guiSprites": true,
+            "guiSprites": false,
             "renderMode": "lighter",
             "moveWithTarget": 1,
             "particleDuration": -1,
@@ -1114,11 +1114,11 @@
             "anim": "LASEREND_HEAT",
             "type": "PLAY_ANIM"
         }, {
-            "patternYCount": 1,
+            "patternYCount": 5,
             "frameTime": 0,
             "animFrames": [0],
             "shiftSpeed": 500,
-            "guiSprites": true,
+            "guiSprites": false,
             "renderMode": "lighter",
             "moveWithTarget": 1,
             "particleDuration": -1,
@@ -1159,11 +1159,11 @@
             "anim": "LASEREND_COLD",
             "type": "PLAY_ANIM"
         }, {
-            "patternYCount": 1,
+            "patternYCount": 5,
             "frameTime": 0,
             "animFrames": [0],
             "shiftSpeed": 500,
-            "guiSprites": true,
+            "guiSprites": false,
             "renderMode": "lighter",
             "moveWithTarget": 1,
             "particleDuration": -1,
@@ -1204,11 +1204,11 @@
             "anim": "LASEREND_SHOCK",
             "type": "PLAY_ANIM"
         }, {
-            "patternYCount": 1,
+            "patternYCount": 5,
             "frameTime": 0,
             "animFrames": [0],
             "shiftSpeed": 500,
-            "guiSprites": true,
+            "guiSprites": false,
             "renderMode": "lighter",
             "moveWithTarget": 1,
             "particleDuration": -1,
@@ -1249,11 +1249,11 @@
             "anim": "LASEREND_WAVE",
             "type": "PLAY_ANIM"
         }, {
-            "patternYCount": 1,
+            "patternYCount": 5,
             "frameTime": 0,
             "animFrames": [0],
             "shiftSpeed": 500,
-            "guiSprites": true,
+            "guiSprites": false,
             "renderMode": "lighter",
             "moveWithTarget": 1,
             "particleDuration": -1,

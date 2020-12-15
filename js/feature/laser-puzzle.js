@@ -415,7 +415,682 @@ ig.module("game.feature.puzzle.entities.sliding-block-laser")
 			}
 		})
 	});
-
+ig.module("game.feature.puzzle.entities.laser-cannon-tower")
+    .requires("impact.base.entity", "impact.feature.effect.effect-sheet")
+    .defines(function() {
+        function b(a, b) {
+            return b.distance - a.distance
+        }
+        var a = Vec3.create(),
+			b = Vec2.create(),
+			EL = {
+				"Neutral": 0,
+				"Heat": 1,
+				"Cold": 2,
+				"Shock":3,
+				"Wave": 4
+			};
+        ig.ENTITY.ChargeCannonTower = ig.AnimatedEntity.extend({
+            chargeTimer: 0,
+            chargeHitExceptions: null,
+            charged: false,
+			charging: false,
+			element: 0,
+            effects: {
+                sheet: new ig.EffectSheet("puzzle.charge-cannon-tower"),
+                handle: null
+            },
+            effectAlign: null,
+            _wm: new ig.Config({
+                spawnable: true,
+                attributes: {
+                    varOnCharge: {
+                        _type: "VarName",
+                        _info: "Var set to true when tesla coil begins charging",
+                        _optional: true
+                    },
+                    varOnDischarge: {
+                        _type: "VarName",
+                        _info: "Var set to true when tesla coil discharges",
+                        _optional: true
+                    },
+                    keepOnWhenLaserOff: {
+                        _type: "Boolean",
+                        _info: "keep on when laser is offline",
+                        _optional: true
+                    },
+                    align: {
+                        _type: "String",
+                        _info: "Alignment of effect relative to target",
+                        _select: ig.ENTITY_ALIGN,
+                        _optional: true
+                    },
+                    spawnCondition: {
+                        _type: "VarCondition",
+                        _info: "Condition for prop to appear",
+                        _popup: true
+                    }
+                }
+            }),
+            init: function(a, b, e, f) {
+                this.parent(a, b, e, f);
+                this.coll.type = ig.COLLTYPE.VIRTUAL;
+                this.coll.weight = -1;
+                this.coll.zGravityFactor = 1E3;
+				this.coll.setSize(16, 16, 62);
+				this.initAnimations({
+					shapeType: "Y_FLAT",
+					SUB: [{
+						dirs: 1,
+						flipX: [0],
+						tileOffsets: [0],
+						sheet: {
+							src: "media/entity/objects/laser-puzzle.png",
+							width: 41,
+							height: 78,
+							offX: 192,
+							offY: 130,
+							xCount: 6
+						},
+						wallY: 1,
+						SUB: [{
+							time: 0.1,
+							frames: [0],
+							repeat: true,
+							SUB: [{
+								name: "off"
+							}, {
+								name: "charge0"
+							}, {
+								name: "charge1"
+							}, {
+								name: "charge2"
+							}, {
+								name: "charge3"
+							}, {
+								name: "charge4"
+							}, {
+								repeat: false,
+								name: "flash0"
+							}, {
+								repeat: false,
+								name: "flash1"
+							}, {
+								repeat: false,
+								name: "flash2"
+							}, {
+								repeat: false,
+								name: "flash3"
+							}, {
+								repeat: false,
+								name: "flash4"
+							}]
+						}, {
+							time: 0.1,
+							repeat: true,
+							renderMode: "lighter",
+							SUB: [{
+								name: "charge0",
+								frames: [1]
+								}, {
+								name: "charge1",
+								frames: [2]
+								}, {
+								name: "charge2",
+								frames: [3]
+								}, {
+								name: "charge3",
+								frames: [4]
+								}, {
+								name: "charge4",
+								frames: [5]
+								}]
+						}, {
+							time: 0.05,
+							framesAlpha: [1, 1, 1, 0.9, 0.8, 0.6, 0.4, 0.2],
+							repeat: false,
+							renderMode: "lighter",
+							SUB: [{
+								name: "flash0",
+								frames: [1, 1, 1, 1, 1, 1, 1, 1]
+							}, {
+								name: "flash1",
+								frames: [2, 2, 2, 2, 2, 2, 2, 2]
+							}, {
+								name: "flash2",
+								frames: [3, 3, 3, 3, 3, 3, 3, 3]
+							}, {
+								name: "flash3",
+								frames: [4, 4, 4, 4, 4, 4, 4, 4]
+							}, {
+								name: "flash4",
+								frames: [5, 5, 5, 5, 5, 5, 5, 5]
+							}]
+						}]
+					}]
+				});
+				this.setCurrentAnim("off")
+                this.varOnCharge =
+                    f.varOnCharge || null;
+                this.varOnDischarge = f.varOnDischarge || null;
+				this.keepOnWhenLaserOff = f.keepOnWhenLaserOff || false;
+                this.effectAlign = f.align || null
+            },
+            show: function(a) {
+                this.parent(a);
+                if(!a) {
+                    this.animState.alpha = 0;
+                    ig.game.effects.teleport.spawnOnTarget("showFast", this, {})
+                }
+            },
+            onHideRequest: function() {
+                ig.game.effects.teleport.spawnOnTarget("hideDefault", this, {
+                    callback: this
+                })
+            },
+            onEffectEvent: function(a) {
+                a.isDone() && this.hide()
+            },
+            onActionEndDetach: function() {
+                this.kill()
+            },
+            extendCharge: function(a) {
+                this.chargeHitExceptions = a;
+                this.chargeTimer = 0.1
+            },
+            chargeComplete: function(d) {
+				this.charged = true;
+                this.varOnDischarge && ig.vars.set(this.varOnDischarge, true);
+				this.effects.handle = this.effects.sheet.spawnOnTarget("charged", this, {
+					duration: -1,
+					align: ig.ENTITY_ALIGN.CENTER
+				});
+                this.sprites.length > 1 && this.sprites[1].setGfxCut(0, 0)
+            },
+            update: function() {
+                if(this.chargeTimer) {
+                    this.chargeTimer = this.chargeTimer - ig.system.tick;
+                    if(this.chargeTimer <= 0) {
+                        this.chargeTimer = 0;
+                        if(this.effects.handle) {
+                            this.effects.handle.stop();
+                            this.effects.handle = null
+                        }
+                        this.chargeComplete(this.chargeHitExceptions || [this]);
+                        this.chargeHitExceptions = null
+                    } else this.sprites.length >= 2 && this.sprites[1].setGfxCut(48 - 7 * (1 - this.chargeTimer), 0)
+                }
+				if(!this.keepOnWhenLaserOff && this.charged && !ig.vars.get("map.laserPuzzleShoot")){
+					this.setCurrentAnim("flash" + this.element, true, "off", true);
+					this.effects.sheet.spawnOnTarget("discharge" + this.element, this, {
+						align: ig.ENTITY_ALIGN.BOTTOM
+					});
+					if(this.effects.handle) {
+						this.effects.handle.stop();
+						this.effects.handle = null
+					}
+					this.charging = this.charged = false
+				}
+                this.parent()
+            },
+			charge: function(a, b) {
+				if(!this.charged && !this.charging) {
+					this.varOnCharge && ig.vars.set(this.varOnCharge, true);
+					this.chargeTimer = 1;
+					this.charging = true;
+					this.element = a;
+					this.setCurrentAnim("charge" + this.element);
+					this.effects.handle = this.effects.sheet.spawnOnTarget("charging" + this.element, this, {
+						duration: -1,
+						align: ig.ENTITY_ALIGN.CENTER
+					});
+					this.effects.sheet.spawnOnTarget("chargeStart" + this.element, this, {
+						align: ig.ENTITY_ALIGN.CENTER
+					});
+					sc.combat.showHitEffect(this, b, sc.ATTACK_TYPE.NONE, a, false, false, true);
+					return true
+				}
+			},
+            ballHit: function(a) {
+                var b = a.getHitCenter(this),
+                    e = a.getElement();
+				if(a instanceof sc.LaserPuzzleEntity){
+						return false;
+				}else if(!this.charged && !this.charging && a.attackInfo) {
+					if(a.attackInfo && a.attackInfo.hasHint("LASER")) {
+						this.charge(e, b);
+					}else{
+						return false;
+					}
+				}else if(!this.chargeTimer && a.attackInfo && a.attackInfo.hasHint("CHARGED") && a.getCombatantRoot() && this.charged) {
+					if(e == this.element) {
+						if(this.effects.handle) {
+							this.effects.handle.stop();
+							this.effects.handle = null
+						}
+						this.setCurrentAnim("flash" + this.element, true, "off", true);
+						this.effects.sheet.spawnOnTarget("discharge" + this.element, this, {
+							align: ig.ENTITY_ALIGN.TOP
+						});
+						this.charging = this.charged = false;
+						this.towerAttack(a.getHitVel(this, b), a.getCombatantRoot());
+						ig.vars.set("map.laserPuzzleShoot", false)
+					}else{
+						return false;
+					}
+                }
+                sc.combat.showHitEffect(this, b, sc.ATTACK_TYPE.NONE, a.getElement(), false, false, true);
+                return true
+            },
+			towerAttack: function(a, e) {
+                switch (this.element) {
+					case 0: 
+						break;
+					case 1: 
+						ig.game.spawnEntity(sc.TowerHeatBall, this.getCenter().x, this.getCenter().y, this.coll.pos.z + 48, {combatant: e, towerEnt: this, moveDir: a});
+						break;
+					case 2: 
+						ig.game.spawnEntity(sc.TowerColdGas, this.getCenter().x, this.getCenter().y, this.coll.pos.z + 48, {combatant: e, towerEnt: this, moveDir: a});
+						break;
+					case 3: 
+						this.effects.sheet.spawnOnTarget("attackShock", this, {
+							align: ig.ENTITY_ALIGN.BOTTOM
+						});
+						var b = this.getAlignedPos(ig.ENTITY_ALIGN.BOTTOM, a),
+							b = new sc.CircleHitForce(e, {
+								attack: {
+									type: "MASSIVE",
+									element: "SHOCK",
+									damageFactor: 10,
+									status: 5,
+									spFactor: 0,
+									hints: ["GROUND_SHOCK", "LASERTOWER"]
+								},
+								pos: Vec3.createC(b.x, b.y, b.z - 16),
+								radius: 64,
+								zHeight: 32,
+								duration: 0.2,
+								expandRadius: 96,
+								alwaysFull: true,
+								party: e.party,
+								centralAngle: 1
+							});
+						sc.combat.addCombatForce(b);
+						break;
+					case 4: 
+						ig.game.spawnEntity(sc.TowerWaveBeam, this.getCenter().x, this.getCenter().y, this.coll.pos.z + 48, {combatant: e, towerEnt: this, moveDir: a});
+						break;
+				}
+			}
+        });
+        sc.TowerHeatBall = ig.AnimatedEntity.extend({
+            combatant: null,
+			towerEnt: null,
+            effects: {
+                sheet: new ig.EffectSheet("puzzle.charge-cannon-tower")
+            },
+            init: function(a, b, e, f) {
+                this.parent(a, b, e, f);
+                this.coll.type = ig.COLLTYPE.PROJECTILE;
+                this.coll.zGravityFactor = 0.8;
+                this.coll.setSize(48, 48, 48);
+                this.coll.setPadding(4, 4);
+                this.coll.friction.air = 0;
+                this.coll.shadow.size = 40;
+                this.coll.setPos(a - this.coll.size.x / 2, b - this.coll.size.y / 2, e);
+                this.coll.weight = 2E5;
+                this.initAnimations({
+					name:"default",
+					sheet:{  
+						src:"media/entity/effects/lighter-particle.png",
+						offX:0,
+						offY:48,
+						width:48,
+						height:48
+					},
+					renderMode: "lighter",
+					time:0.2,
+					repeat:true,
+					frames:[0]
+				});
+                this.setCurrentAnim("default");
+                this.coll.vel.z = 200;
+				this.towerEnt = f.towerEnt || null;
+                this.combatant = f.combatant || null;
+				this.shoot(f.moveDir)
+            },
+			shoot: function(a) {
+				this.coll.vel.x = a.x;
+				this.coll.vel.y = a.y;
+				Vec2.length(this.coll.vel, 250)
+			},
+			explosion: function() {
+                if(!this._killed) {
+					var ps = this.getAlignedPos(ig.ENTITY_ALIGN.BOTTOM);
+					this.effects.sheet.spawnFixed("explosionFire", ps.x, ps.y, ps.z);
+						b = new sc.CircleHitForce(this.combatant, {
+							attack: {
+								type: "MASSIVE",
+								element: "HEAT",
+								damageFactor: 10,
+								status: 5,
+								spFactor: 0,
+								hints: ["BOMB", "LASERTOWER"]
+							},
+							pos: Vec3.createC(ps.x, ps.y, ps.z-48),
+							radius: 44,
+							zHeight: 96,
+							duration: 0.2,
+							expandRadius: 96,
+							alwaysFull: true,
+							party: this.combatant.party,
+							centralAngle: 1
+						});
+					sc.combat.addCombatForce(b);
+					this.kill()
+				}
+			},
+            handleMovementTrace: function(a) {
+				if(!this._killed && ((a.collided && a!=this.towerEnt) || (this.coll.pos.z + 96 < this.towerEnt.coll.pos.z))) {
+					this.explosion()
+				}
+            },
+            ballHit: function(a) {
+                return false
+            },
+            onTouchGround: function(b) {
+				this.explosion()
+            },
+            collideWith: function(a) {
+                a.damage && a.party != this.combatant.party ? this.explosion() : a instanceof ig.ENTITY.RegenDestruct && a.ballHit(this) && this.explosion()
+            },
+            getHitCenter: function(a, b) {
+                return this.getOverlapCenterCoords(a, b)
+            },
+            getHitVel: function(a, b) {
+                var e = b || {};
+                Vec2.assign(e, this.coll.vel);
+                return e
+            },
+            getElement: function() {
+                return sc.ELEMENT.HEAT
+            },
+            getCombatant: function() {
+                return this.combatant
+            },
+            getCombatantRoot: function() {
+                return this.combatant.getCombatantRoot()
+            }
+        });
+        sc.TowerColdGas = ig.AnimatedEntity.extend({
+            combatant: null,
+			towerEnt: null,
+            effects: {
+                sheet: new ig.EffectSheet("puzzle.charge-cannon-tower")
+            },
+            init: function(a, b, e, f) {
+                this.parent(a, b, e, f);
+                this.coll.type = ig.COLLTYPE.PROJECTILE;
+                this.coll.zGravityFactor = 0.2;
+                this.coll.setSize(48, 48, 48);
+                this.coll.setPadding(4, 4);
+                this.coll.friction.air = 0.3;
+                this.coll.shadow.size = 40;
+                this.coll.setPos(a - this.coll.size.x / 2, b - this.coll.size.y / 2, e);
+                this.coll.weight = 2E5;
+                this.initAnimations({
+					name:"default",
+					sheet:{  
+						src:"media/entity/effects/lighter-particle.png",
+						offX:0,
+						offY:96,
+						width:48,
+						height:48
+					},
+					renderMode: "lighter",
+					time:0.2,
+					repeat:true,
+					frames:[0]
+				});
+                this.setCurrentAnim("default");
+				this.timer = 0.45;
+				this.towerEnt = f.towerEnt || null;
+                this.combatant = f.combatant || null;
+				this.shoot(f.moveDir)
+            },
+			shoot: function(a) {
+				this.coll.vel.x = a.x;
+				this.coll.vel.y = a.y;
+				Vec2.length(this.coll.vel, 200)
+			},
+			explosion: function() {
+                if(!this._killed) {
+					var ps = this.getAlignedPos(ig.ENTITY_ALIGN.CENTER);
+                    this.effects.sheet.spawnFixed("explosionIce", ps.x, ps.y, ps.z, null, {
+                        angle: Vec2.clockangle(this.coll.vel)
+                    });
+						b = new sc.CircleHitForce(this.combatant, {
+							attack: {
+								type: "MASSIVE",
+								element: "COLD",
+								damageFactor: 10,
+								status: 5,
+								spFactor: 0,
+								hints: ["STEAM", "LASERTOWER"]
+							},
+							pos: Vec3.createC(ps.x, ps.y, ps.z-16),
+							radius: 8,
+							zHeight: 32,
+							duration: 0.3,
+							expandRadius: 138,
+							alwaysFull: true,
+							party: this.combatant.party,
+                            centralAngle: 0.3,
+                            dir: ig.copy(this.coll.vel)
+						});
+					sc.combat.addCombatForce(b);
+					this.kill()
+				}
+			},
+            handleMovementTrace: function(a) {
+				if(!this._killed && a.collided && a!=this.towerEnt) {
+					this.explosion()
+				}
+            },
+			update: function() {
+                    if(this.timer >
+                        0) {
+                        this.timer = this.timer - ig.system.tick;
+                        if(this.timer <= 0) {
+                            this.timer = 0;
+                            this.explosion()
+                        }
+                    }
+					this.parent()
+			},
+            ballHit: function(a) {
+                return false
+            },
+            onTouchGround: function(b) {
+				this.explosion()
+            },
+            collideWith: function(a) {
+                a.damage && a.party != this.combatant.party ? this.explosion() : a instanceof ig.ENTITY.RegenDestruct && a.ballHit(this) && this.explosion()
+            },
+            getHitCenter: function(a, b) {
+                return this.getOverlapCenterCoords(a, b)
+            },
+            getHitVel: function(a, b) {
+                var e = b || {};
+                Vec2.assign(e, this.coll.vel);
+                return e
+            },
+            getElement: function() {
+                return sc.ELEMENT.COLD
+            },
+            getCombatant: function() {
+                return this.combatant
+            },
+            getCombatantRoot: function() {
+                return this.combatant.getCombatantRoot()
+            }
+        });
+        sc.TowerWaveBeam = ig.AnimatedEntity.extend({
+            combatant: null,
+			towerEnt: null,
+			tc: {},
+			laserStart: null,
+            effects: {
+                sheet: new ig.EffectSheet("puzzle.charge-cannon-tower")
+            },
+            init: function(a, b, e, f) {
+                this.parent(a, b, e, f);
+                this.coll.type = ig.COLLTYPE.PROJECTILE;
+                this.coll.zGravityFactor = 0;
+                this.coll.setSize(48, 48, 48);
+                this.coll.setPadding(4, 4);
+                this.coll.friction.air = 0;
+                this.coll.shadow.size = 0;
+                this.coll.setPos(a - this.coll.size.x / 2, b - this.coll.size.y / 2, e);
+                this.coll.weight = 2E5;
+				this.timer = 1;
+				this.towerEnt = f.towerEnt || null;
+                this.combatant = f.combatant || null;
+                this.party = f.combatant.party || null;
+				this.shoot(f.moveDir)
+            },
+			shoot: function(a) {
+				this.laserStart = ig.game.spawnEntity(sc.TowerWaveBeamSrc, this.getCenter().x, this.getCenter().y, this.coll.pos.z, {combatant: this.combatant});
+				this.coll.vel.x = a.x;
+				this.coll.vel.y = a.y;
+				var c = Vec2.create(),
+				z = [],
+				tgp = Vec2.create(),
+				resp = Vec2.create(),
+				tr = ig.game.physics.initTraceResult(this.tc),
+				boffset = {
+					x: 0,
+					y: 0,
+					z: 0
+				},
+				boffset2 = {
+					x: 0,
+					y: 0,
+					z: 0
+				};
+				Vec2.assign(c, ig.copy(this.coll.vel));
+                Vec2.length(c, 2000);
+				ig.game.trace(tr, this.coll.pos.x + this.coll.size.x / 2, this.coll.pos.y + this.coll.size.y / 2, this.coll.pos.z, c.x, c.y, 0, 0, this.coll.size.z, ig.COLLTYPE.PROJECTILE, null, z);
+                tgp = Vec2.add(tgp, this.coll.pos);
+				Vec2.mulF(c, tr.dist);
+                Vec2.add(tgp,  c);
+				Vec2.assign(resp, tgp);
+				this.setPos(resp.x, resp.y, this.coll.z);
+                Vec3.assignC(this.coll.vel, 0, 0, 0);
+                Vec3.assignC(this.coll.accelDir, 0, 0, 0);
+				this.effects.sheet.spawnOnTarget("waveLaser", this.laserStart, {
+					align: ig.ENTITY_ALIGN.BOTTOM,
+					target2: this,
+					target2Align: ig.ENTITY_ALIGN.BOTTOM,
+					angle: Vec2.clockangle(a),
+					offset: Vec3.length(Vec3.createC(a.x, a.y, 0),56),
+					target2Offset: Vec3.length(Vec3.createC(-a.x, -a.y, 0),67.5),
+					duration: -1
+				});
+				this.effects.sheet.spawnOnTarget("waveLaserEnd", this, {
+					align: ig.ENTITY_ALIGN.BOTTOM,
+					angle: Vec2.clockangle(a),
+					offset: Vec3.length(Vec3.createC(-a.x, -a.y, 0),30),
+					duration: -1
+				});
+				this.effects.sheet.spawnOnTarget("waveLaserEnd2", this, {
+					align: ig.ENTITY_ALIGN.BOTTOM,
+					angle: Vec2.clockangle(a),
+					duration: -1
+				});
+				var b = new sc.BeamHitForce(this.combatant, this, this.laserStart, boffset, boffset2, {
+						attack: {
+							type: "MASSIVE",
+							element: "WAVE",
+							damageFactor: 10,
+							status: 5,
+							spFactor: 0,
+							hints: ["COMPRESSED", "LASERTOWER"]
+						},
+						width: 32,
+						hitDir: "AWAY",
+						duration: 1,
+						repeat: false,
+						party: this.combatant.party
+					});
+				sc.combat.addCombatForce(b)
+			},
+			update: function() {
+                    if(this.timer >
+                        0) {
+                        this.timer = this.timer - ig.system.tick;
+                        if(this.timer <= 0) {
+                            this.timer = 0;
+                            this.kill()
+                        }
+                    }
+					this.parent()
+			},
+			kill: function(a) {
+				this.laserStart.kill();
+				this.parent(a)
+			},
+            ballHit: function(a) {
+                return false
+            },
+            getHitCenter: function(a, b) {
+                return this.getOverlapCenterCoords(a, b)
+            },
+            getHitVel: function(a, b) {
+                var e = b || {};
+                Vec2.assign(e, this.coll.vel);
+                return e
+            },
+            getElement: function() {
+                return sc.ELEMENT.WAVE
+            },
+            getCombatant: function() {
+                return this.combatant
+            },
+            getCombatantRoot: function() {
+                return this.combatant.getCombatantRoot()
+            }
+        });
+        sc.TowerWaveBeamSrc = ig.AnimatedEntity.extend({
+            combatant: null,
+			party: null,
+            init: function(a, b, e, f) {
+                this.parent(a, b, e, f);
+                this.coll.type = ig.COLLTYPE.PROJECTILE;
+                this.coll.zGravityFactor = 0;
+                this.coll.setSize(48, 48, 48);
+                this.coll.setPadding(4, 4);
+                this.coll.setPos(a - this.coll.size.x / 2, b - this.coll.size.y / 2, e);
+                this.coll.friction.air = 0;
+                this.coll.shadow.size = 0;
+                this.initAnimations({
+					name:"default",
+					sheet:{  
+						src:"media/entity/effects/lighter-particle.png",
+						offX:0,
+						offY:192,
+						width:48,
+						height:48
+					},
+					renderMode: "lighter",
+					time:0.2,
+					repeat:true,
+					frames:[0]
+				});
+                this.coll.weight = 2E5
+            }
+        })
+    });
 ig.module("game.feature.puzzle.entities.laser-turret")
 	.requires("impact.base.entity", "impact.base.actor-entity", "impact.feature.effect.effect-sheet")
 	.defines(function() {
@@ -432,13 +1107,6 @@ ig.module("game.feature.puzzle.entities.laser-turret")
 				2: "Cold",
 				3: "Shock",
 				4: "Wave"
-			},
-			LEC = {
-				0: "NEUTRAL",
-				1: "HEAT",
-				2: "COLD",
-				3: "SHOCK",
-				4: "WAVE"
 			},
 			EL = {
 				"Neutral": 0,
@@ -674,14 +1342,17 @@ ig.module("game.feature.puzzle.entities.laser-turret")
 						}else if(this.element=="Shock"){
 							a.move(Vec2.flip(fbd));
 						}
+					}else if(a instanceof ig.ENTITY.ChargeCannonTower){
+						this.stopEntity.entity = a;
+						Vec2.assign(this.stopEntity.pos, Vec2.sub(this.coll.pos, a.getCenter(d)));
+						a.charge(EL[this.element], Arcane.getCenter(this));
 					}else{
-						if(a instanceof ig.ENTITY.RotateBlockerLaser){
+						if(a instanceof ig.ENTITY.RotateBlockerLaser && fff && fff.collided){
 							if(this.element=="Wave"){
 								this.stillPhase = true;
 							}
 							if(a.blockElement!=0){
 								this.element = LE[a.blockElement];
-								this.attackInfo.element = a.blockElement;
 							}
 						}
 						if(fff && fff.collided && !this.phaseMode && this.isAlignCenter(a)) {
@@ -756,19 +1427,7 @@ ig.module("game.feature.puzzle.entities.laser-turret")
 			shoot: function(a) {
 				this.coll.vel.x = a.x;
 				this.coll.vel.y = a.y;
-				Vec2.length(this.coll.vel, 1500);
-				this.attackInfo = new sc.AttackInfo(this.combatant, {
-					type: "MASSIVE",
-					damageFactor: 1,
-					fly: "MASSIVE+",
-					element: "NEUTRAL",
-					status: 0,
-					guardable: "NEVER",
-					hitInvincible: true,
-					party: "OTHER",
-					spFactor: 0,
-					hints: ["LASER"]
-				})
+				Vec2.length(this.coll.vel, 1500)
 			},
 			setLaserTrail: function() {
 				this.trailCurrent.setPos(this.coll.pos.x, this.coll.pos.y, this.coll.pos.z);

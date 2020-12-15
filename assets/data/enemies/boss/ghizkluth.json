@@ -1567,10 +1567,11 @@
 					"z": 0
 				}
 			}, {
+			    "entity": "PROXY_OWNER",
 				"distance": 20,
 				"maxTime": 1.4,
 				"collType": "IGNORE",
-				"type": "TELEPORT_TO_PROXY_OWNER_FACE_TRACE"
+				"type": "TELEPORT_TO_TRACE"
 			}, {
                 "type": "CLEAR_EFFECTS"
             }],
@@ -1713,10 +1714,11 @@
 				"fadeOut": 0.5,
 				"type": "SET_ZOOM_BLUR"
 			}, {
+			    "entity": "PROXY_OWNER",
 				"distance": 2000,
 				"maxTime": 1.4,
 				"collType": "IGNORE",
-				"type": "TELEPORT_TO_PROXY_OWNER_FACE_TRACE"
+				"type": "TELEPORT_TO_TRACE"
 			}, {
                 "type": "CLEAR_EFFECTS"
             }, {
@@ -1786,10 +1788,11 @@
 					"z": 0
 				}
 			}, {
+			    "entity": "PROXY_OWNER",
 				"distance": 20,
 				"maxTime": 5,
 				"collType": "IGNORE",
-				"type": "TELEPORT_TO_PROXY_OWNER_FACE_TRACE"
+				"type": "TELEPORT_TO_TRACE"
 			}, {
                 "type": "CLEAR_EFFECTS"
             }],
@@ -1953,10 +1956,11 @@
 				"fadeOut": 0.5,
 				"type": "SET_ZOOM_BLUR"
 			}, {
+			    "entity": "PROXY_OWNER",
 				"distance": 2000,
 				"maxTime": 5,
 				"collType": "IGNORE",
-				"type": "TELEPORT_TO_PROXY_OWNER_FACE_TRACE"
+				"type": "TELEPORT_TO_TRACE"
 			}, {
                 "type": "CLEAR_EFFECTS"
             }, {

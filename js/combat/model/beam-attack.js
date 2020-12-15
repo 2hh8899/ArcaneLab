@@ -15,8 +15,28 @@ ig.module("game.feature.combat.laser-combat-action-steps").requires("game.featur
 		attack: null,
 		selectType: false,
 		effect: null,
+		offset: {
+			x: 0,
+			y: 0,
+			z: 0
+		},
+		offset2: {
+			x: 0,
+			y: 0,
+			z: 0
+		},
 		_wm: new ig.Config({
 			attributes: {
+				offset: {
+					_type: "Offset",
+					_info: "Offset relative to entity ground center from where to start trace",
+					_optional: true
+				},
+				offset2: {
+					_type: "Offset",
+					_info: "Offset relative to entity ground center from where to end trace",
+					_optional: true
+				},
 				selectType: {
 					_type: "String",
 					_info: "What entities to be laser end point",
@@ -52,6 +72,8 @@ ig.module("game.feature.combat.laser-combat-action-steps").requires("game.featur
 		}),
 		init: function(a) {
 			this.selectType = n[a.selectType] || n.TARGET;
+			this.offset = a.offset || this.offset;
+			this.offset2 = a.offset2 || this.offset2;
 			this.beamHitSettings = a;
 			if(a.effect) this.effect = new ig.EffectHandle(a.effect)
 		},
@@ -61,7 +83,7 @@ ig.module("game.feature.combat.laser-combat-action-steps").requires("game.featur
 		start: function(a) {
 			var edp = this.selectType(a);
 			if(edp) {
-				var c = new sc.BeamHitForce(a, edp, this.beamHitSettings, this.effect);
+				var c = new sc.BeamHitForce(a, a, edp, this.offset, this.offset2, this.beamHitSettings, this.effect);
 				sc.combat.addCombatForce(c);
 				c.duration > 0 && a.addActionAttached(c)
 			}
@@ -85,27 +107,41 @@ ig.module("game.feature.combat.combat-force.beam-attack").requires("impact.base.
 		duration: 0,
 		timer: 0,
 		party: 0,
+		beamOffset: {
+			x: 0,
+			y: 0,
+			z: 0
+		},
+		beamOffset2: {
+			x: 0,
+			y: 0,
+			z: 0
+		},
 		hitEntities: null,
-		init: function(a, b, c, d) {
+		init: function(a, b, c, bp, cp, d, e) {
 			this.parent(a);
-			this.party = sc.COMBATANT_PARTY[b.party] || this.combatant.party;
-			this.attackInfo = new sc.AttackInfo(this.combatantRoot.params, c.attack);
-			this.hitDir = sc.DIRECT_HIT_DIR[c.hitDir || "AWAY"];
-			this.width = c.width;
-			this.duration = c.duration || 0;
-			this.repeat = c.repeat || false;
+			this.party = sc.COMBATANT_PARTY[a.party] || this.combatant.party;
+			this.attackInfo = new sc.AttackInfo(this.combatantRoot.params, d.attack);
+			this.hitDir = sc.DIRECT_HIT_DIR[d.hitDir || "AWAY"];
+			this.beamOffset = bp;
+			this.beamOffset2 = cp;
+			this.width = d.width;
+			this.duration = d.duration || 0;
+			this.repeat = d.repeat || false;
 			this.timer = this.duration;
-			this.effect = d;
-			this.startPoint = a;
-			this.endPoint = b;
+			this.effect = e;
+			this.startPoint = b;
+			this.endPoint = c;
 			this.hitEntities = []
 		},
 		update: function() {
 			this.timer = this.timer - this.combatant.coll.getTick(true);
 			var a = this.duration ? 1 - (this.timer / this.duration).limit(0, 1) : 1,
 			pty = this.party,
-			stp = Arcane.getCenter(this.startPoint), 
+			stp = Arcane.getCenter(this.startPoint),
 			edp = Arcane.getCenter(this.endPoint);
+			Vec3.add(stp, this.beamOffset);
+			Vec3.add(edp, this.beamOffset2);
 				for(var a = ig.game.entities, c = a.length; c--;) {
 					var dr = Arcane.posLineToPoint(stp, edp, Arcane.getCenter(a[c]));
 					if(Arcane.getEntityInPos(a[c], dr, this.width)){
@@ -138,8 +174,10 @@ ig.module("game.feature.combat.combat-force.beam-attack").requires("impact.base.
 		getHitCenter: function(a, b) {
 			var c = b || Vec2.create(),
 			stp = Arcane.getCenter(this.startPoint), 
-			edp = Arcane.getCenter(this.endPoint),
-			e = Arcane.posLineToPoint(stp, edp, Arcane.getCenter(a));
+			edp = Arcane.getCenter(this.endPoint);
+			Vec3.add(stp, this.beamOffset);
+			Vec3.add(edp, this.beamOffset2);
+			var e = Arcane.posLineToPoint(stp, edp, Arcane.getCenter(a));
 			a.getAlignedPos(ig.ENTITY_ALIGN.CENTER, c),
 			Vec2.assignC(e, e.x, e.y);
 			Vec2.assign(d, c);
@@ -155,8 +193,10 @@ ig.module("game.feature.combat.combat-force.beam-attack").requires("impact.base.
 		getHitVel: function(a, b) {
 			var c = b || Vec2.create(),
 			stp = Arcane.getCenter(this.startPoint), 
-			edp = Arcane.getCenter(this.endPoint),
-			e = Arcane.posLineToPoint(stp, edp, Arcane.getCenter(a));
+			edp = Arcane.getCenter(this.endPoint);
+			Vec3.add(stp, this.beamOffset);
+			Vec3.add(edp, this.beamOffset2);
+			var e = Arcane.posLineToPoint(stp, edp, Arcane.getCenter(a));
 			Vec2.assignC(e, e.x, e.y);
 			a.getCenter(c);
 			Vec2.sub(c,e);

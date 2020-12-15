@@ -1,0 +1,6165 @@
+{
+    "level": 70,
+    "params": {
+        "hp": 225000,
+        "attack": 650,
+        "defense": 1100,
+        "focus": 600,
+        "elemFactor": [1.1, 0.1, 0.3, 1.3],
+        "statusInflict": [0.1, 0, 0.4, 0.45],
+        "statusEffect": [0.3, 0, 0.1, 1.2]
+    },
+    "credit": 50000,
+    "exp": 3000,
+    "maxSp": 0,
+    "enduranceScale": 10,
+    "itemDrops": [],
+    "healDropRate": 0,
+    "targetDetect": {
+        "detectDistance": 10000,
+        "loseDistance": 10000,
+        "notifyNeighbourRadius": 100,
+        "onDistance": true
+    },
+    "boss": true,
+    "bossOrder": 0,
+    "hpBreaks": [{
+        "hp": 0.7,
+        "healDrop": 0.4
+    }, {
+        "hp": 0.4,
+        "healDrop": 0.2
+    }, {
+        "hp": 0.15,
+        "healDrop": 0.5
+    }],
+    "size": {
+        "x": 130,
+        "y": 100,
+        "z": 32
+    },
+    "cameraZFocus": -8,
+    "padding": {
+        "x": 32,
+        "y": 16
+    },
+    "anims": "boss.hammershock",
+    "defaultState": "HIDE",
+    "walkConfigs": {
+        "normal": {
+            "idle": "idle",
+            "damage": "damage"
+        },
+        "beam": {
+            "idle": "idleT",
+            "damage": "damageT"
+        },
+        "weak": {
+            "idle": "damage",
+            "damage": "damage"
+        },
+        "weakBeam": {
+            "idle": "damageT",
+            "damage": "damageT"
+        }
+    },
+    "material": "METAL",
+    "aiGroup": "moth",
+    "aiLearnType": "REGULAR",
+    "_wm": null,
+    "walkAnims": "normal",
+    "groundConnect": "FIXED",
+    "weight": -1,
+    "maxVel": 240,
+    "jumpingEnabled": false,
+    "collType": "NPFENCE",
+    "shadow": 130,
+    "floatVariance": 4,
+    "floatMaxSpeed": 500,
+    "floatAccel": 2,
+    "flyHeight": 8,
+    "ballFactor": 0.3,
+    "hitStable": "BREAK",
+    "faceDirFixed": true,
+    "faceToTarget": false,
+    "annotate": {
+        "active": "NONE",
+        "passive": "NONE",
+        "weapon": "RANGED",
+        "element": "ANY",
+        "extra": []
+    },
+    "DOCTYPE": "ENEMY",
+    "trackers": {
+        "weakRegen": {
+            "target": 5.2,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": false,
+            "noAssist": false,
+            "type": "TIME"
+        },
+        "laserTimer": {
+            "target": 14,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": false,
+            "noAssist": false,
+            "type": "TIME"
+        },
+        "turretTimer": {
+            "target": 6,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": false,
+            "noAssist": false,
+            "type": "TIME"
+        },
+        "airstrikeTimer": {
+            "target": 8,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": false,
+            "noAssist": false,
+            "type": "TIME"
+        },
+        "vectorTimer": {
+            "target": 25,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": false,
+            "noAssist": false,
+            "type": "TIME"
+        }
+    },
+    "states": {
+        "HIDE": {
+            "flyHeight": 200,
+            "aggression": "PEACEFUL",
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "ENTERED_STATE"
+                }],
+                "action": "init"
+            }]
+        },
+        "IDLE": {
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "HAS_TARGET"
+                }],
+                "postSwitchState": "DEFAULT",
+                "ignoreStun": true
+            }, {
+                "action": "Idle"
+            }]
+        },
+        "DEFAULT": {
+			"flyHeight": 64,
+            "enabledReactions": ["KILL_HIT", "HP_BREAK", "BREAK_HEAT", "BREAK_COLD", "BREAK_SHOCK", "BREAK_WAVE"],
+            "choices": [{
+                "req": [{
+                    "type": "!HAS_TARGET"
+                }],
+                "postSwitchState": "IDLE"
+            }, {
+                "req": [{
+					"min": 3,
+					"max": 3,
+					"negated": false,
+					"type": "HP_BREAK"
+				}],
+				"postSwitchState": "ANGRY",
+                "action": "Transform"
+            }, {
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "laserTimer"
+                }],
+                "action": "LaserTarget",
+                "frequency": "NORMAL"
+            }, {
+                "req": [{
+					"min": 2,
+					"max": 2,
+					"negated": false,
+					"type": "HP_BREAK"
+				}, {
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "airstrikeTimer"
+                }],
+                "action": "Bomber",
+                "frequency": "RARE"
+            }, {
+                "req": [{
+					"min": 1,
+					"max": 2,
+					"negated": false,
+					"type": "HP_BREAK"
+				}, {
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "turretTimer"
+                }],
+                "action": "PulseTurret",
+                "frequency": "RARE"
+            }, {
+                "req": [{
+					"max": 0.5,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+                "action": "MissileDrop",
+                "frequency": "NORMAL"
+            }, {
+                "action": "ShockBall",
+                "frequency": "NORMAL"
+            }, {
+                "action": "Move",
+                "frequency": "SPAMM"
+            }, {
+                "action": "Idle"
+            }]
+        },
+        "DEFAULTD": {
+			"flyHeight": 2,
+            "damageFactor": 0.5,
+            "enabledReactions": ["KILL_HIT", "HP_BREAK", "BREAK_HEAT", "BREAK_COLD", "BREAK_SHOCK", "BREAK_WAVE"],
+            "choices": [{
+                "req": [{
+                    "type": "!HAS_TARGET"
+                }],
+                "postSwitchState": "IDLE"
+            }, {
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "laserTimer"
+                }],
+                "action": "BeamTarget"
+            }, {
+                "req": [{
+					"max": 0.2,
+					"negated": false,
+					"type": "RANDOM"
+				}, {
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "turretTimer"
+                }],
+                "action": "PulseTurret"
+            }, {
+                "req": [{
+					"max": 0.6,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+                "action": "ShockBallHoming"
+            }, {
+                "action": "MissileHoming"
+            }, {
+                "action": "Idle"
+            }]
+        },
+        "ANGRY": {
+            "walkAnims": "beam",
+			"flyHeight": 2,
+            "damageFactor": 0.3,
+            "enabledReactions": ["KILL_HIT", "HP_BREAK", "BREAK_HEAT", "BREAK_COLD", "BREAK_SHOCK", "BREAK_WAVE"],
+            "choices": [{
+                "req": [{
+                    "type": "!HAS_TARGET"
+                }],
+                "postSwitchState": "IDLE"
+            }, {
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "vectorTimer"
+                }],
+                "action": "CallVectorSneak",
+                "frequency": "NORMAL"
+            }, {
+                "action": "Cannon"
+            }, {
+                "action": "Idle"
+            }]
+        },
+        "WEAK": {
+            "walkAnims": "weak",
+			"flyHeight": 2,
+            "enabledReactions": ["KILL_HIT", "HP_BREAK"],
+            "damageFactor": 1.5,
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "weakRegen"
+                }],
+                "preSwitchState": "DEFAULT"
+            }]
+        },
+        "WEAKANGRY": {
+            "walkAnims": "weakBeam",
+			"flyHeight": 2,
+            "enabledReactions": ["KILL_HIT", "HP_BREAK"],
+            "damageFactor": 1.4,
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "weakRegen"
+                }],
+                "preSwitchState": "ANGRY"
+            }]
+        },
+        "HPBREAK": {
+            "walkAnims": "idle",
+            "choices": [{
+                "preSwitchState": "DEFAULT"
+            }]
+        }
+    },
+    "proxies": {
+        "laserHeatL": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"name": "setPos",
+				"searchType": "RANDOM",
+				"distance": 256,
+				"centralAngle": 1,
+				"throwing": true,
+				"type": "SET_ATTRIB_CLOSE_TARGET_POS"
+			}, {
+				"attrib": "setPos",
+				"type": "TELEPORT_TO_ATTRIB_POS"
+			}, {
+                "value": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeatStart"
+                },
+                "offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeatPre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 0.05,
+                "type": "FACE_TO_TARGET_SPEED"
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "HEAT",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "value": 1100,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.6,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "airFriction": 1,
+                "zGravityFactor": 1,
+                "flyHeight": 4
+            },
+            "type": "GENERIC"
+        },
+        "laserHeatR": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"name": "setPos",
+				"searchType": "RANDOM",
+				"distance": 192,
+				"centralAngle": 1,
+				"throwing": true,
+				"type": "SET_ATTRIB_CLOSE_TARGET_POS"
+			}, {
+				"attrib": "setPos",
+				"type": "TELEPORT_TO_ATTRIB_POS"
+			}, {
+                "value": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeatStart"
+                },
+                "offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeatPre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 0.05,
+                "type": "FACE_TO_TARGET_SPEED"
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "HEAT",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "value": 1100,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.6,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "airFriction": 1,
+                "zGravityFactor": 1,
+                "flyHeight": 4
+            },
+            "type": "GENERIC"
+        },
+        "laserColdL": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"name": "setPos",
+				"searchType": "RANDOM",
+				"distance": 256,
+				"centralAngle": 1,
+				"throwing": true,
+				"type": "SET_ATTRIB_CLOSE_TARGET_POS"
+			}, {
+				"attrib": "setPos",
+				"type": "TELEPORT_TO_ATTRIB_POS"
+			}, {
+                "value": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserColdStart"
+                },
+                "offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserColdPre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 0.05,
+                "type": "FACE_TO_TARGET_SPEED"
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserCold"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "COLD",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "value": 1100,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.6,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "airFriction": 1,
+                "zGravityFactor": 1,
+                "flyHeight": 4
+            },
+            "type": "GENERIC"
+        },
+        "laserColdR": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"name": "setPos",
+				"searchType": "RANDOM",
+				"distance": 192,
+				"centralAngle": 1,
+				"throwing": true,
+				"type": "SET_ATTRIB_CLOSE_TARGET_POS"
+			}, {
+				"attrib": "setPos",
+				"type": "TELEPORT_TO_ATTRIB_POS"
+			}, {
+                "value": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserColdStart"
+                },
+                "offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserColdPre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 0.05,
+                "type": "FACE_TO_TARGET_SPEED"
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserCold"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "COLD",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "value": 1100,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.6,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "airFriction": 1,
+                "zGravityFactor": 1,
+                "flyHeight": 4
+            },
+            "type": "GENERIC"
+        },
+        "laserWaveL": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"name": "setPos",
+				"searchType": "RANDOM",
+				"distance": 256,
+				"centralAngle": 1,
+				"throwing": true,
+				"type": "SET_ATTRIB_CLOSE_TARGET_POS"
+			}, {
+				"attrib": "setPos",
+				"type": "TELEPORT_TO_ATTRIB_POS"
+			}, {
+                "value": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWaveStart"
+                },
+                "offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWavePre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 0.05,
+                "type": "FACE_TO_TARGET_SPEED"
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWave"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "WAVE",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "value": 1100,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.6,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "airFriction": 1,
+                "zGravityFactor": 1,
+                "flyHeight": 4
+            },
+            "type": "GENERIC"
+        },
+        "laserWaveR": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"name": "setPos",
+				"searchType": "RANDOM",
+				"distance": 192,
+				"centralAngle": 1,
+				"throwing": true,
+				"type": "SET_ATTRIB_CLOSE_TARGET_POS"
+			}, {
+				"attrib": "setPos",
+				"type": "TELEPORT_TO_ATTRIB_POS"
+			}, {
+                "value": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWaveStart"
+                },
+                "offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWavePre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 0.05,
+                "type": "FACE_TO_TARGET_SPEED"
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWave"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "WAVE",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "value": 1100,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.6,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "airFriction": 1,
+                "zGravityFactor": 1,
+                "flyHeight": 4
+            },
+            "type": "GENERIC"
+        },
+        "pulseTurret": {
+            "animation": {
+				"gfxOffset": {
+					"x": 0,
+					"y": 0
+				},
+				"sheet": {
+					"src": "media/entity/enemy/boss/hammershock-proxy.png",
+					"offX": 162,
+					"offY": 138,
+					"width": 11,
+					"height": 32
+				},
+				"renderMode": "source-over",
+				"time": 0.05,
+				"repeat": true,
+				"SUB": [{
+					"name": "default",
+					"frames": [0]
+				}, {
+					"name": "start",
+					"frames": [1, 2]
+				}, {
+					"name": "loop",
+					"frames": [3, 4, 5, 6, 7, 8, 9, 10]
+				}]
+			},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": 0,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "trail",
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.forest",
+                    "name": "pandaHeatShoot"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "trail",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.forest",
+                    "name": "pandaWaveTrail"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 900,
+                "type": "SET_Z_VEL"
+            }, {
+                "value": 2,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            }, {
+                "value": 400,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.3,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "value": 0.5,
+                "type": "SET_AIR_FRICTION"
+            }, {
+                "stopType": "LANDED",
+                "stopBeforeTime": 0.2,
+                "distance": 0,
+                "rotateSpeed": 0.9,
+				"adjustSpeedMax": 400,
+                "cancelIfBelowFall": true,
+                "type": "JUMP_TARGET_MOVEMENT"
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "volume": 1,
+                "variance": 0.1,
+                "global": false,
+                "loop": false,
+                "speed": 2,
+                "type": "PLAY_SOUND",
+                "sound": "media/sound/battle/thud-1.ogg"
+            }, {
+                "group": "trail",
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "time": 0.7,
+                "type": "WAIT"
+            }, {
+                "wait": false,
+                "type": "SHOW_ANIMATION",
+                "followUp": "loop",
+                "anim": "start"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "pluseTurretAura"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "name": "pluseOn",
+                "type": "LABEL"
+            }, {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "align": "BOTTOM",
+                "radius": 0,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.4,
+                "expandRadius": 64,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "COLD",
+                    "visualType": "MEDIUM",
+                    "fly": "MASSIVE",
+                    "damageFactor": 0.05,
+                    "reverse": false,
+                    "status": 40,
+                    "hints": ["CHARGED"],
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "align": "BOTTOM",
+                "radius": 0,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.4,
+                "expandRadius": 64,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "visualType": "MEDIUM",
+                    "fly": "MASSIVE",
+                    "damageFactor": 0.05,
+                    "reverse": false,
+                    "status": 40,
+                    "hints": ["CHARGED"],
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "align": "BOTTOM",
+                "radius": 0,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.4,
+                "expandRadius": 64,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "HEAT",
+                    "visualType": "MEDIUM",
+                    "fly": "MASSIVE",
+                    "damageFactor": 0.05,
+                    "reverse": false,
+                    "status": 40,
+                    "hints": ["CHARGED"],
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "align": "BOTTOM",
+                "radius": 0,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.4,
+                "expandRadius": 64,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "WAVE",
+                    "visualType": "MEDIUM",
+                    "fly": "MASSIVE",
+                    "damageFactor": 0.05,
+                    "reverse": false,
+                    "status": 40,
+                    "hints": ["CHARGED"],
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+				"name": "pluseOn",
+				"type": "GOTO_LABEL"
+			}],
+            "invisible": false,
+            "hp": 1.8,
+            "killEffect": {
+                "sheet": "enemies.forest",
+                "name": "pandaTurretGone"
+            },
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "turret",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "VIRTUAL",
+                "shadow": 12
+            },
+            "type": "GENERIC"
+        },
+        "callLine": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "align": "BOTTOM",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "random": false,
+                "count": 3,
+                "duration": 1.5,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": true,
+                "uniformDir": 0,
+                "delay": 0,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "transmitter",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 500
+                }
+            }, {
+                "min": 0,
+                "max": 0,
+                "maxTime": 1.5,
+                "forceTime": true,
+                "type": "MOVE_TO_DISTANCE"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "PROJECTILE",
+                "maxVel": 200,
+                "flyHeight": 4
+            },
+            "type": "GENERIC"
+        },
+        "transmitter": {
+            "animation": {
+				"sheet": {
+					"src": "media/entity/enemy/boss/hammershock-proxy.png",
+					"offX": 162,
+					"offY": 0,
+					"xCount": 4,
+					"width": 30,
+					"height": 38
+				},
+                "SUB": [{
+                    "name": "default",
+					"repeat": true,
+                    "frames": [0]
+                }, {
+                    "name": "transform",
+					"repeat": false,
+                    "frames": [1, 2, 1, 2, 1, 2, 3, 4, 5 ,6 ,7 ,8 ,9]
+                }, {
+                    "name": "transformRev",
+					"repeat": false,
+                    "frames": [9, 8, 7, 6, 5, 4, 3]
+                }, {
+                    "name": "boost",
+					"repeat": true,
+                    "frames": [1, 2]
+                }, {
+                    "name": "done",
+					"repeat": true,
+                    "frames": [10]
+                }]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "BASE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "crosshair"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+				"value": 8,
+				"type": "SET_FLY_HEIGHT"
+			}, {
+                "wait": false,
+                "type": "SHOW_ANIMATION",
+                "followUp": "done",
+                "anim": "transform"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+				"text": {
+					"en_US": "Calling the Vector",
+					"ko_KR": "벡터 호출 중"
+				},
+				"mode": "LINE_FILL",
+				"color": "GREEN",
+				"actionDetached": false,
+				"hideOutsideOfScreen": false,
+				"time": 10,
+				"type": "SHOW_AR_MSG"
+			}, {
+                "time": 10,
+                "type": "WAIT"
+            }, {
+				"align": "BOTTOM",
+				"centralAngle": 1,
+				"angleVary": 0,
+				"startDist": 0,
+				"random": false,
+				"duration": 0,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SPAWN_ENEMIES",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 400
+				},
+				"count": 1,
+				"enemyInfo": {
+					"group": "",
+					"party": "",
+					"targetOnSpawn": true,
+					"type": "hermes.vector",
+					"attribs": {}
+				}
+			}, {
+				"value": 5000,
+				"type": "SET_FLY_HEIGHT"
+			}, {
+                "wait": false,
+                "type": "SHOW_ANIMATION",
+                "followUp": "boost",
+                "anim": "transformRev"
+            }, {
+                "time": 10,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 4.5,
+            "killEffect": {
+                "sheet": "enemies.forest",
+                "name": "pandaTurretGone"
+            },
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 30,
+                "y": 8,
+                "z": 30
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 1,
+                "zBounciness": 0.2,
+                "shadow": 14
+            },
+            "type": "GENERIC"
+        },
+		"beamHeatStartL": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"align": "BOTTOM",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"count": 1,
+				"duration": 0,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "beamHeatL",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "entity.ownerAttrib.beamDir == 0",
+                "thenStep": [{
+					"dir": {
+						"x": -1,
+						"y": 0
+					},
+					"type": "SET_FACE_TO_DIR"
+				}, {
+					"time": 1.2,
+					"type": "WAIT"
+				}, {
+					"time": 1,
+					"turn": 0.4,
+					"random": 0,
+					"type": "ROTATE_FACE"
+				}],
+				"elseStep": [{
+					"withElse": true,
+					"type": "IF",
+					"condition": "entity.ownerAttrib.beamDir == 2",
+					"thenStep": [{
+						"dir": {
+							"x": -1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": 0.25,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}],
+					"elseStep": [{
+						"dir": {
+							"x": 1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": -0.4,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}]
+				}]
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 4,
+                "y": 4,
+                "z": 4
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beamHeatStartR": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"align": "BOTTOM",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"count": 1,
+				"duration": 0,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "beamHeatR",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "entity.ownerAttrib.beamDir == 0",
+                "thenStep": [{
+					"dir": {
+						"x": -1,
+						"y": 0
+					},
+					"type": "SET_FACE_TO_DIR"
+				}, {
+					"time": 1.2,
+					"type": "WAIT"
+				}, {
+					"time": 1,
+					"turn": 0.4,
+					"random": 0,
+					"type": "ROTATE_FACE"
+				}],
+				"elseStep": [{
+					"withElse": true,
+					"type": "IF",
+					"condition": "entity.ownerAttrib.beamDir == 2",
+					"thenStep": [{
+						"dir": {
+							"x": 1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": -0.25,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}],
+					"elseStep": [{
+						"dir": {
+							"x": 1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": -0.4,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}]
+				}]
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 4,
+                "y": 4,
+                "z": 4
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beamHeatL": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"distance": 2000,
+				"maxTime": 0.1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeatStart"
+                },
+                "offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeatPre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "radius": 8,
+                "yScale": 0,
+                "zHeight": 16,
+                "centralAngle": 0,
+                "duration": 0.03,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "HEAT",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "selectType": "PROXY_OWNER",
+				"width": 4,
+				"hitDir": "TOWARD",
+				"repeat": true,
+				"duration": 0.05,
+				"offset2": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "type": "BEAM_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "HEAT",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                }
+            }, {
+				"distance": 2000,
+				"maxTime": 1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+				"type": "STOP_REPEATING_FORCE"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beamHeatR": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"distance": 2000,
+				"maxTime": 0.1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeatStart"
+                },
+                "offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeatPre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "radius": 8,
+                "yScale": 0,
+                "zHeight": 16,
+                "centralAngle": 0,
+                "duration": 0.03,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "HEAT",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "selectType": "PROXY_OWNER",
+				"width": 4,
+				"hitDir": "TOWARD",
+				"repeat": true,
+				"duration": 0.05,
+				"offset2": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "type": "BEAM_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "HEAT",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                }
+            }, {
+				"distance": 2000,
+				"maxTime": 1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+				"type": "STOP_REPEATING_FORCE"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beamShockStartL": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"align": "BOTTOM",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"count": 1,
+				"duration": 0,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "beamShockL",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "entity.ownerAttrib.beamDir == 0",
+                "thenStep": [{
+					"dir": {
+						"x": -1,
+						"y": 0
+					},
+					"type": "SET_FACE_TO_DIR"
+				}, {
+					"time": 1.2,
+					"type": "WAIT"
+				}, {
+					"time": 1,
+					"turn": 0.4,
+					"random": 0,
+					"type": "ROTATE_FACE"
+				}],
+				"elseStep": [{
+					"withElse": true,
+					"type": "IF",
+					"condition": "entity.ownerAttrib.beamDir == 2",
+					"thenStep": [{
+						"dir": {
+							"x": -1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": 0.25,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}],
+					"elseStep": [{
+						"dir": {
+							"x": 1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": -0.4,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}]
+				}]
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 4,
+                "y": 4,
+                "z": 4
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beamShockStartR": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"align": "BOTTOM",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"count": 1,
+				"duration": 0,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "beamShockR",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "entity.ownerAttrib.beamDir == 0",
+                "thenStep": [{
+					"dir": {
+						"x": -1,
+						"y": 0
+					},
+					"type": "SET_FACE_TO_DIR"
+				}, {
+					"time": 1.2,
+					"type": "WAIT"
+				}, {
+					"time": 1,
+					"turn": 0.4,
+					"random": 0,
+					"type": "ROTATE_FACE"
+				}],
+				"elseStep": [{
+					"withElse": true,
+					"type": "IF",
+					"condition": "entity.ownerAttrib.beamDir == 2",
+					"thenStep": [{
+						"dir": {
+							"x": 1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": -0.25,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}],
+					"elseStep": [{
+						"dir": {
+							"x": 1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": -0.4,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}]
+				}]
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 4,
+                "y": 4,
+                "z": 4
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beamShockL": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"distance": 2000,
+				"maxTime": 0.1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserShockStart"
+                },
+                "offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserShockPre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserShock"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "radius": 8,
+                "yScale": 0,
+                "zHeight": 16,
+                "centralAngle": 0,
+                "duration": 0.03,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "selectType": "PROXY_OWNER",
+				"width": 4,
+				"hitDir": "TOWARD",
+				"repeat": true,
+				"duration": 0.05,
+				"offset2": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "type": "BEAM_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                }
+            }, {
+				"distance": 2000,
+				"maxTime": 1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+				"type": "STOP_REPEATING_FORCE"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beamShockR": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"distance": 2000,
+				"maxTime": 0.1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserShockStart"
+                },
+                "offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserShockPre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserShock"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "radius": 8,
+                "yScale": 0,
+                "zHeight": 16,
+                "centralAngle": 0,
+                "duration": 0.03,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "selectType": "PROXY_OWNER",
+				"width": 4,
+				"hitDir": "TOWARD",
+				"repeat": true,
+				"duration": 0.05,
+				"offset2": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "type": "BEAM_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                }
+            }, {
+				"distance": 2000,
+				"maxTime": 1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+				"type": "STOP_REPEATING_FORCE"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beamWaveStartL": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"align": "BOTTOM",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"count": 1,
+				"duration": 0,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "beamWaveL",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "entity.ownerAttrib.beamDir == 0",
+                "thenStep": [{
+					"dir": {
+						"x": -1,
+						"y": 0
+					},
+					"type": "SET_FACE_TO_DIR"
+				}, {
+					"time": 1.2,
+					"type": "WAIT"
+				}, {
+					"time": 1,
+					"turn": 0.4,
+					"random": 0,
+					"type": "ROTATE_FACE"
+				}],
+				"elseStep": [{
+					"withElse": true,
+					"type": "IF",
+					"condition": "entity.ownerAttrib.beamDir == 2",
+					"thenStep": [{
+						"dir": {
+							"x": -1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": 0.25,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}],
+					"elseStep": [{
+						"dir": {
+							"x": 1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": -0.4,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}]
+				}]
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 4,
+                "y": 4,
+                "z": 4
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beamWaveStartR": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"align": "BOTTOM",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"count": 1,
+				"duration": 0,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "beamWaveR",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "withElse": true,
+                "type": "IF",
+                "condition": "entity.ownerAttrib.beamDir == 0",
+                "thenStep": [{
+					"dir": {
+						"x": -1,
+						"y": 0
+					},
+					"type": "SET_FACE_TO_DIR"
+				}, {
+					"time": 1.2,
+					"type": "WAIT"
+				}, {
+					"time": 1,
+					"turn": 0.4,
+					"random": 0,
+					"type": "ROTATE_FACE"
+				}],
+				"elseStep": [{
+					"withElse": true,
+					"type": "IF",
+					"condition": "entity.ownerAttrib.beamDir == 2",
+					"thenStep": [{
+						"dir": {
+							"x": 1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": -0.25,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}],
+					"elseStep": [{
+						"dir": {
+							"x": 1,
+							"y": 0
+						},
+						"type": "SET_FACE_TO_DIR"
+					}, {
+						"time": 1.2,
+						"type": "WAIT"
+					}, {
+						"time": 1,
+						"turn": -0.4,
+						"random": 0,
+						"type": "ROTATE_FACE"
+					}]
+				}]
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 4,
+                "y": 4,
+                "z": 4
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beamWaveL": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"distance": 2000,
+				"maxTime": 0.1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWaveStart"
+                },
+                "offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWavePre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWave"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "radius": 8,
+                "yScale": 0,
+                "zHeight": 16,
+                "centralAngle": 0,
+                "duration": 0.03,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "WAVE",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "selectType": "PROXY_OWNER",
+				"width": 4,
+				"hitDir": "TOWARD",
+				"repeat": true,
+				"duration": 0.05,
+				"offset2": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 0
+                },
+                "type": "BEAM_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "WAVE",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                }
+            }, {
+				"distance": 2000,
+				"maxTime": 1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": -30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+				"type": "STOP_REPEATING_FORCE"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beamWaveR": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"distance": 2000,
+				"maxTime": 0.1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target": "PROXY_OWNER",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWaveStart"
+                },
+                "offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                }
+            }, {
+                "duration": 0.9,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": true,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWavePre"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "laserWave"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "radius": 8,
+                "yScale": 0,
+                "zHeight": 16,
+                "centralAngle": 0,
+                "duration": 0.03,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "WAVE",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "selectType": "PROXY_OWNER",
+				"width": 4,
+				"hitDir": "TOWARD",
+				"repeat": true,
+				"duration": 0.05,
+				"offset2": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 0
+                },
+                "type": "BEAM_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "WAVE",
+                    "damageFactor": 1.3,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                }
+            }, {
+				"distance": 2000,
+				"maxTime": 1,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_OWNER",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": 30,
+                    "y": 30,
+                    "z": 5
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+				"type": "STOP_REPEATING_FORCE"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+        "missileLine": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+				"conditions": [{
+					"max": 0.5,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+				"withElse": true,
+				"type": "COMBAT_IF",
+				"thenStep": [{
+					"newPos": {
+                        "x": 128,
+                        "y": 448,
+                        "lvl": "1"
+					},
+					"type": "SET_POS"
+				}, {
+					"dir": {
+						"x": 1,
+						"y": 0
+					},
+					"type": "SET_FACE_TO_DIR"
+				}],
+				"elseStep": [{
+					"newPos": {
+                        "x": 1472,
+                        "y": 448,
+                        "lvl": "1"
+					},
+					"type": "SET_POS"
+				}, {
+					"dir": {
+						"x": -1,
+						"y": 0
+					},
+					"type": "SET_FACE_TO_DIR"
+				}]
+			}, {
+				"value": true,
+				"type": "SET_FACE_FIX"
+			}, {
+				"attribName": "moveForward",
+				"changeType": "set",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 30
+			}, {
+                "name": "start",
+                "type": "LABEL"
+            }, {
+                "time": 0.03,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "volume": 0.6,
+                "variance": 0.15,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media/sound/battle/missile-fall.ogg",
+                "type": "PLAY_SOUND"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "random": false,
+                "count": 4,
+                "duration": 0.3,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "offsetArea": {
+                    "x": 16,
+                    "y": 170
+                },
+                "circularArea": true,
+                "uniformDir": 0,
+                "delay": 0,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "missileBombing",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 500
+                }
+            }, {
+                "time": 0.3,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+				"type": "STOP_XY"
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "entity.attrib.moveForward <= 16",
+				"thenStep": [{
+					"time": 0.6,
+					"type": "WAIT"
+				}]
+			}, {
+                "attribName": "moveForward",
+                "changeType": "sub",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.attrib.moveForward > 0",
+                "thenStep": [{
+                    "name": "start",
+                    "type": "GOTO_LABEL"
+                }]
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 150
+            },
+            "type": "GENERIC"
+        },
+        "shockBall": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "shkBossBall"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"value": 0,
+				"type": "SET_Z_GRAVITY_FACTOR"
+			}, {
+                "value": 400,
+                "type": "SET_SPEED"
+            }, {
+				"time": 0.3,
+				"stopBeforeEdge": false,
+				"type": "MOVE_FORWARD"
+			}, {
+				"value": 0.2,
+				"type": "SET_Z_GRAVITY_FACTOR"
+			}, {
+                "stopType": "LANDED",
+                "stopBeforeTime": 0.2,
+                "distance": 0,
+                "rotateSpeed": 0.6,
+				"adjustSpeedMax": 400,
+                "cancelIfBelowFall": true,
+                "type": "JUMP_TARGET_MOVEMENT"
+            }, {
+                "value": 0,
+                "type": "SET_AIR_FRICTION"
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "align": "BOTTOM",
+                "radius": 14,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.05,
+                "expandRadius": 6,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "damageFactor": 0.5,
+                    "reverse": false,
+                    "status": 5,
+                    "guardable": "NEVER",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"duration": 0,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"target2": "SELF",
+				"target2Offset": {
+					"x": 0,
+					"y": 0,
+					"z": 480
+				},
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "boldSmallest"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "time": 0.05,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "PROJECTILE"
+            },
+            "type": "GENERIC"
+        },
+        "shockBallHoming": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "shkBossBall"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"value": 0,
+				"type": "SET_Z_GRAVITY_FACTOR"
+			}, {
+                "value": 400,
+                "type": "SET_SPEED"
+            }, {
+				"time": 0.5,
+				"stopBeforeEdge": false,
+				"type": "MOVE_FORWARD"
+			}, {
+				"attribName": "moveRandom",
+				"changeType": "set",
+				"minValue": 1,
+				"maxValue": 10,
+				"type": "SET_ATTRIB_NUMBER_RANDOM"
+			}, {
+                "name": "side",
+                "type": "LABEL"
+            }, {
+				"time": 0.05,
+				"stopBeforeEdge": false,
+				"type": "MOVE_FORWARD"
+			}, {
+                "attribName": "moveRandom",
+                "changeType": "sub",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.attrib.moveRandom > 0",
+                "thenStep": [{
+                    "name": "side",
+                    "type": "GOTO_LABEL"
+                }]
+            }, {
+				"type": "STOP_XY"
+			}, {
+				"dir": {
+					"x": 0,
+					"y": 1
+				},
+				"type": "SET_FACE_TO_DIR"
+			}, {
+				"minTime": 0.1,
+				"maxTime": 0.8,
+				"type": "WAIT_RANDOM"
+			}, {
+                "time": 0.2,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "rotateSpeed": 0,
+				"missReactTime": 0.02,
+				"cancelOnHit": true,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+					"type": "HEAVY",
+					"element": "SHOCK",
+					"damageFactor": 0,
+					"status": 0,
+					"reverse": false,
+					"guardable": "",
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+                }
+			}, {
+				"attribName": "moveRandom",
+				"changeType": "set",
+				"minValue": 1,
+				"maxValue": 10,
+				"type": "SET_ATTRIB_NUMBER_RANDOM"
+			}, {
+                "name": "down",
+                "type": "LABEL"
+            }, {
+                "time": 0.05,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "rotateSpeed": 0,
+				"missReactTime": 0.02,
+				"cancelOnHit": true,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+					"type": "HEAVY",
+					"element": "SHOCK",
+					"damageFactor": 0,
+					"status": 0,
+					"reverse": false,
+					"guardable": "",
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+                }
+			}, {
+                "attribName": "moveRandom",
+                "changeType": "sub",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.attrib.moveRandom > 0",
+                "thenStep": [{
+                    "name": "down",
+                    "type": "GOTO_LABEL"
+                }]
+            }, {
+				"type": "STOP_XY"
+			}, {
+                "value": 200,
+                "type": "SET_SPEED"
+            }, {
+				"conditions": [{
+					"max": 0.5,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+				"withElse": true,
+				"type": "COMBAT_IF",
+				"thenStep": [{
+					"dir": {
+						"x": -1,
+						"y": 0
+					},
+					"type": "SET_FACE_TO_DIR"
+				}],
+				"elseStep": [{
+					"dir": {
+						"x": 1,
+						"y": 0
+					},
+					"type": "SET_FACE_TO_DIR"
+				}]
+			}, {
+                "time": 2,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "rotateSpeed": 0,
+				"missReactTime": 0.5,
+				"cancelOnHit": true,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+					"type": "HEAVY",
+					"element": "SHOCK",
+					"damageFactor": 0,
+					"status": 0,
+					"reverse": false,
+					"guardable": "",
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+                }
+			}, {
+				"type": "STOP_XY"
+			}, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "align": "BOTTOM",
+                "radius": 14,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.05,
+                "expandRadius": 6,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "damageFactor": 0.5,
+                    "reverse": false,
+                    "status": 5,
+                    "guardable": "NEVER",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"duration": 0,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"target2": "SELF",
+				"target2Offset": {
+					"x": 0,
+					"y": 0,
+					"z": 480
+				},
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "boldSmallest"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "time": 0.05,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "PROJECTILE"
+            },
+            "type": "GENERIC"
+        },
+        "missileDrop": {
+            "animation": {
+                "name": "default",
+                "shapeType": "Y_FLAT",
+                "sheet": {
+                    "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                    "xCount": 2,
+                    "offX": 162,
+                    "offY": 114,
+                    "width": 9,
+                    "height": 18
+                },
+                "dirs": "1",
+                "flipX": [0, 0],
+                "tileOffsets": [0, 0],
+                "time": 0.15,
+                "faceRotate": true,
+                "repeat": true,
+                "frames": [0, 1]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "volume": 0.5,
+                "variance": 0.1,
+                "global": false,
+                "loop": false,
+                "speed": 2,
+                "sound": "media/sound/battle/missile-fly.ogg",
+                "type": "PLAY_SOUND"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "missileFireSmoke"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "missileSmoke"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 0.5,
+                "type": "SET_AIR_FRICTION"
+            }, {
+				"conditions": [{
+					"max": 0.5,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+				"withElse": true,
+				"type": "COMBAT_IF",
+				"thenStep": [{
+					"value": 200,
+					"type": "SET_SPEED"
+				}],
+				"elseStep": [{
+					"value": 500,
+					"type": "SET_SPEED"
+				}]
+			}, {
+				"attribName": "moveRandom",
+				"changeType": "set",
+				"minValue": 1,
+				"maxValue": 10,
+				"type": "SET_ATTRIB_NUMBER_RANDOM"
+			}, {
+                "name": "start",
+                "type": "LABEL"
+            }, {
+                "time": 0.03,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "attribName": "moveRandom",
+                "changeType": "sub",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }, {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.attrib.moveRandom > 0",
+                "thenStep": [{
+                    "name": "start",
+                    "type": "GOTO_LABEL"
+                }]
+            }, {
+				"value": 1,
+				"type": "SET_Z_GRAVITY_FACTOR"
+			}, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.2,
+                "expandRadius": 16,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "damageFactor": 0.5,
+                    "reverse": false,
+                    "status": 5,
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "combat.element-explo",
+                    "name": "shock"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 0,
+                "shadow": 8
+            },
+            "type": "GENERIC"
+        },
+        "missileHoming": {
+            "animation": {
+                "name": "default",
+                "shapeType": "Y_FLAT",
+                "sheet": {
+                    "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                    "xCount": 2,
+                    "offX": 162,
+                    "offY": 114,
+                    "width": 9,
+                    "height": 18
+                },
+                "dirs": "1",
+                "flipX": [0, 0],
+                "tileOffsets": [0, 0],
+                "time": 0.15,
+                "faceRotate": true,
+                "repeat": true,
+                "frames": [0, 1]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "volume": 0.5,
+                "variance": 0.1,
+                "global": false,
+                "loop": false,
+                "speed": 2,
+                "sound": "media/sound/battle/missile-fly.ogg",
+                "type": "PLAY_SOUND"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "missileFireSmoke"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "missileSmoke"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 0.5,
+                "type": "SET_AIR_FRICTION"
+            }, {
+				"value": 225,
+				"type": "SET_SPEED"
+			}, {
+                "time": 2,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "rotateSpeed": 0.1,
+				"missReactTime": 0.5,
+				"cancelOnHit": true,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+					"type": "HEAVY",
+					"element": "SHOCK",
+					"damageFactor": 0,
+					"status": 0,
+					"reverse": false,
+					"guardable": "",
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+                }
+			}, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.2,
+                "expandRadius": 16,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "damageFactor": 0.5,
+                    "reverse": false,
+                    "status": 5,
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "combat.element-explo",
+                    "name": "shock"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 0,
+                "shadow": 8
+            },
+            "type": "GENERIC"
+        },
+        "missileBombingF": {
+            "animation": {
+                "name": "default",
+                "shapeType": "Y_FLAT",
+                "sheet": {
+                    "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                    "xCount": 2,
+                    "offX": 162,
+                    "offY": 114,
+                    "width": 9,
+                    "height": 18
+                },
+                "dirs": "1",
+                "flipX": [0, 0],
+                "tileOffsets": [0, 0],
+                "time": 0.15,
+                "faceRotate": true,
+                "repeat": true,
+                "frames": [0, 1]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+				"volume": 0.5,
+				"global": false,
+				"loop": false,
+				"variance": 0.1,
+				"speed": 2,
+				"sound": "media/sound/battle/enemies/vulturbine/cannon.ogg",
+				"type": "PLAY_SOUND"
+			}, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "missileFireSmokeSmall"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"value": 150,
+				"type": "SET_SPEED"
+			}, {
+                "time": 0.1,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "value": 0.1,
+                "type": "SET_AIR_FRICTION"
+            }, {
+                "minTime": 0.1,
+				"maxTime": 0.3,
+                "type": "WAIT_RANDOM"
+            }, {
+				"type": "STOP_XY"
+			}, {
+				"dir": {
+					"x": 0,
+					"y": -1
+				},
+				"type": "SET_FACE_TO_DIR"
+			}, {
+				"value": true,
+				"type": "SET_FACE_FIX"
+			}, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "missileFireSmoke"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.hammershock",
+                    "name": "missileSmoke"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"value": 0,
+				"type": "SET_Z_GRAVITY_FACTOR"
+			}, {
+				"value": 600,
+				"type": "SET_Z_VEL"
+			}, {
+                "time": 1,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 0.5,
+                "shadow": 0
+            },
+            "type": "GENERIC"
+        },
+        "missileBombing": {
+            "animation": {
+                "name": "default",
+                "shapeType": "Y_FLAT",
+                "sheet": {
+                    "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                    "xCount": 2,
+                    "offX": 162,
+                    "offY": 114,
+                    "width": 9,
+                    "height": 18
+                },
+                "dirs": "1",
+                "flipX": [0, 0],
+                "tileOffsets": [0, 0],
+                "time": 0.15,
+                "faceRotate": true,
+                "repeat": true,
+                "frames": [0, 1]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+				"dir": {
+					"x": 0,
+					"y": 1
+				},
+				"type": "SET_FACE_TO_DIR"
+			}, {
+				"value": true,
+				"type": "SET_FACE_FIX"
+			}, {
+                "duration": -1,
+                "align": "BASE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.mine-bots",
+                    "name": "crosshair"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.2,
+                "expandRadius": 16,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "damageFactor": 0.5,
+                    "reverse": false,
+                    "status": 5,
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "combat.element-explo",
+                    "name": "shockS"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 1,
+                "shadow": 8
+            },
+            "type": "GENERIC"
+        }
+    },
+    "actions": {
+        "Start": [{
+            "type": "SET_ENEMY_STATE",
+            "enemyState": "DEFAULT"
+        }, {
+            "value": 8,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 3,
+            "type": "WAIT"
+        }],
+        "Idle": [{
+            "minTime": 0.1,
+            "maxTime": 0.3,
+            "type": "WAIT_RANDOM"
+        }],
+        "Transform": [{
+			"offsetX": 0,
+			"offsetY": 0,
+			"speed": "FAST",
+			"transition": "EASE_IN_OUT",
+			"wait": false,
+			"waitSkip": 0,
+			"zoom": 1.2,
+			"focusType": "SELF",
+			"type": "FOCUS_CAMERA"
+		}, {
+			"type": "WAIT",
+			"time": 0.4
+		}, {
+			"attribName": "cannonCount",
+			"changeType": "set",
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 7
+		}, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "transform"
+        }, {
+			"volume": 1,
+			"variance": 0.1,
+			"global": false,
+			"loop": false,
+			"type": "PLAY_SOUND",
+			"sound": "media/sound/battle/enemies/panda/panda-open-gun.ogg"
+		}, {
+			"type": "WAIT",
+			"time": 0.1
+		}, {
+			"speed": "SLOW",
+			"transition": "EASE_IN_OUT",
+			"wait": false,
+			"waitSkip": 0,
+			"type": "RESET_CAMERA"
+		}, {
+			"type": "WAIT",
+			"time": 0.24
+		}, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idleT"
+        }, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "CallVectorSneak"
+		}, {
+			"type": "WAIT",
+			"time": 0.5
+		}, {
+			"type": "SET_ENEMY_STATE",
+			"enemyState": "ANGRY"
+		}, {
+			"type": "WAIT",
+			"time": 0.1
+		}],
+        "Move": [{
+            "value": 0.3,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "value": 2.3,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.3,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockY": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "value": 0.6,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "LaserTarget": [{
+			"type": "RESET_TRACKER",
+			"tracker": "laserTimer"
+		}, {
+			"conditions": [{
+				"min": 2,
+				"max": 2,
+				"negated": false,
+				"type": "HP_BREAK"
+			}],
+			"withElse": false,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "CallVector"
+			}]
+		}, {
+            "value": 0.2,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "value": 2,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.75,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockY": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "value": 0.6,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "beamStart"
+        }, {
+            "time": 0.6,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "beam"
+        }, {
+			"conditions": [{
+				"min": 0,
+				"max": 0,
+				"negated": false,
+				"type": "HP_BREAK"
+			}],
+			"withElse": true,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "LaserTargetWave"
+			}],
+			"elseStep": [{
+				"conditions": [{
+					"min": 1,
+					"max": 2,
+					"negated": false,
+					"type": "HP_BREAK"
+				}],
+				"withElse": false,
+				"type": "COMBAT_IF",
+				"thenStep": [{
+					"conditions": [{
+						"min": 1,
+						"max": 1,
+						"negated": false,
+						"type": "HP_BREAK"
+					}, {
+						"max": 0.6,
+						"negated": false,
+						"type": "RANDOM"
+					}],
+					"withElse": true,
+					"type": "COMBAT_IF",
+					"thenStep": [{
+						"type": "DO_ENEMY_ACTION_INLINE",
+						"actionName": "LaserTargetCold"
+					}],
+					"elseStep": [{
+						"type": "DO_ENEMY_ACTION_INLINE",
+						"actionName": "LaserTargetHeat"
+					}]
+				}]
+			}]
+		}, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "beamEnd"
+        }, {
+            "time": 0.6,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "LaserTargetHeat": [{
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "laserHeatL",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "laserHeatR",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "group": "lasers",
+            "type": "WAIT_UNTIL_PROXIES_DONE"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }],
+        "LaserTargetCold": [{
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "laserColdL",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "laserColdR",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "group": "lasers",
+            "type": "WAIT_UNTIL_PROXIES_DONE"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }],
+        "LaserTargetWave": [{
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "laserWaveL",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "laserWaveR",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "group": "lasers",
+            "type": "WAIT_UNTIL_PROXIES_DONE"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }],
+        "ShockBall": [{
+            "value": 0.2,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortarStart"
+        }, {
+            "time": 0.52,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortar"
+        }, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": -1,
+				"y": 0
+			},
+			"centralAngle": 0.3,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 11,
+			"duration": 1,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "shockBall",
+			"offset": {
+				"x": -10,
+				"y": -26,
+				"z": 20
+			}
+		}, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"centralAngle": 0.3,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 11,
+			"duration": 1.05,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0.05,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "shockBall",
+			"offset": {
+				"x": 10,
+				"y": -26,
+				"z": 20
+			}
+		}, {
+            "value": 1.3,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 1.5,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockY": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": 0.6,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortarEnd"
+        }, {
+            "time": 0.52,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }],
+        "MissileDrop": [{
+            "value": 0.2,
+            "type": "SET_AIR_FRICTION"
+        }, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": 0,
+				"y": 1
+			},
+			"centralAngle": 0.1,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 21,
+			"duration": 4,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "missileDrop",
+			"offset": {
+				"x": -55,
+				"y": 65,
+				"z": 15
+			}
+		}, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": 0,
+				"y": 1
+			},
+			"centralAngle": 0.1,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 21,
+			"duration": 4.1,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0.1,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "missileDrop",
+			"offset": {
+				"x": 55,
+				"y": 65,
+				"z": 15
+			}
+		}, {
+            "value": 0.6,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 3.5,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockY": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": 0.6,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }],
+        "PulseTurret": [{
+			"type": "RESET_TRACKER",
+			"tracker": "turretTimer"
+		}, {
+            "value": 0.2,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortarStart"
+        }, {
+            "time": 0.52,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortar"
+        }, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": 0,
+				"y": 1
+			},
+			"centralAngle": 0.1,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 2,
+			"duration": 1,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "pulseTurret",
+			"offset": {
+				"x": -10,
+				"y": -26,
+				"z": 20
+			}
+		}, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": 0,
+				"y": 1
+			},
+			"centralAngle": 0.1,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 2,
+			"duration": 1.5,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0.5,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "pulseTurret",
+			"offset": {
+				"x": 10,
+				"y": -26,
+				"z": 20
+			}
+		}, {
+            "value": 1.3,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 1.5,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockY": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": 0.6,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortarEnd"
+        }, {
+            "time": 0.52,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }],
+        "MissileHoming": [{
+            "value": 0.35,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "value": 2.3,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.6,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockY": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "value": 0.5,
+            "type": "SET_AIR_FRICTION"
+        }, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": 0,
+				"y": 1
+			},
+			"centralAngle": 0.1,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 11,
+			"duration": 2,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "missileHoming",
+			"offset": {
+				"x": -55,
+				"y": 65,
+				"z": 15
+			}
+		}, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": 0,
+				"y": 1
+			},
+			"centralAngle": 0.1,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 11,
+			"duration": 2.1,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0.1,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "missileHoming",
+			"offset": {
+				"x": 55,
+				"y": 65,
+				"z": 15
+			}
+		}, {
+            "value": 0.1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 2.05,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockY": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": 0.6,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }],
+        "ShockBallHoming": [{
+            "value": 0.2,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortarStart"
+        }, {
+            "time": 0.52,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortar"
+        }, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": -1,
+				"y": 0
+			},
+			"centralAngle": 0,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 11,
+			"duration": 1.5,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "shockBallHoming",
+			"offset": {
+				"x": -10,
+				"y": -31,
+				"z": 5
+			}
+		}, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"centralAngle": 0,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 11,
+			"duration": 1.575,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0.075,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "shockBallHoming",
+			"offset": {
+				"x": 10,
+				"y": -31,
+				"z": 5
+			}
+		}, {
+            "value": 1.3,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 2,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockY": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": 0.6,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortarEnd"
+        }, {
+            "time": 0.52,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "CallVector": [{
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortarStart"
+        }, {
+            "time": 0.52,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortar"
+        }, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": true,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.hammershock",
+				"name": "transmitterShoot"
+			},
+			"offset": {
+				"x": -10,
+				"y": -26,
+				"z": 20
+			}
+		}, {
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": true,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.hammershock",
+				"name": "transmitterShoot"
+			},
+			"offset": {
+				"x": 10,
+				"y": -26,
+				"z": 20
+			}
+		}, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "callLine",
+            "offset": {
+                "x": 0,
+                "y": 140,
+                "z": 0
+            }
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "mortarEnd"
+        }, {
+            "time": 0.52,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }],
+        "CallVectorSneak": [{
+			"type": "RESET_TRACKER",
+			"tracker": "vectorTimer"
+		}, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "callLine",
+            "offset": {
+                "x": 0,
+                "y": 140,
+                "z": 0
+            }
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }],
+		"Bomber": [{
+			"type": "RESET_TRACKER",
+			"tracker": "airstrikeTimer"
+		}, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": 0,
+				"y": 1
+			},
+			"centralAngle": 0.45,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 11,
+			"duration": 1,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"offsetArea": {
+				"x": 16,
+				"y": 0
+			},
+			"proxy": "missileBombingF",
+			"offset": {
+				"x": -55,
+				"y": 65,
+				"z": 15
+			}
+		}, {
+			"align": "BOTTOM",
+			"dir": {
+				"x": 0,
+				"y": 1
+			},
+			"centralAngle": 0.45,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": false,
+			"random": true,
+			"count": 11,
+			"duration": 1.05,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0.05,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"offsetArea": {
+				"x": 16,
+				"y": 0
+			},
+			"proxy": "missileBombingF",
+			"offset": {
+				"x": 55,
+				"y": 65,
+				"z": 15
+			}
+		}, {
+            "time": 1.5,
+            "type": "WAIT"
+        }, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "missileLine",
+            "offset": {
+                "x": 0,
+                "y": 140,
+                "z": 0
+            }
+        }, {
+            "time": 1.5,
+            "type": "WAIT"
+        }],
+        "Cannon": [{
+            "value": 0.3,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "value": 1.5,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.25,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockY": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "value": 0,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "time": 0.225,
+            "type": "WAIT"
+        }, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "entity.attrib.cannonCount <= 0",
+			"thenStep": [{
+				"attribName": "cannonCount",
+				"changeType": "set",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 7
+			}, {
+				"value": 0.45,
+				"type": "SET_AIR_FRICTION"
+			}, {
+				"time": 1.5,
+				"type": "WAIT"
+			}],
+			"elseStep": [{
+				"attribName": "cannonCount",
+				"changeType": "sub",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 1
+			}, {
+				"wait": false,
+				"viaWalkConfig": false,
+				"type": "SHOW_ANIMATION",
+				"anim": "attackT"
+			}, {
+				"duration": 0.25,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"target2": "SELF",
+				"target2Offset": {
+					"x": 0,
+					"y": 2000,
+					"z": 10
+				},
+				"target2Align": "BOTTOM",
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.hammershock",
+					"name": "bigLaser"
+				},
+				"offset": {
+					"x": 0,
+					"y": 65,
+					"z": 10
+				}
+			}, {
+				"align": "BOTTOM",
+				"radius": 26,
+				"yScale": 2000,
+				"zHeight": 0,
+				"centralAngle": 0,
+				"duration": 0.25,
+				"expandRadius": 0,
+				"alwaysFull": true,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"rectangular": true,
+				"repeat": false,
+				"uniformHitDir": false,
+				"fixPos": false,
+				"checkCollision": false,
+				"type": "CIRCLE_ATTACK",
+				"attack": {
+					"type": "MASSIVE",
+					"element": "HEAT",
+					"fly": "HEAVY",
+					"damageFactor": 0.8,
+					"reverse": false,
+					"status": 1,
+					"guardable": "NEVER",
+					"hints": ["LASER"],
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+				},
+				"offset": {
+					"x": 0,
+					"y": 140,
+					"z": 0
+				}
+			}, {
+				"rumbleType": "HORIZONTAL",
+				"name": "",
+				"duration": 0.4,
+				"power": "MEDIUM",
+				"speed": "FASTER",
+				"fade": false,
+				"type": "RUMBLE_SCREEN"
+			}, {
+				"time": 0.34,
+				"type": "WAIT"
+			}, {
+				"wait": false,
+				"viaWalkConfig": false,
+				"type": "SHOW_ANIMATION",
+				"anim": "idleT"
+			}]
+		}, {
+            "value": 0.45,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "time": 0.35,
+            "type": "WAIT"
+        }],
+        "BeamTarget": [{
+			"type": "RESET_TRACKER",
+			"tracker": "laserTimer"
+		}, {
+			"conditions": [{
+				"min": 2,
+				"max": 2,
+				"negated": false,
+				"type": "HP_BREAK"
+			}],
+			"withElse": false,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "CallVector"
+			}]
+		}, {
+            "value": 0.2,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "value": 2,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+			"attribName": "beamDir",
+			"changeType": "set",
+			"type": "SET_ATTRIB_NUMBER_RANDOM",
+			"minValue": 0,
+			"maxValue": 2
+		}, {
+			"entity": {
+				"global": true,
+				"name": "center"
+			},
+			"maxTime": 0.75,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockY": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "value": 0.6,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "beamStart"
+        }, {
+            "time": 0.6,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "beam"
+        }, {
+			"conditions": [{
+				"min": 1,
+				"max": 1,
+				"negated": false,
+				"type": "HP_BREAK"
+			}, {
+				"max": 0.5,
+				"negated": false,
+				"type": "RANDOM"
+			}],
+			"withElse": true,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "BeamTargetHeat"
+			}],
+			"elseStep": [{
+				"conditions": [{
+					"min": 1,
+					"max": 2,
+					"negated": false,
+					"type": "HP_BREAK"
+				}],
+				"withElse": false,
+				"type": "COMBAT_IF",
+				"thenStep": [{
+					"conditions": [{
+						"min": 2,
+						"max": 2,
+						"negated": false,
+						"type": "HP_BREAK"
+					}, {
+						"max": 0.4,
+						"negated": false,
+						"type": "RANDOM"
+					}],
+					"withElse": true,
+					"type": "COMBAT_IF",
+					"thenStep": [{
+						"type": "DO_ENEMY_ACTION_INLINE",
+						"actionName": "BeamTargetWave"
+					}],
+					"elseStep": [{
+						"type": "DO_ENEMY_ACTION_INLINE",
+						"actionName": "BeamTargetShock"
+					}]
+				}]
+			}]
+		}, {
+            "group": "lasers",
+            "type": "WAIT_UNTIL_PROXIES_DONE"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "beamEnd"
+        }, {
+            "time": 0.6,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "BeamTargetHeat": [{
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "beamHeatStartL",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "beamHeatStartR",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "group": "lasers",
+            "type": "WAIT_UNTIL_PROXIES_DONE"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }],
+        "BeamTargetShock": [{
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "beamShockStartL",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "beamShockStartR",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "group": "lasers",
+            "type": "WAIT_UNTIL_PROXIES_DONE"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }],
+        "BeamTargetWave": [{
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "beamWaveStartL",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "beamWaveStartR",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "group": "lasers",
+            "type": "WAIT_UNTIL_PROXIES_DONE"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }],
+        "StunActionHeatShock": [{
+			"sticking": false,
+			"group": "turret",
+			"type": "REMOVE_PROXIES"
+		}, {
+			"conditions": [{
+				"min": 3,
+				"max": 3,
+				"negated": false,
+				"type": "!HP_BREAK"
+			}, {
+			    "state": "DEFAULT",
+			    "type": "CURRENT_STATE"
+			}],
+			"withElse": true,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+                "type": "SET_ENEMY_STATE",
+                "enemyState": "DEFAULTD"
+            }],
+			"elseStep": [{
+				"conditions": [{
+					"min": 3,
+					"max": 3,
+					"negated": false,
+					"type": "HP_BREAK"
+				}],
+				"withElse": true,
+				"type": "COMBAT_IF",
+				"thenStep": [{
+					"wait": false,
+					"type": "SHOW_ANIMATION",
+					"anim": "damageT"
+				}, {
+					"value": -10,
+					"type": "SET_Z_VEL"
+				}, {
+					"type": "SET_ENEMY_STATE",
+					"enemyState": "WEAKANGRY"
+				}],
+				"elseStep": [{
+					"wait": false,
+					"type": "SHOW_ANIMATION",
+					"anim": "damage"
+				}, {
+					"value": -10,
+					"type": "SET_Z_VEL"
+				}, {
+					"type": "SET_ENEMY_STATE",
+					"enemyState": "WEAK"
+				}]
+			}]
+		}, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "StunActionCold": [{
+			"sticking": false,
+			"group": "turret",
+			"type": "REMOVE_PROXIES"
+		}, {
+			"conditions": [{
+			    "state": "DEFAULT",
+			    "type": "CURRENT_STATE"
+			}],
+			"withElse": true,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+                "type": "SET_ENEMY_STATE",
+                "enemyState": "DEFAULTD"
+            }],
+			"elseStep": [{
+				"conditions": [{
+					"state": "DEFAULTD",
+					"type": "CURRENT_STATE"
+				}],
+				"withElse": true,
+				"type": "COMBAT_IF",
+				"thenStep": [{
+					"type": "SET_ENEMY_STATE",
+					"enemyState": "DEFAULT"
+				}],
+				"elseStep": [{
+					"conditions": [{
+						"min": 3,
+						"max": 3,
+						"negated": false,
+						"type": "HP_BREAK"
+					}],
+					"withElse": true,
+					"type": "COMBAT_IF",
+					"thenStep": [{
+						"wait": false,
+						"type": "SHOW_ANIMATION",
+						"anim": "damageT"
+					}, {
+						"value": -10,
+						"type": "SET_Z_VEL"
+					}, {
+						"type": "SET_ENEMY_STATE",
+						"enemyState": "WEAKANGRY"
+					}],
+					"elseStep": [{
+						"wait": false,
+						"type": "SHOW_ANIMATION",
+						"anim": "damage"
+					}, {
+						"value": -10,
+						"type": "SET_Z_VEL"
+					}, {
+						"type": "SET_ENEMY_STATE",
+						"enemyState": "WEAK"
+					}]
+				}]
+			}]
+		}, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "StunActionWave": [{
+			"sticking": false,
+			"group": "turret",
+			"type": "REMOVE_PROXIES"
+		}, {
+			"value": -10,
+			"type": "SET_Z_VEL"
+		}, {
+			"conditions": [{
+				"min": 3,
+				"max": 3,
+				"negated": false,
+				"type": "HP_BREAK"
+			}],
+			"withElse": true,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+                "wait": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "damageT"
+            }, {
+				"type": "SET_ENEMY_STATE",
+				"enemyState": "WEAKANGRY"
+			}],
+			"elseStep": [{
+                "wait": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "damage"
+            }, {
+				"type": "SET_ENEMY_STATE",
+				"enemyState": "WEAK"
+			}]
+		}, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+
+
+        "HpBreak": [{
+			"value": 400,
+			"type": "SET_Z_VEL"
+		}, {
+            "time": 2,
+            "type": "WAIT"
+        }],
+        "KillPre": [{
+            "type": "CLEAR_AR_MSG"
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.bossKillHit",
+            "value": true
+        }]
+    },
+    "reactions": {
+        "HP_BREAK": {
+            "hitType": "HP_BREAK_HIT",
+            "preAction": "HpBreak",
+            "postSwitchState": "DEFAULT",
+            "blockFurtherHits": true,
+            "attackType": "BREAK",
+            "stunChange": "FORCE_STUN",
+            "alignFace": false,
+            "dramaticEffect": "HP_BREAK_ZOOM",
+            "conditions": [],
+            "ignoreFailed": false,
+            "type": "HIT_REACTION"
+        },
+        "BREAK_HEAT": {
+            "hitType": "REGULAR",
+            "action": "StunActionHeatShock",
+            "blockFurtherHits": false,
+            "damageFactor": 0.85,
+            "attackType": "MASSIVE",
+            "stunChange": "FORCE_STUN",
+            "alignFace": false,
+            "dramaticEffect": "BREAK_BIG",
+            "conditions": [{
+                "hint": "LASERTOWER",
+                "negated": false,
+                "type": "HAS_HINT"
+            }, {
+                "hint": "BOMB",
+                "negated": false,
+                "type": "HAS_HINT"
+            }],
+            "ignoreFailed": false,
+            "type": "HIT_REACTION"
+        },
+        "BREAK_COLD": {
+            "hitType": "REGULAR",
+            "action": "StunActionCold",
+            "blockFurtherHits": false,
+            "damageFactor": 0.85,
+            "attackType": "MASSIVE",
+            "stunChange": "FORCE_STUN",
+            "alignFace": false,
+            "dramaticEffect": "BREAK_BIG",
+            "conditions": [{
+                "hint": "LASERTOWER",
+                "negated": false,
+                "type": "HAS_HINT"
+            }, {
+                "hint": "STEAM",
+                "negated": false,
+                "type": "HAS_HINT"
+            }],
+            "ignoreFailed": false,
+            "type": "HIT_REACTION"
+        },
+        "BREAK_SHOCK": {
+            "hitType": "REGULAR",
+            "action": "StunActionHeatShock",
+            "blockFurtherHits": false,
+            "damageFactor": 0.85,
+            "attackType": "MASSIVE",
+            "stunChange": "FORCE_STUN",
+            "alignFace": false,
+            "dramaticEffect": "BREAK_BIG",
+            "conditions": [{
+                "hint": "LASERTOWER",
+                "negated": false,
+                "type": "HAS_HINT"
+            }, {
+                "hint": "GROUND_SHOCK",
+                "negated": false,
+                "type": "HAS_HINT"
+            }],
+            "ignoreFailed": false,
+            "type": "HIT_REACTION"
+        },
+        "BREAK_WAVE": {
+            "hitType": "REGULAR",
+            "action": "StunActionWave",
+            "blockFurtherHits": false,
+            "damageFactor": 0.85,
+            "attackType": "MASSIVE",
+            "stunChange": "FORCE_STUN",
+            "alignFace": false,
+            "dramaticEffect": "BREAK_BIG",
+            "conditions": [{
+                "hint": "LASERTOWER",
+                "negated": false,
+                "type": "HAS_HINT"
+            }, {
+                "hint": "COMPRESSED",
+                "negated": false,
+                "type": "HAS_HINT"
+            }],
+            "ignoreFailed": false,
+            "type": "HIT_REACTION"
+        },
+        "KILL_HIT": {
+            "hitType": "KILL_HIT",
+            "preAction": "KillPre",
+            "blockFurtherHits": false,
+            "attackType": "BREAK",
+            "flyLevel": "MASSIVE++",
+            "stunChange": "FORCE_STUN",
+            "alignFace": false,
+            "dramaticEffect": "BOSS_ZOOM",
+            "conditions": [],
+            "ignoreFailed": false,
+            "type": "HIT_REACTION"
+        }
+    },
+    "meta": {}
+}

@@ -264,7 +264,7 @@
                 "fadeOut": 0.2,
                 "type": "SET_ZOOM_BLUR"
             }, {
-                "bgm": "bossbattle1",
+                "bgm": "arena-al",
                 "volume": 1,
                 "mode": "IMMEDIATELY",
                 "type": "PLAY_BGM"

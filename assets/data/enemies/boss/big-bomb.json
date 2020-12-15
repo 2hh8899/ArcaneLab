@@ -104,7 +104,8 @@
         }],
         "idle": [{
             "text": {
-                "en_US": "DANGER"
+                "en_US": "Overheating",
+                "ko_KR": "과열되는 중"
             },
             "mode": "LINE_FILL",
             "color": "RED",

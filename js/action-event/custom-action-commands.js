@@ -272,6 +272,86 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
 			if(a instanceof sc.BasicCombatant) a.tmpTarget = a.sourceEntity.sourceEntity
 		}
 	});
+	ig.ACTION_STEP.MOVE_RIGHT = ig.ActionStepBase.extend({
+		target: Vec2.create(),
+		_wm: new ig.Config({
+			attributes: {
+				time: {
+					_type: "Number",
+					_info: "Time to move sideways"
+				},
+				stopBeforeEdge: {
+					_type: "Boolean",
+					_info: "If true: Stop before falling down from edge when further moving backward"
+				}
+			}
+		}),
+		init: function(a) {
+			assertContent(a, "time");
+			this.time = a.time;
+			this.stopBeforeEdge = a.stopBeforeEdge
+		},
+		start: function(a) {
+			a.stepTimer = +this.time;
+			a.stepData.prevFaceFix = a.faceDirFixed;
+			a.faceDirFixed = true
+		},
+		run: function(a) {
+			Vec2.assign(a.coll.accelDir, a.face);
+			Vec2.rotate90CCW(a.coll.accelDir);
+			if(a.stepTimer <= 0) {
+				Vec2.assignC(a.coll.accelDir, 0, 0);
+				a.faceDirFixed = a.stepData.prevFaceFix;
+				return true
+			}
+			if(this.stopBeforeEdge && ig.CollTools.isPostMoveOverHole(a.coll,
+					true)) {
+				Vec2.assignC(a.coll.accelDir, 0, 0);
+				Vec2.assignC(a.coll.vel, 0, 0)
+			}
+			return false
+		}
+	});
+	ig.ACTION_STEP.MOVE_LEFT = ig.ActionStepBase.extend({
+		target: Vec2.create(),
+		_wm: new ig.Config({
+			attributes: {
+				time: {
+					_type: "Number",
+					_info: "Time to move sideways"
+				},
+				stopBeforeEdge: {
+					_type: "Boolean",
+					_info: "If true: Stop before falling down from edge when further moving backward"
+				}
+			}
+		}),
+		init: function(a) {
+			assertContent(a, "time");
+			this.time = a.time;
+			this.stopBeforeEdge = a.stopBeforeEdge
+		},
+		start: function(a) {
+			a.stepTimer = +this.time;
+			a.stepData.prevFaceFix = a.faceDirFixed;
+			a.faceDirFixed = true
+		},
+		run: function(a) {
+			Vec2.assign(a.coll.accelDir, a.face);
+			Vec2.rotate90CW(a.coll.accelDir);
+			if(a.stepTimer <= 0) {
+				Vec2.assignC(a.coll.accelDir, 0, 0);
+				a.faceDirFixed = a.stepData.prevFaceFix;
+				return true
+			}
+			if(this.stopBeforeEdge && ig.CollTools.isPostMoveOverHole(a.coll,
+					true)) {
+				Vec2.assignC(a.coll.accelDir, 0, 0);
+				Vec2.assignC(a.coll.vel, 0, 0)
+			}
+			return false
+		}
+	});
 });
 ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("impact.feature.base.action-steps").defines(function() {
     var a = Vec2.create(),
@@ -634,6 +714,93 @@ ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("imp
 				if(this.lockY) a.coll.accelDir.y = 0;
 				(b = this.min <= d && d <= this.max) && Vec2.assignC(a.coll.accelDir, 0, 0);
 				return a.stepTimer <= 0 || b
+			}
+		});
+	var tcD = {
+			SELF: function(a) {
+				return a
+			},
+			PROXY_OWNER: function(a) {
+				return a.getCombatantRoot()
+			},
+			PROXY_SRC: function(a) {
+				return a.sourceEntity
+			},
+			TARGET: function(a) {
+				return a.getTarget()
+			}
+		};
+	ig.ACTION_STEP.TELEPORT_TO_TRACE =
+		ig.ActionStepBase.extend({
+			distance: 0,
+			maxTime: 0,
+            offset: {
+                x: 0,
+                y: 0,
+                z: 0
+            },
+			_wm: new ig.Config({
+				attributes: {
+                    offset: {
+                        _type: "Offset",
+                        _info: "Offset relative to entity ground center from where to start trace",
+                        _optional: true
+                    },
+                    entity: {
+                        _type: "String",
+                        _info: "Where to start trace?",
+                        _select: tcD,
+                        _optional: true
+                    },
+                    faceEntity: {
+                        _type: "String",
+                        _info: "What angle should trace?",
+                        _select: tcD,
+                        _optional: true
+                    },
+					distance: {
+						_type: "Number",
+						_info: "Trace distance"
+					},
+					maxTime: {
+						_type: "Number",
+						_info: "Maximum time to move"
+					},
+                    collType: {
+                        _type: "String",
+                        _info: "Trace Collision Types of Wall. BLOCK - Blocks all, PBLOCK - Blocks only projectiles, NPBLOCK - Blocks only non projectiles",
+                        _select: sc.WALL_COLL_TYPES
+                    }
+				}
+			}),
+			init: function(a) {
+				this.distance = a.distance || 2048;
+				this.offset = a.offset || this.offset;
+				this.entity = tcD[a.entity] || a;
+				this.faceEntity = tcD[a.faceEntity] || this.entity;
+                this.traceCollType = ig.COLLTYPE[a.collType || "IGNORE"];
+				this.maxTime = a.maxTime
+			},
+			start: function(a) {
+				a.stepTimer = a.stepTimer + this.maxTime
+			},
+			run: function(a) {
+				var b = this.entity(a);
+				var fb = this.faceEntity(a);
+				if(!b) return true;
+				var c = Vec2.create(),
+				z = [],
+				tgp = Vec2.create(),
+				tr = ig.game.physics.initTraceResult(tc);
+				Vec2.assign(c, fb.face);
+                Vec2.length(c, this.distance);
+				ig.game.trace(tr, b.coll.pos.x + (b.coll.size.x / 2) + this.offset.x, b.coll.pos.y + (b.coll.size.y / 2) + this.offset.y, b.coll.pos.z + this.offset.z, c.x, c.y, 0, 0, b.coll.size.z, this.traceCollType, null, z);
+                tgp = Vec2.add(tgp, b.getCenter());
+				Vec2.mulF(c, tr.dist);
+                Vec2.add(tgp,  c);
+				Vec2.assign(resp, tgp);
+				a.setPos(resp.x + this.offset.x - a.coll.size.x/2, resp.y + this.offset.y - a.coll.size.y/2, a.coll.z + this.offset.z - a.coll.size.z/2)
+				return a.stepTimer <= 0
 			}
 		});
 	ig.ACTION_STEP.TELEPORT_TO_PROXY_OWNER_FACE_TRACE =

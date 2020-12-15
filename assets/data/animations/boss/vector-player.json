@@ -8,14 +8,14 @@
             "width": 131,
             "height": 70
         },
-        "cannon-back": {
+        "cannon": {
             "src": "media/entity/enemy/boss/vector/cannon.png",
             "offX": 0,
             "offY": 0,
             "width": 279,
             "height": 51
         },
-        "jet-back": {
+        "jet": {
             "src": "media/entity/enemy/boss/vector/player/jet.png",
             "xCount": 5,
             "offX": 0,
@@ -29,21 +29,6 @@
             "offY": 0,
             "width": 223,
             "height": 95
-        },
-        "jet-front": {
-            "src": "media/entity/enemy/boss/vector/player/jet.png",
-            "xCount": 5,
-            "offX": 0,
-            "offY": 0,
-            "width": 373,
-            "height": 171
-        },
-        "cannon-front": {
-            "src": "media/entity/enemy/boss/vector/cannon.png",
-            "offX": 0,
-            "offY": 0,
-            "width": 279,
-            "height": 51
         },
         "wing-front": {
             "src": "media/entity/enemy/boss/vector/player/wing-front.png",
@@ -81,7 +66,7 @@
             "z": 70
         },
         "shapeType": "Y_FLAT",
-        "sheet": "cannon-back",
+        "sheet": "cannon",
         "time": 0.05,
         "repeat": false,
         "frames": [0],
@@ -102,7 +87,7 @@
             "z": 0
         },
         "shapeType": "Y_FLAT",
-        "sheet": "jet-back",
+        "sheet": "jet",
         "size": {
             "x": 373,
             "y": 0,
@@ -146,7 +131,7 @@
             "z": 0
         },
         "shapeType": "Y_FLAT",
-        "sheet": "jet-front",
+        "sheet": "jet",
         "size": {
             "x": 373,
             "y": 0,
@@ -171,7 +156,7 @@
             "z": 70
         },
         "shapeType": "Y_FLAT",
-        "sheet": "cannon-front",
+        "sheet": "cannon",
         "time": 0.05,
         "repeat": false,
         "SUB": [{

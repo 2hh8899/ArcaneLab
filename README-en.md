@@ -1,5 +1,5 @@
 # The Arcane Lab
-### 0.20w32a
+### 0.20w51a
 
 The Arcane Lab is a large modding project in CrossCode that offers new areas, bosses, classes, and more!
 
@@ -23,4 +23,4 @@ After some progress in the game, you can enjoy this mod's content somewhere in A
 
 [[Discord]](https://discord.gg/EsQyxzr)
 [[Trello]](https://trello.com/b/SD0CiV0j/%EC%95%84%EC%BC%80%EC%9D%B8-%EB%9E%A9-to-do)
-[[Support]](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZP3FUGJJ7TNE2&source=url)
+[[Support]](https://paypal.me/2hh8899?locale.x=ko_KR)

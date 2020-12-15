@@ -17,27 +17,42 @@ ig.module("impact.feature.bgm.bgm-arcane-lab")
         loopEnd: 135.005,
         volume: 0.8,
       },
+      "arena-al": {
+        path: "media/bgm/arena-al.ogg",
+        loopEnd: 252,
+        volume: 0.7,
+      },
+      "boss-rush-al": {
+        path: "media/bgm/boss-rush-al.ogg",
+        loopEnd: 117.333,
+        volume: 0.7,
+      },
+      "arcane-lab": {
+        path: "media/bgm/arcane-lab.ogg",
+        loopEnd: 178.604,
+        volume: 0.7,
+      },
       susie: {
         intro: "media/bgm/susie-i.ogg",
         path: "media/bgm/susie.ogg",
         introEnd: 117.6,
         loopEnd: 86.4,
-        volume: 0.8,
+        volume: 0.7,
       },
       "susie-loop": {
         path: "media/bgm/susie.ogg",
         loopEnd: 86.4,
-        volume: 0.8,
+        volume: 0.7,
       },
       eisus: {
         path: "media/bgm/eisus.ogg",
         loopEnd: 96,
-        volume: 0.8,
+        volume: 0.7,
       },
       "breached-beach": {
         path: "media/bgm/breached-beach.ogg",
         loopEnd: 177.78,
-        volume: 0.8,
+        volume: 0.7,
       },
     });
 
@@ -52,15 +67,41 @@ ig.module("impact.feature.bgm.bgm-arcane-lab")
           volume: 1,
         },
       },
-      "breachedBeach": {
+      arcaneLab: {
+        field: {
+          track: "arcane-lab",
+          volume: 0.7,
+        },
+        battle: {
+          track: "tutorial-battle",
+          volume: 1,
+        },
+		rankBattle: {
+			track: "fieldBattle",
+			volume: 1
+		},
+		sRankBattle: {
+			track: "s-rank",
+			volume: 1
+		}
+      },
+      breachedBeach: {
         field: {
           track: "breached-beach",
           volume: 0.7,
         },
         battle: {
-          track: "breached-beach",
-          volume: 0.8,
+          track: "tutorial-battle",
+          volume: 1,
         },
-      },
+		rankBattle: {
+			track: "fieldBattle",
+			volume: 1
+		},
+		sRankBattle: {
+			track: "s-rank",
+			volume: 1
+		}
+      }
     });
   });

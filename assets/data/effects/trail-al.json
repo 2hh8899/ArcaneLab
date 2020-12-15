@@ -1,0 +1,33 @@
+{
+    "DOCTYPE": "EFFECT",
+    "EFFECTS": {
+        "neutralQuickAlpha": [{
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.35,
+                "start": {
+                    "value": 0
+                }
+            },
+            "particleDuration": 0.4,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.08,
+            "type": "WAIT"
+        }],
+        "neutralQuickestAlpha": [{
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.35,
+                "start": {
+                    "value": 0
+                }
+            },
+            "particleDuration": 0.4,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.016,
+            "type": "WAIT"
+        }]
+	}
+}

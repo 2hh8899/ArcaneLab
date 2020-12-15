@@ -9,7 +9,7 @@
     "attributes": {
         "saveMode": "ENABLED",
         "volume": 1,
-        "bgm": "rhombusSquare2",
+        "bgm": "arcaneLab",
         "cameraInBounds": true,
         "map-sounds": "",
         "mapStyle": "cargo-hold",

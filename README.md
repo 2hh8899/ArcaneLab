@@ -1,5 +1,5 @@
 # 아케인 랩
-### 0.20w32a
+### 0.20w51a
 
 아케인 랩은 새로운 구역, 보스, 클래스 등을 제공하는 크로스코드의 대형 모드 프로젝트입니다.
 
@@ -23,4 +23,4 @@
 
 [[디스코드]](https://discord.gg/EsQyxzr)
 [[트렐로]](https://trello.com/b/SD0CiV0j/%EC%95%84%EC%BC%80%EC%9D%B8-%EB%9E%A9-to-do)
-[[후원]](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZP3FUGJJ7TNE2&source=url)
+[[후원]](https://paypal.me/2hh8899?locale.x=ko_KR)

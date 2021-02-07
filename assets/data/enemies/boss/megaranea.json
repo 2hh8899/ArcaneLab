@@ -1,0 +1,4979 @@
+{
+    "level": 75,
+    "params": {
+        "hp": 230000,
+        "attack": 600,
+        "defense": 1000,
+        "focus": 500,
+        "elemFactor": [0.7, 1.1, 0.8, 0.5],
+        "statusInflict": [0.1, 0.5, 0.4, 0.35],
+        "statusEffect": [0.1, 0.5, 0.1, 0.6]
+    },
+    "modifiers": {
+        "TOXIC_HAZARD": 1.3
+    },
+    "credit": 65000,
+    "exp": 3500,
+    "maxSp": 8,
+    "enduranceScale": 4,
+    "healDropRate": 0,
+    "boss": true,
+    "bossOrder": 0,
+    "padding": {
+        "x": 4,
+        "y": 4
+    },
+    "material": "ORGANIC",
+    "aiGroup": "",
+    "aiLearnType": "REGULAR",
+    "itemDrops": [],
+    "targetDetect": {
+        "detectDistance": 10000,
+        "loseDistance": 1000,
+        "notifyNeighbourRadius": 100
+    },
+    "hpBreaks": [],
+    "size": {
+        "x": 32,
+        "y": 32,
+        "z": 32
+    },
+    "anims": "boss.megaranea",
+    "defaultState": "IDLE",
+    "walkConfigs": {
+        "normal": {
+            "idle": "idle",
+            "move": "move",
+            "damage": "damage",
+            "jump": "jump",
+            "fall": "jump"
+        },
+        "weak": {
+            "idle": "damage",
+            "damage": "damage"
+        }
+    },
+    "_wm": null,
+    "walkAnims": "normal",
+    "weight": 400,
+    "maxVel": 295,
+    "jumpingEnabled": true,
+    "shadow": 48,
+    "ballFactor": 0.7,
+    "faceToTarget": true,
+    "DOCTYPE": "ENEMY",
+    "trackers": {
+        "counterRegen": {
+            "target": 1.2,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": false,
+            "noAssist": false,
+            "type": "TIME"
+        },
+        "meleeHits": {
+            "target": 100,
+            "scaleDmgFactor": false,
+            "scaleEnemyFactor": false,
+            "noStateReset": false,
+            "type": "HIT"
+        },
+        "rageTimer": {
+            "target": 48,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": true,
+            "noAssist": true,
+            "type": "TIME"
+        },
+        "exhaustTimer": {
+            "target": 10,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": true,
+            "noAssist": true,
+            "type": "TIME"
+        },
+        "roarTimer": {
+            "target": 50,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": true,
+            "noAssist": true,
+            "type": "TIME"
+        },
+        "chargeTimer": {
+            "target": 13,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": true,
+            "noAssist": true,
+            "type": "TIME"
+        },
+        "jumpTimer": {
+            "target": 12,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": true,
+            "noAssist": true,
+            "type": "TIME"
+        },
+        "flameTimer": {
+            "target": 9,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": true,
+            "noAssist": true,
+            "type": "TIME"
+        }
+    },
+    "states": {
+        "IDLE": {
+            "hitIgnore": true,
+            "aggression": "PEACEFUL",
+            "choices": [{
+                "req": [{
+                    "type": "HAS_TARGET"
+                }],
+                "postSwitchState": "DEFAULT"
+            }]
+        },
+        "DEFAULT": {
+            "damageFactor": 0.7,
+			"enabledReactions": ["KILL_HIT", "MELEE_WEAK"],
+			"hitStable": "MASSIVE",
+            "choices": [{
+                "req": [{
+                    "type": "!HAS_TARGET"
+                }],
+                "postSwitchState": "IDLE"
+            }, {
+                "req": [{
+                    "negated": false,
+                    "type": "VAR_CONDITION",
+                    "condition": "tmp.bossRage"
+                }, {
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "rageTimer"
+                }],
+                "action": "Exhausted",
+				"preSwitchState": "EXHAUSTED"
+            }, {
+                "req": [{
+                    "negated": false,
+                    "type": "VAR_CONDITION",
+                    "condition": "tmp.bossBondage"
+                }, {
+                    "type": "!TARGET_REACHABLE",
+                    "distance": 105
+                }],
+                "action": "AdjustFast"
+            }, {
+                "req": [{
+                    "negated": false,
+                    "type": "VAR_CONDITION",
+                    "condition": "tmp.bossBondage"
+                }, {
+                    "type": "TARGET_REACHABLE",
+                    "distance": 105
+                }],
+                "action": "Chomp"
+            }, {
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "roarTimer"
+                }],
+                "action": "Roar",
+                "frequency": "OFTEN"
+            }, {
+                "req": [{
+                    "distance": 250,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }, {
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "flameTimer"
+                }],
+                "action": "Flamethrower",
+                "frequency": "OFTEN"
+            }, {
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "chargeTimer"
+                }],
+                "action": "PreCharge",
+                "frequency": "OFTEN"
+            }, {
+                "req": [{
+					"negated": false,
+					"type": "HP_BELOW",
+					"value": 0.4
+				}, {
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "jumpTimer"
+                }],
+                "action": "JumpCharge",
+                "frequency": "OFTEN"
+            }, {
+                "req": [{
+					"negated": false,
+					"type": "HP_BELOW",
+					"value": 0.9
+				}, {
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "jumpTimer"
+                }],
+                "action": "JumpAttack",
+                "frequency": "OFTEN"
+            }, {
+                "req": [{
+                    "distance": 450,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }],
+                "action": "PreCharge",
+                "frequency": "RARE"
+            }, {
+                "req": [{
+					"negated": false,
+					"type": "HP_BELOW",
+					"value": 0.4
+				}, {
+                    "distance": 200,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }, {
+					"max": 0.75,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+                "action": "WebShootBigHeat",
+                "frequency": "RARE"
+            }, {
+                "action": "PreCharge",
+                "frequency": "VERY_RARE"
+            }, {
+                "req": [{
+					"negated": false,
+					"type": "HP_BELOW",
+					"value": 0.75
+				}, {
+                    "distance": 200,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }],
+                "action": "WebShootBig",
+                "frequency": "SOMETIMES"
+            }, {
+                "req": [{
+					"negated": false,
+					"type": "!HP_BELOW",
+					"value": 0.6
+				}, {
+                    "distance": 250,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }],
+                "action": "WebSmall",
+                "frequency": "NORMAL"
+            }, {
+                "req": [{
+					"negated": false,
+					"type": "HP_BELOW",
+					"value": 0.8
+				}, {
+                    "distance": 250,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }, {
+					"max": 0.75,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+                "action": "WebSmallHeat",
+                "frequency": "OFTEN"
+            }, {
+                "req": [{
+					"negated": false,
+					"type": "HP_BELOW",
+					"value": 0.25
+				}, {
+                    "distance": 100,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }, {
+					"max": 0.5,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+                "action": "Beam",
+                "frequency": "OFTEN"
+            }, {
+                "req": [{
+                    "distance": 100,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }, {
+					"max": 0.4,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+                "action": "Flamethrower",
+                "frequency": "OFTEN"
+            }, {
+                "req": [{
+                    "distance": 200,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }, {
+                    "distance": 400,
+                    "throwing": false,
+                    "type": "TARGET_REACHABLE"
+                }, {
+					"max": 0.75,
+					"negated": false,
+					"type": "RANDOM"
+				}],
+                "action": "WebShoot",
+                "frequency": "OFTEN"
+            }, {
+                "req": [{
+					"negated": false,
+					"type": "HP_BELOW",
+					"value": 0.4
+				}, {
+                    "distance": 210,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }],
+                "action": "JumpCharge",
+                "frequency": "OFTEN"
+            }, {
+                "req": [{
+					"negated": false,
+					"type": "HP_BELOW",
+					"value": 0.9
+				}, {
+                    "distance": 170,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }],
+                "action": "JumpAttack",
+                "frequency": "OFTEN"
+            }, {
+                "req": [{
+                    "distance": 300,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }],
+                "action": "AdjustFast",
+                "frequency": "NORMAL"
+            }, {
+                "req": [{
+					"negated": false,
+					"type": "HP_BELOW",
+					"value": 0.1
+				}, {
+                    "distance": 60,
+                    "throwing": false,
+                    "type": "TARGET_REACHABLE"
+                }],
+                "action": "Chomp",
+                "frequency": "SPAMM"
+            }, {
+                "action": "PreCharge",
+                "frequency": "NORMAL"
+            }, {
+                "req": [{
+                    "type": "!TARGET_REACHABLE",
+                    "distance": 120
+                }],
+                "action": "Adjust",
+                "frequency": "OFTEN"
+            }, {
+                "action": "BattleIdle"
+            }]
+        },
+        "EXHAUSTED": {
+            "damageFactor": 2.2,
+			"enabledReactions": ["KILL_HIT"],
+			"hitStable": "LIGHT",
+            "annotate": {
+                "active": "NONE",
+                "passive": "WEAK",
+                "weapon": "ANY",
+                "element": "ANY",
+                "extra": []
+            },
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "exhaustTimer"
+                }],
+				"postSwitchState": "DEFAULT"
+            }]
+        },
+        "WEAK": {
+            "walkAnims": "weak",
+            "damageFactor": 1,
+			"enabledReactions": ["KILL_HIT", "MELEE_WEAK"],
+			"hitStable": "LIGHT",
+            "annotate": {
+                "active": "NONE",
+                "passive": "WEAK",
+                "weapon": "ANY",
+                "element": "ANY",
+                "extra": []
+            },
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "counterRegen"
+                }],
+                "preSwitchState": "DEFAULT"
+            }]
+        }
+    },
+    "proxies": {
+        "roarProxy": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+				"align": "BOTTOM",
+				"radius": 100,
+				"yScale": 0,
+				"zHeight": 32,
+				"centralAngle": 1,
+				"duration": 0.2,
+				"expandRadius": 100,
+				"alwaysFull": true,
+				"clockwise": false,
+				"flipLeftFace": false,
+				"rectangular": false,
+				"repeat": false,
+				"type": "CIRCLE_ATTACK",
+				"attack": {
+					"type": "MASSIVE",
+					"fly": "MASSIVE+++",
+					"guardable": "ALWAYS",
+					"element": "NEUTRAL",
+					"damageFactor": 0.5
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.2,
+				"type": "WAIT"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "OWNER",
+            "stickFaceAlign": false,
+            "group": "roar",
+            "type": "GENERIC",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 32
+            },
+            "config": {
+                "collType": "NONE"
+            }
+        },		
+
+	
+	
+        "webSmall": {
+            "animation": {
+                "name": "default",
+                "shapeType": "Z_FLAT",
+                "gfxOffset": {
+                    "x": 0,
+                    "y": 4
+                },
+                "sheet": {
+                    "src": "media/entity/enemy/boss/spider-boss-ef.png",
+                    "offX": 49,
+                    "offY": 0,
+                    "width": 40,
+                    "height": 40
+                },
+                "renderMode": "lighter",
+                "time": 0.05,
+                "repeat": true,
+                "frames": [0]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webShow"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 10,
+                "type": "WAIT"
+            }],
+            "invisible": true,
+            "hp": 0,
+            "terrain": "SPIDERWEB",
+            "killEffect": {
+                "sheet": "enemies.megaranea",
+                "name": "webHide"
+            },
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spiderwebs",
+            "startAnim": "",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 0
+            },
+            "config": {
+                "collType": "BLOCK",
+                "zGravityFactor": 5
+            },
+            "type": "GENERIC"
+        },
+        "webSmallGen": {
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": 0.3,
+                "align": "BASE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "FACE",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webStream"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BASE",
+                "type": "SHOOT_PROXY",
+                "proxy": "webSmall",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }],
+            "invisible": true,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spiderwebs",
+            "startAnim": "",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 0
+            },
+            "config": {},
+            "type": "GENERIC"
+        },
+        "webSmallGenS": {
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "align": "BASE",
+                "type": "SHOOT_PROXY",
+                "proxy": "webSmall",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }],
+            "invisible": true,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spiderwebs",
+            "startAnim": "",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 0
+            },
+            "config": {},
+            "type": "GENERIC"
+        },
+        "webSmallHeat": {
+            "animation": {
+                "name": "default",
+                "shapeType": "Z_FLAT",
+                "gfxOffset": {
+                    "x": 0,
+                    "y": 4
+                },
+                "sheet": {
+                    "src": "media/entity/enemy/boss/spider-boss-ef.png",
+                    "offX": 89,
+                    "offY": 0,
+                    "width": 40,
+                    "height": 40
+                },
+                "renderMode": "lighter",
+                "time": 0.05,
+                "repeat": true,
+                "frames": [0]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webShow"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webPreHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 2,
+                "type": "WAIT"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 20,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "HEAT",
+                    "visualType": "MEDIUM",
+                    "fly": "MASSIVE",
+                    "damageFactor": 0.05,
+                    "reverse": true,
+                    "status": 40,
+                    "hints": ["CHARGED"],
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 15,
+                "type": "WAIT"
+            }],
+            "invisible": true,
+            "hp": 0,
+            "terrain": "SPIDERWEB",
+            "killEffect": {
+                "sheet": "enemies.megaranea",
+                "name": "webHide"
+            },
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spiderwebs",
+            "startAnim": "",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 0
+            },
+            "config": {
+                "collType": "BLOCK",
+                "zGravityFactor": 5
+            },
+            "type": "GENERIC"
+        },
+        "webSmallHeatGen": {
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": 0.3,
+                "align": "BASE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+                "target2Align": "FACE",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webStream"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BASE",
+                "type": "SHOOT_PROXY",
+                "proxy": "webSmallHeat",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }],
+            "invisible": true,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spiderwebs",
+            "startAnim": "",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 0
+            },
+            "config": {},
+            "type": "GENERIC"
+        },
+        "webSmallHeatGenS": {
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "align": "BASE",
+                "type": "SHOOT_PROXY",
+                "proxy": "webSmallHeat",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }],
+            "invisible": true,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spiderwebs",
+            "startAnim": "",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 0
+            },
+            "config": {},
+            "type": "GENERIC"
+        },
+        "webBig": {
+            "animation": {
+                "name": "default",
+                "shapeType": "Z_FLAT",
+                "gfxOffset": {
+                    "x": 0,
+                    "y": 4
+                },
+                "sheet": {
+                    "src": "media/entity/enemy/boss/spider-boss-ef.png",
+                    "offX": 49,
+                    "offY": 40,
+                    "width": 96,
+                    "height": 94
+                },
+                "renderMode": "lighter",
+                "time": 0.05,
+                "repeat": true,
+                "frames": [0]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webShow"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 20,
+                "type": "WAIT"
+            }],
+            "invisible": true,
+            "hp": 0,
+            "terrain": "SPIDERWEB",
+            "killEffect": {
+                "sheet": "enemies.megaranea",
+                "name": "webHide"
+            },
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spiderwebs",
+            "startAnim": "",
+            "size": {
+                "x": 96,
+                "y": 96,
+                "z": 0
+            },
+            "config": {
+                "collType": "BLOCK",
+                "zGravityFactor": 5
+            },
+            "type": "GENERIC"
+        },
+        "webBigHeat": {
+            "animation": {
+                "name": "default",
+                "shapeType": "Z_FLAT",
+                "gfxOffset": {
+                    "x": 0,
+                    "y": 4
+                },
+                "sheet": {
+                    "src": "media/entity/enemy/boss/spider-boss-ef.png",
+                    "offX": 145,
+                    "offY": 40,
+                    "width": 96,
+                    "height": 94
+                },
+                "renderMode": "lighter",
+                "time": 0.05,
+                "repeat": true,
+                "frames": [0]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webShow"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webPreHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 3,
+                "type": "WAIT"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webHeatBig"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 45,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "HEAT",
+                    "visualType": "MEDIUM",
+                    "fly": "MASSIVE",
+                    "damageFactor": 0.1,
+                    "reverse": true,
+                    "status": 40,
+                    "hints": ["CHARGED"],
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 25,
+                "type": "WAIT"
+            }],
+            "invisible": true,
+            "hp": 0,
+            "terrain": "SPIDERWEB",
+            "killEffect": {
+                "sheet": "enemies.megaranea",
+                "name": "webHide"
+            },
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spiderwebs",
+            "startAnim": "",
+            "size": {
+                "x": 96,
+                "y": 96,
+                "z": 0
+            },
+            "config": {
+                "collType": "BLOCK",
+                "zGravityFactor": 5
+            },
+            "type": "GENERIC"
+        },
+		"earthquakeEffect": {
+			"animation": {
+				"SUB": [{
+					"name": "default",
+					"offset": {
+						"x": 0,
+						"y": 0,
+						"z": 0
+					},
+					"pivot": {
+						"x": 8,
+						"y": 40
+					},
+					"sheet": {
+						"src": "media/entity/effects/dust.png",
+						"width": 32,
+						"height": 48,
+						"offY": 64
+					},
+					"renderMode": "lighter",
+					"time": 0.07,
+					"repeat": false,
+					"frames": [1, 2, 3, 4, 5, 6, 7, 8]
+				}]
+			},
+			"copyOwnerAnims": false,
+			"breakType": "COMBATANT",
+			"action": [{
+				"value": 2000,
+				"type": "SET_SPEED"
+			}, {
+				"duration": -1,
+				"align": "BOTTOM",
+				"rotateFace": 2,
+				"wait": false,
+				"waitSkip": 0,
+				"flipLeftFace": true,
+				"actionDetached": false,
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.megaranea",
+					"name": "earthquakeEffect"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.15,
+				"collideCancel": 1,
+				"type": "MOVE_FORWARD"
+			}],
+			"invisible": true,
+			"hp": 0,
+			"stickToSource": "NONE",
+			"stickFaceAlign": false,
+			"group": "",
+			"size": {
+				"x": 16,
+				"y": 16,
+				"z": 16
+			},
+			"type": "GENERIC",
+			"config": {
+				"collType": "PROJECTILE",
+				"airFriction": 1,
+				"maxVel": 2000,
+				"zGravityFactor": 0,
+				"bounciness": 0.0001
+			}
+		},
+        "webBondage": {
+            "animation": {
+                "shapeType": "Y_FLAT",
+				"SUB": [{
+					"name": "default",
+					"sheet": {
+						"src": "media/entity/enemy/boss/spider-boss-ef.png",
+						"offX": 129,
+						"offY": 14,
+						"width": 24,
+						"height": 19
+					},
+					"offset": {
+						"x": 0,
+						"y": -7,
+						"z": 0
+					},
+					"guiSprites": false
+				}, {
+					"name": "default",
+					"sheet": {
+						"src": "media/entity/enemy/boss/spider-boss-ef.png",
+						"offX": 153,
+						"offY": 21,
+						"width": 24,
+						"height": 19
+					},
+					"offset": {
+						"x": 0,
+						"y": 5,
+						"z": 5
+					},
+					"guiSprites": true
+				}],
+                "renderMode": "lighter",
+                "time": 0.05,
+                "repeat": true,
+                "frames": [0]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "sticking": false,
+                "group": "bondage",
+                "target": "TARGET",
+                "type": "REMOVE_PROXIES"
+            }, {
+				"sticking": false,
+				"group": "shield",
+                "target": "TARGET",
+				"type": "REMOVE_PROXIES"
+			}, {
+				"name": "techShield",
+                "target": "TARGET",
+				"type": "REMOVE_SHIELD"
+			}, {
+				"name": "derp",
+                "target": "TARGET",
+				"type": "REMOVE_SHIELD"
+			}, {
+                "type": "CONNECT_PROXY_TO_TARGET"
+            }, {
+                "type": "ADD_TARGET_STUN_LOCK"
+            }, {
+                "kind": "PART_TARGET_ROOT",
+                "type": "SET_TEMP_TARGET"
+            }, {
+                "target": "TARGET",
+                "timeScale": 0.1,
+                "logicTimeScale": 0.1,
+                "moveXYScale": 0,
+                "type": "ADD_TEMP_INFLUENCE"
+            }, {
+                "varName": "tmp.bossBondage",
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "value": true
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webPreHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"condition": "!tmp.bossBondage",
+                "maxTime": 3,
+                "type": "WAIT_UNTIL"
+            }, {
+				"varName": "tmp.bossBondage",
+				"changeType": "set",
+				"type": "CHANGE_VAR_BOOL",
+				"value": false
+			}, {
+                "type": "CLEAR_TEMP_INFLUENCE"
+            }, {
+                "type": "CLEAR_TEMP_TARGET"
+            }, {
+                "selectType": "TARGET",
+                "hitDir": "TOWARD",
+                "align": "BOTTOM",
+                "hitCount": 1,
+                "hitDelay": 0,
+                "type": "DIRECT_HIT",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "HEAT",
+                    "damageFactor": 0.2,
+                    "fly": "MASSIVE",
+                    "reverse": false,
+                    "stunSteps": [{
+						"type": "END_LOCK"
+					}, {
+						"type": "Z_VEL",
+						"value": 60
+					}],
+                    "status": 30,
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG"
+                }
+            }, {
+                "duration": 0,
+                "target": "TARGET",
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": true,
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "TARGET",
+            "stickFaceAlign": false,
+            "group": "bondage",
+            "size": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "shadow": 0,
+            "effects": "",
+            "maxBounce": 0,
+            "groundBounce": 0,
+            "speed": 300,
+            "zBounciness": 0,
+            "multiHit": false,
+            "noLightGlow": false,
+            "config": {},
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+                "guardable": "",
+                "skillBonus": ""
+            },
+            "zVel": 0,
+            "type": "GENERIC"
+        },
+
+        "webShoot": {
+            "effects": "ball",
+            "speed": 600,
+            "maxBounce": 0,
+            "timer": 0.6,
+            "trail": true,
+            "multiHit": false,
+            "noLightGlow": false,
+			"destroyProxy": "webSmallGenS",
+            "killEffect": {
+                "sheet": "teleport",
+                "name": "hideQuickest"
+            },
+            "type": "BALL",
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/enemy/boss/spider-boss-ef.png",
+					"offX": 129,
+					"offY": 1,
+                    "width": 13,
+                    "height": 13
+                },
+                "time": 0.05,
+                "repeat": true,
+				"renderMode": "lighter",
+                "frames": [0]
+            },
+            "attack": {
+                "type": "MEDIUM",
+                "element": "NEUTRAL",
+                "damageFactor": 0.5,
+                "reverse": false,
+				"stunSteps": [],
+                "guardable": "",
+                "skillBonus": "RANGED_DMG",
+                "limiter": ""
+            },
+            "timeBoni": null,
+            "behaviors": []
+        },
+        "webShootBig": {
+            "animation": {
+				"name": "default",
+				"shapeType": "Y_FLAT",
+				"offset": {
+					"x": 0,
+					"y": 4,
+					"z": 0
+				},
+				"sheet": {
+					"src": "media/entity/enemy/boss/spider-boss-ef.png",
+					"offX": 241,
+					"offY": 0,
+					"width": 24,
+					"height": 55
+				},
+				"renderMode": "lighter",
+				"time": 0.1,
+                "faceRotate": true,
+				"repeat": false,
+				"frames": [0]
+                
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webShow"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 600,
+                "type": "SET_Z_VEL"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "ball",
+                    "name": "ballTrail"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 1,
+                "type": "SET_AIR_FRICTION"
+            }, {
+                "value": 500,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.2,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "value": 0.5,
+                "type": "SET_AIR_FRICTION"
+            }, {
+                "stopType": "LANDED",
+                "stopBeforeTime": 0.2,
+                "distance": 0,
+                "rotateSpeed": 0.05,
+                "adjustSpeedMax": 500,
+                "cancelIfBelowFall": false,
+                "type": "JUMP_TARGET_MOVEMENT"
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webHide"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 36,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.2,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "NEUTRAL",
+                    "damageFactor": 1,
+                    "reverse": false,
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "dust",
+                    "name": "largerWithMiddle"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BASE",
+                "type": "SHOOT_PROXY",
+                "proxy": "webBig",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 1.8,
+                "shadow": 24
+            },
+            "type": "GENERIC"
+        },
+        "webShootBigHeat": {
+            "animation": {
+				"name": "default",
+				"shapeType": "Y_FLAT",
+				"offset": {
+					"x": 0,
+					"y": 4,
+					"z": 0
+				},
+				"sheet": {
+					"src": "media/entity/enemy/boss/spider-boss-ef.png",
+					"offX": 241,
+					"offY": 0,
+					"width": 24,
+					"height": 55
+				},
+				"renderMode": "lighter",
+				"time": 0.1,
+                "faceRotate": true,
+				"repeat": false,
+				"frames": [0]
+                
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webShow"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 600,
+                "type": "SET_Z_VEL"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webPreHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "ball",
+                    "name": "ballTrail"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 1,
+                "type": "SET_AIR_FRICTION"
+            }, {
+                "value": 500,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.2,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "value": 0.5,
+                "type": "SET_AIR_FRICTION"
+            }, {
+                "stopType": "LANDED",
+                "stopBeforeTime": 0.2,
+                "distance": 0,
+                "rotateSpeed": 0.05,
+                "adjustSpeedMax": 500,
+                "cancelIfBelowFall": false,
+                "type": "JUMP_TARGET_MOVEMENT"
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webHide"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 36,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.2,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "HEAT",
+                    "damageFactor": 1,
+					"status": 5,
+                    "reverse": false,
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "dust",
+                    "name": "largerWithMiddle"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BASE",
+                "type": "SHOOT_PROXY",
+                "proxy": "webBigHeat",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 1.8,
+                "shadow": 24
+            },
+            "type": "GENERIC"
+        },
+		
+		
+        "webDrop": {
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/enemy/boss/spider-boss-ef.png",
+					"offX": 129,
+					"offY": 1,
+                    "width": 13,
+                    "height": 13
+                },
+                "time": 0.05,
+                "repeat": true,
+				"renderMode": "lighter",
+                "frames": [0]
+            },            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webPreHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "ball",
+                    "name": "ballTrail"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "target": {
+                    "x": 480,
+                    "y": 408,
+                    "lvl": "0"
+                },
+                "offsetArea": {
+                    "x": 350,
+                    "y": 240
+                },
+                "forceHeight": 200,
+                "ignoreSounds": false,
+                "type": "JUMP_TO_POINT_OFFSETAREA"
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webHide"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 16,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.2,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "HEAT",
+                    "damageFactor": 0.2,
+					"status": 5,
+                    "reverse": false,
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BASE",
+                "type": "SHOOT_PROXY",
+                "proxy": "webSmallHeat",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 14,
+                "y": 14,
+                "z": 14
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 1.8,
+                "shadow": 16
+            },
+            "type": "GENERIC"
+        },
+        "webDropBig": {
+            "animation": {
+				"name": "default",
+				"shapeType": "Y_FLAT",
+				"offset": {
+					"x": 0,
+					"y": 4,
+					"z": 0
+				},
+				"sheet": {
+					"src": "media/entity/enemy/boss/spider-boss-ef.png",
+					"offX": 241,
+					"offY": 0,
+					"width": 24,
+					"height": 55
+				},
+				"renderMode": "lighter",
+				"time": 0.1,
+                "faceRotate": true,
+				"repeat": false,
+				"frames": [0]
+                
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webShow"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webPreHeat"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "ball",
+                    "name": "ballTrail"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "target": {
+                    "x": 480,
+                    "y": 408,
+                    "lvl": "0"
+                },
+                "offsetArea": {
+                    "x": 350,
+                    "y": 240
+                },
+                "forceHeight": 400,
+                "ignoreSounds": false,
+                "type": "JUMP_TO_POINT_OFFSETAREA"
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "webHide"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 36,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.2,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "HEAT",
+                    "damageFactor": 1,
+					"status": 5,
+                    "reverse": false,
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "dust",
+                    "name": "largerWithMiddle"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BASE",
+                "type": "SHOOT_PROXY",
+                "proxy": "webBigHeat",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 1.8,
+                "shadow": 24
+            },
+            "type": "GENERIC"
+        },
+	
+		"beamStart": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+				"align": "BOTTOM",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"count": 1,
+				"duration": 0,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "beam",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"withElse": true,
+				"type": "IF",
+				"condition": "!tmp.bossRage",
+				"thenStep": [{
+					"value": 0.02,
+					"type": "FACE_TO_TARGET_SPEED"
+				}],
+				"elseStep": [{
+					"value": 0.1,
+					"type": "FACE_TO_TARGET_SPEED"
+				}]
+			}, {
+				"value": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"time": 0.8,
+				"type": "WAIT"
+			}, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 4,
+                "y": 4,
+                "z": 4
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+		"beam": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_SRC",
+                "target2Align": "BOTTOM",
+                "target2Offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megaranea",
+                    "name": "laserShoot"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "selectType": "PROXY_SRC",
+				"width": 6,
+				"hitDir": "TOWARD",
+				"repeat": true,
+				"duration": 0.05,
+				"offset2": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "type": "BEAM_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "HEAT",
+                    "damageFactor": 1,
+                    "reverse": false,
+                    "status": 6,
+                    "hints": ["LASER"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                }
+            }, {
+				"distance": 2000,
+				"maxTime": 0.8,
+				"collType": "PROJECTILE",
+				"entity": "PROXY_SRC",
+				"faceEntity": "PROXY_SRC",
+				"offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+				"type": "TELEPORT_TO_TRACE"
+			}, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+				"type": "STOP_REPEATING_FORCE"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "lasers",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {
+                "zGravityFactor": 0,
+                "collType": "NONE"
+            },
+            "type": "GENERIC"
+        },
+
+		
+        "flameRing": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 3,
+                "type": "SET_FACE"
+            }, {
+                "value": true,
+                "type": "SET_FACE_FIX"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.heat",
+                    "name": "flameRing"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 32,
+                "centralAngle": 1,
+                "duration": 0.3,
+                "expandRadius": 0,
+                "alwaysFull": false,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": true,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "NONE",
+                    "visualType": "LIGHT",
+                    "element": "HEAT",
+                    "damageFactor": 0.04,
+                    "spFactor": 0,
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"condition": "!tmp.bossRage",
+                "type": "WAIT_UNTIL"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "OWNER",
+            "stickFaceAlign": false,
+            "group": "rage",
+            "type": "GENERIC",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 32
+            },
+            "config": {
+                "collType": "NONE"
+            }
+        },		
+		
+        "flame": {
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "effects": "specials.heat",
+            "effectKeys": {
+                "wall": "flameKill"
+            },
+            "speed": 800,
+            "maxBounce": 0,
+            "timer": 0.8,
+            "trail": false,
+            "multiHit": true,
+            "light": "XL",
+            "noLightGlow": true,
+            "type": "BALL",
+            "effect": "ar",
+            "maxBounds": 0,
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/effects/heat.png",
+                    "xCount": 6,
+                    "offX": 0,
+                    "offY": 0,
+                    "width": 48,
+                    "height": 48
+                },
+                "guiSprites": true,
+                "time": 0.07,
+                "repeat": false,
+                "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+            },
+            "attack": {
+                "type": "LIGHT",
+                "element": "HEAT",
+                "damageFactor": 0.07,
+                "reverse": false,
+                "status": 1,
+                "guardable": "",
+                "skillBonus": "RANGED_DMG",
+                "limiter": ""
+            },
+            "behaviors": [],
+            "timeBoni": null
+        }
+    },
+    "actions": {
+        "Idle": [{
+            "kind": "NAMED_ENTITY",
+            "key": {
+                "varName": ""
+            },
+            "type": "SET_TEMP_TARGET"
+        }, {
+            "poiFilter": {
+                "name": "",
+                "namePart": "",
+                "conditions": [],
+                "type": "NAMED_ENTITY"
+            },
+            "distance": 0,
+            "type": "SET_POI_TEMP_TARGET"
+        }, {
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "minTime": 0.1,
+            "maxTime": 0.3,
+            "type": "WAIT_RANDOM"
+        }],
+        "BattleIdle": [{
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "minTime": 0.2,
+            "maxTime": 0.4,
+            "type": "WAIT_RANDOM"
+        }],
+        "Start": [{
+            "target": {
+                "x": 464,
+                "y": 244,
+                "lvl": "0"
+            },
+            "forceHeight": 40,
+            "ignoreSounds": false,
+            "type": "JUMP_TO_POINT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "land"
+        }, {
+			"varName": "tmp.bossBondage",
+			"changeType": "set",
+			"type": "CHANGE_VAR_BOOL",
+			"value": false
+		}, {
+			"varName": "tmp.bossRage",
+			"changeType": "set",
+			"type": "CHANGE_VAR_BOOL",
+			"value": false
+		}, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "type": "RESET_TRACKER",
+            "tracker": "chargeTimer"
+        }, {
+            "type": "RESET_TRACKER",
+            "tracker": "jumpTimer"
+        }, {
+            "type": "RESET_TRACKER",
+            "tracker": "flameTimer"
+        }, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "Roar"
+		}],
+		"Adjust": [{
+            "value": 0.8,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 0.5,
+            "forceTime": false,
+            "distance": 100,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "precise": false,
+            "stayBehind": false,
+            "type": "NAVIGATE_TO_TARGET"
+        }],
+        "AdjustFast": [{
+            "value": 1.2,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 0.3,
+            "forceTime": false,
+            "distance": 100,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "precise": false,
+            "stayBehind": false,
+            "type": "NAVIGATE_TO_TARGET"
+        }],
+        "GetClose": [{
+            "value": 0.7,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": "MEDIUM",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "maxTime": 0.5,
+            "forceTime": false,
+            "distance": 60,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "precise": false,
+            "stayBehind": false,
+            "type": "NAVIGATE_TO_TARGET"
+        }],
+
+
+        "Rage": [{
+            "value": "BREAK",
+            "type": "SET_HIT_STABLE"
+        }, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"type": "RESET_TRACKER",
+				"tracker": "rageTimer"
+			}, {
+				"varName": "tmp.bossRage",
+				"changeType": "set",
+				"type": "CHANGE_VAR_BOOL",
+				"value": true
+			}, {
+				"text": {
+					"en_US": "Enraged!",
+					"ko_KR": "분노 상태!"
+				},
+				"mode": "NO_LINE",
+				"color": "RED",
+				"actionDetached": true,
+				"hideOutsideOfScreen": false,
+				"type": "SHOW_AR_MSG",
+				"time": 3
+			}, {
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "Roar"
+			}, {
+				"sticking": false,
+				"group": "rage",
+				"type": "REMOVE_PROXIES"
+			}, {
+				"align": "BOTTOM",
+				"type": "SHOOT_PROXY",
+				"proxy": "flameRing",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.1,
+				"type": "WAIT"
+			}],
+			"elseStep": [{
+				"type": "DO_ENEMY_ACTION",
+				"actionName": "Exhausted"
+			}]
+		}],
+        "Exhausted": [{
+            "type": "DISABLE_REACTION",
+            "reaction": "MELEE_WEAK"
+        }, {
+			"type": "RESET_TRACKER",
+			"tracker": "exhaustTimer"
+		}, {
+			"varName": "tmp.bossRage",
+			"changeType": "set",
+			"type": "CHANGE_VAR_BOOL",
+			"value": false
+		}, {
+			"sticking": false,
+			"group": "rage",
+			"type": "REMOVE_PROXIES"
+		}, {
+            "value": "LIGHT",
+            "type": "SET_HIT_STABLE"
+        }, {
+			"duration": 10,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": true,
+			"group": "weak",
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemy",
+				"name": "angry2"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"text": {
+				"en_US": "Exhausted!",
+				"ko_KR": "탈진 상태!"
+			},
+			"mode": "LINE_EMPTY",
+			"color": "GREEN",
+			"actionDetached": true,
+			"hideOutsideOfScreen": false,
+			"type": "SHOW_AR_MSG",
+			"time": 10
+		}, {
+			"type": "SET_ENEMY_STATE",
+			"enemyState": "EXHAUSTED"
+		}, {
+			"time": 0.1,
+			"type": "WAIT"
+		}],
+
+
+
+        "Roar": [{
+            "type": "RESET_TRACKER",
+            "tracker": "roarTimer"
+        }, {
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "value": false,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preRangeAttack"
+        }, {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "aura",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.megaranea",
+                "name": "preRoar"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+			"volume": 1,
+			"global": true,
+			"loop": false,
+			"sound": "media/sound/battle/enemies/buffalo/buffalo-gasp.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+            "duration": 0.8,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "effect": {
+                "sheet": "charge",
+                "name": "light"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "type": "SHOW_EFFECT"
+        }, {
+            "time": 0.8,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "rangeAttack"
+        }, {
+            "zoomType": "SLOW_INTENSE",
+            "fadeIn": 0,
+            "duration": 1,
+            "fadeOut": 0.2,
+            "type": "SET_ZOOM_BLUR"
+        }, {
+			"rumbleType": "RANDOM",
+			"name": "",
+			"duration": 1.5,
+			"power": "WEAK",
+			"speed": "FASTEST",
+			"fade": true,
+			"type": "RUMBLE_SCREEN"
+		}, {
+            "duration": 1.5,
+            "align": "FACE",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "aura",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.megaranea",
+                "name": "roar"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+			"align": "FACE",
+			"type": "SHOOT_PROXY",
+			"proxy": "roarProxy",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"volume": 1,
+			"global": true,
+			"loop": false,
+			"sound": "media/sound/boss/megaranea-scream.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+            "time": 0.8,
+            "type": "WAIT"
+        }, {
+			"type": "STOP_REPEATING_FORCE"
+		}, {
+            "time": 1.5,
+            "type": "WAIT"
+        }],
+        "PreCharge": [{
+            "type": "RESET_TRACKER",
+            "tracker": "chargeTimer"
+        }, {
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "value": "BREAK",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "dust",
+                "name": "large"
+            }
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "move"
+        }, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"time": 0.75,
+				"type": "WAIT"
+			}],
+			"elseStep": [{
+				"time": 0.5,
+				"type": "WAIT"
+			}]
+		}, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+			"type": "DO_ENEMY_ACTION_INLINE",
+			"actionName": "Charge"
+		}],
+        "Charge": [{
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"attribName": "chargeRandom",
+				"changeType": "set",
+				"minValue": 1,
+				"maxValue": 3,
+				"type": "SET_ATTRIB_NUMBER_RANDOM"
+			}],
+			"elseStep": [{
+				"attribName": "chargeRandom",
+				"changeType": "set",
+				"minValue": 2,
+				"maxValue": 5,
+				"type": "SET_ATTRIB_NUMBER_RANDOM"
+			}]
+		}, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "move"
+        }, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"value": 2,
+				"type": "SET_RELATIVE_SPEED"
+			}],
+			"elseStep": [{
+				"value": 2.5,
+				"type": "SET_RELATIVE_SPEED"
+			}]
+		}, {
+			"name": "loopCharge",
+			"type": "LABEL"
+		}, {
+			"conditions": [{
+				"negated": false,
+				"type": "HP_BELOW",
+				"value": 0.65
+			}, {
+				"negated": false,
+				"type": "VAR_CONDITION",
+				"condition": "entity.attrib.chargeRandom == 1"
+			}, {
+				"negated": false,
+				"type": "RANDOM",
+				"max": 0.5
+			}],
+			"withElse": false,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+				"type": "DO_ENEMY_ACTION",
+				"actionName": "ChargeSpin"
+			}]
+		}, {
+			"conditions": [{
+				"negated": false,
+				"type": "HP_BELOW",
+				"value": 0.65
+			}, {
+				"distance": 120,
+				"throwing": false,
+				"type": "TARGET_REACHABLE"
+			}, {
+				"max": 0.75,
+				"negated": false,
+				"type": "RANDOM"
+			}],
+			"withElse": false,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+				"type": "DO_ENEMY_ACTION",
+				"actionName": "ChargeSpin"
+			}]
+		}, {
+			"conditions": [{
+				"negated": false,
+				"type": "VAR_CONDITION",
+				"condition": "tmp.bossRage"
+			}, {
+				"distance": 140,
+				"throwing": false,
+				"type": "TARGET_REACHABLE"
+			}, {
+				"max": 0.8,
+				"negated": false,
+				"type": "RANDOM"
+			}],
+			"withElse": false,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+				"type": "DO_ENEMY_ACTION",
+				"actionName": "ChargeSpin"
+			}]
+		}, {
+			"value": 1,
+			"type": "SET_FRICTION"
+		}, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "dust",
+                "name": "larger"
+            }
+        }, {
+            "volume": 1.2,
+            "global": false,
+            "loop": false,
+			"speed": 0.8,
+            "type": "PLAY_SOUND",
+            "sound": "media/sound/battle/dash-2.ogg"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "type": "ENABLE_REACTION",
+            "reaction": "GUARD_COUNTER"
+        }, {
+            "time": 5,
+            "cancelOnHit": false,
+            "orthoDirFactor": 0,
+            "missReactTime": 0.1,
+            "ignoreLastHit": false,
+			"rotateSpeed": 0.05,
+            "collideSlip": false,
+            "type": "TACKLE",
+            "attack": {
+                "type": "MASSIVE",
+                "damageFactor": 1
+            }
+        }, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "land"
+        }, {
+			"value": 0.3,
+			"type": "SET_FRICTION"
+		}, {
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"time": 0.55,
+				"type": "WAIT"
+			}],
+			"elseStep": [{
+				"time": 0.35,
+				"type": "WAIT"
+			}, {
+				"value": true,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}]
+		}, {
+			"type": "CLEAR_ANIMATION"
+		}, {
+			"attribName": "chargeRandom",
+			"changeType": "sub",
+			"proxyOwner": false,
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 1
+		}, {
+			"withElse": false,
+			"type": "IF",
+			"condition": "entity.attrib.chargeRandom > 0",
+			"thenStep": [{
+				"name": "loopCharge",
+				"type": "GOTO_LABEL"
+			}]
+		}, {
+            "active": "POST_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "time": 0.6,
+            "type": "WAIT"
+        }],
+		"ChargeSpin": [{
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"value": 2,
+				"type": "SET_RELATIVE_SPEED"
+			}, {
+				"duration": 0.3,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"fixPos": false,
+				"effect": {
+					"sheet": "charge",
+					"name": "light"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"type": "SHOW_EFFECT"
+			}, {
+				"time": 0.3,
+				"type": "WAIT"
+			}],
+			"elseStep": [{
+				"value": 2.5,
+				"type": "SET_RELATIVE_SPEED"
+			}, {
+				"duration": 0.2,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"fixPos": false,
+				"effect": {
+					"sheet": "charge",
+					"name": "light"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"type": "SHOW_EFFECT"
+			}, {
+				"time": 0.2,
+				"type": "WAIT"
+			}]
+		}, {
+            "volume": 1.2,
+            "global": false,
+            "loop": false,
+			"speed": 0.8,
+            "type": "PLAY_SOUND",
+            "sound": "media/sound/battle/dash-2.ogg"
+        }, {
+            "maxTime": 3,
+            "forceTime": false,
+            "distance": 100,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "precise": false,
+            "stayBehind": false,
+            "type": "NAVIGATE_TO_TARGET"
+        }, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+			"value": 0.8,
+			"type": "SET_FRICTION"
+		}, {
+			"wait": false,
+			"viaWalkConfig": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "land"
+		}, {
+			"value": 0.1,
+			"type": "FACE_TO_TARGET_SPEED"
+		}, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"time": 0.35,
+				"type": "WAIT"
+			}],
+			"elseStep": [{
+				"time": 0.2,
+				"type": "WAIT"
+			}]
+		}, {
+			"duration": 0,
+			"align": "CENTER",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.megaranea",
+				"name": "webSpin"
+			}
+		}, {
+			"align": "BASE",
+			"type": "SHOOT_PROXY",
+			"proxy": "webBig",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"posType": "TARGET",
+			"align": "CENTER",
+			"type": "SET_HIT_PROXY",
+			"proxy": "webBondage",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"align": "BOTTOM",
+			"radius": 80,
+			"yScale": 0,
+			"zHeight": 0,
+			"centralAngle": 2,
+			"startAngle": 0,
+			"duration": 0.25,
+			"expandRadius": 0,
+			"alwaysFull": false,
+			"clockwise": false,
+			"flipLeftFace": 8,
+			"rectangular": false,
+			"repeat": false,
+			"uniformHitDir": false,
+			"fixPos": false,
+			"checkCollision": true,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "HEAVY",
+				"element": "NEUTRAL",
+				"damageFactor": 0.3,
+				"reverse": false,
+				"stunSteps": [{
+					"type": "START_LOCK"
+				}, {
+					"type": "BLOCK_XY"
+				}],
+				"spFactor": 0,
+				"guardable": "NEVER",
+				"skillBonus": "MELEE_DMG"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"withElse": false,
+			"type": "IF",
+			"condition": "tmp.bossRage",
+			"thenStep": [{
+				"align": "BOTTOM",
+				"centralAngle": 0,
+				"angleVary": 0,
+                "random": true,
+				"startDist": 0,
+				"count": 3,
+				"duration": 0.25,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "webDrop",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "BOTTOM",
+				"centralAngle": 0,
+				"angleVary": 0,
+                "random": true,
+				"startDist": 0,
+				"count": 1,
+				"duration": 0.1,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0.1,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "webDropBig",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}]
+		}, {
+			"followUp": "land",
+			"wait": false,
+			"viaWalkConfig": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "spin"
+		}, {
+			"time": 0.35,
+			"stopBeforeEdge": false,
+			"type": "MOVE_FORWARD"
+		}, {
+			"time": 0.45,
+			"type": "WAIT"
+		}],
+        "JumpCharge": [{
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "land"
+        }, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"duration": 0.25,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"fixPos": false,
+				"effect": {
+					"sheet": "charge",
+					"name": "light"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"type": "SHOW_EFFECT"
+			}, {
+				"time": 0.25,
+				"type": "WAIT"
+			}],
+			"elseStep": [{
+				"duration": 0.15,
+				"align": "BOTTOM",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"fixPos": false,
+				"effect": {
+					"sheet": "charge",
+					"name": "light"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"type": "SHOW_EFFECT"
+			}, {
+				"time": 0.15,
+				"type": "WAIT"
+			}]
+		}, {
+			"duration": -1,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"group": "trail",
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "trail",
+				"name": "whiteQuickest"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "jump"
+        }, {
+			"value": 2.1,
+			"type": "SET_Z_GRAVITY_FACTOR"
+		}, {
+			"value": 800,
+			"type": "SET_Z_VEL"
+		}, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+			"stopType": "LANDED",
+			"stopBeforeTime": 0,
+			"distance": 0,
+			"offset": {
+				"x": 0,
+				"y": 0
+			},
+			"adjustSpeedMax": 600,
+			"rotateSpeed": 0.05,
+			"missileMode": 0,
+			"cancelIfBelowFall": true,
+			"type": "JUMP_TARGET_MOVEMENT"
+		}, {
+            "value": true,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+			"value": 1,
+			"type": "SET_Z_GRAVITY_FACTOR"
+		}, {
+			"group": "trail",
+			"type": "CLEAR_EFFECTS"
+		}, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "land"
+        }, {
+			"volume": 1,
+			"global": false,
+			"loop": false,
+			"speed": 1.8,
+			"variance": 0.1,
+			"sound": "media/sound/battle/earth-boom.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "speed": 1.5,
+            "sound": "media/sound/boss/drill-boss/metal-impact.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+			"align": "BOTTOM",
+			"radius": 48,
+			"yScale": 0,
+			"zHeight": 32,
+			"centralAngle": 1,
+			"duration": 0.2,
+			"expandRadius": 0,
+			"alwaysFull": true,
+			"clockwise": false,
+			"flipLeftFace": false,
+			"rectangular": false,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "MASSIVE",
+				"fly": "MASSIVE+++",
+				"guardable": "ALWAYS",
+				"element": "NEUTRAL",
+				"damageFactor": 1
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "rumbleType": "RANDOM",
+			"name": "",
+            "power": "STRONGER",
+            "speed": "FASTER",
+            "duration": 0.5,
+            "fade": true,
+            "type": "RUMBLE_SCREEN"
+        }, {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "dust",
+                "name": "giant"
+            }
+        }, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"align": "BASE",
+				"type": "SHOOT_PROXY",
+				"proxy": "webBig",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}],
+			"elseStep": [{
+				"align": "BASE",
+				"type": "SHOOT_PROXY",
+				"proxy": "webBigHeat",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}]
+		}, {
+			"align": "BASE",
+			"centralAngle": 1,
+			"angleVary": 0.1,
+			"startDist": 20,
+			"startDistAdd": 30,
+			"count": 5,
+			"duration": 0.2,
+			"startDistCollide": "CLOSER",
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": true,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "earthquakeEffect",
+			"offsetArea": {
+				"x": 50,
+				"y": 50
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+			"type": "DO_ENEMY_ACTION",
+			"actionName": "Charge"
+		}],
+        "WebSmall": [{
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "value": "MEDIUM",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "maxTime": 0.5,
+            "forceTime": false,
+            "distance": 250,
+            "throwing": true,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }, {
+            "value": true,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "value": 0.3,
+            "type": "FACE_TO_TARGET_SPEED"
+        }, {
+            "value": false,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preRangeAttack"
+        }, {
+            "time": 0.25,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "rangeAttack"
+        }, {
+            "align": "BOTTOM",
+            "centralAngle": 0,
+            "angleVary": 0,
+            "startDist": 250,
+            "startDistCollide": "CLOSER",
+            "random": false,
+            "count": 1,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "webSmallGen",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }],
+        "WebSmallHeat": [{
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "value": "MEDIUM",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "maxTime": 0.5,
+            "forceTime": false,
+            "distance": 250,
+            "throwing": true,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }, {
+            "value": true,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "value": 0.3,
+            "type": "FACE_TO_TARGET_SPEED"
+        }, {
+            "value": false,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preRangeAttack"
+        }, {
+            "time": 0.25,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "rangeAttack"
+        }, {
+            "align": "BOTTOM",
+            "centralAngle": 0,
+            "angleVary": 0,
+            "startDist": 250,
+            "startDistCollide": "CLOSER",
+            "random": false,
+            "count": 1,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "webSmallHeatGen",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }],
+        "JumpAttack": [{
+            "type": "RESET_TRACKER",
+            "tracker": "jumpTimer"
+        }, {
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "land"
+        }, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"time": 0.25,
+				"type": "WAIT"
+			}],
+			"elseStep": [{
+				"time": 0.15,
+				"type": "WAIT"
+			}]
+		}, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+			"value": 1.8,
+			"type": "SET_Z_GRAVITY_FACTOR"
+		}, {
+			"value": 600,
+			"type": "SET_Z_VEL"
+		}, {
+			"duration": -1,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"group": "trail",
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "trail",
+				"name": "whiteQuickest"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "jump"
+        }, {
+			"stopType": "LANDED",
+			"stopBeforeTime": 0,
+			"distance": 0,
+			"offset": {
+				"x": 0,
+				"y": 0
+			},
+			"adjustSpeedMax": 500,
+			"rotateSpeed": 0.2,
+			"missileMode": 0,
+			"cancelIfBelowFall": true,
+			"type": "JUMP_TARGET_MOVEMENT"
+		}, {
+			"group": "trail",
+			"type": "CLEAR_EFFECTS"
+		}, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "land"
+        }, {
+			"volume": 1,
+			"global": false,
+			"loop": false,
+			"speed": 1.8,
+			"variance": 0.1,
+			"sound": "media/sound/battle/earth-boom.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "speed": 1.5,
+            "sound": "media/sound/boss/drill-boss/metal-impact.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+			"align": "BOTTOM",
+			"radius": 48,
+			"yScale": 0,
+			"zHeight": 32,
+			"centralAngle": 1,
+			"duration": 0.2,
+			"expandRadius": 0,
+			"alwaysFull": true,
+			"clockwise": false,
+			"flipLeftFace": false,
+			"rectangular": false,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "MASSIVE",
+				"fly": "MASSIVE+++",
+				"guardable": "ALWAYS",
+				"element": "NEUTRAL",
+				"damageFactor": 1
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "rumbleType": "RANDOM",
+			"name": "",
+            "power": "STRONGER",
+            "speed": "FASTER",
+            "duration": 0.5,
+            "fade": true,
+            "type": "RUMBLE_SCREEN"
+        }, {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "dust",
+                "name": "giant"
+            }
+        }, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "tmp.bossRage",
+			"thenStep": [{
+				"align": "BASE",
+				"type": "SHOOT_PROXY",
+				"proxy": "webBig",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}]
+		}, {
+			"align": "BASE",
+			"centralAngle": 1,
+			"angleVary": 0.1,
+			"startDist": 20,
+			"startDistAdd": 30,
+			"count": 5,
+			"duration": 0.2,
+			"startDistCollide": "CLOSER",
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"circularArea": true,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "earthquakeEffect",
+			"offsetArea": {
+				"x": 50,
+				"y": 50
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "active": "POST_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }],
+        "WebShoot": [{
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preRangeAttack"
+        }, {
+            "time": 0.3,
+            "type": "WAIT"
+        }, {
+            "value": true,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "rangeAttack"
+        }, {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "speed": 2,
+            "sound": "media/sound/battle/enemies/spider/spider-web-shot.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+			"align": "FACE",
+			"centralAngle": 0.05,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": false,
+			"count": 3,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 6,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "webShoot",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"withElse": false,
+			"type": "IF",
+			"condition": "tmp.bossRage",
+			"thenStep": [{
+				"time": 0.2,
+				"type": "WAIT"
+			}, {
+				"volume": 1,
+				"global": false,
+				"loop": false,
+				"speed": 2,
+				"sound": "media/sound/battle/enemies/spider/spider-web-shot.ogg",
+				"type": "PLAY_SOUND"
+			}, {
+				"align": "FACE",
+				"centralAngle": 0.025,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 2,
+				"duration": 0,
+				"clockwise": true,
+				"flipLeftFace": 6,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "webShoot",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}]
+		}, {
+            "time": 0.6,
+            "type": "WAIT"
+        }, {
+            "type": "CLEAR_ANIMATION"
+        }],
+        "WebShootBig": [{
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preRangeAttack"
+        }, {
+            "time": 0.3,
+            "type": "WAIT"
+        }, {
+            "value": true,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "rangeAttack"
+        }, {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "speed": 0.9,
+            "sound": "media/sound/boss/turret/big-shot.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "speed": 0.9,
+            "sound": "media/sound/battle/enemies/spider/spider-web-shot.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+			"align": "FACE",
+			"centralAngle": 0,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": false,
+			"count": 1,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 6,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "webShootBig",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "time": 0.8,
+            "type": "WAIT"
+        }, {
+            "type": "CLEAR_ANIMATION"
+        }],
+        "WebShootBigHeat": [{
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preRangeAttack"
+        }, {
+            "time": 0.3,
+            "type": "WAIT"
+        }, {
+            "value": true,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "rangeAttack"
+        }, {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "speed": 0.9,
+            "sound": "media/sound/boss/turret/big-shot.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "speed": 0.9,
+            "sound": "media/sound/battle/enemies/spider/spider-web-shot.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+			"align": "FACE",
+			"centralAngle": 0,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": false,
+			"count": 1,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 6,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "webShootBigHeat",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "time": 0.8,
+            "type": "WAIT"
+        }, {
+            "type": "CLEAR_ANIMATION"
+        }],
+		"Chomp": [{
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "value": false,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "searchType": "ENEMY_DIR",
+            "rotate": true,
+            "rotateSpeed": 3,
+			"type": "SET_CLOSEST_FACE6"
+		}, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preMeleeAttack"
+        }, {
+            "value": 1.5,
+            "forwardToProxies": false,
+            "type": "SET_DAMAGE_CEILING"
+        }, {
+			"type": "SELECT_RANDOM",
+			"options": [{
+				"0": " ",
+				"count": 1,
+				"weight": 1,
+				"activeCondition": "player.element == 2 || player.element == 0"
+			}, {
+				"0": " ",
+				"count": 1,
+				"weight": 1,
+				"activeCondition": "player.element == 1"
+			}, {
+				"0": " ",
+				"count": 1,
+				"weight": 1,
+				"activeCondition": "player.element == 4"
+			}, {
+				"0": " ",
+				"count": 1,
+				"weight": 1,
+				"activeCondition": "player.element == 3"
+			}],
+			"0_0": [{
+				"duration": 0,
+				"align": "FACE",
+				"rotateFace": 6,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"group": "aura",
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.megaranea",
+					"name": "chompHeat"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.3,
+				"type": "WAIT"
+			}, {
+				"varName": "tmp.bossBondage",
+				"changeType": "set",
+				"type": "CHANGE_VAR_BOOL",
+				"value": false
+			}, {
+				"wait": false,
+				"viaWalkConfig": false,
+				"type": "SHOW_ANIMATION",
+				"anim": "meleeAttack"
+			}, {
+                "align": "FACE",
+                "radius": 60,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.35,
+				"startAngle": -0.35,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": false,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "HEAT",
+					"fly": "MASSIVE+++",
+                    "damageFactor": 1.2,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE",
+                "radius": 60,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.35,
+				"startAngle": -0.35,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": false,
+                "clockwise": true,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "HEAT",
+					"fly": "MASSIVE+++",
+                    "damageFactor": 1.2,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"time": 0.1,
+				"type": "WAIT"
+			}, {
+                "align": "FACE",
+                "radius": 64,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.25,
+                "duration": 0.14,
+                "expandRadius": 72,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "HEAT",
+					"fly": "MASSIVE+",
+                    "damageFactor": 0.9,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"duration": 0,
+				"align": "FACE",
+				"rotateFace": 6,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"rotOffset": {
+					"x": 0,
+					"y": -64
+				},
+				"effect": {
+					"sheet": "enemies.megaranea",
+					"name": "chompExploHeat"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}],
+			"1_0": [{
+				"duration": 0,
+				"align": "FACE",
+				"rotateFace": 6,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"group": "aura",
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.megaranea",
+					"name": "chompCold"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.3,
+				"type": "WAIT"
+			}, {
+				"varName": "tmp.bossBondage",
+				"changeType": "set",
+				"type": "CHANGE_VAR_BOOL",
+				"value": false
+			}, {
+				"wait": false,
+				"viaWalkConfig": false,
+				"type": "SHOW_ANIMATION",
+				"anim": "meleeAttack"
+			}, {
+                "align": "FACE",
+                "radius": 60,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.35,
+				"startAngle": -0.35,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": false,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "COLD",
+					"fly": "MASSIVE+++",
+                    "damageFactor": 1.2,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE",
+                "radius": 60,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.35,
+				"startAngle": -0.35,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": false,
+                "clockwise": true,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "COLD",
+					"fly": "MASSIVE+++",
+                    "damageFactor": 1.2,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"time": 0.1,
+				"type": "WAIT"
+			}, {
+                "align": "FACE",
+                "radius": 64,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.25,
+                "duration": 0.14,
+                "expandRadius": 72,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "COLD",
+					"fly": "MASSIVE+",
+                    "damageFactor": 0.9,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"duration": 0,
+				"align": "FACE",
+				"rotateFace": 6,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"rotOffset": {
+					"x": 0,
+					"y": -64
+				},
+				"effect": {
+					"sheet": "enemies.megaranea",
+					"name": "chompExploCold"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}],
+			"2_0": [{
+				"duration": 0,
+				"align": "FACE",
+				"rotateFace": 6,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"group": "aura",
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.megaranea",
+					"name": "chompShock"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.3,
+				"type": "WAIT"
+			}, {
+				"varName": "tmp.bossBondage",
+				"changeType": "set",
+				"type": "CHANGE_VAR_BOOL",
+				"value": false
+			}, {
+				"wait": false,
+				"viaWalkConfig": false,
+				"type": "SHOW_ANIMATION",
+				"anim": "meleeAttack"
+			}, {
+                "align": "FACE",
+                "radius": 60,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.35,
+				"startAngle": -0.35,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": false,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+					"fly": "MASSIVE+++",
+                    "damageFactor": 1.2,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE",
+                "radius": 60,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.35,
+				"startAngle": -0.35,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": false,
+                "clockwise": true,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+					"fly": "MASSIVE+++",
+                    "damageFactor": 1.2,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"time": 0.1,
+				"type": "WAIT"
+			}, {
+                "align": "FACE",
+                "radius": 64,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.25,
+                "duration": 0.14,
+                "expandRadius": 72,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+					"fly": "MASSIVE+",
+                    "damageFactor": 0.9,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"duration": 0,
+				"align": "FACE",
+				"rotateFace": 6,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"rotOffset": {
+					"x": 0,
+					"y": -64
+				},
+				"effect": {
+					"sheet": "enemies.megaranea",
+					"name": "chompExploShock"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}],
+			"3_0": [{
+				"duration": 0,
+				"align": "FACE",
+				"rotateFace": 6,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"group": "aura",
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.megaranea",
+					"name": "chompWave"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.3,
+				"type": "WAIT"
+			}, {
+				"varName": "tmp.bossBondage",
+				"changeType": "set",
+				"type": "CHANGE_VAR_BOOL",
+				"value": false
+			}, {
+				"wait": false,
+				"viaWalkConfig": false,
+				"type": "SHOW_ANIMATION",
+				"anim": "meleeAttack"
+			}, {
+                "align": "FACE",
+                "radius": 60,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.35,
+				"startAngle": -0.35,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": false,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "WAVE",
+					"fly": "MASSIVE+++",
+                    "damageFactor": 1.2,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE",
+                "radius": 60,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.35,
+				"startAngle": -0.35,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": false,
+                "clockwise": true,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "WAVE",
+					"fly": "MASSIVE+++",
+                    "damageFactor": 1.2,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"time": 0.1,
+				"type": "WAIT"
+			}, {
+                "align": "FACE",
+                "radius": 64,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0.25,
+                "duration": 0.14,
+                "expandRadius": 72,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "WAVE",
+					"fly": "MASSIVE+",
+                    "damageFactor": 0.9,
+					"status": 20,
+                    "reverse": false,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"duration": 0,
+				"align": "FACE",
+				"rotateFace": 6,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"rotOffset": {
+					"x": 0,
+					"y": -64
+				},
+				"effect": {
+					"sheet": "enemies.megaranea",
+					"name": "chompExploWave"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}]
+		}, {
+            "time": 0.7,
+            "type": "WAIT"
+        }],
+        "Flamethrower": [{
+            "type": "RESET_TRACKER",
+            "tracker": "flameTimer"
+        }, {
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preRangeAttack"
+        }, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"duration": 1,
+				"align": "FACE",
+				"rotateFace": 6,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"group": "",
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.megaranea",
+					"name": "flameCharge"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.5,
+				"type": "WAIT"
+			}, {
+				"value": true,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"value": 0.05,
+				"type": "FACE_TO_TARGET_SPEED"
+			}, {
+				"time": 0.5,
+				"type": "WAIT"
+			}],
+			"elseStep": [{
+				"duration": 0.5,
+				"align": "FACE",
+				"rotateFace": 6,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"group": "",
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.megaranea",
+					"name": "flameCharge"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.5,
+				"type": "WAIT"
+			}, {
+				"value": true,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"value": 0.1,
+				"type": "FACE_TO_TARGET_SPEED"
+			}]
+		}, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "rangeAttack"
+        }, {
+            "value": 1,
+            "forwardToProxies": false,
+            "type": "SET_DAMAGE_CEILING"
+        }, {
+            "align": "FACE",
+            "centralAngle": 0.05,
+            "angleVary": 0,
+            "startDist": 12,
+            "startDistCollide": "NONE",
+            "random": true,
+            "count": 60,
+            "duration": 0.5,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "flame",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+			"duration": 0.6,
+			"align": "FACE",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.megaranea",
+				"name": "flameShoot"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "time": 0.6,
+            "type": "WAIT"
+        }, {
+            "type": "CLEAR_ANIMATION"
+        }],
+
+        "Beam": [{
+            "type": "RESET_TRACKER",
+            "tracker": "flameTimer"
+        }, {
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preRangeAttack"
+        }, {
+			"volume": 1,
+			"global": true,
+			"loop": false,
+			"sound": "media/sound/battle/enemies/bling.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"duration": -1,
+			"align": "FACE",
+			"rotateFace": 6,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"group": "laserCharge",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.megaranea",
+				"name": "flameCharge"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!tmp.bossRage",
+			"thenStep": [{
+				"time": 1.3,
+				"type": "WAIT"
+			}],
+			"elseStep": [{
+				"time": 0.8,
+				"type": "WAIT"
+			}]
+		}, {
+			"value": false,
+			"type": "FACE_TO_TARGET"
+		}, {
+			"projectileSpeed": 400,
+			"type": "SET_FACE_TARGET_PREDICT"
+		}, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "rangeAttack"
+        }, {
+            "value": 1,
+            "forwardToProxies": false,
+            "type": "SET_DAMAGE_CEILING"
+        }, {
+			"volume": 1,
+			"global": true,
+			"loop": false,
+			"sound": "media/sound/battle/enemies/vulturbine/cannon.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+            "align": "FACE",
+            "type": "SHOOT_PROXY",
+            "proxy": "beamStart",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "group": "lasers",
+            "type": "WAIT_UNTIL_PROXIES_DONE"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+			"group": "laserCharge",
+			"type": "CLEAR_EFFECTS"
+		}, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "type": "CLEAR_ANIMATION"
+        }],
+
+
+
+
+        "BlockCounter": [{
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "combat",
+                "name": "flashShort"
+            }
+        }, {
+            "flyLevel": "MASSIVE",
+            "breaking": false,
+            "stable": false,
+            "wait": true,
+            "type": "DO_DAMAGE_MOVEMENT"
+        }, {
+            "time": 0.4,
+            "type": "WAIT"
+        }]
+    },
+    "reactions": {
+        "GUARD_COUNTER": {
+            "preSwitchState": "WEAK",
+            "action": "BlockCounter",
+            "conditions": [],
+            "type": "GUARD_COUNTER"
+        },
+        "MELEE_WEAK": {
+            "action": "Rage",
+            "blockFurtherHits": false,
+            "attackType": "MASSIVE",
+            "flyLevel": "",
+            "stunChange": "FORCE_STABLE",
+            "alignFace": false,
+            "dramaticEffect": "BREAK_NO_TEXT",
+            "conditions": [{
+                "type": "!IS_BALL"
+            }, {
+                "negated": false,
+                "type": "TRACKER_READY",
+                "name": "meleeHits"
+            }],
+            "type": "HIT_REACTION"
+        },
+        "KILL_HIT": {
+            "hitType": "KILL_HIT",
+            "blockFurtherHits": false,
+            "attackType": "MASSIVE",
+            "preAction": "KillPre",
+            "flyLevel": "MASSIVE++",
+            "stunChange": "FORCE_STUN",
+            "alignFace": false,
+            "dramaticEffect": "BOSS_ZOOM",
+            "conditions": [],
+            "ignoreFailed": false,
+            "type": "HIT_REACTION"
+        }
+    },
+    "meta": {}
+}

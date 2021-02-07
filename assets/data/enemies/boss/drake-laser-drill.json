@@ -650,7 +650,7 @@
             }, {
 				"withElse": true,
 				"type": "IF",
-				"condition": "tmp.playerPos.y<260",
+				"condition": "tmp.playerPos.y<276",
 				"thenStep": [{
 					"duration": 1.2,
 					"align": "BASE",
@@ -667,14 +667,14 @@
 					},
 					"offset": {
 						"x": 0,
-						"y": 64,
+						"y": 80,
 						"z": 16
 					}
 				}],
 				"elseStep": [{
 					"withElse": true,
 					"type": "IF",
-					"condition": "tmp.playerPos.y<340",
+					"condition": "tmp.playerPos.y<388",
 					"thenStep": [{
 						"duration": 1.2,
 						"align": "BASE",
@@ -691,7 +691,7 @@
 						},
 						"offset": {
 							"x": 0,
-							"y": 128,
+							"y": 176,
 							"z": 16
 						}
 					}],
@@ -711,7 +711,7 @@
 						},
 						"offset": {
 							"x": 0,
-							"y": 192,
+							"y": 272,
 							"z": 16
 						}
 					}]
@@ -757,7 +757,7 @@
             }, {
 				"withElse": true,
 				"type": "IF",
-				"condition": "tmp.playerPos.y<260",
+				"condition": "tmp.playerPos.y<276",
 				"thenStep": [{
 					"align": "BOTTOM",
 					"centralAngle": 0,
@@ -777,14 +777,14 @@
 					"proxy": "freezeLaser",
 					"offset": {
 						"x": 0,
-						"y": 64,
+						"y": 80,
 						"z": 16
 					}
 				}],
 				"elseStep": [{
 					"withElse": true,
 					"type": "IF",
-					"condition": "tmp.playerPos.y<340",
+					"condition": "tmp.playerPos.y<388",
 					"thenStep": [{
 						"align": "BOTTOM",
 						"centralAngle": 0,
@@ -804,7 +804,7 @@
 						"proxy": "freezeLaser",
 						"offset": {
 							"x": 0,
-							"y": 128,
+							"y": 176,
 							"z": 16
 						}
 					}],
@@ -827,7 +827,7 @@
 						"proxy": "freezeLaser",
 						"offset": {
 							"x": 0,
-							"y": 192,
+							"y": 272,
 							"z": 16
 						}
 					}]
@@ -1440,8 +1440,8 @@
 				"type": "SPAWN_ENEMIES",
 				"offset": {
 					"x": 0,
-					"y": 128,
-					"z": 40
+					"y": 80,
+					"z": 5
 				},
 				"count": 1,
 				"enemyInfo": {
@@ -3636,26 +3636,5 @@
             "type": "HIT_REACTION"
         }
     },
-    "meta": {
-        "species": {
-            "en_US": "Plant with mysterious Intentions",
-            "de_DE": "Pflanze mit seltsamen Absichten.",
-            "zh_CN": "有着神秘目的的植物",
-            "ja_JP": "手の内の読めない植物",
-            "ko_KR": "알 수 없는 의도의 식물",
-            "langUid": 4
-        },
-        "category": "ABSTRACT",
-        "descriptions": [{
-            "text": {
-                "en_US": "Once bullied in tree school for being a flower this plant swore to get revenge on the trees by training every day to become the strongest plant the jungle has ever seen.  But time went on and it got a job at the local temple to test Seekers instead. \nNowadays it uses its strength to hurl itself onto Seekers or punches them with its bulky fists.",
-                "de_DE": "In der Baumschule gehänselt, weil er eine Blume war, schwor dieser Rache indem er die stärkste Blume wird die der Dschungel je gesehen hat. Jetzt allerdings hat er einen Job als Gegner im örtlichen Tempel um Seeker zu verhauen. Er verwendet seine Stärke um sich in die Luft zu stoßen und Schläge mit seinen riesigen Fäusten auszuteilen.",
-                "zh_CN": "因为是花而不是树所以在树学校被欺负，这株植物天天锻炼，发誓要复仇。但是随着时间流逝，它最终找到了一份在当地神庙测试探索者的就业机会，并安定了下来。\n现在它会用它的力量来将自己掷向探索者，或者用巨拳攻击他们。<<A<<[CHANGED 2018/09/19]",
-                "ja_JP": "樹木学校において、花であるというだけでイジメを受けたこのモンスターは、樹木への復讐を誓った。それからというもの、ジャングル最強の植物になるため毎日訓練をしていた。しかし時は流れ、行き着いた先は地元の神殿にて、探索者を試すという仕事であった。\n今では鍛えたその筋力を利用して、探索者に飛び掛かったり、直接殴りかかったりすることで戦っている。<<A<<[CHANGED 2018/09/19]",
-                "ko_KR": "꽃이라는 이유로 나무 학교에서 괴롭힘을 당한 이 식물은 매일 훈련해 정글에서 볼 수 없었던 가장 강한 식물이 되어 나무들에게 복수를 하기로 다짐했습니다. 하지만, 시간이 지나고 복수 대신 지역 사원에서 시커를 시험하는 일을 갖게 되었습니다.\n오늘날, 이 꽃은 자신의 힘을 이용해 시커에게 몸을 던지거나 큰 주먹으로 펀치를 날립니다.<<A<<[CHANGED 2018/09/19]",
-                "langUid": 6
-            },
-            "condition": ""
-        }]
-    }
+    "meta": {}
 }

@@ -1,7 +1,6 @@
 {
     "labels": {
         "combat": {
-            "daze": "혼란",
             "poison": "중독"
         },
         "menu": {

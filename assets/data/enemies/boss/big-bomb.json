@@ -46,7 +46,7 @@
     "maxVel": 180,
     "collType": "BLOCK",
     "jumpingEnabled": false,
-    "shadow": 20,
+    "shadow": 64,
     "hitStable": "MASSIVE",
     "hitIgnore": false,
     "DOCTYPE": "ENEMY",
@@ -101,6 +101,47 @@
                 "y": 0,
                 "z": 0
             }
+        }, {
+            "target": {
+                "x": 288,
+                "y": 368,
+                "lvl": "0"
+            },
+            "forceHeight": 130,
+            "ignoreSounds": false,
+            "type": "JUMP_TO_POINT"
+        }, {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "dust",
+                "name": "larger"
+            }
+        }, {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "speed": 1.5,
+            "sound": "media/sound/boss/drill-boss/metal-impact.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+			"rumbleType": "VERTICAL",
+			"name": "",
+			"duration": 0.25,
+			"power": "STRONGEST",
+			"speed": "FAST",
+			"fade": false,
+			"type": "RUMBLE_SCREEN"
+		}, {
+            "type": "WAIT",
+            "time": 0.25
         }],
         "idle": [{
             "text": {
@@ -113,9 +154,6 @@
             "hideOutsideOfScreen": false,
             "type": "SHOW_AR_MSG",
             "time": 12
-        }, {
-            "type": "WAIT",
-            "time": 0.5
         }, {
             "wait": false,
             "viaWalkConfig": false,
@@ -293,7 +331,7 @@
             "flyLevel": "",
             "stunChange": "FORCE_STABLE",
             "alignFace": false,
-            "dramaticEffect": "BREAK_BIG",
+            "dramaticEffect": "BREAK_NO_TEXT",
             "conditions": [{
                 "element": "HEAT",
                 "negated": false,

@@ -1,0 +1,44 @@
+{
+    "DOCTYPE": "EFFECT",
+    "ANIMS": {
+        "SUB": [{
+            "name": "POISON",
+            "sheet": {
+                "src": "media/gui/poison-status.png",
+				"xCount": 4,
+                "offX": 0,
+                "offY": 16,
+                "width": 16,
+                "height": 16
+            },
+            "time": 0.06,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4, 5, 6]
+        }]
+    },
+    "EFFECTS": {
+        "burnDamage": [{
+            "color": "#ff54f9",
+            "alpha": 1,
+            "duration": 0.3,
+            "keepDuration": 0.1,
+            "noLighter": false,
+            "type": "FLASH_COLOR"
+        }, {
+            "numParticles": 3,
+            "duration": 0.5,
+            "circular": false,
+            "xScale": 0.9,
+            "yScale": 0.9,
+            "moveZDist": 16,
+            "offset": {
+                "x": 0,
+                "y": 32,
+                "z": 32
+            },
+            "moveWithTarget": 1,
+            "anim": "POISON",
+            "type": "PLAY_ANIMS_OVER_ENTITY"
+        }]
+	}
+}

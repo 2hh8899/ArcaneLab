@@ -1,0 +1,112 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "norm": {
+            "src": "media/entity/enemy/boss/megaranea.png",
+            "xCount": 10,
+            "offX": 0,
+            "offY": 0,
+            "width": 80,
+            "height": 64
+        },
+        "combat": {
+            "src": "media/entity/enemy/boss/megaranea.png",
+            "xCount": 10,
+            "offX": 0,
+            "offY": 192,
+            "width": 80,
+            "height": 64
+        },
+        "spin": {
+            "src": "media/entity/enemy/boss/megaranea.png",
+            "xCount": 6,
+            "offX": 0,
+            "offY": 384,
+            "width": 80,
+            "height": 64
+        }
+    },
+    "shapeType": "Y_FLAT",
+	"dirs": "6",
+	"flipX": [0, 0, 0, 1, 1, 1],
+	"tileOffsets": [0, 10, 20, 20, 10, 0],
+	"anchorOffsetX": [18, 32, 16, -16, -32, -18],
+	"anchorOffsetY": [-36, -6, 6, 6, -6, -36],
+	"anchorOffsetZ": [12, 12, 12, 12, 12, 12],
+    "SUB": [{
+        "sheet": "norm",
+        "SUB": [{
+            "name": "idle",
+            "time": 0.1,
+            "repeat": true,
+            "frames": [0, 1, 2, 3]
+        }, {
+            "name": "move",
+            "time": 0.066,
+            "repeat": true,
+            "frames": [4, 5, 6, 7]
+        }, {
+            "name": "jump",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [8]
+        }, {
+            "name": "land",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [9]
+        }]
+    }, {
+        "sheet": "combat",
+        "SUB": [{
+            "name": "preRangeAttack",
+            "time": 0.1,
+            "repeat": false,
+			"anchorOffsetX": [7, 24, 12, -12, -24, -7],
+			"anchorOffsetY": [-24, -6, 4, 4, -6, -24],
+			"anchorOffsetZ": [24, 24, 24, 24, 24, 24],
+            "frames": [0, 1]
+        }, {
+            "name": "rangeAttack",
+            "time": 0.05,
+            "repeat": false,
+            "frames": [2, 3]
+        }, {
+            "name": "preMeleeAttack",
+            "time": 0.1,
+            "repeat": false,
+			"anchorOffsetX": [7, 24, 12, -12, -24, -7],
+			"anchorOffsetY": [-24, -6, 4, 4, -6, -24],
+			"anchorOffsetZ": [24, 24, 24, 24, 24, 24],
+            "frames": [4, 5]
+        }, {
+            "name": "meleeAttack",
+            "time": 0.05,
+            "repeat": false,
+            "frames": [6, 7]
+        }, {
+            "name": "damage",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [8, 8],
+            "framesGfxOffset": [1, 0, 0, 0]
+        }]
+    }, {
+        "sheet": "spin",
+        "dirs": "6",
+        "flipX": [0, 0, 0, 0, 0, 0],
+        "SUB": [{
+            "name": "spin",
+            "time": 0.0208,
+            "repeat": false,
+            "dirFrames": [
+                [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5],
+                [5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4],
+                [4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3],
+                [3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2],
+                [2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1],
+                [1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0]
+            ]
+        }]
+    }]
+}

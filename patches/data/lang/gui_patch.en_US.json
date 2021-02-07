@@ -1,7 +1,6 @@
 {
     "labels": {
         "combat": {
-            "daze": "Daze",
             "poison": "Poisoned"
         },
         "menu": {

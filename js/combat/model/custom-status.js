@@ -14,18 +14,19 @@ ig.module("game.feature.combat.model.custom-status").requires(
         };
         sc.PoisonStatus = sc.CombatStatusBase.extend({
             id: 5,
-            label: "poisoning",
+            label: "poison",
             statusBarEntry: "POISONED",
             offenseModifier: "TOXIC_HAZARD",
             defenseModifier: null,
             duration: 20,
+			effects: new ig.EffectSheet("poison"),
             poisonTimer: 0,
             onUpdate: function(b, a) {
                 this.poisonTimer = this.poisonTimer +
                     ig.system.ingameTick;
                 if ((!b.getCombatantRoot()
-                        .isPlayer || !sc.model.isCutscene()) && this.poisonTimer > 0.5) {
-                    var d = Math.floor(a.getStat("hp") * (0.3 / (this.duration / 0.5)));
+                        .isPlayer || !sc.model.isCutscene()) && this.poisonTimer > 0.3) {
+                    var d = Math.floor(a.getStat("hp") * (0.3 / (this.duration / 0.3)));
                     b.instantDamage(d, 0.5);
                     this.effects.spawnOnTarget("burnDamage", b);
                     this.poisonTimer = 0

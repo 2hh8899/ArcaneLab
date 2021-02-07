@@ -1,5 +1,5 @@
 # The Arcane Lab
-### 0.20w51a
+### 0.21w6a
 
 The Arcane Lab is a large modding project in CrossCode that offers new areas, bosses, classes, and more!
 

@@ -181,7 +181,8 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
             } else ig.log("SET_VAR_ENTITY_STAT: Variable Name is not a String!")
         }
     });
-    var d = Vec2.create();
+    var d = Vec2.create(),
+	    dcd = Vec2.create();
     ig.ACTION_STEP.MOVE_TO_VAR_POINT = ig.ActionStepBase.extend({
         target: Vec3.create(),
         precise: false,
@@ -350,6 +351,71 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
 				Vec2.assignC(a.coll.vel, 0, 0)
 			}
 			return false
+		}
+	});
+	var j = {
+		OWN_FACE: function(a) {
+			return a.face
+		},
+		ENEMY_DIR: function(a) {
+			var b = a.getTarget();
+			return !b ? null : ig.CollTools.getDistVec2(a.coll, b.coll, dcd)
+		}
+	},
+	    avc = Vec2.create();
+	ig.ACTION_STEP.SET_CLOSEST_FACE6 = ig.ActionStepBase.extend({
+		face: null,
+		rotate: false,
+		rotateSpeed: 3,
+		_wm: new ig.Config({
+			attributes: {
+				searchType: {
+					_type: "String",
+					_info: "How to determine best face direction",
+					_select: j
+				},
+				rotate: {
+					_type: "Boolean",
+					_info: "Rotate entity toward direction",
+					_default: true
+				},
+				rotateSpeed: {
+					_type: "Number",
+					_info: "Speed of rotation. Full circles per second",
+					_default: 3
+				}
+			}
+		}),
+		init: function(a) {
+			this.faces = [{x:1, y:0},{x:-1, y:0},{x:1, y:1.732},{x:-1, y:1.732},{x:1, y:-1.732},{x:-1, y:-1.732}];
+			this.rotate = a.rotate || false;
+			this.rotateSpeed = a.rotateSpeed || 3;
+			this.searchType = j[a.searchType] || j.OWN_FACE
+		},
+		start: function(b) {
+			var c = null,
+				d = -1;
+			b.getTarget();
+			var e = this.searchType(b);
+			if(e)
+                    for(var f = this.faces.length; f--;) {
+                        var g = this.faces[f],
+                            g = Vec2.angle(g, e);
+                        if(d == -1 || g < d) {
+                            d =
+                                g;
+                            c = this.faces[f]
+                        }
+                    }
+			b.stepData.bestFace = c
+		},
+		run: function(b) {
+			Vec2.assignC(b.coll.accelDir, 0, 0);
+			if(!b.stepData.bestFace) return true;
+			var c = b.stepData.bestFace;
+			if(this.rotate) return Vec2.rotateToward(b.face, c, Math.PI * 2 * ig.system.tick * this.rotateSpeed);
+			Vec2.assign(b.face, c);
+			return true
 		}
 	});
 });
@@ -647,10 +713,10 @@ ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("imp
 			}
 		}
 	});
-		var f = Vec2.create(),
-			g = Vec2.create(),
-			resp = Vec2.create(),
-			tc = {};
+	var f = Vec2.create(),
+		g = Vec2.create(),
+		resp = Vec2.create(),
+		tc = {};
 	ig.ACTION_STEP.MOVE_TO_ENTITY_DISTANCE_LOCK_XY =
 		ig.ActionStepBase.extend({
 			entity: 0,

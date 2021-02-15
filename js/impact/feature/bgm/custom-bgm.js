@@ -17,6 +17,11 @@ ig.module("impact.feature.bgm.bgm-arcane-lab")
         loopEnd: 135.005,
         volume: 0.8,
       },
+      "hibachi": {
+        path: "media/bgm/hibachi.ogg",
+        loopEnd: 121.6,
+        volume: 0.8,
+      },
       "arena-al": {
         path: "media/bgm/arena-al.ogg",
         loopEnd: 252,

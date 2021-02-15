@@ -24,8 +24,8 @@
     },
     "entities": [{
         "type": "Marker",
-        "x": 986,
-        "y": 324,
+        "x": 16,
+        "y": 600,
         "level": 1,
         "settings": {
             "name": "teleporter",
@@ -38,7 +38,8 @@
                 "x": 16,
                 "y": 16,
                 "z": 0
-            }
+            },
+            "mapId": 2252
         }
     }, {
         "type": "MovingImage",
@@ -49,16 +50,17 @@
             "offset": -512
         },
         "settings": {
-			"sprite": "media/parallax/planet/stars.png",
-			"xSize": 568,
-			"ySize": 360,
-			"xMove": 30,
-			"yMove": 0,
+            "sprite": "media/parallax/planet/stars.png",
+            "xSize": 568,
+            "ySize": 360,
+            "xMove": 30,
+            "yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
                 "z": 0
-            }
+            },
+            "mapId": 2253
         }
     }, {
         "type": "MovingImage",
@@ -69,16 +71,17 @@
             "offset": -512
         },
         "settings": {
-			"sprite": "media/parallax/planet/stars.png",
-			"xSize": 568,
-			"ySize": 360,
-			"xMove": 30,
-			"yMove": 0,
+            "sprite": "media/parallax/planet/stars.png",
+            "xSize": 568,
+            "ySize": 360,
+            "xMove": 30,
+            "yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
                 "z": 0
-            }
+            },
+            "mapId": 2254
         }
     }, {
         "type": "MovingImage",
@@ -89,16 +92,17 @@
             "offset": -512
         },
         "settings": {
-			"sprite": "media/parallax/planet/stars.png",
-			"xSize": 568,
-			"ySize": 360,
-			"xMove": 30,
-			"yMove": 0,
+            "sprite": "media/parallax/planet/stars.png",
+            "xSize": 568,
+            "ySize": 360,
+            "xMove": 30,
+            "yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
                 "z": 0
-            }
+            },
+            "mapId": 2255
         }
     }, {
         "type": "MovingImage",
@@ -109,16 +113,17 @@
             "offset": -512
         },
         "settings": {
-			"sprite": "media/parallax/planet/stars.png",
-			"xSize": 568,
-			"ySize": 360,
-			"xMove": 30,
-			"yMove": 0,
+            "sprite": "media/parallax/planet/stars.png",
+            "xSize": 568,
+            "ySize": 360,
+            "xMove": 30,
+            "yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
                 "z": 0
-            }
+            },
+            "mapId": 2256
         }
     }, {
         "type": "MovingImage",
@@ -129,16 +134,17 @@
             "offset": -512
         },
         "settings": {
-			"sprite": "media/parallax/planet/stars.png",
-			"xSize": 568,
-			"ySize": 360,
-			"xMove": 30,
-			"yMove": 0,
+            "sprite": "media/parallax/planet/stars.png",
+            "xSize": 568,
+            "ySize": 360,
+            "xMove": 30,
+            "yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
                 "z": 0
-            }
+            },
+            "mapId": 2257
         }
     }, {
         "type": "MovingImage",
@@ -149,16 +155,17 @@
             "offset": -512
         },
         "settings": {
-			"sprite": "media/parallax/planet/stars.png",
-			"xSize": 568,
-			"ySize": 360,
-			"xMove": 30,
-			"yMove": 0,
+            "sprite": "media/parallax/planet/stars.png",
+            "xSize": 568,
+            "ySize": 360,
+            "xMove": 30,
+            "yMove": 0,
             "size": {
                 "x": 568,
                 "y": 360,
                 "z": 0
-            }
+            },
+            "mapId": 2258
         }
     }, {
         "type": "EventTrigger",
@@ -166,84 +173,13 @@
         "y": 0,
         "level": 0,
         "settings": {
-            "name": "cam",
+            "name": "vectorInit",
             "eventType": "PARALLEL",
-            "startCondition": "true",
+            "startCondition": "tmp.bossStart",
             "endCondition": "false",
             "triggerType": "ALWAYS",
             "mapId": 2251,
             "event": [{
-                "entity": {
-                    "player": true
-                },
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "IMMEDIATELY",
-                "transition": "EASE",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 0.5,
-                "type": "SET_CAMERA_TARGET"
-            }, {
-                "core": "GUARD",
-                "value": false,
-                "type": "SET_PLAYER_CORE"
-            }, {
-                "core": "DASH",
-                "value": false,
-                "type": "SET_PLAYER_CORE"
-            }, {
-                "core": "MODIFIER",
-                "value": false,
-                "type": "SET_PLAYER_CORE"
-            }, {
-                "core": "MENU",
-                "value": false,
-                "type": "SET_PLAYER_CORE"
-            }, {
-                "core": "QUICK_MENU",
-                "value": false,
-                "type": "SET_PLAYER_CORE"
-            }, {
-                "core": "ITEMS",
-                "value": false,
-                "type": "SET_PLAYER_CORE"
-            }, {
-                "core": "ELEMENT_HEAT",
-                "value": false,
-                "type": "SET_PLAYER_CORE"
-            }, {
-                "core": "ELEMENT_COLD",
-                "value": false,
-                "type": "SET_PLAYER_CORE"
-            }, {
-                "core": "ELEMENT_SHOCK",
-                "value": false,
-                "type": "SET_PLAYER_CORE"
-            }, {
-                "core": "ELEMENT_WAVE",
-                "value": false,
-                "type": "SET_PLAYER_CORE"
-            }, {
-                "hide": true,
-                "type": "HIDE_PETS"
-            }, {
-                "hpStat": 100,
-                "attackStat": 0,
-                "defenseStat": 0,
-                "focusStat": 10,
-                "type": "VECTOR_INIT"
-            }, {
-                "value": true,
-                "type": "SET_FORCE_COMBAT"
-            }, {
-                "enemy": {
-                    "global": true,
-                    "name": "boss"
-                },
-                "type": "SET_ENEMY_STATE",
-                "enemyState": "DEFAULT"
-            }, {
                 "entity": {
                     "player": true
                 },
@@ -255,27 +191,25 @@
                 "offset": {
                     "x": 0,
                     "y": 0,
-                    "z": 0
+                    "z": 7
                 },
                 "align": "CENTER",
                 "group": "",
                 "wait": false,
                 "waitSkip": 0,
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": 7
-				},
                 "type": "SHOW_EFFECT"
             }, {
-                "enemy": {
-                    "global": true,
-                    "name": "boss"
-                },
-                "target": {
+                "entity": {
                     "player": true
                 },
-                "type": "SET_ENEMY_TARGET"
+                "offsetX": 0,
+                "offsetY": 0,
+                "speed": "FAST",
+                "transition": "EASE",
+                "wait": false,
+                "waitSkip": 0,
+                "zoom": 0.5,
+                "type": "SET_CAMERA_TARGET"
             }, {
                 "name": "LOOP",
                 "type": "LABEL"
@@ -289,8 +223,8 @@
         }
     }, {
         "type": "Enemy",
-        "x": 150,
-        "y": 299,
+        "x": 350,
+        "y": 200,
         "level": 1,
         "settings": {
             "name": "boss",
@@ -372,7 +306,7 @@
             "terrain": "",
             "collType": "NPBLOCK",
             "mapId": 65,
-            "spawnCondition": "true"
+            "spawnCondition": "tmp.bossStart"
         }
     }, {
         "type": "HiddenBlock",
@@ -392,7 +326,446 @@
             "terrain": "",
             "collType": "NPBLOCK",
             "mapId": 65,
-            "spawnCondition": "true"
+            "spawnCondition": "tmp.bossStart"
+        }
+    }, {
+        "type": "EventTrigger",
+        "x": -32,
+        "y": 16,
+        "level": 0,
+        "settings": {
+            "name": "BossDies",
+            "eventType": "CUTSCENE",
+            "endCondition": "false",
+            "event": [{
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "map.bossKill",
+                "value": false
+            }, {
+                "value": false,
+                "type": "SET_FORCE_COMBAT"
+            }, {
+                "entity": {
+                    "global": true,
+                    "name": "boss"
+                },
+                "type": "REMOVE_PLAYER_CAMERA_TARGET"
+            }, {
+                "mode": "SLOW",
+                "type": "PAUSE_BGM"
+            }, {
+                "entity": {
+                    "global": true,
+                    "name": "boss"
+                },
+                "duration": -1,
+                "align": "CENTER",
+                "group": "",
+                "wait": false,
+                "waitSkip": 0,
+                "effect": {
+                    "sheet": "enemies.vector",
+                    "name": "vectorKillExplosionLoop"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "type": "SHOW_EFFECT"
+            }, {
+                "alpha": 1,
+                "time": 2.5,
+                "lighter": true,
+                "type": "SET_OVERLAY",
+                "color": "white"
+            }, {
+                "ignoreSlowDown": false,
+                "time": 2.5,
+                "type": "WAIT"
+            }, {
+                "entity": {
+                    "global": true,
+                    "name": "boss"
+                },
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "ignoreSlowDown": true,
+                "type": "WAIT",
+                "time": 0.2
+            }, {
+                "entity": {
+                    "global": true,
+                    "name": "boss"
+                },
+                "duration": 0,
+                "align": "CENTER",
+                "group": "",
+                "wait": false,
+                "waitSkip": 0,
+                "effect": {
+                    "sheet": "enemies.vector",
+                    "name": "vectorKillExplosion"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "type": "SHOW_EFFECT"
+            }, {
+                "ignoreSlowDown": false,
+                "type": "WAIT",
+                "time": 0.05
+            }, {
+                "alpha": 0,
+                "time": 0.5,
+                "lighter": true,
+                "type": "SET_OVERLAY",
+                "color": "white"
+            }, {
+                "ignoreSlowDown": true,
+                "time": 3,
+                "type": "WAIT"
+            }, {
+                "entity": {
+                    "global": true,
+                    "name": "boss"
+                },
+                "type": "MANUAL_COMBATANT_KILL"
+            }, {
+                "ignoreSlowDown": false,
+                "type": "WAIT",
+                "time": 0.2
+            }],
+            "triggerType": "ONCE_PER_ENTRY",
+            "mapId": 2259,
+            "startCondition": "map.bossKill"
+        }
+    }, {
+        "type": "EventTrigger",
+        "x": -48,
+        "y": 16,
+        "level": 0,
+        "settings": {
+            "name": "bossAppears",
+            "eventType": "CUTSCENE",
+            "endCondition": "false",
+            "event": [{
+                "type": "VECTOR_INIT"
+            }, {
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "tmp.bossStart",
+                "value": false
+            }, {
+                "mode": "IMMEDIATELY",
+                "type": "PAUSE_BGM"
+            }, {
+                "volume": 0.5,
+                "name": "jet",
+                "loop": true,
+                "offset": 0,
+                "startTime": 0,
+                "speed": 1,
+				"position": {
+					"x": 350,
+					"y": 200
+				},
+                "type": "PLAY_SOUND",
+                "sound": "media/sound/boss/vector/jet-loop.ogg"
+            }, {
+                "pos": {
+                    "x": 650,
+                    "y": 200
+                },
+                "speed": "IMMEDIATELY",
+                "transition": "EASE_IN_OUT",
+                "wait": true,
+                "waitSkip": 0,
+                "zoom": 1,
+                "type": "SET_CAMERA_POS"
+            }, {
+                "pos": {
+                    "x": 450,
+                    "y": 200
+                },
+                "speed": "SLOWER",
+                "transition": "EASE_IN_OUT",
+                "wait": true,
+                "waitSkip": 0,
+                "zoom": 1,
+                "type": "SET_CAMERA_POS"
+            }, {
+                "entity": {
+                    "player": true
+                },
+                "offsetX": 0,
+                "offsetY": 0,
+                "speed": "FASTEST",
+                "transition": "EASE_OUT",
+                "wait": false,
+                "waitSkip": 0,
+                "zoom": 1,
+                "type": "SET_CAMERA_TARGET"
+            }, {
+                "entity": {
+                    "player": true
+                },
+                "action": [{
+                    "type": "SET_Z_GRAVITY_FACTOR",
+                    "value": 0
+                }, {
+                    "newPos": {
+                        "x": 0,
+                        "y": 558,
+                        "lvl": "1"
+                    },
+                    "type": "SET_POS"
+                }, {
+                    "value": 4,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "rightIdleBoost"
+                }, {
+					"volume": 0.7,
+					"variance": 0,
+					"speed": 1.3,
+					"global": true,
+					"sound": "media/sound/boss/vector/jet.ogg",
+					"type": "PLAY_SOUND"
+				}, {
+                    "target": {
+                        "x": 1300,
+                        "y": 558,
+                        "lvl": "0"
+                    },
+                    "precise": false,
+					"maxTime": 0.7,
+                    "type": "MOVE_TO_POINT"
+                }, {
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "rightChangeBreak"
+                }, {
+                    "value": 2.5,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+                    "target": {
+                        "x": 1300,
+                        "y": 558,
+                        "lvl": "0"
+                    },
+                    "precise": false,
+                    "type": "MOVE_TO_POINT"
+                }],
+                "repeating": false,
+                "wait": false,
+                "keepState": true,
+                "immediately": false,
+                "type": "DO_ACTION"
+            }, {
+				"type": "WAIT",
+				"time": 1
+			}, {
+				"name": "jet",
+				"type": "STOP_SOUND"
+			}, {
+                "entity": {
+                    "global": true,
+					"name": "boss"
+                },
+                "action": [{
+                    "newPos": {
+                        "x": 230,
+                        "y": 348,
+                        "lvl": "0"
+                    },
+                    "type": "SET_POS"
+                }, {
+					"type": "WAIT",
+					"time": 0.1
+				}],
+                "repeating": false,
+                "wait": false,
+                "keepState": false,
+                "immediately": false,
+                "type": "DO_ACTION"
+            }, {
+                "pos": {
+                    "x": 168,
+                    "y": 320
+                },
+                "speed": "FASTER",
+                "transition": "EASE_IN_OUT",
+                "wait": true,
+                "waitSkip": 0,
+                "zoom": 0.8,
+                "type": "SET_CAMERA_POS"
+            }, {
+				"entity": {
+					"player": true
+				},
+				"offsetX": 0,
+				"offsetY": 0,
+				"speed": "FASTER",
+				"transition": "EASE",
+				"wait": false,
+				"waitSkip": 0,
+				"zoom": 0.5,
+				"type": "SET_CAMERA_TARGET"
+			}, {
+                "entity": {
+                    "player": true
+                },
+                "action": [{
+                    "newPos": {
+                        "x": 1300,
+                        "y": 324,
+                        "lvl": "0"
+                    },
+                    "type": "SET_POS"
+                }, {
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "idle"
+                }, {
+					"type": "WAIT",
+					"time": 0.4
+				}, {
+                    "value": 4,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+					"value": 0.7,
+					"type": "SET_FRICTION"
+				}, {
+					"value": 0.7,
+					"type": "SET_AIR_FRICTION"
+				}, {
+                    "target": {
+                        "x": 986,
+                        "y": 324,
+                        "lvl": "1"
+                    },
+                    "precise": true,
+                    "type": "MOVE_TO_POINT"
+                }, {
+					"type": "WAIT",
+					"time": 0.1
+				}],
+                "repeating": false,
+                "wait": true,
+                "keepState": false,
+                "immediately": false,
+                "type": "DO_ACTION"
+            }, {
+                "entity": {
+                    "player": true
+                },
+                "action": [{
+                    "type": "SET_Z_GRAVITY_FACTOR",
+                    "value": 1
+                }, {
+                    "value": 1,
+                    "type": "SET_RELATIVE_SPEED"
+                }, {
+					"type": "WAIT",
+					"time": 0.1
+				}],
+                "repeating": false,
+                "wait": false,
+                "keepState": true,
+                "immediately": false,
+                "type": "DO_ACTION"
+            }, {
+                "type": "WAIT",
+                "time": 0.1
+            }, {
+                "enemy": {
+                    "global": true,
+                    "name": "boss"
+                },
+                "type": "SET_ENEMY_STATE",
+                "enemyState": "DEFAULT"
+            }, {
+                "enemy": {
+                    "global": true,
+                    "name": "boss"
+                },
+                "target": {
+                    "player": true
+                },
+                "type": "SET_ENEMY_TARGET"
+            }, {
+                "bgm": "preliminary-opener",
+                "volume": 1,
+                "mode": "IMMEDIATELY",
+                "type": "PLAY_BGM"
+            }, {
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "tmp.bossStart",
+                "value": true
+            }, {
+                "ignoreSlowDown": false,
+                "type": "WAIT",
+                "time": 0.05
+            }],
+            "triggerType": "ONCE_PER_ENTRY",
+            "mapId": 2260,
+            "startCondition": "true"
+        }
+    }, {
+        "type": "HiddenBlock",
+        "x": -320,
+        "y": 0,
+        "level": {
+            "level": 0,
+            "offset": -1
+        },
+        "settings": {
+            "name": "FLOOR",
+            "size": {
+                "x": 320,
+                "y": 640,
+                "z": 1
+            },
+            "shape": "RECTANGLE",
+            "heightShape": "NONE",
+            "zHeight": 1,
+            "terrain": "",
+            "collType": "BLOCK",
+            "mapId": 1271,
+            "spawnCondition": "!tmp.bossStart"
+        }
+    }, {
+        "type": "HiddenBlock",
+        "x": 1136,
+        "y": 0,
+        "level": {
+            "level": 0,
+            "offset": -1
+        },
+        "settings": {
+            "name": "FLOOR",
+            "size": {
+                "x": 320,
+                "y": 640,
+                "z": 1
+            },
+            "shape": "RECTANGLE",
+            "heightShape": "NONE",
+            "zHeight": 1,
+            "terrain": "",
+            "collType": "BLOCK",
+            "mapId": 1272,
+            "spawnCondition": "!tmp.bossStart"
         }
     }],
     "layer": [{

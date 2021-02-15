@@ -1,4 +1,4 @@
-ig.module("impact.feature.map-content.entities.custom-entities").requires(
+ig.module("impact.feature.map-content.entities.arcane-lab-custom-entities").requires(
         "impact.feature.map-content.entities.teleport-ground")
     .defines(function() {
         var b = {

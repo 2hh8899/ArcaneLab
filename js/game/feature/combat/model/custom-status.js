@@ -1,4 +1,4 @@
-ig.module("game.feature.combat.model.custom-status").requires(
+ig.module("game.feature.combat.model.arcane-lab-status").requires(
         "game.feature.combat.model.combat-status",
         "game.feature.player.modifiers",
         "game.feature.combat.gui.status-bar",

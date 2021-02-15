@@ -562,16 +562,8 @@
                         "value": "SAVE",
                         "type": "SET_MOBILITY_BLOCK"
                     }, {
-                        "name": "Vector",
-                        "type": "SWITCH_PLAYER_CONFIG"
-                    }, {
-                        "bgm": "preliminary-opener",
-                        "volume": 1,
-                        "mode": "IMMEDIATELY",
-                        "type": "PLAY_BGM"
-                    }, {
                         "type": "TELEPORT",
-                        "map": "guildac.quest.vector-boss",
+                        "map": "guildac.arena.vector",
                         "marker": "teleporter"
                     }],
                     "2": [{
@@ -785,6 +777,36 @@
             },
             "mapId": 149,
             "keepOnWhenLaserOff": true
+        }
+    }, {
+        "type": "NPC",
+        "x": 1220,
+        "y": 560,
+        "level": 0,
+        "settings": {
+            "name": "Normal-Cups",
+            "characterName": "advisors.female-tall-blond",
+            "mapId": 896,
+            "npcStates": [{
+                "reactType": "FIXED_POS",
+                "face": "SOUTH",
+                "hidden": false,
+                "condition": "  ",
+                "config": "normal",
+                "event": {
+                    "arena": [{
+                        "custom": false,
+                        "type": "OPEN_ARENA_MENU"
+                    }]
+                }
+            }, {
+                "reactType": "FIXED_POS",
+                "face": "SOUTH",
+                "hidden": false,
+                "condition": "arena.active",
+                "config": "normal",
+                "event": []
+            }]
         }
     }],
     "layer": [{

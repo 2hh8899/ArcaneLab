@@ -39,153 +39,399 @@
         }
     },
 	"dirs": 1,
-	"flipX": [1],
 	"tileOffsets": [0],
-    "SUB": [{
-        "offset": {
-            "x": 74,
-            "y": -43,
-            "z": 70
-        },
-        "shapeType": "Y_FLAT",
-        "sheet": "wing-back",
-        "time": 0.1,
-        "repeat": true,
-        "frames": [0],
-        "SUB": [{
-            "name": "idle"
-        }, {
-            "name": "cannon"
-        }, {
-            "name": "laser"
-        }]
-    }, {
-        "offset": {
-            "x": -7,
-            "y": -6,
-            "z": 70
-        },
-        "shapeType": "Y_FLAT",
-        "sheet": "cannon",
-        "time": 0.05,
-        "repeat": false,
-        "frames": [0],
-        "SUB": [{
-            "name": "idle",
-			"frames": [0]
-        }, {
-            "name": "cannon",
-			"frames": [1, 2, 3, 4, 5, 6, 7, 0]
-        }, {
-            "name": "laser",
-			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
-        }]
-    }, {
-        "offset": {
-            "x": 63,
-            "y": 49,
-            "z": 0
-        },
-        "shapeType": "Y_FLAT",
-        "sheet": "jet",
-        "size": {
-            "x": 373,
-            "y": 0,
-            "z": 171
-        },
-        "time": 0.05,
-        "repeat": true,
-        "frames": [21, 22, 23, 24],
-		"framesGfxOffset": [0, 0, 1, 0, 0, 1, -1, 1],
-		"globalTiming": true,
-        "SUB": [{
-            "name": "idle"
-        }, {
-            "name": "cannon"
-        }, {
-            "name": "laser"
-        }]
-    }, {
-        "offset": {
-            "x": 0,
-            "y": 95,
-            "z": 70
-        },
-        "shapeType": "Y_FLAT",
-        "sheet": "body",
-        "time": 0.073,
-        "repeat": true,
-        "frames": [0, 1, 2, 3],
-		"globalTiming": true,
-        "SUB": [{
-            "name": "idle"
-        }, {
-            "name": "cannon"
-        }, {
-            "name": "laser"
-        }]
-    }, {
-        "offset": {
-            "x": 63,
-            "y": 134,
-            "z": 0
-        },
-        "shapeType": "Y_FLAT",
-        "sheet": "jet",
-        "size": {
-            "x": 373,
-            "y": 0,
-            "z": 171
-        },
-        "time": 0.05,
-        "repeat": true,
-        "frames": [21, 22, 23, 24],
-		"framesGfxOffset": [0, 1, 1, 1, 0, 0, 1, 0],
-		"globalTiming": true,
-        "SUB": [{
-            "name": "idle"
-        }, {
-            "name": "cannon"
-        }, {
-            "name": "laser"
-        }]
-    }, {
-        "offset": {
-            "x": -7,
-            "y": 136,
-            "z": 70
-        },
-        "shapeType": "Y_FLAT",
-        "sheet": "cannon",
-        "time": 0.05,
-        "repeat": false,
-        "SUB": [{
-            "name": "idle",
-			"frames": [0]
-        }, {
-            "name": "cannon",
-			"frames": [1, 2, 3, 4, 5, 6, 7, 0]
-        }, {
-            "name": "laser",
-			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
-        }]
-    }, {
-        "offset": {
-            "x": 74,
-            "y": 233,
-            "z": 70
-        },
-        "shapeType": "Y_FLAT",
-        "sheet": "wing-front",
-        "time": 0.05,
-        "repeat": true,
-            "frames": [0],
-        "SUB": [{
-            "name": "idle"
-        }, {
-            "name": "cannon"
-        }, {
-            "name": "laser"
-        }]
-    }]
+	"SUB": [{
+		"flipX": [1],
+	    "SUB": [{
+			"offset": {
+				"x": 74,
+				"y": -43,
+				"z": 70
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "wing-back",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [0],
+			"SUB": [{
+				"name": "idle"
+			}, {
+				"name": "cannon"
+			}, {
+				"name": "laser"
+			}]
+		}, {
+			"offset": {
+				"x": -7,
+				"y": -6,
+				"z": 70
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "cannon",
+			"time": 0.05,
+			"repeat": false,
+			"frames": [0],
+			"SUB": [{
+				"name": "idle",
+				"frames": [0]
+			}, {
+				"name": "cannon",
+				"frames": [1, 2, 3, 4, 5, 6, 7, 0]
+			}, {
+				"name": "laser",
+				"frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
+			}]
+		}, {
+			"offset": {
+				"x": 63,
+				"y": 49,
+				"z": 0
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "jet",
+			"size": {
+				"x": 373,
+				"y": 0,
+				"z": 171
+			},
+			"time": 0.05,
+			"repeat": true,
+			"frames": [21, 22, 23, 24],
+			"framesGfxOffset": [0, 0, 1, 0, 0, 1, -1, 1],
+			"globalTiming": true,
+			"SUB": [{
+				"name": "idle"
+			}, {
+				"name": "cannon"
+			}, {
+				"name": "laser"
+			}]
+		}, {
+			"offset": {
+				"x": 0,
+				"y": 95,
+				"z": 70
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "body",
+			"time": 0.073,
+			"repeat": true,
+			"frames": [0, 1, 2, 3],
+			"globalTiming": true,
+			"SUB": [{
+				"name": "idle"
+			}, {
+				"name": "cannon"
+			}, {
+				"name": "laser"
+			}]
+		}, {
+			"offset": {
+				"x": 63,
+				"y": 134,
+				"z": 0
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "jet",
+			"size": {
+				"x": 373,
+				"y": 0,
+				"z": 171
+			},
+			"time": 0.05,
+			"repeat": true,
+			"frames": [21, 22, 23, 24],
+			"framesGfxOffset": [0, 1, 1, 1, 0, 0, 1, 0],
+			"globalTiming": true,
+			"SUB": [{
+				"name": "idle"
+			}, {
+				"name": "cannon"
+			}, {
+				"name": "laser"
+			}]
+		}, {
+			"offset": {
+				"x": -7,
+				"y": 136,
+				"z": 70
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "cannon",
+			"time": 0.05,
+			"repeat": false,
+			"SUB": [{
+				"name": "idle",
+				"frames": [0]
+			}, {
+				"name": "cannon",
+				"frames": [1, 2, 3, 4, 5, 6, 7, 0]
+			}, {
+				"name": "laser",
+				"frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
+			}]
+		}, {
+			"offset": {
+				"x": 74,
+				"y": 233,
+				"z": 70
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "wing-front",
+			"time": 0.05,
+			"repeat": true,
+				"frames": [0],
+			"SUB": [{
+				"name": "idle"
+			}, {
+				"name": "cannon"
+			}, {
+				"name": "laser"
+			}]
+		}]
+	}, {
+		"flipX": [0],
+	    "SUB": [{
+			"offset": {
+				"x": -74,
+				"y": -43,
+				"z": 70
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "wing-back",
+			"time": 0.1,
+			"repeat": true,
+			"frames": [0],
+			"SUB": [{
+				"name": "rightIdle"
+			}, {
+				"name": "rightIdleBoost"
+			}, {
+				"name": "rightBackBoost"
+			}, {
+				"name": "rightHover"
+			}, {
+				"name": "rightHoverBoost"
+			}, {
+				"name": "rightChangeJet"
+			}, {
+				"name": "rightChangeBreak"
+			}]
+		}, {
+			"offset": {
+				"x": 7,
+				"y": -6,
+				"z": 70
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "cannon",
+			"time": 0.05,
+			"repeat": false,
+			"frames": [0],
+			"SUB": [{
+				"name": "rightIdle"
+			}, {
+				"name": "rightIdleBoost"
+			}, {
+				"name": "rightBackBoost"
+			}, {
+				"name": "rightHover"
+			}, {
+				"name": "rightHoverBoost"
+			}, {
+				"name": "rightChangeJet"
+			}, {
+				"name": "rightChangeBreak"
+			}]
+		}, {
+			"offset": {
+				"x": -63,
+				"y": 49,
+				"z": 0
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "jet",
+			"size": {
+				"x": 373,
+				"y": 0,
+				"z": 171
+			},
+			"SUB": [{
+				"frames": [0],
+				"time": 0.05,
+				"repeat": true,
+				"name": "rightIdle"
+			}, {
+				"frames": [1, 2, 3, 4],
+				"framesGfxOffset": [0, 1, 1, 1, 0, 0, 1, 0],
+				"time": 0.05,
+				"repeat": true,
+				"globalTiming": true,
+				"name": "rightIdleBoost"
+			}, {
+				"frames": [21, 22, 23, 24],
+				"framesGfxOffset": [0, 1, 1, 1, 0, 0, 1, 0],
+				"time": 0.05,
+				"repeat": true,
+				"globalTiming": true,
+				"name": "rightBackBoost"
+			}, {
+				"frames": [10],
+				"time": 0.05,
+				"repeat": true,
+				"name": "rightHover"
+			}, {
+				"frames": [11, 12, 13, 14],
+				"framesGfxOffset": [0, 1, 1, 1, 0, 0, 1, 0],
+				"time": 0.05,
+				"repeat": true,
+				"globalTiming": true,
+				"name": "rightHoverBoost"
+			}, {
+				"frames": [10, 6, 5, 0],
+				"time": 0.1,
+				"repeat": false,
+				"name": "rightChangeJet"
+			}, {
+				"frames": [0, 5, 6, 10, 16, 15, 20, 20],
+				"time": 0.06,
+				"repeat": false,
+				"name": "rightChangeBreak"
+			}]
+		}, {
+			"offset": {
+				"x": 0,
+				"y": 95,
+				"z": 70
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "body",
+			"time": 0.073,
+			"repeat": true,
+			"frames": [0, 1, 2, 3],
+			"globalTiming": true,
+			"SUB": [{
+				"name": "rightIdle"
+			}, {
+				"name": "rightIdleBoost"
+			}, {
+				"name": "rightBackBoost"
+			}, {
+				"name": "rightHover"
+			}, {
+				"name": "rightHoverBoost"
+			}, {
+				"name": "rightChangeJet"
+			}, {
+				"name": "rightChangeBreak"
+			}]
+		}, {
+			"offset": {
+				"x": -63,
+				"y": 134,
+				"z": 0
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "jet",
+			"size": {
+				"x": 373,
+				"y": 0,
+				"z": 171
+			},
+			"SUB": [{
+				"frames": [0],
+				"time": 0.05,
+				"repeat": true,
+				"name": "rightIdle"
+			}, {
+				"frames": [1, 2, 3, 4],
+				"framesGfxOffset": [0, 0, 1, 0, 0, 1, -1, 1],
+				"time": 0.05,
+				"repeat": true,
+				"globalTiming": true,
+				"name": "rightIdleBoost"
+			}, {
+				"frames": [21, 22, 23, 24],
+				"framesGfxOffset": [0, 0, 1, 0, 0, 1, -1, 1],
+				"time": 0.05,
+				"repeat": true,
+				"globalTiming": true,
+				"name": "rightBackBoost"
+			}, {
+				"frames": [10],
+				"time": 0.05,
+				"repeat": true,
+				"name": "rightHover"
+			}, {
+				"frames": [11, 12, 13, 14],
+				"framesGfxOffset": [0, 0, 1, 0, 0, 1, -1, 1],
+				"time": 0.05,
+				"repeat": true,
+				"globalTiming": true,
+				"name": "rightHoverBoost"
+			}, {
+				"frames": [10, 6, 5, 0],
+				"time": 0.1,
+				"repeat": false,
+				"name": "rightChangeJet"
+			}, {
+				"frames": [0, 5, 6, 10, 16, 15, 20, 20],
+				"time": 0.06,
+				"repeat": false,
+				"name": "rightChangeBreak"
+			}]
+		}, {
+			"offset": {
+				"x": -7,
+				"y": 136,
+				"z": 70
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "cannon",
+			"time": 0.05,
+			"repeat": false,
+			"frames": [0],
+			"SUB": [{
+				"name": "rightIdle"
+			}, {
+				"name": "rightIdleBoost"
+			}, {
+				"name": "rightBackBoost"
+			}, {
+				"name": "rightHover"
+			}, {
+				"name": "rightHoverBoost"
+			}, {
+				"name": "rightChangeJet"
+			}, {
+				"name": "rightChangeBreak"
+			}]
+		}, {
+			"offset": {
+				"x": 74,
+				"y": 233,
+				"z": 70
+			},
+			"shapeType": "Y_FLAT",
+			"sheet": "wing-front",
+			"time": 0.05,
+			"repeat": true,
+			"frames": [0],
+			"SUB": [{
+				"name": "rightIdle"
+			}, {
+				"name": "rightIdleBoost"
+			}, {
+				"name": "rightBackBoost"
+			}, {
+				"name": "rightHover"
+			}, {
+				"name": "rightHoverBoost"
+			}, {
+				"name": "rightChangeJet"
+			}, {
+				"name": "rightChangeBreak"
+			}]
+		}]
+	}]
 }

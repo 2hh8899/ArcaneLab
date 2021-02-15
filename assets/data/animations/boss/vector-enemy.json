@@ -60,6 +60,10 @@
             "name": "cannonRev"
         }, {
             "name": "laser"
+        }, {
+            "name": "laserRev"
+        }, {
+            "name": "laserBoth"
         }]
     }, {
         "offset": {
@@ -83,7 +87,13 @@
 			"frames": [1, 2, 3, 4, 5, 6, 7, 0]
         }, {
             "name": "laser",
-			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
+			"frames": [0]
+        }, {
+            "name": "laserRev",
+			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
+        }, {
+            "name": "laserBoth",
+			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
         }]
     }, {
         "offset": {
@@ -111,6 +121,10 @@
             "name": "cannonRev"
         }, {
             "name": "laser"
+        }, {
+            "name": "laserRev"
+        }, {
+            "name": "laserBoth"
         }]
     }, {
         "offset": {
@@ -132,6 +146,10 @@
             "name": "cannonRev"
         }, {
             "name": "laser"
+        }, {
+            "name": "laserRev"
+        }, {
+            "name": "laserBoth"
         }]
     }, {
         "offset": {
@@ -159,6 +177,10 @@
             "name": "cannonRev"
         }, {
             "name": "laser"
+        }, {
+            "name": "laserRev"
+        }, {
+            "name": "laserBoth"
         }]
     }, {
         "offset": {
@@ -181,7 +203,13 @@
 			"frames": [0]
         }, {
             "name": "laser",
-			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
+			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
+        }, {
+            "name": "laserRev",
+			"frames": [0]
+        }, {
+            "name": "laserBoth",
+			"frames": [1, 1, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 0]
         }]
     }, {
         "offset": {
@@ -202,6 +230,10 @@
             "name": "cannonRev"
         }, {
             "name": "laser"
+        }, {
+            "name": "laserRev"
+        }, {
+            "name": "laserBoth"
         }]
     }]
 }

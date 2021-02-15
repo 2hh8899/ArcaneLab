@@ -1,4 +1,4 @@
-ig.module("game.feature.combat.model.custom-enemy-reaction")
+ig.module("game.feature.combat.model.arcane-lab-enemy-reaction")
     .requires("game.feature.combat.model.enemy-reaction", "impact.base.utils", "impact.base.event")
     .defines(function() {
         var a = ig.Class.extend({

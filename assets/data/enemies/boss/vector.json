@@ -3,7 +3,7 @@
     "level": 1,
     "anims": "boss.vector-enemy",
     "params": {
-        "hp": 2000,
+        "hp": 720,
         "attack": 1,
         "defense": 1,
         "focus": 10,
@@ -59,6 +59,7 @@
     "groundConnect": "IN_EARTH",
     "weight": -1,
     "maxVel": 150,
+    "collType": "IGNORE",
     "shadow": 0,
     "ballFactor": 1,
     "hitStable": "MASSIVE",
@@ -95,6 +96,14 @@
                 }],
                 "action": "Phase2"
             }, {
+                "req": [{
+                    "min": 2,
+                    "max": 2,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }],
+                "action": "Phase3"
+            }, {
                 "action": "Idle"
             }]
         },
@@ -103,7 +112,10 @@
             "choices": []
         },
         "HPBREAK": {
-            "choices": []
+            "choices": [{
+                "preSwitchState": "DEFAULT",
+				"action": "HpBreak"
+            }]
         }
     },
     "proxies": {
@@ -114,8 +126,12 @@
             "timer": 3.6,
             "trail": false,
             "multiHit": false,
-            "noLightGlow": false,
+            "noLightGlow": true,
             "type": "BALL",
+            "effects": "teleport",
+            "effectKeys": {
+                "kill": "hideAlpha"
+            },
             "animation": {
                 "name": "default",
                 "sheet": {
@@ -146,6 +162,7 @@
                 "z": 2
             },
             "timeBoni": null,
+			"shadow": 0,
             "behaviors": []
         },
 		"bulletGatlingFast": {
@@ -155,8 +172,12 @@
             "timer": 3,
             "trail": false,
             "multiHit": false,
-            "noLightGlow": false,
+            "noLightGlow": true,
             "type": "BALL",
+            "effects": "teleport",
+            "effectKeys": {
+                "kill": "hideAlpha"
+            },
             "animation": {
                 "name": "default",
                 "sheet": {
@@ -187,6 +208,53 @@
                 "z": 2
             },
             "timeBoni": null,
+			"shadow": 0,
+            "behaviors": []
+        },
+		"bulletGatlingFaster": {
+            "effects": "ball",
+            "speed": 700,
+            "maxBounce": 0,
+            "timer": 2.5,
+            "trail": false,
+            "multiHit": false,
+            "noLightGlow": true,
+            "type": "BALL",
+            "effects": "teleport",
+            "effectKeys": {
+                "kill": "hideAlpha"
+            },
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/enemy/boss/vector/proxies.png",
+                    "width": 4,
+                    "height": 11,
+					"offX": 10,
+					"offY": 140
+                },
+                "time": 0.05,
+                "repeat": true,
+				"guiSprites": true,
+                "frames": [0]
+            },
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+				"visualType": "MASSIVE",
+                "damageFactor": 1,
+                "reverse": false,
+                "guardable": "",
+                "skillBonus": "RANGED_DMG",
+                "limiter": ""
+            },
+            "size": {
+                "x": 2,
+                "y": 2,
+                "z": 2
+            },
+            "timeBoni": null,
+			"shadow": 0,
             "behaviors": []
         },
 		"bulletSmall": {
@@ -196,8 +264,12 @@
             "timer": 3,
             "trail": false,
             "multiHit": false,
-            "noLightGlow": false,
+            "noLightGlow": true,
             "type": "BALL",
+            "effects": "teleport",
+            "effectKeys": {
+                "kill": "hideAlpha"
+            },
             "animation": {
                 "name": "default",
                 "sheet": {
@@ -228,6 +300,7 @@
                 "z": 3
             },
             "timeBoni": null,
+			"shadow": 0,
             "behaviors": []
         },
 		"bulletBig": {
@@ -237,8 +310,12 @@
             "timer": 3,
             "trail": false,
             "multiHit": false,
-            "noLightGlow": false,
+            "noLightGlow": true,
             "type": "BALL",
+            "effects": "teleport",
+            "effectKeys": {
+                "kill": "hideAlpha"
+            },
             "animation": {
                 "name": "default",
                 "sheet": {
@@ -269,7 +346,107 @@
                 "z": 4
             },
             "timeBoni": null,
+			"shadow": 0,
             "behaviors": []
+        },
+		"bulletBigFaster": {
+            "effects": "ball",
+            "speed": 700,
+            "maxBounce": 0,
+            "timer": 2.5,
+            "trail": false,
+            "multiHit": false,
+            "noLightGlow": true,
+            "type": "BALL",
+            "effects": "teleport",
+            "effectKeys": {
+                "kill": "hideAlpha"
+            },
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/enemy/boss/vector/proxies.png",
+                    "width": 14,
+                    "height": 14,
+					"offX": 0,
+					"offY": 160
+                },
+                "time": 0.05,
+                "repeat": true,
+				"guiSprites": true,
+                "frames": [0]
+            },
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+				"visualType": "MASSIVE",
+                "damageFactor": 1,
+                "reverse": false,
+                "guardable": "",
+                "skillBonus": "RANGED_DMG",
+                "limiter": ""
+            },
+            "size": {
+                "x": 4,
+                "y": 4,
+                "z": 4
+            },
+            "timeBoni": null,
+			"shadow": 0,
+            "behaviors": []
+        },
+		"bulletBigSlowDown": {
+            "effects": "ball",
+            "speed": 500,
+            "maxBounce": 0,
+            "timer": 6,
+            "trail": false,
+            "multiHit": false,
+            "noLightGlow": true,
+            "type": "BALL",
+            "effects": "teleport",
+            "effectKeys": {
+                "kill": "hideAlpha"
+            },
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/enemy/boss/vector/proxies.png",
+                    "width": 14,
+                    "height": 14,
+					"offX": 0,
+					"offY": 160
+                },
+                "time": 0.05,
+                "repeat": true,
+				"guiSprites": true,
+                "frames": [0]
+            },
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+				"visualType": "MASSIVE",
+                "damageFactor": 1,
+                "reverse": false,
+                "guardable": "",
+                "skillBonus": "RANGED_DMG",
+                "limiter": ""
+            },
+            "size": {
+                "x": 4,
+                "y": 4,
+                "z": 4
+            },
+            "timeBoni": null,
+			"shadow": 0,
+            "behaviors": [{
+                "type": "SLOW_DOWN",
+                "speedFactor": 0.05,
+                "fadeOut": 0.01,
+                "pauseVary": 0,
+                "pause": 0.5,
+                "fadeIn": 0.5
+            }]
         },
 		"bulletHuge": {
             "effects": "ball",
@@ -278,8 +455,12 @@
             "timer": 3,
             "trail": false,
             "multiHit": false,
-            "noLightGlow": false,
+            "noLightGlow": true,
             "type": "BALL",
+            "effects": "teleport",
+            "effectKeys": {
+                "kill": "hideAlpha"
+            },
             "animation": {
                 "name": "default",
                 "sheet": {
@@ -310,6 +491,7 @@
                 "z": 14
             },
             "timeBoni": null,
+			"shadow": 0,
             "behaviors": []
         },
 		"bulletHugeHeat": {
@@ -319,8 +501,12 @@
             "timer": 3,
             "trail": false,
             "multiHit": false,
-            "noLightGlow": false,
+            "noLightGlow": true,
             "type": "BALL",
+            "effects": "teleport",
+            "effectKeys": {
+                "kill": "hideAlpha"
+            },
             "animation": {
                 "name": "default",
                 "sheet": {
@@ -351,6 +537,7 @@
                 "z": 14
             },
             "timeBoni": null,
+			"shadow": 0,
             "behaviors": []
         },
         "cannonFire": {
@@ -473,7 +660,100 @@
 					"type": "GOTO_LABEL"
 				}]
 			}, {
-                "time": 0.01,
+                "time": 0.05,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "OWNER",
+            "stickFaceAlign": false,
+            "group": "spawner",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 1
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "NONE"
+            }
+		},
+		"burstLauncherFaster": {
+			"animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+				"value": true,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"value": 0.1,
+				"type": "FACE_TO_TARGET_SPEED"
+			}, {
+				"attribName": "shootCount",
+				"changeType": "set",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 6
+			}, {
+				"name": "actionLoop",
+				"type": "LABEL"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0.06,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 3,
+				"duration": 0,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"global": true,
+				"loop": false,
+				"sounds": [{
+					"sound": "media/sound/boss/vector/gatling-shoot-1.ogg",
+					"volume": 0.3,
+					"variance": 0.05
+				}, {
+					"sound": "media/sound/boss/vector/gatling-shoot-2.ogg",
+					"volume": 0.3,
+					"variance": 0.05
+				}, {
+					"sound": "media/sound/boss/vector/gatling-shoot-3.ogg",
+					"volume": 0.3,
+					"variance": 0.05
+				}],
+				"type": "PLAY_RANDOM_SOUND"
+			}, {
+				"time": 0.1,
+				"type": "WAIT"
+			}, {
+				"attribName": "shootCount",
+				"changeType": "sub",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 1
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "entity.attrib.shootCount > 0",
+				"thenStep": [{
+					"name": "actionLoop",
+					"type": "GOTO_LABEL"
+				}]
+			}, {
+                "time": 0.05,
                 "type": "WAIT"
             }],
             "invisible": false,
@@ -503,20 +783,33 @@
                 "attribName": "summonCount",
                 "changeType": "set",
                 "type": "SET_ATTRIB_NUMBER",
-                "value": 6
+                "value": 5
             }, {
                 "name": "actionLoop",
                 "type": "LABEL"
             }, {
-                "align": "BOTTOM",
-                "type": "SHOOT_PROXY",
-                "proxy": "netMine",
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                }
-            }, {
+				"align": "CENTER",
+				"centralAngle": 0.15,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 3,
+				"duration": 0,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "netMine",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
                 "time": 0.2,
                 "type": "WAIT"
             }, {
@@ -533,7 +826,7 @@
                     "type": "GOTO_LABEL"
                 }]
             }, {
-                "time": 0.01,
+                "time": 0.05,
                 "type": "WAIT"
             }],
             "invisible": false,
@@ -800,7 +1093,7 @@
                 "time": 0.5,
                 "collideCancel": 1,
                 "orthoDirFactor": 0,
-                "rotateSpeed": 0.02,
+                "rotateSpeed": 0.08,
 				"cancelOnHit": false,
                 "ignoreLastHit": false,
                 "type": "TACKLE",
@@ -818,7 +1111,7 @@
 				"name": "actionLoop",
 				"type": "LABEL"
 			}, {
-                "time": 0.1,
+                "time": 0.12,
                 "collideCancel": 1,
                 "orthoDirFactor": 0,
                 "rotateSpeed": 0.02,
@@ -908,7 +1201,7 @@
                 "attribName": "shootCount",
                 "changeType": "set",
                 "type": "SET_ATTRIB_NUMBER",
-                "value": 5
+                "value": 4
             }, {
                 "name": "actionLoop2",
                 "type": "LABEL"
@@ -955,7 +1248,7 @@
                     "type": "GOTO_LABEL"
                 }]
             }, {
-                "time": 0.01,
+                "time": 0.05,
                 "type": "WAIT"
             }],
             "invisible": false,
@@ -1041,12 +1334,12 @@
             }, {
 				"align": "CENTER",
 				"centralAngle": 0.5,
-				"startAngle": 0,
+				"startAngle": 0.05,
 				"angleVary": 0,
 				"startDist": 0,
 				"startDistCollide": "CLOSER",
 				"random": false,
-				"count": 40,
+				"count": 39,
 				"duration": 1.5,
 				"clockwise": true,
 				"flipLeftFace": 0,
@@ -1064,12 +1357,12 @@
 			}, {
 				"align": "CENTER",
 				"centralAngle": 0.5,
-				"startAngle": 0,
+				"startAngle": 0.05,
 				"angleVary": 0,
 				"startDist": 0,
 				"startDistCollide": "CLOSER",
 				"random": false,
-				"count": 40,
+				"count": 39,
 				"duration": 1.5,
 				"clockwise": false,
 				"flipLeftFace": 0,
@@ -1090,7 +1383,7 @@
                 "time": 2,
                 "collideCancel": 1,
                 "orthoDirFactor": 0,
-                "rotateSpeed": 0,
+                "rotateSpeed": 0.06,
                 "ignoreLastHit": false,
                 "type": "TACKLE",
                 "attack": {
@@ -1116,13 +1409,15 @@
 				"name": "actionEnd",
 				"type": "LABEL"
 			}, {
+				"type": "CLEAR_EFFECTS"
+			}, {
 				"duration": 0,
 				"align": "CENTER",
 				"rotateFace": 0,
 				"flipLeftFace": false,
 				"wait": false,
 				"waitSkip": 0,
-				"actionDetached": false,
+				"actionDetached": true,
 				"fixPos": true,
 				"type": "SHOW_EFFECT",
 				"effect": {
@@ -1138,7 +1433,7 @@
 				"name": "deadEnd",
 				"type": "LABEL"
 			}, {
-				"time": 0.01,
+				"time": 0.05,
 				"type": "WAIT"
 			}],
             "invisible": false,
@@ -1160,6 +1455,283 @@
                 "bounciness": 0.0001
             }
         },
+        "homingShotgun": {
+            "animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": -1,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.vector",
+                    "name": "missileGui"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"time": 0.2,
+				"type": "MOVE_FORWARD"
+			}, {
+				"dir": {
+					"x": 1,
+					"y": 0
+				},
+				"type": "SET_FACE_TO_DIR"
+			}, {
+				"time": 0.5,
+				"type": "WAIT"
+			}, {
+				"type": "STOP_XY"
+			}, {
+				"type": "CLEAR_EFFECTS"
+			}, {
+                "value": 700,
+                "type": "SET_SPEED"
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": -1,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.vector",
+                    "name": "missileMoveGui"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.4,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "homingShotgunLauncher",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"cancelOnHit": true,
+				"withBranches": true,
+                "time": 2,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "rotateSpeed": 0.04,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+					"type": "LIGHT",
+					"element": "HEAT",
+					"visualType": "MASSIVE",
+					"damageFactor": 2,
+					"reverse": false,
+					"spFactor": 0,
+					"guardable": "",
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+                },
+				"hit": [{
+					"name": "actionEnd",
+					"type": "GOTO_LABEL"
+				}],
+				"miss": []
+            }, {
+				"name": "deadEnd",
+				"type": "GOTO_LABEL"
+			}, {
+				"name": "actionEnd",
+				"type": "LABEL"
+			}, {
+				"type": "CLEAR_EFFECTS"
+			}, {
+				"duration": 0,
+				"align": "CENTER",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": true,
+				"fixPos": true,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.vector",
+					"name": "explosionGui"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"name": "deadEnd",
+				"type": "LABEL"
+			}, {
+				"time": 0.05,
+				"type": "WAIT"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "PROJECTILE",
+                "airFriction": 0.4,
+                "maxVel": 800,
+                "zGravityFactor": 0,
+                "bounciness": 0.0001
+            }
+        },
+		"homingShotgunLauncher": {
+			"animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.15,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 3,
+				"duration": 0.1,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletBig",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.15,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 3,
+				"duration": 0.1,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletBig",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.1,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 4,
+				"duration": 0.1,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletSmall",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.1,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 4,
+				"duration": 0.1,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletSmall",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.4,
+				"type": "WAIT"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "OWNER",
+            "stickFaceAlign": false,
+            "group": "spawner",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 1
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "NONE"
+            }
+		},
         "homingWave": {
             "animation": {},
             "copyOwnerAnims": false,
@@ -1305,13 +1877,15 @@
 				"name": "actionEnd",
 				"type": "LABEL"
 			}, {
+				"type": "CLEAR_EFFECTS"
+			}, {
 				"duration": 0,
 				"align": "CENTER",
 				"rotateFace": 0,
 				"flipLeftFace": false,
 				"wait": false,
 				"waitSkip": 0,
-				"actionDetached": false,
+				"actionDetached": true,
 				"fixPos": true,
 				"type": "SHOW_EFFECT",
 				"effect": {
@@ -1327,7 +1901,7 @@
 				"name": "deadEnd",
 				"type": "LABEL"
 			}, {
-				"time": 0.01,
+				"time": 0.05,
 				"type": "WAIT"
 			}],
             "invisible": false,
@@ -1494,13 +2068,15 @@
 				"name": "actionEnd",
 				"type": "LABEL"
 			}, {
+				"type": "CLEAR_EFFECTS"
+			}, {
 				"duration": 0,
 				"align": "CENTER",
 				"rotateFace": 0,
 				"flipLeftFace": false,
 				"wait": false,
 				"waitSkip": 0,
-				"actionDetached": false,
+				"actionDetached": true,
 				"fixPos": true,
 				"type": "SHOW_EFFECT",
 				"effect": {
@@ -1516,7 +2092,7 @@
 				"name": "deadEnd",
 				"type": "LABEL"
 			}, {
-				"time": 0.01,
+				"time": 0.05,
 				"type": "WAIT"
 			}],
             "invisible": false,
@@ -1534,6 +2110,1655 @@
                 "collType": "PROJECTILE",
                 "airFriction": 0.4,
                 "maxVel": 400,
+                "zGravityFactor": 0,
+                "bounciness": 0.0001
+            }
+        },
+        "homingHoming": {
+            "animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "value": 750,
+                "type": "SET_SPEED"
+            }, {
+				"value": 0.18,
+				"type": "SET_FRICTION"
+			}, {
+				"value": 0.18,
+				"type": "SET_AIR_FRICTION"
+			}, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": -1,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.vector",
+                    "name": "missileMoveGui"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"duration": 2.5,
+				"target": "TARGET",
+				"align": "CENTER",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": false,
+				"target2": "SELF",
+				"target2Align": "CENTER",
+				"fixPos": false,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.vector",
+					"name": "homingAim"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"target2Offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"cancelOnHit": true,
+				"withBranches": false,
+                "time": 2.5,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "rotateSpeed": 0.7,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+					"type": "LIGHT",
+					"element": "HEAT",
+					"visualType": "MASSIVE",
+					"damageFactor": 2,
+					"reverse": false,
+					"spFactor": 0,
+					"guardable": "",
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+                }
+            }, {
+				"type": "CLEAR_EFFECTS"
+			}, {
+				"duration": 0,
+				"align": "CENTER",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": true,
+				"fixPos": true,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.vector",
+					"name": "explosionGui"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"time": 0.05,
+				"type": "WAIT"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "PROJECTILE",
+                "airFriction": 0.4,
+                "maxVel": 800,
+                "zGravityFactor": 0,
+                "bounciness": 0.0001
+            }
+        },
+        "homingBackward": {
+            "animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": -1,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.vector",
+                    "name": "missileGui"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"time": 1,
+				"type": "MOVE_FORWARD"
+			}, {
+				"time": 0.2,
+				"type": "WAIT"
+			}, {
+				"dir": {
+					"x": -1,
+					"y": 0
+				},
+				"type": "SET_FACE_TO_DIR"
+			}, {
+				"time": 0.5,
+				"type": "WAIT"
+			}, {
+				"type": "STOP_XY"
+			}, {
+				"condition": "entity.srcAttrib.actionSwitch",
+                "type": "WAIT_UNTIL"
+            }, {
+				"type": "CLEAR_EFFECTS"
+			}, {
+                "value": 700,
+                "type": "SET_SPEED"
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": -1,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.vector",
+                    "name": "missileMoveGui"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"align": "CENTER",
+				"startAngle": 0.48,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.3,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletBigSlowDown",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.15,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletBigSlowDown",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"startAngle": 0.52,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.3,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletBigSlowDown",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"cancelOnHit": true,
+				"withBranches": true,
+                "time": 2,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "rotateSpeed": 0.02,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+					"type": "LIGHT",
+					"element": "HEAT",
+					"visualType": "MASSIVE",
+					"damageFactor": 2,
+					"reverse": false,
+					"spFactor": 0,
+					"guardable": "",
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+                },
+				"hit": [{
+					"name": "actionEnd",
+					"type": "GOTO_LABEL"
+				}],
+				"miss": []
+            }, {
+				"name": "deadEnd",
+				"type": "GOTO_LABEL"
+			}, {
+				"name": "actionEnd",
+				"type": "LABEL"
+			}, {
+				"type": "CLEAR_EFFECTS"
+			}, {
+				"duration": 0,
+				"align": "CENTER",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": true,
+				"fixPos": true,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.vector",
+					"name": "explosionGui"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"name": "deadEnd",
+				"type": "LABEL"
+			}, {
+				"time": 0.05,
+				"type": "WAIT"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "PROJECTILE",
+                "airFriction": 0.4,
+                "maxVel": 800,
+                "zGravityFactor": 0,
+                "bounciness": 0.0001
+            }
+        },
+		"tornadoLauncherUp": {
+			"animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+				"value": true,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "s_Gatling",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletBigFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatling",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFast",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "time": 0.65,
+                "type": "WAIT"
+            }, {
+				"value": false,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"time": 1.2,
+				"turn": 0.65,
+				"type": "ROTATE_FACE"
+			}, {
+				"type": "STOP_REPEATING_FORCE"
+			}, {
+                "time": 0.9,
+                "type": "WAIT"
+            }, {
+				"value": true,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "s_Gatling",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0.02,
+				"startAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 3,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+				"value": false,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"time": 1.2,
+				"turn": -1.15,
+				"type": "ROTATE_FACE"
+			}, {
+				"type": "STOP_REPEATING_FORCE"
+			}, {
+                "time": 0.9,
+                "type": "WAIT"
+            }, {
+				"value": true,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "s_Gatling",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletBigFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatling",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFast",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+				"value": false,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"time": 1.2,
+				"turn": 1.15,
+				"type": "ROTATE_FACE"
+			}, {
+				"type": "STOP_REPEATING_FORCE"
+			}, {
+                "time": 0.05,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spawner",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 1
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "NONE"
+            }
+		},
+		"tornadoLauncherDown": {
+			"animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+				"value": true,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "s_Gatling",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletBigFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatling",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFast",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "time": 0.65,
+                "type": "WAIT"
+            }, {
+				"value": false,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"time": 1.2,
+				"turn": -0.65,
+				"type": "ROTATE_FACE"
+			}, {
+				"type": "STOP_REPEATING_FORCE"
+			}, {
+                "time": 0.9,
+                "type": "WAIT"
+            }, {
+				"value": true,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "s_Gatling",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0.02,
+				"startAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 3,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+				"value": false,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"time": 1.2,
+				"turn": 1.15,
+				"type": "ROTATE_FACE"
+			}, {
+				"type": "STOP_REPEATING_FORCE"
+			}, {
+                "time": 0.9,
+                "type": "WAIT"
+            }, {
+				"value": true,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "s_Gatling",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletBigFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatling",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFast",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.03,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+				"value": false,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"time": 1.2,
+				"turn": -1.15,
+				"type": "ROTATE_FACE"
+			}, {
+				"type": "STOP_REPEATING_FORCE"
+			}, {
+                "time": 0.05,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spawner",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 1
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "NONE"
+            }
+		},
+		"raikoushotgunLauncher": {
+			"animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+				"attribName": "shootCount",
+				"changeType": "set",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 4
+			}, {
+				"volume": 0.4,
+				"variance": 0,
+				"global": true,
+				"loop": false,
+				"speed": 1,
+				"sound": "media/sound/boss/vector/shotgun-shoot.ogg",
+				"type": "PLAY_SOUND"
+			}, {
+				"name": "actionLoop",
+				"type": "LABEL"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0.4,
+				"startAngle": -0.5,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 12,
+				"duration": 0,
+				"clockwise": false,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFaster",
+				"dir": {
+					"x": 1,
+					"y": 0
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "time": 0.04,
+                "type": "WAIT"
+            }, {
+				"attribName": "shootCount",
+				"changeType": "sub",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 1
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "entity.attrib.shootCount > 0",
+				"thenStep": [{
+					"name": "actionLoop",
+					"type": "GOTO_LABEL"
+				}]
+			}, {
+                "time": 0.05,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spawner",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 1
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "NONE"
+            }
+		},
+		"raikoushotgunRevLauncher": {
+			"animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+				"attribName": "shootCount",
+				"changeType": "set",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 4
+			}, {
+				"volume": 0.4,
+				"variance": 0,
+				"global": true,
+				"loop": false,
+				"speed": 1,
+				"sound": "media/sound/boss/vector/shotgun-shoot.ogg",
+				"type": "PLAY_SOUND"
+			}, {
+				"name": "actionLoop",
+				"type": "LABEL"
+			}, {
+			"align": "CENTER",
+			"centralAngle": 0.4,
+			"startAngle": -0.5,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": false,
+			"count": 12,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "bulletGatlingFaster",
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+                "time": 0.04,
+                "type": "WAIT"
+            }, {
+				"attribName": "shootCount",
+				"changeType": "sub",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 1
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "entity.attrib.shootCount > 0",
+				"thenStep": [{
+					"name": "actionLoop",
+					"type": "GOTO_LABEL"
+				}]
+			}, {
+                "time": 0.05,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spawner",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 1
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "NONE"
+            }
+		},
+		"raikoushotgunBackwardLauncher": {
+			"animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+				"value": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"value": 2,
+				"type": "FACE_TO_TARGET_SPEED"
+			}, {
+				"attribName": "shootCount",
+				"changeType": "set",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 3
+			}, {
+				"volume": 0.4,
+				"variance": 0,
+				"global": true,
+				"loop": false,
+				"speed": 1,
+				"sound": "media/sound/boss/vector/shotgun-shoot.ogg",
+				"type": "PLAY_SOUND"
+			}, {
+				"name": "actionLoop",
+				"type": "LABEL"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0.06,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 9,
+				"duration": 0,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletBigFaster",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "time": 0.04,
+                "type": "WAIT"
+            }, {
+				"attribName": "shootCount",
+				"changeType": "sub",
+				"type": "SET_ATTRIB_NUMBER",
+				"value": 1
+			}, {
+				"withElse": false,
+				"type": "IF",
+				"condition": "entity.attrib.shootCount > 0",
+				"thenStep": [{
+					"name": "actionLoop",
+					"type": "GOTO_LABEL"
+				}]
+			}, {
+                "time": 0.05,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "spawner",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 1
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "NONE"
+            }
+		},
+		"hookMineLauncher": {
+			"animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+				"name": "actionLoop",
+				"type": "LABEL"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "hookMine",
+				"dir": {
+					"x": 1,
+					"y": -0.3
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"volume": 0.4,
+				"variance": 0.05,
+				"global": true,
+				"loop": false,
+				"speed": 1,
+				"sound": "media/sound/boss/vector/stalker-shoot.ogg",
+				"type": "PLAY_SOUND"
+			}, {
+				"time": 0.5,
+				"type": "WAIT"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": false,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "hookMine",
+				"dir": {
+					"x": 1,
+					"y": 0.3
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"volume": 0.4,
+				"variance": 0.05,
+				"global": true,
+				"loop": false,
+				"speed": 1,
+				"sound": "media/sound/boss/vector/stalker-shoot.ogg",
+				"type": "PLAY_SOUND"
+			}, {
+				"time": 0.5,
+				"type": "WAIT"
+			}, {
+				"name": "actionLoop",
+				"type": "GOTO_LABEL"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "OWNER",
+            "stickFaceAlign": false,
+            "group": "spawner",
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 1
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "NONE"
+            }
+		},
+		"hookMine": {
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/enemy/boss/vector/proxies.png",
+                    "width": 29,
+                    "height": 28,
+					"offX": 66,
+					"offY": 154
+                },
+                "time": 0.05,
+                "repeat": true,
+				"guiSprites": true,
+                "frames": [0]
+            },
+			"copyOwnerAnims": false,
+			"breakType": "COMBATANT",
+			"action": [{
+                "time": 0.2,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "rotateSpeed": 0.05,
+				"cancelOnHit": false,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+					"type": "NONE",
+					"element": "NEUTRAL",
+					"visualType": "MASSIVE",
+					"damageFactor": 2,
+					"reverse": false,
+					"guardable": "",
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+				}
+            }, {
+				"value": 0.06,
+				"type": "SET_FRICTION"
+			}, {
+				"value": 0.06,
+				"type": "SET_AIR_FRICTION"
+			}, {
+				"value": 1200,
+				"type": "SET_SPEED"
+			}, {
+				"align": "CENTER",
+				"centralAngle": 0,
+				"startAngle": 0,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 1,
+				"duration": 0.05,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFast",
+				"dir": {
+					"x": 1,
+					"y": 0
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+                "time": 1.7,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "rotateSpeed": 0.01,
+				"cancelOnHit": false,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+					"type": "NONE",
+					"element": "NEUTRAL",
+					"visualType": "MASSIVE",
+					"damageFactor": 2,
+					"reverse": false,
+					"guardable": "",
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+				}
+            }, {
+                "time": 0.05,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 29,
+                "y": 29,
+                "z": 3
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "PROJECTILE",
+                "airFriction": 1,
+                "maxVel": 300,
+                "zGravityFactor": 0,
+                "bounciness": 0.0001
+            }
+        },
+        "homingTrail": {
+            "animation": {},
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": -1,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.vector",
+                    "name": "missileGui"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"time": 0.175,
+				"type": "MOVE_FORWARD"
+			}, {
+				"value": true,
+				"immediately": true,
+				"type": "FACE_TO_TARGET"
+			}, {
+				"time": 0.2,
+				"type": "WAIT"
+			}, {
+				"type": "STOP_XY"
+			}, {
+				"type": "CLEAR_EFFECTS"
+			}, {
+                "value": 700,
+                "type": "SET_SPEED"
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": -1,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.vector",
+                    "name": "missileMoveGui"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+				"align": "CENTER",
+				"centralAngle": 0.06,
+				"startAngle": 0.47,
+				"angleVary": 0,
+				"startDist": 0,
+				"startDistCollide": "CLOSER",
+				"random": false,
+				"count": 4,
+				"duration": 0.1,
+				"clockwise": true,
+				"flipLeftFace": 0,
+				"circularArea": false,
+				"uniformDir": 0,
+				"delay": 0,
+				"repeat": true,
+				"type": "SHOOT_PROXY_RANGE",
+				"proxy": "bulletGatlingFast",
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"cancelOnHit": true,
+				"withBranches": true,
+                "time": 1.5,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "rotateSpeed": 0.02,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+					"type": "LIGHT",
+					"element": "HEAT",
+					"visualType": "MASSIVE",
+					"damageFactor": 2,
+					"reverse": false,
+					"spFactor": 0,
+					"guardable": "",
+					"skillBonus": "RANGED_DMG",
+					"limiter": ""
+                },
+				"hit": [{
+					"name": "actionEnd",
+					"type": "GOTO_LABEL"
+				}],
+				"miss": []
+            }, {
+				"name": "deadEnd",
+				"type": "GOTO_LABEL"
+			}, {
+				"name": "actionEnd",
+				"type": "LABEL"
+			}, {
+				"type": "CLEAR_EFFECTS"
+			}, {
+				"duration": 0,
+				"align": "CENTER",
+				"rotateFace": 0,
+				"flipLeftFace": false,
+				"wait": false,
+				"waitSkip": 0,
+				"actionDetached": true,
+				"fixPos": true,
+				"type": "SHOW_EFFECT",
+				"effect": {
+					"sheet": "enemies.vector",
+					"name": "explosionGui"
+				},
+				"offset": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}, {
+				"name": "deadEnd",
+				"type": "LABEL"
+			}, {
+				"time": 0.05,
+				"type": "WAIT"
+			}],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "type": "GENERIC",
+            "config": {
+                "collType": "PROJECTILE",
+                "airFriction": 0.4,
+                "maxVel": 800,
                 "zGravityFactor": 0,
                 "bounciness": 0.0001
             }
@@ -1560,7 +3785,7 @@
 			}],
 			"type": "PLAY_RANDOM_SOUND"
 		}, {
-			"time": 0.01,
+			"time": 0.05,
 			"type": "WAIT"
 		}],
             "invisible": false,
@@ -1589,7 +3814,67 @@
             "maxTime": 0.3,
             "type": "WAIT_RANDOM"
         }],
-		
+		"PreHpBreak": [{
+			"volume": 0.55,
+			"variance": 0.05,
+			"global": true,
+			"loop": false,
+			"speed": 2,
+			"sound": "media/sound/boss/vector/dead.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"rumbleType": "RANDOM",
+			"name": "",
+			"duration": 1,
+			"power": "WEAK",
+			"speed": "FAST",
+			"fade": true,
+			"type": "RUMBLE_SCREEN"
+		}, {
+            "zoomType": "SLOW_INTENSE",
+            "fadeIn": 0,
+            "duration": 1,
+            "fadeOut": 0.5,
+            "type": "SET_ZOOM_BLUR"
+        }, {
+			"duration": 0,
+			"align": "CENTER",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": true,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "vectorExplosion"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"type": "STOP_REPEATING_FORCE"
+		}, {
+			"type": "REMOVE_PROXIES"
+		}, {
+			"type": "REMOVE_PROXIES_BALL"
+		}, {
+			"time": 0.1,
+			"type": "WAIT"
+		}],
+		"HpBreak": [{
+			"type": "STOP_REPEATING_FORCE"
+		}, {
+			"type": "REMOVE_PROXIES"
+		}, {
+			"type": "REMOVE_PROXIES_BALL"
+		}, {
+			"time": 1.5,
+			"type": "WAIT"
+		}],
         "Phase1": [{
             "type": "DO_ENEMY_ACTION_INLINE",
             "actionName": "CannonNormal"
@@ -1598,35 +3883,52 @@
             "actionName": "CannonNormal"
         }, {
             "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "MissileShotgun"
+        }, {
+            "type": "DO_ENEMY_ACTION_INLINE",
             "actionName": "Typoon"
+        }, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "MissileShower"
+        }],
+		"Phase2": [{
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "LaserMissile"
+        }, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "MissileBackward"
         }, {
             "type": "DO_ENEMY_ACTION_INLINE",
             "actionName": "Net"
         }, {
             "type": "DO_ENEMY_ACTION_INLINE",
-            "actionName": "Wave"
+            "actionName": "Tornado"
+        }],
+		"Phase3": [{
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "Raikou"
         }, {
             "type": "DO_ENEMY_ACTION_INLINE",
-            "actionName": "MissileShower"
+            "actionName": "Shooty"
+        }, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "Unknown"
+        }, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "Jenny"
         }],
-		"Phase2": [],
-		
-		
-		
-		"Return": [{
+		"CannonNormal": [{
+			"value": 350,
+			"type": "SET_SPEED"
+		}, {
 			"target": {
 				"x": 230,
 				"y": 348,
 				"lvl": "1"
 			},
 			"precise": false,
-			"forceTime": false,
 			"type": "MOVE_TO_POINT"
-		}],
-		
-		
-		
-		"CannonNormal": [{
+		}, {
 			"value": true,
 			"immediately": true,
 			"type": "FACE_TO_TARGET"
@@ -1858,73 +4160,6 @@
 			},
 			"precise": false,
 			"type": "MOVE_TO_POINT"
-		}],
-		"Net": [{
-			"attribName": "loopCount",
-			"changeType": "set",
-			"type": "SET_ATTRIB_NUMBER",
-			"value": 6
-		}, {
-			"name": "actionLoop",
-			"type": "LABEL"
-		}, {
-			"volume": 0.4,
-			"variance": 0.05,
-			"global": true,
-			"loop": false,
-			"speed": 1,
-			"sound": "media/sound/boss/vector/stalker-shoot.ogg",
-			"type": "PLAY_SOUND"
-		}, {
-			"align": "CENTER",
-			"type": "SHOOT_PROXY",
-			"proxy": "netMineLauncher",
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 0
-			}
-		}, {
-			"volume": 0.4,
-			"variance": 0,
-			"global": true,
-			"loop": false,
-			"speed": 1,
-			"sound": "media/sound/boss/vector/shotgun-shoot.ogg",
-			"type": "PLAY_SOUND"
-		}, {
-            "type": "DO_ENEMY_ACTION_INLINE",
-            "actionName": "Shotgun"
-        }, {
-			"time": 0.6,
-			"type": "WAIT"
-		}, {
-			"volume": 0.4,
-			"variance": 0,
-			"global": true,
-			"loop": false,
-			"speed": 1,
-			"sound": "media/sound/boss/vector/shotgun-reload.ogg",
-			"type": "PLAY_SOUND"
-		}, {
-			"time": 0.8,
-			"type": "WAIT"
-		}, {
-			"attribName": "loopCount",
-			"changeType": "sub",
-			"type": "SET_ATTRIB_NUMBER",
-			"value": 1
-		}, {
-			"withElse": false,
-			"type": "IF",
-			"condition": "entity.attrib.loopCount > 0",
-			"thenStep": [{
-				"name": "actionLoop",
-				"type": "GOTO_LABEL"
-			}]
-		}, {
-			"time": 1.2,
-			"type": "WAIT"
 		}],
 		"Typoon": [{
 			"target": {
@@ -2095,6 +4330,9 @@
 			"type": "WAIT"
 		}],
 		"MissileShower": [{
+			"value": 150,
+			"type": "SET_SPEED"
+		}, {
 			"volume": 0.4,
 			"variance": 0.05,
 			"global": true,
@@ -2153,7 +4391,17 @@
 				"z": 0
 			}
 		}, {
-			"time": 0.6,
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.6,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockX": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+			"time": 0.1,
 			"type": "WAIT"
 		}, {
 			"volume": 0.4,
@@ -2225,7 +4473,17 @@
 				"z": 0
 			}
 		}, {
-			"time": 0.6,
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.6,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockX": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+			"time": 0.1,
 			"type": "WAIT"
 		}, {
 			"volume": 0.4,
@@ -2297,7 +4555,17 @@
 				"z": 0
 			}
 		}, {
-			"time": 0.6,
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.6,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockX": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+			"time": 0.1,
 			"type": "WAIT"
 		}, {
 			"volume": 0.4,
@@ -2308,10 +4576,1185 @@
 			"sound": "media/sound/boss/vector/homing-reload.ogg",
 			"type": "PLAY_SOUND"
 		}, {
-			"time": 3.5,
+			"time": 2.5,
 			"type": "WAIT"
 		}],
-		"Wave": [{
+		"MissileShotgun": [{
+			"value": 200,
+			"type": "SET_SPEED"
+		}, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.3,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockX": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+			"volume": 0.4,
+			"variance": 0.05,
+			"global": true,
+			"sound": "media/sound/boss/vector/homing-shoot.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"align": "CENTER",
+			"centralAngle": 0,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": true,
+			"count": 1,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "homingShotgun",
+			"dir": {
+				"x": -0.7,
+				"y": 1
+			},
+			"offset": {
+				"x": 0,
+				"y": 15,
+				"z": 0
+			}
+		}, {
+			"align": "CENTER",
+			"centralAngle": 0,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": true,
+			"count": 1,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "homingShotgun",
+			"dir": {
+				"x": -0.7,
+				"y": -1
+			},
+			"offset": {
+				"x": 0,
+				"y": -15,
+				"z": 0
+			}
+		}, {
+			"time": 0.6,
+			"type": "WAIT"
+		}, {
+			"volume": 0.4,
+			"variance": 0,
+			"global": true,
+			"loop": false,
+			"speed": 1,
+			"sound": "media/sound/boss/vector/homing-reload.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"time": 0.5,
+			"type": "WAIT"
+		}],
+		"LaserMissile": [{
+			"value": 200,
+			"type": "SET_SPEED"
+		}, {
+			"value": 0.15,
+			"type": "SET_FRICTION"
+		}, {
+			"value": 0.15,
+			"type": "SET_AIR_FRICTION"
+		}, {
+			"attribName": "loopCount",
+			"changeType": "set",
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 5
+		}, {
+			"name": "actionLoop",
+			"type": "LABEL"
+		}, {
+			"volume": 0.4,
+			"variance": 0.05,
+			"global": true,
+			"sound": "media/sound/boss/vector/homing-shoot.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"align": "CENTER",
+			"centralAngle": 0,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": true,
+			"count": 1,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "homingHoming",
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 15,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"duration": 0.7,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": 45,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "warning",
+				"name": "redLineThicc"
+			},
+			"offset": {
+				"x": 109,
+				"y": 45,
+				"z": 0
+			}
+		}, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.5,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockX": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+			"time": 0.1,
+			"type": "WAIT"
+		}, {
+			"volume": 0.4,
+			"variance": 0,
+			"global": true,
+			"loop": false,
+			"speed": 1,
+			"sound": "media/sound/boss/vector/homing-reload.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"time": 0.1,
+			"type": "WAIT"
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "Laser"
+        }, {
+			"volume": 0.4,
+			"variance": 0.05,
+			"global": true,
+			"sound": "media/sound/boss/vector/homing-shoot.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"align": "CENTER",
+			"centralAngle": 0,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": true,
+			"count": 1,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "homingHoming",
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 15,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"duration": 0.7,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": -99,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "warning",
+				"name": "redLineThicc"
+			},
+			"offset": {
+				"x": 109,
+				"y": -99,
+				"z": 0
+			}
+		}, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.5,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockX": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+			"time": 0.1,
+			"type": "WAIT"
+		}, {
+			"volume": 0.4,
+			"variance": 0,
+			"global": true,
+			"loop": false,
+			"speed": 1,
+			"sound": "media/sound/boss/vector/homing-reload.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"time": 0.1,
+			"type": "WAIT"
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "LaserRev"
+        }, {
+			"attribName": "loopCount",
+			"changeType": "sub",
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 1
+		}, {
+			"withElse": false,
+			"type": "IF",
+			"condition": "entity.attrib.loopCount > 0",
+			"thenStep": [{
+				"name": "actionLoop",
+				"type": "GOTO_LABEL"
+			}]
+		}, {
+			"value": 1.6,
+			"type": "SET_FRICTION"
+		}, {
+			"value": 0.7,
+			"type": "SET_AIR_FRICTION"
+		}, {
+			"time": 1.3,
+			"type": "WAIT"
+		}],
+		"Net": [{
+			"attribName": "loopCount",
+			"changeType": "set",
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 6
+		}, {
+			"name": "actionLoop",
+			"type": "LABEL"
+		}, {
+			"volume": 0.4,
+			"variance": 0.05,
+			"global": true,
+			"loop": false,
+			"speed": 1,
+			"sound": "media/sound/boss/vector/stalker-shoot.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"align": "CENTER",
+			"type": "SHOOT_PROXY",
+			"proxy": "netMineLauncher",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"volume": 0.4,
+			"variance": 0,
+			"global": true,
+			"loop": false,
+			"speed": 1,
+			"sound": "media/sound/boss/vector/shotgun-shoot.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "Shotgun"
+        }, {
+			"time": 0.6,
+			"type": "WAIT"
+		}, {
+			"volume": 0.4,
+			"variance": 0,
+			"global": true,
+			"loop": false,
+			"speed": 1,
+			"sound": "media/sound/boss/vector/shotgun-reload.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"time": 0.8,
+			"type": "WAIT"
+		}, {
+			"attribName": "loopCount",
+			"changeType": "sub",
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 1
+		}, {
+			"withElse": false,
+			"type": "IF",
+			"condition": "entity.attrib.loopCount > 0",
+			"thenStep": [{
+				"name": "actionLoop",
+				"type": "GOTO_LABEL"
+			}]
+		}, {
+			"time": 1.2,
+			"type": "WAIT"
+		}],
+		"MissileBackward": [{
+			"value": 350,
+			"type": "SET_SPEED"
+		}, {
+			"name": "actionSwitch",
+			"changeType": "set",
+			"type": "SET_ATTRIB_BOOL",
+			"value": false
+		}, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.5,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockX": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "MissileBackwardSub"
+        }, {
+			"target": {
+				"x": 230,
+				"y": 148,
+				"lvl": "1"
+			},
+			"precise": false,
+			"maxTime": 0.5,
+			"forceTime": true,
+			"type": "MOVE_TO_POINT"
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "MissileBackwardSub"
+        }, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.5,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockX": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "MissileBackwardSub"
+        }, {
+			"target": {
+				"x": 230,
+				"y": 548,
+				"lvl": "1"
+			},
+			"precise": false,
+			"maxTime": 0.7,
+			"forceTime": true,
+			"type": "MOVE_TO_POINT"
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "MissileBackwardSub"
+        }, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.5,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockX": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "MissileBackwardSub"
+        }, {
+			"time": 0.2,
+			"type": "WAIT"
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "burstLauncherFaster",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 0.2,
+			"type": "WAIT"
+		}, {
+			"volume": 0.4,
+			"variance": 0,
+			"global": true,
+			"loop": false,
+			"speed": 1,
+			"sound": "media/sound/boss/vector/shotgun-reload.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"volume": 0.4,
+			"variance": 0,
+			"global": true,
+			"loop": false,
+			"speed": 1,
+			"sound": "media/sound/boss/vector/homing-reload.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"time": 0.5,
+			"type": "WAIT"
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "burstLauncherFaster",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 0.6,
+			"type": "WAIT"
+		}, {
+			"name": "actionSwitch",
+			"changeType": "set",
+			"type": "SET_ATTRIB_BOOL",
+			"value": true
+		}, {
+			"time": 4.2,
+			"type": "WAIT"
+		}],
+		"MissileBackwardSub": [{
+			"volume": 0.4,
+			"variance": 0.05,
+			"global": true,
+			"sound": "media/sound/boss/vector/homing-shoot.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"volume": 0.4,
+			"variance": 0,
+			"global": true,
+			"loop": false,
+			"speed": 1,
+			"sound": "media/sound/boss/vector/shotgun-shoot.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"align": "CENTER",
+			"centralAngle": 0.2,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": false,
+			"count": 10,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "bulletBig",
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"align": "CENTER",
+			"centralAngle": 0.08,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": false,
+			"count": 5,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "bulletBig",
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"align": "CENTER",
+			"centralAngle": 0,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": true,
+			"count": 1,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "homingBackward",
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 15,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"time": 0.2,
+			"type": "WAIT"
+		}],
+		"Tornado": [{
+			"value": 350,
+			"type": "SET_SPEED"
+		}, {
+			"target": {
+				"x": 230,
+				"y": 348,
+				"lvl": "1"
+			},
+			"precise": false,
+			"maxTime": 0.5,
+			"type": "MOVE_TO_POINT"
+		}, {
+			"type": "STOP_XY"
+		}, {
+			"align": "CENTER",
+			"type": "SHOOT_PROXY",
+			"proxy": "tornadoLauncherUp",
+			"offset": {
+				"x": 0,
+				"y": 50,
+				"z": 0
+			}
+		}, {
+			"align": "CENTER",
+			"type": "SHOOT_PROXY",
+			"proxy": "tornadoLauncherDown",
+			"offset": {
+				"x": 0,
+				"y": -50,
+				"z": 0
+			}
+		}, {
+			"time": 7,
+			"type": "WAIT"
+		}],
+		"Raikou": [{
+			"conditions": [{
+				"negated": false,
+				"type": "RANDOM",
+				"max": 0.5
+			}],
+			"withElse": true,
+			"type": "COMBAT_IF",
+			"thenStep": [{
+				"name": "actionSwitch",
+				"changeType": "set",
+				"type": "SET_ATTRIB_BOOL",
+				"value": true
+			}],
+			"elseStep": [{
+				"name": "actionSwitch",
+				"changeType": "set",
+				"type": "SET_ATTRIB_BOOL",
+				"value": false
+			}]
+		}, {
+			"value": 800,
+			"type": "SET_SPEED"
+		}, {
+			"target": {
+				"x": 730,
+				"y": 348,
+				"lvl": "1"
+			},
+			"precise": false,
+			"type": "MOVE_TO_POINT"
+		}, {
+			"type": "STOP_XY"
+		}, {
+			"attribName": "loopCount",
+			"changeType": "set",
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 7
+		}, {
+			"duration": 0.45,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": 45,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "warning",
+				"name": "redLineThicc"
+			},
+			"offset": {
+				"x": 109,
+				"y": 45,
+				"z": 0
+			}
+		}, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "entity.attrib.actionSwitch",
+			"thenStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "RaikouApproach"
+			}],
+			"elseStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "RaikouKite"
+			}]
+		}, {
+			"name": "actionLoop",
+			"type": "LABEL"
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "LaserFast"
+        }, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "raikoushotgunLauncher",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "raikoushotgunBackwardLauncher",
+			"dir": {
+				"x": -1,
+				"y": 0
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"duration": 0.45,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": -99,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "warning",
+				"name": "redLineThicc"
+			},
+			"offset": {
+				"x": 109,
+				"y": -99,
+				"z": 0
+			}
+		}, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!entity.attrib.actionSwitch",
+			"thenStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "RaikouApproach"
+			}],
+			"elseStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "RaikouKite"
+			}]
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "LaserFastRev"
+        }, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "raikoushotgunRevLauncher",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "raikoushotgunBackwardLauncher",
+			"dir": {
+				"x": -1,
+				"y": 0
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"duration": 0.45,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": 45,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "warning",
+				"name": "redLineThicc"
+			},
+			"offset": {
+				"x": 109,
+				"y": 45,
+				"z": 0
+			}
+		}, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "entity.attrib.actionSwitch",
+			"thenStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "RaikouApproach"
+			}],
+			"elseStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "RaikouKite"
+			}]
+		}, {
+			"attribName": "loopCount",
+			"changeType": "sub",
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 1
+		}, {
+			"withElse": false,
+			"type": "IF",
+			"condition": "entity.attrib.loopCount > 0",
+			"thenStep": [{
+				"name": "actionLoop",
+				"type": "GOTO_LABEL"
+			}]
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "LaserFast"
+        }, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "raikoushotgunLauncher",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"withElse": true,
+			"type": "IF",
+			"condition": "!entity.attrib.actionSwitch",
+			"thenStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "RaikouApproach"
+			}],
+			"elseStep": [{
+				"type": "DO_ENEMY_ACTION_INLINE",
+				"actionName": "RaikouKite"
+			}]
+		}, {
+			"value": 1.6,
+			"type": "SET_FRICTION"
+		}, {
+			"value": 0.7,
+			"type": "SET_AIR_FRICTION"
+		}, {
+			"value": 800,
+			"type": "SET_SPEED"
+		}, {
+			"target": {
+				"x": 230,
+				"y": 348,
+				"lvl": "1"
+			},
+			"precise": false,
+			"type": "MOVE_TO_POINT"
+		}, {
+			"type": "STOP_XY"
+		}, {
+			"time": 0.65,
+			"type": "WAIT"
+		}],
+		"RaikouApproach": [{
+			"value": 420,
+			"type": "SET_SPEED"
+		}, {
+			"value": 0.2,
+			"type": "SET_FRICTION"
+		}, {
+			"value": 0.2,
+			"type": "SET_AIR_FRICTION"
+		}, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.45,
+			"min": 0,
+			"max": 0,
+			"subRadius": false,
+			"lockX": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}],
+		"RaikouKite": [{
+			"value": 270,
+			"type": "SET_SPEED"
+		}, {
+			"value": 0.15,
+			"type": "SET_FRICTION"
+		}, {
+			"value": 0.15,
+			"type": "SET_AIR_FRICTION"
+		}, {
+			"entity": {
+				"player": true
+			},
+			"maxTime": 0.45,
+			"min": 512,
+			"max": 0,
+			"subRadius": false,
+			"lockX": true,
+			"type": "MOVE_TO_ENTITY_DISTANCE_LOCK_XY"
+		}],
+		"Shooty": [{
+			"value": 0.5,
+			"type": "SET_FRICTION"
+		}, {
+			"value": 0.5,
+			"type": "SET_AIR_FRICTION"
+		}, {
+			"value": 200,
+			"type": "SET_SPEED"
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "hookMineLauncher",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"target": {
+				"x": 230,
+				"y": 148,
+				"lvl": "1"
+			},
+			"precise": false,
+			"type": "MOVE_TO_POINT"
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "burstLauncher",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"target": {
+				"x": 230,
+				"y": 548,
+				"lvl": "1"
+			},
+			"precise": false,
+			"type": "MOVE_TO_POINT"
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "burstLauncher",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"target": {
+				"x": 230,
+				"y": 148,
+				"lvl": "1"
+			},
+			"precise": false,
+			"type": "MOVE_TO_POINT"
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "burstLauncher",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"target": {
+				"x": 230,
+				"y": 548,
+				"lvl": "1"
+			},
+			"precise": false,
+			"type": "MOVE_TO_POINT"
+		}, {
+			"align": "BOTTOM",
+			"type": "SHOOT_PROXY",
+			"proxy": "burstLauncher",
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"target": {
+				"x": 230,
+				"y": 348,
+				"lvl": "1"
+			},
+			"precise": false,
+			"type": "MOVE_TO_POINT"
+		}, {
+            "sticking": false,
+            "group": "spawner",
+            "type": "REMOVE_PROXIES"
+        }, {
+			"value": 1.6,
+			"type": "SET_FRICTION"
+		}, {
+			"value": 0.7,
+			"type": "SET_AIR_FRICTION"
+		}, {
+			"value": 400,
+			"type": "SET_SPEED"
+		}, {
+			"target": {
+				"x": 230,
+				"y": 348,
+				"lvl": "1"
+			},
+			"precise": false,
+			"type": "MOVE_TO_POINT"
+		}, {
+			"type": "STOP_XY"
+		}, {
+			"time": 1.25,
+			"type": "WAIT"
+		}],
+		"Unknown": [{
+			"attribName": "loopCount",
+			"changeType": "set",
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 9
+		}, {
+			"name": "actionLoop",
+			"type": "LABEL"
+		}, {
+			"volume": 0.4,
+			"variance": 0.05,
+			"global": true,
+			"sound": "media/sound/boss/vector/homing-shoot.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"align": "CENTER",
+			"centralAngle": 0.3,
+			"angleVary": 0,
+			"startDist": 0,
+			"startDistCollide": "CLOSER",
+			"random": true,
+			"count": 1,
+			"duration": 0,
+			"clockwise": true,
+			"flipLeftFace": 0,
+			"circularArea": false,
+			"uniformDir": 0,
+			"delay": 0,
+			"repeat": false,
+			"type": "SHOOT_PROXY_RANGE",
+			"proxy": "homingTrail",
+			"dir": {
+				"x": -1,
+				"y": 0
+			},
+			"offset": {
+				"x": 15,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+			"duration": 0.4,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": 45,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "warning",
+				"name": "redLineThicc"
+			},
+			"offset": {
+				"x": 109,
+				"y": 45,
+				"z": 0
+			}
+		}, {
+			"duration": 0.4,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": -99,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "warning",
+				"name": "redLineThicc"
+			},
+			"offset": {
+				"x": 109,
+				"y": -99,
+				"z": 0
+			}
+		}, {
+			"time": 0.4,
+			"type": "WAIT"
+		}, {
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "LaserBoth"
+        }, {
+			"attribName": "loopCount",
+			"changeType": "sub",
+			"type": "SET_ATTRIB_NUMBER",
+			"value": 1
+		}, {
+			"withElse": false,
+			"type": "IF",
+			"condition": "entity.attrib.loopCount > 0",
+			"thenStep": [{
+				"name": "actionLoop",
+				"type": "GOTO_LABEL"
+			}]
+		}, {
+			"time": 2,
+			"type": "WAIT"
+		}],
+		"Jenny": [{
+			"value": 350,
+			"type": "SET_SPEED"
+		}, {
+			"target": {
+				"x": 230,
+				"y": 348,
+				"lvl": "1"
+			},
+			"precise": false,
+			"type": "MOVE_TO_POINT"
+		}, {
 			"align": "CENTER",
 			"centralAngle": 0.47,
 			"startAngle": 0.5,
@@ -2665,8 +6108,6 @@
 			"time": 1.2,
 			"type": "WAIT"
 		}],
-		
-		
 		"Cannon": [{
 			"wait": false,
 			"type": "SHOW_ANIMATION",
@@ -2859,6 +6300,679 @@
 				"z": 0
 			}
 		}],
+		"Laser": [{
+			"wait": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "laser"
+		}, {
+			"global": true,
+			"loop": false,
+			"sounds": [{
+				"sound": "media/sound/boss/vector/plasma-shoot-1.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-2.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-3.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-4.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-5.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}],
+			"type": "PLAY_RANDOM_SOUND"
+		}, {
+			"duration": 0.3,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": 45,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "laser1"
+			},
+			"offset": {
+				"x": 109,
+				"y": 45,
+				"z": 0
+			}
+		}, {
+			"duration": 0,
+			"align": "CENTER",
+			"rotateFace": 2,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": true,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "cannonFire"
+			},
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 100,
+				"y": 65,
+				"z": 0
+			}
+		}, {
+			"align": "BOTTOM",
+			"radius": 1000,
+			"yScale": 0.03,
+			"zHeight": 0,
+			"centralAngle": 0,
+			"duration": 0.25,
+			"expandRadius": 0,
+			"alwaysFull": true,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"rectangular": true,
+			"repeat": false,
+			"uniformHitDir": true,
+			"fixPos": false,
+			"checkCollision": false,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "LIGHT",
+				"visualType": "HEAVY",
+				"element": "HEAT",
+				"damageFactor": 6,
+				"reverse": false,
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"offset": {
+				"x": 1116,
+				"y": 65,
+				"z": 0
+			}
+		}, {
+			"time": 0.65,
+			"type": "WAIT"
+		}, {
+			"volume": 0.4,
+			"variance": 0,
+			"global": true,
+			"loop": false,
+			"speed": 1,
+			"sound": "media/sound/boss/vector/plasma-reload.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}],
+		"LaserRev": [{
+			"wait": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "laserRev"
+		}, {
+			"global": true,
+			"loop": false,
+			"sounds": [{
+				"sound": "media/sound/boss/vector/plasma-shoot-1.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-2.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-3.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-4.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-5.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}],
+			"type": "PLAY_RANDOM_SOUND"
+		}, {
+			"duration": 0.3,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": -99,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "laser1"
+			},
+			"offset": {
+				"x": 109,
+				"y": -99,
+				"z": 0
+			}
+		}, {
+			"duration": 0,
+			"align": "CENTER",
+			"rotateFace": 2,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": true,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "cannonFire"
+			},
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 100,
+				"y": -79,
+				"z": 0
+			}
+		}, {
+			"align": "BOTTOM",
+			"radius": 1000,
+			"yScale": 0.03,
+			"zHeight": 0,
+			"centralAngle": 0,
+			"duration": 0.25,
+			"expandRadius": 0,
+			"alwaysFull": true,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"rectangular": true,
+			"repeat": false,
+			"uniformHitDir": true,
+			"fixPos": false,
+			"checkCollision": false,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "LIGHT",
+				"visualType": "HEAVY",
+				"element": "HEAT",
+				"damageFactor": 6,
+				"reverse": false,
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"offset": {
+				"x": 1116,
+				"y": -79,
+				"z": 0
+			}
+		}, {
+			"time": 0.65,
+			"type": "WAIT"
+		}, {
+			"volume": 0.4,
+			"variance": 0,
+			"global": true,
+			"loop": false,
+			"speed": 1,
+			"sound": "media/sound/boss/vector/plasma-reload.ogg",
+			"type": "PLAY_SOUND"
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}],
+		"LaserBoth": [{
+			"wait": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "laserBoth"
+		}, {
+			"global": true,
+			"loop": false,
+			"sounds": [{
+				"sound": "media/sound/boss/vector/plasma-shoot-1.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-2.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-3.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-4.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-5.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}],
+			"type": "PLAY_RANDOM_SOUND"
+		}, {
+			"duration": 0.3,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": 45,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "laser1"
+			},
+			"offset": {
+				"x": 109,
+				"y": 45,
+				"z": 0
+			}
+		}, {
+			"duration": 0,
+			"align": "CENTER",
+			"rotateFace": 2,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": true,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "cannonFire"
+			},
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 100,
+				"y": 65,
+				"z": 0
+			}
+		}, {
+			"align": "BOTTOM",
+			"radius": 1000,
+			"yScale": 0.03,
+			"zHeight": 0,
+			"centralAngle": 0,
+			"duration": 0.25,
+			"expandRadius": 0,
+			"alwaysFull": true,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"rectangular": true,
+			"repeat": false,
+			"uniformHitDir": true,
+			"fixPos": false,
+			"checkCollision": false,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "LIGHT",
+				"visualType": "HEAVY",
+				"element": "HEAT",
+				"damageFactor": 6,
+				"reverse": false,
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"offset": {
+				"x": 1116,
+				"y": 65,
+				"z": 0
+			}
+		}, {
+			"duration": 0.3,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": -99,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "laser1"
+			},
+			"offset": {
+				"x": 109,
+				"y": -99,
+				"z": 0
+			}
+		}, {
+			"duration": 0,
+			"align": "CENTER",
+			"rotateFace": 2,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": true,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "cannonFire"
+			},
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 100,
+				"y": -79,
+				"z": 0
+			}
+		}, {
+			"align": "BOTTOM",
+			"radius": 1000,
+			"yScale": 0.03,
+			"zHeight": 0,
+			"centralAngle": 0,
+			"duration": 0.25,
+			"expandRadius": 0,
+			"alwaysFull": true,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"rectangular": true,
+			"repeat": false,
+			"uniformHitDir": true,
+			"fixPos": false,
+			"checkCollision": false,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "LIGHT",
+				"visualType": "HEAVY",
+				"element": "HEAT",
+				"damageFactor": 6,
+				"reverse": false,
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"offset": {
+				"x": 1116,
+				"y": -79,
+				"z": 0
+			}
+		}, {
+			"time": 0.45,
+			"type": "WAIT"
+		}],
+		"LaserFast": [{
+			"wait": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "laser"
+		}, {
+			"global": true,
+			"loop": false,
+			"sounds": [{
+				"sound": "media/sound/boss/vector/plasma-shoot-1.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-2.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-3.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-4.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-5.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}],
+			"type": "PLAY_RANDOM_SOUND"
+		}, {
+			"duration": 0.15,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": 45,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "laser1"
+			},
+			"offset": {
+				"x": 109,
+				"y": 45,
+				"z": 0
+			}
+		}, {
+			"duration": 0,
+			"align": "CENTER",
+			"rotateFace": 2,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": true,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "cannonFire"
+			},
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 100,
+				"y": 65,
+				"z": 0
+			}
+		}, {
+			"align": "BOTTOM",
+			"radius": 1000,
+			"yScale": 0.03,
+			"zHeight": 0,
+			"centralAngle": 0,
+			"duration": 0.1,
+			"expandRadius": 0,
+			"alwaysFull": true,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"rectangular": true,
+			"repeat": false,
+			"uniformHitDir": true,
+			"fixPos": false,
+			"checkCollision": false,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "LIGHT",
+				"visualType": "HEAVY",
+				"element": "HEAT",
+				"damageFactor": 4,
+				"reverse": false,
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"offset": {
+				"x": 1116,
+				"y": 65,
+				"z": 0
+			}
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}],
+		"LaserFastRev": [{
+			"wait": false,
+			"type": "SHOW_ANIMATION",
+			"anim": "laserRev"
+		}, {
+			"global": true,
+			"loop": false,
+			"sounds": [{
+				"sound": "media/sound/boss/vector/plasma-shoot-1.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-2.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-3.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-4.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}, {
+				"sound": "media/sound/boss/vector/plasma-shoot-5.ogg",
+				"volume": 0.4,
+				"variance": 0.05
+			}],
+			"type": "PLAY_RANDOM_SOUND"
+		}, {
+			"duration": 0.15,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"target2": "SELF",
+			"target2Offset": {
+				"x": 1200,
+				"y": -99,
+				"z": 0
+			},
+			"target2Align": "BOTTOM",
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "laser1"
+			},
+			"offset": {
+				"x": 109,
+				"y": -99,
+				"z": 0
+			}
+		}, {
+			"duration": 0,
+			"align": "CENTER",
+			"rotateFace": 2,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": true,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "enemies.vector",
+				"name": "cannonFire"
+			},
+			"dir": {
+				"x": 1,
+				"y": 0
+			},
+			"offset": {
+				"x": 100,
+				"y": -79,
+				"z": 0
+			}
+		}, {
+			"align": "BOTTOM",
+			"radius": 1000,
+			"yScale": 0.03,
+			"zHeight": 0,
+			"centralAngle": 0,
+			"duration": 0.1,
+			"expandRadius": 0,
+			"alwaysFull": true,
+			"clockwise": false,
+			"flipLeftFace": 0,
+			"rectangular": true,
+			"repeat": false,
+			"uniformHitDir": true,
+			"fixPos": false,
+			"checkCollision": false,
+			"type": "CIRCLE_ATTACK",
+			"attack": {
+				"type": "LIGHT",
+				"visualType": "HEAVY",
+				"element": "HEAT",
+				"damageFactor": 4,
+				"reverse": false,
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"offset": {
+				"x": 1116,
+				"y": -79,
+				"z": 0
+			}
+		}, {
+			"time": 0.05,
+			"type": "WAIT"
+		}],
 		"Shotgun": [{
 			"value": true,
 			"immediately": true,
@@ -2879,12 +6993,12 @@
 			"type": "LABEL"
 		}, {
 			"align": "CENTER",
-			"centralAngle": 0.2,
+			"centralAngle": 0.15,
 			"angleVary": 0,
 			"startDist": 0,
 			"startDistCollide": "CLOSER",
 			"random": false,
-			"count": 15,
+			"count": 10,
 			"duration": 0,
 			"clockwise": true,
 			"flipLeftFace": 0,
@@ -2920,26 +7034,27 @@
     "reactions": {
         "HP_BREAK": {
             "hitType": "HP_BREAK_HIT",
+            "preAction": "PreHpBreak",
             "preSwitchState": "HPBREAK",
-            "blockFurtherHits": false,
+            "blockFurtherHits": true,
             "attackType": "BREAK",
             "flyLevel": "",
             "stunChange": "FORCE_STUN",
             "alignFace": false,
-            "dramaticEffect": "HP_BREAK_ZOOM",
+            "dramaticEffect": "BREAK_NO_TEXT",
             "conditions": [],
             "ignoreFailed": false,
             "type": "HIT_REACTION"
         },
         "KILL_HIT": {
             "hitType": "KILL_HIT",
-            "preAction": "PreHPBreak",
+            "preAction": "PreHpBreak",
             "blockFurtherHits": false,
             "attackType": "MASSIVE",
             "flyLevel": "",
             "stunChange": "FORCE_STUN",
             "alignFace": false,
-            "dramaticEffect": "BOSS_ZOOM",
+            "dramaticEffect": "BREAK_NO_TEXT",
             "conditions": [],
             "ignoreFailed": false,
             "type": "HIT_REACTION"
@@ -2948,7 +7063,7 @@
     "meta": {
         "species": {
             "en_US": "",
-            "ko_KR": "진짜 군용 전투기"
+            "ko_KR": ""
         },
         "category": "MECHA",
         "descriptions": [{

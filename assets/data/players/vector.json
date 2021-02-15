@@ -172,9 +172,9 @@
 					"type": "LIGHT",
 					"element": "HEAT",
 					"visualType": "MASSIVE",
-					"damageFactor": 4.5,
+					"damageFactor": 5,
 					"reverse": false,
-					"spFactor": 0.2,
+					"spFactor": 0.1,
 					"guardable": "",
 					"skillBonus": "RANGED_DMG",
 					"limiter": ""
@@ -447,7 +447,7 @@
 					"type": "LIGHT",
 					"element": "HEAT",
 					"visualType": "MASSIVE",
-					"damageFactor": 6,
+					"damageFactor": 5,
 					"reverse": false,
 					"spFactor": 0,
 					"guardable": "",
@@ -606,7 +606,7 @@
 					"type": "LIGHT",
 					"element": "HEAT",
 					"visualType": "MASSIVE",
-					"damageFactor": 4,
+					"damageFactor": 3,
 					"reverse": false,
 					"spFactor": 0,
 					"guardable": "",
@@ -776,7 +776,7 @@
 					},
                     "offset": {
                         "x": -100,
-                        "y": -70,
+                        "y": -75,
                         "z": 0
                     }
                 }, {
@@ -802,7 +802,7 @@
 					},
                     "offset": {
                         "x": -100,
-                        "y": 74,
+                        "y": 69,
                         "z": 0
                     }
                 }, {
@@ -881,7 +881,7 @@
 					},
                     "offset": {
                         "x": -100,
-                        "y": -70,
+                        "y": -75,
                         "z": 0
                     }
                 }, {
@@ -907,7 +907,7 @@
 					},
                     "offset": {
                         "x": -100,
-                        "y": 74,
+                        "y": 69,
                         "z": 0
                     }
                 }, {
@@ -986,7 +986,7 @@
 					},
                     "offset": {
                         "x": -100,
-                        "y": -70,
+                        "y": -75,
                         "z": 0
                     }
                 }, {
@@ -1012,7 +1012,7 @@
 					},
                     "offset": {
                         "x": -100,
-                        "y": 74,
+                        "y": 69,
                         "z": 0
                     }
                 }, {
@@ -1042,6 +1042,20 @@
                 "stunType": "",
                 "status": false,
                 "steps": [{
+                    "name": "startBlock",
+                    "type": "LABEL"
+                }, {
+                    "time": 0.05,
+                    "type": "WAIT"
+                }, {
+					"withElse": false,
+					"type": "IF",
+					"condition": "tmp.bossEnd || tmp.bossEnd2 || tmp.boss2C",
+					"thenStep": [{
+						"name": "startBlock",
+						"type": "GOTO_LABEL"
+					}]
+				}, {
 					"volume": 1.2,
 					"global": true,
 					"loop": false,
@@ -1096,9 +1110,14 @@
                     "time": 0.115,
                     "type": "WAIT"
                 }, {
-                    "name": "loop",
-                    "type": "GOTO_LABEL"
-                }]
+					"withElse": false,
+					"type": "IF",
+					"condition": "!tmp.bossEnd && !tmp.bossEnd2 && !tmp.boss2C",
+					"thenStep": [{
+						"name": "loop",
+						"type": "GOTO_LABEL"
+					}]
+				}]
             },
             "CHARGING": {
                 "dmgType": "",
@@ -1327,7 +1346,7 @@
 					},
                     "offset": {
                         "x": -100,
-                        "y": -70,
+                        "y": -75,
                         "z": 0
                     }
                 }, {
@@ -1353,7 +1372,7 @@
 					},
                     "offset": {
                         "x": -100,
-                        "y": 74,
+                        "y": 69,
                         "z": 0
                     }
                 }, {
@@ -1430,28 +1449,28 @@
 					"loop": false,
 					"sounds": [{
 						"sound": "media/sound/boss/vector/plasma-shoot-1.ogg",
-						"volume": 0.5,
+						"volume": 0.65,
 						"variance": 0.05
 					}, {
 						"sound": "media/sound/boss/vector/plasma-shoot-2.ogg",
-						"volume": 0.5,
+						"volume": 0.65,
 						"variance": 0.05
 					}, {
 						"sound": "media/sound/boss/vector/plasma-shoot-3.ogg",
-						"volume": 0.5,
+						"volume": 0.65,
 						"variance": 0.05
 					}, {
 						"sound": "media/sound/boss/vector/plasma-shoot-4.ogg",
-						"volume": 0.5,
+						"volume": 0.65,
 						"variance": 0.05
 					}, {
 						"sound": "media/sound/boss/vector/plasma-shoot-5.ogg",
-						"volume": 0.5,
+						"volume": 0.65,
 						"variance": 0.05
 					}],
 					"type": "PLAY_RANDOM_SOUND"
 				}, {
-					"duration": 0.5,
+					"duration": 0.6,
 					"align": "BOTTOM",
 					"rotateFace": 0,
 					"flipLeftFace": false,
@@ -1460,8 +1479,8 @@
 					"actionDetached": false,
 					"target2": "SELF",
 					"target2Offset": {
-						"x": -20000,
-						"y": 0,
+						"x": -1200,
+						"y": -95,
 						"z": 0
 					},
 					"target2Align": "BOTTOM",
@@ -1472,12 +1491,12 @@
 						"name": "laser2"
 					},
 					"offset": {
-						"x": -116,
-						"y": -90,
+						"x": -109,
+						"y": -95,
 						"z": 0
 					}
 				}, {
-					"duration": 0.5,
+					"duration": 0.6,
 					"align": "BOTTOM",
 					"rotateFace": 0,
 					"flipLeftFace": false,
@@ -1486,8 +1505,8 @@
 					"actionDetached": false,
 					"target2": "SELF",
 					"target2Offset": {
-						"x": -20000,
-						"y": 0,
+						"x": -1200,
+						"y": 49,
 						"z": 0
 					},
 					"target2Align": "BOTTOM",
@@ -1498,8 +1517,8 @@
 						"name": "laser2"
 					},
 					"offset": {
-						"x": -116,
-						"y": 54,
+						"x": -109,
+						"y": 49,
 						"z": 0
 					}
 				}, {
@@ -1518,7 +1537,7 @@
 					},
 					"offset": {
                         "x": -100,
-                        "y": -70,
+                        "y": -75,
 						"z": 0
 					}
 				}, {
@@ -1537,7 +1556,7 @@
 					},
 					"offset": {
                         "x": -100,
-                        "y": 74,
+                        "y": 69,
 						"z": 0
 					}
 				}, {
@@ -1553,7 +1572,7 @@
 					"flipLeftFace": 0,
 					"rectangular": true,
 					"repeat": true,
-					"uniformHitDir": false,
+					"uniformHitDir": true,
 					"fixPos": false,
 					"checkCollision": false,
 					"type": "CIRCLE_ATTACK",
@@ -1561,7 +1580,7 @@
 						"type": "LIGHT",
 						"visualType": "HEAVY",
 						"element": "HEAT",
-						"damageFactor": 1.1,
+						"damageFactor": 1,
 						"reverse": false,
 						"guardable": "",
 						"skillBonus": "RANGED_DMG",
@@ -1569,7 +1588,7 @@
 					},
 					"offset": {
 						"x": -1116,
-						"y": -74,
+						"y": -79,
 						"z": 0
 					}
 				}, {
@@ -1585,7 +1604,7 @@
 					"flipLeftFace": 0,
 					"rectangular": true,
 					"repeat": true,
-					"uniformHitDir": false,
+					"uniformHitDir": true,
 					"fixPos": false,
 					"checkCollision": false,
 					"type": "CIRCLE_ATTACK",
@@ -1593,7 +1612,7 @@
 						"type": "LIGHT",
 						"visualType": "HEAVY",
 						"element": "HEAT",
-						"damageFactor": 1.1,
+						"damageFactor": 1,
 						"reverse": false,
 						"guardable": "",
 						"skillBonus": "RANGED_DMG",
@@ -1601,11 +1620,11 @@
 					},
 					"offset": {
 						"x": -1116,
-						"y": 70,
+						"y": 65,
 						"z": 0
 					}
 				}, {
-                    "time": 0.75,
+                    "time": 0.52,
                     "rotateSpeed": 30,
                     "stopBeforeEdge": false,
                     "allowStop": true,
@@ -1613,13 +1632,13 @@
                 }, {
 					"type": "STOP_REPEATING_FORCE"
 				}, {
-                    "time": 0.5,
+                    "time": 0.7,
                     "rotateSpeed": 30,
                     "stopBeforeEdge": false,
                     "allowStop": true,
                     "type": "PLAYER_MOVE_TO_DIR"
                 }, {
-					"volume": 0.5,
+					"volume": 0.4,
 					"variance": 0,
 					"global": true,
 					"loop": false,

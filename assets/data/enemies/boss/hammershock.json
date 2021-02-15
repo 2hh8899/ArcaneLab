@@ -1,5 +1,5 @@
 {
-    "level": 70,
+    "level": 75,
     "params": {
         "hp": 225000,
         "attack": 650,
@@ -9,8 +9,8 @@
         "statusInflict": [0.1, 0, 0.4, 0.45],
         "statusEffect": [0.3, 0, 0.1, 1.2]
     },
-    "credit": 50000,
-    "exp": 3000,
+    "credit": 55000,
+    "exp": 3200,
     "maxSp": 0,
     "enduranceScale": 10,
     "itemDrops": [],
@@ -1737,7 +1737,7 @@
 					"group": "",
 					"party": "",
 					"targetOnSpawn": true,
-					"type": "hermes.vector",
+					"type": "hermes.vector-minion",
 					"attribs": {}
 				}
 			}, {

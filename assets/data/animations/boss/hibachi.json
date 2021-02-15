@@ -1,0 +1,27 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "body": {
+            "src": "media/entity/enemy/boss/hibachi.png",
+            "xCount": 2,
+            "offX": 0,
+            "offY": 0,
+            "width": 104,
+            "height": 120
+        }
+    },
+    "offset": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "shapeType": "Y_FLAT",
+	"sheet": "body",
+	"dirs": "1",
+	"flipX": [0],
+	"tileOffsets": [0],
+	"frames": [0, 1, 2, 3],
+	"time": 0.06,
+	"repeat": true,
+	"name": "idle"
+}

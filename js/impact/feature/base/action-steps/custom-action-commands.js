@@ -29,7 +29,7 @@
 	};
 })();
 
-ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("impact.feature.base.action-steps").defines(function() {
+ig.module("impact.feature.base.action-steps.arcane-lab-action-commands1").requires("impact.feature.base.action-steps").defines(function() {
     ig.ACTION_STEP.GIVE_ITEM = ig.EVENT_STEP.GIVE_ITEM;
     ig.ACTION_STEP.GIVE_MONEY = ig.EVENT_STEP.ADD_MONEY;
     ig.ACTION_STEP.ADJUST_ENTITY_POS = ig.ActionStepBase.extend({
@@ -418,8 +418,30 @@ ig.module("impact.feature.base.action-steps.mod-action-commands1").requires("imp
 			return true
 		}
 	});
+	ig.ACTION_STEP.SET_VAR_POS = ig.ActionStepBase.extend({
+		newPos: null,
+		_wm: new ig.Config({
+			attributes: {
+				newPos: {
+					_type: "Vec3",
+					_info: "Position to move to.",
+					_pointSelect: true,
+					_visualize: true,
+					_actorOption: true
+				}
+			}
+		}),
+		init: function(a) {
+			this.newPos = a.newPos
+		},
+		start: function(a) {
+			var b = ig.Event.getExpressionValue(this.newPos),
+				c = a.coll;
+			a.setPos(b.x - c.size.x / 2, b.y - c.size.y / 2, b.z)
+		}
+	});
 });
-ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("impact.feature.base.action-steps").defines(function() {
+ig.module("impact.feature.base.action-steps.arcane-lab-action-commands2").requires("impact.feature.base.action-steps").defines(function() {
     var a = Vec2.create(),
         d = Vec2.create(),
         vw = Vec2.create(),
@@ -915,48 +937,28 @@ ig.module("impact.feature.base.action-steps.mod-action-commands2").requires("imp
 				a.setPos(resp.x, resp.y, a.coll.z)
 				return a.stepTimer <= 0
 			}
-		})
-});
-
-
-ig.module("impact.feature.base.event-steps.mod-event-commands1").requires("impact.feature.base.event-steps").defines(function() {
-		ig.EVENT_STEP.VECTOR_INIT = ig.EventStepBase.extend({
-			entity: null,
-			position: null,
-			_wm: new ig.Config({
-				attributes: {
-					hpStat: {
-						_type: "Number",
-						_info: "New stat"
-					},
-					attackStat: {
-						_type: "Number",
-						_info: "New stat"
-					},
-					defenseStat: {
-						_type: "Number",
-						_info: "New stat"
-					},
-					focusStat: {
-						_type: "Number",
-						_info: "New stat"
+		});
+	ig.ACTION_STEP.REMOVE_PROXIES_BALL = ig.ActionStepBase.extend({
+		_wm: new ig.Config({
+			attributes: {
+				group: {
+					_type: "String",
+					_info: "If set, only clear proxies of that group"
+				}
+			}
+		}),
+		init: function(a) {
+			this.group = a.group || null
+		},
+		start: function(a) {
+			for(var i = ig.game.entities, b = i.length; b--;) {
+				var d = i[b];
+				if(d && (d instanceof ig.ENTITY.Ball && d.group == this.group)) {
+					if(d.getCombatantRoot() == a.getCombatantRoot()) {
+						d.destroy()
 					}
 				}
-			}),
-			init: function(a) {
-				this.hpStat = a.hpStat;
-				this.attackStat = a.attackStat;
-				this.defenseStat = a.defenseStat;
-				this.focusStat = a.focusStat
-			},
-			start: function(a, b) {
-				ig.game.playerEntity.walkAnims.move = ig.game.playerEntity.walkAnims.run = ig.game.playerEntity.walkAnims.brake = ig.game.playerEntity.walkAnims.preIdle = ig.game.playerEntity.walkAnims.damage= ig.game.playerEntity.walkAnims.fall = ig.game.playerEntity.walkAnims.jump="idle";
-				ig.game.playerEntity.params.currentHp = ig.game.playerEntity.params.baseParams.hp = this.hpStat;
-				ig.game.playerEntity.params.baseParams.attack = this.attackStat;
-				ig.game.playerEntity.params.baseParams.defense = this.defenseStat;
-				ig.game.playerEntity.params.baseParams.focus = this.focusStat;
-				sc.Model.notifyObserver(ig.game.playerEntity.params, sc.COMBAT_PARAM_MSG.HP_CHANGED);
-				sc.Model.notifyObserver(ig.game.playerEntity.params, sc.COMBAT_PARAM_MSG.STATS_CHANGED)
 			}
-		});
+		}
+	})
 });

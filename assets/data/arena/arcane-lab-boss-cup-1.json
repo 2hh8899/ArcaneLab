@@ -1,0 +1,119 @@
+{
+    "core": {
+        "type": "SOLO_CUSTOM",
+        "name": {
+            "en_US": "Arcane Lab Boss Cup",
+            "ko_KR": "아케인 랩 보스 대회"
+        },
+        "info": {
+            "en_US": "",
+            "ko_KR": "아케인 랩의 강력한 보스들과의 전투에 도전하세요."
+        },
+        "creator": {
+            "en_US": "2hh8899",
+            "ko_KR": "2hh8899"
+        },
+        "level": 70,
+        "difficulty": "5",
+        "banner": {
+            "src": "media/gui/arena-banners.png",
+            "offX": 280,
+            "offY": 0,
+            "width": 276,
+            "height": 64
+        }
+    },
+    "rounds": [{
+        "name": {
+            "en_US": "175GW Cannon",
+            "ko_KR": "175기가와트 캐논"
+        },
+        "customCode": true,
+        "camFocus": "PLAYER_SPAWN",
+        "platPoints": 350000,
+        "coins": 0,
+        "objective": {
+            "en_US": "Beat the \\c[3]\\v[combat.name.boss.drake-laser-drill]\\c[0] boss from \\c[3]\\v[area.guildac.name]\\c[0]!",
+            "ko_KR": "\\c[3]\\v[area.guildac.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.boss.drake-laser-drill]\\c[0]을 처치하세요!"
+        },
+        "points": 250000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.boss.turret-boss",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 45,
+            "points": 100000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "The Frozen Robot",
+            "de_DE": "Der gefrorene Roboter",
+            "zh_CN": "寒冰机械<<A<<[CHANGED 2019/04/16]",
+            "ja_JP": "凍てつくロボット<<A<<[CHANGED 2019/04/16]",
+            "ko_KR": "언 로봇<<A<<[CHANGED 2019/04/16]",
+            "langUid": 42,
+            "zh_TW": "寒冰機械<<A<<[CHANGED 2019/04/16]"
+        },
+        "customCode": true,
+        "camFocus": "PLAYER_SPAWN",
+        "platPoints": 150000,
+        "coins": 0,
+        "objective": {
+            "en_US": "Beat a stronger version of the \\c[3]\\v[combat.name.mine-diggingbot-cold]\\c[0] boss from \\c[3]\\v[area.cold-dng.name]\\c[0]!",
+            "langUid": 43,
+            "zh_CN": "击败来自\\c[3]\\v[area.cold-dng.name]\\c[0]的强化版\\c[3]\\v[combat.name.mine-diggingbot-cold]\\c[0]!<<A<<[CHANGED 2019/04/16]",
+            "ko_KR": "\\c[3]\\v[area.cold-dng.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.mine-diggingbot-cold]\\c[0]의 더 강한 버전을 처치하세요!<<A<<[CHANGED 2019/04/16]",
+            "ja_JP": "\\c[3]\\v[area.cold-dng.name]\\c[0]のボス、\\c[3]\\v[combat.name.mine-diggingbot-cold]\\c[0]の強化版を倒せ！<<A<<[CHANGED 2019/04/16]",
+            "de_DE": "Besiege eine stärkere Version von \\c[3]\\v[combat.name.mine-diggingbot-cold]\\c[0], dem Boss aus der \\c[3]Tempelmine\\c[0]!",
+            "zh_TW": "擊敗來自\\c[3]\\v[area.cold-dng.name]\\c[0]的強化版\\c[3]\\v[combat.name.mine-diggingbot-cold]\\c[0]!<<A<<[CHANGED 2019/04/16]"
+        },
+        "points": 120000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.boss.cold-midboss",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 45,
+            "points": 50000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "The Collosal Gear",
+            "de_DE": "Das gewaltige Gerät",
+            "zh_CN": "合金巨兽<<A<<[CHANGED 2019/04/16]",
+            "ja_JP": "巨神機兵<<A<<[CHANGED 2019/04/16]",
+            "ko_KR": "거대한 장비<<A<<[CHANGED 2019/04/16]",
+            "langUid": 26,
+            "zh_TW": "合金巨獸<<A<<[CHANGED 2019/04/16]"
+        },
+        "customCode": true,
+        "camFocus": "PLAYER_SPAWN",
+        "platPoints": 230000,
+        "coins": 0,
+        "objective": {
+            "en_US": "Beat a stronger version of the \\c[3]\\v[combat.name.boss-driller]\\c[0] boss from \\c[3]\\v[area.cold-dng.name]\\c[0]!",
+            "langUid": 33,
+            "zh_CN": "击败来自\\c[3]\\v[area.cold-dng.name]\\c[0]的强化版\\c[3]\\v[combat.name.boss-driller]\\c[0]!<<A<<[CHANGED 2019/04/16]",
+            "ko_KR": "\\c[3]\\v[area.cold-dng.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.boss-driller]\\c[0]의 더 강한 버전을 처치하세요!<<A<<[CHANGED 2019/04/16]",
+            "ja_JP": "\\c[3]\\v[area.cold-dng.name]\\c[0]のボス、\\c[3]\\v[combat.name.boss-driller]\\c[0]の強化版を倒せ！<<A<<[CHANGED 2019/04/16]",
+            "de_DE": "Besiege eine stärkere Version von \\c[3]\\v[combat.name.boss-driller]\\c[0], dem Boss aus der \\c[3]Tempelmine\\c[0]!",
+            "zh_TW": "擊敗來自\\c[3]\\v[area.cold-dng.name]\\c[0]的強化版\\c[3]\\v[combat.name.boss-driller]\\c[0]!<<A<<[CHANGED 2019/04/16]"
+        },
+        "points": 200000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.boss.cold-boss",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 120,
+            "points": 100000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }]
+}

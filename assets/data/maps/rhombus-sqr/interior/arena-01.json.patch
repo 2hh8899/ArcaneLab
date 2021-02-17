@@ -1,0 +1,39 @@
+[{
+	"type": "ENTER",
+	"index": "entities"
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": {
+        "type": "EventTrigger",
+        "x": -32,
+        "y": 0,
+        "level": 0,
+        "settings": {
+            "name": "vectorRestore",
+            "eventType": "PARALLEL",
+            "startCondition": "true",
+            "endCondition": "false",
+            "triggerType": "ONCE_PER_ENTRY",
+            "mapId": 2251,
+            "event": [{
+				"name": "Lea",
+				"type": "SWITCH_PLAYER_CONFIG"
+			}, {
+                "type": "VECTOR_RESTORE"
+            }, {
+                "type": "WAIT",
+                "time": 0.06
+            }, {
+				"name": "Lea",
+				"type": "SWITCH_PLAYER_CONFIG"
+			}, {
+                "type": "VECTOR_RESTORE"
+            }, {
+                "type": "WAIT",
+                "time": 1
+            }]
+        }
+    }
+}, {
+	"type": "EXIT"
+}]

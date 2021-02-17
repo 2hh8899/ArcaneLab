@@ -28,7 +28,7 @@
         "y": 600,
         "level": 1,
         "settings": {
-            "name": "teleporter",
+            "name": "PLAYER_SPAWN",
             "dir": "WEST",
             "face": {
                 "x": 0,
@@ -157,7 +157,7 @@
                     "sheet": "enemies.vector",
                     "name": "hitbox"
                 },
-                "duration": -1,
+                "duration": 1,
                 "offset": {
                     "x": 0,
                     "y": 0,
@@ -181,8 +181,29 @@
                 "zoom": 0.5,
                 "type": "SET_CAMERA_TARGET"
             }, {
+                "type": "VECTOR_INIT"
+            }, {
                 "name": "LOOP",
                 "type": "LABEL"
+            }, {
+                "entity": {
+                    "player": true
+                },
+                "effect": {
+                    "sheet": "enemies.vector",
+                    "name": "hitbox"
+                },
+                "duration": 1,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 7
+                },
+                "align": "BOTTOM",
+                "group": "",
+                "wait": false,
+                "waitSkip": 0,
+                "type": "SHOW_EFFECT"
             }, {
                 "type": "WAIT",
                 "time": 1
@@ -308,6 +329,9 @@
             "eventType": "CUTSCENE",
             "endCondition": "false",
             "event": [{
+				"name": "Vector",
+				"type": "SWITCH_PLAYER_CONFIG"
+			}, {
                 "type": "VECTOR_INIT"
             }, {
                 "changeType": "set",
@@ -315,7 +339,7 @@
                 "varName": "tmp.bossStart",
                 "value": false
             }, {
-                "mode": "IMMEDIATELY",
+                "mode": "FAST",
                 "type": "PAUSE_BGM"
             }, {
                 "volume": 0.5,
@@ -341,6 +365,9 @@
                 "waitSkip": 0,
                 "zoom": 1,
                 "type": "SET_CAMERA_POS"
+            }, {
+                "wait": false,
+                "type": "SHOW_ARENA_ROUND_GUI"
             }, {
                 "pos": {
                     "x": 450,
@@ -587,9 +614,7 @@
                 "varName": "tmp.bossStart",
                 "value": true
             }, {
-                "ignoreSlowDown": false,
-                "type": "WAIT",
-                "time": 0.05
+                "type": "START_ARENA_ROUND"
             }],
             "triggerType": "ONCE_PER_ENTRY",
             "mapId": 2260,
@@ -772,7 +797,7 @@
                 "conditions": [{
                     "negated": false,
                     "type": "!HP_BELOW",
-                    "value": 0.9
+                    "value": 0.79
                 }],
                 "withElse": true,
                 "type": "COMBAT_IF",
@@ -1144,6 +1169,8 @@
                 "ignoreSlowDown": false,
                 "type": "WAIT",
                 "time": 0.2
+            }, {
+                "type": "END_ARENA_ROUND"
             }],
             "triggerType": "ONCE_PER_ENTRY",
             "mapId": 8893,
@@ -1161,6 +1188,11 @@
             "event": [{
                 "value": false,
                 "type": "SET_FORCE_COMBAT"
+            }, {
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "map.bossKill2",
+                "value": false
             }, {
                 "entity": {
                     "global": true,
@@ -1278,38 +1310,8 @@
                 "type": "WAIT",
                 "time": 0.2
             }, {
-                "entity": {
-                    "global": true,
-                    "name": "boss2"
-                },
-                "duration": 0,
-                "align": "CENTER",
-                "group": "",
-                "wait": false,
-                "waitSkip": 0,
-                "effect": {
-                    "sheet": "enemies.driller-boss",
-                    "name": "dieSparkle"
-                },
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "type": "SHOW_EFFECT"
-            }, {
-                "ignoreSlowDown": false,
-                "type": "WAIT",
-                "time": 0.05
-            }, {
-                "alpha": 0,
-                "time": 1.5,
-                "lighter": true,
-                "type": "SET_OVERLAY",
-                "color": "white"
-            }, {
                 "ignoreSlowDown": true,
-                "time": 1.5,
+                "time": 1,
                 "type": "WAIT"
             }, {
                 "entity": {
@@ -1321,6 +1323,8 @@
                 "ignoreSlowDown": false,
                 "type": "WAIT",
                 "time": 0.2
+            }, {
+                "type": "END_ARENA_ROUND"
             }],
             "triggerType": "ONCE_PER_ENTRY",
             "mapId": 8894,

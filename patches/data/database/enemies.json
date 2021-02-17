@@ -321,8 +321,8 @@
         "extra": "recovery",
         "descriptions": [{
             "text": {
-                "en_US": "",
-                "ko_KR": "\\v[combat.name.mine-coldbug]를 박멸하기 위해 \\c[3]\\v[area.cold-dng.name]\\c[0]으로 향하던, 내충 처리된 군용 채굴기입니다. 강력한 무기들과 강력한 채굴 레이저로 벌레들을 전부 태워버릴 계획이었지만, 피아 식별 기능에 문제가 생겨 인간들 또한 모두 공격하게 되었습니다. 어쨌든 본래 목적은 여전히 문제 없이 수행 중인 것 같군요.\n주로 열기 속성 공격을 하지만, 냉기 속성에 대비한 특수 장갑은 열에 약한 특성을 가지고 있습니다. 모순 덩어리 기계로군요."
+                "en_US": "An Insect-proofed military mining machine heading to \\c[3]\\v[area.cold-dng.name]\\c[0] to exterminate the \\v[combat.name.mine-coldbug]. It planned to burn all the bugs with powerful weapons and powerful mining lasers, but they became to attack all humans too due to problems with the Pia identification function. It seems that the original purpose is still being carried out without any problems anyway.\nThey usually do heat element attacks, but on the contrary, special armor that against cold have heat-weak properties.",
+                "ko_KR": "\\v[combat.name.mine-coldbug]를 박멸하기 위해 \\c[3]\\v[area.cold-dng.name]\\c[0]으로 향하던, 내충 처리된 군용 채굴기입니다. 강력한 무기들과 강력한 채굴 레이저로 벌레들을 전부 태워버릴 계획이었지만, 피아 식별 기능에 문제가 생겨 인간들 또한 모두 공격하게 되었습니다. 어쨌든 본래 목적은 여전히 문제 없이 수행 중인 것 같군요.\n주로 열기 속성 공격을 하지만, 반대로 냉기 속성에 대비한 특수 장갑은 열에 약한 특성을 가지고 있습니다."
             },
             "condition": ""
         }],
@@ -388,7 +388,7 @@
         "extra": "break",
         "descriptions": [{
             "text": {
-                "en_US": "",
+                "en_US": "The Old One from beyond the universe. by slowly polluting the bottom of the sea with starlight and making fissures on the ground, trying to transform the entire Shadun into its own land.\nDue to its unusual body composition consisting of the foreign wave element, it has a feature that is vulnerable to the mark while resisting the wave element.",
                 "ko_KR": "우주 너머에서 내려온 고대의 존재입니다. 바다 밑을 천천히 별빛으로 오염시키고 지상을 갈라지게 만들어, 샤둔 전체를 자신의 땅으로 변화시키려 하고 있습니다.\n이질적인 파동 속성으로 구성된 특이한 몸체 구성 때문에, 파동 속성 공격에 저항하는 동시에 표적 상태에 취약한 특징이 있습니다."
             },
             "condition": ""
@@ -456,7 +456,7 @@
 		"extra": false,
         "descriptions": [{
             "text": {
-                "en_US": "",
+                "en_US": "A huge bomber emerging to destroy the battleship. Watch out for powerful beam attacks! It has a terrifying power to cut seekers in half. The only way to stop this monster is to counterattack with Tesla Cannon, which response to beam attacks.\nThis boss is said to have been made based on a drone that was actually built during the old war. Furthermore, there are rumors that there several real them are stored in the hangar of this battleship...\n \n\\i[shooty]\\c[3]\"I'm sorry, but don't leak any classified information about the battleship Hermes here... No, you can't describe it as a rumor either...\"\\c[0]",
                 "ko_KR": "전함을 파괴하기 위해 나타난 거대한 폭격기입니다. 강력한 빔 공격을 조심하세요! 시커 따위는 반으로 갈라버릴 무시무시한 위력을 가지고 있습니다. 이 괴물을 저지할 유일한 방법은 빔 공격에 반응하는 테슬라 캐논으로 반격하는 것 뿐입니다.\n이 보스는 옛 전쟁 시절에 실제로 제작되었다는 한 무인기를 기반으로 만들어졌다고 합니다. 게다가 이 전함의 격납고 안에는 그 실물이 여럿 있다는 소문도 돌고 있습니다...\n \n\\i[shooty]\\c[3]\"죄송하지만, 전함 헤르메스와 관련된 기밀 정보는 이런 곳에 유출하시면 안돼요... 아니, 소문이라고 써놓아도 안된다고요...\"\\c[0]"
             },
             "condition": ""
@@ -523,7 +523,7 @@
         "anim": "idle",
         "descriptions": [{
             "text": {
-                "en_US": "",
+                "en_US": "A giant spider takes the crater of Maroon Volcano as its territory. Large spider webs made around the area often cause great damage to the surrounding ecosystem by changing the flow of lava, so it needs to be handled periodically with the help of the seeker.\nAs it has adapted and survived in severe danger, it often uses intelligent and unexpected movements in combat.",
                 "ko_KR": "마룬 화산의 분화구를 자신의 영역으로 삼은 거대한 거미입니다. 영역 주변에 만드는 거대한 거미집은 용암의 흐름을 바꾸어 종종 주변 생태계에 큰 피해를 주기 때문에, 주기적으로 시커의 도움을 빌려 이를 처리할 필요가 있습니다.\n혹독한 위험 속에서 적응하고 생존한 만큼, 전투 시에는 지능적으로 예상치 못한 움직임을 자주 구사합니다."
             },
             "condition": ""
@@ -556,13 +556,13 @@
         },
         "track": true,
         "order": 121000,
-        "area": "guildac",
+        "area": "secret",
 		"anim": false,
 		"extra": false,
         "descriptions": [{
             "text": {
-                "en_US": "",
-                "ko_KR": "즉석 물질이 아닌 \\c[3]진짜 전투기\\c[0]입니다! 일반인이라면 이것의 공격을 받을 일은 옛 전쟁이 다시 일어나지 않는 한 절대 없을 것입니다.\n \n\\i[susie]\\c[3]\"날 이렇게 만들었으니, 너도 똑같이 당해봐야지. 아, 나를 도와준 건 정말 고마워, 레아.\"\\c[0]\n\\i[susie-hacked]\\c[3]\"구해줘서 고마워, 레아.\"\\c[0]\n \n\\c[3](Strike Vector)\\c[0]"
+                "en_US": "It is not instant matter but a \\c[3]real fighter jet\\c[0]! There will never be a public attack by this unless the old war breaks out again.\n \n\\i[susie]\\c[3]\"You made me like this, and you should suffer the same thing. Oh, thank you so much for helping me, Lea.\"\\c[0]\n \n\\c[3](Strike Vector)\\c[0]",
+                "ko_KR": "즉석 물질이 아닌 \\c[3]진짜 전투기\\c[0]입니다! 일반인이라면 이것의 공격을 받을 일은 옛 전쟁이 다시 일어나지 않는 한 절대 없을 것입니다.\n \n\\i[susie]\\c[3]\"날 이렇게 만들었으니, 너도 똑같이 당해봐야지. 아, 나를 도와준 건 정말 고마워, 레아.\"\\c[0]\n \n\\c[3](Strike Vector)\\c[0]"
             },
             "condition": ""
         }],
@@ -592,14 +592,14 @@
             "en_US": "Hibachi",
             "ko_KR": "히바치"
         },
-        "track": false,
+        "track": true,
         "order": 121001,
-        "area": "guildac",
+        "area": "secret",
 		"anim": false,
 		"extra": false,
         "descriptions": [{
             "text": {
-                "en_US": "",
+                "en_US": "The information has been redacted.\n \nThis mortal weapon is also not instant matter but real, but at least it doesn't look like an object related to the old war.\n \n\\c[3](DoDonPachi)\\c[0]",
                 "ko_KR": "정보가 검열되었습니다.\n \n이 인류 말살 병기 또한 즉석 물질이 아닌 \\c[3]진짜\\c[0]지만, 최소한 옛 전쟁과 관련된 물건 같아 보이진 않습니다.\n \n\\c[3](DoDonPachi)\\c[0]"
             },
             "condition": ""

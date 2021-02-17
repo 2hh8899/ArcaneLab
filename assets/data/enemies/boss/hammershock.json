@@ -1737,6 +1737,9 @@
 					"group": "",
 					"party": "",
 					"targetOnSpawn": true,
+					"level": {
+						"varName": "arena.enemyLevel"
+					},
 					"type": "hermes.vector-minion",
 					"attribs": {}
 				}

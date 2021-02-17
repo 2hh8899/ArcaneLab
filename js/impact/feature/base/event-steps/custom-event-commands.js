@@ -11,7 +11,6 @@ ig.module("impact.feature.base.event-steps.arcane-lab-event-commands1").requires
 					sc.model.player.forceToggleState(sc.model.player.toggleSets.skins.items[i],false)
 				}
 				sc.playerSkins.updateSkins();
-				sc.model.player.setConfig(new sc.PlayerConfig("Vector"));
 				sc.model.player.setElementMode(sc.ELEMENT.NEUTRAL, true, true);
 				sc.model.player.setCore(3, false); //Dash
 				sc.model.player.setCore(5, false); //Guard
@@ -33,6 +32,24 @@ ig.module("impact.feature.base.event-steps.arcane-lab-event-commands1").requires
 				sc.Model.notifyObserver(ig.game.playerEntity.params, sc.COMBAT_PARAM_MSG.HP_CHANGED);
 				sc.Model.notifyObserver(ig.game.playerEntity.params, sc.COMBAT_PARAM_MSG.STATS_CHANGED);
 				ig.game.playerEntity.setSize(8,8,24)
+			}
+		});
+		ig.EVENT_STEP.VECTOR_RESTORE = ig.EventStepBase.extend({
+			entity: null,
+			position: null,
+			_wm: new ig.Config({
+				attributes: {}
+			}),
+			init: function(a) {},
+			start: function(a, b) {
+				sc.playerSkins.updateSkins();
+				sc.model.player.setCore(3, true); //Dash
+				sc.model.player.setCore(5, true); //Guard
+				sc.model.player.setCore(7, true); //Menu
+				sc.model.player.setCore(13,true); //QuickMenu
+				sc.model.player.setCore(16,true); //ElementChange
+				sc.model.player.setCore(26,true); //Items
+				sc.model.player.setCore(28,true); //Modifier
 			}
 		});
 });

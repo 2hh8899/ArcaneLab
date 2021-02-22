@@ -233,6 +233,11 @@
                 "varName": "tmp.bossAppears",
                 "value": true
             }, {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "plot.arcaneLab.arenaScore",
+                "value": 0
+            }, {
                 "alpha": 0.5,
                 "type": "SET_SCREEN_BLUR"
             }, {

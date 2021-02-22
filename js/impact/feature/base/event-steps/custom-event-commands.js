@@ -52,4 +52,44 @@ ig.module("impact.feature.base.event-steps.arcane-lab-event-commands1").requires
 				sc.model.player.setCore(28,true); //Modifier
 			}
 		});
+        ig.EVENT_STEP.AL_ADD_ARENA_SCORE = ig.EventStepBase.extend({
+            _wm: new ig.Config({
+                attributes: {
+                    scoreType: {
+                        _type: "Select",
+                        _info: "Type of the score. This is used to for the list at the end of the round.",
+                        _select: sc.ARENA_SCORE_TYPES,
+                        _default: "KILL"
+                    },
+					amount: {
+						_type: "Number",
+						_info: "Score"
+					}
+                }
+            }),
+            init: function(b) {
+                this.scoreType = b.scoreType || null
+                this.amount = b.amount || 0
+            },
+            start: function() {
+                this.scoreType && sc.arena.addScore(this.scoreType, this.amount)
+            }
+        });
+        ig.EVENT_STEP.SET_PLAYER_LEVEL = ig.EventStepBase.extend({
+            level: null,
+            _wm: new ig.Config({
+                attributes: {
+                    level: {
+                        _type: "Number",
+                        _info: "New Level of Player"
+                    }
+                }
+            }),
+            init: function(b) {
+                this.level = b.level
+            },
+            start: function() {
+                sc.model.player.setLevel(this.level)
+            }
+        });
 });

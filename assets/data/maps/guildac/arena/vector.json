@@ -329,293 +329,354 @@
             "eventType": "CUTSCENE",
             "endCondition": "false",
             "event": [{
-				"name": "Vector",
-				"type": "SWITCH_PLAYER_CONFIG"
-			}, {
-                "type": "VECTOR_INIT"
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "plot.arcaneLab.arenaScore",
+                "value": {
+					"varName": "arena.score"
+				}
             }, {
-                "changeType": "set",
-                "type": "CHANGE_VAR_BOOL",
-                "varName": "tmp.bossStart",
-                "value": false
-            }, {
-                "mode": "FAST",
-                "type": "PAUSE_BGM"
-            }, {
-                "volume": 0.5,
-                "name": "jet",
-                "loop": true,
-                "offset": 0,
-                "startTime": 0,
-                "speed": 1,
-                "position": {
-                    "x": 350,
-                    "y": 200
-                },
-                "type": "PLAY_SOUND",
-                "sound": "media/sound/boss/vector/jet-loop.ogg"
-            }, {
-                "pos": {
-                    "x": 650,
-                    "y": 200
-                },
-                "speed": "IMMEDIATELY",
-                "transition": "EASE_IN_OUT",
-                "wait": true,
-                "waitSkip": 0,
-                "zoom": 1,
-                "type": "SET_CAMERA_POS"
-            }, {
-                "wait": false,
-                "type": "SHOW_ARENA_ROUND_GUI"
-            }, {
-                "pos": {
-                    "x": 450,
-                    "y": 200
-                },
-                "speed": "SLOWER",
-                "transition": "EASE_IN_OUT",
-                "wait": true,
-                "waitSkip": 0,
-                "zoom": 1,
-                "type": "SET_CAMERA_POS"
-            }, {
-                "entity": {
-                    "player": true
-                },
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "FASTEST",
-                "transition": "EASE_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1,
-                "type": "SET_CAMERA_TARGET"
-            }, {
-                "entity": {
-                    "player": true
-                },
-                "action": [{
-                    "type": "SET_Z_GRAVITY_FACTOR",
-                    "value": 0
-                }, {
-                    "newPos": {
-                        "x": 0,
-                        "y": 558,
-                        "lvl": "1"
-                    },
-                    "type": "SET_POS"
-                }, {
-                    "value": 4.5,
-                    "type": "SET_RELATIVE_SPEED"
-                }, {
-                    "wait": false,
-                    "viaWalkConfig": false,
-                    "type": "SHOW_ANIMATION",
-                    "anim": "rightIdleBoost"
-                }, {
-                    "volume": 0.7,
-                    "variance": 0,
-                    "speed": 1.3,
-                    "global": true,
-                    "sound": "media/sound/boss/vector/jet.ogg",
-                    "type": "PLAY_SOUND"
-                }, {
-                    "target": {
-                        "x": 1300,
-                        "y": 558,
-                        "lvl": "0"
-                    },
-                    "precise": false,
-                    "maxTime": 0.9,
-                    "type": "MOVE_TO_POINT"
-                }, {
-                    "followUp": "rightBackBoost",
-                    "wait": false,
-                    "viaWalkConfig": false,
-                    "type": "SHOW_ANIMATION",
-                    "anim": "rightChangeBreak"
-                }, {
-                    "value": 1,
-                    "type": "SET_RELATIVE_SPEED"
-                }, {
-                    "value": 0.8,
-                    "type": "SET_FRICTION"
-                }, {
-                    "target": {
-                        "x": 1300,
-                        "y": 558,
-                        "lvl": "0"
-                    },
-                    "precise": false,
-                    "maxTime": 0.8,
-                    "type": "MOVE_TO_POINT"
-                }, {
-                    "value": 5,
-                    "type": "SET_RELATIVE_SPEED"
-                }, {
-                    "value": 1.6,
-                    "type": "SET_FRICTION"
-                }, {
-                    "target": {
-                        "x": 1300,
-                        "y": 558,
-                        "lvl": "0"
-                    },
-                    "precise": false,
-                    "type": "MOVE_TO_POINT"
-                }],
-                "repeating": false,
-                "wait": false,
-                "keepState": true,
-                "immediately": false,
-                "type": "DO_ACTION"
-            }, {
-                "type": "WAIT",
-                "time": 1
-            }, {
-                "name": "jet",
-                "type": "STOP_SOUND"
-            }, {
-                "entity": {
-                    "global": true,
-                    "name": "boss"
-                },
-                "action": [{
-                    "newPos": {
-                        "x": 230,
-                        "y": 348,
-                        "lvl": "0"
-                    },
-                    "type": "SET_POS"
-                }, {
-                    "type": "WAIT",
-                    "time": 0.1
-                }],
-                "repeating": false,
-                "wait": false,
-                "keepState": false,
-                "immediately": false,
-                "type": "DO_ACTION"
-            }, {
-                "pos": {
-                    "x": 168,
-                    "y": 320
-                },
-                "speed": "FASTER",
-                "transition": "EASE_IN_OUT",
-                "wait": true,
-                "waitSkip": 0,
-                "zoom": 0.8,
-                "type": "SET_CAMERA_POS"
-            }, {
-                "entity": {
-                    "player": true
-                },
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "FASTER",
-                "transition": "EASE",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 0.5,
-                "type": "SET_CAMERA_TARGET"
-            }, {
-                "entity": {
-                    "player": true
-                },
-                "action": [{
-                    "newPos": {
-                        "x": 1300,
-                        "y": 324,
-                        "lvl": "0"
-                    },
-                    "type": "SET_POS"
-                }, {
-                    "wait": false,
-                    "viaWalkConfig": false,
-                    "type": "SHOW_ANIMATION",
-                    "anim": "idle"
-                }, {
-                    "type": "WAIT",
-                    "time": 0.4
-                }, {
-                    "value": 4,
-                    "type": "SET_RELATIVE_SPEED"
-                }, {
-                    "value": 0.7,
-                    "type": "SET_FRICTION"
-                }, {
-                    "value": 0.7,
-                    "type": "SET_AIR_FRICTION"
-                }, {
-                    "target": {
-                        "x": 986,
-                        "y": 324,
-                        "lvl": "1"
-                    },
-                    "precise": true,
-                    "type": "MOVE_TO_POINT"
-                }, {
-                    "type": "WAIT",
-                    "time": 0.1
-                }],
-                "repeating": false,
-                "wait": true,
-                "keepState": false,
-                "immediately": false,
-                "type": "DO_ACTION"
-            }, {
-                "entity": {
-                    "player": true
-                },
-                "action": [{
-                    "type": "SET_Z_GRAVITY_FACTOR",
-                    "value": 1
-                }, {
-                    "value": 1,
-                    "type": "SET_RELATIVE_SPEED"
-                }, {
-                    "type": "WAIT",
-                    "time": 0.1
-                }],
-                "repeating": false,
-                "wait": false,
-                "keepState": true,
-                "immediately": false,
-                "type": "DO_ACTION"
-            }, {
-                "type": "WAIT",
-                "time": 0.1
-            }, {
-                "enemy": {
-                    "global": true,
-                    "name": "boss"
-                },
-                "type": "SET_ENEMY_STATE",
-                "enemyState": "DEFAULT"
-            }, {
-                "enemy": {
-                    "global": true,
-                    "name": "boss"
-                },
-                "target": {
-                    "player": true
-                },
-                "type": "SET_ENEMY_TARGET"
-            }, {
-                "bgm": "preliminary-opener",
-                "volume": 1,
-                "mode": "IMMEDIATELY",
-                "type": "PLAY_BGM"
-            }, {
-                "changeType": "set",
-                "type": "CHANGE_VAR_BOOL",
-                "varName": "tmp.bossStart",
-                "value": true
-            }, {
-                "type": "START_ARENA_ROUND"
-            }],
+                    "type": "IF",
+                    "withElse": true,
+                    "condition": "plot.arcaneLab.arenaScore<1365000",
+                    "thenStep": [{
+						"alpha": 1,
+						"time": 0,
+						"lighter": false,
+						"type": "SET_OVERLAY",
+						"color": "black"
+					}, {
+						"wait": false,
+						"type": "SHOW_ARENA_ROUND_GUI"
+					}, {
+                        "ignoreSlowDown": false,
+                        "type": "WAIT",
+                        "time": 2
+                    }, {
+						"text": {
+							"en_US": "If you get more than 1,365,000(4 Platinums) scores, you can play this boss battle.\nThe round will end immediately.",
+							"ko_KR": "1,365,000점(4 플래티넘) 이상이 되면 이 보스전을 진행할 수 있습니다.\n라운드가 즉시 종료됩니다."
+						},
+						"center": false,
+						"type": "SHOW_BOARD_MSG"
+					}, {
+                        "side": "ALL",
+                        "type": "CLEAR_MSG"
+                    }, {
+                        "ignoreSlowDown": false,
+                        "type": "WAIT",
+                        "time": 0.15
+                    }, {
+						"enemy": {
+							"global": true,
+							"name": "boss"
+						},
+						"target": {
+							"player": true
+						},
+						"type": "SET_ENEMY_TARGET"
+					}, {
+						"type": "START_ARENA_ROUND"
+					}, {
+                        "amount": -1000,
+                        "scoreType": "DAMAGE_TAKEN",
+                        "type": "AL_ADD_ARENA_SCORE"
+                    }, {
+                        "ignoreSlowDown": false,
+                        "type": "WAIT",
+                        "time": 0.15
+                    }, {
+						"type": "END_ARENA_ROUND"
+					}],
+					"elseStep": [{
+						"name": "Vector",
+						"type": "SWITCH_PLAYER_CONFIG"
+					}, {
+						"type": "VECTOR_INIT"
+					}, {
+						"changeType": "set",
+						"type": "CHANGE_VAR_BOOL",
+						"varName": "tmp.bossStart",
+						"value": false
+					}, {
+						"mode": "FAST",
+						"type": "PAUSE_BGM"
+					}, {
+						"volume": 0.5,
+						"name": "jet",
+						"loop": true,
+						"offset": 0,
+						"startTime": 0,
+						"speed": 1,
+						"position": {
+							"x": 350,
+							"y": 200
+						},
+						"type": "PLAY_SOUND",
+						"sound": "media/sound/boss/vector/jet-loop.ogg"
+					}, {
+						"pos": {
+							"x": 650,
+							"y": 200
+						},
+						"speed": "IMMEDIATELY",
+						"transition": "EASE_IN_OUT",
+						"wait": true,
+						"waitSkip": 0,
+						"zoom": 1,
+						"type": "SET_CAMERA_POS"
+					}, {
+						"wait": false,
+						"type": "SHOW_ARENA_ROUND_GUI"
+					}, {
+						"pos": {
+							"x": 450,
+							"y": 200
+						},
+						"speed": "SLOWER",
+						"transition": "EASE_IN_OUT",
+						"wait": true,
+						"waitSkip": 0,
+						"zoom": 1,
+						"type": "SET_CAMERA_POS"
+					}, {
+						"entity": {
+							"player": true
+						},
+						"offsetX": 0,
+						"offsetY": 0,
+						"speed": "FASTEST",
+						"transition": "EASE_OUT",
+						"wait": false,
+						"waitSkip": 0,
+						"zoom": 1,
+						"type": "SET_CAMERA_TARGET"
+					}, {
+						"entity": {
+							"player": true
+						},
+						"action": [{
+							"type": "SET_Z_GRAVITY_FACTOR",
+							"value": 0
+						}, {
+							"newPos": {
+								"x": 0,
+								"y": 558,
+								"lvl": "1"
+							},
+							"type": "SET_POS"
+						}, {
+							"value": 4.5,
+							"type": "SET_RELATIVE_SPEED"
+						}, {
+							"wait": false,
+							"viaWalkConfig": false,
+							"type": "SHOW_ANIMATION",
+							"anim": "rightIdleBoost"
+						}, {
+							"volume": 0.7,
+							"variance": 0,
+							"speed": 1.3,
+							"global": true,
+							"sound": "media/sound/boss/vector/jet.ogg",
+							"type": "PLAY_SOUND"
+						}, {
+							"target": {
+								"x": 1300,
+								"y": 558,
+								"lvl": "0"
+							},
+							"precise": false,
+							"maxTime": 0.9,
+							"type": "MOVE_TO_POINT"
+						}, {
+							"followUp": "rightBackBoost",
+							"wait": false,
+							"viaWalkConfig": false,
+							"type": "SHOW_ANIMATION",
+							"anim": "rightChangeBreak"
+						}, {
+							"value": 1,
+							"type": "SET_RELATIVE_SPEED"
+						}, {
+							"value": 0.8,
+							"type": "SET_FRICTION"
+						}, {
+							"target": {
+								"x": 1300,
+								"y": 558,
+								"lvl": "0"
+							},
+							"precise": false,
+							"maxTime": 0.8,
+							"type": "MOVE_TO_POINT"
+						}, {
+							"value": 5,
+							"type": "SET_RELATIVE_SPEED"
+						}, {
+							"value": 1.6,
+							"type": "SET_FRICTION"
+						}, {
+							"target": {
+								"x": 1300,
+								"y": 558,
+								"lvl": "0"
+							},
+							"precise": false,
+							"type": "MOVE_TO_POINT"
+						}],
+						"repeating": false,
+						"wait": false,
+						"keepState": true,
+						"immediately": false,
+						"type": "DO_ACTION"
+					}, {
+						"type": "WAIT",
+						"time": 1
+					}, {
+						"name": "jet",
+						"type": "STOP_SOUND"
+					}, {
+						"entity": {
+							"global": true,
+							"name": "boss"
+						},
+						"action": [{
+							"newPos": {
+								"x": 230,
+								"y": 348,
+								"lvl": "0"
+							},
+							"type": "SET_POS"
+						}, {
+							"type": "WAIT",
+							"time": 0.1
+						}],
+						"repeating": false,
+						"wait": false,
+						"keepState": false,
+						"immediately": false,
+						"type": "DO_ACTION"
+					}, {
+						"pos": {
+							"x": 168,
+							"y": 320
+						},
+						"speed": "FASTER",
+						"transition": "EASE_IN_OUT",
+						"wait": true,
+						"waitSkip": 0,
+						"zoom": 0.8,
+						"type": "SET_CAMERA_POS"
+					}, {
+						"entity": {
+							"player": true
+						},
+						"offsetX": 0,
+						"offsetY": 0,
+						"speed": "FASTER",
+						"transition": "EASE",
+						"wait": false,
+						"waitSkip": 0,
+						"zoom": 0.5,
+						"type": "SET_CAMERA_TARGET"
+					}, {
+						"entity": {
+							"player": true
+						},
+						"action": [{
+							"newPos": {
+								"x": 1300,
+								"y": 324,
+								"lvl": "0"
+							},
+							"type": "SET_POS"
+						}, {
+							"wait": false,
+							"viaWalkConfig": false,
+							"type": "SHOW_ANIMATION",
+							"anim": "idle"
+						}, {
+							"type": "WAIT",
+							"time": 0.4
+						}, {
+							"value": 4,
+							"type": "SET_RELATIVE_SPEED"
+						}, {
+							"value": 0.7,
+							"type": "SET_FRICTION"
+						}, {
+							"value": 0.7,
+							"type": "SET_AIR_FRICTION"
+						}, {
+							"target": {
+								"x": 986,
+								"y": 324,
+								"lvl": "1"
+							},
+							"precise": true,
+							"type": "MOVE_TO_POINT"
+						}, {
+							"type": "WAIT",
+							"time": 0.1
+						}],
+						"repeating": false,
+						"wait": true,
+						"keepState": false,
+						"immediately": false,
+						"type": "DO_ACTION"
+					}, {
+						"entity": {
+							"player": true
+						},
+						"action": [{
+							"type": "SET_Z_GRAVITY_FACTOR",
+							"value": 1
+						}, {
+							"value": 1,
+							"type": "SET_RELATIVE_SPEED"
+						}, {
+							"type": "WAIT",
+							"time": 0.1
+						}],
+						"repeating": false,
+						"wait": false,
+						"keepState": true,
+						"immediately": false,
+						"type": "DO_ACTION"
+					}, {
+						"type": "WAIT",
+						"time": 0.1
+					}, {
+						"enemy": {
+							"global": true,
+							"name": "boss"
+						},
+						"type": "SET_ENEMY_STATE",
+						"enemyState": "DEFAULT"
+					}, {
+						"enemy": {
+							"global": true,
+							"name": "boss"
+						},
+						"target": {
+							"player": true
+						},
+						"type": "SET_ENEMY_TARGET"
+					}, {
+						"bgm": "preliminary-opener",
+						"volume": 1,
+						"mode": "IMMEDIATELY",
+						"type": "PLAY_BGM"
+					}, {
+						"changeType": "set",
+						"type": "CHANGE_VAR_BOOL",
+						"varName": "tmp.bossStart",
+						"value": true
+					}, {
+						"type": "START_ARENA_ROUND"
+					}]
+			}],
             "triggerType": "ONCE_PER_ENTRY",
             "mapId": 2260,
             "startCondition": "true"

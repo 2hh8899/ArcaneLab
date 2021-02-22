@@ -657,6 +657,15 @@
 			"time": 0.2,
 			"type": "WAIT"
 		}],
+		"breakAppear": [{
+			"scaleX": 1,
+			"scaleY": 1,
+			"duration": 0,
+			"type": "CHANGE_SCALE"
+		}, {
+			"time": 0.2,
+			"type": "WAIT"
+		}],
         "appearIntro": [{
             "volume": 0.8,
             "global": false,

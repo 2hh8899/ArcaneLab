@@ -784,8 +784,8 @@
         "y": 560,
         "level": 0,
         "settings": {
-            "name": "Normal-Cups",
-            "characterName": "advisors.female-tall-blond",
+            "name": "Susie",
+            "characterName": "guildac.susie",
             "mapId": 896,
             "npcStates": [{
                 "reactType": "FIXED_POS",
@@ -795,8 +795,50 @@
                 "config": "normal",
                 "event": {
                     "arena": [{
-                        "custom": false,
-                        "type": "OPEN_ARENA_MENU"
+						"side": "RIGHT",
+						"order": 0,
+						"clearSide": false,
+						"type": "ADD_MSG_PERSON",
+						"person": {
+							"person": "guildac.susie",
+							"expression": "DEFAULT"
+						}
+					}, {
+						"text": {
+							"en_US": "Arcane Lab Arena Event\n \nPlease backup your save before do it\nConditions for Participation: 65 Level or less",
+							"ko_KR": "아케인 랩 대회\n \n진행 전 반드시 세이브를 백업해주세요\n레벨 제한은 65 이하입니다"
+						},
+						"center": true,
+						"side": "LEFT",
+						"autoContinue": true,
+						"type": "SHOW_BOARD_MSG"
+					}, {
+						"0": [{
+							"level": 65,
+							"type": "SET_PLAYER_LEVEL"
+						}],
+						"1": [],
+						"type": "SHOW_CHOICE",
+						"person": {
+							"person": "guildac.susie",
+							"expression": "DEFAULT"
+						},
+						"options": [{
+							"0": " ",
+							"label": {
+								"en_US": "Set player level to 65 \\c[1](CAN'T REVERT)\\c[0]",
+								"ko_KR": "플레이어 레벨을 65로 설정하기 \\c[1](되돌릴 수 없음)\\c[0]"
+							}
+						}, {
+							"0": " ",
+							"label": {
+								"en_US": "Cancel",
+								"ko_KR": "취소"
+							}
+						}]
+					}, {
+                        "side": "ALL",
+                        "type": "CLEAR_MSG"
                     }]
                 }
             }, {

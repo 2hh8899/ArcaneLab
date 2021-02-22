@@ -3159,6 +3159,25 @@
             "group": "",
             "type": "REMOVE_PROXIES"
         }, {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": true,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.ghizkluth",
+                "name": "breakAppear"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
             "followUp": "idle",
             "wait": true,
             "viaWalkConfig": false,

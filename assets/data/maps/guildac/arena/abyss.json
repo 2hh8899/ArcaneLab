@@ -122,6 +122,13 @@
                 "varName": "tmp.bossAppears",
                 "value": true
             }, {
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "plot.arcaneLab.arenaScore",
+                "value": {
+					"varName": "arena.score"
+				}
+            }, {
                 "entity": {
                     "global": true,
                     "name": "boss"

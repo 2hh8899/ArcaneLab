@@ -937,14 +937,14 @@
         }],
         "bigLaser": [{
             "volume": 1,
-            "global": false,
+            "global": true,
             "loop": false,
             "speed": 0.7,
             "sound": "media/sound/battle/explosion-2.ogg",
             "type": "PLAY_SOUND"
         }, {
             "volume": 1,
-            "global": false,
+            "global": true,
             "loop": false,
             "variance": 0.05,
             "sound": "media/sound/designer/designer-celest.ogg",

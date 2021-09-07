@@ -1,5 +1,5 @@
-ig.module("game.feature.font.al-custom-fonts")
-	.requires("impact.base.entity")
+ig.module("game.feature.font.al-custom-icons")
+	.requires("game.feature.font.font-system")
 	.defines(function() {
 		var smallFontIdx = sc.fontsystem.smallFont.iconSets.length;
 		

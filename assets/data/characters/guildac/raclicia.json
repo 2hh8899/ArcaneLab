@@ -4,37 +4,32 @@
         "ko_KR": "레이클리시아"
     },
     "animSheet": {
-        "namedSheets": {
-            "move": {
-                "src": "media/entity/npc/raclicia.png",
-                "width": 23,
-                "height": 31
-            }
-        },
         "shapeType": "Y_FLAT",
         "offset": {
             "x": 0,
             "y": -2,
             "z": 0
         },
-        "SUB": [{
-            "sheet": "move",
-            "dirs": 1,
-            "flipX": [0],
-            "tileOffsets": [0],
-            "SUB": [{
-                "name": "idle",
-                "time": 1,
-                "repeat": false,
-                "frames": [0]
-            }]
-        }],
+		"sheet": {
+			"src": "media/entity/npc/raclicia.png",
+			"width": 23,
+			"height": 31
+		},
+		"dirs": "1",
+		"flipX": [0],
+		"tileOffsets": [0],
+		"repeat": true,
+		"SUB": [{
+			"name": "default",
+			"time": 1,
+			"frames": [0]
+		}],
         "DOCTYPE": "MULTI_DIR_ANIMATION"
     },
     "walkAnimSet": {
         "normal": {
-            "idle": "idle",
-            "move": "idle"
+            "idle": "default",
+            "move": "default"
         }
     },
     "walkAnims": "normal",

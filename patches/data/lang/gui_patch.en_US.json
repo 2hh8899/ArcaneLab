@@ -4,6 +4,24 @@
             "poison": "Poisoned"
         },
         "menu": {
+			"menu-titles": {
+				"al-telepoter": "Arcane Teleporter",
+				"al-skill": "Skill Custom"
+			},
+			"al-custom-skill": {
+				"default": "Base Skill",
+				"neutral": "Neutral Circuit Skill",
+				"heat": "Heat Circuit Skill",
+				"cold": "Cold Circuit Skill",
+				"wave": "Wave Circuit Skill",
+				"shock": "Shock Circuit Skill",
+				"custom": "Custom",
+				"reset": "Reset",
+				"preset": "Preset",
+				"base": "Base",
+				"locked": "This is an unavailable skill because it's not active. (still customizable)",
+                "unequip": "- Discard - "
+			},
             "social": {
                 "classes": {
                     "SPHEROKNIGHT": "Spheroknight",
@@ -12,7 +30,8 @@
                     "PENTATHIEF": "Pentathief",
                     "PENTAGUNNER": "Pentagunner",
                     "HEXUMMONER": "Hexummoner",
-                    "HEXABLESS": "Hexabless"
+                    "HEXABLESS": "Hexabless",
+					"QUADROCHARGE": "Quadrocharge"
                 }
             }
         }

@@ -4,6 +4,24 @@
             "poison": "중독"
         },
         "menu": {
+			"menu-titles": {
+				"al-telepoter": "아케인 텔레포터",
+				"al-skill": "기술 커스텀"
+			},
+			"al-custom-skill": {
+				"default": "기본 기술",
+				"neutral": "일반 회로 기술",
+				"heat": "열기 회로 기술",
+				"cold": "냉기 회로 기술",
+				"wave": "파동 회로 기술",
+				"shock": "전기 회로 기술",
+				"custom": "커스텀",
+				"reset": "초기화",
+				"preset": "프리셋",
+				"base": "기본",
+				"locked": "활성화되지 않아 사용 불가능한 스킬입니다. (커스텀은 가능)",
+                "unequip": "- 해제하기 -"
+			},
             "social": {
                 "classes": {
                     "SPHEROKNIGHT": "원성사",
@@ -12,7 +30,8 @@
                     "PENTATHIEF": "오적사",
                     "PENTAGUNNER": "오탄사",
                     "HEXUMMONER": "육환사",
-                    "HEXABLESS": "육제사"
+                    "HEXABLESS": "육제사",
+					"QUADROCHARGE": "사충사"
                 }
             }
         }

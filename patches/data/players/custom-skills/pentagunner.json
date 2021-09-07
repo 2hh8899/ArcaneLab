@@ -1,0 +1,851 @@
+{
+    "proxies": {
+        "iceTankBody": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": -1,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "combat.pentagunner",
+                    "name": "coldTankBody"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 28,
+                    "z": 0
+                }
+            }, {
+                "time": 1.9,
+                "type": "WAIT"
+            }, {
+                "kind": "PROXY_OWNER",
+                "type": "SET_TEMP_TARGET"
+            }, {
+                "type": "SET_FACE_TO_TEMP_TARGET_ACCEL"
+            }, {
+                "time": 8,
+                "type": "WAIT"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "OWNER",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "config": {},
+            "type": "GENERIC"
+        },
+        "iceTankCannon": {
+            "effects": "ball-cold",
+            "speed": 600,
+            "maxBounce": 0,
+            "timer": 1.5,
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 8
+            },
+            "trail": true,
+            "multiHit": false,
+            "noLightGlow": false,
+            "destroyProxy": "iceTankCannonExplode",
+            "type": "BALL",
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/effects/pentagunner-cold.png",
+                    "offX": 204,
+                    "offY": 0,
+                    "width": 9,
+                    "height": 26
+                },
+                "time": 0.05,
+                "repeat": true,
+                "frames": [0]
+            },
+            "attack": {
+                "type": "LIGHT",
+                "element": "COLD",
+                "damageFactor": 0,
+                "reverse": false,
+                "guardable": "",
+                "skillBonus": "RANGED_DMG",
+                "limiter": ""
+            },
+            "timeBoni": null,
+            "behaviors": []
+        },
+        "iceTankCannonExplode": {
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.cold",
+                    "name": "starExplosion"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 4,
+                "centralAngle": 1,
+                "duration": 0.2,
+                "expandRadius": 32,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": true,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "COLD",
+                    "damageFactor": 2.5,
+                    "fly": "MASSIVE+",
+                    "reverse": false,
+                    "status": 1,
+                    "hints": ["CHARGED"],
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "startDist": 32,
+                "startDistCollide": "DROP",
+                "random": false,
+                "count": 6,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "maxGroundDistance": 24,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "icicleSmall",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "zGravityFactor": 0
+            },
+            "type": "GENERIC"
+        },
+        "waveNuke": {
+            "animation": {
+                "SUB": [{
+                    "name": "default",
+                    "sheet": {
+                        "src": "media/entity/effects/pentagunner-wave.png",
+                        "offX": 0,
+                        "offY": 0,
+                        "width": 35,
+                        "height": 97
+                    },
+                    "frames": [0]
+                }, {
+                    "name": "hide",
+                    "sheet": {},
+                    "frames": [0]
+                }]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "group": "",
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "teleport",
+                    "name": "showQuicker"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BASE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.mine-bots",
+                    "name": "crosshair"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.designer",
+                    "name": "celestDarkness"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BASE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "light",
+                    "name": "XXL"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "type": "WAIT_UNTIL_Z_HEIGHT",
+                "zHeight": 100
+            }, {
+                "factor": 0.05,
+                "time": 0.1,
+                "keepEntityStatic": false,
+                "inversAccelerate": false,
+                "type": "ADD_SLOW_MOTION"
+            }, {
+                "offsetX": 0,
+                "offsetY": -10,
+                "speed": "FAST",
+                "transition": "EASE_OUT",
+                "wait": false,
+                "waitSkip": 0,
+                "zoom": 2,
+                "focusType": "SELF",
+                "type": "FOCUS_CAMERA"
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "time": 0.5,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            }, {
+                "zoom": 1.2,
+                "duration": 0.7,
+                "transition": "EASE_IN_OUT",
+                "type": "SET_CAMERA_ZOOM"
+            }, {
+                "zoomType": "LIGHT",
+                "fadeIn": 0.1,
+                "duration": -1,
+                "fadeOut": 0.1,
+                "name": "blur",
+                "type": "SET_ZOOM_BLUR"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "group": "",
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.forest",
+                    "name": "pandaTurretGone"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 8,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "boom",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.wave",
+                    "name": "waveBlockBoom"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 8
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 8,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "boom",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.wave",
+                    "name": "waveBigGunXplode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 8
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 80,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "visualType": "LIGHT",
+                    "element": "WAVE",
+                    "damageFactor": 1,
+                    "fly": "LIGHT",
+                    "reverse": false,
+                    "stunSteps": [{
+                        "type": "BLOCK_XY"
+                    }, {
+                        "type": "START_LOCK"
+                    }],
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 2,
+                "type": "WAIT"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }, {
+                "name": "blur",
+                "fadeOut": 0.3,
+                "type": "FADE_OUT_ZOOM_BLUR"
+            }, {
+                "wait": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "hide"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "align": "BOTTOM",
+                "radius": 80,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "WAVE",
+                    "damageFactor": 4,
+                    "fly": "MASSIVE++",
+                    "reverse": false,
+                    "stunSteps": [{
+                        "type": "END_LOCK"
+                    }],
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.4,
+                "type": "WAIT"
+            }, {
+                "speed": "NORMAL",
+                "transition": "EASE_IN_OUT",
+                "wait": false,
+                "waitSkip": 0,
+                "type": "RESET_CAMERA"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 35,
+                "y": 11,
+                "z": 86
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 1,
+                "zBounciness": 0,
+                "shadow": 32
+            },
+            "type": "GENERIC"
+        }
+	},
+	"actions": {
+		"COLD": {
+            "AL_PENTAGUNNER_THROW_SPECIAL3": {
+                "name": {
+                    "en_US": "Frost Panther",
+                    "ko_KR": "서리 흑표"
+                },
+                "description": {
+                    "en_US": "Summon an Ice Tank and blast your enemies away with explosive icicles.",
+                    "ko_KR": "얼음 전차를 생성해 폭발성 고드름으로 적을 날려버립니다."
+                },
+                "dmgType": "RANGED",
+                "stunType": "",
+                "status": true,
+                "steps": [{
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": 0,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
+                    }
+                }, {
+                    "followUp": "throwMirrEnd",
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "throwMirr"
+                }, {
+                    "factor": 0.1,
+                    "time": 0.1,
+                    "keepEntityStatic": false,
+                    "inversAccelerate": true,
+                    "type": "ADD_SLOW_MOTION"
+                }, {
+                    "zoomType": "LIGHT",
+                    "fadeIn": 0.1,
+                    "duration": 0.2,
+                    "fadeOut": 0.2,
+                    "type": "SET_ZOOM_BLUR"
+                }, {
+                    "offsetX": 0,
+                    "offsetY": 0,
+                    "speed": "FASTER",
+                    "transition": "EASE_OUT",
+                    "wait": false,
+                    "waitSkip": 0,
+                    "zoom": 2,
+                    "focusType": "SELF",
+                    "keepPlayerOffset": 0.5,
+                    "type": "FOCUS_CAMERA"
+                }, {
+                    "value": "FIXED",
+                    "type": "SET_GROUND_CONNECTED"
+                }, {
+                    "value": -1,
+                    "type": "SET_WEIGHT"
+                }, {
+                    "value": "MASSIVE",
+                    "type": "SET_HIT_STABLE"
+                }, {
+                    "actionDetached": false,
+                    "type": "ADD_SHIELD",
+                    "shield": {
+                        "type": "PLAYER",
+                        "settings": {
+                            "baseFactor": 3,
+                            "strength": "BLOCK_ABOVE",
+                            "hitResist": "MASSIVE",
+                            "stableOverride": "MASSIVE",
+                            "duration": -1,
+                            "range": 1,
+                            "back": false,
+                            "noShieldDamage": true,
+                            "noDefaultFX": true
+                        }
+                    }
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": -1,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "specials.cold",
+                        "name": "turretAura"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": -1,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "combat.pentagunner",
+                        "name": "coldTankTurret"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 6,
+                        "z": 10
+                    }
+                }, {
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "iceTankBody",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.1,
+                    "type": "PLAYER_ADJUST_FACE"
+                }, {
+                    "align": "BOTTOM",
+                    "centralAngle": 1,
+                    "angleVary": 0,
+                    "startDist": 36,
+                    "startDistCollide": "DROP",
+                    "random": false,
+                    "count": 9,
+                    "duration": 0.2,
+                    "clockwise": true,
+                    "flipLeftFace": 0,
+                    "circularArea": true,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "maxGroundDistance": 16,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "icicleSmallTurret",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.15,
+                    "type": "PLAYER_ADJUST_FACE"
+                }, {
+                    "speed": "SLOWER",
+                    "transition": "EASE_IN_OUT",
+                    "wait": false,
+                    "waitSkip": 0,
+                    "type": "RESET_CAMERA"
+                }, {
+                    "time": 0.3,
+                    "removeEntityStatic": false,
+                    "type": "CLEAR_SLOW_MOTION"
+                }, {
+                    "time": 0.15,
+                    "type": "PLAYER_ADJUST_FACE"
+                }, {
+                    "duration": -1,
+                    "rotOffset": {
+                        "x": 0,
+                        "y": -48
+                    },
+                    "align": "BOTTOM",
+                    "rotateFace": -1,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "group": "charge",
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "specials.cold",
+                        "name": "turretCharge"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 16
+                    }
+                }, {
+                    "time": 1.5,
+                    "type": "PLAYER_ADJUST_FACE"
+                }, {
+                    "group": "charge",
+                    "type": "CLEAR_EFFECTS"
+                }, {
+                    "align": "BOTTOM",
+                    "centralAngle": 0,
+                    "angleVary": 0,
+                    "startDist": 24,
+                    "startDistCollide": "CLOSER",
+                    "random": true,
+                    "count": 1,
+                    "duration": 0.95,
+                    "clockwise": true,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": true,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "iceTankCannon",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 12
+                    }
+                }, {
+                    "duration": -1,
+                    "rotOffset": {
+                        "x": 0,
+                        "y": -48
+                    },
+                    "align": "BOTTOM",
+                    "rotateFace": -1,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "combat.pentagunner",
+                        "name": "coldTankCannonShoot"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 16
+                    }
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": -1,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "specials.cold",
+                        "name": "turretShootSnowflake"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "align": "BOTTOM",
+                    "radius": 32,
+                    "yScale": 0,
+                    "zHeight": 4,
+                    "centralAngle": 1,
+                    "duration": 0.2,
+                    "expandRadius": 0,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": true,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": true,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "HEAVY",
+                        "element": "COLD",
+                        "damageFactor": 3,
+                        "fly": "MASSIVE",
+                        "reverse": false,
+                        "status": 3,
+                        "hints": ["CHARGED"],
+                        "guardable": "NEVER",
+                        "skillBonus": "MELEE_DMG",
+                        "limiter": ""
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 8,
+                    "rotateSpeed": 0.75,
+                    "stopBeforeEdge": true,
+                    "type": "PLAYER_MOVE_AND_AIM"
+                }]
+            }
+		},
+		"WAVE": {
+            "AL_PENTAGUNNER_THROW_SPECIAL3": {
+                "name": {
+                    "en_US": "Ether Nuke",
+                    "ko_KR": "에테르 뉴클리어"
+                },
+                "description": {
+                    "en_US": "Request a strong wave bombing at the specified location.",
+                    "ko_KR": "지정된 위치에 강력한 파동 폭격을 요청합니다."
+                },
+                "dmgType": "RANGED",
+                "stunType": "LOCK",
+                "status": true,
+                "steps": [{
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": 0.2,
+                        "action": 0.5,
+                        "move": 0.5,
+                        "reaim": 0.5
+                    }
+                }, {
+                    "time": 0,
+                    "type": "PLAYER_ADJUST_FACE"
+                }, {
+                    "followUp": "throwMirrEnd",
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "throwMirr"
+                }, {
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY_CURSOR",
+                    "proxy": "waveNuke",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 1200
+                    }
+                }, {
+                    "time": 0.5,
+                    "type": "WAIT"
+                }]
+            }
+		}
+	}
+}

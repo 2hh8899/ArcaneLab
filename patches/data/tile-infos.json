@@ -32,5 +32,63 @@
 			[1310, 1312, 1310, 1310],
 			[1311, 1313, 1311, 1311]
         ]
+    },
+    "media/map/arcane-lab-interior.png": {
+        "autoTiles": [],
+        "animations": []
+    },
+    "media/map/arcane-lab-bergen-transport.png": {
+        "autoTiles": [],
+        "animations": []
+    },
+    "media/map/arcane-lab-breached-beach.png": {
+        "autoTiles": [],
+        "animations": [
+            [269, 481, 482, 481],
+            [274, 545, 546, 545],
+            [302, 449, 450, 449],
+            [303, 513, 514, 513],
+            [304, 609, 610, 609],
+            [305, 577, 578, 577],
+            [385, 386, 417, 418]
+		]
+    },
+    "media/map/arcane-lab-astral-abyss.png": {
+        "autoTiles": [],
+        "animations": [
+            [227, 228, 229, 228]
+		]
+    },
+    "media/map/arcane-lab-battleship-hermes.png": {
+        "autoTiles": [],
+        "animations": [
+            [12, 12, 12, 44],
+            [13, 13, 13, 45],
+            [40, 40, 41, 40],
+            [42, 42, 43, 42],
+            [72, 72, 73, 72],
+            [138, 140, 138, 138],
+            [139, 141, 139, 139],
+            [168, 169, 168, 168],
+            [170, 172, 170, 170],
+            [171, 173, 171, 171]
+		]
+    },
+    "media/map/arcane-lab-maroon-volcano.png": {
+        "autoTiles": [],
+        "animations": [
+            [365, 641, 642, 641],
+            [370, 705, 706, 705],
+            [398, 609, 610, 609],
+            [399, 673, 674, 673],
+            [400, 769, 770, 769],
+            [401, 737, 738, 737],
+            [403, 545, 546, 545],
+            [404, 577, 578, 577]
+		]
+    },
+    "media/map/arcane-lab-deadbird.png": {
+        "autoTiles": [],
+        "animations": []
     }
 }

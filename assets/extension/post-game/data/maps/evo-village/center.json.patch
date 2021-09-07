@@ -1,0 +1,47 @@
+[{
+	"type": "ENTER",
+	"index": "entities"
+}, {
+	"type": "REMOVE_ARRAY_ELEMENT",
+	"index": 8
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": {
+		"type": "Door",
+		"x": 1376,
+		"y": 876,
+		"level": 1,
+		"settings": {
+			"name": "d1",
+			"doorType": "DEFAULT",
+			"dir": "SOUTH",
+			"transitionType": "INTER_AREA",
+			"narrow": true,
+			"mapId": 19,
+			"map": "evo-village.interior.lab",
+			"marker": "exit",
+			"variation": "bright",
+			"condition": "true"
+		}
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": {
+		"type": "Image",
+		"x": 1376,
+		"y": 844,
+		"level": 1,
+		"settings": {
+			"name": "d1img",
+			"mapId": 192589,
+			"image": "media/map/evo-village.png",
+			"shapeType": "Z_EXPAND",
+			"xStart": 304,
+			"yStart": 256,
+			"xSize": 32,
+			"ySize": 48
+		}
+	}
+}, {
+	"type": "EXIT"
+}]

@@ -1,0 +1,12 @@
+{
+    "skillPresets": {
+		"type": "SINGLE",
+		"name": {
+			"en_US": "Skill Presets",
+			"ko_KR": "스킬 프리셋"
+		},
+		"order": 200,
+		"color": "#036",
+		"items": ["toggle-arcanelab-skill-a", "toggle-arcanelab-skill-b", "toggle-arcanelab-skill-c", "toggle-arcanelab-skill-d"]
+	}
+}

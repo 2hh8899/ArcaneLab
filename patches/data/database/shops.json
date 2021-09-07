@@ -15,6 +15,18 @@
             "content": [{
                 "item": "toggle-arcanelab-booster",
                 "price": 25000
+            }, {
+                "item": "toggle-arcanelab-skill-a",
+                "price": 1000
+            }, {
+                "item": "toggle-arcanelab-skill-b",
+                "price": 1000
+            }, {
+                "item": "toggle-arcanelab-skill-c",
+                "price": 1000
+            }, {
+                "item": "toggle-arcanelab-skill-d",
+                "price": 1000
             }]
         }]
     }

@@ -242,7 +242,7 @@
             "icon": "media/gui/teleporter-map/icon-train.png",
             "preview": "media/gui/teleporter-map/train.png",
             "map": "guildac.transport.path-1",
-            "condition": "true",
+            "condition": "false",
             "marker": "teleporter"
         }
     }, {
@@ -268,7 +268,7 @@
             "icon": "media/gui/teleporter-map/icon-beach.png",
             "preview": "media/gui/teleporter-map/unknown.png",
             "map": "guildac.beach.path-1",
-            "condition": "true",
+            "condition": "false",
             "marker": "start"
         }
     }, {
@@ -294,7 +294,7 @@
             "icon": "media/gui/teleporter-map/icon-space.png",
             "preview": "media/gui/teleporter-map/unknown.png",
             "map": "guildac.teleporter-map",
-            "condition": "true",
+            "condition": "false",
             "marker": "start"
         }
     }, {
@@ -320,7 +320,7 @@
             "icon": "media/gui/teleporter-map/icon-volcano.png",
             "preview": "media/gui/teleporter-map/unknown.png",
             "map": "guildac.teleporter-map",
-            "condition": "true",
+            "condition": "false",
             "marker": "start"
         }
     }, {

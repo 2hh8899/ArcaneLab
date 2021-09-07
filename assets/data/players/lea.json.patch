@@ -1,0 +1,25 @@
+[{
+	"type": "INCLUDE",
+	"src": "mod:patches/data/players/custom-skills/spheroknight.json"
+}, {
+	"type": "INCLUDE",
+	"src": "mod:patches/data/players/custom-skills/triarchery.json"
+}, {
+	"type": "INCLUDE",
+	"src": "mod:patches/data/players/custom-skills/quadrotect.json"
+}, {
+	"type": "INCLUDE",
+	"src": "mod:patches/data/players/custom-skills/quadrocharge.json"
+}, {
+	"type": "INCLUDE",
+	"src": "mod:patches/data/players/custom-skills/pentathief.json"
+}, {
+	"type": "INCLUDE",
+	"src": "mod:patches/data/players/custom-skills/pentagunner.json"
+}, {
+	"type": "INCLUDE",
+	"src": "mod:patches/data/players/custom-skills/hexummoner.json"
+}, {
+	"type": "INCLUDE",
+	"src": "mod:patches/data/players/custom-skills/hexabless.json"
+}]

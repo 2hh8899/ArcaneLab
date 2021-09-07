@@ -1,6 +1,6 @@
 //Zoom×0.5 Trick
 
-ig.module("game.feature.puzzle.entities.vector-background")
+ig.module("impact.feature.map-content.entities.vector-background")
 	.requires("impact.base.entity")
 	.defines(function() {
 		ig.ENTITY.VectorBackground = ig.AnimatedEntity.extend({

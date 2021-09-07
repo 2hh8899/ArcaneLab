@@ -3,5 +3,272 @@
 		"arcane-lab-boss-cup-1": {
 			"order": 100
 		}
-	}]
+	}],
+	"teleporter": [{
+			"name": {
+				"en_US": "Arcane Lab",
+				"ko_KR": "아케인 랩"
+			},
+			"map": [{
+				"type": "COLOR",
+				"fix": true,
+                "color": "#09144E",
+                "pos": {
+					"x": 0,
+					"y": 0
+				}
+			}, {
+				"type": "IMAGE",
+                "img": "media/gui/al-teleport-worldmap.png",
+                "pos": {
+					"x": 0,
+					"y": 0
+				}
+			}, {
+				"type": "PATTERN",
+				"fix": true,
+                "img": "media/gui/scanlines.png",
+                "pos": {
+					"x": 0,
+					"y": 0
+				},
+				"alpha": 0.2,
+				"scroll": {
+					"x": 0,
+					"y": -5
+				}
+			}],
+			"points": [{
+				"title": {
+					"en_US": "Arcane Lab",
+					"ko_KR": "아케인 랩"
+				},
+				"description": {
+					"en_US": "It's the secret basement of a developer guild, which is developing new things to enjoy.",
+					"ko_KR": "새로운 즐길거리들을 개발 중인 한 개발자 길드의 비밀스러운 지하기지입니다."
+				},
+				"pos": {
+					"x": 219,
+					"y": 173
+				},
+				"icon": "media/gui/teleporter-map/icon-home.png",
+				"preview": "media/gui/teleporter-map/arcane-lab.png",
+				"map": "guildac.center",
+				"marker": "teleporter"
+			}, {
+				"title": {
+					"en_US": "\\c[3]Suspicious Server\\c[0]",
+					"ko_KR": "\\c[3]수상한 서버\\c[0]"
+				},
+				"description": {
+					"en_US": "???",
+					"ko_KR": "???"
+				},
+				"pos": {
+					"x": 416,
+					"y": 168
+				},
+				"icon": "media/gui/teleporter-map/icon-unknown.png",
+				"preview": "media/gui/teleporter-map/unknown.png",
+				"map": "guildac.quest.susie",
+				"marker": "teleporter",
+				"showCondition": "plot.arcaneLab.story.susie == 1 && party.size == 1"
+			}, {
+				"title": {
+					"en_US": "\\c[3]Dead Bird Studio\\c[0]",
+					"ko_KR": "\\c[3]데드 버드 스튜디오\\c[0]"
+				},
+				"description": {
+					"en_US": "???",
+					"ko_KR": "???"
+				},
+				"pos": {
+					"x": 297,
+					"y": 97
+				},
+				"icon": "media/gui/teleporter-map/icon-unknown.png",
+				"preview": "media/gui/teleporter-map/unknown.png",
+				"map": "guildac.quest.deadbird",
+				"marker": "teleporter",
+				"showCondition": "plot.arcaneLab.story.conductor == 1"
+			}, {
+				"title": {
+					"en_US": "Autumn Fishing Spot",
+					"ko_KR": "가을의 낚시장"
+				},
+				"description": {
+					"en_US": "It's a special area for users who miss the fishing system.",
+					"ko_KR": "낚시 시스템을 그리워하는 유저들을 위한 특별한 지역입니다."
+				},
+				"pos": {
+					"x": 212,
+					"y": 194
+				},
+				"icon": "media/gui/teleporter-map/icon-fishing.png",
+				"preview": "media/gui/teleporter-map/fishing.png",
+				"map": "guildac.fish.river",
+				"marker": "teleporter",
+				"activeCondition": "tmp.test == 1"
+			}, {
+				"title": {
+					"en_US": "Bergen Transport",
+					"ko_KR": "베르겐 수송"
+				},
+				"description": {
+					"en_US": "It's a transportation hub that carries expensive minerals and jewelry from mines.",
+					"ko_KR": "광산에서 채굴한 값비싼 광물과 보석들을 운반하는 교통의 요충지입니다."
+				},
+				"pos": {
+					"x": 170,
+					"y": 100
+				},
+				"icon": "media/gui/teleporter-map/icon-train.png",
+				"preview": "media/gui/teleporter-map/train.png",
+				"map": "guildac.transport.path-1",
+				"marker": "teleporter",
+				"activeCondition": "tmp.test == 1"
+			}, {
+				"title": {
+					"en_US": "Breached Beach",
+					"ko_KR": "갈라진 해변"
+				},
+				"description": {
+					"en_US": "It's a cliff-covered beach that has been exposed by an unknown geological phenomenon.",
+					"ko_KR": "알 수 없는 지질현상으로 지상에 드러난 절벽투성이 해변입니다."
+				},
+				"pos": {
+					"x": 129,
+					"y": 230
+				},
+				"icon": "media/gui/teleporter-map/icon-beach.png",
+				"preview": "media/gui/teleporter-map/unknown.png",
+				"map": "guildac.beach.path-1",
+				"marker": "start",
+				"activeCondition": "tmp.test == 1"
+			}, {
+				"title": {
+					"en_US": "Space Battlecruiser Hermes",
+					"ko_KR": "우주전함 헤르메스"
+				},
+				"description": {
+					"en_US": "It's a forgotten space battleship with no known owner.",
+					"ko_KR": "주인을 알 수 없는 잊혀진 우주 전투순양함입니다."
+				},
+				"pos": {
+					"x": 495,
+					"y": 100
+				},
+				"icon": "media/gui/teleporter-map/icon-space.png",
+				"preview": "media/gui/teleporter-map/unknown.png",
+				"map": "guildac.teleporter-map",
+				"marker": "start",
+				"activeCondition": "false"
+			}, {
+				"title": {
+					"en_US": "Maroon Volcano",
+					"ko_KR": "마룬 화산"
+				},
+				"description": {
+					"en_US": "It's a dangerous active volcano north of Maroon Valley.",
+					"ko_KR": "마룬 밸리 북쪽에 있는 위험한 활화산입니다."
+				},
+				"pos": {
+					"x": 133,
+					"y": 79
+				},
+				"icon": "media/gui/teleporter-map/icon-volcano.png",
+				"preview": "media/gui/teleporter-map/unknown.png",
+				"map": "guildac.teleporter-map",
+				"marker": "start",
+				"activeCondition": "false"
+			}, {
+				"title": {
+					"en_US": "Dev Room",
+					"ko_KR": "개발자 방"
+				},
+				"description": {
+					"en_US": "going to look at the elements that are currently being developed...",
+					"ko_KR": "현재 개발 중인 요소들을 구경하러 갑니다..."
+				},
+				"pos": {
+					"x": 280,
+					"y": 254
+				},
+				"icon": "media/gui/teleporter-map/icon-unknown.png",
+				"preview": "media/gui/teleporter-map/unknown.png",
+				"map": "guildac.dev-room",
+				"marker": "teleporter",
+				"activeCondition": "tmp.test == 1"
+			}]
+		}
+	],
+	"customSkills": {
+		"alSpheroknightBaseAttack": {
+			"list": [{
+				"replaceTo": "AL_SPHEROKNIGHT_ATTACK",
+				"actionCheckKey": "ATTACK"
+			}, {
+				"replaceTo": "AL_SPHEROKNIGHT_ATTACK_REV",
+				"actionCheckKey": "ATTACK_REV"
+			}, {
+				"replaceTo": "AL_SPHEROKNIGHT_ATTACK_FINISHER",
+				"actionCheckKey": "ATTACK_FINISHER"
+			}],
+			"element": "BASE",
+			"activeCondition": "tmp.skillTest == 1",
+			"name": {
+				"en_US": "Attack of Spheroknight",
+				"ko_KR": "원성사의 공격"
+			},
+			"description": {
+				"en_US": "This is the base Spheroknight melee attack set.",
+				"ko_KR": "원성사의 기본 근접공격 세트입니다."
+			},
+			"icon": {
+				"src": "media/gui/custom-skills/al-spheroknight.png"
+			}
+		},
+		"alPentagunnerColdThrow3": {
+			"list": [{
+				"replaceTo": "AL_PENTAGUNNER_THROW_SPECIAL3",
+				"actionCheckKey": "THROW_SPECIAL3"
+			}],
+			"element": "COLD",
+			"activeCondition": "tmp.skillTest == 1",
+			"name": {
+				"en_US": "Frost Panther",
+				"ko_KR": "서리 흑표"
+			},
+			"description": {
+				"en_US": "Summon an Ice Tank and blast your enemies away with explosive icicles.",
+				"ko_KR": "얼음 전차를 생성해 폭발성 고드름으로 적을 날려버립니다."
+			},
+			"icon": {
+				"src": "media/gui/custom-skills/al-pentagunner.png",
+				"offX": 48,
+				"offY": 120
+			}
+		},
+		"alPentagunnerWaveThrow3": {
+			"list": [{
+				"replaceTo": "AL_PENTAGUNNER_THROW_SPECIAL3",
+				"actionCheckKey": "THROW_SPECIAL3"
+			}],
+			"element": "WAVE",
+			"activeCondition": "tmp.skillTest == 1",
+			"name": {
+				"en_US": "Ether Nuke",
+				"ko_KR": "에테르 뉴클리어"
+			},
+			"description": {
+				"en_US": "Request a strong wave bombing at the specified location.",
+				"ko_KR": "지정된 위치에 강력한 파동 폭격을 요청합니다."
+			},
+			"icon": {
+				"src": "media/gui/custom-skills/al-pentagunner.png",
+				"offX": 48,
+				"offY": 216
+			}
+		}
+	}
 }

@@ -1,0 +1,41 @@
+{
+    "name": {
+        "en_US": "Iris",
+        "ko_KR": "아이리스"
+    },
+    "animSheet": {
+        "shapeType": "Y_FLAT",
+        "offset": {
+            "x": 0,
+            "y": -2,
+            "z": 0
+        },
+		"sheet": {
+			"src": "media/entity/npc/iris.png",
+			"width": 23,
+			"height": 31
+		},
+		"dirs": "1",
+		"flipX": [0],
+		"tileOffsets": [0],
+		"repeat": true,
+		"SUB": [{
+			"name": "default",
+			"time": 1,
+			"frames": [0]
+		}],
+        "DOCTYPE": "MULTI_DIR_ANIMATION"
+    },
+    "walkAnimSet": {
+        "normal": {
+            "idle": "default",
+            "move": "default"
+        }
+    },
+    "walkAnims": "normal",
+    "configs": {
+        "normal": {
+            "relativeVel": 0.5
+        }
+    }
+}

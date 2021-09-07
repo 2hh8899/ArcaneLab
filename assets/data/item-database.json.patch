@@ -222,5 +222,105 @@
 		}
 	}
 }, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589300,
+		"customItem": "toggle-arcanelab-skill-a",
+		"name": {
+			"en_US": "Custom Circuit Preset 1",
+			"ko_KR": "커스텀 회로 프리셋 1"
+		},
+		"description": {
+			"en_US": "",
+			"ko_KR": "미리 설정해둔 커스텀 회로 기술들을 사용할 수 있습니다."
+		},
+		"type": "TOGGLE",
+		"rarity": 0,
+		"cost": 1000,
+		"level": 1,
+		"icon": "item-toggle",
+		"noTrack": false,
+		"effect": {
+			"sheet": "drops",
+			"name": "circle"
+		}
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589301,
+		"customItem": "toggle-arcanelab-skill-b",
+		"name": {
+			"en_US": "Custom Circuit Preset 2",
+			"ko_KR": "커스텀 회로 프리셋 2"
+		},
+		"description": {
+			"en_US": "",
+			"ko_KR": "미리 설정해둔 커스텀 회로 기술들을 사용할 수 있습니다."
+		},
+		"type": "TOGGLE",
+		"rarity": 0,
+		"cost": 1000,
+		"level": 1,
+		"icon": "item-toggle",
+		"noTrack": false,
+		"effect": {
+			"sheet": "drops",
+			"name": "circle"
+		}
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589302,
+		"customItem": "toggle-arcanelab-skill-c",
+		"name": {
+			"en_US": "Custom Circuit Preset 3",
+			"ko_KR": "커스텀 회로 프리셋 3"
+		},
+		"description": {
+			"en_US": "",
+			"ko_KR": "미리 설정해둔 커스텀 회로 기술들을 사용할 수 있습니다."
+		},
+		"type": "TOGGLE",
+		"rarity": 0,
+		"cost": 1000,
+		"level": 1,
+		"icon": "item-toggle",
+		"noTrack": false,
+		"effect": {
+			"sheet": "drops",
+			"name": "circle"
+		}
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589303,
+		"customItem": "toggle-arcanelab-skill-d",
+		"name": {
+			"en_US": "Custom Circuit Preset 4",
+			"ko_KR": "커스텀 회로 프리셋 4"
+		},
+		"description": {
+			"en_US": "",
+			"ko_KR": "미리 설정해둔 커스텀 회로 기술들을 사용할 수 있습니다."
+		},
+		"type": "TOGGLE",
+		"rarity": 0,
+		"cost": 1000,
+		"level": 1,
+		"icon": "item-toggle",
+		"noTrack": false,
+		"effect": {
+			"sheet": "drops",
+			"name": "circle"
+		}
+	}
+}, {
 	"type": "EXIT"
 }]

@@ -26,7 +26,7 @@
 			"sheet": "",
 			"name": null
 		},
-		"noTrack": false,
+		"noTrack": true,
 		"sources": [{
 			"type": "OTHER",
 			"value": {
@@ -66,7 +66,7 @@
 			"sheet": "",
 			"name": null
 		},
-		"noTrack": false,
+		"noTrack": true,
 		"sources": [{
 			"type": "OTHER",
 			"value": {
@@ -106,7 +106,7 @@
 			"sheet": "",
 			"name": null
 		},
-		"noTrack": false,
+		"noTrack": true,
 		"sources": [{
 			"type": "ENEMY",
 			"value": "transport.frosthog"
@@ -140,7 +140,7 @@
 			"sheet": "",
 			"name": null
 		},
-		"noTrack": false,
+		"noTrack": true,
 		"sources": [{
 			"type": "ENEMY",
 			"value": "transport.transport-drone"
@@ -165,10 +165,60 @@
 		"cost": 1000,
 		"level": 1,
 		"icon": "item-toggle",
-		"noTrack": false,
+		"noTrack": true,
 		"effect": {
 			"sheet": "",
 			"name": null
+		}
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589101,
+		"customItem": "toggle-arcanelab-skill",
+		"name": {
+			"en_US": "Custom C. Preset",
+			"ko_KR": "커스텀 회로 프리셋"
+		},
+		"description": {
+			"en_US": "Allows you to use pre-set custom curcuit skills.",
+			"ko_KR": "미리 설정해둔 커스텀 회로 기술들을 사용할 수 있습니다."
+		},
+		"type": "TOGGLE",
+		"rarity": 0,
+		"cost": 1000,
+		"level": 1,
+		"icon": "item-toggle",
+		"noTrack": true,
+		"effect": {
+			"sheet": "drops",
+			"name": "circle"
+		}
+	}
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+	{
+		"order": 2589102,
+		"customItem": "toggle-arcanelab-modifier-card",
+		"name": {
+			"en_US": "Mod. Card Switch",
+			"ko_KR": "모디파이어 카드 스위치"
+		},
+		"description": {
+			"en_US": "Allows you to use additional pre-set modifiers.",
+			"ko_KR": "미리 설정해둔 커스텀 모디파이어들을 추가로 사용할 수 있습니다."
+		},
+		"type": "TOGGLE",
+		"rarity": 0,
+		"cost": 1000,
+		"level": 1,
+		"icon": "item-toggle",
+		"noTrack": true,
+		"effect": {
+			"sheet": "drops",
+			"name": "circle"
 		}
 	}
 }, {
@@ -190,7 +240,7 @@
 		"cost": 1000,
 		"level": 1,
 		"icon": "item-toggle",
-		"noTrack": false,
+		"noTrack": true,
 		"effect": {
 			"sheet": "drops",
 			"name": "circle"
@@ -215,7 +265,7 @@
 		"cost": 1000,
 		"level": 1,
 		"icon": "item-toggle",
-		"noTrack": false,
+		"noTrack": true,
 		"effect": {
 			"sheet": "drops",
 			"name": "circle"
@@ -226,100 +276,25 @@
 	"content":
 	{
 		"order": 2589300,
-		"customItem": "toggle-arcanelab-skill-a",
+		"customItem": "key-arcanelab-modifier-frag",
 		"name": {
-			"en_US": "Custom Circuit Preset 1",
-			"ko_KR": "커스텀 회로 프리셋 1"
+			"en_US": "Modifier Fragment",
+			"ko_KR": "모디파이어 조각"
 		},
 		"description": {
-			"en_US": "",
-			"ko_KR": "미리 설정해둔 커스텀 회로 기술들을 사용할 수 있습니다."
+			"en_US": "Vital for make modifier cards.",
+			"ko_KR": "모디파이어 카드를 제작할 때 필요합니다."
 		},
-		"type": "TOGGLE",
+		"type": "KEY",
 		"rarity": 0,
-		"cost": 1000,
+		"cost": 1500,
 		"level": 1,
-		"icon": "item-toggle",
-		"noTrack": false,
+		"icon": "item-key",
 		"effect": {
-			"sheet": "drops",
-			"name": "circle"
-		}
-	}
-}, {
-	"type": "ADD_ARRAY_ELEMENT",
-	"content":
-	{
-		"order": 2589301,
-		"customItem": "toggle-arcanelab-skill-b",
-		"name": {
-			"en_US": "Custom Circuit Preset 2",
-			"ko_KR": "커스텀 회로 프리셋 2"
+			"sheet": "",
+			"name": null
 		},
-		"description": {
-			"en_US": "",
-			"ko_KR": "미리 설정해둔 커스텀 회로 기술들을 사용할 수 있습니다."
-		},
-		"type": "TOGGLE",
-		"rarity": 0,
-		"cost": 1000,
-		"level": 1,
-		"icon": "item-toggle",
-		"noTrack": false,
-		"effect": {
-			"sheet": "drops",
-			"name": "circle"
-		}
-	}
-}, {
-	"type": "ADD_ARRAY_ELEMENT",
-	"content":
-	{
-		"order": 2589302,
-		"customItem": "toggle-arcanelab-skill-c",
-		"name": {
-			"en_US": "Custom Circuit Preset 3",
-			"ko_KR": "커스텀 회로 프리셋 3"
-		},
-		"description": {
-			"en_US": "",
-			"ko_KR": "미리 설정해둔 커스텀 회로 기술들을 사용할 수 있습니다."
-		},
-		"type": "TOGGLE",
-		"rarity": 0,
-		"cost": 1000,
-		"level": 1,
-		"icon": "item-toggle",
-		"noTrack": false,
-		"effect": {
-			"sheet": "drops",
-			"name": "circle"
-		}
-	}
-}, {
-	"type": "ADD_ARRAY_ELEMENT",
-	"content":
-	{
-		"order": 2589303,
-		"customItem": "toggle-arcanelab-skill-d",
-		"name": {
-			"en_US": "Custom Circuit Preset 4",
-			"ko_KR": "커스텀 회로 프리셋 4"
-		},
-		"description": {
-			"en_US": "",
-			"ko_KR": "미리 설정해둔 커스텀 회로 기술들을 사용할 수 있습니다."
-		},
-		"type": "TOGGLE",
-		"rarity": 0,
-		"cost": 1000,
-		"level": 1,
-		"icon": "item-toggle",
-		"noTrack": false,
-		"effect": {
-			"sheet": "drops",
-			"name": "circle"
-		}
+		"noTrack": true
 	}
 }, {
 	"type": "EXIT"

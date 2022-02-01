@@ -632,7 +632,7 @@ ig.module("game.feature.menu.gui.al-telepoter-menu").requires("impact.feature.gu
 
 ig.module("game.feature.menu.al-teleporter-map").requires("game.feature.menu.menu-model")
 .defines(function() {
-	sc.MENU_SUBMENU.AL_TELEPORTER = 258900;
+	sc.MENU_SUBMENU.AL_TELEPORTER = Math.max(...Object.values(sc.MENU_SUBMENU)) + 1;
 	sc.SUB_MENU_INFO[sc.MENU_SUBMENU.AL_TELEPORTER] = {
 		Clazz: sc.AlTeleportMenu,
 		name: "al-telepoter"

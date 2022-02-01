@@ -1,5 +1,6 @@
 
 import "./js/impact/feature/arcane-lab-database.js";
+
 import "./js/game/feature/arena/custom-arena.js";
 
 import "./js/game/feature/combat/entities/minion.js";
@@ -10,6 +11,8 @@ import "./js/game/feature/combat/model/custom-status.js";
 import "./js/game/feature/combat/beam-attack.js";
 
 import "./js/game/feature/font/custom-icons.js";
+
+import "./js/game/feature/inventory/modifier-cards.js";
 
 import "./js/game/feature/map-content/entities/custom-elevators.js";
 import "./js/game/feature/map-content/entities/custom-entities.js";

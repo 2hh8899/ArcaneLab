@@ -32,22 +32,6 @@
 	"type": "EXIT"
 }, {
 	"type": "ENTER",
-	"index": "shops"
-}, {
-	"type": "IMPORT",
-	"src": "mod:patches/data/database/shops.json"
-}, {
-	"type": "EXIT"
-}, {
-	"type": "ENTER",
-	"index": "traders"
-}, {
-	"type": "IMPORT",
-	"src": "mod:patches/data/database/traders.json"
-}, {
-	"type": "EXIT"
-}, {
-	"type": "ENTER",
 	"index": ["toggle-sets", "booster", "items"]
 }, {
 	"type": "ADD_ARRAY_ELEMENT",
@@ -69,7 +53,7 @@
 	"count": 2
 }, {
 	"type": "IMPORT",
-	"src": "mod:patches/data/database/skillPresets.json"
+	"src": "mod:patches/data/database/combatAddons.json"
 }, {
 	"type": "EXIT"
 }, {

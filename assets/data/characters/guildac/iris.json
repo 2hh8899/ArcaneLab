@@ -12,8 +12,8 @@
         },
 		"sheet": {
 			"src": "media/entity/npc/iris.png",
-			"width": 23,
-			"height": 31
+			"width": 24,
+			"height": 33
 		},
 		"dirs": "1",
 		"flipX": [0],
@@ -36,6 +36,33 @@
     "configs": {
         "normal": {
             "relativeVel": 0.5
+        }
+    },
+    "face": {
+        "width": 136,
+        "height": 153,
+        "centerX": 41,
+        "centerY": 59,
+        "src": "iris.png",
+        "parts": [{
+            "normal": {
+                "srcX": 0,
+                "srcY": 0,
+                "width": 136,
+                "height": 153,
+                "destX": 0,
+                "destY": 0,
+                "subX": 0,
+                "subY": 0,
+                "img": ""
+            }
+        }],
+        "expressions": {
+            "DEFAULT": {
+                "faces": [
+                    ["normal"]
+                ]
+            }
         }
     }
 }

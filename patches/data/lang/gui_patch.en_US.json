@@ -1,26 +1,54 @@
 {
     "labels": {
         "combat": {
+			"default": "Base",
+			"neutral": "Neutral",
             "poison": "Poisoned"
         },
         "menu": {
 			"menu-titles": {
 				"al-telepoter": "Arcane Teleporter",
-				"al-skill": "Skill Custom"
+				"al-skill": "Skill Custom",
+				"al-shop": "Custom Shop",
+				"al-modifier-card": "Modifier Card"
+			},
+			"equip": {
+				"modifier": {
+					"TOXIC_HAZARD": "Toxic Hazard"
+				},
+				"descriptions": {
+					"TOXIC_HAZARD": "[Todo]"
+				}
 			},
 			"al-custom-skill": {
 				"default": "Base Skill",
 				"neutral": "Neutral Circuit Skill",
 				"heat": "Heat Circuit Skill",
 				"cold": "Cold Circuit Skill",
-				"wave": "Wave Circuit Skill",
 				"shock": "Shock Circuit Skill",
+				"wave": "Wave Circuit Skill",
 				"custom": "Custom",
 				"reset": "Reset",
-				"preset": "Preset",
 				"base": "Base",
 				"locked": "This is an unavailable skill because it's not active. (still customizable)",
                 "unequip": "- Discard - "
+			},
+			"al-custom-shop": {
+				"none": "(None)"
+			},
+			"al-modifier-card": {
+				"craft": "Craft",
+				"dismantle": "Dismantle",
+				"enchant": "Enchant",
+				"equip": "Equip",
+				"result": " Result",
+				"usage": "Usage: ",
+				"increase": "Chance of Benefiting: ",
+				"decrease": "Chance of Detriment: ",
+				"obtain": "Obtain",
+				"unequip": "- Discard - ",
+				"dismantleCard": "Do you really want to dismantle this card? It will become \\c[3][!] pieces\\c[0] of Modifier Fragment.",
+				"dismantled": "- Shattered -"
 			},
             "social": {
                 "classes": {

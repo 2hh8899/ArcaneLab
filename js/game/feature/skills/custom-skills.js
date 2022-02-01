@@ -1,7 +1,7 @@
 ig.module("game.feature.skills.al-custom-skills").requires(	"game.feature.player.entities.player", "game.feature.player.player-model", "game.feature.skills.skills", "game.feature.menu.gui.circuit.circuit-detail-elements", "impact.feature.gui.gui", "impact.feature.gui.base.basic-gui", "game.feature.menu.gui.menu-misc", "game.feature.menu.gui.stats.stats-misc").defines(function() {
 	var dbs = ig.arcaneLabDatabase.get("customSkills");
     const checkCustomSkill = (a, b) => {
-		if(!sc.model.isCutscene()) {
+		if(!sc.model.isCutscene() && sc.model.player.getItemAmount("toggle-arcanelab-skill") != 0 && sc.model.player.getToggleItemState("toggle-arcanelab-skill")) {
 			for (var dbd in dbs) {
 				var dbo = dbs[dbd];
 				if((dbo.element === "BASE" || a == sc.ELEMENT[dbo.element]) && new ig.VarCondition(dbo.activeCondition || "true").evaluate() && ig.vars.get("custom-skills."+dbo.element+"."+dbd) == true) {

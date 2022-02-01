@@ -1,6 +1,5 @@
 ig.module("game.feature.menu.gui.al-skill-menu").requires("impact.feature.gui.gui", "impact.feature.gui.base.basic-gui").defines(function() {
 	sc.AlSkillMenu = sc.BaseMenu.extend({
-        hotkeyPreset: null,
         helpGui: null,
         bg: null,
 		elementBox: [],
@@ -12,24 +11,6 @@ ig.module("game.feature.menu.gui.al-skill-menu").requires("impact.feature.gui.gu
             this.hook.size.x = ig.system.width;
             this.hook.size.y = ig.system.height;
 			sc.menu.setOptionTab(0);
-            //this.hotkeyPreset = new sc.ButtonGui("\\i[help2]" + ig.lang.get("sc.gui.menu.al-custom-skill.preset"), void 0, true, sc.BUTTON_TYPE.SMALL);
-			this.hotkeyPreset = new sc.ButtonGui("soon tm", void 0, true, sc.BUTTON_TYPE.SMALL); //todo: preset
-            this.hotkeyPreset.keepMouseFocus = true;
-            this.hotkeyPreset.hook.transitions = {
-                DEFAULT: {
-                    state: {},
-                    time: 0.2,
-                    timeFunction: KEY_SPLINES.EASE
-                },
-                HIDDEN: {
-                    state: {
-                        offsetY: -this.hotkeyPreset.hook.size.y
-                    },
-                    time: 0.2,
-                    timeFunction: KEY_SPLINES.LINEAR
-                }
-            };
-            this.hotkeyPreset.onButtonPress = this.onPresetButtonPressed.bind(this);
             this.bg = new sc.AlSkillMenuContainer;
             this.addChildGui(new sc.DummyContainer(this.bg));
 			for(var i=0; i<6; i++) {
@@ -69,7 +50,6 @@ ig.module("game.feature.menu.gui.al-skill-menu").requires("impact.feature.gui.gu
             this.exitMenu()
         },
         exitMenu: function() {
-            sc.menu.buttonInteract.removeGlobalButton(this.hotkeyPreset);
             this.bg.hide();
 			for(var boxes of this.elementBox) {
 				boxes.hide();
@@ -77,20 +57,10 @@ ig.module("game.feature.menu.gui.al-skill-menu").requires("impact.feature.gui.gu
 			this.elementSelecter.hide();
 			this.elementStartMenu.hide()
         },
-        onhotkeyPresetCheck: function() {
-            return sc.control.menuHotkeyHelp2()
-        },
-        onPresetButtonPressed: function() {
-            console.log("hotkey");
-        },
         onAddHotkeys: function(b) {
-            sc.menu.buttonInteract.addGlobalButton(this.hotkeyPreset, this.onhotkeyPresetCheck.bind(this));
             this.commitHotKeysToTopBar(b)
         },
         commitHotKeysToTopBar: function(b) {
-            sc.menu.addHotkey(function() {
-                return this.hotkeyPreset
-            }.bind(this));
             sc.menu.commitHotkeys(b)
         },
         onBackButtonPress: function() {
@@ -968,7 +938,7 @@ ig.module("game.feature.menu.gui.al-skill-menu").requires("impact.feature.gui.gu
 
 ig.module("game.feature.menu.al-skill").requires("game.feature.menu.menu-model")
 .defines(function() {
-	sc.MENU_SUBMENU.AL_CUSTOM_SKILL = 258901;
+	sc.MENU_SUBMENU.AL_CUSTOM_SKILL = Math.max(...Object.values(sc.MENU_SUBMENU)) + 1;
 	sc.SUB_MENU_INFO[sc.MENU_SUBMENU.AL_CUSTOM_SKILL] = {
 		Clazz: sc.AlSkillMenu,
 		name: "al-skill"

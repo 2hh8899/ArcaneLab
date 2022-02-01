@@ -6,7 +6,7 @@ ig.module("game.feature.combat.model.arcane-lab-status").requires(
         "game.feature.combat.model.modifier-apply")
     .defines(function() {
         sc.MODIFIERS.TOXIC_HAZARD = {
-            altSheet: "media/gui/status-gui.png",
+            altSheet: "media/gui/al-custom-status.png",
             offX: 96,
             offY: 0,
             icon: -1,
@@ -36,7 +36,7 @@ ig.module("game.feature.combat.model.arcane-lab-status").requires(
         var poisonIdx = sc.COMBAT_STATUS.push(sc.PoisonStatus) - 1;
         sc.STATUS_BAR_ENTRY.POISONED = {
             icon: 0,
-            gfx: "media/gui/poison-status.png",
+            gfx: "media/gui/al-custom-status.png",
             init: null,
             barY: 0,
             barX: 0,

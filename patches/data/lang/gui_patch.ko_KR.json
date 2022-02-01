@@ -1,26 +1,56 @@
 {
     "labels": {
         "combat": {
+			"default": "기본",
+			"neutral": "일반",
             "poison": "중독"
         },
         "menu": {
 			"menu-titles": {
 				"al-telepoter": "아케인 텔레포터",
-				"al-skill": "기술 커스텀"
+				"al-skill": "기술 커스텀",
+				"al-shop": "커스텀 상점",
+				"al-modifier-card": "모디파이어 카드"
+			},
+			"equip": {
+				"modifier": {
+					"TOXIC_HAZARD": "독성 위험"
+				},
+				"descriptions": {
+					"TOXIC_HAZARD": "모든 공격이 적을 \\c[3]중독\\c[0] 상태로 만들 수 있게 되며, \\c[3]중독\\c[0] 상태로 만드는 속도와 그 효과가 증가합니다.\n\\c[3]중독\\c[0] 상태는 대상의 최대 HP에 따라 지속 대미지를 입힙니다."
+				}
 			},
 			"al-custom-skill": {
 				"default": "기본 기술",
 				"neutral": "일반 회로 기술",
 				"heat": "열기 회로 기술",
 				"cold": "냉기 회로 기술",
-				"wave": "파동 회로 기술",
 				"shock": "전기 회로 기술",
+				"wave": "파동 회로 기술",
 				"custom": "커스텀",
 				"reset": "초기화",
-				"preset": "프리셋",
 				"base": "기본",
 				"locked": "활성화되지 않아 사용 불가능한 스킬입니다. (커스텀은 가능)",
                 "unequip": "- 해제하기 -"
+			},
+			"al-custom-shop": {
+				"none": "(없음)"
+			},
+			"al-modifier-card": {
+				"craft": "제작",
+				"dismantle": "분해",
+				"enchant": "강화",
+				"equip": "장착",
+				"result": " 결과",
+				"usage": "사용량: ",
+				"positive": "증가 모디파이어",
+				"negative": "감소 모디파이어",
+				"increase": "이득볼 확률: ",
+				"decrease": "손해볼 확률: ",
+				"obtain": "획득",
+				"unequip": "- 해제하기 - ",
+				"dismantleCard": "이 카드를 정말로 분해하시겠습니까? 모디파이어 조각 \\c[3][!]개\\c[0]로 분해될 것입니다.",
+				"dismantled": "- 산산조각남 -"
 			},
             "social": {
                 "classes": {

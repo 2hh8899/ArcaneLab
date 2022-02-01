@@ -116,4 +116,37 @@ ig.module("impact.feature.base.event-steps.arcane-lab-event-commands1").requires
 			sc.model.prevSubState = sc.GAME_MODEL_SUBSTATE.RUNNING
 		}
 	});
+	ig.EVENT_STEP.AL_OPEN_SHOP = ig.EventStepBase.extend({
+		hub: null,
+		_wm: new ig.Config({
+			attributes: {
+                shop: {
+                    _type: "Array",
+                    _info: "",
+                    _optional: true
+                }
+			}
+		}),
+		init: function(b) {
+            this.shop = b.shop || null
+        },
+		start: function() {
+			sc.menu.shopID = this.shop;
+			sc.menu.setDirectMode(true, sc.MENU_SUBMENU.AL_CUSTOM_SHOP);
+			sc.model.enterMenu(true);
+			sc.model.prevSubState = sc.GAME_MODEL_SUBSTATE.RUNNING
+		}
+	});
+	ig.EVENT_STEP.AL_OPEN_MODIFIER_CARDS = ig.EventStepBase.extend({
+		hub: null,
+		_wm: new ig.Config({
+			attributes: {}
+		}),
+		init: function() {},
+		start: function() {
+			sc.menu.setDirectMode(true, sc.MENU_SUBMENU.AL_MODIFIER_CARD);
+			sc.model.enterMenu(true);
+			sc.model.prevSubState = sc.GAME_MODEL_SUBSTATE.RUNNING
+		}
+	});
 });

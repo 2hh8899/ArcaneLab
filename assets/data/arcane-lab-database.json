@@ -215,7 +215,7 @@
 				"actionCheckKey": "ATTACK_FINISHER"
 			}],
 			"element": "BASE",
-			"activeCondition": "tmp.skillTest == 1",
+			"activeCondition": "tmp.test == 1",
 			"name": {
 				"en_US": "Attack of Spheroknight",
 				"ko_KR": "원성사의 공격"
@@ -234,7 +234,7 @@
 				"actionCheckKey": "THROW_SPECIAL3"
 			}],
 			"element": "COLD",
-			"activeCondition": "tmp.skillTest == 1",
+			"activeCondition": "tmp.test == 1",
 			"name": {
 				"en_US": "Frost Panther",
 				"ko_KR": "서리 흑표"
@@ -255,7 +255,7 @@
 				"actionCheckKey": "THROW_SPECIAL3"
 			}],
 			"element": "WAVE",
-			"activeCondition": "tmp.skillTest == 1",
+			"activeCondition": "tmp.test == 1",
 			"name": {
 				"en_US": "Ether Nuke",
 				"ko_KR": "에테르 뉴클리어"
@@ -270,5 +270,458 @@
 				"offY": 216
 			}
 		}
+	},
+	"customShop": {
+		"alBase": {
+			"list": [{
+				"get": [{
+					"type": "ITEM",
+					"id": "trade-arcanelab-lumium",
+					"amount": 1
+				}],
+				"require": [{
+					"type": "ITEM",
+					"id": "191",
+					"amount": 5
+				}, {
+					"type": "ITEM",
+					"id": "192",
+					"amount": 3
+				}, {
+					"type": "ITEM",
+					"id": "499",
+					"amount": 2
+				}, {
+					"type": "MONEY",
+					"amount": 10000
+				}],
+				"activeCondition": "true",
+				"showCondition": "true"
+			}, {
+				"get": [{
+					"type": "ITEM",
+					"id": "trade-arcanelab-tesseract",
+					"amount": 1
+				}],
+				"require": [{
+					"type": "ITEM",
+					"id": "trade-arcanelab-lumium",
+					"amount": 2
+				}, {
+					"type": "ITEM",
+					"id": "192",
+					"amount": 1
+				}, {
+					"type": "MONEY",
+					"amount": 10000
+				}],
+				"activeCondition": "true",
+				"showCondition": "true"
+			}, {
+				"get": [{
+					"type": "ITEM",
+					"id": "428",
+					"amount": 1
+				}],
+				"require": [{
+					"type": "ITEM",
+					"id": "trade-arcanelab-lumium",
+					"amount": 3
+				}, {
+					"type": "MONEY",
+					"amount": 15000
+				}],
+				"activeCondition": "true",
+				"showCondition": "true"
+			}, {
+				"get": [{
+					"type": "ITEM",
+					"id": "key-arcanelab-modifier-frag",
+					"amount": 20
+				}],
+				"require": [{
+					"type": "ITEM",
+					"id": "trade-arcanelab-tesseract",
+					"amount": 1
+				}, {
+					"type": "MONEY",
+					"amount": 5000
+				}],
+				"activeCondition": "true",
+				"showCondition": "true"
+			}],
+			"name": {
+				"en_US": "Arcane Material",
+				"ko_KR": "아케인 머티리얼"
+			}
+		},
+		"alBooster": {
+			"list": [{
+				"get": [{
+					"type": "ITEM",
+					"id": "toggle-arcanelab-booster",
+					"amount": 1
+				}],
+				"require": [{
+					"type": "MONEY",
+					"amount": 25000
+				}],
+				"maxOwn": 1,
+				"activeCondition": "true",
+				"showCondition": "true"
+			}, {
+				"get": [{
+					"type": "ITEM",
+					"id": "toggle-arcanelab-skill",
+					"amount": 1
+				}],
+				"require": [{
+					"type": "MONEY",
+					"amount": 10000
+				}],
+				"maxOwn": 1,
+				"activeCondition": "true",
+				"showCondition": "true"
+			}, {
+				"get": [{
+					"type": "ITEM",
+					"id": "toggle-arcanelab-modifier-card",
+					"amount": 1
+				}],
+				"require": [{
+					"type": "MONEY",
+					"amount": 10000
+				}],
+				"maxOwn": 1,
+				"activeCondition": "true",
+				"showCondition": "true"
+			}],
+			"name": {
+				"en_US": "Arcane Booster",
+				"ko_KR": "아케인 부스터"
+			}
+		},
+		"alPet": {
+			"list": [{
+				"get": [{
+					"type": "ITEM",
+					"id": "toggle-arcanelab-sera",
+					"amount": 1
+				}],
+				"require": [{
+					"type": "ITEM",
+					"id": "trade-arcanelab-lumium",
+					"amount": 5
+				}, {
+					"type": "ITEM",
+					"id": "trade-arcanelab-ice-needles",
+					"amount": 8
+				}, {
+					"type": "MONEY",
+					"amount": 10000
+				}],
+				"maxOwn": 1,
+				"activeCondition": "true",
+				"showCondition": "true"
+			}, {
+				"get": [{
+					"type": "ITEM",
+					"id": "toggle-arcanelab-chiko",
+					"amount": 1
+				}],
+				"require": [{
+					"type": "ITEM",
+					"id": "trade-arcanelab-lumium",
+					"amount": 2
+				}, {
+					"type": "ITEM",
+					"id": "280",
+					"amount": 5
+				}, {
+					"type": "MONEY",
+					"amount": 10000
+				}],
+				"maxOwn": 1,
+				"activeCondition": "true",
+				"showCondition": "true"
+			}],
+			"name": {
+				"en_US": "Arcane Pets",
+				"ko_KR": "아케인 펫"
+			}
+		},
+		"alTestShop": {
+			"list": [{
+				"get": [{
+					"type": "ITEM",
+					"id": "trade-arcanelab-lumium",
+					"amount": 1
+				}],
+				"require": [{
+					"type": "ITEM",
+					"id": "191",
+					"amount": 5
+				}, {
+					"type": "ITEM",
+					"id": "192",
+					"amount": 3
+				}, {
+					"type": "ITEM",
+					"id": "499",
+					"amount": 2
+				}, {
+					"type": "MONEY",
+					"amount": 10000
+				}, {
+					"type": "VAR",
+					"id": "tmp.moneyTest",
+					"icon": {
+						"src": "media/font/al-icons-small-custom.png",
+						"offX": 34,
+						"offY": 1,
+						"width": 12,
+						"height": 12
+					},
+					"amount": 100
+				}],
+				"maxOwn": 1,
+				"activeCondition": "true",
+				"showCondition": "true"
+			}, {
+				"get": [{
+					"type": "VAR",
+					"id": "tmp.moneyTest",
+					"icon": {
+						"src": "media/font/al-icons-small-custom.png",
+						"offX": 34,
+						"offY": 1,
+						"width": 12,
+						"height": 12
+					},
+					"amount": 100
+				}, {
+					"type": "ITEM",
+					"id": "trade-arcanelab-lumium",
+					"amount": 2
+				}, {
+					"type": "MONEY",
+					"amount": 5000
+				}],
+				"require": [{
+					"type": "ITEM",
+					"id": "191",
+					"amount": 3
+				}, {
+					"type": "ITEM",
+					"id": "499",
+					"amount": 1
+				}, {
+					"type": "MONEY",
+					"amount": 5000
+				}],
+				"activeCondition": "true",
+				"showCondition": "true"
+			}],
+			"name": {
+				"en_US": "Test",
+				"ko_KR": "테스트"
+			}
+		},
+		"alTestShop2": {
+			"list": [{
+				"get": [{
+					"type": "ITEM",
+					"id": "50",
+					"amount": 1
+				}],
+				"require": [{
+					"type": "ITEM",
+					"id": "52",
+					"amount": 6
+				}, {
+					"type": "ITEM",
+					"id": "53",
+					"amount": 8
+				}, {
+					"type": "VAR",
+					"id": "tmp.moneyTest",
+					"icon": {
+						"src": "media/font/al-icons-small-custom.png",
+						"offX": 34,
+						"offY": 1,
+						"width": 12,
+						"height": 12
+					},
+					"amount": 100
+				}],
+				"activeCondition": "true",
+				"showCondition": "true"
+			}, {
+				"get": [{
+					"type": "ITEM",
+					"id": "51",
+					"amount": 2
+				}],
+				"require": [{
+					"type": "MONEY",
+					"amount": 1200
+				}],
+				"activeCondition": "true",
+				"showCondition": "true"
+			}],
+			"name": {
+				"en_US": "Test2",
+				"ko_KR": "테스트2"
+			}
+		}
+	},
+	"modifierCards": {
+		"positive": [{
+			"modifier": "SPIKE_DMG",
+			"amount": 0.04
+		}, {
+			"modifier": "GUARD_AREA",
+			"noPercent": true,
+			"required": 9
+		}, {
+			"modifier": "PERFECT_GUARD_RESET",
+			"noPercent": true,
+			"required": 10
+		}, {
+			"modifier": "ITEM_GUARD",
+			"noPercent": true,
+			"required": 9
+		}, {
+			"modifier": "ONCE_MORE",
+			"noPercent": true,
+			"required": 12
+		}, {
+			"modifier": "XP_PLUS",
+			"amount": 0.02
+		}, {
+			"modifier": "DROP_CHANCE",
+			"amount": 0.02
+		}, {
+			"modifier": "MONEY_PLUS",
+			"amount": 0.02
+		}, {
+			"modifier": "RANK_PLANTS",
+			"noPercent": true,
+			"required": 8
+		}, {
+			"modifier": "SPIDER_SLOW_DOWN_GUARD",
+			"noPercent": true,
+			"required": 7
+		}, {
+			"modifier": "BEGONE_ICE",
+			"noPercent": true,
+			"required": 7
+		}, {
+			"modifier": "TOXIC_HAZARD",
+			"amount": 0.02
+		}],
+		"both": [{
+			"modifier": "AIM_SPEED",
+			"amount": 0.03
+		}, {
+			"modifier": "AIM_STABILITY",
+			"amount": 0.01
+		}, {
+			"modifier": "AIMING_MOVEMENT",
+			"amount": 0.02
+		}, {
+			"modifier": "KNOCKBACK",
+			"amount": 0.02
+		}, {
+			"modifier": "RANGED_DMG",
+			"amount": 0.02
+		}, {
+			"modifier": "MELEE_DMG",
+			"amount": 0.02
+		}, {
+			"modifier": "CRITICAL_DMG",
+			"amount": 0.02
+		}, {
+			"modifier": "BREAK_DMG",
+			"amount": 0.02
+		}, {
+			"modifier": "ASSAULT",
+			"amount": 0.02
+		}, {
+			"modifier": "CROSS_COUNTER",
+			"amount": 0.02
+		}, {
+			"modifier": "BERSERK",
+			"amount": 0.02
+		}, {
+			"modifier": "MOMENTUM",
+			"amount": 0.02
+		}, {
+			"modifier": "DASH_INVINC",
+			"amount": 0.03
+		}, {
+			"modifier": "DASH_STEP",
+			"noPercent": true,
+			"required": 10
+		}, {
+			"modifier": "GUARD_STRENGTH",
+			"amount": 0.01
+		}, {
+			"modifier": "GUARD_SP",
+			"amount": 0.01
+		}, {
+			"modifier": "PERFECT_GUARD_WINDOW",
+			"amount": 0.01
+		}, {
+			"modifier": "STUN_THRESHOLD",
+			"amount": 0.02
+		}, {
+			"modifier": "OVERHEAT_REDUCTION",
+			"amount": 0.03
+		}, {
+			"modifier": "HP_REGEN",
+			"amount": 0.02
+		}, {
+			"modifier": "SP_REGEN",
+			"amount": 0.02
+		}, {
+			"modifier": "ITEM_BOOST",
+			"amount": 0.02
+		}, {
+			"modifier": "APPETITE",
+			"noPercent": true,
+			"required": 9
+		}, {
+			"modifier": "COND_HEALING",
+			"amount": 0.01
+		}, {
+			"modifier": "COND_EFFECT_HEAT",
+			"amount": 0.02
+		}, {
+			"modifier": "COND_EFFECT_COLD",
+			"amount": 0.02
+		}, {
+			"modifier": "COND_EFFECT_SHOCK",
+			"amount": 0.02
+		}, {
+			"modifier": "COND_EFFECT_WAVE",
+			"amount": 0.02
+		}, {
+			"modifier": "COND_EFFECT_ALL",
+			"amount": 0.01
+		}, {
+			"modifier": "COND_GUARD_HEAT",
+			"amount": 0.02
+		}, {
+			"modifier": "COND_GUARD_COLD",
+			"amount": 0.02
+		}, {
+			"modifier": "COND_GUARD_SHOCK",
+			"amount": 0.02
+		}, {
+			"modifier": "COND_GUARD_WAVE",
+			"amount": 0.02
+		}],
+		"negative": []
 	}
 }

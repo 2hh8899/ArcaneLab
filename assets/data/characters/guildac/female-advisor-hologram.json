@@ -1,0 +1,34 @@
+{
+	"name": {
+		"en_US": "Advisor",
+		"ko_KR": "조언자"
+	},
+    "animSheet": {
+		"name": "default",
+        "shapeType": "Y_FLAT",
+		"sheet": {
+			"src": "media/entity/npc/advisor-hologram-al.png",
+			"width": 32,
+			"height": 40
+		},
+		"dirs": "1",
+		"flipX": [0],
+		"tileOffsets": [0],
+		"repeat": true,
+		"time": 0.166,
+		"frames": [0, 1, 2],
+        "DOCTYPE": "MULTI_DIR_ANIMATION"
+    },
+    "walkAnimSet": {
+        "normal": {
+            "idle": "default",
+            "move": "default"
+        }
+    },
+    "walkAnims": "normal",
+    "configs": {
+        "normal": {
+            "relativeVel": 0.5
+        }
+    }
+}

@@ -4,7 +4,7 @@
         "SUB": [{
             "name": "POISON",
             "sheet": {
-                "src": "media/gui/poison-status.png",
+                "src": "media/gui/al-custom-status.png",
 				"xCount": 4,
                 "offX": 0,
                 "offY": 16,

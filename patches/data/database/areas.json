@@ -12,11 +12,12 @@
         "areaType": "TOWN",
         "order": 1000,
         "track": true,
+		"isDLC": true,
         "chests": 0,
         "boosterItem": "toggle-arcanelab-booster",
         "position": {
-            "x": 254,
-            "y": 158
+            "x": 219,
+            "y": 173
         },
         "landmarks": {
             "teleporter": {
@@ -25,8 +26,8 @@
                     "ko_KR": "아케인 텔레포터"
                 },
                 "description": {
-                    "en_US": "At the Teleporter where you can move to a special playground under development.",
-                    "ko_KR": "개발 중인 특수한 플레이그라운드로 이동할 수 있는 곳입니다."
+                    "en_US": "At the Teleporter where you can move to several special playgrounds.",
+                    "ko_KR": "여러 특수한 플레이그라운드로 이동할 수 있는 곳입니다."
                 }
             }
         }

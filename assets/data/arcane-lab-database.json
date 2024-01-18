@@ -198,7 +198,7 @@
 				"preview": "media/gui/teleporter-map/unknown.png",
 				"map": "guildac.dev-room",
 				"marker": "teleporter",
-				"activeCondition": "tmp.test == 1"
+				"showCondition": "tmp.test == 1"
 			}]
 		}
 	],

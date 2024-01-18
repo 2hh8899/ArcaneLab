@@ -40,7 +40,7 @@
 					"ko_KR": "G: 홈스테드"
 				},
 				"zMoveOffset": 48,
-				"teleportMap": "evo-village.interior.lab",
+				"teleportMap": "guildac.elevator-g",
 				"teleportMarker": "elevator",
 				"activeCondition": "true"
 			}, {
@@ -3374,254 +3374,1150 @@
 			"spawnCondition": "true"
 		}
 	}, {
-		"type": "ScalableProp",
-		"x": 736,
-		"y": 100,
+		"type": "EventTrigger",
+		"x": 544,
+		"y": 584,
+		"level": 0,
+		"settings": {
+			"name": "acInit",
+			"eventType": "PARALLEL",
+			"endCondition": "false",
+			"event": [{
+				"type": "IF",
+				"withElse": false,
+				"condition": "plot.arcaneLab.story.conductor==2",
+				"thenStep": [{
+					"changeType": "set",
+					"type": "CHANGE_VAR_NUMBER",
+					"varName": "plot.arcaneLab.story.conductor",
+					"value": 3
+				}, {
+					"mode": "SLOWEST",
+					"delayed": false,
+					"type": "RESUME_DEFAULT_BGM"
+				}, {
+					"type": "SOLVE_QUEST_CONDITION",
+					"quest": {
+						"quest": "arcanelab.conductor",
+						"label": "beat"
+					}
+				}, {
+					"ignoreSlowDown": false,
+					"type": "WAIT",
+					"time": 0.1
+				}, {
+					"type": "RESOLVE_FINISHED_QUESTS"
+				}]
+			}],
+			"triggerType": "ONCE_PER_ENTRY",
+			"startCondition": "",
+			"mapId": 437
+		}
+	}, {
+		"type": "EventTrigger",
+		"x": 544,
+		"y": 560,
+		"level": 0,
+		"settings": {
+			"name": "acFirst",
+			"mapId": 476,
+			"eventType": "CUTSCENE",
+			"startCondition": "plot.arcaneLab.lea <= 0",
+			"endCondition": "false",
+			"triggerType": "ONCE",
+			"event": [{
+				"alpha": 1,
+				"time": 0,
+				"lighter": false,
+				"type": "SET_OVERLAY",
+				"color": "black"
+			}, {
+				"pos": {
+					"x": 800,
+					"y": 424
+				},
+				"speed": "IMMEDIATELY",
+				"transition": "EASE_IN_OUT",
+				"wait": true,
+				"waitSkip": 0,
+				"zoom": 2,
+				"type": "SET_CAMERA_POS"
+			}, {
+				"pos": {
+					"x": 800,
+					"y": 448
+				},
+				"speed": "FAST",
+				"transition": "EASE_IN_OUT",
+				"wait": false,
+				"waitSkip": 0,
+				"zoom": 2,
+				"type": "SET_CAMERA_POS"
+			}, {
+				"alpha": 0,
+				"time": 1,
+				"lighter": false,
+				"type": "SET_OVERLAY",
+				"color": "black"
+			}, {
+				"ignoreSlowDown": false,
+				"type": "WAIT",
+				"time": 0.9
+			}, {
+				"pos": {
+					"x": 800,
+					"y": 500
+				},
+				"speed": "SLOW",
+				"transition": "EASE_IN_OUT",
+				"wait": false,
+				"waitSkip": 0,
+				"zoom": 1,
+				"type": "SET_CAMERA_POS"
+			}, {
+				"entity": {
+					"player": true
+				},
+				"action": [{
+					"value": 0.3,
+					"type": "SET_RELATIVE_SPEED"
+				}, {
+					"time": 1,
+					"stopBeforeEdge": false,
+					"type": "MOVE_FORWARD"
+				}],
+				"repeating": false,
+				"wait": true,
+				"keepState": true,
+				"immediately": false,
+				"type": "DO_ACTION"
+			}, {
+				"ignoreSlowDown": false,
+				"type": "WAIT",
+				"time": 0.5
+			}, {
+				"side": "RIGHT",
+				"order": 0,
+				"clearSide": false,
+				"type": "ADD_MSG_PERSON",
+				"person": {
+					"person": "main.sergey",
+					"expression": "SMILE"
+				}
+			}, {
+				"side": "LEFT",
+				"order": 0,
+				"clearSide": false,
+				"type": "ADD_MSG_PERSON",
+				"person": {
+					"person": "main.lea",
+					"expression": "SURPRISED"
+				}
+			}, {
+				"message": {
+					"en_US": "Welcome to the \\c[3]Arcane Lab\\c[0], Lea!",
+					"ko_KR": "\\c[3]아케인 랩\\c[0]에 온 걸 환영해, 레아!"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "SMILE"
+				}
+			}, {
+				"message": {
+					"en_US": "...?",
+					"ko_KR": "...?"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.lea",
+					"expression": "SURPRISED"
+				}
+			}, {
+				"message": {
+					"en_US": "This is where my friend who is an Instatainment employee and members of I.H.S.O come together to make amazing things.",
+					"ko_KR": "나랑 친한 다른 인스타테인먼트 직원과 I.H.S.O 조직원들이 굉장한 것들을 만드는 곳이지."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "DEFAULT"
+				}
+			}, {
+				"message": {
+					"en_US": "This place is being developed without notifying others. Actually, I knew about it a few days ago...",
+					"ko_KR": "아무도 모르게 개발하고 있는 곳이긴 해. 사실 나도 며칠 전에 알았어..."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "ROLL_EYES"
+				}
+			}, {
+				"message": {
+					"en_US": "...",
+					"ko_KR": "..."
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.lea",
+					"expression": "SMILE"
+				}
+			}, {
+				"message": {
+					"en_US": "There's a lot to enjoy here, so feel free to play!",
+					"ko_KR": "즐길 게 많으니, 마음대로 놀아봐!"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "JOKING"
+				}
+			}, {
+				"message": {
+					"en_US": "...!",
+					"ko_KR": "...!"
+				},
+				"autoContinue": false,
+				"type": "SHOW_MSG",
+				"person": {
+					"person": "main.lea",
+					"expression": "EXCITED"
+				}
+			}, {
+				"side": "ALL",
+				"type": "CLEAR_MSG"
+			}, {
+				"type": "IF",
+				"withElse": false,
+				"condition": "party.has.Emilie",
+				"thenStep": [{
+					"message": {
+						"en_US": "It's like a maze around here. Where am I?",
+						"ko_KR": "깊기도 해라, 여긴 어디야?"
+					},
+					"type": "SHOW_SIDE_MSG",
+					"person": {
+						"person": "main.emilie",
+						"expression": "SUSPICIOUS"
+					}
+				}]
+			}, {
+				"message": {
+					"en_US": "By the way, can you find someone with the username \\c[3]Shooty\\c[0]?",
+					"ko_KR": "그나저나, \\c[3]슈티\\c[0]라는 닉네임을 가진 사람을 찾아볼 수 있니?"
+				},
+				"type": "SHOW_SIDE_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "DEFAULT"
+				}
+			}, {
+				"message": {
+					"en_US": "...?",
+					"ko_KR": "...?"
+				},
+				"type": "SHOW_SIDE_MSG",
+				"person": {
+					"person": "main.lea",
+					"expression": "SURPRISED_AWAY"
+				}
+			}, {
+				"message": {
+					"en_US": "He's my friend I mentioned earlier, and he has something to ask you to do.",
+					"ko_KR": "아까 말했던 내 친구인데, 너에게 시킬 일이 있대."
+				},
+				"type": "SHOW_SIDE_MSG",
+				"person": {
+					"person": "main.sergey",
+					"expression": "DEFAULT"
+				}
+			}, {
+				"changeType": "set",
+				"type": "CHANGE_VAR_NUMBER",
+				"varName": "plot.arcaneLab.lea",
+				"value": 1
+			}]
+		}
+	}, {
+		"type": "NPC",
+		"x": 215,
+		"y": 236,
 		"level": 1,
 		"settings": {
-			"name": "topBarrier",
-			"size": {
-				"x": 128,
-				"y": 4
+			"name": "",
+			"characterName": "guildac.female-advisor-hologram",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hidden": false,
+				"condition": "",
+				"config": "normal",
+				"event": {
+					"shop": [{
+						"ignoreSlowDown": false,
+						"type": "WAIT",
+						"time": 0.15
+					}, {
+						"shop": ["alBase"],
+						"type": "AL_OPEN_SHOP"
+					}]
+				}
+			}],
+			"mapId": 405
+		}
+	}, {
+		"type": "Prop",
+		"x": 392,
+		"y": 243,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"propType": {
+				"sheet": "guildac",
+				"name": "modifierAnvil"
 			},
-			"patternOffset": {
-				"x": 0,
-				"y": 0
+			"propAnim": "",
+			"condAnims": [],
+			"mapId": 404,
+			"interact": {
+				"icon": "INFO",
+				"hoverText": {
+					"en_US": "Craft or equip modifier cards",
+					"ko_KR": "모디파이어 카드를 만들거나 장착하세요"
+				},
+				"title": {
+					"en_US": "\\c[3]Modifier Anvil\\c[0]",
+					"ko_KR": "\\c[3]모디파이어 모루\\c[0]"
+				},
+				"event": [{
+					"ignoreSlowDown": false,
+					"type": "WAIT",
+					"time": 0.2
+				}, {
+					"type": "AL_OPEN_MODIFIER_CARDS"
+				}]
+			}
+		}
+	}, {
+		"type": "NPC",
+		"x": 794,
+		"y": 784,
+		"level": 1,
+		"settings": {
+			"name": "Raclicia",
+			"characterName": "guildac.raclicia",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hidden": false,
+				"condition": "",
+				"config": "normal",
+				"event": {
+					"arena": [{
+						"type": "IF",
+						"withElse": false,
+						"condition": "plot.arcaneLab.story.rei<=0",
+						"thenStep": [{
+							"changeType": "set",
+							"type": "CHANGE_VAR_NUMBER",
+							"varName": "plot.arcaneLab.story.rei",
+							"value": 1
+						}, {
+							"side": "RIGHT",
+							"order": 0,
+							"clearSide": false,
+							"type": "ADD_MSG_PERSON",
+							"person": {
+								"person": "guildac.raclicia",
+								"expression": "DEFAULT"
+							}
+						}, {
+							"side": "LEFT",
+							"order": 0,
+							"clearSide": false,
+							"type": "ADD_MSG_PERSON",
+							"person": {
+								"person": "main.lea",
+								"expression": "DEFAULT"
+							}
+						}, {
+							"message": {
+								"en_US": "Hi!",
+								"ko_KR": "안녕!"
+							},
+							"autoContinue": false,
+							"type": "SHOW_MSG",
+							"person": {
+								"person": "main.lea",
+								"expression": "EXCITED"
+							}
+						}, {
+							"message": {
+								"en_US": "Welcome, this is the \\c[3]Arcane Teleporter\\c[0].",
+								"ko_KR": "안녕하세요, 여기는 \\c[3]아케인 텔레포터\\c[0]입니다."
+							},
+							"autoContinue": false,
+							"type": "SHOW_MSG",
+							"person": {
+								"person": "guildac.raclicia",
+								"expression": "DEFAULT"
+							}
+						}, {
+							"message": {
+								"en_US": "...?",
+								"ko_KR": "...?"
+							},
+							"autoContinue": false,
+							"type": "SHOW_MSG",
+							"person": {
+								"person": "main.lea",
+								"expression": "SURPRISED"
+							}
+						}, {
+							"message": {
+								"en_US": "Not only does it serve as a landmark...",
+								"ko_KR": "이곳은 랜드마크의 역할도 하지만..."
+							},
+							"autoContinue": false,
+							"type": "SHOW_MSG",
+							"person": {
+								"person": "guildac.raclicia",
+								"expression": "DEFAULT"
+							}
+						}, {
+							"message": {
+								"en_US": "But you can also try out \\c[3]new areas\\c[0] under development at the Arcane Lab.",
+								"ko_KR": "저를 통해 아케인 랩에서 개발 중인 \\c[3]신규 지역\\c[0]들을 체험해보실 수도 있습니다."
+							},
+							"autoContinue": false,
+							"type": "SHOW_MSG",
+							"person": {
+								"person": "guildac.raclicia",
+								"expression": "DEFAULT"
+							}
+						}, {
+							"message": {
+								"en_US": "...!",
+								"ko_KR": "...!"
+							},
+							"autoContinue": false,
+							"type": "SHOW_MSG",
+							"person": {
+								"person": "main.lea",
+								"expression": "ASTONISHED"
+							}
+						}, {
+							"message": {
+								"en_US": "So, where would you like to go?",
+								"ko_KR": "그럼, 어디로 가시겠습니까?"
+							},
+							"autoContinue": false,
+							"type": "SHOW_MSG",
+							"person": {
+								"person": "guildac.raclicia",
+								"expression": "DEFAULT"
+							}
+						}, {
+							"side": "ALL",
+							"type": "CLEAR_MSG"
+						}, {
+							"ignoreSlowDown": false,
+							"type": "WAIT",
+							"time": 0.15
+						}]
+					}, {
+						"type": "AL_OPEN_TELEPORT_MENU"
+					}]
+				}
+			}],
+			"mapId": 134
+		}
+	}, {
+		"type": "NPC",
+		"x": 1038,
+		"y": 1565,
+		"level": 1,
+		"settings": {
+			"name": "hat",
+			"characterName": "guildac.objects.hat",
+			"analyzable": {
+				"text": {
+					"en_US": "Kid's Hat",
+					"ko_KR": "꼬마 모자"
+				},
+				"active": ""
 			},
-			"timeOffset": 0,
-			"blockNavMap": false,
-			"mapId": 123,
-			"propConfig": {
-				"sheet": "rhombus-sqr-inner",
-				"name": "blockWallH",
-				"ends": null
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hidden": false,
+				"condition": "plot.arcaneLab.story.conductor <= 0",
+				"config": "normal",
+				"event": {
+					"quest": [{
+						"type": "OPEN_QUEST_DIALOG",
+						"quest": "arcanelab.conductor",
+						"accepted": [{
+							"entity": {
+								"self": true
+							},
+							"duration": 0,
+							"align": "BOTTOM",
+							"group": "",
+							"wait": false,
+							"waitSkip": 0,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "teleport",
+								"name": "hideDefault"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"ignoreSlowDown": false,
+							"type": "WAIT",
+							"time": 1.2
+						}, {
+							"changeType": "set",
+							"type": "CHANGE_VAR_NUMBER",
+							"varName": "plot.arcaneLab.story.conductor",
+							"value": 1
+						}, {
+							"entity": {
+								"self": true
+							},
+							"skipEffects": true,
+							"type": "HIDE_ENTITY"
+						}],
+						"declined": []
+					}]
+				}
+			}, {
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hideFx": {
+					"sheet": "teleport",
+					"name": "hideDefault"
+				},
+				"hidden": true,
+				"condition": "plot.arcaneLab.story.conductor > 0",
+				"config": "normal",
+				"event": []
+			}],
+			"mapId": 372
+		}
+	}, {
+		"type": "NPC",
+		"x": 1142,
+		"y": 749,
+		"level": 1,
+		"settings": {
+			"name": "Iris",
+			"characterName": "guildac.iris",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hidden": false,
+				"condition": "",
+				"config": "normal",
+				"event": {
+					"shop": [{
+						"side": "RIGHT",
+						"order": 0,
+						"clearSide": false,
+						"type": "ADD_MSG_PERSON",
+						"person": {
+							"person": "guildac.iris",
+							"expression": "DEFAULT"
+						}
+					}, {
+						"side": "LEFT",
+						"order": 0,
+						"clearSide": false,
+						"type": "ADD_MSG_PERSON",
+						"person": {
+							"person": "main.lea",
+							"expression": "DEFAULT"
+						}
+					}, {
+						"message": {
+							"en_US": "Check out the items provided by the Arcane Lab.",
+							"ko_KR": "아케인 랩에서 제공하는 아이템들을 확인해보세요."
+						},
+						"autoContinue": false,
+						"type": "SHOW_MSG",
+						"person": {
+							"person": "guildac.iris",
+							"expression": "DEFAULT"
+						}
+					}, {
+						"side": "ALL",
+						"type": "CLEAR_MSG"
+					}, {
+						"ignoreSlowDown": false,
+						"type": "WAIT",
+						"time": 0.15
+					}, {
+						"shop": ["alBase", "alBooster", "alPet"],
+						"type": "AL_OPEN_SHOP"
+					}]
+				}
+			}],
+			"mapId": 382
+		}
+	}, {
+		"type": "NPC",
+		"x": 1291,
+		"y": 835,
+		"level": 1,
+		"settings": {
+			"name": "eisus",
+			"characterName": "guildac.eisus",
+			"npcStates": [{
+				"reactType": "FIXED_FACE",
+				"face": "EAST",
+				"action": [{
+					"face": "EAST",
+					"rotate": true,
+					"rotateSpeed": 3,
+					"type": "SET_FACE"
+				}],
+				"hidden": false,
+				"condition": "plot.arcaneLab.story.eisus <= 0",
+				"config": "sit",
+				"event": [{
+					"side": "LEFT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "main.lea",
+						"expression": "SURPRISED"
+					}
+				}, {
+					"side": "RIGHT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "guildac.eisus",
+						"expression": "SAD"
+					}
+				}, {
+					"message": {
+						"en_US": "Hi?",
+						"ko_KR": "안녕?"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "SURPRISED"
+					}
+				}, {
+					"message": {
+						"en_US": "...Leave me alone.",
+						"ko_KR": "...날 혼자 있게 해줘."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.eisus",
+						"expression": "SAD"
+					}
+				}, {
+					"message": {
+						"en_US": "...?",
+						"ko_KR": "...?"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "SURPRISED"
+					}
+				}, {
+					"side": "ALL",
+					"type": "CLEAR_MSG"
+				}, {
+					"changeType": "set",
+					"type": "CHANGE_VAR_NUMBER",
+					"varName": "plot.arcaneLab.story.eisus",
+					"value": 1
+				}]
+			}, {
+				"reactType": "FIXED_FACE",
+				"face": "EAST",
+				"action": [{
+					"face": "EAST",
+					"rotate": true,
+					"rotateSpeed": 3,
+					"type": "SET_FACE"
+				}],
+				"hidden": false,
+				"condition": "plot.arcaneLab.story.eisus == 1",
+				"config": "sit",
+				"event": [{
+					"side": "LEFT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "main.lea",
+						"expression": "SAD_AWAY"
+					}
+				}, {
+					"side": "RIGHT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "guildac.eisus",
+						"expression": "SAD"
+					}
+				}, {
+					"message": {
+						"en_US": "...",
+						"ko_KR": "..."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.eisus",
+						"expression": "SAD"
+					}
+				}, {
+					"side": "ALL",
+					"type": "CLEAR_MSG"
+				}]
+			}],
+			"mapId": 432
+		}
+	}, {
+		"type": "NPC",
+		"x": 1250,
+		"y": 195,
+		"level": 1,
+		"settings": {
+			"name": "hazel",
+			"characterName": "guildac.hazel",
+			"npcStates": [{
+				"reactType": "FIXED_FACE",
+				"face": "SOUTH",
+				"hidden": false,
+				"condition": "plot.arcaneLab.story.hazel <= 1",
+				"config": "normal",
+				"event": [{
+					"side": "RIGHT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "guildac.hazel",
+						"expression": "DEFAULT"
+					}
+				}, {
+					"side": "LEFT",
+					"order": 0,
+					"clearSide": false,
+					"type": "ADD_MSG_PERSON",
+					"person": {
+						"person": "main.lea",
+						"expression": "DEFAULT"
+					}
+				}, {
+					"message": {
+						"en_US": "Hi!",
+						"ko_KR": "안녕!"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "EXCITED"
+					}
+				}, {
+					"message": {
+						"en_US": "Hi!",
+						"ko_KR": "안녕!"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.hazel",
+						"expression": "DEFAULT"
+					}
+				}, {
+                    "side": "LEFT",
+                    "order": 5,
+                    "clearSide": false,
+                    "type": "ADD_MSG_PERSON",
+                    "person": {
+                        "person": "main.sergey",
+                        "expression": "WHISTLING"
+                    }
+                }, {
+                    "type": "SET_MSG_EXPRESSION",
+                    "person": {
+                        "person": "main.lea",
+                        "expression": "SURPRISED_TOWARD"
+                    }
+                }, {
+                    "message": {
+                        "en_US": "Hold on, I know who she is...",
+                        "ko_KR": "잠깐만, 아는 사람인데..."
+                    },
+                    "autoContinue": false,
+                    "type": "SHOW_MSG",
+                    "person": {
+                        "person": "main.sergey",
+                        "expression": "WHISTLING"
+                    }
+                }, {
+                    "message": {
+                        "en_US": "She also has speech synchronization issues just like you.",
+                        "ko_KR": "너처럼 대화 동기화 문제를 가진 사람이야."
+                    },
+                    "autoContinue": false,
+                    "type": "SHOW_MSG",
+                    "person": {
+                        "person": "main.sergey",
+                        "expression": "WHISTLING"
+                    }
+                }, {
+                    "person": "main.sergey",
+                    "type": "REMOVE_MSG_PERSON"
+                }, {
+                    "type": "SET_MSG_EXPRESSION",
+                    "person": {
+                        "person": "main.lea",
+                        "expression": "SURPRISED"
+                    }
+                }, {
+					"message": {
+						"en_US": "Thanks.",
+						"ko_KR": "고마워."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.hazel",
+						"expression": "WINK"
+					}
+				}, {
+                    "type": "SET_MSG_EXPRESSION",
+                    "person": {
+                        "person": "guildac.hazel",
+                        "expression": "DEFAULT"
+                    }
+                }, {
+					"message": {
+						"en_US": "...!",
+						"ko_KR": "...!"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "ASTONISHED"
+					}
+				}, {
+					"message": {
+						"en_US": "Who?",
+						"ko_KR": "누구?"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "SURPRISED"
+					}
+				}, {
+					"message": {
+						"en_US": "Hazel.",
+						"ko_KR": "헤이즐."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.hazel",
+						"expression": "DEFAULT"
+					}
+				}, {
+					"message": {
+						"en_US": "Lea! Hi!",
+						"ko_KR": "레아! 안녕!"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "EXCITED"
+					}
+				}, {
+					"message": {
+						"en_US": "Hi hi!",
+						"ko_KR": "안녕 안녕!"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.hazel",
+						"expression": "SMILE"
+					}
+				}, {
+					"message": {
+						"en_US": "Thanks. Meet?",
+						"ko_KR": "고마워. 만나?"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "PROUD"
+					}
+				}, {
+					"message": {
+						"en_US": "Sorry, who, wait. Thanks.",
+						"ko_KR": "미안해, 누구, 잠깐. 고마워."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.hazel",
+						"expression": "DEFAULT"
+					}
+				}, {
+					"message": {
+						"en_US": "...",
+						"ko_KR": "..."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "THINKING"
+					}
+				}, {
+					"message": {
+						"en_US": "Sorry. Bye!",
+						"ko_KR": "미안해. 잘 가!"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "PROUD"
+					}
+				}, {
+					"message": {
+						"en_US": "Bye!",
+						"ko_KR": "잘 가!"
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "guildac.hazel",
+						"expression": "SMILE"
+					}
+				}, {
+                    "person": "guildac.hazel",
+                    "type": "REMOVE_MSG_PERSON"
+                }, {
+                    "side": "RIGHT",
+                    "clearSide": false,
+                    "type": "ADD_MSG_PERSON",
+                    "person": {
+                        "person": "main.sergey",
+                        "expression": "WHISTLING"
+                    }
+                }, {
+                    "message": {
+                        "en_US": "...How the hell did you talk to each other?",
+                        "ko_KR": "...도대체 어떻게 서로 대화한 거니?"
+                    },
+                    "autoContinue": false,
+                    "type": "SHOW_MSG",
+                    "person": {
+                        "person": "main.sergey",
+                        "expression": "ROLL_EYES"
+                    }
+                }, {
+					"message": {
+						"en_US": "...",
+						"ko_KR": "..."
+					},
+					"autoContinue": false,
+					"type": "SHOW_MSG",
+					"person": {
+						"person": "main.lea",
+						"expression": "SMUG"
+					}
+				}, {
+                    "side": "ALL",
+                    "type": "CLEAR_MSG"
+                }, {
+					"changeType": "set",
+					"type": "CHANGE_VAR_NUMBER",
+					"varName": "plot.arcaneLab.story.hazel",
+					"value": 1
+				}]
+			}],
+			"mapId": 477
+		}
+	}, {
+		"type": "Prop",
+		"x": 740,
+		"y": 1296,
+		"level": {
+			"level": 1,
+			"offset": 56
+		},
+		"settings": {
+			"name": "",
+			"mapId": 171,
+			"propType": {
+				"sheet": "guildac",
+				"name": "signClass"
 			},
-			"spawnCondition": "!map.keepoutTop"
+			"propAnim": "spheroknight",
+			"condAnims": []
+		}
+	}, {
+		"type": "Prop",
+		"x": 836,
+		"y": 1296,
+		"level": {
+			"level": 1,
+			"offset": 56
+		},
+		"settings": {
+			"name": "",
+			"mapId": 174,
+			"propType": {
+				"sheet": "guildac",
+				"name": "signClass"
+			},
+			"propAnim": "quadrotect",
+			"condAnims": []
+		}
+	}, {
+		"type": "Prop",
+		"x": 676,
+		"y": 1360,
+		"level": {
+			"level": 1,
+			"offset": 56
+		},
+		"settings": {
+			"name": "",
+			"mapId": 177,
+			"propType": {
+				"sheet": "guildac",
+				"name": "signClass"
+			},
+			"propAnim": "hexummoner",
+			"condAnims": []
+		}
+	}, {
+		"type": "Prop",
+		"x": 740,
+		"y": 1520,
+		"level": {
+			"level": 1,
+			"offset": 56
+		},
+		"settings": {
+			"name": "",
+			"mapId": 180,
+			"propType": {
+				"sheet": "guildac",
+				"name": "signClass"
+			},
+			"propAnim": "hexabless",
+			"condAnims": []
+		}
+	}, {
+		"type": "Prop",
+		"x": 836,
+		"y": 1520,
+		"level": {
+			"level": 1,
+			"offset": 56
+		},
+		"settings": {
+			"name": "",
+			"mapId": 183,
+			"propType": {
+				"sheet": "guildac",
+				"name": "signClass"
+			},
+			"propAnim": "quadrocharge",
+			"condAnims": []
 		}
 	}, {
 		"type": "Prop",
 		"x": 900,
-		"y": 880,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
-			},
-			"mapId": 126
-		}
-	}, {
-		"type": "Prop",
-		"x": 848,
-		"y": 928,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-se"
-			},
-			"mapId": 127
-		}
-	}, {
-		"type": "Prop",
-		"x": 872,
-		"y": 880,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
-			},
-			"mapId": 128
-		}
-	}, {
-		"type": "Prop",
-		"x": 828,
-		"y": 848,
-		"level": 1,
+		"y": 1456,
+		"level": {
+			"level": 1,
+			"offset": 56
+		},
 		"settings": {
 			"name": "",
+			"mapId": 186,
 			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
+				"sheet": "guildac",
+				"name": "signClass"
 			},
-			"propAnim": "",
-			"condAnims": [],
-			"mapId": 132
+			"propAnim": "pentagunner",
+			"condAnims": []
 		}
 	}, {
 		"type": "Prop",
-		"x": 828,
-		"y": 908,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
-			},
-			"mapId": 133
-		}
-	}, {
-		"type": "Prop",
-		"x": 800,
-		"y": 952,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
-			},
-			"mapId": 139
-		}
-	}, {
-		"type": "Prop",
-		"x": 800,
-		"y": 980,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
-			},
-			"mapId": 140
-		}
-	}, {
-		"type": "Prop",
-		"x": 800,
-		"y": 780,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
-			},
-			"mapId": 141
-		}
-	}, {
-		"type": "Prop",
-		"x": 800,
-		"y": 808,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
-			},
-			"mapId": 142
-		}
-	}, {
-		"type": "Prop",
-		"x": 772,
-		"y": 908,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
-			},
-			"mapId": 143
-		}
-	}, {
-		"type": "Prop",
-		"x": 772,
-		"y": 848,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
-			},
-			"mapId": 144
-		}
-	}, {
-		"type": "Prop",
-		"x": 720,
-		"y": 928,
-		"level": 1,
+		"x": 676,
+		"y": 1456,
+		"level": {
+			"level": 1,
+			"offset": 56
+		},
 		"settings": {
 			"name": "",
+			"mapId": 189,
 			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-sw"
+				"sheet": "guildac",
+				"name": "signClass"
 			},
-			"propAnim": "---",
-			"mapId": 145
+			"propAnim": "triarchery",
+			"condAnims": []
 		}
 	}, {
 		"type": "Prop",
-		"x": 728,
-		"y": 880,
-		"level": 1,
+		"x": 900,
+		"y": 1360,
+		"level": {
+			"level": 1,
+			"offset": 56
+		},
 		"settings": {
+			"name": "",
+			"mapId": 191,
 			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
+				"sheet": "guildac",
+				"name": "signClass"
 			},
-			"mapId": 147
-		}
-	}, {
-		"type": "Prop",
-		"x": 700,
-		"y": 880,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-glow"
-			},
-			"mapId": 148
-		}
-	}, {
-		"type": "ScalableProp",
-		"x": 1445,
-		"y": 288,
-		"level": 1,
-		"settings": {
-			"name": "rightBarrier",
-			"size": {
-				"x": 8,
-				"y": 144
-			},
-			"patternOffset": {
-				"x": 0,
-				"y": 0
-			},
-			"timeOffset": 0,
-			"mapId": 163,
-			"propConfig": {
-				"sheet": "rhombus-sqr-inner",
-				"name": "blockWallV",
-				"ends": {
-					"south": "SOUTH_END"
-				}
-			},
-			"spawnCondition": "!map.keepoutRight"
-		}
-	}, {
-		"type": "ScalableProp",
-		"x": 148,
-		"y": 288,
-		"level": 1,
-		"settings": {
-			"name": "leftBarrier",
-			"size": {
-				"x": 8,
-				"y": 144
-			},
-			"patternOffset": {
-				"x": 0,
-				"y": 0
-			},
-			"timeOffset": 0,
-			"mapId": 168,
-			"propConfig": {
-				"sheet": "rhombus-sqr-inner",
-				"name": "blockWallV",
-				"ends": {
-					"south": "SOUTH_END"
-				}
-			},
-			"spawnCondition": "!map.keepoutLeft"
+			"propAnim": "pentathief",
+			"condAnims": []
 		}
 	}, {
 		"type": "Prop",
@@ -3954,171 +4850,572 @@
 			"mapId": 263
 		}
 	}, {
+		"type": "NPC",
+		"x": 566,
+		"y": 1219,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"characterName": "cross-worlds.quadroguard-male-blond",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hidden": false,
+				"condition": "",
+				"config": "sit",
+				"event": []
+			}],
+			"mapId": 202
+		}
+	}, {
+		"type": "NPC",
+		"x": 582,
+		"y": 1219,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"characterName": "cross-worlds.quadroguard-female-black",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hidden": false,
+				"condition": "",
+				"config": "sit",
+				"event": []
+			}],
+			"mapId": 203
+		}
+	}, {
 		"type": "Prop",
-		"x": 392,
-		"y": 243,
+		"x": 1360,
+		"y": 872,
 		"level": 1,
 		"settings": {
 			"name": "",
 			"propType": {
-				"sheet": "guildac",
-				"name": "modifierAnvil"
+				"sheet": "rhombus-sqr",
+				"name": "chair-up"
 			},
 			"propAnim": "",
 			"condAnims": [],
-			"mapId": 404,
-			"interact": {
-				"icon": "INFO",
-				"hoverText": {
-					"en_US": "Craft or equip modifier cards",
-					"ko_KR": "모디파이어 카드를 만들거나 장착하세요"
-				},
-				"title": {
-					"en_US": "\\c[3]Modifier Anvil\\c[0]",
-					"ko_KR": "\\c[3]모디파이어 모루\\c[0]"
-				},
-				"event": [{
-					"ignoreSlowDown": false,
-					"type": "WAIT",
-					"time": 0.2
-				}, {
-					"type": "AL_OPEN_MODIFIER_CARDS"
-				}]
-			}
+			"mapId": 211
+		}
+	}, {
+		"type": "Prop",
+		"x": 1288,
+		"y": 832,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"propType": {
+				"sheet": "rhombus-sqr",
+				"name": "chair-right"
+			},
+			"propAnim": "",
+			"condAnims": [],
+			"mapId": 212
+		}
+	}, {
+		"type": "Prop",
+		"x": 1248,
+		"y": 880,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"propType": {
+				"sheet": "rhombus-sqr",
+				"name": "chair-down"
+			},
+			"propAnim": "",
+			"condAnims": [],
+			"mapId": 213
 		}
 	}, {
 		"type": "NPC",
-		"x": 794,
-		"y": 784,
+		"x": 964,
+		"y": 1450,
 		"level": 1,
 		"settings": {
-			"name": "Raclicia",
-			"characterName": "guildac.raclicia",
+			"name": "gunnerDiag",
+			"characterName": "cross-worlds.hexacast-male-red",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "WEST",
+				"hidden": false,
+				"condition": "",
+				"config": "normal",
+				"event": []
+			}],
+			"mapId": 371
+		}
+	}, {
+		"type": "NPC",
+		"x": 304,
+		"y": 748,
+		"level": 1,
+		"settings": {
+			"name": "raidDiag",
+			"characterName": "cross-worlds.triblader-male-blue",
 			"npcStates": [{
 				"reactType": "FIXED_POS",
 				"face": "SOUTH",
 				"hidden": false,
 				"condition": "",
 				"config": "normal",
-				"event": {
-					"arena": [{
-						"type": "IF",
-						"withElse": false,
-						"condition": "plot.arcaneLab.story.rei<=0",
-						"thenStep": [{
-							"changeType": "set",
-							"type": "CHANGE_VAR_NUMBER",
-							"varName": "plot.arcaneLab.story.rei",
-							"value": 1
-						}, {
-							"side": "RIGHT",
-							"order": 0,
-							"clearSide": false,
-							"type": "ADD_MSG_PERSON",
-							"person": {
-								"person": "guildac.raclicia",
-								"expression": "DEFAULT"
-							}
-						}, {
-							"side": "LEFT",
-							"order": 0,
-							"clearSide": false,
-							"type": "ADD_MSG_PERSON",
-							"person": {
-								"person": "main.lea",
-								"expression": "DEFAULT"
-							}
-						}, {
-							"message": {
-								"en_US": "Hi!",
-								"ko_KR": "안녕!"
-							},
-							"autoContinue": false,
-							"type": "SHOW_MSG",
-							"person": {
-								"person": "main.lea",
-								"expression": "EXCITED"
-							}
-						}, {
-							"message": {
-								"en_US": "Welcome, this is the \\c[3]Arcane Teleporter\\c[0].",
-								"ko_KR": "안녕하세요, 여기는 \\c[3]아케인 텔레포터\\c[0]입니다."
-							},
-							"autoContinue": false,
-							"type": "SHOW_MSG",
-							"person": {
-								"person": "guildac.raclicia",
-								"expression": "DEFAULT"
-							}
-						}, {
-							"message": {
-								"en_US": "...?",
-								"ko_KR": "...?"
-							},
-							"autoContinue": false,
-							"type": "SHOW_MSG",
-							"person": {
-								"person": "main.lea",
-								"expression": "SURPRISED"
-							}
-						}, {
-							"message": {
-								"en_US": "Not only does it serve as a landmark...",
-								"ko_KR": "이곳은 랜드마크의 역할도 하지만..."
-							},
-							"autoContinue": false,
-							"type": "SHOW_MSG",
-							"person": {
-								"person": "guildac.raclicia",
-								"expression": "DEFAULT"
-							}
-						}, {
-							"message": {
-								"en_US": "But you can also try out \\c[3]new areas\\c[0] under development at the Arcane Lab.",
-								"ko_KR": "저를 통해 아케인 랩에서 개발 중인 \\c[3]신규 지역\\c[0]들을 체험해보실 수도 있습니다."
-							},
-							"autoContinue": false,
-							"type": "SHOW_MSG",
-							"person": {
-								"person": "guildac.raclicia",
-								"expression": "DEFAULT"
-							}
-						}, {
-							"message": {
-								"en_US": "...!",
-								"ko_KR": "...!"
-							},
-							"autoContinue": false,
-							"type": "SHOW_MSG",
-							"person": {
-								"person": "main.lea",
-								"expression": "ASTONISHED"
-							}
-						}, {
-							"message": {
-								"en_US": "So, where would you like to go?",
-								"ko_KR": "그럼, 어디로 가시겠습니까?"
-							},
-							"autoContinue": false,
-							"type": "SHOW_MSG",
-							"person": {
-								"person": "guildac.raclicia",
-								"expression": "DEFAULT"
-							}
-						}, {
-							"side": "ALL",
-							"type": "CLEAR_MSG"
-						}, {
-							"ignoreSlowDown": false,
-							"type": "WAIT",
-							"time": 0.15
-						}]
-					}, {
-						"type": "AL_OPEN_TELEPORT_MENU"
-					}]
-				}
+				"event": []
 			}],
-			"mapId": 134
+			"mapId": 413
+		}
+	}, {
+		"type": "NPC",
+		"x": 1354,
+		"y": 224,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"characterName": "cross-worlds.pentafist-male-rasta",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hidden": false,
+				"condition": "",
+				"config": "normal",
+				"event": []
+			}],
+			"mapId": 414
+		}
+	}, {
+		"type": "NPC",
+		"x": 388,
+		"y": 946,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"characterName": "cross-worlds.pentafist-female-blue",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "NORTH",
+				"hidden": false,
+				"condition": "",
+				"config": "sit",
+				"event": []
+			}],
+			"mapId": 423
+		}
+	}, {
+		"type": "NPC",
+		"x": 271,
+		"y": 994,
+		"level": 1,
+		"settings": {
+			"name": "raidDiagNewbie1",
+			"characterName": "cross-worlds.hexacast-female-blue",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "NORTH",
+				"hidden": false,
+				"condition": "",
+				"config": "sit",
+				"event": []
+			}],
+			"mapId": 424
+		}
+	}, {
+		"type": "NPC",
+		"x": 1249,
+		"y": 886,
+		"level": {
+			"level": 1,
+			"offset": 8
+		},
+		"settings": {
+			"name": "",
+			"characterName": "cross-worlds.pentafist-female-blue",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hidden": false,
+				"condition": "",
+				"config": "ground",
+				"event": []
+			}],
+			"mapId": 434
+		}
+	}, {
+		"type": "NPC",
+		"x": 411,
+		"y": 487,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"characterName": "cross-worlds.quadroguard-male-blond",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "SOUTH",
+				"hidden": false,
+				"condition": "",
+				"config": "ground",
+				"event": []
+			}],
+			"mapId": 436
+		}
+	}, {
+		"type": "Prop",
+		"x": 900,
+		"y": 880,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"mapId": 126
+		}
+	}, {
+		"type": "Prop",
+		"x": 848,
+		"y": 928,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-se"
+			},
+			"mapId": 127
+		}
+	}, {
+		"type": "Prop",
+		"x": 872,
+		"y": 880,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"mapId": 128
+		}
+	}, {
+		"type": "Prop",
+		"x": 828,
+		"y": 848,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"propAnim": "",
+			"condAnims": [],
+			"mapId": 132
+		}
+	}, {
+		"type": "Prop",
+		"x": 828,
+		"y": 908,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"mapId": 133
+		}
+	}, {
+		"type": "Prop",
+		"x": 800,
+		"y": 952,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"mapId": 139
+		}
+	}, {
+		"type": "Prop",
+		"x": 800,
+		"y": 980,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"mapId": 140
+		}
+	}, {
+		"type": "Prop",
+		"x": 800,
+		"y": 780,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"mapId": 141
+		}
+	}, {
+		"type": "Prop",
+		"x": 800,
+		"y": 808,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"mapId": 142
+		}
+	}, {
+		"type": "Prop",
+		"x": 772,
+		"y": 908,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"mapId": 143
+		}
+	}, {
+		"type": "Prop",
+		"x": 772,
+		"y": 848,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"mapId": 144
+		}
+	}, {
+		"type": "Prop",
+		"x": 720,
+		"y": 928,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-sw"
+			},
+			"propAnim": "---",
+			"mapId": 145
+		}
+	}, {
+		"type": "Prop",
+		"x": 728,
+		"y": 880,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"mapId": 147
+		}
+	}, {
+		"type": "Prop",
+		"x": 700,
+		"y": 880,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-glow"
+			},
+			"mapId": 148
+		}
+	}, {
+		"type": "NPC",
+		"x": 562,
+		"y": 1442,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"characterName": "cross-worlds.hexacast-male-dark",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "NORTH",
+				"hidden": false,
+				"condition": "",
+				"config": "normal",
+				"event": []
+			}],
+			"mapId": 199
+		}
+	}, {
+		"type": "NPC",
+		"x": 546,
+		"y": 1418,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"characterName": "cross-worlds.pentafist-female-rasta",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "EAST",
+				"hidden": false,
+				"condition": "",
+				"config": "normal",
+				"event": []
+			}],
+			"mapId": 200
+		}
+	}, {
+		"type": "NPC",
+		"x": 578,
+		"y": 1426,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"characterName": "cross-worlds.pentafist-male-blue",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "WEST",
+				"hidden": false,
+				"condition": "",
+				"config": "normal",
+				"event": []
+			}],
+			"mapId": 201
+		}
+	}, {
+		"type": "NPC",
+		"x": 296,
+		"y": 472,
+		"level": 1,
+		"settings": {
+			"name": "modCardDiag2",
+			"characterName": "cross-worlds.quadroguard-male-black",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "WEST",
+				"hidden": false,
+				"condition": "",
+				"config": "normal",
+				"event": []
+			}],
+			"mapId": 409
+		}
+	}, {
+		"type": "NPC",
+		"x": 408,
+		"y": 850,
+		"level": 1,
+		"settings": {
+			"name": "",
+			"characterName": "cross-worlds.quadroguard-female-gray",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "NORTH",
+				"hidden": false,
+				"condition": "",
+				"config": "sit",
+				"event": []
+			}],
+			"mapId": 422
+		}
+	}, {
+		"type": "NPC",
+		"x": 251,
+		"y": 994,
+		"level": 1,
+		"settings": {
+			"name": "raidDiagNewbie2",
+			"characterName": "cross-worlds.quadroguard-male-black",
+			"npcStates": [{
+				"reactType": "FIXED_POS",
+				"face": "NORTH",
+				"hidden": false,
+				"condition": "",
+				"config": "sit",
+				"event": []
+			}],
+			"mapId": 426
+		}
+	}, {
+		"type": "ScalableProp",
+		"x": 736,
+		"y": 100,
+		"level": 1,
+		"settings": {
+			"name": "topBarrier",
+			"size": {
+				"x": 128,
+				"y": 4
+			},
+			"patternOffset": {
+				"x": 0,
+				"y": 0
+			},
+			"timeOffset": 0,
+			"blockNavMap": false,
+			"mapId": 123,
+			"propConfig": {
+				"sheet": "rhombus-sqr-inner",
+				"name": "blockWallH",
+				"ends": null
+			},
+			"spawnCondition": "!map.keepoutTop"
+		}
+	}, {
+		"type": "ScalableProp",
+		"x": 1445,
+		"y": 288,
+		"level": 1,
+		"settings": {
+			"name": "rightBarrier",
+			"size": {
+				"x": 8,
+				"y": 144
+			},
+			"patternOffset": {
+				"x": 0,
+				"y": 0
+			},
+			"timeOffset": 0,
+			"mapId": 163,
+			"propConfig": {
+				"sheet": "rhombus-sqr-inner",
+				"name": "blockWallV",
+				"ends": {
+					"south": "SOUTH_END"
+				}
+			},
+			"spawnCondition": "!map.keepoutRight"
+		}
+	}, {
+		"type": "ScalableProp",
+		"x": 148,
+		"y": 288,
+		"level": 1,
+		"settings": {
+			"name": "leftBarrier",
+			"size": {
+				"x": 8,
+				"y": 144
+			},
+			"patternOffset": {
+				"x": 0,
+				"y": 0
+			},
+			"timeOffset": 0,
+			"mapId": 168,
+			"propConfig": {
+				"sheet": "rhombus-sqr-inner",
+				"name": "blockWallV",
+				"ends": {
+					"south": "SOUTH_END"
+				}
+			},
+			"spawnCondition": "!map.keepoutLeft"
 		}
 	}, {
 		"type": "ScalableProp",
@@ -4212,358 +5509,6 @@
 		}
 	}, {
 		"type": "NPC",
-		"x": 562,
-		"y": 1442,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"characterName": "cross-worlds.hexacast-male-dark",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "NORTH",
-				"hidden": false,
-				"condition": "",
-				"config": "normal",
-				"event": []
-			}],
-			"mapId": 199
-		}
-	}, {
-		"type": "NPC",
-		"x": 546,
-		"y": 1418,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"characterName": "cross-worlds.pentafist-female-rasta",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "EAST",
-				"hidden": false,
-				"condition": "",
-				"config": "normal",
-				"event": []
-			}],
-			"mapId": 200
-		}
-	}, {
-		"type": "NPC",
-		"x": 578,
-		"y": 1426,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"characterName": "cross-worlds.pentafist-male-blue",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "WEST",
-				"hidden": false,
-				"condition": "",
-				"config": "normal",
-				"event": []
-			}],
-			"mapId": 201
-		}
-	}, {
-		"type": "NPC",
-		"x": 566,
-		"y": 1219,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"characterName": "cross-worlds.quadroguard-male-blond",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "SOUTH",
-				"hidden": false,
-				"condition": "",
-				"config": "sit",
-				"event": []
-			}],
-			"mapId": 202
-		}
-	}, {
-		"type": "NPC",
-		"x": 582,
-		"y": 1219,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"characterName": "cross-worlds.quadroguard-female-black",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "SOUTH",
-				"hidden": false,
-				"condition": "",
-				"config": "sit",
-				"event": []
-			}],
-			"mapId": 203
-		}
-	}, {
-		"type": "Prop",
-		"x": 1360,
-		"y": 872,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"propType": {
-				"sheet": "rhombus-sqr",
-				"name": "chair-up"
-			},
-			"propAnim": "",
-			"condAnims": [],
-			"mapId": 211
-		}
-	}, {
-		"type": "Prop",
-		"x": 1288,
-		"y": 832,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"propType": {
-				"sheet": "rhombus-sqr",
-				"name": "chair-right"
-			},
-			"propAnim": "",
-			"condAnims": [],
-			"mapId": 212
-		}
-	}, {
-		"type": "Prop",
-		"x": 1248,
-		"y": 880,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"propType": {
-				"sheet": "rhombus-sqr",
-				"name": "chair-down"
-			},
-			"propAnim": "",
-			"condAnims": [],
-			"mapId": 213
-		}
-	}, {
-		"type": "NPC",
-		"x": 988,
-		"y": 1220,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"characterName": "cross-worlds.sphero-male-brown",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "SOUTH",
-				"hidden": false,
-				"condition": "",
-				"config": "sit",
-				"event": []
-			}],
-			"mapId": 204
-		}
-	}, {
-		"type": "NPC",
-		"x": 964,
-		"y": 1450,
-		"level": 1,
-		"settings": {
-			"name": "gunnerDiag",
-			"characterName": "cross-worlds.hexacast-male-red",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "WEST",
-				"hidden": false,
-				"condition": "",
-				"config": "normal",
-				"event": []
-			}],
-			"mapId": 371
-		}
-	}, {
-		"type": "NPC",
-		"x": 1038,
-		"y": 1565,
-		"level": 1,
-		"settings": {
-			"name": "hat",
-			"characterName": "guildac.objects.hat",
-			"analyzable": {
-				"text": {
-					"en_US": "Kid's Hat",
-					"ko_KR": "꼬마 모자"
-				},
-				"active": ""
-			},
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "SOUTH",
-				"hidden": false,
-				"condition": "plot.arcaneLab.story.conductor <= 0",
-				"config": "normal",
-				"event": {
-					"quest": [{
-						"type": "OPEN_QUEST_DIALOG",
-						"quest": "arcanelab.conductor",
-						"accepted": [{
-							"entity": {
-								"self": true
-							},
-							"duration": 0,
-							"align": "BOTTOM",
-							"group": "",
-							"wait": false,
-							"waitSkip": 0,
-							"type": "SHOW_EFFECT",
-							"effect": {
-								"sheet": "teleport",
-								"name": "hideDefault"
-							},
-							"offset": {
-								"x": 0,
-								"y": 0,
-								"z": 0
-							}
-						}, {
-							"ignoreSlowDown": false,
-							"type": "WAIT",
-							"time": 1.2
-						}, {
-							"changeType": "set",
-							"type": "CHANGE_VAR_NUMBER",
-							"varName": "plot.arcaneLab.story.conductor",
-							"value": 1
-						}, {
-							"entity": {
-								"self": true
-							},
-							"skipEffects": true,
-							"type": "HIDE_ENTITY"
-						}],
-						"declined": []
-					}]
-				}
-			}, {
-				"reactType": "FIXED_POS",
-				"face": "SOUTH",
-				"hideFx": {
-					"sheet": "teleport",
-					"name": "hideDefault"
-				},
-				"hidden": true,
-				"condition": "plot.arcaneLab.story.conductor > 0",
-				"config": "normal",
-				"event": []
-			}],
-			"mapId": 372
-		}
-	}, {
-		"type": "NPC",
-		"x": 1142,
-		"y": 749,
-		"level": 1,
-		"settings": {
-			"name": "Iris",
-			"characterName": "guildac.iris",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "SOUTH",
-				"hidden": false,
-				"condition": "",
-				"config": "normal",
-				"event": {
-					"shop": [{
-						"side": "RIGHT",
-						"order": 0,
-						"clearSide": false,
-						"type": "ADD_MSG_PERSON",
-						"person": {
-							"person": "guildac.iris",
-							"expression": "DEFAULT"
-						}
-					}, {
-						"side": "LEFT",
-						"order": 0,
-						"clearSide": false,
-						"type": "ADD_MSG_PERSON",
-						"person": {
-							"person": "main.lea",
-							"expression": "DEFAULT"
-						}
-					}, {
-						"message": {
-							"en_US": "Check out the items provided by the Arcane Lab.",
-							"ko_KR": "아케인 랩에서 제공하는 아이템들을 확인해보세요."
-						},
-						"autoContinue": false,
-						"type": "SHOW_MSG",
-						"person": {
-							"person": "guildac.iris",
-							"expression": "DEFAULT"
-						}
-					}, {
-						"side": "ALL",
-						"type": "CLEAR_MSG"
-					}, {
-						"ignoreSlowDown": false,
-						"type": "WAIT",
-						"time": 0.15
-					}, {
-						"shop": ["alBase", "alBooster", "alPet"],
-						"type": "AL_OPEN_SHOP"
-					}]
-				}
-			}],
-			"mapId": 382
-		}
-	}, {
-		"type": "NPC",
-		"x": 215,
-		"y": 236,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"characterName": "guildac.female-advisor-hologram",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "SOUTH",
-				"hidden": false,
-				"condition": "",
-				"config": "normal",
-				"event": {
-					"shop": [{
-						"ignoreSlowDown": false,
-						"type": "WAIT",
-						"time": 0.15
-					}, {
-						"shop": ["alBase"],
-						"type": "AL_OPEN_SHOP"
-					}]
-				}
-			}],
-			"mapId": 405
-		}
-	}, {
-		"type": "NPC",
-		"x": 296,
-		"y": 472,
-		"level": 1,
-		"settings": {
-			"name": "modCardDiag2",
-			"characterName": "cross-worlds.quadroguard-male-black",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "WEST",
-				"hidden": false,
-				"condition": "",
-				"config": "normal",
-				"event": []
-			}],
-			"mapId": 409
-		}
-	}, {
-		"type": "NPC",
 		"x": 435,
 		"y": 493,
 		"level": 1,
@@ -4615,42 +5560,6 @@
 				"event": []
 			}],
 			"mapId": 412
-		}
-	}, {
-		"type": "NPC",
-		"x": 304,
-		"y": 748,
-		"level": 1,
-		"settings": {
-			"name": "raidDiag",
-			"characterName": "cross-worlds.triblader-male-blue",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "SOUTH",
-				"hidden": false,
-				"condition": "",
-				"config": "normal",
-				"event": []
-			}],
-			"mapId": 413
-		}
-	}, {
-		"type": "NPC",
-		"x": 1354,
-		"y": 224,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"characterName": "cross-worlds.pentafist-male-rasta",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "SOUTH",
-				"hidden": false,
-				"condition": "",
-				"config": "normal",
-				"event": []
-			}],
-			"mapId": 414
 		}
 	}, {
 		"type": "NPC",
@@ -4726,206 +5635,6 @@
 		}
 	}, {
 		"type": "NPC",
-		"x": 408,
-		"y": 850,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"characterName": "cross-worlds.quadroguard-female-gray",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "NORTH",
-				"hidden": false,
-				"condition": "",
-				"config": "sit",
-				"event": []
-			}],
-			"mapId": 422
-		}
-	}, {
-		"type": "NPC",
-		"x": 388,
-		"y": 946,
-		"level": 1,
-		"settings": {
-			"name": "",
-			"characterName": "cross-worlds.pentafist-female-blue",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "NORTH",
-				"hidden": false,
-				"condition": "",
-				"config": "sit",
-				"event": []
-			}],
-			"mapId": 423
-		}
-	}, {
-		"type": "NPC",
-		"x": 271,
-		"y": 994,
-		"level": 1,
-		"settings": {
-			"name": "raidDiagNewbie1",
-			"characterName": "cross-worlds.hexacast-female-blue",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "NORTH",
-				"hidden": false,
-				"condition": "",
-				"config": "sit",
-				"event": []
-			}],
-			"mapId": 424
-		}
-	}, {
-		"type": "NPC",
-		"x": 251,
-		"y": 994,
-		"level": 1,
-		"settings": {
-			"name": "raidDiagNewbie2",
-			"characterName": "cross-worlds.quadroguard-male-black",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "NORTH",
-				"hidden": false,
-				"condition": "",
-				"config": "sit",
-				"event": []
-			}],
-			"mapId": 426
-		}
-	}, {
-		"type": "NPC",
-		"x": 1291,
-		"y": 835,
-		"level": 1,
-		"settings": {
-			"name": "eisus",
-			"characterName": "guildac.eisus",
-			"npcStates": [{
-				"reactType": "FIXED_FACE",
-				"face": "EAST",
-				"action": [{
-					"face": "EAST",
-					"rotate": true,
-					"rotateSpeed": 3,
-					"type": "SET_FACE"
-				}],
-				"hidden": false,
-				"condition": "plot.arcaneLab.story.eisus <= 0",
-				"config": "sit",
-				"event": [{
-					"side": "LEFT",
-					"order": 0,
-					"clearSide": false,
-					"type": "ADD_MSG_PERSON",
-					"person": {
-						"person": "main.lea",
-						"expression": "SURPRISED"
-					}
-				}, {
-					"side": "RIGHT",
-					"order": 0,
-					"clearSide": false,
-					"type": "ADD_MSG_PERSON",
-					"person": {
-						"person": "guildac.eisus",
-						"expression": "SAD"
-					}
-				}, {
-					"message": {
-						"en_US": "Hi?",
-						"ko_KR": "안녕?"
-					},
-					"autoContinue": false,
-					"type": "SHOW_MSG",
-					"person": {
-						"person": "main.lea",
-						"expression": "SURPRISED"
-					}
-				}, {
-					"message": {
-						"en_US": "...Leave me alone.",
-						"ko_KR": "...날 혼자 있게 해줘."
-					},
-					"autoContinue": false,
-					"type": "SHOW_MSG",
-					"person": {
-						"person": "guildac.eisus",
-						"expression": "SAD"
-					}
-				}, {
-					"message": {
-						"en_US": "...?",
-						"ko_KR": "...?"
-					},
-					"autoContinue": false,
-					"type": "SHOW_MSG",
-					"person": {
-						"person": "main.lea",
-						"expression": "SURPRISED"
-					}
-				}, {
-					"side": "ALL",
-					"type": "CLEAR_MSG"
-				}, {
-					"changeType": "set",
-					"type": "CHANGE_VAR_NUMBER",
-					"varName": "plot.arcaneLab.story.eisus",
-					"value": 1
-				}]
-			}, {
-				"reactType": "FIXED_FACE",
-				"face": "EAST",
-				"action": [{
-					"face": "EAST",
-					"rotate": true,
-					"rotateSpeed": 3,
-					"type": "SET_FACE"
-				}],
-				"hidden": false,
-				"condition": "plot.arcaneLab.story.eisus == 1",
-				"config": "sit",
-				"event": [{
-					"side": "LEFT",
-					"order": 0,
-					"clearSide": false,
-					"type": "ADD_MSG_PERSON",
-					"person": {
-						"person": "main.lea",
-						"expression": "SAD_AWAY"
-					}
-				}, {
-					"side": "RIGHT",
-					"order": 0,
-					"clearSide": false,
-					"type": "ADD_MSG_PERSON",
-					"person": {
-						"person": "guildac.eisus",
-						"expression": "SAD"
-					}
-				}, {
-					"message": {
-						"en_US": "...",
-						"ko_KR": "..."
-					},
-					"autoContinue": false,
-					"type": "SHOW_MSG",
-					"person": {
-						"person": "guildac.eisus",
-						"expression": "SAD"
-					}
-				}, {
-					"side": "ALL",
-					"type": "CLEAR_MSG"
-				}]
-			}],
-			"mapId": 432
-		}
-	}, {
-		"type": "NPC",
 		"x": 1382,
 		"y": 481,
 		"level": 1,
@@ -4941,27 +5650,6 @@
 				"event": []
 			}],
 			"mapId": 433
-		}
-	}, {
-		"type": "NPC",
-		"x": 1249,
-		"y": 886,
-		"level": {
-			"level": 1,
-			"offset": 8
-		},
-		"settings": {
-			"name": "",
-			"characterName": "cross-worlds.pentafist-female-blue",
-			"npcStates": [{
-				"reactType": "FIXED_POS",
-				"face": "SOUTH",
-				"hidden": false,
-				"condition": "",
-				"config": "ground",
-				"event": []
-			}],
-			"mapId": 434
 		}
 	}, {
 		"type": "NPC",
@@ -4983,189 +5671,21 @@
 		}
 	}, {
 		"type": "NPC",
-		"x": 411,
-		"y": 487,
+		"x": 988,
+		"y": 1220,
 		"level": 1,
 		"settings": {
 			"name": "",
-			"characterName": "cross-worlds.quadroguard-male-blond",
+			"characterName": "cross-worlds.sphero-male-brown",
 			"npcStates": [{
 				"reactType": "FIXED_POS",
 				"face": "SOUTH",
 				"hidden": false,
 				"condition": "",
-				"config": "ground",
+				"config": "sit",
 				"event": []
 			}],
-			"mapId": 436
-		}
-	}, {
-		"type": "Prop",
-		"x": 740,
-		"y": 1296,
-		"level": {
-			"level": 1,
-			"offset": 56
-		},
-		"settings": {
-			"name": "",
-			"mapId": 171,
-			"propType": {
-				"sheet": "guildac",
-				"name": "signClass"
-			},
-			"propAnim": "spheroknight",
-			"condAnims": []
-		}
-	}, {
-		"type": "Prop",
-		"x": 836,
-		"y": 1296,
-		"level": {
-			"level": 1,
-			"offset": 56
-		},
-		"settings": {
-			"name": "",
-			"mapId": 174,
-			"propType": {
-				"sheet": "guildac",
-				"name": "signClass"
-			},
-			"propAnim": "quadrotect",
-			"condAnims": []
-		}
-	}, {
-		"type": "Prop",
-		"x": 676,
-		"y": 1360,
-		"level": {
-			"level": 1,
-			"offset": 56
-		},
-		"settings": {
-			"name": "",
-			"mapId": 177,
-			"propType": {
-				"sheet": "guildac",
-				"name": "signClass"
-			},
-			"propAnim": "hexummoner",
-			"condAnims": []
-		}
-	}, {
-		"type": "Prop",
-		"x": 740,
-		"y": 1520,
-		"level": {
-			"level": 1,
-			"offset": 56
-		},
-		"settings": {
-			"name": "",
-			"mapId": 180,
-			"propType": {
-				"sheet": "guildac",
-				"name": "signClass"
-			},
-			"propAnim": "hexabless",
-			"condAnims": []
-		}
-	}, {
-		"type": "Prop",
-		"x": 836,
-		"y": 1520,
-		"level": {
-			"level": 1,
-			"offset": 56
-		},
-		"settings": {
-			"name": "",
-			"mapId": 183,
-			"propType": {
-				"sheet": "guildac",
-				"name": "signClass"
-			},
-			"propAnim": "quadrocharge",
-			"condAnims": []
-		}
-	}, {
-		"type": "Prop",
-		"x": 900,
-		"y": 1456,
-		"level": {
-			"level": 1,
-			"offset": 56
-		},
-		"settings": {
-			"name": "",
-			"mapId": 186,
-			"propType": {
-				"sheet": "guildac",
-				"name": "signClass"
-			},
-			"propAnim": "pentagunner",
-			"condAnims": []
-		}
-	}, {
-		"type": "Prop",
-		"x": 676,
-		"y": 1456,
-		"level": {
-			"level": 1,
-			"offset": 56
-		},
-		"settings": {
-			"name": "",
-			"mapId": 189,
-			"propType": {
-				"sheet": "guildac",
-				"name": "signClass"
-			},
-			"propAnim": "triarchery",
-			"condAnims": []
-		}
-	}, {
-		"type": "Prop",
-		"x": 900,
-		"y": 1360,
-		"level": {
-			"level": 1,
-			"offset": 56
-		},
-		"settings": {
-			"name": "",
-			"mapId": 191,
-			"propType": {
-				"sheet": "guildac",
-				"name": "signClass"
-			},
-			"propAnim": "pentathief",
-			"condAnims": []
-		}
-	}, {
-		"type": "Prop",
-		"x": 848,
-		"y": 800,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-ne"
-			},
-			"mapId": 129
-		}
-	}, {
-		"type": "Prop",
-		"x": 720,
-		"y": 800,
-		"level": 1,
-		"settings": {
-			"propType": {
-				"sheet": "cargo-hold",
-				"name": "teleport-nw"
-			},
-			"mapId": 146
+			"mapId": 204
 		}
 	}, {
 		"type": "Prop",
@@ -5189,15 +5709,21 @@
 					"clearSide": false,
 					"type": "ADD_MSG_PERSON",
 					"person": {
-						"person": "main.lea",
+						"person": "guildac.susie",
 						"expression": "DEFAULT"
 					}
 				}, {
-					"name": "start",
-					"type": "LABEL"
+					"text": {
+						"en_US": "\\c[3]Spheroknight\\c[0]\n\n\\c[3]Spheroknight\\c[0] is good at handling many weapons, and that's what make this class different from \\c[3]Spheromancer\\c[0] that uses chakrams, and \\c[3]Triblader\\c[0] that uses swords.",
+						"ko_KR": "TODO"
+					},
+					"center": true,
+					"side": "LEFT",
+					"autoContinue": false,
+					"type": "SHOW_BOARD_MSG"
 				}, {
 					"text": {
-						"en_US": "TODO",
+						"en_US": "It's very difficult class because players must use a completely different weapons depending on player's element.\nNevertheless, this class remains highly popular because of it's coolness.",
 						"ko_KR": "TODO"
 					},
 					"center": true,
@@ -5236,15 +5762,21 @@
 					"clearSide": false,
 					"type": "ADD_MSG_PERSON",
 					"person": {
-						"person": "main.lea",
+						"person": "guildac.raclicia",
 						"expression": "DEFAULT"
 					}
 				}, {
-					"name": "start",
-					"type": "LABEL"
+					"text": {
+						"en_US": "\\c[3]Quadrotect\\c[0]\n\n\\c[3]Quadrotect\\c[0] is a defensive variant of \\c[3]Quadroguard\\c[0].\ntheir shields are better designed to protect the teams than to counter or attack opponents.",
+						"ko_KR": "TODO"
+					},
+					"center": true,
+					"side": "LEFT",
+					"autoContinue": false,
+					"type": "SHOW_BOARD_MSG"
 				}, {
 					"text": {
-						"en_US": "TODO",
+						"en_US": "It's not popoular because it's hard to fight alone, but in the raid or boss battle, it's one of the very preferred class like \\c[3]Hexablass\\c[0].",
 						"ko_KR": "TODO"
 					},
 					"center": true,
@@ -5283,15 +5815,21 @@
 					"clearSide": false,
 					"type": "ADD_MSG_PERSON",
 					"person": {
-						"person": "main.lea",
+						"person": "guildac.eisus",
 						"expression": "DEFAULT"
 					}
 				}, {
-					"name": "start",
-					"type": "LABEL"
+					"text": {
+						"en_US": "\\c[3]Hexummoner\\c[0]\n\n\\c[3]Hexummoner\\c[0] is the only class managing minions.\nminions can protect thair owners, or attack their enemies themselves.",
+						"ko_KR": "TODO"
+					},
+					"center": true,
+					"side": "LEFT",
+					"autoContinue": false,
+					"type": "SHOW_BOARD_MSG"
 				}, {
 					"text": {
-						"en_US": "TODO",
+						"en_US": "Owners can also order them to take certain actions, such as stronger attacks or self destruct.\nBut owners have no combat arts to attack or defend themselves at all, so their strength can only be demonstrated with minions.",
 						"ko_KR": "TODO"
 					},
 					"center": true,
@@ -5330,15 +5868,21 @@
 					"clearSide": false,
 					"type": "ADD_MSG_PERSON",
 					"person": {
-						"person": "main.lea",
+						"person": "guildac.hazel",
 						"expression": "DEFAULT"
 					}
 				}, {
-					"name": "start",
-					"type": "LABEL"
+					"text": {
+						"en_US": "\\c[3]Hexabless\\c[0]\n\n\\c[3]Hexabless\\c[0] is specialized class in healing and supporting teams.\nthis class is often perceived as weak, but their throw combat arts do not lag behind \\c[3]Hexacast\\c[0].",
+						"ko_KR": "TODO"
+					},
+					"center": true,
+					"side": "LEFT",
+					"autoContinue": false,
+					"type": "SHOW_BOARD_MSG"
 				}, {
 					"text": {
-						"en_US": "TODO",
+						"en_US": "However, this class is still reluctant to choose because of the responsibility of protecting the teams well.\nNevertheless it's one of the very preferred class in the raid or boss battle, like \\c[3]Quadrotect\\c[0].",
 						"ko_KR": "TODO"
 					},
 					"center": true,
@@ -5377,15 +5921,21 @@
 					"clearSide": false,
 					"type": "ADD_MSG_PERSON",
 					"person": {
-						"person": "main.lea",
+						"person": "guildac.riko",
 						"expression": "DEFAULT"
 					}
 				}, {
-					"name": "start",
-					"type": "LABEL"
+					"text": {
+						"en_US": "\\c[3]Quadrocharge\\c[0]\n\n\\c[3]Quadrocharge\\c[0] is a offensive variant of \\c[3]Quadroguard\\c[0]. their shields are better designed to counter or attack opponents than to defend themselves.",
+						"ko_KR": "TODO"
+					},
+					"center": true,
+					"side": "LEFT",
+					"autoContinue": false,
+					"type": "SHOW_BOARD_MSG"
 				}, {
 					"text": {
-						"en_US": "TODO",
+						"en_US": "So they battle by building up shield and then slamming enemies with that.\nApart from the way this class fights, this class is curiously popular because of the jet booster they put on their backs.",
 						"ko_KR": "TODO"
 					},
 					"center": true,
@@ -5424,15 +5974,21 @@
 					"clearSide": false,
 					"type": "ADD_MSG_PERSON",
 					"person": {
-						"person": "main.lea",
+						"person": "guildac.nevi",
 						"expression": "DEFAULT"
 					}
 				}, {
-					"name": "start",
-					"type": "LABEL"
+					"text": {
+						"en_US": "\\c[3]Pentagunner\\c[0]\n\n\\c[3]Pentagunner\\c[0] use a variety of firearms. They don't just use guns - they use explosives such as granades and landmines, and they also handle vehicles such as tanks and bombers.",
+						"ko_KR": "TODO"
+					},
+					"center": true,
+					"side": "LEFT",
+					"autoContinue": false,
+					"type": "SHOW_BOARD_MSG"
 				}, {
 					"text": {
-						"en_US": "TODO",
+						"en_US": "Because of it's coolness, this class is been the hottest lately.\nbut there have also been many players who overlook that it's the class that has lowest defense and not easy to handle.",
 						"ko_KR": "TODO"
 					},
 					"center": true,
@@ -5471,12 +6027,18 @@
 					"clearSide": false,
 					"type": "ADD_MSG_PERSON",
 					"person": {
-						"person": "main.lea",
+						"person": "guildac.ciel",
 						"expression": "DEFAULT"
 					}
 				}, {
-					"name": "start",
-					"type": "LABEL"
+					"text": {
+						"en_US": "\\c[3]Triarchery\\c[0]\n\n\\c[3]Triarchery\\c[0] is the hybrid class that has both strong close combat and long-range combat.\nThey use a bow to shoot strong arrows, and the bow can be divided into a pair of shortswords for close combat.",
+						"ko_KR": "TODO"
+					},
+					"center": true,
+					"side": "LEFT",
+					"autoContinue": false,
+					"type": "SHOW_BOARD_MSG"
 				}, {
 					"text": {
 						"en_US": "TODO",
@@ -5518,15 +6080,21 @@
 					"clearSide": false,
 					"type": "ADD_MSG_PERSON",
 					"person": {
-						"person": "main.lea",
+						"person": "guildac.shooty",
 						"expression": "DEFAULT"
 					}
 				}, {
-					"name": "start",
-					"type": "LABEL"
+					"text": {
+						"en_US": "\\c[3]Pentathief\\c[0]\n\n\\c[3]Pentathief\\c[0] is similar to \\c[3]Triblader\\c[0], but unlike them who use swords, they use a pair of daggers.",
+						"ko_KR": "TODO"
+					},
+					"center": true,
+					"side": "LEFT",
+					"autoContinue": false,
+					"type": "SHOW_BOARD_MSG"
 				}, {
 					"text": {
-						"en_US": "TODO",
+						"en_US": "They have short melee range, but similar to \\c[3]Pentafist\\c[0], they solve that weakness at a speed.\nTheir unique characteristic is the poison - their attacks poison their opponents, and no one can resist that.",
 						"ko_KR": "TODO"
 					},
 					"center": true,
@@ -5763,44 +6331,28 @@
 			"condAnims": []
 		}
 	}, {
-		"type": "EventTrigger",
-		"x": 544,
-		"y": 584,
-		"level": 0,
+		"type": "Prop",
+		"x": 848,
+		"y": 800,
+		"level": 1,
 		"settings": {
-			"name": "acInit",
-			"eventType": "PARALLEL",
-			"endCondition": "false",
-			"event": [{
-				"type": "IF",
-				"withElse": false,
-				"condition": "plot.arcaneLab.story.conductor==2",
-				"thenStep": [{
-					"changeType": "set",
-					"type": "CHANGE_VAR_NUMBER",
-					"varName": "plot.arcaneLab.story.conductor",
-					"value": 3
-				}, {
-					"mode": "SLOWEST",
-					"delayed": false,
-					"type": "RESUME_DEFAULT_BGM"
-				}, {
-					"type": "SOLVE_QUEST_CONDITION",
-					"quest": {
-						"quest": "arcanelab.conductor",
-						"label": "beat"
-					}
-				}, {
-					"ignoreSlowDown": false,
-					"type": "WAIT",
-					"time": 0.1
-				}, {
-					"type": "RESOLVE_FINISHED_QUESTS"
-				}]
-			}],
-			"triggerType": "ONCE_PER_ENTRY",
-			"startCondition": "",
-			"mapId": 437
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-ne"
+			},
+			"mapId": 129
+		}
+	}, {
+		"type": "Prop",
+		"x": 720,
+		"y": 800,
+		"level": 1,
+		"settings": {
+			"propType": {
+				"sheet": "cargo-hold",
+				"name": "teleport-nw"
+			},
+			"mapId": 146
 		}
 	}],
 	"layer": [{
@@ -5930,7 +6482,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 0,
 		"type": "Background",
@@ -6059,7 +6612,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 2,
 		"type": "Background",
@@ -6188,7 +6742,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 12,
 		"type": "Background",
@@ -6317,7 +6872,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 5,
 		"type": "Collision",
@@ -6446,7 +7002,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 7,
 		"type": "Navigation",
@@ -6575,7 +7132,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 1,
 		"type": "Background",
@@ -6704,7 +7262,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 3,
 		"type": "Background",
@@ -6833,7 +7392,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 4,
 		"type": "Background",
@@ -6962,7 +7522,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 8,
 		"type": "Background",
@@ -7091,7 +7652,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 9,
 		"type": "Background",
@@ -7220,7 +7782,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 10,
 		"type": "Background",
@@ -7349,7 +7912,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"id": 6,
 		"type": "Light",
@@ -7478,7 +8042,8 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}, {
 		"type": "Background",
 		"name": "Teleporter",
@@ -7605,6 +8170,7 @@
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
+		],
+		"lighter": false
 	}]
 }

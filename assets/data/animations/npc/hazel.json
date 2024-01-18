@@ -2,18 +2,10 @@
     "DOCTYPE": "MULTI_DIR_ANIMATION",
     "namedSheets": {
         "walk": {
-            "src": "media/entity/npc/shooty.png",
+            "src": "media/entity/npc/hazel.png",
             "xCount": 3,
             "offX": 0,
             "offY": 0,
-            "width": 32,
-            "height": 40
-        },
-        "poses": {
-            "src": "media/entity/npc/shooty.png",
-            "xCount": 16,
-            "offX": 0,
-            "offY": 200,
             "width": 32,
             "height": 40
         }
@@ -44,17 +36,6 @@
             "time": 0.133,
             "repeat": true,
             "frames": [0, 1, 2, 1]
-        }]
-    }, {
-        "sheet": "poses",
-        "dirs": "4",
-        "flipX": [0, 0, 0, 1],
-        "tileOffsets": [0, 16, 32, 16],
-        "SUB": [{
-            "name": "sit",
-            "time": 0.1,
-            "repeat": false,
-            "frames": [0]
         }]
     }]
 }

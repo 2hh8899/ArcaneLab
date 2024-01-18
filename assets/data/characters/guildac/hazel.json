@@ -1,0 +1,242 @@
+{
+    "name": {
+        "en_US": "Hazel",
+        "ko_KR": "헤이즐"
+    },
+    "size": {
+        "x": 16,
+        "y": 16,
+        "z": 24
+    },
+    "animSheet": "npc.hazel",
+    "walkAnimSet": {
+        "normal": {
+            "idle": "idle",
+            "move": "walk",
+            "run": "run",
+            "jump": "jump",
+            "fall": "fall"
+        },
+        "sit": {
+            "idle": "sit"
+        }
+    },
+    "walkAnims": "normal",
+    "shadow": 16,
+    "configs": {
+        "normal": {
+            "relativeVel": 0.5
+        },
+        "running": {
+            "relativeVel": 1
+        },
+        "sit": {
+            "walkAnims": "sit",
+            "relativeVel": 0.5
+        }
+    },
+    "face": {
+        "width": 164,
+        "height": 196,
+        "centerX": 66,
+        "centerY": 88,
+        "src": "hazel.png",
+        "parts": [{
+            "straight": {
+                "srcX": 351,
+                "srcY": 0,
+                "width": 96,
+                "height": 67,
+                "destX": 32,
+                "destY": 129
+            }
+        }, {
+            "norm": {
+                "srcX": 0,
+                "srcY": 0,
+                "width": 164,
+                "height": 71,
+                "destX": 0,
+                "destY": 0
+            }
+        }, {
+            "normNeutral": {
+                "srcX": 0,
+                "srcY": 71,
+                "width": 127,
+                "height": 58,
+                "destX": 28,
+                "destY": 71,
+                "subX": 41,
+                "subY": 51
+            },
+            "normSmile": {
+                "srcX": 0,
+                "srcY": 129,
+                "width": 127,
+                "height": 58,
+                "destX": 28,
+                "destY": 71,
+                "subX": 41,
+                "subY": 51
+            }
+        }, {
+            "normNeutralEye1": {
+                "srcX": 0,
+                "srcY": 382,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            },
+            "normNeutralEye2": {
+                "srcX": 0,
+                "srcY": 393,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            },
+            "normNeutralEye3": {
+                "srcX": 0,
+                "srcY": 404,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            },
+            "normNeutralEye4": {
+                "srcX": 0,
+                "srcY": 415,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            },
+            "normNeutralEye5": {
+                "srcX": 0,
+                "srcY": 426,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            },
+            "normNeutralEye6": {
+                "srcX": 0,
+                "srcY": 437,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            },
+            "normWinkEye1": {
+                "srcX": 35,
+                "srcY": 382,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            },
+            "normWinkEye2": {
+                "srcX": 35,
+                "srcY": 393,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            },
+            "normWinkEye3": {
+                "srcX": 35,
+                "srcY": 404,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            },
+            "normWinkEye4": {
+                "srcX": 35,
+                "srcY": 415,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            },
+            "normWinkEye5": {
+                "srcX": 35,
+                "srcY": 426,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            },
+            "normWinkEye6": {
+                "srcX": 35,
+                "srcY": 437,
+                "width": 35,
+                "height": 11,
+                "destX": 10,
+                "destY": 30,
+                "subX": 81,
+                "subY": 51
+            }
+        }],
+        "expressions": {
+            "DEFAULT": {
+                "anim": [0, 1, 2, 3, 4, 5],
+                "time": 0.15,
+                "repeat": -1,
+                "faces": [
+                    ["straight", "norm", "normNeutral", "normNeutralEye1"],
+                    ["straight", "norm", "normNeutral", "normNeutralEye2"],
+                    ["straight", "norm", "normNeutral", "normNeutralEye3"],
+                    ["straight", "norm", "normNeutral", "normNeutralEye4"],
+                    ["straight", "norm", "normNeutral", "normNeutralEye5"],
+                    ["straight", "norm", "normNeutral", "normNeutralEye6"]
+                ]
+            },
+            "WINK": {
+                "anim": [0, 1, 2, 3, 4, 5],
+                "time": 0.15,
+                "repeat": -1,
+                "faces": [
+                    ["straight", "norm", "normNeutral", "normWinkEye1"],
+                    ["straight", "norm", "normNeutral", "normWinkEye2"],
+                    ["straight", "norm", "normNeutral", "normWinkEye3"],
+                    ["straight", "norm", "normNeutral", "normWinkEye4"],
+                    ["straight", "norm", "normNeutral", "normWinkEye5"],
+                    ["straight", "norm", "normNeutral", "normWinkEye6"]
+                ]
+            },
+            "SMILE": {
+                "anim": [0],
+                "time": 0.15,
+                "repeat": 0,
+                "faces": [
+                    ["straight", "norm", "normSmile"]
+                ]
+            }
+        }
+    }
+}

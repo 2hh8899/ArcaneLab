@@ -345,7 +345,7 @@ ig.module("game.feature.menu.gui.al-modifier-card-menu").requires("impact.featur
             this.crossGui.setPos(-10, 9);
             b.addChildGui(this.crossGui);
             this.useCount = new sc.NumberGui(99);
-            this.useCount.setNumber(this.required);
+            this.useCount.setNumber(this.required - 6);
             this.useCount.setAlign(ig.GUI_ALIGN.X_RIGHT, ig.GUI_ALIGN.Y_TOP);
             this.useCount.setPos(-28, 7);
             b.addChildGui(this.useCount);
@@ -391,7 +391,7 @@ ig.module("game.feature.menu.gui.al-modifier-card-menu").requires("impact.featur
             sc.menu.buttonInteract.addGlobalButton(this.decFrag, this.onLeftPressCheck.bind(this), true);
             sc.menu.buttonInteract.addGlobalButton(this.incFrag, this.onRightPressCheck.bind(this), true);
 			sc.menu.pushBackCallback(this.onBackButtonPress.bind(this));
-			this.useAmount = 7;
+			this.useAmount = 3;
 			this.decFrag.setActive(false);
 			this.incFrag.setActive(true);
 			this.updateNumbers(true);
@@ -421,9 +421,9 @@ ig.module("game.feature.menu.gui.al-modifier-card-menu").requires("impact.featur
 				modifi2 = createCardModifier(dboP, dboB).modifier,
 				modifi3 = createCardModifier(dboB, dboN).modifier;
 			ig.gui.addGuiElement(this.craftResultModal);
-			this.craftResultModal.show([modifi1, modifi2, modifi3], this.useAmount);
+			this.craftResultModal.show([modifi1, modifi2, modifi3], this.useAmount+4);
 			ig.vars.get("modifier-cards.list").push({
-				size: this.useAmount,
+				size: this.useAmount+4,
 				done: false,
 				modifier: [modifi1, modifi2, modifi3],
 				tried: [[], [], []],
@@ -449,11 +449,11 @@ ig.module("game.feature.menu.gui.al-modifier-card-menu").requires("impact.featur
 				i.removeAllChildren();
 			}
 			for(var i=0; i<3; i++) {
-				for(var j=0; j<this.useAmount; j++) {
+				for(var j=0; j<(this.useAmount+4); j++) {
 					var mm = new ig.ImageGui(new ig.Image("media/gui/al-modifier-card.png"), i==2?0:22, 0, 22, 22);
-					mm.setPos(18 + (195/this.useAmount)*j, 0);
+					mm.setPos(18 + (195/(this.useAmount+4))*j, 0);
 					this.modifierIcons[i].addChildGui(mm);
-					this.slotIcons[(i*this.useAmount) + j] = mm;
+					this.slotIcons[(i*(this.useAmount+4)) + j] = mm;
 				}
 			}
 		},
@@ -461,10 +461,10 @@ ig.module("game.feature.menu.gui.al-modifier-card-menu").requires("impact.featur
 			return sc.control.menuHotkeyHelp2()
 		},
         changeFragCount: function(b) {
-			this.useAmount = Math.min(Math.max(this.useAmount + b, 7), 14);
-			if(this.useAmount == 7) {
+			this.useAmount = Math.min(Math.max(this.useAmount + b, 3), 10);
+			if(this.useAmount == 3) {
 				this.decFrag.setActive(false);
-			}else if(this.useAmount == 14) {
+			}else if(this.useAmount == 8) {
 				this.incFrag.setActive(false);
 			}else {
 				this.decFrag.setActive(true);
@@ -547,11 +547,11 @@ ig.module("game.feature.menu.gui.al-modifier-card-menu").requires("impact.featur
             this.buttongroup = this.list.buttonGroup;
             this.buttongroup.addPressCallback(function(a) {
 				var b = ig.lang.get("sc.gui.menu.al-modifier-card.dismantleCard"),
-					b = ig.lang.grammarReplace(b, Math.floor(a.data.size/2));
+					b = ig.lang.grammarReplace(b, Math.floor((a.data.size-3)/2));
 				sc.Dialogs.showYesNoDialog(b, sc.DIALOG_INFO_ICON.WARNING, function(b) {
 					if (b.data == 0) {
 						this.confirm.play();
-						sc.model.player.addItem("key-arcanelab-modifier-frag", Math.floor(a.data.size/2), true);
+						sc.model.player.addItem("key-arcanelab-modifier-frag", Math.floor((a.data.size-3)/2), true);
 						a.dismantle();
 						ig.vars.get("modifier-cards.list").splice(ig.vars.get("modifier-cards.list").indexOf(a.data), 1);
 						for(var e of ig.vars.get("modifier-cards.list")) {

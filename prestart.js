@@ -20,6 +20,8 @@ import "./js/game/feature/map-content/entities/custom-entities.js";
 import "./js/game/feature/menu/custom-skills.js";
 import "./js/game/feature/menu/custom-teleporter-map.js";
 
+import "./js/game/feature/msg/msg-simult.js";
+
 import "./js/game/feature/party/custom-party.js";
 
 import "./js/game/feature/player/entities/dash-fix.js";

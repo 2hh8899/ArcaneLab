@@ -18,7 +18,7 @@
 			"transitionType": "INTER_AREA",
 			"narrow": true,
 			"mapId": 19,
-			"map": "evo-village.interior.lab",
+			"map": "guildac.elevator-g",
 			"marker": "exit",
 			"variation": "bright",
 			"condition": "true"

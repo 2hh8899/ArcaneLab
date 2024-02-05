@@ -5,12 +5,14 @@
 	"type": "ADD_ARRAY_ELEMENT",
 	"content": {
 		"id": "guildac.susie-hacked",
-		"img" : "media/gui/severed-heads/susie-hacked.png"
+		"img" : "media/gui/severed-heads/susie-hacked.png",
+		"name" : "susie-hacked"
 	}
 },{
 	"type": "ADD_ARRAY_ELEMENT",
 	"content": {
 		"id": "guildac.susie",
-		"img" : "media/gui/severed-heads/susie.png"
+		"img" : "media/gui/severed-heads/susie.png",
+		"name" : "susie"
 	}
 }]

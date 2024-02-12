@@ -1221,7 +1221,7 @@
         "settings": {
             "name": "vectorRestore",
             "eventType": "PARALLEL",
-            "startCondition": "true",
+            "startCondition": "player.entity.name == 'Vector'",
             "endCondition": "false",
             "triggerType": "ONCE_PER_ENTRY",
             "mapId": 9251,

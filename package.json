@@ -9,7 +9,8 @@
     "ccmodDependencies": {
         "item-api": "^0.*",
         "extendable-severed-heads": "^1.1.0",
-        "modifier-api": "^0.1.0"
+        "modifier-api": "^0.1.0",
+	"cc-alybox": ">=1.0.0"
     },
     "scripts": {
         "format": "npm run minify-json && npm run json-beautify && npm run js-beautify",

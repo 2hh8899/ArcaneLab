@@ -4,7 +4,7 @@
   "title": "\\c[3]Arcane Lab\\c[0]",
   "description": ":)",
   "repository": "https://github.com/2hh8899/ArcaneLab",
-  "tags": ["character", "maps", "boss", "puzzle"],
+  "tags": ["player character", "party member", "maps", "quests", "boss", "puzzle"],
   "authors": ["eisus", "ac2pic", "WatDuhHekBro"],
   "dependencies": {
     "ccloader": "^2.14.1",

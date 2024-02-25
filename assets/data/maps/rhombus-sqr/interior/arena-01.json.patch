@@ -10,8 +10,8 @@
         "level": 0,
         "settings": {
             "name": "vectorRestore",
-            "eventType": "PARALLEL",
-            "startCondition": "true",
+            "eventType": "INTERRUPTABLE",
+            "startCondition": "player.entity.name == 'Vector'",
             "endCondition": "false",
             "triggerType": "ONCE_PER_ENTRY",
             "mapId": 2251,

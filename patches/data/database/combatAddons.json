@@ -1,0 +1,12 @@
+{
+    "combatAddons": {
+		"type": "MULTI",
+		"name": {
+			"en_US": "Combat Addons",
+			"ko_KR": "전투 애드온"
+		},
+		"order": 200,
+		"color": "#036",
+		"items": ["toggle-arcanelab-skill", "toggle-arcanelab-modifier-card"]
+	}
+}

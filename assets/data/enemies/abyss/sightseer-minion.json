@@ -1,0 +1,583 @@
+{
+    "level": 70,
+    "params": {
+        "hp": 5000,
+        "attack": 450,
+        "defense": 350,
+        "focus": 400,
+        "elemFactor": [0.5, 0.6, 1.5, 0.8],
+        "statusInflict": [0.6, 0.5, 0.4, 4],
+        "statusEffect": [0.2, 0.2, 1, 4]
+    },
+    "credit": 0,
+    "exp": 0,
+    "maxSp": 0,
+    "enduranceScale": 3,
+    "healDropRate": 0,
+    "boss": false,
+    "bossOrder": 0,
+    "padding": {
+        "x": 2,
+        "y": 2
+    },
+    "material": "ORGANIC",
+    "aiGroup": "",
+    "aiLearnType": "REGULAR",
+    "itemDrops": [],
+    "targetDetect": {
+        "detectDistance": 120,
+        "loseDistance": 10000,
+        "notifyNeighbourRadius": 100,
+        "onDistance": true
+    },
+    "hpBreaks": [],
+    "size": {
+        "x": 16,
+        "y": 6,
+        "z": 24
+    },
+    "anims": "enemies.sightseer",
+    "defaultState": "HIDDEN",
+    "walkConfigs": {
+        "normal": {
+            "idle": "idle",
+            "damage": "damage"
+        },
+        "weak": {
+            "idle": "damage",
+            "damage": "damage"
+        },
+        "hidden": {
+            "idle": "hidden"
+        }
+    },
+    "_wm": null,
+    "walkAnims": "normal",
+    "weight": 80,
+    "maxVel": 180,
+    "jumpingEnabled": true,
+    "shadow": 16,
+    "floatVariance": 4,
+    "floatMaxSpeed": 500,
+    "floatAccel": 3,
+    "flyHeight": 5,
+    "ballFactor": 1.2,
+    "hitStable": "LIGHT",
+    "faceToTarget": true,
+    "annotate": {
+        "active": "NONE",
+        "passive": "NONE",
+        "weapon": "RANGED",
+        "element": "ANY",
+        "extra": []
+    },
+    "DOCTYPE": "ENEMY",
+    "trackers": {
+        "meleeHits": {
+            "target": 3,
+            "scaleDmgFactor": false,
+            "scaleEnemyFactor": false,
+            "noStateReset": false,
+            "type": "HIT"
+        },
+        "WEAK_REGEN": {
+            "target": 20,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": false,
+            "type": "TIME"
+        }
+    },
+    "states": {
+        "IDLE": {
+            "choices": [{
+                "req": [{
+                    "type": "HAS_TARGET"
+                }],
+                "postSwitchState": "DEFAULT"
+            }]
+        },
+        "DEFAULT": {
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "!VAR_CONDITION",
+                    "condition": "tmp.bossBeam"
+                }],
+                "action": "Out"
+            }, {
+                "req": [{
+                    "type": "!HAS_TARGET"
+                }],
+                "action": "Idle"
+            }, {
+                "req": [{
+                    "distance": 250,
+                    "throwing": false,
+                    "type": "!TARGET_REACHABLE"
+                }],
+                "action": "Adjust"
+            }, {
+                "req": [{
+                    "min": 0,
+                    "max": 120,
+                    "negated": false,
+                    "type": "TARGET_DISTANCE"
+                }],
+                "action": "Escape",
+                "ignoreStun": true
+            }, {
+                "action": "Laser",
+                "frequency": "NORMAL"
+            }, {
+                "action": "Idle"
+            }]
+        },
+        "WEAK": {
+            "walkAnims": "weak",
+            "flyKeepHeight": true,
+            "damageFactor": 1.2,
+            "annotate": {
+                "active": "NONE",
+                "passive": "WEAK",
+                "weapon": "ANY",
+                "element": "ANY",
+                "extra": []
+            },
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "WEAK_REGEN"
+                }],
+                "action": "WeakEnd",
+                "preSwitchState": "DEFAULT",
+                "ignoreStun": true
+            }]
+        },
+        "HIDDEN": {
+			"appearAction": "Start",
+            "walkAnims": "hidden",
+            "weight": -1,
+            "collType": "TRIGGER",
+            "flyHeight": 0,
+            "damageFactor": 0,
+            "aggression": "PEACEFUL",
+            "choices": [{
+                "req": [{
+                    "min": 0,
+                    "max": 160,
+                    "negated": false,
+                    "type": "TARGET_DISTANCE"
+                }, {
+                    "negated": false,
+                    "type": "HAS_TARGET"
+                }],
+                "action": "Appear",
+                "preSwitchState": "DEFAULT"
+            }, {
+                "action": "Idle"
+            }]
+        },
+        "PASSIVE_INVIS": {
+            "weight": -1,
+            "hitIgnore": true,
+            "aggression": "PEACEFUL",
+            "annotate": {
+                "active": "NONE",
+                "passive": "IMMUNE",
+                "weapon": "ANY",
+                "element": "ANY",
+                "extra": []
+            },
+            "choices": []
+        }
+    },
+    "proxies": {
+		"laser": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+                "value": 1,
+                "forwardToProxies": false,
+                "type": "SET_DAMAGE_CEILING"
+            }, {
+				"time": 1,
+				"type": "WAIT"
+			}, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "PROXY_OWNER",
+				"target2Offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": -4
+                },
+                "target2Align": "TOP",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.heat-dng",
+                    "name": "darthMothLaser"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 16,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MEDIUM",
+                    "element": "HEAT",
+                    "damageFactor": 0.4,
+                    "reverse": false,
+                    "status": 9,
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": false,
+				"immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "value": 300,
+                "type": "SET_SPEED"
+            }, {
+                "time": 1.32,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "startAnim": "",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 0
+            },
+            "config": {},
+            "type": "GENERIC"
+        }
+	},
+    "actions": {
+		"Start": [{
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "group": "",
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "teleport",
+                "name": "showAlphaInstant_2"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "Idle": [{
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "minTime": 0.1,
+            "maxTime": 0.3,
+            "type": "WAIT_RANDOM"
+        }],
+        "Adjust": [{
+            "value": 0.6,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 1,
+            "forceTime": false,
+            "distance": 100,
+            "stayBehind": false,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_TO_TARGET"
+        }],
+        "Escape": [{
+            "value": 24,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": "MEDIUM",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "maxTime": 1,
+            "distance": 200,
+            "throwing": true,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }],
+        "Out": [{
+            "value": 5000,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 10,
+            "type": "WAIT"
+        }, {
+			"noReward": true,
+			"type": "SELF_DESTRUCT"
+		}],
+        "Laser": [{
+            "value": 1.7,
+            "forwardToProxies": false,
+            "type": "SET_DAMAGE_CEILING"
+        }, {
+            "maxTime": 0.5,
+            "distance": 180,
+            "throwing": true,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }, {
+            "value": "HEAVY",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "duration": -1,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.heat-dng",
+                "name": "darthMothCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": -1,
+            "align": "TOP",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "fire",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.heat-dng",
+                "name": "mothBigCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": -4
+            }
+        }, {
+            "align": "BASE",
+            "type": "SHOOT_PROXY",
+            "proxy": "laser",
+			"posType": "TARGET",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 8
+            }
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }, {
+            "group": "fire",
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "duration": -1,
+            "align": "TOP",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "laser",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.heat-dng",
+                "name": "darthMothLaserSrc"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": -4
+            }
+        }, {
+            "active": "ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "type": "WAIT_UNTIL_PROXIES_DONE"
+        }, {
+            "group": "laser",
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "type": "ENABLE_REACTION",
+            "reaction": "MELEE_WEAK"
+        }, {
+            "duration": 3.5,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "charge",
+                "name": "light"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 7.5,
+            "type": "WAIT"
+        }],
+        "Appear": [{
+			"duration": 0,
+			"align": "BOTTOM",
+			"rotateFace": 0,
+			"flipLeftFace": false,
+			"wait": false,
+			"waitSkip": 0,
+			"actionDetached": false,
+			"fixPos": false,
+			"type": "SHOW_EFFECT",
+			"effect": {
+				"sheet": "dust",
+				"name": "large"
+			},
+			"offset": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		}, {
+            "wait": true,
+            "viaWalkConfig": false,
+            "anim": "appear",
+            "type": "SHOW_ANIMATION"
+        }],
+        "WeakStart": [{
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": true,
+            "group": "weak",
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemy",
+                "name": "angry2"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }],
+        "WeakEnd": [{
+            "group": "weak",
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }]
+    },
+    "reactions": {
+        "MELEE_WEAK": {
+            "hitType": "REGULAR",
+            "preAction": "weakStart",
+            "preSwitchState": "WEAK",
+            "blockFurtherHits": false,
+            "attackType": "MASSIVE",
+            "flyLevel": "MASSIVE",
+            "stunChange": "FORCE_STUN",
+            "alignFace": false,
+            "dramaticEffect": "BREAK_LIGHT",
+            "conditions": [{
+                "type": "!IS_BALL"
+            }, {
+                "negated": false,
+                "type": "TRACKER_READY",
+                "name": "meleeHits"
+            }],
+            "type": "HIT_REACTION"
+        }
+	},
+    "meta": {
+        "species": {
+            "en_US": "Deep-sea Fear",
+            "ko_KR": "심해의 공포"
+        },
+        "category": "ANIMALS",
+        "descriptions": [{
+            "text": {
+                "en_US": "",
+                "ko_KR": ""
+            },
+            "condition": ""
+        }]
+    }
+}

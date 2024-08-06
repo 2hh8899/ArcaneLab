@@ -1,0 +1,12 @@
+{
+	"namedSheets": {
+		"guildac-custom-skills": {
+			"src": "media/entity/player/skins/xmas-guildac-custom.png",
+			"offX": 0,
+			"offY": 0,
+			"xCount": 8,
+			"width": 32,
+			"height": 40
+		}
+	}
+}

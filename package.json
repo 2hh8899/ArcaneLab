@@ -1,11 +1,25 @@
 {
-	"name": "\\c[3]Arcane Lab\\c[0]",
-	"description" : ":)",
-	"prestart": "prestart.js",
-	"version": "0.1.1",
+    "name": "arcane-labs",
+    "displayName": "\\c[1]Arcane \\c[3]Lab\\c[0]",
+    "description": "Adds new \\c[3]areas, bosses, classes, and more! \\c[0]",
+    "prestart": "prestart.js",
+	"main": "poststart.js",
+    "version": "0.1.7",
     "module": true,
-  "dependencies": {
-    "ccloader": "^2.14.1",
-    "extendable-severed-heads": "^1.0.0"
-  }
+    "ccmodDependencies": {
+        "item-api": "^0.*",
+        "extendable-severed-heads": "^1.0.0",
+        "modifier-api": "^0.1.0",
+		"cc-alybox": ">=1.0.0"
+    },
+    "scripts": {
+        "format": "npm run minify-json && npm run json-beautify && npm run js-beautify",
+        "minify-json": "minify-json ./",
+        "js-beautify": "js-beautify -js -q -r -f ./**/*.js",
+        "json-beautify": "js-beautify -js -r -f ./**/*.json"
+    },
+    "dependencies": {
+        "js-beautify": "^1.10.3",
+        "minify-json": "^1.0.0"
+    }
 }

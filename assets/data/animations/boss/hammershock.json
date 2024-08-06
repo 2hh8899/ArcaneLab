@@ -1,0 +1,197 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "body": {
+            "src": "media/entity/enemy/boss/hammershock.png",
+            "xCount": 4,
+            "offX": 0,
+            "offY": 0,
+            "width": 218,
+            "height": 140
+        },
+        "eyes": {
+            "src": "media/entity/enemy/boss/hammershock-eyes.png",
+            "xCount": 4,
+            "offX": 0,
+            "offY": 0,
+            "width": 218,
+            "height": 140
+        },
+        "boosters": {
+            "src": "media/entity/enemy/boss/hammershock-boosters.png",
+            "xCount": 4,
+            "offX": 0,
+            "offY": 0,
+            "width": 218,
+            "height": 140
+        },
+        "parts": {
+            "src": "media/entity/enemy/boss/hammershock-parts.png",
+            "xCount": 4,
+            "offX": 0,
+            "offY": 0,
+            "width": 218,
+            "height": 140
+        }
+    },
+    "offset": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "shapeType": "Z_FLAT",
+	"dirs": "1",
+	"flipX": [0],
+	"tileOffsets": [0],
+	"time": 0.1,
+	"repeat": true,
+    "SUB": [{
+        "sheet": "body",
+        "SUB": [{
+			"frames": [0],
+			"SUB": [{
+				"name": "idle"
+			}, {
+				"name": "damage"
+			}, {
+				"name": "beamStart"
+			}, {
+				"name": "beam"
+			}, {
+				"name": "beamEnd"
+			}, {
+				"name": "mortarStart"
+			}, {
+				"name": "mortar"
+			}, {
+				"name": "mortarEnd"
+			}]
+		}, {
+			"frames": [6],
+			"SUB": [{
+				"name": "idleT"
+			}, {
+				"name": "damageT"
+			}]
+		}, {
+			"frames": [1, 2, 3, 4, 5],
+			"time": 0.07,
+            "name": "transform"
+		}, {
+			"frames": [7, 8, 9, 10, 11],
+			"time": 0.07,
+            "name": "attackT"
+		}]
+    }, {
+        "sheet": "parts",
+        "SUB": [{
+			"time": 0.2,
+			"repeat": false,
+			"frames": [0, 1, 2],
+			"name": "beamStart"
+		}, {
+			"time": 0.2,
+			"frames": [2],
+			"name": "beam"
+		}, {
+			"time": 0.2,
+			"repeat": false,
+			"frames": [2, 1, 0],
+			"name": "beamEnd"
+		}, {
+			"time": 0.13,
+			"repeat": false,
+			"frames": [4, 5, 6, 7],
+			"name": "mortarStart"
+		}, {
+			"time": 0.13,
+			"frames": [7],
+			"name": "mortar"
+		}, {
+			"time": 0.13,
+			"repeat": false,
+			"frames": [7, 6, 5, 4],
+			"name": "mortarEnd"
+		}]
+    }, {
+        "sheet": "eyes",
+		"time": 0.1,
+        "SUB": [{
+			"frames": [0, 0, 0, 0, 0, 0, 1, 2, 1],
+			"globalTiming": true,
+			"SUB": [{
+				"name": "idle"
+			}, {
+				"name": "beamStart"
+			}, {
+				"name": "beam"
+			}, {
+				"name": "beamEnd"
+			}, {
+				"name": "mortarStart"
+			}, {
+				"name": "mortar"
+			}, {
+				"name": "mortarEnd"
+			}]
+		}, {
+			"frames": [3],
+			"name": "damage"
+		}, {
+			"frames": [4, 5, 6, 8, 8],
+			"time": 0.07,
+            "name": "transform"
+		}, {
+			"frames": [8, 8, 8, 8, 8, 8, 9, 10, 9],
+			"globalTiming": true,
+			"SUB": [{
+				"name": "idleT"
+			}, {
+				"name": "attackT",
+				"time": 0.07
+			}]
+		}, {
+			"frames": [11],
+			"name": "damageT"
+		}]
+    }, {
+        "sheet": "boosters",
+		"time": 0.08,
+        "SUB": [{
+			"frames": [0, 1, 2, 3],
+			"globalTiming": true,
+			"SUB": [{
+				"name": "idle"
+			}, {
+				"name": "damage"
+			}, {
+				"name": "beamStart"
+			}, {
+				"name": "beam"
+			}, {
+				"name": "beamEnd"
+			}, {
+				"name": "mortarStart"
+			}, {
+				"name": "mortar"
+			}, {
+				"name": "mortarEnd"
+			}]
+		}, {
+			"frames": [4, 5, 6, 11, 8],
+			"time": 0.07,
+            "name": "transform"
+		}, {
+			"frames": [8, 9, 10, 11],
+			"globalTiming": true,
+			"SUB": [{
+				"name": "idleT"
+			}, {
+				"name": "attackT",
+				"time": 0.07
+			}, {
+				"name": "damageT"
+			}]
+		}]
+    }]
+}

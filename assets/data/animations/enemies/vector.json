@@ -1,0 +1,68 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "move": {
+            "src": "media/entity/enemy/vector.png",
+            "width": 124,
+            "height": 101,
+            "xCount": 10
+        },
+        "fire": {
+            "src": "media/entity/enemy/vector.png",
+            "width": 124,
+            "height": 101,
+            "xCount": 10,
+            "offY": 303
+        },
+        "dodge": {
+            "src": "media/entity/enemy/vector.png",
+            "width": 124,
+            "height": 101,
+            "xCount": 10,
+            "offY": 606
+        }
+    },
+    "shapeType": "Y_FLAT",
+	"dirs": 6,
+	"time": 0.07,
+    "SUB": [{
+        "sheet": "move",
+		"repeat": true,
+		"tileOffsets": [0, 10, 20, 20, 10, 0],
+		"flipX": [0, 0, 0, 1, 1, 1],
+        "SUB": [{
+            "name": "idle",
+            "frames": [4, 5]
+        }, {
+            "name": "move",
+            "frames": [2, 3]
+        }, {
+            "name": "dash",
+            "frames": [0, 1]
+        }, {
+            "name": "back",
+            "frames": [6, 7]
+        }]
+    }, {
+        "sheet": "fire",
+		"repeat": false,
+		"tileOffsets": [0, 10, 20, 20, 10, 0],
+		"flipX": [0, 0, 0, 1, 1, 1],
+        "SUB": [{
+            "name": "attack",
+            "frames": [0, 1, 2, 3]
+        }]
+    }, {
+        "sheet": "dodge",
+		"repeat": false,
+		"flipX": [0, 0, 0, 1, 1, 1],
+		"frames": [0, 1, 2, 3, 4],
+        "SUB": [{
+            "name": "dodgeleft",
+			"tileOffsets": [0, 10, 20, 25, 15, 5]
+        }, {
+            "name": "dodgeright",
+			"tileOffsets": [5, 15, 25, 20, 10, 0]
+        }]
+    }]
+}

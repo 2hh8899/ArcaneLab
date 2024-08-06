@@ -1,0 +1,19 @@
+{
+  "id": "arcane-lab",
+  "version": "0.1.8",
+  "title": "\\c[3]Arcane Lab\\c[0]",
+  "description": ":)",
+  "repository": "https://github.com/2hh8899/ArcaneLab",
+  "tags": ["player character", "party member", "maps", "quests", "boss", "puzzle"],
+  "authors": ["eisus", "ac2pic", "WatDuhHekBro"],
+  "dependencies": {
+    "ccloader": "^2.14.1",
+	"item-api": "^0.*",
+    "extendable-severed-heads": "^1.1.0",
+	"modifier-api": "^0.1.0",
+	"cc-alybox": ">=1.0.0"
+  },
+  "prestart": "prestart.js",
+  "poststart": "poststart.js"
+}
+

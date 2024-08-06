@@ -1,0 +1,2718 @@
+{
+	"proxies": {
+		"defaultNeutralArrowAL": {
+			"effects": "ball",
+			"speed": 1100,
+			"maxBounce": 0,
+			"timer": 1,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [1]
+			},
+			"attack": {
+				"type": "LIGHT",
+				"element": "NEUTRAL",
+				"damageFactor": 0.9,
+				"reverse": false,
+				"spFactor": 1,
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"weakNeutralArrowAL": {
+			"effects": "ball",
+			"speed": 500,
+			"maxBounce": 0,
+			"timer": 0.7,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [2]
+			},
+			"attack": {
+				"type": "LIGHT",
+				"element": "NEUTRAL",
+				"damageFactor": 0.3,
+				"reverse": false,
+				"spFactor": 1,
+				"guardable": "ALWAYS",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": [{
+				"type": "SLOW_DOWN",
+				"speedFactor": 0,
+				"fadeOut": 0.45,
+				"fadeOutVary": 0.3,
+				"pause": 5,
+				"fadeIn": 0
+			}]
+		},
+		"chargedNeutralArrowAL": {
+			"effects": "ball",
+			"speed": 1200,
+			"maxBounce": 3,
+			"timer": 1.5,
+			"trail": true,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [0]
+			},
+			"attack": {
+				"type": "HEAVY",
+				"element": "NEUTRAL",
+				"damageFactor": 1.95,
+				"reverse": false,
+				"spFactor": 1,
+				"hints": ["CHARGED", "STANDARD"],
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"defaultHeatArrowAL": {
+			"effects": "ball-heat",
+			"speed": 1100,
+			"maxBounce": 0,
+			"timer": 1,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 24
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [1]
+			},
+			"attack": {
+				"type": "LIGHT",
+				"element": "HEAT",
+				"damageFactor": 0.9,
+				"reverse": false,
+				"spFactor": 1,
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"weakHeatArrowAL": {
+			"effects": "ball-heat",
+			"speed": 500,
+			"maxBounce": 0,
+			"timer": 0.7,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 24
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [2]
+			},
+			"attack": {
+				"type": "LIGHT",
+				"element": "HEAT",
+				"damageFactor": 0.3,
+				"reverse": false,
+				"spFactor": 1,
+				"guardable": "ALWAYS",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": [{
+				"type": "SLOW_DOWN",
+				"speedFactor": 0,
+				"fadeOut": 0.45,
+				"fadeOutVary": 0.3,
+				"pause": 5,
+				"fadeIn": 0
+			}]
+		},
+		"chargedHeatArrowAL": {
+			"effects": "ball-heat",
+			"speed": 1200,
+			"maxBounce": 3,
+			"timer": 1.5,
+			"trail": true,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 24
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [0]
+			},
+			"attack": {
+				"type": "HEAVY",
+				"element": "HEAT",
+				"damageFactor": 1.95,
+				"reverse": false,
+				"spFactor": 1,
+				"status": 1,
+				"hints": ["CHARGED", "STANDARD"],
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"defaultColdArrowAL": {
+			"effects": "ball-cold",
+			"speed": 1100,
+			"maxBounce": 0,
+			"timer": 1,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 48
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [1]
+			},
+			"attack": {
+				"type": "LIGHT",
+				"element": "COLD",
+				"damageFactor": 0.9,
+				"reverse": false,
+				"spFactor": 1,
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"weakColdArrowAL": {
+			"effects": "ball-cold",
+			"speed": 500,
+			"maxBounce": 0,
+			"timer": 0.7,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 48
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [2]
+			},
+			"attack": {
+				"type": "LIGHT",
+				"element": "COLD",
+				"damageFactor": 0.3,
+				"reverse": false,
+				"spFactor": 1,
+				"guardable": "ALWAYS",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": [{
+				"type": "SLOW_DOWN",
+				"speedFactor": 0,
+				"fadeOut": 0.45,
+				"fadeOutVary": 0.3,
+				"pause": 5,
+				"fadeIn": 0
+			}]
+		},
+		"chargedColdArrowAL": {
+			"effects": "ball-cold",
+			"speed": 1200,
+			"maxBounce": 3,
+			"timer": 1.5,
+			"trail": true,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 48
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [0]
+			},
+			"attack": {
+				"type": "HEAVY",
+				"element": "COLD",
+				"damageFactor": 1.95,
+				"reverse": false,
+				"spFactor": 1,
+				"status": 1,
+				"hints": ["CHARGED", "STANDARD"],
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"defaultShockArrowAL": {
+			"effects": "ball-shock",
+			"speed": 1100,
+			"maxBounce": 0,
+			"timer": 1,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 72
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [1]
+			},
+			"attack": {
+				"type": "LIGHT",
+				"element": "SHOCK",
+				"damageFactor": 0.9,
+				"reverse": false,
+				"spFactor": 1,
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"weakShockArrowAL": {
+			"effects": "ball-shock",
+			"speed": 500,
+			"maxBounce": 0,
+			"timer": 0.7,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 72
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [2]
+			},
+			"attack": {
+				"type": "LIGHT",
+				"element": "SHOCK",
+				"damageFactor": 0.3,
+				"reverse": false,
+				"spFactor": 1,
+				"guardable": "ALWAYS",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": [{
+				"type": "SLOW_DOWN",
+				"speedFactor": 0,
+				"fadeOut": 0.45,
+				"fadeOutVary": 0.3,
+				"pause": 5,
+				"fadeIn": 0
+			}]
+		},
+		"chargedShockArrowAL": {
+			"effects": "ball-shock",
+			"speed": 1200,
+			"maxBounce": 3,
+			"timer": 1.5,
+			"trail": true,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 72
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [0]
+			},
+			"attack": {
+				"type": "HEAVY",
+				"element": "SHOCK",
+				"damageFactor": 1.95,
+				"reverse": false,
+				"spFactor": 1,
+				"status": 1,
+				"hints": ["CHARGED", "STANDARD"],
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"defaultWaveArrowAL": {
+			"effects": "ball-wave",
+			"speed": 1100,
+			"maxBounce": 0,
+			"timer": 1,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 96
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [1]
+			},
+			"attack": {
+				"type": "LIGHT",
+				"element": "WAVE",
+				"damageFactor": 0.9,
+				"reverse": false,
+				"spFactor": 1,
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		},
+		"weakWaveArrowAL": {
+			"effects": "ball-wave",
+			"speed": 500,
+			"maxBounce": 0,
+			"timer": 0.7,
+			"trail": false,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 96
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [2]
+			},
+			"attack": {
+				"type": "LIGHT",
+				"element": "WAVE",
+				"damageFactor": 0.3,
+				"reverse": false,
+				"spFactor": 1,
+				"guardable": "ALWAYS",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": [{
+				"type": "SLOW_DOWN",
+				"speedFactor": 0,
+				"fadeOut": 0.45,
+				"fadeOutVary": 0.3,
+				"pause": 5,
+				"fadeIn": 0
+			}]
+		},
+		"chargedWaveArrowAL": {
+			"effects": "ball-wave",
+			"speed": 1200,
+			"maxBounce": 3,
+			"timer": 1.5,
+			"trail": true,
+			"multiHit": false,
+			"noLightGlow": false,
+			"type": "BALL",
+			"animation": {
+				"name": "default",
+				"sheet": {
+					"src": "media/entity/effects/triarchery-base.png",
+					"width": 24,
+					"height": 24,
+					"offY": 96
+				},
+				"time": 0.05,
+				"repeat": false,
+				"frames": [0]
+			},
+			"attack": {
+				"type": "HEAVY",
+				"element": "WAVE",
+				"damageFactor": 1.95,
+				"reverse": false,
+				"spFactor": 1,
+				"status": 1,
+				"hints": ["CHARGED", "STANDARD"],
+				"guardable": "",
+				"skillBonus": "RANGED_DMG",
+				"limiter": ""
+			},
+			"timeBoni": null,
+			"behaviors": []
+		}
+	},
+	"actions": {
+		"BASE": {
+			"AL_TRIARCHERY_AIM_START": {
+				"dmgType": "",
+				"stunType": "",
+				"status": false,
+				"steps": [{
+					"followUp": "aimBowAL",
+					"wait": false,
+					"viaWalkConfig": false,
+					"type": "SHOW_ANIMATION",
+					"anim": "startAimBowAL"
+				}, {
+					"time": 0.14,
+					"type": "WAIT"
+				}]
+			},
+			"AL_TRIARCHERY_THROW_NORMAL": {
+				"dmgType": "",
+				"stunType": "",
+				"status": false,
+				"steps": [{
+					"charged": false,
+					"type": "SHOW_THROW_FX"
+				}, {
+					"withElse": true,
+					"type": "IF",
+					"condition": "custom-skills.vars.volatile.triarchery-switch",
+					"thenStep": [{
+						"type": "SET_PLAYER_ACTION_BLOCK",
+						"blockData": {
+							"dash": 0,
+							"action": 0.24,
+							"move": 0.65,
+							"reaim": 0.45
+						}
+					}, {
+						"type": "SELECT_RANDOM",
+						"options": [{
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 0"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 1"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 2"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 3"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 4"
+						}],
+						"0_0": [{
+							"proxy": "weakNeutralArrowAL",
+							"type": "SHOOT_PROXY_PLAYER"
+						}],
+						"1_0": [{
+							"proxy": "weakHeatArrowAL",
+							"type": "SHOOT_PROXY_PLAYER"
+						}],
+						"2_0": [{
+							"proxy": "weakColdArrowAL",
+							"type": "SHOOT_PROXY_PLAYER"
+						}],
+						"3_0": [{
+							"proxy": "weakShockArrowAL",
+							"type": "SHOOT_PROXY_PLAYER"
+						}],
+						"4_0": [{
+							"proxy": "weakWaveArrowAL",
+							"type": "SHOOT_PROXY_PLAYER"
+						}]
+					}],
+					"elseStep": [{
+						"type": "SET_PLAYER_ACTION_BLOCK",
+						"blockData": {
+							"dash": 0,
+							"action": 0.18,
+							"move": 0.6,
+							"reaim": 0.4
+						}
+					}, {
+						"type": "SELECT_RANDOM",
+						"options": [{
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 0"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 1"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 2"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 3"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 4"
+						}],
+						"0_0": [{
+							"proxy": "defaultNeutralArrowAL",
+							"type": "SHOOT_PROXY_PLAYER"
+						}],
+						"1_0": [{
+							"proxy": "defaultHeatArrowAL",
+							"type": "SHOOT_PROXY_PLAYER"
+						}],
+						"2_0": [{
+							"proxy": "defaultColdArrowAL",
+							"type": "SHOOT_PROXY_PLAYER"
+						}],
+						"3_0": [{
+							"proxy": "defaultShockArrowAL",
+							"type": "SHOOT_PROXY_PLAYER"
+						}],
+						"4_0": [{
+							"proxy": "defaultWaveArrowAL",
+							"type": "SHOOT_PROXY_PLAYER"
+						}]
+					}]
+				}, {
+					"wait": false,
+					"viaWalkConfig": false,
+					"type": "SHOW_ANIMATION",
+					"anim": "throwBowAL"
+				}, {
+					"value": 20,
+					"type": "SET_SPEED"
+				}, {
+					"dir": {
+						"actorAttrib": "dashDir"
+					},
+					"time": 0.1,
+					"stopBeforeEdge": false,
+					"type": "MOVE_TO_DIR"
+				}, {
+					"time": 0.4,
+					"type": "WAIT"
+				}]
+			},
+			"AL_TRIARCHERY_THROW_CHARGED": {
+				"steps": [{
+					"withElse": false,
+					"type": "IF",
+					"condition": "custom-skills.vars.volatile.triarchery-switch",
+					"thenStep": [{
+						"changeType": "set",
+						"type": "CHANGE_VAR_BOOL",
+						"varName": "custom-skills.vars.volatile.triarchery-switch",
+						"value": false
+					}]
+				}, {
+					"type": "SET_PLAYER_ACTION_BLOCK",
+					"blockData": {
+						"dash": 0,
+						"action": 0.2,
+						"move": 0.6,
+						"reaim": 0.4
+					}
+				}, {
+					"charged": true,
+					"type": "SHOW_THROW_FX"
+				}, {
+					"type": "SELECT_RANDOM",
+					"options": [{
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "player.element == 0"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "player.element == 1"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "player.element == 2"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "player.element == 3"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "player.element == 4"
+					}],
+					"0_0": [{
+						"proxy": "chargedNeutralArrowAL",
+						"type": "SHOOT_PROXY_PLAYER"
+					}],
+					"1_0": [{
+						"proxy": "chargedHeatArrowAL",
+						"type": "SHOOT_PROXY_PLAYER"
+					}],
+					"2_0": [{
+						"proxy": "chargedColdArrowAL",
+						"type": "SHOOT_PROXY_PLAYER"
+					}],
+					"3_0": [{
+						"proxy": "chargedShockArrowAL",
+						"type": "SHOOT_PROXY_PLAYER"
+					}],
+					"4_0": [{
+						"proxy": "chargedWaveArrowAL",
+						"type": "SHOOT_PROXY_PLAYER"
+					}]
+				}, {
+					"wait": false,
+					"viaWalkConfig": false,
+					"type": "SHOW_ANIMATION",
+					"anim": "throwBowAL"
+				}, {
+					"value": 20,
+					"type": "SET_SPEED"
+				}, {
+					"dir": {
+						"actorAttrib": "dashDir"
+					},
+					"time": 0.1,
+					"stopBeforeEdge": false,
+					"type": "MOVE_TO_DIR"
+				}, {
+					"time": 0.4,
+					"type": "WAIT"
+				}]
+			},
+			"AL_TRIARCHERY_ATTACK": {
+				"dmgType": "",
+				"stunType": "",
+				"status": false,
+				"steps": [{
+					"withElse": true,
+					"type": "IF",
+					"condition": "custom-skills.vars.volatile.triarchery-switch",
+					"thenStep": [{
+						"type": "SET_PLAYER_ACTION_BLOCK",
+						"blockData": {
+							"dash": 0,
+							"action": 0.18,
+							"move": 0.2,
+							"reaim": 0.3
+						}
+					}, {
+						"followUp": "attackEndEptAL",
+						"wait": false,
+						"viaWalkConfig": false,
+						"type": "SHOW_ANIMATION",
+						"anim": "attackFastAL"
+					}, {
+						"type": "SELECT_RANDOM",
+						"options": [{
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 0"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 1"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 2"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 3"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 4"
+						}],
+						"0_0": [{
+							"align": "BOTTOM",
+							"radius": 30,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.09,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": false,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "LIGHT",
+								"element": "NEUTRAL",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepNeutral"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"1_0": [{
+							"align": "BOTTOM",
+							"radius": 30,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.09,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": false,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "LIGHT",
+								"element": "HEAT",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepHeat"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"2_0": [{
+							"align": "BOTTOM",
+							"radius": 30,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.09,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": false,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "LIGHT",
+								"element": "COLD",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepCold"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"3_0": [{
+							"align": "BOTTOM",
+							"radius": 30,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.09,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": false,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "LIGHT",
+								"element": "SHOCK",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepShock"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"4_0": [{
+							"align": "BOTTOM",
+							"radius": 30,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.09,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": false,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "LIGHT",
+								"element": "WAVE",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepWave"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}]
+					}, {
+						"value": 200,
+						"type": "SET_SPEED"
+					}, {
+						"dir": {
+							"actorAttrib": "dashDir"
+						},
+						"time": 0.03,
+						"stopBeforeEdge": false,
+						"type": "MOVE_TO_DIR"
+					}, {
+						"time": 0.03,
+						"type": "WAIT"
+					}, {
+						"baseStrength": 0.8,
+						"type": "SPAWN_ASSAULT"
+					}, {
+						"time": 0.3,
+						"type": "WAIT"
+					}],
+					"elseStep": [{
+						"type": "SET_PLAYER_ACTION_BLOCK",
+						"blockData": {
+							"dash": 0,
+							"action": 0.3,
+							"move": 0.35,
+							"reaim": 0.4
+						}
+					}, {
+						"followUp": "attackEndEptAL",
+						"wait": false,
+						"viaWalkConfig": false,
+						"type": "SHOW_ANIMATION",
+						"anim": "attackSlowAL"
+					}, {
+						"type": "SELECT_RANDOM",
+						"options": [{
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 0"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 1"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 2"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 3"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 4"
+						}],
+						"0_0": [{
+							"align": "BOTTOM",
+							"radius": 20,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.2,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": false,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "HEAVY",
+								"element": "NEUTRAL",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepBowNeutral"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"1_0": [{
+							"align": "BOTTOM",
+							"radius": 20,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.2,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": false,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "HEAVY",
+								"element": "HEAT",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepBowHeat"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"2_0": [{
+							"align": "BOTTOM",
+							"radius": 20,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.2,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": false,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "HEAVY",
+								"element": "COLD",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepBowCold"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"3_0": [{
+							"align": "BOTTOM",
+							"radius": 20,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.2,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": false,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "HEAVY",
+								"element": "SHOCK",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepBowShock"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"4_0": [{
+							"align": "BOTTOM",
+							"radius": 20,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.2,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": false,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "HEAVY",
+								"element": "WAVE",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepBowWave"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}]
+					}, {
+						"value": 100,
+						"type": "SET_SPEED"
+					}, {
+						"dir": {
+							"actorAttrib": "dashDir"
+						},
+						"time": 0.1,
+						"stopBeforeEdge": true,
+						"type": "MOVE_TO_DIR"
+					}, {
+						"baseStrength": 0.8,
+						"type": "SPAWN_ASSAULT"
+					}, {
+						"time": 0.45,
+						"type": "WAIT"
+					}]
+				}]
+			},
+			"AL_TRIARCHERY_ATTACK_REV": {
+				"dmgType": "",
+				"stunType": "",
+				"status": false,
+				"steps": [{
+					"withElse": true,
+					"type": "IF",
+					"condition": "custom-skills.vars.volatile.triarchery-switch",
+					"thenStep": [{
+						"type": "SET_PLAYER_ACTION_BLOCK",
+						"blockData": {
+							"dash": 0,
+							"action": 0.18,
+							"move": 0.2,
+							"reaim": 0.3
+						}
+					}, {
+						"followUp": "attackEndRevEptAL",
+						"wait": false,
+						"viaWalkConfig": false,
+						"type": "SHOW_ANIMATION",
+						"anim": "attackRevFastAL"
+					}, {
+						"type": "SELECT_RANDOM",
+						"options": [{
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 0"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 1"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 2"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 3"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 4"
+						}],
+						"0_0": [{
+							"align": "BOTTOM",
+							"radius": 30,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.09,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": true,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "LIGHT",
+								"element": "NEUTRAL",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepNeutralRev"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"1_0": [{
+							"align": "BOTTOM",
+							"radius": 30,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.09,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": true,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "LIGHT",
+								"element": "HEAT",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepHeatRev"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"2_0": [{
+							"align": "BOTTOM",
+							"radius": 30,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.09,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": true,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "LIGHT",
+								"element": "COLD",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepColdRev"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"3_0": [{
+							"align": "BOTTOM",
+							"radius": 30,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.09,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": true,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "LIGHT",
+								"element": "SHOCK",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepShockRev"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"4_0": [{
+							"align": "BOTTOM",
+							"radius": 30,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.09,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": true,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "LIGHT",
+								"element": "WAVE",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepWaveRev"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}]
+					}, {
+						"value": 200,
+						"type": "SET_SPEED"
+					}, {
+						"dir": {
+							"actorAttrib": "dashDir"
+						},
+						"time": 0.03,
+						"stopBeforeEdge": false,
+						"type": "MOVE_TO_DIR"
+					}, {
+						"time": 0.03,
+						"type": "WAIT"
+					}, {
+						"baseStrength": 0.8,
+						"type": "SPAWN_ASSAULT"
+					}, {
+						"time": 0.3,
+						"type": "WAIT"
+					}],
+					"elseStep": [{
+						"type": "SET_PLAYER_ACTION_BLOCK",
+						"blockData": {
+							"dash": 0,
+							"action": 0.3,
+							"move": 0.35,
+							"reaim": 0.4
+						}
+					}, {
+						"followUp": "attackEndRevEptAL",
+						"wait": false,
+						"viaWalkConfig": false,
+						"type": "SHOW_ANIMATION",
+						"anim": "attackRevSlowAL"
+					}, {
+						"type": "SELECT_RANDOM",
+						"options": [{
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 0"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 1"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 2"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 3"
+						}, {
+							"0": " ",
+							"count": 1,
+							"weight": 1,
+							"activeCondition": "player.element == 4"
+						}],
+						"0_0": [{
+							"align": "BOTTOM",
+							"radius": 20,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.2,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": true,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "HEAVY",
+								"element": "NEUTRAL",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepBowNeutralRev"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"1_0": [{
+							"align": "BOTTOM",
+							"radius": 20,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.2,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": true,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "HEAVY",
+								"element": "HEAT",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepBowHeatRev"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"2_0": [{
+							"align": "BOTTOM",
+							"radius": 20,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.2,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": true,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "HEAVY",
+								"element": "COLD",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepBowColdRev"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"3_0": [{
+							"align": "BOTTOM",
+							"radius": 20,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.2,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": true,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "HEAVY",
+								"element": "SHOCK",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepBowShockRev"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}],
+						"4_0": [{
+							"align": "BOTTOM",
+							"radius": 20,
+							"yScale": 0,
+							"zHeight": 24,
+							"centralAngle": 0.7,
+							"startAngle": -0.35,
+							"duration": 0.2,
+							"expandRadius": 0,
+							"alwaysFull": false,
+							"clockwise": true,
+							"flipLeftFace": false,
+							"rectangular": false,
+							"repeat": false,
+							"uniformHitDir": false,
+							"fixPos": false,
+							"checkCollision": false,
+							"type": "CIRCLE_ATTACK",
+							"attack": {
+								"type": "MEDIUM",
+								"fly": "HEAVY",
+								"element": "WAVE",
+								"damageFactor": 1.15,
+								"spFactor": 1,
+								"reverse": false,
+								"guardable": "",
+								"skillBonus": "MELEE_DMG"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}, {
+							"duration": -1,
+							"align": "BOTTOM",
+							"rotateFace": 8,
+							"flipLeftFace": false,
+							"wait": false,
+							"waitSkip": 0,
+							"actionDetached": false,
+							"fixPos": false,
+							"type": "SHOW_EFFECT",
+							"effect": {
+								"sheet": "combat.triarchery",
+								"name": "sweepBowWaveRev"
+							},
+							"offset": {
+								"x": 0,
+								"y": 0,
+								"z": 0
+							}
+						}]
+					}, {
+						"value": 100,
+						"type": "SET_SPEED"
+					}, {
+						"dir": {
+							"actorAttrib": "dashDir"
+						},
+						"time": 0.1,
+						"stopBeforeEdge": true,
+						"type": "MOVE_TO_DIR"
+					}, {
+						"baseStrength": 0.8,
+						"type": "SPAWN_ASSAULT"
+					}, {
+						"time": 0.45,
+						"type": "WAIT"
+					}]
+				}]
+			},
+			"AL_TRIARCHERY_ATTACK_FINISHER": {
+				"dmgType": "",
+				"stunType": "",
+				"status": false,
+				"steps": [{
+					"withElse": false,
+					"type": "IF",
+					"condition": "custom-skills.vars.volatile.triarchery-switch!=true",
+					"thenStep": [{
+						"changeType": "set",
+						"type": "CHANGE_VAR_BOOL",
+						"varName": "custom-skills.vars.volatile.triarchery-switch",
+						"value": true
+					}, {
+						"duration": 0.3,
+						"align": "CENTER",
+						"rotateFace": 8,
+						"flipLeftFace": false,
+						"wait": false,
+						"waitSkip": 0,
+						"actionDetached": false,
+						"fixPos": false,
+						"type": "SHOW_EFFECT",
+						"effect": {
+							"sheet": "combat.triarchery",
+							"name": "chargeDual"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}, {
+						"offsetX": 0,
+						"offsetY": 0,
+						"speed": "FASTEST",
+						"transition": "LINEAR",
+						"wait": false,
+						"waitSkip": 0,
+						"zoom": 1,
+						"focusType": "SELF",
+						"type": "FOCUS_CAMERA"
+					}, {
+						"zoom": 1.1,
+						"duration": 0.3,
+						"transition": "EASE_OUT",
+						"type": "SET_CAMERA_ZOOM"
+					}, {
+						"factor": 0.01,
+						"time": 0.3,
+						"keepEntityStatic": false,
+						"inversAccelerate": true,
+						"type": "ADD_SLOW_MOTION"
+					}, {
+						"wait": false,
+						"viaWalkConfig": false,
+						"type": "SHOW_ANIMATION",
+						"anim": "charge"
+					}, {
+						"time": 0.3,
+						"type": "WAIT"
+					}, {
+						"zoom": 1,
+						"duration": 0.1,
+						"transition": "EASE_IN_OUT",
+						"type": "SET_CAMERA_ZOOM"
+					}, {
+						"time": 0.01,
+						"removeEntityStatic": false,
+						"type": "CLEAR_SLOW_MOTION"
+					}]
+				}, {
+					"type": "SET_PLAYER_ACTION_BLOCK",
+					"blockData": {
+						"dash": 0,
+						"charge": 0.3,
+						"action": 0.7,
+						"move": 0.7,
+						"reaim": 0.7
+					}
+				}, {
+					"wait": false,
+					"viaWalkConfig": false,
+					"type": "SHOW_ANIMATION",
+					"anim": "attackDualAL"
+				}, {
+					"type": "SELECT_RANDOM",
+					"options": [{
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "player.element == 0"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "player.element == 1"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "player.element == 2"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "player.element == 3"
+					}, {
+						"0": " ",
+						"count": 1,
+						"weight": 1,
+						"activeCondition": "player.element == 4"
+					}],
+					"0_0": [{
+						"align": "BOTTOM",
+						"radius": 30,
+						"yScale": 0,
+						"zHeight": 24,
+						"centralAngle": 0.25,
+						"startAngle": 0,
+						"duration": 0.2,
+						"expandRadius": 0,
+						"alwaysFull": false,
+						"clockwise": false,
+						"flipLeftFace": false,
+						"rectangular": false,
+						"repeat": false,
+						"uniformHitDir": false,
+						"fixPos": false,
+						"checkCollision": false,
+						"type": "CIRCLE_ATTACK",
+						"attack": {
+							"type": "HEAVY",
+							"fly": "HEAVY",
+							"element": "NEUTRAL",
+							"damageFactor": 1.2,
+							"spFactor": 1,
+							"reverse": false,
+							"guardable": "",
+							"skillBonus": "MELEE_DMG"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}, {
+						"align": "BOTTOM",
+						"radius": 30,
+						"yScale": 0,
+						"zHeight": 24,
+						"centralAngle": 0.25,
+						"startAngle": 0,
+						"duration": 0.2,
+						"expandRadius": 0,
+						"alwaysFull": false,
+						"clockwise": true,
+						"flipLeftFace": false,
+						"rectangular": false,
+						"repeat": false,
+						"uniformHitDir": false,
+						"fixPos": false,
+						"checkCollision": false,
+						"type": "CIRCLE_ATTACK",
+						"attack": {
+							"type": "HEAVY",
+							"fly": "HEAVY",
+							"element": "NEUTRAL",
+							"damageFactor": 1.2,
+							"spFactor": 1,
+							"reverse": false,
+							"guardable": "",
+							"skillBonus": "MELEE_DMG"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}, {
+						"duration": -1,
+						"align": "BOTTOM",
+						"rotateFace": 8,
+						"flipLeftFace": false,
+						"wait": false,
+						"waitSkip": 0,
+						"actionDetached": false,
+						"fixPos": false,
+						"type": "SHOW_EFFECT",
+						"effect": {
+							"sheet": "combat.triarchery",
+							"name": "finisherNeutral"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}],
+					"1_0": [{
+						"align": "BOTTOM",
+						"radius": 30,
+						"yScale": 0,
+						"zHeight": 24,
+						"centralAngle": 0.25,
+						"startAngle": 0,
+						"duration": 0.2,
+						"expandRadius": 0,
+						"alwaysFull": false,
+						"clockwise": false,
+						"flipLeftFace": false,
+						"rectangular": false,
+						"repeat": false,
+						"uniformHitDir": false,
+						"fixPos": false,
+						"checkCollision": false,
+						"type": "CIRCLE_ATTACK",
+						"attack": {
+							"type": "HEAVY",
+							"fly": "HEAVY",
+							"element": "HEAT",
+							"damageFactor": 1.2,
+							"spFactor": 1,
+							"reverse": false,
+							"guardable": "",
+							"skillBonus": "MELEE_DMG"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}, {
+						"align": "BOTTOM",
+						"radius": 30,
+						"yScale": 0,
+						"zHeight": 24,
+						"centralAngle": 0.25,
+						"startAngle": 0,
+						"duration": 0.2,
+						"expandRadius": 0,
+						"alwaysFull": false,
+						"clockwise": true,
+						"flipLeftFace": false,
+						"rectangular": false,
+						"repeat": false,
+						"uniformHitDir": false,
+						"fixPos": false,
+						"checkCollision": false,
+						"type": "CIRCLE_ATTACK",
+						"attack": {
+							"type": "HEAVY",
+							"fly": "HEAVY",
+							"element": "HEAT",
+							"damageFactor": 1.2,
+							"spFactor": 1,
+							"reverse": false,
+							"guardable": "",
+							"skillBonus": "MELEE_DMG"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}, {
+						"duration": -1,
+						"align": "BOTTOM",
+						"rotateFace": 8,
+						"flipLeftFace": false,
+						"wait": false,
+						"waitSkip": 0,
+						"actionDetached": false,
+						"fixPos": false,
+						"type": "SHOW_EFFECT",
+						"effect": {
+							"sheet": "combat.triarchery",
+							"name": "finisherHeat"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}],
+					"2_0": [{
+						"align": "BOTTOM",
+						"radius": 30,
+						"yScale": 0,
+						"zHeight": 24,
+						"centralAngle": 0.25,
+						"startAngle": 0,
+						"duration": 0.2,
+						"expandRadius": 0,
+						"alwaysFull": false,
+						"clockwise": false,
+						"flipLeftFace": false,
+						"rectangular": false,
+						"repeat": false,
+						"uniformHitDir": false,
+						"fixPos": false,
+						"checkCollision": false,
+						"type": "CIRCLE_ATTACK",
+						"attack": {
+							"type": "HEAVY",
+							"fly": "HEAVY",
+							"element": "COLD",
+							"damageFactor": 1.2,
+							"spFactor": 1,
+							"reverse": false,
+							"guardable": "",
+							"skillBonus": "MELEE_DMG"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}, {
+						"align": "BOTTOM",
+						"radius": 30,
+						"yScale": 0,
+						"zHeight": 24,
+						"centralAngle": 0.25,
+						"startAngle": 0,
+						"duration": 0.2,
+						"expandRadius": 0,
+						"alwaysFull": false,
+						"clockwise": true,
+						"flipLeftFace": false,
+						"rectangular": false,
+						"repeat": false,
+						"uniformHitDir": false,
+						"fixPos": false,
+						"checkCollision": false,
+						"type": "CIRCLE_ATTACK",
+						"attack": {
+							"type": "HEAVY",
+							"fly": "HEAVY",
+							"element": "COLD",
+							"damageFactor": 1.2,
+							"spFactor": 1,
+							"reverse": false,
+							"guardable": "",
+							"skillBonus": "MELEE_DMG"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}, {
+						"duration": -1,
+						"align": "BOTTOM",
+						"rotateFace": 8,
+						"flipLeftFace": false,
+						"wait": false,
+						"waitSkip": 0,
+						"actionDetached": false,
+						"fixPos": false,
+						"type": "SHOW_EFFECT",
+						"effect": {
+							"sheet": "combat.triarchery",
+							"name": "finisherCold"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}],
+					"3_0": [{
+						"align": "BOTTOM",
+						"radius": 30,
+						"yScale": 0,
+						"zHeight": 24,
+						"centralAngle": 0.25,
+						"startAngle": 0,
+						"duration": 0.2,
+						"expandRadius": 0,
+						"alwaysFull": false,
+						"clockwise": false,
+						"flipLeftFace": false,
+						"rectangular": false,
+						"repeat": false,
+						"uniformHitDir": false,
+						"fixPos": false,
+						"checkCollision": false,
+						"type": "CIRCLE_ATTACK",
+						"attack": {
+							"type": "HEAVY",
+							"fly": "HEAVY",
+							"element": "SHOCK",
+							"damageFactor": 1.2,
+							"spFactor": 1,
+							"reverse": false,
+							"guardable": "",
+							"skillBonus": "MELEE_DMG"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}, {
+						"align": "BOTTOM",
+						"radius": 30,
+						"yScale": 0,
+						"zHeight": 24,
+						"centralAngle": 0.25,
+						"startAngle": 0,
+						"duration": 0.2,
+						"expandRadius": 0,
+						"alwaysFull": false,
+						"clockwise": true,
+						"flipLeftFace": false,
+						"rectangular": false,
+						"repeat": false,
+						"uniformHitDir": false,
+						"fixPos": false,
+						"checkCollision": false,
+						"type": "CIRCLE_ATTACK",
+						"attack": {
+							"type": "HEAVY",
+							"fly": "HEAVY",
+							"element": "SHOCK",
+							"damageFactor": 1.2,
+							"spFactor": 1,
+							"reverse": false,
+							"guardable": "",
+							"skillBonus": "MELEE_DMG"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}, {
+						"duration": -1,
+						"align": "BOTTOM",
+						"rotateFace": 8,
+						"flipLeftFace": false,
+						"wait": false,
+						"waitSkip": 0,
+						"actionDetached": false,
+						"fixPos": false,
+						"type": "SHOW_EFFECT",
+						"effect": {
+							"sheet": "combat.triarchery",
+							"name": "finisherShock"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}],
+					"4_0": [{
+						"align": "BOTTOM",
+						"radius": 30,
+						"yScale": 0,
+						"zHeight": 24,
+						"centralAngle": 0.25,
+						"startAngle": 0,
+						"duration": 0.2,
+						"expandRadius": 0,
+						"alwaysFull": false,
+						"clockwise": false,
+						"flipLeftFace": false,
+						"rectangular": false,
+						"repeat": false,
+						"uniformHitDir": false,
+						"fixPos": false,
+						"checkCollision": false,
+						"type": "CIRCLE_ATTACK",
+						"attack": {
+							"type": "HEAVY",
+							"fly": "HEAVY",
+							"element": "WAVE",
+							"damageFactor": 1.2,
+							"spFactor": 1,
+							"reverse": false,
+							"guardable": "",
+							"skillBonus": "MELEE_DMG"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}, {
+						"align": "BOTTOM",
+						"radius": 30,
+						"yScale": 0,
+						"zHeight": 24,
+						"centralAngle": 0.25,
+						"startAngle": 0,
+						"duration": 0.2,
+						"expandRadius": 0,
+						"alwaysFull": false,
+						"clockwise": true,
+						"flipLeftFace": false,
+						"rectangular": false,
+						"repeat": false,
+						"uniformHitDir": false,
+						"fixPos": false,
+						"checkCollision": false,
+						"type": "CIRCLE_ATTACK",
+						"attack": {
+							"type": "HEAVY",
+							"fly": "HEAVY",
+							"element": "WAVE",
+							"damageFactor": 1.2,
+							"spFactor": 1,
+							"reverse": false,
+							"guardable": "",
+							"skillBonus": "MELEE_DMG"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}, {
+						"duration": -1,
+						"align": "BOTTOM",
+						"rotateFace": 8,
+						"flipLeftFace": false,
+						"wait": false,
+						"waitSkip": 0,
+						"actionDetached": false,
+						"fixPos": false,
+						"type": "SHOW_EFFECT",
+						"effect": {
+							"sheet": "combat.triarchery",
+							"name": "finisherWave"
+						},
+						"offset": {
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					}]
+				}, {
+					"value": 200,
+					"type": "SET_SPEED"
+				}, {
+					"value": 3,
+					"type": "SET_ACCEL_SPEED"
+				}, {
+					"time": 0.1,
+					"stopBeforeEdge": true,
+					"type": "MOVE_FORWARD"
+				}, {
+					"value": 100,
+					"type": "SET_SPEED"
+				}, {
+					"dir": {
+						"actorAttrib": "dashDir"
+					},
+					"time": 0.05,
+					"stopBeforeEdge": true,
+					"type": "MOVE_TO_DIR"
+				}, {
+					"baseStrength": 2,
+					"type": "SPAWN_ASSAULT"
+				}, {
+					"dir": {
+						"actorAttrib": "dashDir"
+					},
+					"time": 0.05,
+					"stopBeforeEdge": true,
+					"type": "MOVE_TO_DIR"
+				}, {
+					"time": 0.2,
+					"type": "WAIT"
+				}, {
+					"followUp": "idle",
+					"wait": false,
+					"viaWalkConfig": false,
+					"type": "SHOW_ANIMATION",
+					"anim": "preIdle"
+				}, {
+					"time": 0.05,
+					"type": "WAIT"
+				}]
+			}
+		}
+	}
+}

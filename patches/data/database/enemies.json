@@ -1,112 +1,628 @@
 {
-	"avatar.susie": {
-		"name": {
-			"en_US": "Susie",
-			"ko_KR": "수지",
-			"de_DE": "Susie",
-			"zh_CN": "秀智",
-			"ja_JP": "スージー"
-		},
-		"track": true,
-		"order": 100000,
-		"area": "guildac",
+    "avatar.susie": {
+        "name": {
+            "en_US": "Susie",
+            "ko_KR": "수지",
+            "de_DE": "Susie",
+            "zh_CN": "秀智",
+            "ja_JP": "スージー"
+        },
+        "track": true,
+        "order": 100000,
+        "area": "guildac",
+        "kills": 1,
+        "anim": "aim",
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "An Evotar who came to fight a PvP duel.\n\\c[3]Spheroknight\\c[0] is a combat-specialized class that complements the Triblader's weak ranged attacks with the characteristics of a Spheromancer. \\c[1]Users tend to change elements frequently because they're vulnerable to overload\\c[0], so you always need to be prepared for all elements.",
+                "ko_KR": "PvP 결투를 하러 온 에보타입니다.\n\\c[3]원성사\\c[0]는 삼검사의 약한 원거리 공격을 원술사의 특성으로 보완한 전투 특화 클래스입니다. \\c[1]과부화에 취약하여 속성을 자주 바꾸는 편\\c[0]이므로, 모든 속성에 대한 대비가 항상 필요합니다."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Quiet Spheroknight",
+            "ko_KR": "과묵한 원성사"
+        },
+        "category": "PLAYERS",
+        "level": 63,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 3000,
+            "attack": 460,
+            "defense": 320,
+            "focus": 460,
+            "elemFactor": [0.83, 0.83, 0.83, 0.83]
+        },
+        "credit": 0,
+        "exp": 0,
+        "itemDrops": [],
+        "boss": false
+    },
+    "avatar.susie-hacked": {
+        "name": {
+            "en_US": "Susie",
+            "ko_KR": "수지",
+            "de_DE": "Susie",
+            "zh_CN": "秀智",
+            "ja_JP": "スージー"
+        },
+        "track": false,
+        "order": 0,
+        "area": "secret",
+        "anim": "aim",
+        "extra": false,
+        "descriptions": [],
+        "species": {
+            "en_US": "Quiet Spheroknight",
+            "ko_KR": "과묵한 원성사"
+        },
+        "category": "PLAYERS",
+        "level": 63,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 3000,
+            "attack": 460,
+            "defense": 320,
+            "focus": 460,
+            "elemFactor": [0.83, 0.83, 0.83, 0.83]
+        },
+        "credit": 0,
+        "exp": 0,
+        "itemDrops": [],
+        "boss": false
+    },
+    "boss.conductor": {
+        "name": {
+            "en_US": "Conductor",
+            "ko_KR": "컨덕터"
+        },
+        "track": true,
+        "order": 111000,
+        "area": "secret",
+        "anim": "battleIdle",
+        "extra": "whistle",
+        "descriptions": [{
+            "text": {
+                "en_US": "It's a yellowish bird whose exact species is unknown. For some reason, it tends to like young Hexacasts.\n\\c[3](A Hat in Time)\\c[0]",
+                "ko_KR": "정확한 종족을 알 수 없는 노란 조류입니다. 어떤 이유인진 몰라도, 어린 육법사를 좋아하는 경향이 있습니다.\n \n\\c[3](a Hat in Time)\\c[0]"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "No-Good Dirty Peck Neck",
+            "ko_KR": "더러운 짹짹이"
+        },
+        "category": "ANIMALS",
+        "level": 65,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 260000,
+            "attack": 700,
+            "defense": 500,
+            "focus": 460,
+            "elemFactor": [0.8, 0.8, 0.8, 0.8],
+            "statusEffect": [0.05, 0.1, 0, 0.1]
+        },
+        "credit": 1000,
+        "exp": 600,
+        "itemDrops": [],
+        "boss": true
+    },
+    "transport.frosthog": {
+        "name": {
+            "en_US": "Frosthag",
+            "ko_KR": "서리됴치"
+        },
+        "track": true,
+        "order": 101000,
+        "area": "guildac",
+        "anim": "idle",
+        "descriptions": [{
+            "text": {
+                "en_US": "This is an ice hedgehog sub-species adapted from the Bergen Trails. By frequently raiding and looting cargo railways for food, they became quite powerful and intelligent.\nThey mix continuous dash attacks and jumps well, and hides into the ground when they feel the danger of a train.",
+                "ko_KR": "베르겐 산길에서 적응한 변종 얼음 고슴됴치입니다. 먹을 것을 얻기 위해 화물철도를 자주 습격해 약탈하면서, 그들은 상당히 강력해졌으며 똑똑해지기도 했습니다.\n연속 대시 공격과 점프를 잘 섞어 사용하며, 기차의 위험이 느껴지면 땅 속으로 숨어버리기도 합니다."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Frozen Mammal",
+            "ko_KR": "얼어붙은 포유류"
+        },
+        "category": "ANIMALS",
+        "level": 70,
+        "boostedLevel": 85,
+        "params": {
+            "hp": 20000,
+            "attack": 650,
+            "defense": 470,
+            "focus": 400,
+            "elemFactor": [1.4, 0.6, 1, 1]
+        },
+        "credit": 700,
+        "exp": 70,
+        "itemDrops": [{
+            "item": "trade-arcanelab-ice-needles",
+            "prob": 0.12,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "trade-arcanelab-lumium",
+            "prob": 0.04,
+            "min": 1,
+            "max": 1,
+            "rank": "C",
+            "boosted": true,
+            "condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
+        }],
+        "boss": false
+    },
+    "transport.glacehog": {
+        "name": {
+            "en_US": "Glacehag",
+            "ko_KR": "빙하됴치"
+        },
+        "track": true,
+        "order": 101001,
+        "area": "guildac",
+        "anim": "idle",
+        "descriptions": [{
+            "text": {
+                "en_US": "This is a sub-species of the hedgehag that every needle is completely frozen like ice. Just by getting close, You can feel the coldness.\nThey became very cruel in the harsh and cold terrain. Instead of reducing their jump frequency, they use a dash attack \\c[3]continuously until they miss it\\c[0] to tear the prey apart.",
+                "ko_KR": "모든 바늘이 완전히 얼음처럼 얼어붙은 서리됴치의 아종입니다. 가까이 다가가기만 해도 차가운 기운이 전해지네요.\n척박하고 추운 지형에서 매우 잔혹해진 그들은 점프 빈도는 줄어든 대신 대시 공격을 \\c[3]빗나갈 때까지 연속으로 사용\\c[0]하여 사냥감을 갈기갈기 찢어버립니다."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "The Ice Itself",
+            "ko_KR": "얼음 그 자체"
+        },
+        "category": "ANIMALS",
+        "level": 70,
+        "boostedLevel": 85,
+        "params": {
+            "hp": 23000,
+            "attack": 700,
+            "defense": 500,
+            "focus": 420,
+            "elemFactor": [1.5, 0.5, 1, 1]
+        },
+        "credit": 750,
+        "exp": 75,
+        "itemDrops": [{
+            "item": "trade-arcanelab-ice-needles",
+            "prob": 0.15,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "trade-arcanelab-lumium",
+            "prob": 0.06,
+            "min": 1,
+            "max": 1,
+            "rank": "C",
+            "boosted": true,
+            "condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
+        }],
+        "boss": false
+    },
+    "transport.transport-drone": {
+        "name": {
+            "en_US": "Carrignet",
+            "ko_KR": "카리그넷"
+        },
+        "track": true,
+        "order": 101002,
+        "area": "guildac",
+        "anim": "idle",
+        "descriptions": [{
+            "text": {
+                "en_US": "This was originally a drone carrying Bergen's cargo container, but now it's just a dangerous robot infected by the \\v[combat.name.mine-coldbug]. It usually use defensive wave machineguns, but be extra careful with missiles! \\c[3]Predict\\c[0] your movements and aim for that direction. Close the distance and fight back while reloading the next missile.\nWhen the train passing, it may do something strong attack with a powerful magnet that can lift the weight of the container...",
+                "ko_KR": "원래 베르겐의 화물 컨테이너를 옮기는 일을 하는 드론이었지만, 이제는 \\v[combat.name.mine-coldbug]에 감염된 위험한 로봇일 뿐입니다. 방어용 파동 머신건을 주로 사용하지만, 미사일을 특히 주의하세요! 당신의 이동을 \\c[3]예측\\c[0]하여 그 방향을 노립니다. 다음 미사일을 재장전하는 동안 거리를 좁혀 반격하세요.\n기차가 지나갈 때는 컨테이너도 들어올리는 강력한 자석으로 무언가 강력한 공격을 할 지도 모릅니다..."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Transport Drone",
+            "ko_KR": "수송 드론"
+        },
+        "category": "MECHA",
+        "level": 70,
+        "boostedLevel": 85,
+        "params": {
+            "hp": 45000,
+            "attack": 650,
+            "defense": 550,
+            "focus": 500,
+            "elemFactor": [1.2, 0.3, 0.7, 0.7],
+            "statusInflict": [1, 1, 1.25, 1.25],
+            "statusEffect": [1.5, 1, 1.25, 1.25]
+        },
+        "credit": 1000,
+        "exp": 85,
+        "itemDrops": [{
+            "item": "trade-arcanelab-broken-motor",
+            "prob": 0.2,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "trade-arcanelab-lumium",
+            "prob": 0.1,
+            "min": 1,
+            "max": 1,
+            "rank": "C",
+            "boosted": true,
+            "condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
+        }],
+        "boss": false
+    },
+    "transport.frostbbit": {
+        "name": {
+            "en_US": "Frostbbit",
+            "ko_KR": "프로스트빗"
+        },
+        "track": true,
+        "order": 101003,
+        "area": "guildac",
+        "anim": "hobble",
+        "descriptions": [{
+            "text": {
+                "en_US": "This mutated frobbit, covered with hard ice fur, originally only lives in deep caves, but sometimes comes down to the Bergen trail for food. Because they perfectly adapted to the cold,  cold attacks have no effect. Watch out for back-to-back kicks and icicle attacks!",
+                "ko_KR": "단단한 얼음 털로 뒤덮힌 이 변종 프로빗은 원래 깊은 동굴 속에서만 살지만, 가끔씩 먹이를 구하러 베르겐 산길까지 내려오기도 합니다. 추위에 완벽하게 적응한 탓에, 냉기 공격은 효과가 없습니다. 연속 발차기와 고드름 공격을 주의하세요!"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Frozen Mammal",
+            "ko_KR": "얼어붙은 포유류"
+        },
+        "category": "ANIMALS",
+        "level": 63,
+        "boostedLevel": 82,
+        "params": {
+            "hp": 18000,
+            "attack": 600,
+            "defense": 500,
+            "focus": 460,
+            "elemFactor": [2, 0, 1, 1],
+            "statusInflict": [1.25, 1, 1, 1],
+            "statusEffect": [2, 1, 1.5, 1]
+        },
+        "credit": 400,
+        "exp": 55,
+        "itemDrops": [{
+            "item": "trade-arcanelab-ice-needles",
+            "prob": 0.05,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "trade-arcanelab-lumium",
+           "prob": 0.02,
+            "min": 1,
+            "max": 1,
+            "rank": "C",
+            "boosted": true,
+            "condition": "item.toggle-arcanelab-booster.toggled || stat.items.trade-arcanelab-lumium>= 1"
+        }],
+        "boss": false
+    },
+    "boss.drake-laser-drill": {
+        "name": {
+            "en_US": "Drake Laser Drill",
+            "ko_KR": "드레이크 레이저 드릴"
+        },
+        "track": true,
+        "order": 101100,
+        "area": "guildac",
+        "anim": "idle",
+        "extra": "recovery",
+        "descriptions": [{
+            "text": {
+                "en_US": "An Insect-proofed military mining machine heading to \\c[3]\\v[area.cold-dng.name]\\c[0] to exterminate the \\v[combat.name.mine-coldbug]. It planned to burn all the bugs with powerful weapons and powerful mining lasers, but they became to attack all humans too due to problems with the Pia identification function. It seems that the original purpose is still being carried out without any problems anyway.\nThey usually do heat element attacks, but on the contrary, special armor that against cold have heat-weak properties.",
+                "ko_KR": "\\v[combat.name.mine-coldbug]를 박멸하기 위해 \\c[3]\\v[area.cold-dng.name]\\c[0]으로 향하던, 내충 처리된 군용 채굴기입니다. 강력한 무기들과 강력한 채굴 레이저로 벌레들을 전부 태워버릴 계획이었지만, 피아 식별 기능에 문제가 생겨 인간들 또한 모두 공격하게 되었습니다. 어쨌든 본래 목적은 여전히 문제 없이 수행 중인 것 같군요.\n주로 열기 속성 공격을 하지만, 반대로 냉기 속성에 대비한 특수 장갑은 열에 약한 특성을 가지고 있습니다."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Military Mining Tool",
+            "ko_KR": "군용 채굴 공구"
+        },
+        "category": "MECHA",
+        "level": 75,
+        "boostedLevel": 0,
+        "params": {
+			"hp": 200000,
+			"attack": 600,
+			"defense": 600,
+			"focus": 550,
+			"elemFactor": [1.3, 0.3, 0.6, 0.6],
+			"statusEffect": [0.3, 0, 0, 0],
+			"statusInflict": [0.3, 0, 0, 0]
+        },
+        "credit": 50000,
+        "exp": 3000,
+        "itemDrops": [],
+        "boss": true
+    },
+    "boss.big-bomb": {
+        "name": {
+            "en_US": "Huge Bomg",
+            "ko_KR": "거대한 폭탄"
+        },
+        "track": false,
+        "order": 0,
+        "area": "guildac",
 		"kills": 1,
-		"anim": "aim",
-		"extra": false,
-		"descriptions": [{
-			"text": {
-				"en_US": "An Evotar who came to fight a PvP duel.\n\\c[3]Spheroknight\\c[0] is a combat-specialized class that complements the Triblader's weak ranged attacks with the characteristics of a Spheromancer. \\c[1]Users tend to change elements frequently because they're vulnerable to overload\\c[0], so you always need to be prepared for all elements.",
-				"ko_KR": "PvP 결투를 하러 온 에보타입니다.\n\\c[3]원성사\\c[0]는 삼검사의 약한 원거리 공격을 원술사의 특성으로 보완한 전투 특화 클래스입니다. \\c[1]과부화에 취약하여 속성을 자주 바꾸는 편\\c[0]이므로, 모든 속성에 대한 대비가 항상 필요합니다."
-			},
-			"condition": ""
-		}],
-		"species": {
-			"en_US": "Quiet Spheroknight",
-			"ko_KR": "과묵한 원성사"
-		},
-		"category": "PLAYERS",
-		"level": 63,
-		"boostedLevel": 0,
-		"params": {
-			"hp": 3000,
-			"attack": 460,
-			"defense": 320,
-			"focus": 460,
-			"elemFactor": [0.83, 0.83, 0.83, 0.83]
-		},
-		"credit": 0,
-		"exp": 0,
-		"itemDrops": [],
-		"boss": false
-	},
-	"avatar.susie-hacked": {
-		"name": {
-			"en_US": "Susie",
-			"ko_KR": "수지",
-			"de_DE": "Susie",
-			"zh_CN": "秀智",
-			"ja_JP": "スージー"
-		},
-		"track": false,
-		"order": 0,
-		"area": "secret",
-		"anim": "aim",
-		"extra": false,
-		"descriptions": [],
-		"species": {
-			"en_US": "Quiet Spheroknight",
-			"ko_KR": "과묵한 원성사"
-		},
-		"category": "PLAYERS",
-		"level": 63,
-		"boostedLevel": 0,
-		"params": {
-			"hp": 3000,
-			"attack": 460,
-			"defense": 320,
-			"focus": 460,
-			"elemFactor": [0.83, 0.83, 0.83, 0.83]
-		},
-		"credit": 0,
-		"exp": 0,
-		"itemDrops": [],
-		"boss": false
-	},
-	"boss.conductor": {
-		"name": {
-			"en_US": "Conductor",
-			"ko_KR": "컨덕터"
-		},
-		"track": true,
-		"order": 111000,
-		"area": "secret",
-		"anim": "battleIdle",
-		"extra": "whistle",
-		"descriptions": [{
-			"text": {
-				"en_US": "It's a yellowish bird whose exact species is unknown. For some reason, it tends to like young Hexacasts.\n\\c[3](A Hat in Time)\\c[0]",
-				"ko_KR": "정확한 종족을 알 수 없는 노란 조류입니다. 어떤 이유인진 몰라도, 어린 육법사를 좋아하는 경향이 있습니다.\n\\c[3](a Hat in Time)\\c[0]"
-			},
-			"condition": ""
-		}],
-		"species": {
-			"en_US": "No-Good Dirty Peck Neck",
-			"ko_KR": "더러운 짹짹이"
-		},
-		"category": "ANIMALS",
-		"level": 65,
-		"boostedLevel": 0,
-		"params": {
+        "anim": "ticking",
+        "species": {
+            "en_US": "",
+            "ko_KR": ""
+        },
+        "category": "ABSTRACT",
+		"level": 75,
+        "boostedLevel": 0,
+        "params": {
+			"hp": 5000000,
+			"attack": 1000,
+			"defense": 1000,
+			"focus": 1000,
+			"elemFactor": [0, 2, 1, 1]
+        },
+        "credit": 0,
+        "exp": 0,
+        "itemDrops": [],
+        "boss": false
+    },
+    "boss.ghizkluth": {
+        "name": {
+            "en_US": "Ghizkluth",
+            "ko_KR": "기즈클루트"
+        },
+        "track": true,
+        "order": 102100,
+        "area": "guildac",
+        "anim": "idle",
+        "extra": "break",
+        "descriptions": [{
+            "text": {
+                "en_US": "The Old One from beyond the universe. by slowly polluting the bottom of the sea with starlight and making fissures on the ground, trying to transform the entire Shadun into its own land.\nDue to its unusual body composition consisting of the foreign wave element, it has a feature that is vulnerable to the mark while resisting the wave element.",
+                "ko_KR": "우주 너머에서 내려온 고대의 존재입니다. 바다 밑을 천천히 별빛으로 오염시키고 지상을 갈라지게 만들어, 샤둔 전체를 자신의 땅으로 변화시키려 하고 있습니다.\n이질적인 파동 속성으로 구성된 특이한 몸체 구성 때문에, 파동 속성 공격에 저항하는 동시에 표적 상태에 취약한 특징이 있습니다."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Offspring of Azathoth",
+            "ko_KR": "아자토스의 자손"
+        },
+        "category": "ABSTRACT",
+        "level": 75,
+        "boostedLevel": 0,
+        "params": {
 			"hp": 250000,
-			"attack": 350,
+			"attack": 600,
+			"defense": 1200,
+			"focus": 1000,
+			"elemFactor": [0.5, 0.6, 1.5, 0.8],
+			"statusInflict": [0.6, 0.5, 0.4, 4],
+			"statusEffect": [0.2, 0.2, 1, 5]
+        },
+		"credit": 60000,
+		"exp": 3000,
+        "itemDrops": [],
+        "boss": true
+    },
+    "abyss.sightseer-minion": {
+        "name": {
+            "en_US": "Sightseer",
+            "ko_KR": "감시자"
+        },
+        "track": false,
+        "order": 0,
+        "area": "guildac",
+        "anim": "idle",
+        "species": {
+            "en_US": "Eye of Star",
+            "ko_KR": "별의 눈"
+        },
+        "category": "ABSTRACT",
+        "level": 70,
+        "boostedLevel": 0,
+        "params": {
+			"hp": 5000,
+			"attack": 450,
+			"defense": 350,
+			"focus": 400,
+			"elemFactor": [0.5, 0.6, 1.5, 0.8],
+			"statusInflict": [0.6, 0.5, 0.4, 4],
+			"statusEffect": [0.2, 0.2, 1, 4]
+        },
+        "credit": 0,
+        "exp": 0,
+        "itemDrops": [],
+        "boss": false
+    },
+    "boss.hammershock": {
+        "name": {
+            "en_US": "Hammershock",
+            "ko_KR": "해머쇼크"
+        },
+        "track": true,
+        "order": 103100,
+        "area": "guildac",
+        "anim": false,
+		"extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "A huge bomber emerging to destroy the battleship. Watch out for powerful beam attacks! It has a terrifying power to cut seekers in half. The only way to stop this monster is to counterattack with Tesla Cannon, which response to beam attacks.\nThis boss is said to have been made based on a drone that was actually built during the old war. Furthermore, there are rumors that there several real them are stored in the hangar of this battleship...\n \n\\i[shooty]\\c[3]\"I'm sorry, but don't leak any classified information about the battleship Hermes here... No, you can't describe it as a rumor either...\"\\c[0]",
+                "ko_KR": "전함을 파괴하기 위해 나타난 거대한 폭격기입니다. 강력한 빔 공격을 조심하세요! 시커 따위는 반으로 갈라버릴 무시무시한 위력을 가지고 있습니다. 이 괴물을 저지할 유일한 방법은 빔 공격에 반응하는 테슬라 캐논으로 반격하는 것 뿐입니다.\n이 보스는 옛 전쟁 시절에 실제로 제작되었다는 한 무인기를 기반으로 만들어졌다고 합니다. 게다가 이 전함의 격납고 안에는 그 실물이 여럿 있다는 소문도 돌고 있습니다...\n \n\\i[shooty]\\c[3]\"죄송하지만, 전함 헤르메스와 관련된 기밀 정보는 이런 곳에 유출하시면 안돼요... 아니, 소문이라고 써놓아도 안된다고요...\"\\c[0]"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Optical Bomber",
+            "ko_KR": "광학 폭격기"
+        },
+        "category": "MECHA",
+        "level": 75,
+        "boostedLevel": 0,
+        "params": {
+			"hp": 225000,
+			"attack": 650,
+			"defense": 1100,
+			"focus": 600,
+			"elemFactor": [1.1, 0.1, 0.3, 1.3],
+			"statusInflict": [0.1, 0, 0.4, 0.45],
+			"statusEffect": [0.3, 0, 0.1, 1.2]
+        },
+		"credit": 55000,
+		"exp": 3200,
+        "itemDrops": [],
+        "boss": true
+    },
+    "hermes.vector-minion": {
+        "name": {
+            "en_US": "Vector",
+            "ko_KR": "벡터"
+        },
+        "track": false,
+        "order": 0,
+        "area": "guildac",
+        "anim": "idle",
+        "species": {
+            "en_US": "Space VTOL Jet",
+            "ko_KR": "우주 VTOL 전투기"
+        },
+        "category": "MECHA",
+        "level": 75,
+        "boostedLevel": 0,
+        "params": {
+			"hp": 35000,
+			"attack": 500,
 			"defense": 500,
-			"focus": 460,
-			"elemFactor": [0.8, 0.8, 0.8, 0.8],
-			"statusEffect": [0.05, 0.1, 0, 0.1]
-		},
-		"credit": 1000,
-		"exp": 600,
-		"itemDrops": [],
-		"boss": true
-	}
+			"focus": 550,
+			"elemFactor": [0.8, 0.3, 0.2, 1.4],
+			"statusInflict": [0.8, 0.5, 0.1, 1.25],
+			"statusEffect": [1, 0.7, 0.7, 1.3]
+        },
+        "credit": 0,
+        "exp": 0,
+        "itemDrops": [],
+        "boss": false
+    },
+    "boss.megaranea": {
+        "name": {
+            "en_US": "Megaranea",
+            "ko_KR": "메가라네아"
+        },
+        "track": true,
+        "order": 104100,
+        "area": "guildac",
+        "anim": "idle",
+        "descriptions": [{
+            "text": {
+                "en_US": "A giant spider takes the crater of Maroon Volcano as its territory. Large spider webs made around the area often cause great damage to the surrounding ecosystem by changing the flow of lava, so it needs to be handled periodically with the help of the seeker.\nAs it has adapted and survived in severe danger, it often uses intelligent and unexpected movements in combat.",
+                "ko_KR": "마룬 화산의 분화구를 자신의 영역으로 삼은 거대한 거미입니다. 영역 주변에 만드는 거대한 거미집은 용암의 흐름을 바꾸어 종종 주변 생태계에 큰 피해를 주기 때문에, 주기적으로 시커의 도움을 빌려 이를 처리할 필요가 있습니다.\n혹독한 위험 속에서 적응하고 생존한 만큼, 전투 시에는 지능적으로 예상치 못한 움직임을 자주 구사합니다."
+            },
+            "condition": ""
+        }],
+        "species": {
+			"en_US": "Ruler of the Volcanic Hollow",
+			"ko_KR": "지저화산의 지배자"
+        },
+        "category": "ANIMALS",
+        "level": 75,
+        "boostedLevel": 0,
+        "params": {
+			"hp": 230000,
+			"attack": 600,
+			"defense": 1000,
+			"focus": 500,
+			"elemFactor": [0.7, 1.1, 0.8, 0.5],
+			"statusInflict": [0.1, 0.5, 0.4, 0.35],
+			"statusEffect": [0.1, 0.5, 0.1, 0.6]
+        },
+		"credit": 65000,
+		"exp": 4000,
+        "itemDrops": [],
+        "boss": true
+    },
+    "boss.vector": {
+        "name": {
+            "en_US": "Vector",
+            "ko_KR": "벡터"
+        },
+        "track": true,
+        "order": 121000,
+        "area": "secret",
+		"anim": false,
+		"extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "It is not instant matter but a \\c[3]real fighter jet\\c[0]! There will never be a public attack by this unless the old war breaks out again.\n \n\\i[susie]\\c[3]\"You made me like this, and you should suffer the same thing. Oh, thank you so much for helping me, Lea.\"\\c[0]\n \n\\c[3](Strike Vector)\\c[0]",
+                "ko_KR": "즉석 물질이 아닌 \\c[3]진짜 전투기\\c[0]입니다! 일반인이라면 이것의 공격을 받을 일은 옛 전쟁이 다시 일어나지 않는 한 절대 없을 것입니다.\n \n\\i[susie]\\c[3]\"날 이렇게 만들었으니, 너도 똑같이 당해봐야지. 아, 나를 도와준 건 정말 고마워, 레아.\"\\c[0]\n \n\\c[3](Strike Vector)\\c[0]"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Space VTOL Jet",
+            "ko_KR": "우주 VTOL 전투기"
+        },
+        "category": "MECHA",
+        "level": 1,
+        "boostedLevel": 0,
+        "params": {
+			"hp": 720,
+			"attack": 1,
+			"defense": 1,
+			"focus": 10,
+			"elemFactor": [1, 1, 1, 1],
+			"statusEffect": [0, 0, 0, 0],
+			"statusInflict": [0, 0, 0, 0]
+        },
+        "credit": 0,
+        "exp": 0,
+        "itemDrops": [],
+        "boss": true
+    },
+    "boss.hibachi": {
+        "name": {
+            "en_US": "Hibachi",
+            "ko_KR": "히바치"
+        },
+        "track": true,
+        "order": 121001,
+        "area": "secret",
+		"anim": false,
+		"extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "The information has been redacted.\n \nThis mortal weapon is also not instant matter but real, but at least it doesn't look like an object related to the old war.\n \n\\c[3](DoDonPachi)\\c[0]",
+                "ko_KR": "정보가 검열되었습니다.\n \n이 인류 말살 병기 또한 즉석 물질이 아닌 \\c[3]진짜\\c[0]지만, 최소한 옛 전쟁과 관련된 물건 같아 보이진 않습니다.\n \n\\c[3](DoDonPachi)\\c[0]"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Last Demon Weapon",
+            "ko_KR": "최종귀축병기"
+        },
+        "category": "MECHA",
+        "level": 1,
+        "boostedLevel": 0,
+        "params": {
+			"hp": 1000,
+			"attack": 1,
+			"defense": 1,
+			"focus": 10,
+			"elemFactor": [1, 1, 1, 1],
+			"statusEffect": [0, 0, 0, 0],
+			"statusInflict": [0, 0, 0, 0]
+        },
+        "credit": 0,
+        "exp": 0,
+        "itemDrops": [],
+        "boss": true
+    }
 }

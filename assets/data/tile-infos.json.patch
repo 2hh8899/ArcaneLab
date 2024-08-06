@@ -1,0 +1,4 @@
+[{
+	"type": "IMPORT",
+	"src": "mod:patches/data/tile-infos.json"
+}]

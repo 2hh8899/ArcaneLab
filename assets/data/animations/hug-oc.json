@@ -1,30 +1,30 @@
 {
-	"DOCTYPE": "MULTI_DIR_ANIMATION",
-	"namedSheets": {
-		"hug": {
-			"src": "media/entity/npc/hug-oc.png",
-			"offX": 0,
-			"offY": 0,
-			"width": 32,
-			"height": 40
-		}
-	},
-	"shapeType": "Y_FLAT",
-	"offset": {
-		"x": 0,
-		"y": -4,
-		"z": 0
-	},
-	"SUB": [{
-		"sheet": "hug",
-		"dirs": "1",
-		"flipX": [0],
-		"tileOffsets": [0],
-		"SUB": [{
-			"name": "eisusie",
-			"time": 1,
-			"repeat": false,
-			"frames": [0]
-		}]
-	}]
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "hug": {
+            "src": "media/entity/npc/hug-oc.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 32,
+            "height": 40
+        }
+    },
+    "shapeType": "Y_FLAT",
+    "offset": {
+        "x": 0,
+        "y": -4,
+        "z": 0
+    },
+    "SUB": [{
+        "sheet": "hug",
+        "dirs": "1",
+        "flipX": [0],
+        "tileOffsets": [0],
+        "SUB": [{
+            "name": "eisusie",
+            "time": 1,
+            "repeat": false,
+            "frames": [0]
+        }]
+    }]
 }

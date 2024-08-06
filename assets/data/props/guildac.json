@@ -1,36 +1,571 @@
 {
-	"DOCTYPE": "PROP_SHEET",
-	"props": [{
-		"name": "landrunner",
+    "DOCTYPE": "PROP_SHEET",
+    "props": [{
+        "name": "landrunner",
+        "size": {
+            "x": 27,
+            "y": 27,
+            "z": 99
+        },
+        "collType": "BLOCK",
+        "fix": {
+            "gfx": "media/entity/effects/hexummoner-heat.png",
+            "x": 54,
+            "y": 0,
+            "w": 31,
+            "h": 38,
+            "flipX": false
+        }
+    }, {
+        "name": "drakeLaserDrill",
+        "size": {
+            "x": 240,
+            "y": 72,
+            "z": 100
+        },
+        "collType": "BLOCK",
+        "fix": {
+            "gfx": "media/entity/enemy/boss/drake-laser-drill.png",
+            "x": 0,
+            "y": 0,
+            "w": 240,
+            "h": 142,
+            "flipX": false
+        }
+    }, {
+        "name": "signClass",
+        "size": {
+            "x": 24,
+            "y": 8,
+            "z": 16
+        },
+        "collType": "IGNORE",
+        "effects": {
+            "sheet": "ar",
+            "show": "taskSignShow",
+            "hide": "taskSignHide"
+        },
+        "anims": {
+            "namedSheets": {
+                "signs": {
+                    "src": "media/map/arcane-lab-interior.png",
+                    "width": 24,
+                    "height": 24,
+                    "offX": 320,
+                    "offY": 536
+                }
+            },
+            "sheet": "signs",
+            "frames": [0, 0, 0, 0, 0, 0],
+            "shape": "Y_FLAT",
+            "framesGfxOffset": [0, -1, 0, -1, 0, 0, 0, 1, 0, 1, 0, 0],
+            "time": 0.2,
+            "repeat": true,
+            "SUB": [{
+                "renderMode": "lighter",
+                "SUB": [{
+                    "name": "spheroknight",
+                    "tileOffset": 0
+                }, {
+                    "name": "quadrotect",
+                    "tileOffset": 1
+                }, {
+                    "name": "pentathief",
+                    "tileOffset": 2
+                }, {
+                    "name": "hexummoner",
+                    "tileOffset": 3
+                }, {
+                    "name": "hexabless",
+                    "tileOffset": 4
+                }, {
+                    "name": "pentagunner",
+                    "tileOffset": 5
+                }, {
+                    "name": "triarchery",
+                    "tileOffset": 6
+                }, {
+                    "name": "quadrocharge",
+                    "tileOffset": 7
+                }]
+            }]
+        }
+    }, {
+        "name": "pipeSusie",
+        "size": {
+            "x": 16,
+            "y": 16,
+            "z": 32
+        },
+        "collType": "NONE",
+        "anims": {
+            "sheet": {
+                "src": "media/map/arcane-lab-interior.png",
+                "width": 32,
+                "height": 48,
+                "offX": 320,
+                "offY": 464
+            },
+            "repeat": true,
+            "time": 0.3,
+            "shapeType": "Y_FLAT",
+            "frames": [0, 0, 0, 0, 0, 0],
+            "framesGfxOffset": [0, 0, 0, 1, 0, 1, 0, 0, 0, -1, 0, -1],
+            "framesAlpha": [0.6, 0.6, 0.6, 0.6, 0.6, 0.6],
+            "SUB": [{
+                "name": "susie"
+            }, {
+                "name": "susie2",
+                "time": 0.25
+            }]
+        }
+    }, {
+        "name": "modifierAnvil",
+        "size": {
+            "x": 30,
+            "y": 10,
+            "z": 13
+        },
+        "collType": "BLOCK",
+        "fix": {
+            "gfx": "media/map/arcane-lab-interior.png",
+            "x": 320,
+            "y": 440,
+            "w": 32,
+            "h": 24,
+            "flipX": false
+        }
+    }, {
+		"name": "display1",
 		"size": {
-			"x": 27,
-			"y": 27,
-			"z": 99
+			"x": 24,
+			"y": 8,
+			"z": 16
 		},
-		"collType": "VIRTUAL",
+		"collType": "BLOCK",
 		"fix": {
-			"gfx": "entity/effects/hexummoner-heat.png",
-			"x": 54,
-			"y": 0,
-			"w": 31,
-			"h": 38,
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 448,
+			"y": 160,
+			"w": 24,
+			"h": 24,
 			"flipX": false
 		}
 	}, {
-		"name": "drake-laser-drill",
+		"name": "display2",
 		"size": {
-			"x": 240,
-			"y": 72,
-			"z": 100
+			"x": 24,
+			"y": 8,
+			"z": 16
 		},
-		"collType": "VIRTUAL",
+		"collType": "BLOCK",
 		"fix": {
-			"gfx": "entity/enemy/boss/drake-laser-drill.png",
-			"x": 0,
-			"y": 0,
-			"w": 240,
-			"h": 142,
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 472,
+			"y": 160,
+			"w": 24,
+			"h": 24,
 			"flipX": false
 		}
-	}]
+	}, {
+		"name": "display3",
+		"size": {
+			"x": 16,
+			"y": 16,
+			"z": 16
+		},
+		"collType": "BLOCK",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 416,
+			"y": 152,
+			"w": 16,
+			"h": 32,
+			"flipX": false
+		}
+	}, {
+		"name": "display4",
+		"size": {
+			"x": 16,
+			"y": 16,
+			"z": 16
+		},
+		"collType": "BLOCK",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 416,
+			"y": 152,
+			"w": 16,
+			"h": 32,
+			"flipX": true
+		}
+	}, {
+		"name": "display5",
+		"size": {
+			"x": 8,
+			"y": 16,
+			"z": 16
+		},
+		"collType": "BLOCK",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 440,
+			"y": 152,
+			"w": 8,
+			"h": 32,
+			"flipX": false
+		}
+	}, {
+		"name": "display6",
+		"size": {
+			"x": 8,
+			"y": 16,
+			"z": 16
+		},
+		"collType": "BLOCK",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 440,
+			"y": 152,
+			"w": 8,
+			"h": 32,
+			"flipX": true
+		}
+	}, {
+		"name": "keyboardDiag1",
+		"size": {
+			"x": 16,
+			"y": 16,
+			"z": 0
+		},
+		"collType": "NONE",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 424,
+			"y": 120,
+			"w": 16,
+			"h": 16,
+			"flipX": false
+		}
+	}, {
+		"name": "keyboardDiag2",
+		"size": {
+			"x": 16,
+			"y": 16,
+			"z": 0
+		},
+		"collType": "NONE",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 424,
+			"y": 120,
+			"w": 16,
+			"h": 16,
+			"flipX": true
+		}
+	}, {
+		"name": "keyboard1",
+		"size": {
+			"x": 8,
+			"y": 24,
+			"z": 0
+		},
+		"collType": "NONE",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 416,
+			"y": 120,
+			"w": 8,
+			"h": 24,
+			"flipX": false,
+			"flipY": true
+		}
+	}, {
+		"name": "keyboard2",
+		"size": {
+			"x": 8,
+			"y": 24,
+			"z": 0
+		},
+		"collType": "NONE",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 416,
+			"y": 120,
+			"w": 8,
+			"h": 24,
+			"flipX": true
+		}
+	}, {
+		"name": "keyboard3",
+		"size": {
+			"x": 24,
+			"y": 8,
+			"z": 0
+		},
+		"collType": "NONE",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 416,
+			"y": 112,
+			"w": 24,
+			"h": 8,
+			"flipX": false
+		}
+	}, {
+		"name": "keyboard4",
+		"size": {
+			"x": 24,
+			"y": 8,
+			"z": 0
+		},
+		"collType": "NONE",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 416,
+			"y": 112,
+			"w": 24,
+			"h": 8,
+			"flipX": false,
+			"flipY": true
+		}
+	}, {
+		"name": "chair-down",
+		"size": {
+			"x": 12,
+			"y": 12,
+			"z": 20
+		},
+		"collType": "BLOCK",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 336,
+			"y": 128,
+			"w": 16,
+			"h": 32,
+			"flipX": false,
+			"wallY": 1
+		}
+	}, {
+		"name": "chair-right",
+		"size": {
+			"x": 12,
+			"y": 12,
+			"z": 20
+		},
+		"collType": "BLOCK",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 320,
+			"y": 128,
+			"w": 16,
+			"h": 32,
+			"flipX": false,
+			"wallY": 1
+		}
+	}, {
+		"name": "chair-left",
+		"size": {
+			"x": 12,
+			"y": 12,
+			"z": 20
+		},
+		"collType": "BLOCK",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 320,
+			"y": 128,
+			"w": 16,
+			"h": 32,
+			"flipX": true,
+			"wallY": 1
+		}
+	}, {
+		"name": "chair-up",
+		"size": {
+			"x": 12,
+			"y": 12,
+			"z": 20
+		},
+		"collType": "BLOCK",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 304,
+			"y": 128,
+			"w": 16,
+			"h": 32,
+			"flipX": false,
+			"wallY": 0
+		}
+	}, {
+		"name": "bed",
+		"size": {
+			"x": 48,
+			"y": 24,
+			"z": 8
+		},
+		"collType": "BLOCK",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 464,
+			"y": 224,
+			"w": 48,
+			"h": 32,
+			"flipX": false,
+			"wallY": 1
+		}
+	}, {
+		"name": "bedEnd",
+		"size": {
+			"x": 8,
+			"y": 24,
+			"z": 16
+		},
+		"collType": "BLOCK",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 456,
+			"y": 216,
+			"w": 8,
+			"h": 40,
+			"flipX": false
+		}
+	}, {
+		"name": "bedPillows",
+		"size": {
+			"x": 16,
+			"y": 16,
+			"z": 8
+		},
+		"collType": "NONE",
+		"fix": {
+			"gfx": "media/map/arcane-lab-interior.png",
+			"x": 448,
+			"y": 192,
+			"w": 16,
+			"h": 24,
+            "shape": "Z_FLAT",
+			"flipX": false
+		}
+	}, {
+        "name": "coral1",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-breached-beach.png",
+            "x": 32,
+            "y": 278,
+            "w": 23,
+            "h": 26,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 12,
+            "pivotY": 26
+        },
+        "nudging": true
+    }, {
+        "name": "coral2",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-breached-beach.png",
+            "x": 32,
+            "y": 261,
+            "w": 24,
+            "h": 17,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 12,
+            "pivotY": 17
+        },
+        "nudging": true
+    }, {
+        "name": "coral3",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-breached-beach.png",
+            "x": 56,
+            "y": 264,
+            "w": 14,
+            "h": 17,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 8,
+            "pivotY": 17
+        },
+        "nudging": true
+    }, {
+        "name": "coral4",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-breached-beach.png",
+            "x": 76,
+            "y": 262,
+            "w": 13,
+            "h": 12,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 5,
+            "pivotY": 12
+        },
+        "nudging": true
+    }, {
+        "name": "coral5",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-breached-beach.png",
+            "x": 76,
+            "y": 288,
+            "w": 16,
+            "h": 16,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 9,
+            "pivotY": 16
+        },
+        "nudging": true
+    }, {
+        "name": "coral6",
+        "size": {
+            "x": 8,
+            "y": 8,
+            "z": 20
+        },
+        "collType": "IGNORE",
+        "fix": {
+            "gfx": "media/map/arcane-lab-breached-beach.png",
+            "x": 92,
+            "y": 290,
+            "w": 14,
+            "h": 14,
+            "flipX": false,
+            "shape": "Y_FLAT",
+            "pivotX": 6,
+            "pivotY": 14
+        },
+        "nudging": true
+    }]
 }

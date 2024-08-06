@@ -1,0 +1,148 @@
+{
+    "core": {
+        "type": "SOLO_CUSTOM",
+        "name": {
+            "en_US": "Arcane Lab Boss Cup",
+            "ko_KR": "아케인 랩 보스 대회"
+        },
+        "info": {
+            "en_US": "Take on the boss fights of Arcane Lab.",
+            "ko_KR": "아케인 랩의 보스들과의 전투에 도전하세요."
+        },
+        "creator": {
+            "en_US": "2hh8899",
+            "ko_KR": "2hh8899"
+        },
+        "level": 70,
+        "difficulty": "5",
+        "banner": {
+            "src": "media/gui/arena-banners-al.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 276,
+            "height": 64
+        }
+    },
+    "rounds": [{
+        "name": {
+            "en_US": "175Gigawatts Cannon",
+            "ko_KR": "175기가와트 캐논"
+        },
+        "customCode": true,
+        "camFocus": "PLAYER_SPAWN",
+        "platPoints": 250000,
+        "coins": 0,
+        "objective": {
+            "en_US": "Beat the \\c[3]\\v[combat.name.boss.drake-laser-drill]\\c[0] boss from \\c[3]\\v[area.guildac.name]\\c[0]!",
+            "ko_KR": "\\c[3]\\v[area.guildac.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.boss.drake-laser-drill]\\c[0]을 처치하세요!"
+        },
+        "points": 150000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "guildac.arena.transport",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 150,
+            "points": 100000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "Cosmic Horror of the Abyss",
+            "ko_KR": "심해의 코즈믹 호러"
+        },
+        "customCode": true,
+        "camFocus": "PLAYER_SPAWN",
+        "platPoints": 530000,
+        "coins": 0,
+        "objective": {
+            "en_US": "Beat the \\c[3]\\v[combat.name.boss.ghizkluth]\\c[0] boss from \\c[3]\\v[area.guildac.name]\\c[0]!",
+            "ko_KR": "\\c[3]\\v[area.guildac.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.boss.ghizkluth]\\c[0]를 처치하세요!"
+        },
+        "points": 450000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "guildac.arena.abyss",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 180,
+            "points": 100000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "Hyperspace Dogfights",
+            "ko_KR": "하이퍼스페이스 도그파이츠"
+        },
+        "customCode": true,
+        "camFocus": "PLAYER_SPAWN",
+        "platPoints": 285000,
+        "coins": 0,
+        "objective": {
+            "en_US": "Beat the \\c[3]\\v[combat.name.boss.hammershock]\\c[0] boss from \\c[3]\\v[area.guildac.name]\\c[0]!",
+            "ko_KR": "\\c[3]\\v[area.guildac.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.boss.hammershock]\\c[0]를 처치하세요!"
+        },
+        "points": 225000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "guildac.arena.hermes",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 210,
+            "points": 100000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "Megaranea Thrilla",
+            "ko_KR": "침묵, 교활, 암살자의 모든 것"
+        },
+        "customCode": true,
+        "camFocus": "PLAYER_SPAWN",
+        "platPoints": 300000,
+        "coins": 0,
+        "objective": {
+            "en_US": "Beat the \\c[3]\\v[combat.name.boss.megaranea]\\c[0] boss from \\c[3]\\v[area.guildac.name]\\c[0]!",
+            "ko_KR": "\\c[3]\\v[area.guildac.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.boss.megaranea]\\c[0]를 처치하세요!"
+        },
+        "points": 175000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "guildac.arena.volcano",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 150,
+            "points": 100000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "Pilot and Killer",
+            "ko_KR": "파일럿 그리고 킬러"
+        },
+        "customCode": true,
+        "camFocus": "PLAYER_SPAWN",
+        "platPoints": 25000,
+        "coins": 0,
+        "objective": {
+            "en_US": "Destroy the \\c[3]\\v[combat.name.boss.vector]\\c[0]!",
+            "ko_KR": "\\c[3]\\v[combat.name.boss.vector]\\c[0]를 파괴하세요!"
+        },
+        "points": 20000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+		"condition": "false",
+        "map": "guildac.arena.vector",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 270,
+            "points": 10000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }]
+}

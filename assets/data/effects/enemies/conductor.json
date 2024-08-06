@@ -1,2102 +1,2102 @@
 {
-	"DOCTYPE": "EFFECT",
-	"ANIMS": {
-		"SUB": [{
-			"name": "SHOCKWAVE",
-			"sheet": {
-				"src": "media/entity/enemy/boss/conductor-shockwave.png",
-				"offX": 0,
-				"offY": 0,
-				"width": 540,
-				"height": 540
-			},
-			"centerPivot": false,
-			"renderMode": "lighter",
-			"frames": [0]
-		}, {
-			"name": "SPARK",
-			"sheet": {
-				"src": "media/entity/enemy/boss/conductor.png",
-				"offX": 432,
-				"offY": 229,
-				"width": 5,
-				"height": 3
-			},
-			"centerPivot": false,
-			"renderMode": "lighter",
-			"time": 0.025,
-			"repeat": true,
-			"frames": [0, 1, 2]
-		}, {
-			"name": "EARTHQUAKE_LINE",
-			"sheet": {
-				"src": "media/entity/effects/circle.png",
-				"width": 16,
-				"height": 128,
-				"offY": 80,
-				"offX": 16
-			},
-			"time": 0.03,
-			"frames": [1, 2, 3, 4, 5, 6],
-			"repeat": false,
-			"pivot": {
-				"x": 8,
-				"y": 128
-			},
-			"guiSprites": false,
-			"renderMode": "lighter"
-		}, {
-			"name": "SPARK_FLOOR",
-			"sheet": {
-				"src": "media/entity/enemy/boss/conductor.png",
-				"offX": 432,
-				"offY": 177,
-				"width": 15,
-				"height": 52
-			},
-			"centerPivot": false,
-			"renderMode": "lighter",
-			"frames": [0]
-		}, {
-			"name": "APPLEBOMB",
-			"sheet": {
-				"src": "media/entity/enemy/boss/conductor-bomb-break.png",
-				"offX": 0,
-				"offY": 0,
-				"width": 140,
-				"height": 120
-			},
-			"centerPivot": false,
-			"frames": [0]
-		}, {
-			"name": "FLAME",
-			"sheet": {
-				"src": "media/entity/effects/heat.png",
-				"offX": 0,
-				"offY": 392,
-				"width": 24,
-				"height": 24
-			},
-			"time": 0.06,
-			"repeat": false,
-			"frames": [0, 1, 2, 3, 4, 5, 6, 7]
-		}, {
-			"name": "BIGFIRE",
-			"sheet": {
-				"src": "media/entity/effects/heat.png",
-				"width": 48,
-				"height": 48,
-				"offY": 0,
-				"offX": 0,
-				"xCount": 6
-			},
-			"time": 0.05,
-			"frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-			"guiSprites": true
-		}, {
-			"name": "WAVE_EXPLODE",
-			"sheet": {
-				"src": "media/entity/effects/wave.png",
-				"xCount": 6,
-				"offX": 0,
-				"offY": 128,
-				"width": 48,
-				"height": 48
-			},
-			"renderMode": "lighter",
-			"time": 0.033,
-			"frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-		}, {
-			"name": "PRE_EXPLOSION_LINE",
-			"sheet": {
-				"src": "media/entity/effects/circle.png",
-				"width": 16,
-				"height": 128,
-				"offY": 80,
-				"offX": 0
-			},
-			"time": 0.03,
-			"frames": [0, 0],
-			"framesAlpha": [1, 0],
-			"repeat": true,
-			"pivot": {
-				"x": 8,
-				"y": 128
-			},
-			"renderMode": "lighter"
-		}, {
-			"name": "DUST_UP_BIG_BRIGHT",
-			"pivot": {
-				"x": 8,
-				"y": 40
-			},
-			"sheet": {
-				"src": "media/entity/effects/dust.png",
-				"width": 32,
-				"height": 48,
-				"offY": 64
-			},
-			"renderMode": "lighter",
-			"time": 0.07,
-			"repeat": false,
-			"frames": [1, 2, 3, 4, 5, 6, 7, 8]
-		}, {
-			"name": "LASER_END",
-			"sheet": {
-				"src": "media/entity/enemy/boss/conductor.png",
-				"offX": 336,
-				"offY": 200,
-				"width": 32,
-				"height": 32
-			},
-			"guiSprites": true,
-			"time": 0.05,
-			"repeat": true,
-			"frames": [0, 1, 2, 1]
-		}]
-	},
-	"EFFECTS": {
-		"phaseAuar": [{
-			"type": "LOOP_START"
-		}, {
-			"color": "#ff7f00",
-			"alpha": 0,
-			"duration": 0.3,
-			"keepDuration": 0,
-			"noLighter": false,
-			"type": "FLASH_COLOR"
-		}, {
-			"color": "#ffffff",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.3,
-						"y": 1.3
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#ffb469",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.5,
-						"y": 1.5
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#ff7f00",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.8,
-						"y": 1.8
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#ff5a34",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.8,
-						"y": 1.8
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#ff0000",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.8,
-						"y": 1.8
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"type": "LOOP_END"
-		}],
-		"shockwave": [{
-			"useTargetAngle": false,
-			"keepAngleSync": false,
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"pAlpha": {
-				"init": 1,
-				"end": {
-					"value": 0,
-					"time": 0.3,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 0,
-					"y": 0
-				},
-				"start": {
-					"value": {
-						"x": 0.7344,
-						"y": 0.7344
-					},
-					"spline": ""
-				},
-				"end": {
-					"value": {
-						"x": 0.918,
-						"y": 0.918
-					},
-					"time": 0.1,
-					"spline": "EASE_OUT_STRONG"
-				}
-			},
-			"moveWithTarget": 0,
-			"particleDuration": 0.5,
-			"anim": "SHOCKWAVE",
-			"type": "PLAY_ANIM"
-		}],
-		"earthquakeEffect": [{
-			"type": "LOOP_START"
-		}, {
-			"numParticles": 2,
-			"duration": 0.2,
-			"centralAngle": 1,
-			"startAngle": 0,
-			"startDist": 0,
-			"particleRotate": false,
-			"random": true,
-			"moveVariance": 10,
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"minSpeed": 20,
-			"maxSpeed": 120,
-			"moveDist": 5,
-			"keySpline": "LINEAR",
-			"moveRotate": 0,
-			"rotateWithTime": false,
-			"collision": false,
-			"pAlpha": {
-				"init": 1,
-				"start": {
-					"value": 0.5
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.5,
-						"y": 1.5
-					}
-				}
-			},
-			"moveWithTarget": 0,
-			"flipRightParticles": true,
-			"particleDuration": 0.7,
-			"anim": "DUST_UP_BIG_BRIGHT",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"numParticles": 1,
-			"duration": 0.2,
-			"centralAngle": 1,
-			"startAngle": 0,
-			"startDist": 30,
-			"particleRotate": false,
-			"random": true,
-			"moveVariance": 10,
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"minSpeed": 20,
-			"maxSpeed": 120,
-			"moveDist": 5,
-			"keySpline": "LINEAR",
-			"moveRotate": 0,
-			"rotateWithTime": false,
-			"collision": false,
-			"moveWithTarget": 0,
-			"particleDuration": 0.3,
-			"anim": "EARTHQUAKE_LINE",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"time": 0.1,
-			"type": "WAIT"
-		}, {
-			"type": "LOOP_END"
-		}],
-		"spark": [{
-			"type": "LOOP_START"
-		}, {
-			"numParticles": 1,
-			"duration": 0,
-			"centralAngle": 0,
-			"startAngle": 0,
-			"startDist": 0,
-			"particleRotate": true,
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"moveDist": 5,
-			"keySpline": "LINEAR",
-			"moveRotate": 0,
-			"rotateWithTime": false,
-			"collision": false,
-			"pAlpha": {
-				"init": 1,
-				"end": {
-					"value": 0,
-					"time": 0.3,
-					"spline": ""
-				}
-			},
-			"moveWithTarget": 0,
-			"flipRightParticles": true,
-			"particleDuration": 0.2,
-			"anim": "SPARK_FLOOR",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"numParticles": 3,
-			"circular": true,
-			"minSpeed": 50,
-			"maxSpeed": 60,
-			"minZSpeed": 100,
-			"maxZSpeed": 300,
-			"debrisSize": {
-				"x": 3,
-				"y": 3,
-				"z": 3
-			},
-			"zBounciness": 0,
-			"pAlpha": {
-				"init": 1,
-				"end": {
-					"value": 0,
-					"time": 1,
-					"spline": ""
-				}
-			},
-			"pRotate": {
-				"init": 0
-			},
-			"particleDuration": 0.5,
-			"particleDurVariance": 0.3,
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"anim": "SPARK",
-			"type": "DEBRIS_OVER_ENTITY"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"type": "LOOP_END"
-		}],
-		"myurderDarkness": [{
-			"fadeIn": 0,
-			"fadeOut": 0,
-			"duration": -1,
-			"intensity": 0.8,
-			"type": "DARKNESS"
-		}, {
-			"type": "LOOP_START"
-		}, {
-			"time": 0.4,
-			"type": "WAIT"
-		}, {
-			"type": "LOOP_END"
-		}],
-		"blueAuar": [{
-			"color": "#007fff",
-			"alpha": 0,
-			"duration": 0.3,
-			"keepDuration": 0,
-			"noLighter": false,
-			"type": "FLASH_COLOR"
-		}, {
-			"color": "#ffffff",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.3,
-						"y": 1.3
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#69b4ff",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.5,
-						"y": 1.5
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#007fff",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.8,
-						"y": 1.8
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#007fff",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.8,
-						"y": 1.8
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#007fff",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.8,
-						"y": 1.8
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}],
-		"waveLightning": [{
-			"type": "LOOP_START"
-		}, {
-			"useTargetAngle": false,
-			"keepAngleSync": false,
-			"anim": "WAVE_EXPLODE",
-			"type": "PLAY_ANIM"
-		}, {
-			"patternYCount": 1,
-			"animFrames": [0, 1, 2, 1],
-			"frameTime": 0.033,
-			"shiftSpeed": 300,
-			"guiSprites": true,
-			"renderMode": "lighter",
-			"pScale": {
-				"init": {
-					"x": 1.5,
-					"y": 1
-				},
-				"end": {
-					"value": {
-						"x": 0,
-						"y": 1
-					},
-					"time": 0.3,
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.25,
-			"pattern": {
-				"src": "media/entity/effects/neutral.png",
-				"xCount": 3,
-				"offX": 320,
-				"offY": 96,
-				"width": 32,
-				"height": 48
-			},
-			"type": "LASER_SPRITE"
-		}, {
-			"time": 0.133,
-			"type": "WAIT"
-		}, {
-			"type": "LOOP_END"
-		}, {
-			"type": "STOP_SOUNDS"
-		}],
-		"explosionFire": [{
-			"size": "XL",
-			"fadeIn": 0.1,
-			"fadeOut": 0.4,
-			"duration": 0.2,
-			"glow": false,
-			"type": "LIGHT"
-		}, {
-			"numParticles": 6,
-			"duration": 0.1,
-			"centralAngle": 1,
-			"startDist": 12,
-			"uniformRandom": 0.3,
-			"flipRightParticles": true,
-			"moveDist": 32,
-			"keySpline": "EASE_IN_OUT",
-			"collision": false,
-			"anim": "BIGFIRE",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"numParticles": 8,
-			"duration": 0.1,
-			"centralAngle": 1,
-			"startDist": 16,
-			"uniformRandom": 0.3,
-			"flipRightParticles": true,
-			"moveDist": 48,
-			"keySpline": "EASE_IN_OUT",
-			"collision": false,
-			"anim": "BIGFIRE",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"numParticles": 12,
-			"duration": 0.1,
-			"centralAngle": 1,
-			"startDist": 24,
-			"uniformRandom": 0.3,
-			"flipRightParticles": true,
-			"moveDist": 64,
-			"keySpline": "EASE_IN_OUT",
-			"collision": false,
-			"anim": "BIGFIRE",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}],
-		"appleFireAuar": [{
-			"type": "LOOP_START"
-		}, {
-			"color": "#ff9a19",
-			"alpha": 0,
-			"duration": 0.3,
-			"keepDuration": 0,
-			"noLighter": false,
-			"type": "FLASH_COLOR"
-		}, {
-			"color": "#ffffff",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#ef5100",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#d62c00",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#ba1e00",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#940000",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"type": "LOOP_END"
-		}],
-		"appleIceAuar": [{
-			"type": "LOOP_START"
-		}, {
-			"color": "#19d9ff",
-			"alpha": 0,
-			"duration": 0.3,
-			"keepDuration": 0,
-			"noLighter": false,
-			"type": "FLASH_COLOR"
-		}, {
-			"color": "#ffffff",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#0094f0",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#0068d7",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#004eba",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#002794",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"type": "LOOP_END"
-		}],
-		"appleShockAuar": [{
-			"type": "LOOP_START"
-		}, {
-			"color": "#cd00e1",
-			"alpha": 0,
-			"duration": 0.3,
-			"keepDuration": 0,
-			"noLighter": false,
-			"type": "FLASH_COLOR"
-		}, {
-			"color": "#ffffff",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#9c00e0",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#4e00b3",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#2b0084",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#00004b",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"type": "LOOP_END"
-		}],
-		"appleWaveAuar": [{
-			"type": "LOOP_START"
-		}, {
-			"color": "#04e300",
-			"alpha": 0,
-			"duration": 0.3,
-			"keepDuration": 0,
-			"noLighter": false,
-			"type": "FLASH_COLOR"
-		}, {
-			"color": "#ffffff",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#00bf00",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#00a500",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#007100",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"color": "#003c00",
-			"noLighter": false,
-			"pAlpha": {
-				"init": 0.5,
-				"start": {
-					"value": 0,
-					"spline": ""
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1.05,
-						"y": 1.05
-					},
-					"spline": ""
-				}
-			},
-			"particleDuration": 0.2,
-			"type": "COPY_SPRITE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"type": "LOOP_END"
-		}],
-		"appleBombSpark": [{
-			"type": "LOOP_START"
-		}, {
-			"numParticles": 3,
-			"duration": 0.1,
-			"centralAngle": 1,
-			"startAngle": 0,
-			"startDist": 3,
-			"random": true,
-			"moveVariance": 10,
-			"particleRotate": false,
-			"offset": {
-				"x": 47,
-				"y": 50,
-				"z": 100
-			},
-			"moveDist": 5,
-			"keySpline": "EASE_OUT",
-			"moveRotate": 0,
-			"inverse": false,
-			"normalMoveDist": 32,
-			"collision": false,
-			"moveWithTarget": 0,
-			"particleDuration": 0.2,
-			"randFlip": true,
-			"anim": "FLAME",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"numParticles": 3,
-			"duration": 0.11,
-			"centralAngle": 1,
-			"startAngle": 0,
-			"startDist": 3,
-			"random": true,
-			"moveVariance": 10,
-			"particleRotate": false,
-			"offset": {
-				"x": -47,
-				"y": 50,
-				"z": 100
-			},
-			"moveDist": 5,
-			"keySpline": "EASE_OUT",
-			"moveRotate": 0,
-			"inverse": false,
-			"normalMoveDist": 32,
-			"collision": false,
-			"moveWithTarget": 0,
-			"particleDuration": 0.2,
-			"randFlip": true,
-			"anim": "FLAME",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"numParticles": 3,
-			"duration": 0.12,
-			"centralAngle": 1,
-			"startAngle": 0,
-			"startDist": 3,
-			"random": true,
-			"moveVariance": 10,
-			"particleRotate": false,
-			"offset": {
-				"x": 60,
-				"y": 40,
-				"z": 100
-			},
-			"moveDist": 5,
-			"keySpline": "EASE_OUT",
-			"moveRotate": 0,
-			"inverse": false,
-			"normalMoveDist": 32,
-			"collision": false,
-			"moveWithTarget": 0,
-			"particleDuration": 0.2,
-			"randFlip": true,
-			"anim": "FLAME",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"numParticles": 3,
-			"duration": 0.13,
-			"centralAngle": 1,
-			"startAngle": 0,
-			"startDist": 3,
-			"random": true,
-			"moveVariance": 10,
-			"particleRotate": false,
-			"offset": {
-				"x": -60,
-				"y": 40,
-				"z": 100
-			},
-			"moveDist": 5,
-			"keySpline": "EASE_OUT",
-			"moveRotate": 0,
-			"inverse": false,
-			"normalMoveDist": 32,
-			"collision": false,
-			"moveWithTarget": 0,
-			"particleDuration": 0.2,
-			"randFlip": true,
-			"anim": "FLAME",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"numParticles": 3,
-			"duration": 0.14,
-			"centralAngle": 1,
-			"startAngle": 0,
-			"startDist": 3,
-			"random": true,
-			"moveVariance": 10,
-			"particleRotate": false,
-			"offset": {
-				"x": 58,
-				"y": 22,
-				"z": 100
-			},
-			"moveDist": 5,
-			"keySpline": "EASE_OUT",
-			"moveRotate": 0,
-			"inverse": false,
-			"normalMoveDist": 32,
-			"collision": false,
-			"moveWithTarget": 0,
-			"particleDuration": 0.2,
-			"randFlip": true,
-			"anim": "FLAME",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"numParticles": 3,
-			"duration": 0.11,
-			"centralAngle": 1,
-			"startAngle": 0,
-			"startDist": 3,
-			"random": true,
-			"moveVariance": 10,
-			"particleRotate": false,
-			"offset": {
-				"x": -58,
-				"y": 22,
-				"z": 100
-			},
-			"moveDist": 5,
-			"keySpline": "EASE_OUT",
-			"moveRotate": 0,
-			"inverse": false,
-			"normalMoveDist": 32,
-			"collision": false,
-			"moveWithTarget": 0,
-			"particleDuration": 0.2,
-			"randFlip": true,
-			"anim": "FLAME",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"numParticles": 3,
-			"duration": 0.12,
-			"centralAngle": 1,
-			"startAngle": 0,
-			"startDist": 3,
-			"random": true,
-			"moveVariance": 10,
-			"particleRotate": false,
-			"offset": {
-				"x": 48,
-				"y": 7,
-				"z": 100
-			},
-			"moveDist": 5,
-			"keySpline": "EASE_OUT",
-			"moveRotate": 0,
-			"inverse": false,
-			"normalMoveDist": 32,
-			"collision": false,
-			"moveWithTarget": 0,
-			"particleDuration": 0.2,
-			"randFlip": true,
-			"anim": "FLAME",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"numParticles": 3,
-			"duration": 0.13,
-			"centralAngle": 1,
-			"startAngle": 0,
-			"startDist": 3,
-			"random": true,
-			"moveVariance": 10,
-			"particleRotate": false,
-			"offset": {
-				"x": -48,
-				"y": 7,
-				"z": 100
-			},
-			"moveDist": 5,
-			"keySpline": "EASE_OUT",
-			"moveRotate": 0,
-			"inverse": false,
-			"normalMoveDist": 32,
-			"collision": false,
-			"moveWithTarget": 0,
-			"particleDuration": 0.2,
-			"randFlip": true,
-			"anim": "FLAME",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"type": "LOOP_END"
-		}],
-		"appleBreak": [{
-			"useTargetAngle": false,
-			"keepAngleSync": false,
-			"pAlpha": {
-				"init": 1,
-				"start": {
-					"value": 0,
-					"spline": "EASE_OUT_STRONG"
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 1,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 0,
-						"y": 1.4
-					},
-					"spline": "EASE_OUT_STRONG"
-				}
-			},
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"moveWithTarget": 0,
-			"particleDuration": 0.5,
-			"anim": "APPLEBOMB",
-			"type": "PLAY_ANIM"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"size": "XL",
-			"fadeIn": 0.1,
-			"fadeOut": 0.4,
-			"duration": 0.2,
-			"glow": false,
-			"type": "LIGHT"
-		}, {
-			"numParticles": 12,
-			"duration": 0.05,
-			"centralAngle": 1,
-			"startDist": 12,
-			"uniformRandom": 0.3,
-			"flipRightParticles": true,
-			"moveDist": 64,
-			"keySpline": "EASE_IN_OUT",
-			"collision": false,
-			"anim": "BIGFIRE",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"numParticles": 16,
-			"duration": 0.05,
-			"centralAngle": 1,
-			"startDist": 16,
-			"uniformRandom": 0.3,
-			"flipRightParticles": true,
-			"moveDist": 96,
-			"keySpline": "EASE_IN_OUT",
-			"collision": false,
-			"anim": "BIGFIRE",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}, {
-			"time": 0.05,
-			"type": "WAIT"
-		}, {
-			"numParticles": 24,
-			"duration": 0.05,
-			"centralAngle": 1,
-			"startDist": 24,
-			"uniformRandom": 0.3,
-			"flipRightParticles": true,
-			"moveDist": 128,
-			"keySpline": "EASE_IN_OUT",
-			"collision": false,
-			"anim": "BIGFIRE",
-			"type": "OFFSET_PARTICLE_CIRCLE"
-		}],
-		"appleBombExplosion": [{
-			"size": "XXXL",
-			"fadeIn": 0.2,
-			"fadeOut": 0.5,
-			"duration": 3.5,
-			"glow": false,
-			"type": "LIGHT"
-		}, {
-			"color": "white",
-			"maxAlpha": 0.5,
-			"minAlpha": 0.5,
-			"blinkDuration": 1,
-			"blinkCount": -1,
-			"noLighter": false,
-			"type": "BLINK_COLOR"
-		}, {
-			"useTargetAngle": false,
-			"keepAngleSync": false,
-			"offset": {
-				"x": 0,
-				"y": 128,
-				"z": 128
-			},
-			"pAlpha": {
-				"init": 0,
-				"start": {
-					"value": 1,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 0,
-					"y": 1
-				},
-				"start": {
-					"value": {
-						"x": 1,
-						"y": 1
-					},
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pRotate": {
-				"init": 0,
-				"start": {
-					"value": 0.11,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"moveWithTarget": 1,
-			"particleDuration": 1.5,
-			"anim": "PRE_EXPLOSION_LINE",
-			"type": "PLAY_ANIM"
-		}, {
-			"useTargetAngle": false,
-			"keepAngleSync": false,
-			"offset": {
-				"x": 0,
-				"y": 128,
-				"z": 128
-			},
-			"pAlpha": {
-				"init": 0,
-				"start": {
-					"value": 1,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 0,
-					"y": 0.4
-				},
-				"start": {
-					"value": {
-						"x": 0.4,
-						"y": 0.4
-					},
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pRotate": {
-				"init": 0.65,
-				"start": {
-					"value": 0.58,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"moveWithTarget": 1,
-			"particleDuration": 1.5,
-			"anim": "PRE_EXPLOSION_LINE",
-			"type": "PLAY_ANIM"
-		}, {
-			"rumbleType": "HORIZONTAL",
-			"power": "WEAKER",
-			"speed": "FASTEST",
-			"duration": 1.5,
-			"fade": false,
-			"type": "RUMBLE"
-		}, {
-			"volume": 1,
-			"global": false,
-			"loop": false,
-			"sound": "media/sound/battle/pre-explosion-1.ogg",
-			"type": "PLAY_SOUND"
-		}, {
-			"time": 0.2,
-			"type": "WAIT"
-		}, {
-			"useTargetAngle": false,
-			"keepAngleSync": false,
-			"offset": {
-				"x": 0,
-				"y": 128,
-				"z": 128
-			},
-			"pAlpha": {
-				"init": 0,
-				"start": {
-					"value": 1,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 0,
-					"y": 0.7
-				},
-				"start": {
-					"value": {
-						"x": 0.7,
-						"y": 0.7
-					},
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pRotate": {
-				"init": 0.4,
-				"start": {
-					"value": 0.45,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"moveWithTarget": 1,
-			"particleDuration": 1.3,
-			"anim": "PRE_EXPLOSION_LINE",
-			"type": "PLAY_ANIM"
-		}, {
-			"useTargetAngle": false,
-			"keepAngleSync": false,
-			"offset": {
-				"x": 0,
-				"y": 128,
-				"z": 128
-			},
-			"pAlpha": {
-				"init": 0,
-				"start": {
-					"value": 1,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 0,
-					"y": 0.5
-				},
-				"start": {
-					"value": {
-						"x": 0.5,
-						"y": 0.5
-					},
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pRotate": {
-				"init": 0.35,
-				"start": {
-					"value": 0.27,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"moveWithTarget": 1,
-			"particleDuration": 1.3,
-			"anim": "PRE_EXPLOSION_LINE",
-			"type": "PLAY_ANIM"
-		}, {
-			"time": 0.2,
-			"type": "WAIT"
-		}, {
-			"useTargetAngle": false,
-			"keepAngleSync": false,
-			"offset": {
-				"x": 0,
-				"y": 128,
-				"z": 128
-			},
-			"pAlpha": {
-				"init": 0,
-				"start": {
-					"value": 1,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 0,
-					"y": 0.9
-				},
-				"start": {
-					"value": {
-						"x": 0.9,
-						"y": 0.9
-					},
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pRotate": {
-				"init": 0.6,
-				"start": {
-					"value": 0.78,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"moveWithTarget": 1,
-			"particleDuration": 1.1,
-			"anim": "PRE_EXPLOSION_LINE",
-			"type": "PLAY_ANIM"
-		}, {
-			"useTargetAngle": false,
-			"keepAngleSync": false,
-			"offset": {
-				"x": 0,
-				"y": 128,
-				"z": 128
-			},
-			"pAlpha": {
-				"init": 0,
-				"start": {
-					"value": 1,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pScale": {
-				"init": {
-					"x": 0,
-					"y": 0.5
-				},
-				"start": {
-					"value": {
-						"x": 0.5,
-						"y": 1
-					},
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"pRotate": {
-				"init": 1,
-				"start": {
-					"value": 0.93,
-					"time": 0.3,
-					"spline": "EASE_OUT"
-				}
-			},
-			"moveWithTarget": 1,
-			"particleDuration": 1.1,
-			"anim": "PRE_EXPLOSION_LINE",
-			"type": "PLAY_ANIM"
-		}, {
-			"time": 0.5,
-			"type": "WAIT"
-		}, {
-			"rumbleType": "VERTICAL",
-			"power": "STRONGER",
-			"speed": "FASTER",
-			"duration": 0.5,
-			"fade": true,
-			"type": "RUMBLE"
-		}, {
-			"rumbleType": "VERTICAL",
-			"power": "STRONG",
-			"speed": "FASTEST",
-			"duration": 2.5,
-			"fade": true,
-			"type": "RUMBLE"
-		}, {
-			"color": "white",
-			"maxAlpha": 1,
-			"minAlpha": 1,
-			"blinkDuration": 0.1,
-			"blinkCount": -1,
-			"noLighter": false,
-			"type": "BLINK_COLOR"
-		}, {
-			"volume": 0.8,
-			"global": false,
-			"loop": false,
-			"sound": "media/sound/boss/conductor/nuke-explosion.ogg",
-			"type": "PLAY_SOUND"
-		}, {
-			"color": "#ffffff",
-			"fadeIn": 0.4,
-			"fadeOut": 0,
-			"duration": 1,
-			"type": "SCREEN_FLASH"
-		}, {
-			"time": 10,
-			"type": "WAIT"
-		}],
-		"darkLaser": [{
-			"size": "XL",
-			"fadeIn": 0.1,
-			"fadeOut": 0.4,
-			"duration": -1,
-			"glow": false,
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 48
-			},
-			"type": "LIGHT"
-		}, {
-			"size": "XL",
-			"fadeIn": 0.1,
-			"fadeOut": 0.4,
-			"duration": -1,
-			"glow": false,
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 96
-			},
-			"type": "LIGHT"
-		}, {
-			"size": "XL",
-			"fadeIn": 0.1,
-			"fadeOut": 0.4,
-			"duration": -1,
-			"glow": false,
-			"type": "LIGHT"
-		}, {
-			"rumbleType": "RANDOM",
-			"power": "WEAK",
-			"speed": "FASTEST",
-			"duration": 0.35,
-			"fade": true,
-			"type": "RUMBLE"
-		}, {
-			"size": "XXL",
-			"fadeIn": 0,
-			"fadeOut": 0.5,
-			"duration": -1,
-			"glow": true,
-			"type": "LIGHT"
-		}, {
-			"useTargetAngle": false,
-			"keepAngleSync": false,
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"pScale": {
-				"init": {
-					"x": 2,
-					"y": 2
-				},
-				"end": {
-					"value": {
-						"x": 0,
-						"y": 2
-					},
-					"time": 0.3,
-					"spline": ""
-				}
-			},
-			"moveWithTarget": 1,
-			"particleDuration": -1,
-			"cancelable": true,
-			"anim": "LASER_END",
-			"type": "PLAY_ANIM"
-		}, {
-			"patternYCount": 1,
-			"frameTime": 0.05,
-			"animFrames": [0, 1, 2, 1],
-			"shiftSpeed": 500,
-			"guiSprites": true,
-			"pScale": {
-				"init": {
-					"x": 2,
-					"y": 1
-				},
-				"end": {
-					"value": {
-						"x": 0,
-						"y": 1
-					},
-					"time": 0.3,
-					"spline": ""
-				}
-			},
-			"moveWithTarget": 1,
-			"particleDuration": -1,
-			"cancelable": true,
-			"offset": {
-				"x": 0,
-				"y": 0,
-				"z": 1
-			},
-			"pattern": {
-				"src": "media/entity/enemy/boss/conductor.png",
-				"xCount": 3,
-				"offX": 336,
-				"offY": 152,
-				"width": 32,
-				"height": 48
-			},
-			"type": "LASER_SPRITE"
-		}, {
-			"type": "LOOP_START"
-		}, {
-			"time": 0.2,
-			"type": "WAIT"
-		}, {
-			"type": "LOOP_END"
-		}]
-	}
+    "DOCTYPE": "EFFECT",
+    "ANIMS": {
+        "SUB": [{
+            "name": "SHOCKWAVE",
+            "sheet": {
+                "src": "media/entity/enemy/boss/conductor-shockwave.png",
+                "offX": 0,
+                "offY": 0,
+                "width": 540,
+                "height": 540
+            },
+            "centerPivot": false,
+            "renderMode": "lighter",
+            "frames": [0]
+        }, {
+            "name": "SPARK",
+            "sheet": {
+                "src": "media/entity/enemy/boss/conductor.png",
+                "offX": 432,
+                "offY": 229,
+                "width": 5,
+                "height": 3
+            },
+            "centerPivot": false,
+            "renderMode": "lighter",
+            "time": 0.025,
+            "repeat": true,
+            "frames": [0, 1, 2]
+        }, {
+            "name": "EARTHQUAKE_LINE",
+            "sheet": {
+                "src": "media/entity/effects/circle.png",
+                "width": 16,
+                "height": 128,
+                "offY": 80,
+                "offX": 16
+            },
+            "time": 0.03,
+            "frames": [1, 2, 3, 4, 5, 6],
+            "repeat": false,
+            "pivot": {
+                "x": 8,
+                "y": 128
+            },
+            "guiSprites": false,
+            "renderMode": "lighter"
+        }, {
+            "name": "SPARK_FLOOR",
+            "sheet": {
+                "src": "media/entity/enemy/boss/conductor.png",
+                "offX": 432,
+                "offY": 177,
+                "width": 15,
+                "height": 52
+            },
+            "centerPivot": false,
+            "renderMode": "lighter",
+            "frames": [0]
+        }, {
+            "name": "APPLEBOMB",
+            "sheet": {
+                "src": "media/entity/enemy/boss/conductor-bomb-break.png",
+                "offX": 0,
+                "offY": 0,
+                "width": 140,
+                "height": 120
+            },
+            "centerPivot": false,
+            "frames": [0]
+        }, {
+            "name": "FLAME",
+            "sheet": {
+                "src": "media/entity/effects/heat.png",
+                "offX": 0,
+                "offY": 392,
+                "width": 24,
+                "height": 24
+            },
+            "time": 0.06,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7]
+        }, {
+            "name": "BIGFIRE",
+            "sheet": {
+                "src": "media/entity/effects/heat.png",
+                "width": 48,
+                "height": 48,
+                "offY": 0,
+                "offX": 0,
+                "xCount": 6
+            },
+            "time": 0.05,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+            "guiSprites": true
+        }, {
+            "name": "WAVE_EXPLODE",
+            "sheet": {
+                "src": "media/entity/effects/wave.png",
+                "xCount": 6,
+                "offX": 0,
+                "offY": 128,
+                "width": 48,
+                "height": 48
+            },
+            "renderMode": "lighter",
+            "time": 0.033,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        }, {
+            "name": "PRE_EXPLOSION_LINE",
+            "sheet": {
+                "src": "media/entity/effects/circle.png",
+                "width": 16,
+                "height": 128,
+                "offY": 80,
+                "offX": 0
+            },
+            "time": 0.03,
+            "frames": [0, 0],
+            "framesAlpha": [1, 0],
+            "repeat": true,
+            "pivot": {
+                "x": 8,
+                "y": 128
+            },
+            "renderMode": "lighter"
+        }, {
+            "name": "DUST_UP_BIG_BRIGHT",
+            "pivot": {
+                "x": 8,
+                "y": 40
+            },
+            "sheet": {
+                "src": "media/entity/effects/dust.png",
+                "width": 32,
+                "height": 48,
+                "offY": 64
+            },
+            "renderMode": "lighter",
+            "time": 0.07,
+            "repeat": false,
+            "frames": [1, 2, 3, 4, 5, 6, 7, 8]
+        }, {
+            "name": "LASER_END",
+            "sheet": {
+                "src": "media/entity/enemy/boss/conductor.png",
+                "offX": 336,
+                "offY": 200,
+                "width": 32,
+                "height": 32
+            },
+            "guiSprites": true,
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 1, 2, 1]
+        }]
+    },
+    "EFFECTS": {
+        "phaseAuar": [{
+            "type": "LOOP_START"
+        }, {
+            "color": "#ff7f00",
+            "alpha": 0,
+            "duration": 0.3,
+            "keepDuration": 0,
+            "noLighter": false,
+            "type": "FLASH_COLOR"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.3,
+                        "y": 1.3
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#ffb469",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.5,
+                        "y": 1.5
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#ff7f00",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.8,
+                        "y": 1.8
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#ff5a34",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.8,
+                        "y": 1.8
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#ff0000",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.8,
+                        "y": 1.8
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "shockwave": [{
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "pAlpha": {
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 0.3,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 0.7344,
+                        "y": 0.7344
+                    },
+                    "spline": ""
+                },
+                "end": {
+                    "value": {
+                        "x": 0.918,
+                        "y": 0.918
+                    },
+                    "time": 0.1,
+                    "spline": "EASE_OUT_STRONG"
+                }
+            },
+            "moveWithTarget": 0,
+            "particleDuration": 0.5,
+            "anim": "SHOCKWAVE",
+            "type": "PLAY_ANIM"
+        }],
+        "earthquakeEffect": [{
+            "type": "LOOP_START"
+        }, {
+            "numParticles": 2,
+            "duration": 0.2,
+            "centralAngle": 1,
+            "startAngle": 0,
+            "startDist": 0,
+            "particleRotate": false,
+            "random": true,
+            "moveVariance": 10,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "minSpeed": 20,
+            "maxSpeed": 120,
+            "moveDist": 5,
+            "keySpline": "LINEAR",
+            "moveRotate": 0,
+            "rotateWithTime": false,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 0.5
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.5,
+                        "y": 1.5
+                    }
+                }
+            },
+            "moveWithTarget": 0,
+            "flipRightParticles": true,
+            "particleDuration": 0.7,
+            "anim": "DUST_UP_BIG_BRIGHT",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 1,
+            "duration": 0.2,
+            "centralAngle": 1,
+            "startAngle": 0,
+            "startDist": 30,
+            "particleRotate": false,
+            "random": true,
+            "moveVariance": 10,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "minSpeed": 20,
+            "maxSpeed": 120,
+            "moveDist": 5,
+            "keySpline": "LINEAR",
+            "moveRotate": 0,
+            "rotateWithTime": false,
+            "collision": false,
+            "moveWithTarget": 0,
+            "particleDuration": 0.3,
+            "anim": "EARTHQUAKE_LINE",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "spark": [{
+            "type": "LOOP_START"
+        }, {
+            "numParticles": 1,
+            "duration": 0,
+            "centralAngle": 0,
+            "startAngle": 0,
+            "startDist": 0,
+            "particleRotate": true,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "moveDist": 5,
+            "keySpline": "LINEAR",
+            "moveRotate": 0,
+            "rotateWithTime": false,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 0.3,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 0,
+            "flipRightParticles": true,
+            "particleDuration": 0.2,
+            "anim": "SPARK_FLOOR",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "circular": true,
+            "minSpeed": 50,
+            "maxSpeed": 60,
+            "minZSpeed": 100,
+            "maxZSpeed": 300,
+            "debrisSize": {
+                "x": 3,
+                "y": 3,
+                "z": 3
+            },
+            "zBounciness": 0,
+            "pAlpha": {
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 1,
+                    "spline": ""
+                }
+            },
+            "pRotate": {
+                "init": 0
+            },
+            "particleDuration": 0.5,
+            "particleDurVariance": 0.3,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "anim": "SPARK",
+            "type": "DEBRIS_OVER_ENTITY"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "myurderDarkness": [{
+            "fadeIn": 0,
+            "fadeOut": 0,
+            "duration": -1,
+            "intensity": 0.8,
+            "type": "DARKNESS"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "time": 0.4,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "blueAuar": [{
+            "color": "#007fff",
+            "alpha": 0,
+            "duration": 0.3,
+            "keepDuration": 0,
+            "noLighter": false,
+            "type": "FLASH_COLOR"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.3,
+                        "y": 1.3
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#69b4ff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.5,
+                        "y": 1.5
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#007fff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.8,
+                        "y": 1.8
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#007fff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.8,
+                        "y": 1.8
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#007fff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.8,
+                        "y": 1.8
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }],
+        "waveLightning": [{
+            "type": "LOOP_START"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "anim": "WAVE_EXPLODE",
+            "type": "PLAY_ANIM"
+        }, {
+            "patternYCount": 1,
+            "animFrames": [0, 1, 2, 1],
+            "frameTime": 0.033,
+            "shiftSpeed": 300,
+            "guiSprites": true,
+            "renderMode": "lighter",
+            "pScale": {
+                "init": {
+                    "x": 1.5,
+                    "y": 1
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "time": 0.3,
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.25,
+            "pattern": {
+                "src": "media/entity/effects/neutral.png",
+                "xCount": 3,
+                "offX": 320,
+                "offY": 96,
+                "width": 32,
+                "height": 48
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "time": 0.133,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }, {
+            "type": "STOP_SOUNDS"
+        }],
+        "explosionFire": [{
+            "size": "XL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.4,
+            "duration": 0.2,
+            "glow": false,
+            "type": "LIGHT"
+        }, {
+            "numParticles": 6,
+            "duration": 0.1,
+            "centralAngle": 1,
+            "startDist": 12,
+            "uniformRandom": 0.3,
+            "flipRightParticles": true,
+            "moveDist": 32,
+            "keySpline": "EASE_IN_OUT",
+            "collision": false,
+            "anim": "BIGFIRE",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "numParticles": 8,
+            "duration": 0.1,
+            "centralAngle": 1,
+            "startDist": 16,
+            "uniformRandom": 0.3,
+            "flipRightParticles": true,
+            "moveDist": 48,
+            "keySpline": "EASE_IN_OUT",
+            "collision": false,
+            "anim": "BIGFIRE",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "numParticles": 12,
+            "duration": 0.1,
+            "centralAngle": 1,
+            "startDist": 24,
+            "uniformRandom": 0.3,
+            "flipRightParticles": true,
+            "moveDist": 64,
+            "keySpline": "EASE_IN_OUT",
+            "collision": false,
+            "anim": "BIGFIRE",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }],
+        "appleFireAuar": [{
+            "type": "LOOP_START"
+        }, {
+            "color": "#ff9a19",
+            "alpha": 0,
+            "duration": 0.3,
+            "keepDuration": 0,
+            "noLighter": false,
+            "type": "FLASH_COLOR"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#ef5100",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#d62c00",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#ba1e00",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#940000",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "appleIceAuar": [{
+            "type": "LOOP_START"
+        }, {
+            "color": "#19d9ff",
+            "alpha": 0,
+            "duration": 0.3,
+            "keepDuration": 0,
+            "noLighter": false,
+            "type": "FLASH_COLOR"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#0094f0",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#0068d7",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#004eba",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#002794",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "appleShockAuar": [{
+            "type": "LOOP_START"
+        }, {
+            "color": "#cd00e1",
+            "alpha": 0,
+            "duration": 0.3,
+            "keepDuration": 0,
+            "noLighter": false,
+            "type": "FLASH_COLOR"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#9c00e0",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#4e00b3",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#2b0084",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#00004b",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "appleWaveAuar": [{
+            "type": "LOOP_START"
+        }, {
+            "color": "#04e300",
+            "alpha": 0,
+            "duration": 0.3,
+            "keepDuration": 0,
+            "noLighter": false,
+            "type": "FLASH_COLOR"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#00bf00",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#00a500",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#007100",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "color": "#003c00",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.2,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "appleBombSpark": [{
+            "type": "LOOP_START"
+        }, {
+            "numParticles": 3,
+            "duration": 0.1,
+            "centralAngle": 1,
+            "startAngle": 0,
+            "startDist": 3,
+            "random": true,
+            "moveVariance": 10,
+            "particleRotate": false,
+            "offset": {
+                "x": 47,
+                "y": 50,
+                "z": 100
+            },
+            "moveDist": 5,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "normalMoveDist": 32,
+            "collision": false,
+            "moveWithTarget": 0,
+            "particleDuration": 0.2,
+            "randFlip": true,
+            "anim": "FLAME",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "duration": 0.11,
+            "centralAngle": 1,
+            "startAngle": 0,
+            "startDist": 3,
+            "random": true,
+            "moveVariance": 10,
+            "particleRotate": false,
+            "offset": {
+                "x": -47,
+                "y": 50,
+                "z": 100
+            },
+            "moveDist": 5,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "normalMoveDist": 32,
+            "collision": false,
+            "moveWithTarget": 0,
+            "particleDuration": 0.2,
+            "randFlip": true,
+            "anim": "FLAME",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "duration": 0.12,
+            "centralAngle": 1,
+            "startAngle": 0,
+            "startDist": 3,
+            "random": true,
+            "moveVariance": 10,
+            "particleRotate": false,
+            "offset": {
+                "x": 60,
+                "y": 40,
+                "z": 100
+            },
+            "moveDist": 5,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "normalMoveDist": 32,
+            "collision": false,
+            "moveWithTarget": 0,
+            "particleDuration": 0.2,
+            "randFlip": true,
+            "anim": "FLAME",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "duration": 0.13,
+            "centralAngle": 1,
+            "startAngle": 0,
+            "startDist": 3,
+            "random": true,
+            "moveVariance": 10,
+            "particleRotate": false,
+            "offset": {
+                "x": -60,
+                "y": 40,
+                "z": 100
+            },
+            "moveDist": 5,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "normalMoveDist": 32,
+            "collision": false,
+            "moveWithTarget": 0,
+            "particleDuration": 0.2,
+            "randFlip": true,
+            "anim": "FLAME",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "duration": 0.14,
+            "centralAngle": 1,
+            "startAngle": 0,
+            "startDist": 3,
+            "random": true,
+            "moveVariance": 10,
+            "particleRotate": false,
+            "offset": {
+                "x": 58,
+                "y": 22,
+                "z": 100
+            },
+            "moveDist": 5,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "normalMoveDist": 32,
+            "collision": false,
+            "moveWithTarget": 0,
+            "particleDuration": 0.2,
+            "randFlip": true,
+            "anim": "FLAME",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "duration": 0.11,
+            "centralAngle": 1,
+            "startAngle": 0,
+            "startDist": 3,
+            "random": true,
+            "moveVariance": 10,
+            "particleRotate": false,
+            "offset": {
+                "x": -58,
+                "y": 22,
+                "z": 100
+            },
+            "moveDist": 5,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "normalMoveDist": 32,
+            "collision": false,
+            "moveWithTarget": 0,
+            "particleDuration": 0.2,
+            "randFlip": true,
+            "anim": "FLAME",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "duration": 0.12,
+            "centralAngle": 1,
+            "startAngle": 0,
+            "startDist": 3,
+            "random": true,
+            "moveVariance": 10,
+            "particleRotate": false,
+            "offset": {
+                "x": 48,
+                "y": 7,
+                "z": 100
+            },
+            "moveDist": 5,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "normalMoveDist": 32,
+            "collision": false,
+            "moveWithTarget": 0,
+            "particleDuration": 0.2,
+            "randFlip": true,
+            "anim": "FLAME",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "duration": 0.13,
+            "centralAngle": 1,
+            "startAngle": 0,
+            "startDist": 3,
+            "random": true,
+            "moveVariance": 10,
+            "particleRotate": false,
+            "offset": {
+                "x": -48,
+                "y": 7,
+                "z": 100
+            },
+            "moveDist": 5,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "normalMoveDist": 32,
+            "collision": false,
+            "moveWithTarget": 0,
+            "particleDuration": 0.2,
+            "randFlip": true,
+            "anim": "FLAME",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "appleBreak": [{
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 0,
+                    "spline": "EASE_OUT_STRONG"
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 0,
+                        "y": 1.4
+                    },
+                    "spline": "EASE_OUT_STRONG"
+                }
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "moveWithTarget": 0,
+            "particleDuration": 0.5,
+            "anim": "APPLEBOMB",
+            "type": "PLAY_ANIM"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "size": "XL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.4,
+            "duration": 0.2,
+            "glow": false,
+            "type": "LIGHT"
+        }, {
+            "numParticles": 12,
+            "duration": 0.05,
+            "centralAngle": 1,
+            "startDist": 12,
+            "uniformRandom": 0.3,
+            "flipRightParticles": true,
+            "moveDist": 64,
+            "keySpline": "EASE_IN_OUT",
+            "collision": false,
+            "anim": "BIGFIRE",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "numParticles": 16,
+            "duration": 0.05,
+            "centralAngle": 1,
+            "startDist": 16,
+            "uniformRandom": 0.3,
+            "flipRightParticles": true,
+            "moveDist": 96,
+            "keySpline": "EASE_IN_OUT",
+            "collision": false,
+            "anim": "BIGFIRE",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "numParticles": 24,
+            "duration": 0.05,
+            "centralAngle": 1,
+            "startDist": 24,
+            "uniformRandom": 0.3,
+            "flipRightParticles": true,
+            "moveDist": 128,
+            "keySpline": "EASE_IN_OUT",
+            "collision": false,
+            "anim": "BIGFIRE",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }],
+        "appleBombExplosion": [{
+            "size": "XXXL",
+            "fadeIn": 0.2,
+            "fadeOut": 0.5,
+            "duration": 3.5,
+            "glow": false,
+            "type": "LIGHT"
+        }, {
+            "color": "white",
+            "maxAlpha": 0.5,
+            "minAlpha": 0.5,
+            "blinkDuration": 1,
+            "blinkCount": -1,
+            "noLighter": false,
+            "type": "BLINK_COLOR"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 128,
+                "z": 128
+            },
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 1,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pRotate": {
+                "init": 0,
+                "start": {
+                    "value": 0.11,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": 1.5,
+            "anim": "PRE_EXPLOSION_LINE",
+            "type": "PLAY_ANIM"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 128,
+                "z": 128
+            },
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 1,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0.4
+                },
+                "start": {
+                    "value": {
+                        "x": 0.4,
+                        "y": 0.4
+                    },
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pRotate": {
+                "init": 0.65,
+                "start": {
+                    "value": 0.58,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": 1.5,
+            "anim": "PRE_EXPLOSION_LINE",
+            "type": "PLAY_ANIM"
+        }, {
+            "rumbleType": "HORIZONTAL",
+            "power": "WEAKER",
+            "speed": "FASTEST",
+            "duration": 1.5,
+            "fade": false,
+            "type": "RUMBLE"
+        }, {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "sound": "media/sound/battle/pre-explosion-1.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 128,
+                "z": 128
+            },
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 1,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0.7
+                },
+                "start": {
+                    "value": {
+                        "x": 0.7,
+                        "y": 0.7
+                    },
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pRotate": {
+                "init": 0.4,
+                "start": {
+                    "value": 0.45,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": 1.3,
+            "anim": "PRE_EXPLOSION_LINE",
+            "type": "PLAY_ANIM"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 128,
+                "z": 128
+            },
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 1,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0.5
+                },
+                "start": {
+                    "value": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pRotate": {
+                "init": 0.35,
+                "start": {
+                    "value": 0.27,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": 1.3,
+            "anim": "PRE_EXPLOSION_LINE",
+            "type": "PLAY_ANIM"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 128,
+                "z": 128
+            },
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 1,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0.9
+                },
+                "start": {
+                    "value": {
+                        "x": 0.9,
+                        "y": 0.9
+                    },
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pRotate": {
+                "init": 0.6,
+                "start": {
+                    "value": 0.78,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": 1.1,
+            "anim": "PRE_EXPLOSION_LINE",
+            "type": "PLAY_ANIM"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 128,
+                "z": 128
+            },
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 1,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0.5
+                },
+                "start": {
+                    "value": {
+                        "x": 0.5,
+                        "y": 1
+                    },
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pRotate": {
+                "init": 1,
+                "start": {
+                    "value": 0.93,
+                    "time": 0.3,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": 1.1,
+            "anim": "PRE_EXPLOSION_LINE",
+            "type": "PLAY_ANIM"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "rumbleType": "VERTICAL",
+            "power": "STRONGER",
+            "speed": "FASTER",
+            "duration": 0.5,
+            "fade": true,
+            "type": "RUMBLE"
+        }, {
+            "rumbleType": "VERTICAL",
+            "power": "STRONG",
+            "speed": "FASTEST",
+            "duration": 2.5,
+            "fade": true,
+            "type": "RUMBLE"
+        }, {
+            "color": "white",
+            "maxAlpha": 1,
+            "minAlpha": 1,
+            "blinkDuration": 0.1,
+            "blinkCount": -1,
+            "noLighter": false,
+            "type": "BLINK_COLOR"
+        }, {
+            "volume": 0.8,
+            "global": false,
+            "loop": false,
+            "sound": "media/sound/boss/conductor/nuke-explosion.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "color": "#ffffff",
+            "fadeIn": 0.4,
+            "fadeOut": 0,
+            "duration": 1,
+            "type": "SCREEN_FLASH"
+        }, {
+            "time": 10,
+            "type": "WAIT"
+        }],
+        "darkLaser": [{
+            "size": "XL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.4,
+            "duration": -1,
+            "glow": false,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 48
+            },
+            "type": "LIGHT"
+        }, {
+            "size": "XL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.4,
+            "duration": -1,
+            "glow": false,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 96
+            },
+            "type": "LIGHT"
+        }, {
+            "size": "XL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.4,
+            "duration": -1,
+            "glow": false,
+            "type": "LIGHT"
+        }, {
+            "rumbleType": "RANDOM",
+            "power": "WEAK",
+            "speed": "FASTEST",
+            "duration": 0.35,
+            "fade": true,
+            "type": "RUMBLE"
+        }, {
+            "size": "XXL",
+            "fadeIn": 0,
+            "fadeOut": 0.5,
+            "duration": -1,
+            "glow": true,
+            "type": "LIGHT"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "pScale": {
+                "init": {
+                    "x": 2,
+                    "y": 2
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 2
+                    },
+                    "time": 0.3,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "anim": "LASER_END",
+            "type": "PLAY_ANIM"
+        }, {
+            "patternYCount": 1,
+            "frameTime": 0.05,
+            "animFrames": [0, 1, 2, 1],
+            "shiftSpeed": 500,
+            "guiSprites": true,
+            "pScale": {
+                "init": {
+                    "x": 2,
+                    "y": 1
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "time": 0.3,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "pattern": {
+                "src": "media/entity/enemy/boss/conductor.png",
+                "xCount": 3,
+                "offX": 336,
+                "offY": 152,
+                "width": 32,
+                "height": 48
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }]
+    }
 }

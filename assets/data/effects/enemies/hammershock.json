@@ -1,0 +1,1951 @@
+{
+    "DOCTYPE": "EFFECT",
+    "ANIMS": {
+        "SUB": [{
+            "name": "SPARK_HEAT",
+            "sheet": {
+                "src": "media/entity/enemy/boss/hammershock-proxy-impact.png",
+                "offX": 0,
+                "offY": 0,
+                "width": 96,
+                "height": 116
+            },
+            "centerPivot": false,
+            "renderMode": "lighter",
+            "time": 0.035,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4, 5, 6]
+        }, {
+            "name": "SPARK_COLD",
+            "sheet": {
+                "src": "media/entity/enemy/boss/hammershock-proxy-impact.png",
+                "offX": 0,
+                "offY": 116,
+                "width": 96,
+                "height": 116
+            },
+            "centerPivot": false,
+            "renderMode": "lighter",
+            "time": 0.035,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4, 5, 6]
+        }, {
+            "name": "SPARK_SHOCK",
+            "sheet": {
+                "src": "media/entity/enemy/boss/hammershock-proxy-impact.png",
+                "offX": 0,
+                "offY": 232,
+                "width": 96,
+                "height": 116
+            },
+            "centerPivot": false,
+            "renderMode": "lighter",
+            "time": 0.035,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4, 5, 6]
+        }, {
+            "name": "SPARK_WAVE",
+            "sheet": {
+                "src": "media/entity/enemy/boss/hammershock-proxy-impact.png",
+                "offX": 0,
+                "offY": 348,
+                "width": 96,
+                "height": 116
+            },
+            "centerPivot": false,
+            "renderMode": "lighter",
+            "time": 0.035,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4, 5, 6]
+        }, {
+            "name": "LASER_END_HEAT",
+            "sheet": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "offX": 0,
+                "offY": 192,
+                "width": 27,
+                "height": 31
+            },
+            "guiSprites": true,
+			"renderMode": "lighter",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 1, 2, 3, 4, 5, 6]
+        }, {
+            "name": "LASER_END_COLD",
+            "sheet": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "offX": 0,
+                "offY": 223,
+                "width": 27,
+                "height": 31
+            },
+            "guiSprites": true,
+			"renderMode": "lighter",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 1, 2, 3, 4, 5, 6]
+        }, {
+            "name": "LASER_END_SHOCK",
+            "sheet": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "offX": 0,
+                "offY": 254,
+                "width": 27,
+                "height": 31
+            },
+            "guiSprites": true,
+			"renderMode": "lighter",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 1, 2, 3, 4, 5, 6]
+        }, {
+            "name": "LASER_END_WAVE",
+            "sheet": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "offX": 0,
+                "offY": 285,
+                "width": 27,
+                "height": 31
+            },
+            "guiSprites": true,
+			"renderMode": "lighter",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 1, 2, 3, 4, 5, 6]
+        }, {
+            "name": "PULSE_HEAT",
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle.png",
+                "offX": 0,
+                "offY": 48,
+                "width": 48,
+                "height": 48
+            },
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 1, 2, 1]
+        }, {
+            "name": "PULSE_COLD",
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle.png",
+                "offX": 0,
+                "offY": 96,
+                "width": 48,
+                "height": 48
+            },
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 1, 2, 1]
+        }, {
+            "name": "PULSE_SHOCK",
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle.png",
+                "offX": 0,
+                "offY": 144,
+                "width": 48,
+                "height": 48
+            },
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 1, 2, 1]
+        }, {
+            "name": "PULSE_WAVE",
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle.png",
+                "offX": 0,
+                "offY": 192,
+                "width": 48,
+                "height": 48
+            },
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 1, 2, 1]
+        }, {
+            "name": "SHOCKWAVE_HEAT",
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle.png",
+                "offX": 208,
+                "offY": 48,
+                "width": 48,
+                "height": 48
+            },
+            "guiSprites": false,
+            "renderMode": "lighter",
+            "time": 0.4,
+            "repeat": true,
+            "frames": [0]
+        }, {
+            "name": "SHOCKWAVE_COLD",
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle.png",
+                "offX": 208,
+                "offY": 96,
+                "width": 48,
+                "height": 48
+            },
+            "guiSprites": false,
+            "renderMode": "lighter",
+            "time": 0.4,
+            "repeat": true,
+            "frames": [0]
+        }, {
+            "name": "SHOCKWAVE_SHOCK",
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle.png",
+                "offX": 208,
+                "offY": 144,
+                "width": 48,
+                "height": 48
+            },
+            "guiSprites": false,
+            "renderMode": "lighter",
+            "time": 0.4,
+            "repeat": true,
+            "frames": [0]
+        }, {
+            "name": "SHOCKWAVE_WAVE",
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle.png",
+                "offX": 208,
+                "offY": 192,
+                "width": 48,
+                "height": 48
+            },
+            "guiSprites": false,
+            "renderMode": "lighter",
+            "time": 0.4,
+            "repeat": true,
+            "frames": [0]
+        }, {
+            "name": "DUST_SMALL",
+            "sheet": {
+                "src": "media/entity/effects/dust.png",
+                "width": 16,
+                "height": 16,
+                "offY": 16
+            },
+            "time": 0.06,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4, 5]
+        }, {
+            "name": "EXPLOSION",
+            "sheet": {
+                "src": "media/entity/effects/bomb-explo.png",
+                "offX": 0,
+                "offY": 0,
+                "width": 32,
+                "height": 32
+            },
+            "guiSprites": true,
+            "time": 0.045,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+        }, {
+            "name": "EXPLOSION_SHOCK",
+            "sheet": {
+                "src": "media/entity/effects/element-explo.png",
+                "offX": 0,
+                "offY": 32,
+                "width": 32,
+                "height": 32
+            },
+			"time": 0.045,
+			"frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+			"repeat": false
+        }, {
+            "name": "CIRCLE_BIG",
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle.png",
+                "offX": 0,
+                "offY": 0,
+                "width": 48,
+                "height": 48
+            },
+            "guiSprites": true,
+            "renderMode": "lighter",
+            "time": 0.4,
+            "frames": [0]
+        }, {
+            "name": "SHOCKWAVE",
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle.png",
+                "offX": 208,
+                "offY": 0,
+                "width": 48,
+                "height": 48
+            },
+            "renderMode": "lighter",
+            "time": 0.4,
+            "frames": [0]
+        }, {
+            "name": "SHOCK_BALL_DOT2",
+            "sheet": {
+                "src": "media/entity/effects/particles1.png ",
+                "xCount": 2,
+                "offX": 176,
+                "offY": 72,
+                "width": 8,
+                "height": 16
+            },
+            "guiSprites": true,
+            "renderMode": "lighter",
+            "time": 0.05,
+            "flipX": true,
+            "frames": [0]
+        }, {
+            "name": "LASER_START",
+            "sheet": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "offX": 251,
+                "offY": 170,
+                "width": 32,
+                "height": 32
+            },
+            "guiSprites": true,
+            "time": 1,
+            "repeat": true,
+            "frames": [0]
+        }, {
+            "name": "CANNON_FLAME",
+            "sheet": {
+                "src": "media/entity/effects/heat.png",
+                "offX": 0,
+                "offY": 296,
+                "width": 24,
+                "height": 24
+            },
+            "time": 0.05,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        }, {
+            "name": "TRANSMITTER",
+            "sheet": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "offX": 204,
+                "offY": 114,
+                "width": 10,
+                "height": 23
+            },
+            "guiSprites": true,
+            "frames": [0]
+        }, {
+            "name": "CROSSHAIR",
+            "sheet": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "offX": 180,
+                "offY": 114,
+                "width": 24,
+                "height": 24
+            },
+            "guiSprites": true,
+            "renderMode": "lighter",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 0],
+            "framesAlpha": [1, 0]
+        }]
+    },
+    "EFFECTS": {
+        "missileSmoke": [{
+            "size": "L",
+            "fadeIn": 0,
+            "fadeOut": 0,
+            "duration": -1,
+            "glow": true,
+            "type": "LIGHT"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "numParticles": 2,
+            "duration": 0,
+            "centralAngle": 1,
+            "startDist": 0,
+            "random": true,
+            "offset": {
+                "x": 0,
+                "y": -1,
+                "z": 0
+            },
+            "minSpeed": 0,
+            "maxSpeed": 10,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 0.5
+                }
+            },
+            "anim": "DUST_SMALL",
+            "type": "PARTICLE_CIRCLE"
+        }, {
+            "time": 0.15,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "missileFireSmoke": [{
+            "numParticles": 3,
+            "duration": 0,
+            "centralAngle": 1,
+            "startDist": 2,
+            "uniformRandom": 0.8,
+            "moveDist": 16,
+            "keySpline": "EASE_OUT",
+            "collision": false,
+            "anim": "EXPLOSION_SHOCK",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "missileFireSmokeSmall": [{
+            "numParticles": 3,
+            "duration": 0,
+            "centralAngle": 1,
+            "startDist": 2,
+            "uniformRandom": 0.8,
+            "moveDist": 8,
+            "pScale": {
+                "init": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            },
+            "keySpline": "EASE_OUT",
+            "collision": false,
+            "anim": "EXPLOSION_SHOCK",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "boldSmallest": [{
+            "volume": 0.8,
+            "global": false,
+            "loop": false,
+            "speed": 1.5,
+            "sound": "media/sound/battle/heavy-thunder-2.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "rumbleType": "RANDOM",
+            "power": "WEAKEST",
+            "speed": "FASTEST",
+            "duration": 0.3,
+            "fade": true,
+            "type": "RUMBLE"
+        }, {
+            "patternYCount": 1,
+            "animFrames": [0, 1, 2, 3, 4],
+            "frameTime": 0.05,
+            "shiftSpeed": 0,
+            "guiSprites": true,
+            "renderMode": "lighter",
+            "particleDuration": 0.25,
+            "pattern": {
+                "src": "media/entity/effects/shock.png",
+                "xCount": 5,
+                "offX": 160,
+                "offY": 56,
+                "width": 24,
+                "height": 48
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "size": "XXL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.1,
+            "duration": 0.2,
+            "glow": true,
+            "type": "LIGHT"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "pAlpha": {
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 0.15,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0.2,
+                    "y": 0.2
+                },
+                "start": {
+                    "value": {
+                        "x": 1.6,
+                        "y": 1.6
+                    },
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": 0.2,
+            "anim": "CIRCLE_BIG",
+            "type": "PLAY_ANIM"
+        }, {
+            "numParticles": 8,
+            "duration": 0,
+            "centralAngle": 1,
+            "startDist": 4,
+            "uniformRandom": 0.9,
+            "particleRotate": true,
+            "moveDist": 24,
+            "moveVariance": 4,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 0.15,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": 0.25,
+            "anim": "SHOCK_BALL_DOT2",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "pAlpha": {
+                "init": 0.7,
+                "end": {
+                    "value": 0,
+                    "time": 0.3,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0.3,
+                    "y": 0.3
+                },
+                "start": {
+                    "value": {
+                        "x": 2,
+                        "y": 2
+                    },
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": 0.3,
+            "anim": "SHOCKWAVE",
+            "type": "PLAY_ANIM"
+        }],
+        "pluseTurretAura": [{
+            "size": "XL",
+            "fadeIn": 0.2,
+            "fadeOut": 0.2,
+            "duration": -1,
+            "glow": true,
+            "type": "LIGHT"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "numParticles": 1,
+            "duration": 0,
+            "centralAngle": 1,
+            "startDist": 0,
+            "moveDist": 0,
+            "keySpline": "EASE_OUT",
+            "normalMoveDist": 8,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 0,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "spline": "EASE_OUT"
+                }
+            },
+            "anim": "SHOCKWAVE_COLD",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "numParticles": 1,
+            "duration": 0,
+            "centralAngle": 1,
+            "startDist": 0,
+            "moveDist": 0,
+            "keySpline": "EASE_OUT",
+            "normalMoveDist": 8,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 0,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "spline": "EASE_OUT"
+                }
+            },
+            "anim": "SHOCKWAVE_SHOCK",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "numParticles": 1,
+            "duration": 0,
+            "centralAngle": 1,
+            "startDist": 0,
+            "moveDist": 0,
+            "keySpline": "EASE_OUT",
+            "normalMoveDist": 8,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 0,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "spline": "EASE_OUT"
+                }
+            },
+            "anim": "SHOCKWAVE_HEAT",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "numParticles": 1,
+            "duration": 0,
+            "centralAngle": 1,
+            "startDist": 0,
+            "moveDist": 0,
+            "keySpline": "EASE_OUT",
+            "normalMoveDist": 8,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 0,
+                    "spline": "EASE_OUT"
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "spline": "EASE_OUT"
+                }
+            },
+            "anim": "SHOCKWAVE_WAVE",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "transmitterShoot": [{
+            "volume": 1.2,
+            "global": false,
+            "loop": false,
+            "variance": 0.1,
+            "speed": 1,
+            "sound": "media/sound/battle/explosion-1.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "size": "XL",
+            "fadeIn": 0.05,
+            "fadeOut": 0.2,
+            "duration": 0.3,
+            "glow": true,
+            "type": "LIGHT"
+        }, {
+            "numParticles": 3,
+            "duration": 0,
+            "centralAngle": 1,
+            "startDist": 2,
+            "uniformRandom": 0.8,
+            "moveDist": 16,
+            "keySpline": "EASE_OUT",
+            "collision": false,
+            "anim": "EXPLOSION",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 1,
+            "duration": 0,
+            "centralAngle": 0,
+            "startAngle": 0,
+            "startDist": 5,
+            "moveDist": 200,
+            "keySpline": "EASE_OUT",
+            "collision": false,
+            "particleDuration": 0.4,
+            "anim": "TRANSMITTER",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }],
+        "crosshair": [{
+            "useTargetAngle": false,
+            "particleDuration": -1,
+            "anim": "CROSSHAIR",
+            "type": "PLAY_ANIM"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "time": 0.05,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+		"bigLaser": [{
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "speed": 0.7,
+            "sound": "media/sound/battle/explosion-2.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "color": "#221919",
+            "fadeIn": 0.1,
+            "fadeOut": 0.5,
+            "duration": 0.05,
+            "type": "SCREEN_FLASH"
+        }, {
+            "size": "XXL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.4,
+            "duration": -1,
+            "glow": false,
+            "offset": {
+                "x": 0,
+                "y": 100,
+                "z": 0
+            },
+            "type": "LIGHT"
+        }, {
+            "size": "XXL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.4,
+            "duration": -1,
+            "glow": false,
+            "offset": {
+                "x": 0,
+                "y": 200,
+                "z": 0
+            },
+            "type": "LIGHT"
+        }, {
+            "size": "XXL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.4,
+            "duration": -1,
+            "glow": false,
+            "offset": {
+                "x": 0,
+                "y": 300,
+                "z": 0
+            },
+            "type": "LIGHT"
+        }, {
+            "size": "XXL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.4,
+            "duration": -1,
+            "glow": false,
+            "offset": {
+                "x": 0,
+                "y": 400,
+                "z": 0
+            },
+            "type": "LIGHT"
+        }, {
+            "size": "XXL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.4,
+            "duration": -1,
+            "glow": false,
+            "offset": {
+                "x": 0,
+                "y": 500,
+                "z": 0
+            },
+            "type": "LIGHT"
+        }, {
+            "numParticles": 15,
+            "duration": 0.05,
+            "centralAngle": 1,
+            "startDist": 2,
+            "uniformRandom": 0.8,
+            "moveDist": 64,
+            "keySpline": "EASE_OUT",
+            "collision": false,
+            "anim": "EXPLOSION",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": -0.1
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1.2
+                },
+                "start": {
+                    "value": {
+                        "x": 1.2,
+                        "y": 1.2
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 1.2
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "anim": "LASER_START",
+            "type": "PLAY_ANIM"
+        }, {
+            "patternYCount": 1,
+            "animFrames": [0],
+            "frameTime": 1,
+            "shiftSpeed": 0,
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1.2
+                },
+                "start": {
+                    "value": {
+                        "x": 1.2,
+                        "y": 1.2
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 1.2
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "pattern": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "offX": 251,
+                "offY": 182,
+                "width": 32,
+                "height": 20
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "numParticles": 9,
+            "duration": 0.1,
+            "centralAngle": 1,
+            "startDist": 32,
+            "uniformRandom": 1,
+            "flipRightParticles": true,
+            "moveDist": 24,
+            "keySpline": "EASE_IN_OUT",
+            "collision": false,
+            "anim": "CANNON_FLAME",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 15,
+            "duration": 0,
+            "centralAngle": 0.35,
+            "startDist": 2,
+            "uniformRandom": 0.8,
+            "moveDist": 160,
+			"moveVariance": 50,
+            "keySpline": "EASE_OUT",
+            "collision": false,
+            "anim": "CANNON_FLAME",
+			"offset": {
+                "x": 0,
+                "y": 190,
+                "z": 0
+			},
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+		"laserHeatStart": [{
+            "useTargetAngle": true,
+            "keepAngleSync": true,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 0.75,
+                        "y": 0.75
+                    },
+                    "time": 0.5,
+                    "spline": ""
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "anim": "PULSE_HEAT",
+            "type": "PLAY_ANIM"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+		"laserHeatPre": [{
+            "rumbleType": "RANDOM",
+            "power": "WEAKEST",
+            "speed": "FASTER",
+            "duration": 1,
+            "fade": false,
+            "type": "RUMBLE"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/laser-heavy-charge.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "patternYCount": 1,
+            "animFrames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8],
+            "frameTime": 0.13,
+            "shiftSpeed": 500,
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "pattern": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "xCount": 9,
+                "offX": 0,
+                "offY": 0,
+                "width": 18,
+                "height": 48
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 1,
+                "z": 1
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "time": 0.5,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "anim": "LASER_END_HEAT",
+            "type": "PLAY_ANIM"
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }],
+		"laserHeat": [{
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/airon/fire-generic-attack-4.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/explosion-1.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1,
+			"variance": 0.02,
+            "global": true,
+            "loop": true,
+            "sound": "media/sound/battle/laser-heavy.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "rumbleType": "RANDOM",
+            "power": "WEAK",
+            "speed": "FASTER",
+            "duration": -1,
+            "fade": false,
+            "type": "RUMBLE"
+        }, {
+            "patternYCount": 1,
+            "animFrames": [8],
+            "frameTime": 0.05,
+            "shiftSpeed": 500,
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "pattern": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "xCount": 9,
+                "offX": 0,
+                "offY": 0,
+                "width": 18,
+                "height": 48
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 1,
+                "z": 1
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "time": 0.2,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "anim": "LASER_END_HEAT",
+            "type": "PLAY_ANIM"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "numParticles": 2,
+            "duration": 0.066,
+            "clockwise": true,
+            "centralAngle": 1,
+            "startDist": 6,
+            "random": true,
+            "particleRotate": false,
+            "offset": {
+                "x": 0,
+                "y": 8,
+                "z": 8
+            },
+            "moveDist": 0,
+            "keySpline": "EASE_IN_OUT",
+            "moveRotate": 0,
+            "inverse": true,
+            "collision": false,
+            "moveWithTarget": 0,
+            "anim": "SPARK_HEAT",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "duration": 0.066,
+            "clockwise": true,
+            "centralAngle": 1,
+            "startDist": 12,
+            "random": true,
+            "particleRotate": false,
+            "offset": {
+                "x": 0,
+                "y": 8,
+                "z": 8
+            },
+            "moveDist": 0,
+            "keySpline": "EASE_IN_OUT",
+            "moveRotate": 0,
+            "inverse": true,
+            "collision": false,
+            "moveWithTarget": 0,
+            "anim": "SPARK_HEAT",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.066,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/airon/fire-generic-attack-3.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "type": "STOP_SOUNDS"
+        }],
+		"laserColdStart": [{
+            "useTargetAngle": true,
+            "keepAngleSync": true,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 0.75,
+                        "y": 0.75
+                    },
+                    "time": 0.5,
+                    "spline": ""
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "anim": "PULSE_COLD",
+            "type": "PLAY_ANIM"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+		"laserColdPre": [{
+            "rumbleType": "RANDOM",
+            "power": "WEAKEST",
+            "speed": "FASTER",
+            "duration": 1,
+            "fade": false,
+            "type": "RUMBLE"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/laser-heavy-charge.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "patternYCount": 1,
+            "animFrames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8],
+            "frameTime": 0.13,
+            "shiftSpeed": 500,
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "pattern": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "xCount": 9,
+                "offX": 0,
+                "offY": 48,
+                "width": 18,
+                "height": 48
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 1,
+                "z": 1
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "time": 0.5,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "anim": "LASER_END_COLD",
+            "type": "PLAY_ANIM"
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }],
+		"laserCold": [{
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/airon/fire-generic-attack-4.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/explosion-1.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1,
+			"variance": 0.02,
+            "global": true,
+            "loop": true,
+            "sound": "media/sound/battle/laser-heavy.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "rumbleType": "RANDOM",
+            "power": "WEAK",
+            "speed": "FASTER",
+            "duration": -1,
+            "fade": false,
+            "type": "RUMBLE"
+        }, {
+            "patternYCount": 1,
+            "animFrames": [8],
+            "frameTime": 0.05,
+            "shiftSpeed": 500,
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "pattern": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "xCount": 9,
+                "offX": 0,
+                "offY": 48,
+                "width": 18,
+                "height": 48
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 1,
+                "z": 1
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "time": 0.2,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "anim": "LASER_END_COLD",
+            "type": "PLAY_ANIM"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "numParticles": 2,
+            "duration": 0.066,
+            "clockwise": true,
+            "centralAngle": 1,
+            "startDist": 6,
+            "random": true,
+            "particleRotate": false,
+            "offset": {
+                "x": 0,
+                "y": 8,
+                "z": 8
+            },
+            "moveDist": 0,
+            "keySpline": "EASE_IN_OUT",
+            "moveRotate": 0,
+            "inverse": true,
+            "collision": false,
+            "moveWithTarget": 0,
+            "anim": "SPARK_COLD",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "duration": 0.066,
+            "clockwise": true,
+            "centralAngle": 1,
+            "startDist": 12,
+            "random": true,
+            "particleRotate": false,
+            "offset": {
+                "x": 0,
+                "y": 8,
+                "z": 8
+            },
+            "moveDist": 0,
+            "keySpline": "EASE_IN_OUT",
+            "moveRotate": 0,
+            "inverse": true,
+            "collision": false,
+            "moveWithTarget": 0,
+            "anim": "SPARK_COLD",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.066,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/airon/fire-generic-attack-3.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "type": "STOP_SOUNDS"
+        }],
+		"laserShockStart": [{
+            "useTargetAngle": true,
+            "keepAngleSync": true,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 0.75,
+                        "y": 0.75
+                    },
+                    "time": 0.5,
+                    "spline": ""
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "anim": "PULSE_SHOCK",
+            "type": "PLAY_ANIM"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+		"laserShockPre": [{
+            "rumbleType": "RANDOM",
+            "power": "WEAKEST",
+            "speed": "FASTER",
+            "duration": 1,
+            "fade": false,
+            "type": "RUMBLE"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/laser-heavy-charge.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "patternYCount": 1,
+            "animFrames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8],
+            "frameTime": 0.13,
+            "shiftSpeed": 500,
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "pattern": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "xCount": 9,
+                "offX": 0,
+                "offY": 96,
+                "width": 18,
+                "height": 48
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 1,
+                "z": 1
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "time": 0.5,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "anim": "LASER_END_SHOCK",
+            "type": "PLAY_ANIM"
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }],
+		"laserShock": [{
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/airon/fire-generic-attack-4.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/explosion-1.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1,
+			"variance": 0.02,
+            "global": true,
+            "loop": true,
+            "sound": "media/sound/battle/laser-heavy.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "rumbleType": "RANDOM",
+            "power": "WEAK",
+            "speed": "FASTER",
+            "duration": -1,
+            "fade": false,
+            "type": "RUMBLE"
+        }, {
+            "patternYCount": 1,
+            "animFrames": [8],
+            "frameTime": 0.05,
+            "shiftSpeed": 500,
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "pattern": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "xCount": 9,
+                "offX": 0,
+                "offY": 96,
+                "width": 18,
+                "height": 48
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 1,
+                "z": 1
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "time": 0.2,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "anim": "LASER_END_SHOCK",
+            "type": "PLAY_ANIM"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "numParticles": 2,
+            "duration": 0.066,
+            "clockwise": true,
+            "centralAngle": 1,
+            "startDist": 6,
+            "random": true,
+            "particleRotate": false,
+            "offset": {
+                "x": 0,
+                "y": 8,
+                "z": 8
+            },
+            "moveDist": 0,
+            "keySpline": "EASE_IN_OUT",
+            "moveRotate": 0,
+            "inverse": true,
+            "collision": false,
+            "moveWithTarget": 0,
+            "anim": "SPARK_SHOCK",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "duration": 0.066,
+            "clockwise": true,
+            "centralAngle": 1,
+            "startDist": 12,
+            "random": true,
+            "particleRotate": false,
+            "offset": {
+                "x": 0,
+                "y": 8,
+                "z": 8
+            },
+            "moveDist": 0,
+            "keySpline": "EASE_IN_OUT",
+            "moveRotate": 0,
+            "inverse": true,
+            "collision": false,
+            "moveWithTarget": 0,
+            "anim": "SPARK_SHOCK",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.066,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/airon/fire-generic-attack-3.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "type": "STOP_SOUNDS"
+        }],
+		"laserWaveStart": [{
+            "useTargetAngle": true,
+            "keepAngleSync": true,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 0.75,
+                        "y": 0.75
+                    },
+                    "time": 0.5,
+                    "spline": ""
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "anim": "PULSE_WAVE",
+            "type": "PLAY_ANIM"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+		"laserWavePre": [{
+            "rumbleType": "RANDOM",
+            "power": "WEAKEST",
+            "speed": "FASTER",
+            "duration": 1,
+            "fade": false,
+            "type": "RUMBLE"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/laser-heavy-charge.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "patternYCount": 1,
+            "animFrames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8],
+            "frameTime": 0.13,
+            "shiftSpeed": 500,
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "pattern": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "xCount": 9,
+                "offX": 0,
+                "offY": 144,
+                "width": 18,
+                "height": 48
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 1,
+                "z": 1
+            },
+            "pScale": {
+                "init": {
+                    "x": 0,
+                    "y": 0
+                },
+                "start": {
+                    "value": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "time": 0.5,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "anim": "LASER_END_WAVE",
+            "type": "PLAY_ANIM"
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }],
+		"laserWave": [{
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/airon/fire-generic-attack-4.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/explosion-1.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1,
+			"variance": 0.02,
+            "global": true,
+            "loop": true,
+            "sound": "media/sound/battle/laser-heavy.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "rumbleType": "RANDOM",
+            "power": "WEAK",
+            "speed": "FASTER",
+            "duration": -1,
+            "fade": false,
+            "type": "RUMBLE"
+        }, {
+            "patternYCount": 1,
+            "animFrames": [8],
+            "frameTime": 0.05,
+            "shiftSpeed": 500,
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "cancelable": true,
+            "pattern": {
+                "src": "media/entity/enemy/boss/hammershock-proxy.png",
+                "xCount": 9,
+                "offX": 0,
+                "offY": 144,
+                "width": 18,
+                "height": 48
+            },
+            "type": "LASER_SPRITE"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "offset": {
+                "x": 0,
+                "y": 1,
+                "z": 1
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "time": 0.2,
+                    "spline": ""
+                }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": -1,
+            "anim": "LASER_END_WAVE",
+            "type": "PLAY_ANIM"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "numParticles": 2,
+            "duration": 0.066,
+            "clockwise": true,
+            "centralAngle": 1,
+            "startDist": 6,
+            "random": true,
+            "particleRotate": false,
+            "offset": {
+                "x": 0,
+                "y": 8,
+                "z": 8
+            },
+            "moveDist": 0,
+            "keySpline": "EASE_IN_OUT",
+            "moveRotate": 0,
+            "inverse": true,
+            "collision": false,
+            "moveWithTarget": 0,
+            "anim": "SPARK_WAVE",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 3,
+            "duration": 0.066,
+            "clockwise": true,
+            "centralAngle": 1,
+            "startDist": 12,
+            "random": true,
+            "particleRotate": false,
+            "offset": {
+                "x": 0,
+                "y": 8,
+                "z": 8
+            },
+            "moveDist": 0,
+            "keySpline": "EASE_IN_OUT",
+            "moveRotate": 0,
+            "inverse": true,
+            "collision": false,
+            "moveWithTarget": 0,
+            "anim": "SPARK_WAVE",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.066,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }, {
+            "volume": 1,
+            "global": true,
+            "loop": false,
+            "sound": "media/sound/battle/airon/fire-generic-attack-3.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "type": "STOP_SOUNDS"
+        }]
+    }
+}

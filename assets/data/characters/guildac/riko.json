@@ -1,65 +1,65 @@
 {
-	"name": {
-		"en_US": "Riko",
-		"ko_KR": "리코"
-	},
-	"size": {
-		"x": 16,
-		"y": 16,
-		"z": 24
-	},
-	"animSheet": "npc.riko",
-	"walkAnimSet": {
-		"normal": {
-			"idle": "idle",
-			"move": "walk",
-			"run": "run",
-			"jump": "jump",
-			"fall": "fall"
-		},
-		"sit": {
-			"idle": "sit"
-		}
-	},
-	"walkAnims": "normal",
-	"shadow": 16,
-	"configs": {
-		"normal": {
-			"relativeVel": 0.5
-		},
-		"running": {
-			"relativeVel": 1
-		},
-		"sit": {
-			"walkAnims": "sit",
-			"relativeVel": 0.5
-		}
-	},
-	"face": {
-		"width": 116,
-		"height": 142,
-		"centerX": 48,
-		"centerY": 48,
-		"src": "riko.png",
-		"parts": [{
-			"normal": {
-				"srcX": 0,
-				"srcY": 0,
-				"width": 116,
-				"height": 142,
-				"destX": 0,
-				"destY": 0,
-				"subX": 0,
-				"subY": 0,
-				"img": ""
-			}
-		}],
-		"expressions": {
-			"DEFAULT": {
-				"faces": [
-					["normal"]
-				]
-			}
-		}
-	}
+    "name": {
+        "en_US": "Riko",
+        "ko_KR": "리코"
+    },
+    "size": {
+        "x": 16,
+        "y": 16,
+        "z": 24
+    },
+    "animSheet": "npc.riko",
+    "walkAnimSet": {
+        "normal": {
+            "idle": "idle",
+            "move": "walk",
+            "run": "run",
+            "jump": "jump",
+            "fall": "fall"
+        },
+        "sit": {
+            "idle": "sit"
+        }
+    },
+    "walkAnims": "normal",
+    "shadow": 16,
+    "configs": {
+        "normal": {
+            "relativeVel": 0.5
+        },
+        "running": {
+            "relativeVel": 1
+        },
+        "sit": {
+            "walkAnims": "sit",
+            "relativeVel": 0.5
+        }
+    },
+    "face": {
+        "width": 116,
+        "height": 142,
+        "centerX": 48,
+        "centerY": 48,
+        "src": "riko.png",
+        "parts": [{
+            "normal": {
+                "srcX": 0,
+                "srcY": 0,
+                "width": 116,
+                "height": 142,
+                "destX": 0,
+                "destY": 0,
+                "subX": 0,
+                "subY": 0,
+                "img": ""
+            }
+        }],
+        "expressions": {
+            "DEFAULT": {
+                "faces": [
+                    ["normal"]
+                ]
+            }
+        }
+    }
 }

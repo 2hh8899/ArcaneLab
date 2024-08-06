@@ -22,4 +22,50 @@
 	"src": "mod:patches/data/database/enemies.json"
 }, {
 	"type": "EXIT"
+}, {
+	"type": "ENTER",
+	"index": "commonEvents"
+}, {
+	"type": "IMPORT",
+	"src": "mod:patches/data/database/commonEvents.json"
+}, {
+	"type": "EXIT"
+}, {
+	"type": "ENTER",
+	"index": ["toggle-sets", "booster", "items"]
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": "toggle-arcanelab-booster"
+}, {
+	"type": "EXIT",
+	"count": 2
+}, {
+	"type": "ENTER",
+	"index": ["pet", "items"]
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": "toggle-arcanelab-sera"
+}, {
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": "toggle-arcanelab-chiko"
+}, {
+	"type": "EXIT",
+	"count": 2
+}, {
+	"type": "IMPORT",
+	"src": "mod:patches/data/database/combatAddons.json"
+}, {
+	"type": "EXIT"
+}, {
+	"type": "INIT_KEY",
+	"index": "playerSkins",
+	"content": {}
+}, {
+	"type": "ENTER",
+	"index": "playerSkins"
+}, {
+	"type": "IMPORT",
+	"src": "mod:patches/data/database/playerSkins.json"
+}, {
+	"type": "EXIT"
 }]
